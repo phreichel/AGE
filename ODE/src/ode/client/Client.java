@@ -21,6 +21,7 @@ public class Client implements Runnable {
 		runstate = Runstate.RUNNING;
 		while (runstate == Runstate.RUNNING) {
 			scheduler.update();
+			Thread.yield();
 		}
 		runstate = Runstate.TERMINATED;
 	}

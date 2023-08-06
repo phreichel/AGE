@@ -52,7 +52,6 @@ public class Scheduler {
 	public void update(long current) {
 		for (Schedule schedule : schedules) {
 			schedule.update(current);
-			Thread.yield();
 		}
 	}
 	//=============================================================================================
