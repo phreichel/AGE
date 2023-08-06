@@ -9,6 +9,7 @@ public class Client implements Runnable {
 
 	//=============================================================================================
 	private Scheduler scheduler = new Scheduler();
+	private Platform platform = new Platform();
 	//=============================================================================================
 
 	//=============================================================================================
@@ -17,12 +18,15 @@ public class Client implements Runnable {
 	
 	//=============================================================================================
 	public void run() {		
+		scheduler.add(1000000000L / 60L, (n,p) -> platform.update());
 		scheduler.init();
+		platform.init();
 		runstate = Runstate.RUNNING;
 		while (runstate == Runstate.RUNNING) {
 			scheduler.update();
 			Thread.yield();
 		}
+		platform.done();
 		runstate = Runstate.TERMINATED;
 	}
 	//=============================================================================================

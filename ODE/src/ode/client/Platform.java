@@ -1,33 +1,41 @@
 //*************************************************************************************************
-package ode.app;
+package ode.client;
 //*************************************************************************************************
 
-import ode.client.Client;
+import com.jogamp.newt.opengl.GLWindow;
+import com.jogamp.opengl.GLCapabilities;
+import com.jogamp.opengl.GLProfile;
 
 //*************************************************************************************************
-public class Application implements Runnable {
+public class Platform {
 
 	//=============================================================================================
-	private Client client;
+	private GLWindow window;
 	//=============================================================================================
 
 	//=============================================================================================
-	public void configure(String[] args) {
-		client = new Client();
+	public void init() {
+		GLProfile profile = GLProfile.getDefault();
+		GLCapabilities capabilities = new GLCapabilities(profile);
+		window = GLWindow.create(capabilities);
+		window.setTitle("ODE");
+		window.setSize(800, 600);
+		window.setMaximized(true, true);
+		window.setVisible(true);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void update() {
+		window.display();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void run() {
-		client.run();
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public static void main(String[] args) {
-		Application application = new Application();
-		application.configure(args);
-		application.run();
+	public void done()  {
+		window.setVisible(false);
+		window.destroy();
+		window = null;
 	}
 	//=============================================================================================
 	
