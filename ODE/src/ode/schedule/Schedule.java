@@ -1,35 +1,53 @@
 //*************************************************************************************************
-package ode.client;
+package ode.schedule;
 //*************************************************************************************************
 
-import ode.schedule.Scheduler;
-
 //*************************************************************************************************
-public class Client implements Runnable {
+class Schedule {
 
 	//=============================================================================================
-	private Scheduler scheduler = new Scheduler();
+	private long period;
+	private Task task;
 	//=============================================================================================
 
 	//=============================================================================================
-	private Runstate runstate = Runstate.INITIALIZING;
+	private long mark;
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void run() {		
-		scheduler.init();
-		runstate = Runstate.RUNNING;
-		while (runstate == Runstate.RUNNING) {
-			scheduler.update();
-		}
-		runstate = Runstate.TERMINATED;
+	/**
+	 * 
+	 * @param period - time period between schedules in nano time 
+	 * @param period - the task reference to perform when the schedule is triggered
+	 */
+	public Schedule(long period, Task task) {
+		this.period = period;
+		this.task = task;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public boolean terminate() {
-		runstate = Runstate.TERMINATING;
-		return true;
+	/**
+	 * 
+	 * @param current - current nano time
+	 */
+	public void init(long current) {
+		this.mark = current;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	/**
+	 * 
+	 * @param current - current nano time
+	 */
+	public void update(long current) {
+		long delta = current - this.mark;
+		long count = delta / period;
+		if (count >= 1L) {
+			task.execute(count, period);
+			this.mark += count * period; 
+		}
 	}
 	//=============================================================================================
 	
