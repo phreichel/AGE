@@ -1,0 +1,2 @@
+Die Idee ist, das Komponentenmodell wür Widgets zu benutzen,
+also eine generische Widget-Klasse, die durch Komponenten erweitert werden kann.
