@@ -13,7 +13,7 @@ public class Client implements Runnable {
 	//=============================================================================================
 
 	//=============================================================================================
-	private Runstate runstate = Runstate.INITIALIZING;
+	private RunState runstate = RunState.INITIALIZING;
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -21,19 +21,19 @@ public class Client implements Runnable {
 		scheduler.add(1000000000L / 60L, (n,p) -> platform.update());
 		scheduler.init();
 		platform.init();
-		runstate = Runstate.RUNNING;
-		while (runstate == Runstate.RUNNING) {
+		runstate = RunState.RUNNING;
+		while (runstate == RunState.RUNNING) {
 			scheduler.update();
 			Thread.yield();
 		}
 		platform.done();
-		runstate = Runstate.TERMINATED;
+		runstate = RunState.TERMINATED;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public boolean terminate() {
-		runstate = Runstate.TERMINATING;
+		runstate = RunState.TERMINATING;
 		return true;
 	}
 	//=============================================================================================

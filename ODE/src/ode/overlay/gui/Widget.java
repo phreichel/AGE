@@ -4,7 +4,9 @@ package ode.overlay.gui;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.EnumSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.vecmath.Vector2f;
 
@@ -29,6 +31,12 @@ public class Widget {
 	private Vector2f size = new Vector2f();
 	//=============================================================================================
 
+	//=============================================================================================
+	private Set<WidgetFlag> _flags = EnumSet.noneOf(WidgetFlag.class);
+	@Getter
+	private Set<WidgetFlag> flags = Collections.unmodifiableSet(_flags);
+	//=============================================================================================
+	
 	//=============================================================================================
 	public void addChild(Widget child) {
 		Widget current = child.parent;
@@ -107,6 +115,24 @@ public class Widget {
 	//=============================================================================================
 	public void setSize(float width, float height) {
 		position.set(width, height);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public boolean hasFlags(WidgetFlag ... flags) {
+		return _flags.containsAll(List.of(flags));
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void addFlags(WidgetFlag ... flags) {
+		_flags.addAll(List.of(flags));
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void removeFlags(WidgetFlag ... flags) {
+		_flags.removeAll(List.of(flags));
 	}
 	//=============================================================================================
 	
