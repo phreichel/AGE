@@ -1,2 +1,0 @@
-# ODE
-Open Development Engine
