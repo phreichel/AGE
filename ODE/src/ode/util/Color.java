@@ -1,41 +1,50 @@
 //*************************************************************************************************
-package ode.client;
+package ode.util;
 //*************************************************************************************************
 
-import com.jogamp.newt.opengl.GLWindow;
-import com.jogamp.opengl.GLCapabilities;
-import com.jogamp.opengl.GLProfile;
-
 //*************************************************************************************************
-public class Platform {
+public class Color {
 
 	//=============================================================================================
-	private GLWindow window;
+	public float red;
+	public float green;
+	public float blue;
+	public float alpha;
 	//=============================================================================================
 
 	//=============================================================================================
-	public void init() {
-		GLProfile profile = GLProfile.getDefault();
-		GLCapabilities capabilities = new GLCapabilities(profile);
-		window = GLWindow.create(capabilities);
-		window.setTitle("ODE");
-		window.setSize(800, 600);
-		window.setMaximized(true, true);
-		window.setVisible(true);
+	public Color() {
+		
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public Color(Color c) {
+		set(c);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public Color(float r, float g, float b, float a) {
+		set(r, g, b, a);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void update() {
-		window.display();
+	public void set(Color c) {
+		red = c.red;
+		green = c.green;
+		blue = c.blue;
+		alpha = c.alpha;
 	}
 	//=============================================================================================
-
+	
 	//=============================================================================================
-	public void done()  {
-		window.setVisible(false);
-		window.destroy();
-		window = null;
+	public void set(float r, float g, float b, float a) {
+		red = r;
+		green = g;
+		blue = b;
+		alpha = a;
 	}
 	//=============================================================================================
 	
