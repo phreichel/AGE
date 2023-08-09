@@ -1,44 +1,58 @@
 //*************************************************************************************************
-package ode.util;
+package ode.schedule;
 //*************************************************************************************************
 
+import java.util.ArrayList;
+import java.util.List;
+
 //*************************************************************************************************
-public class Dimension {
+public class Scheduler {
 
 	//=============================================================================================
-	public float width;
-	public float height;
+	private List<Schedule> schedules = new ArrayList<>();
 	//=============================================================================================
-
+	
 	//=============================================================================================
-	public Dimension() {
-		
-	}
+	public Scheduler() {}
 	//=============================================================================================
 
 	//=============================================================================================
-	public Dimension(Dimension d) {
-		set(d);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public Dimension(float w, float h) {
-		set(w, h);
+	/**
+	 * 
+	 * @param period - time period between schedules in nano time
+	 * @param task - task reference to the code to be executed on schedule
+	 */
+	public void add(long period, Task task) {
+		Schedule schedule = new Schedule(period, task);
+		schedules.add(schedule);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void set(Dimension d) {
-		width = d.width;
-		height = d.height;
+	public void init() {
+		long current = System.nanoTime();
+		for (Schedule schedule : schedules) {
+			schedule.init(current);
+		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void update() {
+		long current = System.nanoTime();
+		update(current);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void set(float w, float h) {
-		width = w;
-		height = h;
+	/**
+	 * 
+	 * @param current - current nano time
+	 */
+	public void update(long current) {
+		for (Schedule schedule : schedules) {
+			schedule.update(current);
+		}
 	}
 	//=============================================================================================
 	

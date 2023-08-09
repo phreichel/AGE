@@ -32,19 +32,19 @@ public class Color {
 	
 	//=============================================================================================
 	public void set(Color c) {
-		this.red = c.red;
-		this.green = c.green;
-		this.blue = c.blue;
-		this.alpha = c.alpha;
+		red = c.red;
+		green = c.green;
+		blue = c.blue;
+		alpha = c.alpha;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	public void set(float r, float g, float b, float a) {
-		this.red = r;
-		this.green = g;
-		this.blue = b;
-		this.alpha = a;
+		red = r;
+		green = g;
+		blue = b;
+		alpha = a;
 	}
 	//=============================================================================================
 	
