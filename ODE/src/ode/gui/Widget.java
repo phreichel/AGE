@@ -5,7 +5,7 @@ package ode.gui;
 import java.util.ArrayList;
 import java.util.List;
 
-import ode.client.Graphics;
+import ode.platform.Graphics;
 import ode.util.Dimension;
 import ode.util.Location;
 import ode.util.ODEException;
@@ -218,7 +218,7 @@ public class Widget {
 
 	//=============================================================================================
 	protected void renderWidget(Graphics g) {
-		g.setColor(1f, 0f, 0f);
+		g.setColor(.6f, .6f, .6f);
 		g.drawRectangle(0f, 0f, getWidth(), getHeight());
 	}
 	//=============================================================================================
