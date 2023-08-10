@@ -3,6 +3,7 @@ package ode.client;
 //*************************************************************************************************
 
 import ode.gui.GUI;
+import ode.gui.VerticalLayout;
 import ode.gui.Widget;
 import ode.platform.Platform;
 import ode.schedule.Scheduler;
@@ -25,11 +26,18 @@ public class Client {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void configureGUI(GUI gui) {
+	private void configureGUI(GUI gui) {		
 		Widget w = new Widget();
-		w.setLocation(10, 10);
-		w.setSize(200, 100);
+		w.setLocation(50, 50);
+		w.setSize(200, 50);
+		w.setLayout(new VerticalLayout());
 		gui.attachChild(w);
+		for (int i=0; i<10; i++) {
+			Widget c = new Widget();
+			c.setSize(10, 30);
+			w.attachChild(c);
+		}
+		w.applyLayout();
 	}
 	//=============================================================================================
 	
