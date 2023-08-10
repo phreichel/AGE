@@ -4,7 +4,7 @@ package ode.client;
 
 import ode.gui.GUI;
 import ode.gui.Widget;
-import ode.gui.layout.VerticalBoxLayout;
+import ode.gui.layout.VerticalLayout;
 import ode.platform.Platform;
 import ode.schedule.Scheduler;
 
@@ -30,7 +30,7 @@ public class Client {
 		Widget w = new Widget();
 		w.setLocation(50, 50);
 		w.setSize(200, 50);
-		w.setLayout(new VerticalBoxLayout());
+		w.setLayout(new VerticalLayout());
 		gui.attachChild(w);
 		for (int i=0; i<10; i++) {
 			Widget c = new Widget();

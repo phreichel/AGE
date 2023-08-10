@@ -229,8 +229,11 @@ public class Widget {
 
 	//=============================================================================================
 	protected void renderWidget(Graphics g) {
-		g.setColor(.6f, .6f, .6f);
+		g.setColor(.6f, .6f, 1f);
+		g.fillRectangle(0f, 0f, getWidth(), getHeight());
+		g.setColor(.3f, .3f, 1f);
 		g.drawRectangle(0f, 0f, getWidth(), getHeight());
+		g.drawString(10, 10, "TEST", 1, 0, 0, 1);
 	}
 	//=============================================================================================
 

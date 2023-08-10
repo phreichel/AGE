@@ -1,9 +1,13 @@
 //*************************************************************************************************L
 package ode.platform;
 
+import java.awt.Font;
+import java.awt.geom.Rectangle2D;
+
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.glu.GLU;
+import com.jogamp.opengl.util.awt.TextRenderer;
 
 //*************************************************************************************************
 
@@ -16,6 +20,11 @@ public class Graphics {
 	private GLU glu;
 	//=============================================================================================
 
+	//=============================================================================================
+	private TextRenderer textRenderer = new TextRenderer(Font.decode("Arial-20"), true);
+	//=============================================================================================
+
+	
 	//=============================================================================================
 	public void init(GLAutoDrawable drawable) {
 		window = drawable;
@@ -88,6 +97,22 @@ public class Graphics {
 		gl.glVertex2f(x+w, y+h);
 		gl.glVertex2f(x+0, y+h);
 		gl.glEnd();
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void drawString(float x, float y, String text, float r, float g, float b, float a) {
+		Rectangle2D rect = textRenderer.getBounds(text);
+		float height = (float) rect.getHeight();
+		gl.glPushMatrix();
+		gl.glTranslatef(x, y+height, 0f);
+		gl.glScalef(1f, -1f, 1f);
+		textRenderer.setSmoothing(true);
+		textRenderer.setColor(r, g, b, a);
+		textRenderer.begin3DRendering();
+		textRenderer.draw3D(text, 0, 0, 0 , 1);
+		textRenderer.end3DRendering();
+		gl.glPopMatrix();
 	}
 	//=============================================================================================
 	
