@@ -5,6 +5,7 @@ package ode.gui;
 import java.util.ArrayList;
 import java.util.List;
 
+import ode.gui.layout.Layout;
 import ode.platform.Graphics;
 import ode.util.Dimension;
 import ode.util.Location;
