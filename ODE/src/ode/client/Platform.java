@@ -14,7 +14,7 @@ import ode.gui.GUI;
 public class Platform implements GLEventListener {
 
 	//=============================================================================================
-	private Graphics graphics;
+	private Graphics graphics = new Graphics();
 	private GLWindow window;
 	private String title = "ODE Test Window";
 	private boolean maximized = true;
@@ -31,6 +31,7 @@ public class Platform implements GLEventListener {
 		GLProfile glProfile = GLProfile.getDefault();
 		GLCapabilities glCaps = new GLCapabilities(glProfile);
 		window = GLWindow.create(glCaps);
+		window.addGLEventListener(this);
 		window.setSize(800, 600);
 		window.setTitle(title);
 		window.setMaximized(maximized, maximized);
@@ -128,7 +129,7 @@ public class Platform implements GLEventListener {
 	@Override
 	public void display(GLAutoDrawable drawable) {
 		graphics.init(drawable);
-		gui.render(gui, graphics);
+		gui.render(graphics);
 	}
 	//=============================================================================================
 

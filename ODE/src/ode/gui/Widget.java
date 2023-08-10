@@ -5,6 +5,7 @@ package ode.gui;
 import java.util.ArrayList;
 import java.util.List;
 
+import ode.client.Graphics;
 import ode.util.Dimension;
 import ode.util.Location;
 import ode.util.ODEException;
@@ -36,7 +37,7 @@ public class Widget {
 	
 	//=============================================================================================
 	public void attachChild(Widget widget) {
-		if (widget.parent == null) throw new ODEException("Widget already attached");
+		if (widget.parent != null) throw new ODEException("Widget already attached");
 		widget.parent = this;
 		children.add(widget);
 	}
@@ -199,6 +200,26 @@ public class Widget {
 	//=============================================================================================
 	public void setSize(Dimension size) {
 		size.set(size);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void render(Graphics g) {
+		g.pushTransform();
+		g.translate(getX(), getY());
+		renderWidget(g);
+		for (int i=children.size()-1; i>=0; i--) {
+			Widget child = children.get(i);
+			child.render(g);
+		}
+		g.popTransform();
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	protected void renderWidget(Graphics g) {
+		g.setColor(1f, 0f, 0f);
+		g.drawRectangle(0f, 0f, getWidth(), getHeight());
 	}
 	//=============================================================================================
 	
