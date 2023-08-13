@@ -2,6 +2,9 @@
 package ode.platform;
 //*************************************************************************************************
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.jogamp.newt.opengl.GLWindow;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLCapabilities;
@@ -23,6 +26,10 @@ public class Platform implements GLEventListener {
 
 	//=============================================================================================
 	private GUI gui;
+	//=============================================================================================
+
+	//=============================================================================================
+	private Map<java.awt.Font, Font> fontMap = new HashMap<>();
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -102,6 +109,19 @@ public class Platform implements GLEventListener {
 	//=============================================================================================
 	public void register(GUI gui) {
 		this.gui = gui;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public Font allocateFont(String name, float size, FontDecoration decoration) {
+		String fontText = String.format("%s-%s-%.0f", name, decoration, size);
+		java.awt.Font awtFont = java.awt.Font.decode(fontText);
+		Font font = fontMap.get(awtFont);
+		if (font == null) {
+			font = new Font(awtFont);
+			fontMap.put(awtFont, font);
+		}
+		return font;
 	}
 	//=============================================================================================
 	

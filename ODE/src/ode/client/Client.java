@@ -3,8 +3,11 @@ package ode.client;
 //*************************************************************************************************
 
 import ode.gui.GUI;
+import ode.gui.Text;
 import ode.gui.Widget;
 import ode.gui.layout.VerticalLayout;
+import ode.platform.Font;
+import ode.platform.FontDecoration;
 import ode.platform.Platform;
 import ode.schedule.Scheduler;
 
@@ -27,15 +30,17 @@ public class Client {
 
 	//=============================================================================================
 	private void configureGUI(GUI gui) {		
+		Font font = platform.allocateFont("Terminal", 24, FontDecoration.BOLD);
 		Widget w = new Widget();
 		w.setLocation(50, 50);
 		w.setSize(200, 50);
 		w.setLayout(new VerticalLayout());
 		gui.attachChild(w);
 		for (int i=0; i<10; i++) {
-			Widget c = new Widget();
-			c.setSize(10, 30);
-			w.attachChild(c);
+			Text t = new Text(font);
+			t.setSize(200, 24);
+			t.setText("Algume alquin Xornidfsfa D5776fdg: gfg");
+			w.attachChild(t);
 		}
 		w.applyLayout();
 	}

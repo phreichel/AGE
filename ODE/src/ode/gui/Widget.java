@@ -233,7 +233,6 @@ public class Widget {
 		g.fillRectangle(0f, 0f, getWidth(), getHeight());
 		g.setColor(.3f, .3f, 1f);
 		g.drawRectangle(0f, 0f, getWidth(), getHeight());
-		g.drawString(10, 10, "TEST", 1, 0, 0, 1);
 	}
 	//=============================================================================================
 

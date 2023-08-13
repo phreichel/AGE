@@ -2,6 +2,8 @@
 package ode.util;
 //*************************************************************************************************
 
+import java.util.Objects;
+
 //*************************************************************************************************
 public class Color {
 
@@ -45,6 +47,28 @@ public class Color {
 		green = g;
 		blue = b;
 		alpha = a;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public int hashCode() {
+		return Objects.hash(alpha, blue, green, red);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Color other = (Color) obj;
+		return Float.floatToIntBits(alpha) == Float.floatToIntBits(other.alpha)
+				&& Float.floatToIntBits(blue) == Float.floatToIntBits(other.blue)
+				&& Float.floatToIntBits(green) == Float.floatToIntBits(other.green)
+				&& Float.floatToIntBits(red) == Float.floatToIntBits(other.red);
 	}
 	//=============================================================================================
 	

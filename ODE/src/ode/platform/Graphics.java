@@ -1,15 +1,14 @@
 //*************************************************************************************************L
 package ode.platform;
-
-import java.awt.Font;
-import java.awt.geom.Rectangle2D;
+//*************************************************************************************************
 
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.util.awt.TextRenderer;
 
-//*************************************************************************************************
+import ode.util.Color;
+import ode.util.Dimension;
 
 //*************************************************************************************************
 public class Graphics {
@@ -20,11 +19,6 @@ public class Graphics {
 	private GLU glu;
 	//=============================================================================================
 
-	//=============================================================================================
-	private TextRenderer textRenderer = new TextRenderer(Font.decode("Arial-20"), true);
-	//=============================================================================================
-
-	
 	//=============================================================================================
 	public void init(GLAutoDrawable drawable) {
 		window = drawable;
@@ -101,12 +95,21 @@ public class Graphics {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void drawString(float x, float y, String text, float r, float g, float b, float a) {
-		Rectangle2D rect = textRenderer.getBounds(text);
-		float height = (float) rect.getHeight();
+	public void drawString(float x, float y, Font font, String text, Color color) {
+		drawString(x, y , font, text, color.red, color.green, color.blue, color.alpha);
+	}
+	//=============================================================================================
+	
+	
+	//=============================================================================================
+	public void drawString(float x, float y, Font font, String text, float r, float g, float b, float a) {
+		Dimension size = new Dimension();
+		font.textSize(text, size);
+		float height = size.height;
 		gl.glPushMatrix();
 		gl.glTranslatef(x, y+height, 0f);
 		gl.glScalef(1f, -1f, 1f);
+		TextRenderer textRenderer = font.getRenderer();
 		textRenderer.setSmoothing(true);
 		textRenderer.setColor(r, g, b, a);
 		textRenderer.begin3DRendering();
