@@ -10,7 +10,6 @@ import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLCapabilities;
 import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.GLProfile;
-import ode.gui.GUI;
 
 //*************************************************************************************************
 public class Platform implements GLEventListener {
@@ -22,10 +21,6 @@ public class Platform implements GLEventListener {
 	private boolean maximized = true;
 	private boolean fullscreen = false;
 	private boolean visible = true;
-	//=============================================================================================
-
-	//=============================================================================================
-	private GUI gui;
 	//=============================================================================================
 
 	//=============================================================================================
@@ -107,12 +102,6 @@ public class Platform implements GLEventListener {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void register(GUI gui) {
-		this.gui = gui;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
 	public Font allocateFont(String name, float size, FontDecoration decoration) {
 		String fontText = String.format("%s-%s-%.0f", name, decoration, size);
 		java.awt.Font awtFont = java.awt.Font.decode(fontText);
@@ -140,7 +129,6 @@ public class Platform implements GLEventListener {
 	//=============================================================================================
 	@Override
 	public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
-		gui.resize(width, height);
 	}
 	//=============================================================================================
 	
@@ -148,7 +136,6 @@ public class Platform implements GLEventListener {
 	@Override
 	public void display(GLAutoDrawable drawable) {
 		graphics.init(drawable);
-		gui.render(graphics);
 	}
 	//=============================================================================================
 
