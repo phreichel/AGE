@@ -10,8 +10,24 @@ public class Event {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public static final int NONE  = inc++;
-	public static final int MOUSE = inc++;
+	/**
+	 * represents "No Event"
+	 */
+	public static final int NONE = inc++;
+	//=============================================================================================
+	/**
+	 * NEWT native input events - have to be translated by an event-only system into native input events.  
+	 */
+	public static final int KEY_TYPED = inc++;
+	public static final int KEY_PRESSED = inc++;
+	public static final int KEY_RELEASED = inc++;
+	public static final int MOUSE_ENTERED = inc++;
+	public static final int MOUSE_EXITED = inc++;
+	public static final int MOUSE_MOVED = inc++;
+	public static final int MOUSE_CLICKED = inc++;
+	public static final int MOUSE_PRESSED = inc++;
+	public static final int MOUSE_RELEASED = inc++;
+	public static final int MOUSE_WHEEL = inc++;
 	//=============================================================================================
 
 	//=============================================================================================
