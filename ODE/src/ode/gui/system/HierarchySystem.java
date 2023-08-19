@@ -1,5 +1,5 @@
 //*************************************************************************************************
-package ode.gui;
+package ode.gui.system;
 //*************************************************************************************************
 
 import java.util.Map;
@@ -7,9 +7,11 @@ import java.util.Map.Entry;
 
 import ode.event.Event;
 import ode.event.Events;
+import ode.gui.Widget;
+import ode.gui.component.Hierarchy;
 
 //*************************************************************************************************
-public class HierarchySystem {
+public class HierarchySystem implements GUISystem {
 
 	//=============================================================================================
 	private Map<Widget, Hierarchy> hierarchyMap;
