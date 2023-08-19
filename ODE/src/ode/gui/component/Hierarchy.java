@@ -12,7 +12,7 @@ public class Hierarchy  implements GUIComponent {
 	public Widget first;
 	public Widget prev;
 	public Widget next;
-	public int    layer;
+	public int layer;
 	//=============================================================================================
 	
 }

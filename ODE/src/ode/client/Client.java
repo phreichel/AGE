@@ -2,6 +2,7 @@
 package ode.client;
 //*************************************************************************************************
 
+import ode.event.Events;
 import ode.platform.Platform;
 import ode.schedule.Scheduler;
 
@@ -9,7 +10,8 @@ import ode.schedule.Scheduler;
 public class Client {
 
 	//=============================================================================================
-	private final Platform platform = new Platform();
+	private final Events events = new Events();
+	private final Platform platform = new Platform(events);
 	private final Scheduler scheduler = new Scheduler();
 	//=============================================================================================
 	
@@ -21,9 +23,9 @@ public class Client {
 
 	//=============================================================================================
 	public void run() {
-		platform.init();
 		scheduler.init();
 		while (true) {
+			events.update();
 			scheduler.update();
 			Thread.yield();
 		}

@@ -1,5 +1,5 @@
 //*************************************************************************************************
-package ode.event;
+package ode.platform;
 //*************************************************************************************************
 
 import com.jogamp.newt.event.KeyEvent;
@@ -7,15 +7,20 @@ import com.jogamp.newt.event.KeyListener;
 import com.jogamp.newt.event.MouseEvent;
 import com.jogamp.newt.event.MouseListener;
 
+import ode.event.Event;
+import ode.event.Events;
+import ode.event.KeyData;
+import ode.event.PointerData;
+
 //*************************************************************************************************
-public class NEWTInputAdapter implements KeyListener, MouseListener {
+class NEWTInputAdapter implements KeyListener, MouseListener {
 
 	//=============================================================================================
 	private Events events = null;
 	//=============================================================================================
 
 	//=============================================================================================
-	public void setEvents(Events events) {
+	public NEWTInputAdapter(Events events) {
 		this.events = events;
 	}
 	//=============================================================================================

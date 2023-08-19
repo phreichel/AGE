@@ -80,7 +80,6 @@ public class Events {
 	
 	//=============================================================================================
 	private void update(Event e) {
-	
 		List<Handler> list = handlers.get(e.type);
 		if (list != null) {
 			for (Handler handler : list) {

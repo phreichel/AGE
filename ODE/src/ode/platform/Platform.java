@@ -11,6 +11,8 @@ import com.jogamp.opengl.GLCapabilities;
 import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.GLProfile;
 
+import ode.event.Events;
+
 //*************************************************************************************************
 public class Platform implements GLEventListener {
 
@@ -21,14 +23,15 @@ public class Platform implements GLEventListener {
 	private boolean maximized = true;
 	private boolean fullscreen = false;
 	private boolean visible = true;
+	private NEWTInputAdapter input;
 	//=============================================================================================
 
 	//=============================================================================================
 	private Map<java.awt.Font, Font> fontMap = new HashMap<>();
 	//=============================================================================================
-	
+
 	//=============================================================================================
-	public void init() {
+	public Platform(Events events) {
 		GLProfile glProfile = GLProfile.getDefault();
 		GLCapabilities glCaps = new GLCapabilities(glProfile);
 		window = GLWindow.create(glCaps);
@@ -37,10 +40,13 @@ public class Platform implements GLEventListener {
 		window.setTitle(title);
 		window.setMaximized(maximized, maximized);
 		window.setFullscreen(fullscreen);
+		input = new NEWTInputAdapter(events);
+		window.addKeyListener(input);
+		window.addMouseListener(input);
 		window.setVisible(visible);
 	}
 	//=============================================================================================
-
+	
 	//=============================================================================================
 	public String getTitle() {
 		return this.title;
