@@ -20,7 +20,7 @@ class NEWTInputAdapter implements KeyListener, MouseListener {
 	//=============================================================================================
 
 	//=============================================================================================
-	public NEWTInputAdapter(Events events) {
+	public void register(Events events) {
 		this.events = events;
 	}
 	//=============================================================================================

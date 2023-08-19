@@ -1,43 +1,35 @@
 //*************************************************************************************************
-package ode.client;
+package ode.platform;
 //*************************************************************************************************
 
-import ode.event.Events;
-import ode.platform.Platform;
-import ode.schedule.Scheduler;
+import com.jogamp.opengl.GLAutoDrawable;
+import com.jogamp.opengl.GLEventListener;
 
 //*************************************************************************************************
-public class Client {
+class NEWTGraphicsAdapter implements GLEventListener {
 
 	//=============================================================================================
-	private final Events events = new Events();
-	private final Platform platform = new Platform(events);
-	private final Scheduler scheduler = new Scheduler();
+	private Graphics graphics = new Graphics();
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void configure(String[] args) {
-		scheduler.add(1000000000L / 60L, (n,p) -> platform.update());
+	public void init(GLAutoDrawable drawable) {
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void run() {
-		platform.setVisible(true);
-		scheduler.init();
-		while (true) {
-			events.update();
-			scheduler.update();
-			Thread.yield();
-		}
+	public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public static void main(String[] args) {
-		Client client = new Client();
-		client.configure(args);
-		client.run();
+	public void display(GLAutoDrawable drawable) {
+		graphics.init(drawable);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void dispose(GLAutoDrawable drawable) {
 	}
 	//=============================================================================================
 
