@@ -1,74 +1,93 @@
 //*************************************************************************************************
-package ode.util;
+package ode.gui;
 //*************************************************************************************************
 
-import java.util.Objects;
+import java.util.HashSet;
+import java.util.Set;
 
 //*************************************************************************************************
-public class Color {
+public class GUI {
 
 	//=============================================================================================
-	public float red;
-	public float green;
-	public float blue;
-	public float alpha;
+	public final Set<Widget> widgets = new HashSet<>();
 	//=============================================================================================
 
 	//=============================================================================================
-	public Color() {
-		
+	public Widget create() {
+		Widget widget = new Widget(this);
+		widgets.add(widget);
+		return widget;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public Color(Color c) {
-		set(c);
+	public boolean delete(Widget widget) {
+		if (widget.parent != null) return false;
+		if (!widget.children.isEmpty()) return false;
+		widgets.remove(widget);
+		return true;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public Color(float r, float g, float b, float a) {
-		set(r, g, b, a);
+	public boolean attach(Widget parent, Widget widget) {
+		if (widget.parent != null) return false;
+		widget.parent = parent;
+		parent.children.add(widget);
+		return true;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void set(Color c) {
-		red = c.red;
-		green = c.green;
-		blue = c.blue;
-		alpha = c.alpha;
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public void set(float r, float g, float b, float a) {
-		red = r;
-		green = g;
-		blue = b;
-		alpha = a;
+	public boolean detach(Widget widget) {
+		if (widget.parent == null) return false;
+		widget.parent.children.remove(widget);
+		widget.parent = null;
+		return true;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public int hashCode() {
-		return Objects.hash(alpha, blue, green, red);
+	public boolean moveToTop(Widget widget) {
+		if (widget.parent == null) return false;
+		widget.parent.children.remove(widget);
+		widget.parent.children.add(0, widget);
+		return true;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Color other = (Color) obj;
-		return Float.floatToIntBits(alpha) == Float.floatToIntBits(other.alpha)
-				&& Float.floatToIntBits(blue) == Float.floatToIntBits(other.blue)
-				&& Float.floatToIntBits(green) == Float.floatToIntBits(other.green)
-				&& Float.floatToIntBits(red) == Float.floatToIntBits(other.red);
+	public boolean moveToBottom(Widget widget) {
+		if (widget.parent == null) return false;
+		widget.parent.children.remove(widget);
+		widget.parent.children.add(widget);
+		return true;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public boolean moveUp(Widget widget) {
+		if (widget.parent == null) return false;
+		int idxFrom = widget.parent.children.indexOf(widget);
+		int idxTo = idxFrom-1;
+		if (idxTo >= 0) {
+			widget.parent.children.remove(widget);
+			widget.parent.children.add(idxTo, widget);
+		}
+		return true;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public boolean moveDown(Widget widget) {
+		if (widget.parent == null) return false;
+		int idxFrom = widget.parent.children.indexOf(widget);
+		int idxTo = idxFrom+1;
+		if (idxTo <= widget.parent.children.size()) {
+			widget.parent.children.remove(widget);
+			widget.parent.children.add(idxTo, widget);
+		}
+		return true;
 	}
 	//=============================================================================================
 	
