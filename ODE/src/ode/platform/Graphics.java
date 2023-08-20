@@ -24,6 +24,12 @@ public class Graphics {
 	//=============================================================================================
 
 	//=============================================================================================
+	public void startFrame() {
+		gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	public void setColor(float r, float g, float b) {
 		gl.glColor3f(r, g, b);
 	}
@@ -38,7 +44,7 @@ public class Graphics {
 	//=============================================================================================
 	public void beginGUIMode() {
 		gl.glDisable(GL2.GL_LIGHTING);
-		gl.glDisable(GL2.GL_DEPTH_TEST);
+		gl.glEnable(GL2.GL_DEPTH_TEST);
 		gl.glDisable(GL2.GL_CULL_FACE);
 		gl.glEnable(GL2.GL_COLOR_MATERIAL);
 		gl.glColorMaterial(GL2.GL_FRONT_AND_BACK, GL2.GL_AMBIENT_AND_DIFFUSE);
@@ -63,8 +69,8 @@ public class Graphics {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void translate(float x, float y) {
-		gl.glTranslatef(x, y, 0f);
+	public void translate(float x, float y, float z) {
+		gl.glTranslatef(x, y, z);
 	}
 	//=============================================================================================
 

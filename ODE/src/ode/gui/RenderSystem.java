@@ -1,57 +1,50 @@
 //*************************************************************************************************
-package ode.client;
+package ode.gui;
 //*************************************************************************************************
 
-import ode.event.Events;
-import ode.gui.GUI;
-import ode.gui.Widget;
-import ode.platform.Platform;
-import ode.schedule.Scheduler;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import ode.platform.Graphics;
 
 //*************************************************************************************************
-public class Client {
+public class RenderSystem {
 
 	//=============================================================================================
-	private final Events events = new Events();
-	private final GUI gui = new GUI();
-	private final Platform platform = new Platform(events, gui);
-	private final Scheduler scheduler = new Scheduler();
+	private Map<Widget, RenderData> renderMap;
 	//=============================================================================================
 
 	//=============================================================================================
-	private void updateRenderRelevantThings(long count, long period) {
-		gui.update();
-		platform.update();
+	public RenderSystem(Map<Widget, RenderData> renderMap) {
+		this.renderMap = renderMap;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void configure(String[] args) {
-		scheduler.add(1000000000L / 60L, this::updateRenderRelevantThings);
-		Widget box = gui.createBox();
-		gui.getRoot().attach(box);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public void run() {
-		platform.setVisible(true);
-		scheduler.init();
-		while (true) {
-			events.update();
-			scheduler.update();
-			Thread.yield();
+	public void update(Graphics graphics) {
+		for (Entry<Widget, RenderData> entry : renderMap.entrySet()) {
+			render(entry.getKey(), entry.getValue(), graphics);
 		}
 	}
 	//=============================================================================================
-	
+
 	//=============================================================================================
-	public static void main(String[] args) {
-		Client client = new Client();
-		client.configure(args);
-		client.run();
+	private void render(Widget widget, RenderData data, Graphics graphics) {
+		float x = widget.global_x;
+		float y = widget.global_y;
+		float z = widget.global_z;
+		float w = widget.width;
+		float h = widget.height;
+		graphics.pushTransform();
+		graphics.translate(x, y, z*0.1f);
+		graphics.setColor(.4f, 0, 0);
+		graphics.fillRectangle(0, 0, w, h);
+		graphics.translate(0, 0, 0.01f);
+		graphics.setColor(1, 0, 0);
+		graphics.drawRectangle(0, 0, w, h);
+		graphics.popTransform();
 	}
 	//=============================================================================================
-
+	
 }
 //*************************************************************************************************
