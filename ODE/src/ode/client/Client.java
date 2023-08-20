@@ -19,17 +19,11 @@ public class Client {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void updateRenderRelevantThings(long count, long period) {
-		gui.update();
-		platform.update();
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
 	public void configure(String[] args) {
-		scheduler.add(1000000000L / 60L, this::updateRenderRelevantThings);
-		Widget box = gui.createBox();
-		gui.getRoot().attach(box);
+		scheduler.add(1000000000L / 60L, (n, p) -> platform.update());
+		Widget button = gui.createButton();
+		Widget frame = gui.createBox();
+		frame.attach(button);
 	}
 	//=============================================================================================
 
