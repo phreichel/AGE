@@ -16,6 +16,9 @@ public class Widget {
 	public float y;
 	public float width;
 	public float height;
+	public float global_x;
+	public float global_y;
+	public float global_z;
 	public Widget parent = null;
 	public final List<Widget> children = new ArrayList<>();
 	//=============================================================================================
@@ -80,5 +83,21 @@ public class Widget {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	protected void update() {
+		global_x = x;
+		global_y = y;
+		global_z = 1;
+		if (parent != null) {
+			global_x += parent.global_x;
+			global_y += parent.global_y;
+			global_z += parent.global_z;
+		}
+		for (Widget child : children) {
+			child.update();
+		}
+	}
+	//=============================================================================================
+	
 }
 //*************************************************************************************************
