@@ -38,12 +38,12 @@ public class RenderSystem {
 		float h = widget.height;
 		graphics.pushTransform();
 		graphics.translate(x, y, z);
-		if (type == RenderData.BOX) graphics.setColor(.4f, 0, 0);
-		else if (type == RenderData.BUTTON) graphics.setColor(.6f, .6f, 1f);
+		if      (type == RenderData.BOX)    graphics.setColor(.3f, .3f, .5f);
+		else if (type == RenderData.BUTTON) graphics.setColor(.6f, .6f,  1f);
 		graphics.fillRectangle(0, 0, w, h);
 		graphics.translate(0, 0, 0.001f);
-		if (type == RenderData.BOX) graphics.setColor(1, 0, 0);
-		else if (type == RenderData.BUTTON) graphics.setColor(0, 0, .4f);
+		if      (type == RenderData.BOX)    graphics.setColor( 0, 0, .4f);
+		else if (type == RenderData.BUTTON) graphics.setColor( 0, 0, .8f);
 		graphics.drawRectangle(0, 0, w, h);
 		graphics.popTransform();
 	}
