@@ -22,13 +22,14 @@ public class GUI {
 	//=============================================================================================
 	public final Set<Widget> widgets = new HashSet<>();
 	public final Map<Widget, RenderData> renderMap = new HashMap<>();
-	public final Map<Widget, ClickData> clickDataMap = new HashMap<>();
+	public final Map<Widget, ClickData> clickMap = new HashMap<>();
+	public final Map<Widget, String> textMap = new HashMap<>();
 	//=============================================================================================
 
 	//=============================================================================================
 	private RenderSystem renderSystem = new RenderSystem(renderMap);
 	private HoverSystem hoverSystem = new HoverSystem(widgets);
-	private ClickSystem clickActionSystem = new ClickSystem(widgets, clickDataMap);
+	private ClickSystem clickActionSystem = new ClickSystem(widgets, clickMap);
 	//=============================================================================================
 
 	//=============================================================================================
@@ -58,16 +59,17 @@ public class GUI {
 	//=============================================================================================
 
 	//=============================================================================================
-	public Widget createButton() {
+	public Widget createButton(String label) {
 		Widget widget = createWidget();
 		widget.setBounds(10, 10, 80, 20);
 		RenderData renderData = new RenderData();
 		renderData.type = RenderData.BUTTON;
 		renderMap.put(widget, renderData);
+		textMap.put(widget, label);
 		ClickData clickData = new ClickData();
 		clickData.decay = 0;
 		clickData.action = (w) -> System.out.println(w);
-		clickDataMap.put(widget,  clickData);
+		clickMap.put(widget,  clickData);
 		return widget;
 	}
 	//=============================================================================================
