@@ -59,7 +59,7 @@ public class GUI {
 	//=============================================================================================
 
 	//=============================================================================================
-	public Widget createButton(String label) {
+	public Widget createButton(String label, Action action) {
 		Widget widget = createWidget();
 		widget.setBounds(10, 10, 80, 20);
 		RenderData renderData = new RenderData();
@@ -68,7 +68,7 @@ public class GUI {
 		textMap.put(widget, label);
 		ClickData clickData = new ClickData();
 		clickData.decay = 0;
-		clickData.action = (w) -> System.out.println(w);
+		clickData.action = action;
 		clickMap.put(widget,  clickData);
 		return widget;
 	}

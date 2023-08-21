@@ -35,7 +35,7 @@ public class HoverSystem implements Handler {
 			if (isInside(widget, pointer_x, pointer_y)) {
 				float cmp = widget.globalZ();
 				if (cmp > z) {
-					cmp = z;
+					z = cmp;
 					active = widget;
 				}
 			}

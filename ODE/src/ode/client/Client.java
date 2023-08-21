@@ -19,23 +19,29 @@ public class Client {
 	//=============================================================================================
 
 	//=============================================================================================
+	private boolean terminate = false;
+	//=============================================================================================
+	
+	//=============================================================================================
 	public void configure(String[] args) {
-		scheduler.add(1000000000L / 60L, (n, p) -> platform.update());
-		scheduler.add(1000000000L / 120L, (n, p) -> gui.update());
-		Widget b1 = gui.createButton("Button 1");
-		Widget b2 = gui.createButton("Button 2");
+		Widget b1 = gui.createButton("QUIT", (w) -> terminate = true);
+		Widget b2 = gui.createButton("UUID", (w) -> System.out.println(w.uuid));
 		b2.setPosition(10, 40);
 		Widget frame = gui.createBox();
+		frame.setBounds(100, 100, 1720, 800);
 		frame.attach(b1);
 		frame.attach(b2);
+		scheduler.add(1000000000L / 80L, (n, p) -> gui.update());
+		scheduler.add(1000000000L / 60L, (n, p) -> platform.update());
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void run() {
-		platform.setVisible(true);
+		terminate = false;
 		scheduler.init();
-		while (true) {
+		platform.setVisible(true);
+		while (!terminate) {
 			events.update();
 			scheduler.update();
 			Thread.yield();
