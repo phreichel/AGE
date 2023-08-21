@@ -31,30 +31,24 @@ public class ClickSystem implements Handler {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void update() {
+	public void update(float dT) {
 
 		for (Widget widget : widgets) {
 			ClickData clickData = clickDataMap.get(widget);
 			if (clickData != null) {
 				if (clickData.decay != 0) {
-					clickData.decay -= 0.01f;
+					clickData.decay -= dT * 8;
 					clickData.decay = Math.max(0f, clickData.decay);
 				}
 			}
 		}
-		
+
 		if (!clickDetected) return;
 		clickDetected = false;
+
 		float z = -1;
 		Widget active = null;
 		for (Widget widget : widgets) {
-			ClickData clickData = clickDataMap.get(widget);
-			if (clickData != null) {
-				if (clickData.decay != 0) {
-					clickData.decay -= 0.05f;
-					clickData.decay = Math.max(0f, clickData.decay);
-				}
-			}
 			if (isInside(widget, pointer_x, pointer_y)) {
 				float cmp = widget.globalZ();
 				if (cmp > z) {

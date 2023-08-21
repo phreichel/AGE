@@ -31,7 +31,7 @@ public class Client {
 		frame.setBounds(100, 100, 1720, 800);
 		frame.attach(b1);
 		frame.attach(b2);
-		scheduler.add(1000000000L / 80L, (n, p) -> gui.update());
+		scheduler.add(1000000000L / 80L, (n, p) -> gui.update( (float) (n*p) / 1000000000L ));
 		scheduler.add(1000000000L / 60L, (n, p) -> platform.update());
 	}
 	//=============================================================================================
