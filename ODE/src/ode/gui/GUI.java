@@ -7,18 +7,33 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import ode.event.Event;
+import ode.event.Events;
 import ode.platform.Graphics;
 
 //*************************************************************************************************
 public class GUI {
 
 	//=============================================================================================
+	private float width = 800;
+	private float height = 600;	
+	//=============================================================================================
+	
+	//=============================================================================================
 	public final Set<Widget> widgets = new HashSet<>();
 	public final Map<Widget, RenderData> renderMap = new HashMap<>();
+	public final Map<Widget, Action> clickActionMap = new HashMap<>();
 	//=============================================================================================
 
 	//=============================================================================================
 	private RenderSystem renderSystem = new RenderSystem(renderMap);
+	private ClickActionSystem clickActionSystem = new ClickActionSystem(widgets, clickActionMap);
+	//=============================================================================================
+
+	//=============================================================================================
+	public GUI(Events events) {
+		events.register(Event.MOUSE_CLICKED, clickActionSystem);
+	}
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -47,6 +62,7 @@ public class GUI {
 		RenderData renderData = new RenderData();
 		renderData.type = RenderData.BUTTON;
 		renderMap.put(widget, renderData);
+		clickActionMap.put(widget, (w) -> System.out.println(w) );
 		return widget;
 	}
 	//=============================================================================================
@@ -122,6 +138,19 @@ public class GUI {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	public void resize(float width, float height) {
+		this.width = width;
+		this.height = height;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void update() {
+		clickActionSystem.update();
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public void render(Graphics graphics) {
 		graphics.beginGUIMode();

@@ -13,7 +13,7 @@ public class Client {
 
 	//=============================================================================================
 	private final Events events = new Events();
-	private final GUI gui = new GUI();
+	private final GUI gui = new GUI(events);
 	private final Platform platform = new Platform(events, gui);
 	private final Scheduler scheduler = new Scheduler();
 	//=============================================================================================
@@ -21,6 +21,7 @@ public class Client {
 	//=============================================================================================
 	public void configure(String[] args) {
 		scheduler.add(1000000000L / 60L, (n, p) -> platform.update());
+		scheduler.add(1000000000L / 120L, (n, p) -> gui.update());
 		Widget button = gui.createButton();
 		Widget frame = gui.createBox();
 		frame.attach(button);
