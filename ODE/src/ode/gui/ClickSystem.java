@@ -10,17 +10,17 @@ import ode.event.Handler;
 import ode.event.PointerData;
 
 //*************************************************************************************************
-public class ClickActionSystem implements Handler {
+public class ClickSystem implements Handler {
 
 	//=============================================================================================
 	private Set<Widget> widgets;
-	private Map<Widget, Action> clickActions;
+	private Map<Widget, ClickData> clickDataMap;
 	//=============================================================================================
 
 	//=============================================================================================
-	public ClickActionSystem(Set<Widget> widgets, Map<Widget, Action> clickActions) {
+	public ClickSystem(Set<Widget> widgets, Map<Widget, ClickData> clickDataMap) {
 		this.widgets = widgets;
-		this.clickActions = clickActions;
+		this.clickDataMap = clickDataMap;
 	}
 	//=============================================================================================
 
@@ -32,11 +32,29 @@ public class ClickActionSystem implements Handler {
 	
 	//=============================================================================================
 	public void update() {
+
+		for (Widget widget : widgets) {
+			ClickData clickData = clickDataMap.get(widget);
+			if (clickData != null) {
+				if (clickData.decay != 0) {
+					clickData.decay -= 0.01f;
+					clickData.decay = Math.max(0f, clickData.decay);
+				}
+			}
+		}
+		
 		if (!clickDetected) return;
 		clickDetected = false;
 		float z = -1;
 		Widget active = null;
 		for (Widget widget : widgets) {
+			ClickData clickData = clickDataMap.get(widget);
+			if (clickData != null) {
+				if (clickData.decay != 0) {
+					clickData.decay -= 0.05f;
+					clickData.decay = Math.max(0f, clickData.decay);
+				}
+			}
 			if (isInside(widget, pointer_x, pointer_y)) {
 				float cmp = widget.globalZ();
 				if (cmp > z) {
@@ -45,10 +63,15 @@ public class ClickActionSystem implements Handler {
 				}
 			}
 		}
-		Action action = clickActions.get(active);
-		if (action != null) {
-			action.perform(active);
+		
+		ClickData clickData = clickDataMap.get(active);
+		if (clickData != null) {
+			if (clickData.decay == 0f) {
+				clickData.decay = 1f;
+				clickData.action.perform(active);
+			} 
 		}
+		
 	}
 	//=============================================================================================
 

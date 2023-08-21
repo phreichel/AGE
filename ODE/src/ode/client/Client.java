@@ -22,9 +22,12 @@ public class Client {
 	public void configure(String[] args) {
 		scheduler.add(1000000000L / 60L, (n, p) -> platform.update());
 		scheduler.add(1000000000L / 120L, (n, p) -> gui.update());
-		Widget button = gui.createButton();
+		Widget b1 = gui.createButton();
+		Widget b2 = gui.createButton();
+		b2.setPosition(10, 40);
 		Widget frame = gui.createBox();
-		frame.attach(button);
+		frame.attach(b1);
+		frame.attach(b2);
 	}
 	//=============================================================================================
 
