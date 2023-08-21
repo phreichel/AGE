@@ -39,7 +39,13 @@ public class RenderSystem {
 		graphics.pushTransform();
 		graphics.translate(x, y, z);
 		if (type == RenderData.BOX) graphics.setColor(.3f, .3f, .5f);
-		else if (type == RenderData.BUTTON) graphics.setColor(.6f, .6f,  1f);
+		else if (type == RenderData.BUTTON) {
+			if (!widget.flags.get(Widget.HOVER)) {
+				graphics.setColor(.6f, .6f,  1f);
+			} else {
+				graphics.setColor(1f, .6f,  .6f);
+			}
+		}
 		graphics.fillRectangle(0, 0, w, h);
 		graphics.translate(0, 0, 0.001f);
 		if (type == RenderData.BOX) graphics.setColor( 0, 0, .4f);

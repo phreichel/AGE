@@ -27,12 +27,14 @@ public class GUI {
 
 	//=============================================================================================
 	private RenderSystem renderSystem = new RenderSystem(renderMap);
+	private HoverSystem hoverSystem = new HoverSystem(widgets);
 	private ClickActionSystem clickActionSystem = new ClickActionSystem(widgets, clickActionMap);
 	//=============================================================================================
 
 	//=============================================================================================
 	public GUI(Events events) {
 		events.register(Event.MOUSE_CLICKED, clickActionSystem);
+		events.register(Event.MOUSE_MOVED, hoverSystem);
 	}
 	//=============================================================================================
 	
@@ -147,6 +149,7 @@ public class GUI {
 
 	//=============================================================================================
 	public void update() {
+		hoverSystem.update();
 		clickActionSystem.update();
 	}
 	//=============================================================================================
