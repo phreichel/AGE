@@ -3,6 +3,7 @@ package ode.platform;
 //*************************************************************************************************
 
 import java.awt.Font;
+import java.awt.geom.Rectangle2D;
 
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
@@ -19,7 +20,7 @@ public class Graphics {
 	//=============================================================================================
 
 	//=============================================================================================
-	private TextRenderer textRenderer = new TextRenderer(Font.decode("Arial BOLD 16"), true);
+	private TextRenderer textRenderer = new TextRenderer(Font.decode("Arial BOLD 16"), false);
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -27,7 +28,7 @@ public class Graphics {
 		window = drawable;
 		gl = window.getGL().getGL2();
 		glu = GLU.createGLU(gl);
-		textRenderer.setSmoothing(true);
+		textRenderer.setSmoothing(false);
 	}
 	//=============================================================================================
 
@@ -105,12 +106,19 @@ public class Graphics {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void drawText(String text, float x, float y, float z, float r, float g, float b) {
+	public void drawText(
+			String text,
+			float x, float y, float z,
+			float w, float h,
+			float r, float g, float b) {
 		gl.glPushMatrix();
 		gl.glScalef(1f, -1f, 1f);
+		Rectangle2D rect = textRenderer.getBounds(text);
+		float ofsx = (w - (float) rect.getWidth()) * .5f;
+		float ofsy = (h - (float) rect.getHeight()) * .5f;
 		textRenderer.setColor(r, g, b, 1);
 		textRenderer.begin3DRendering();
-		textRenderer.draw3D(text, x, -y, z, 1);
+		textRenderer.draw3D(text, x + ofsx, y-(h-ofsy), z, 1);
 		textRenderer.end3DRendering();
 		gl.glPopMatrix();
 	}

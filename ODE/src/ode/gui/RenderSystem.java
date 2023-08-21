@@ -71,9 +71,9 @@ public class RenderSystem {
 		graphics.pushTransform();
 		graphics.translate(x, y, z);
 		if (!widget.flags.get(Widget.HOVER)) {
-			graphics.setColor(.6f, .6f,  1f);
+			graphics.setColor(.4f, .4f, 1f);
 		} else {
-			graphics.setColor(1f, .6f,  .6f);
+			graphics.setColor(.6f, .6f, 1f);
 		}
 		graphics.fillRectangle(0, 0, w, h);
 		if (clickData.decay > 0) {
@@ -85,7 +85,7 @@ public class RenderSystem {
 		graphics.setColor( 0, 0, .8f);
 		graphics.drawRectangle(0, 0, w, h);
 		graphics.translate(0, 0, OFFSET);
-		graphics.drawText(label, 2, h-3, 0, 0, 0, 0);
+		graphics.drawText(label, 0, 0, 0, w, h, 1, 1, 1);
 		graphics.popTransform();
 	}
 	//=============================================================================================
