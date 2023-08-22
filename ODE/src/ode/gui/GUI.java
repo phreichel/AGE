@@ -61,7 +61,7 @@ public class GUI {
 	//=============================================================================================
 	public Widget createButton(String label, Action action) {
 		Widget widget = createWidget();
-		widget.setBounds(10, 10, 80, 20);
+		widget.setBounds(0, 0, 120, 20);
 		RenderData renderData = new RenderData();
 		renderData.type = RenderData.BUTTON;
 		renderMap.put(widget, renderData);
