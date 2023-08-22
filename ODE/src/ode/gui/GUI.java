@@ -24,17 +24,19 @@ public class GUI {
 	public final Map<Widget, RenderData> renderMap = new HashMap<>();
 	public final Map<Widget, ClickData> clickMap = new HashMap<>();
 	public final Map<Widget, String> textMap = new HashMap<>();
+	public final Map<Widget, LayoutData> layoutMap = new HashMap<>();
 	//=============================================================================================
 
 	//=============================================================================================
 	private RenderSystem renderSystem = new RenderSystem(renderMap);
 	private HoverSystem hoverSystem = new HoverSystem(widgets);
-	private ClickSystem clickActionSystem = new ClickSystem(widgets, clickMap);
+	private ClickSystem clickSystem = new ClickSystem(widgets, clickMap);
+	private LayoutSystem layoutSystem = new LayoutSystem(layoutMap);
 	//=============================================================================================
 
 	//=============================================================================================
 	public GUI(Events events) {
-		events.register(Event.MOUSE_CLICKED, clickActionSystem);
+		events.register(Event.MOUSE_CLICKED, clickSystem);
 		events.register(Event.MOUSE_MOVED, hoverSystem);
 	}
 	//=============================================================================================
@@ -50,10 +52,13 @@ public class GUI {
 	//=============================================================================================
 	public Widget createBox() {
 		Widget widget = createWidget();
-		widget.setBounds(10, 10, 500, 200);
+		widget.setBounds(10, 10, 100, 100);
 		RenderData renderData = new RenderData();
 		renderData.type = RenderData.BOX;
 		renderMap.put(widget, renderData);
+		LayoutData layoutData = new LayoutData();
+		layoutData.action = this::boxLayout;
+		layoutMap.put(widget, layoutData);
 		return widget;
 	}
 	//=============================================================================================
@@ -154,8 +159,9 @@ public class GUI {
 
 	//=============================================================================================
 	public void update(float dT) {
+		clickSystem.update(dT);
 		hoverSystem.update();
-		clickActionSystem.update(dT);
+		layoutSystem.update();
 	}
 	//=============================================================================================
 	
@@ -163,6 +169,24 @@ public class GUI {
 	public void render(Graphics graphics) {
 		graphics.beginGUIMode();
 		renderSystem.update(graphics);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void boxLayout(Widget widget) {
+		final float GAP = 5;
+		float maxx = 0;
+		float maxy = 0;
+		for (Widget child : widget.children) {
+			maxy += GAP;
+			child.y = maxy;
+			maxy += child.height;
+			maxx = Math.max(maxx, child.width);
+			child.x = GAP;			
+		}
+		maxy += GAP;
+		widget.width = maxx + 2*GAP;
+		widget.height = maxy;
 	}
 	//=============================================================================================
 	
