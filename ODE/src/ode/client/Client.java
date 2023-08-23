@@ -24,15 +24,27 @@ public class Client {
 	
 	//=============================================================================================
 	public void configure(String[] args) {
-		Widget b1 = gui.createButton("QUIT", (w) -> terminate = true);
-		Widget b2 = gui.createButton("UUID", (w) -> System.out.println(w.uuid));
-		b2.setPosition(10, 40);
+		
+		Widget b1 = gui.createButton("START", (w) -> System.out.println(w.uuid));
+		Widget b2 = gui.createButton("QUIT", (w) -> terminate = true);
+		Widget buttons = gui.createBox();
+		buttons.attach(b1);
+		buttons.attach(b2);
+		
+		Widget scores = gui.createBox();
+		for (int i=0; i<10; i++) {
+			Widget score = gui.createLabel("???");
+			scores.attach(score);
+		}
+		
 		Widget frame = gui.createBox();
-		frame.setBounds(100, 100, 1720, 800);
-		frame.attach(b1);
-		frame.attach(b2);
+		frame.attach(buttons);
+		frame.attach(scores);
+		frame.setPosition(30, 30);
+		
 		scheduler.add(1000000000L / 80L, (n, p) -> gui.update( (float) (n*p) / 1000000000L ));
 		scheduler.add(1000000000L / 60L, (n, p) -> platform.update());
+		
 	}
 	//=============================================================================================
 

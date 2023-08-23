@@ -37,6 +37,7 @@ public class RenderSystem {
 	private void render(Widget widget, Graphics graphics) {
 		RenderData renderData = widget.gui.renderMap.get(widget);
 		if (renderData.type == RenderData.BOX) renderBox(widget, graphics);
+		if (renderData.type == RenderData.LABEL) renderLabel(widget, graphics);
 		if (renderData.type == RenderData.BUTTON) renderButton(widget, graphics);
 	}
 	//=============================================================================================
@@ -83,6 +84,27 @@ public class RenderSystem {
 		}
 		graphics.translate(0, 0, OFFSET);
 		graphics.setColor( 0, 0, .8f);
+		graphics.drawRectangle(0, 0, w, h);
+		graphics.translate(0, 0, OFFSET);
+		graphics.drawText(label, 0, 0, 0, w, h, 1, 1, 1);
+		graphics.popTransform();
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void renderLabel(Widget widget, Graphics graphics) {
+		String label = widget.gui.textMap.get(widget);
+		float x = widget.globalX();
+		float y = widget.globalY();
+		float z = widget.globalZ() * FACTOR;	
+		float w = widget.width;
+		float h = widget.height;
+		graphics.pushTransform();
+		graphics.translate(x, y, z);
+		graphics.setColor(.4f, .4f, .4f);
+		graphics.fillRectangle(0, 0, w, h);
+		graphics.translate(0, 0, OFFSET);
+		graphics.setColor(.2f, .2f, .2f);
 		graphics.drawRectangle(0, 0, w, h);
 		graphics.translate(0, 0, OFFSET);
 		graphics.drawText(label, 0, 0, 0, w, h, 1, 1, 1);

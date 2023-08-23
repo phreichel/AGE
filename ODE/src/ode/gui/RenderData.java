@@ -11,6 +11,7 @@ public class RenderData {
 
 	//=============================================================================================
 	public static final int BOX = inc++;
+	public static final int LABEL = inc++;
 	public static final int BUTTON = inc++;
 	//=============================================================================================
 	
