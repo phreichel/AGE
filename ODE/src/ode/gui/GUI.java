@@ -57,7 +57,6 @@ public class GUI {
 		renderData.type = RenderData.BOX;
 		renderMap.put(widget, renderData);
 		LayoutData layoutData = new LayoutData();
-		layoutData.action = this::boxLayout;
 		layoutMap.put(widget, layoutData);
 		return widget;
 	}
@@ -172,23 +171,5 @@ public class GUI {
 	}
 	//=============================================================================================
 
-	//=============================================================================================
-	private void boxLayout(Widget widget) {
-		final float GAP = 5;
-		float maxx = 0;
-		float maxy = 0;
-		for (Widget child : widget.children) {
-			maxy += GAP;
-			child.y = maxy;
-			maxy += child.height;
-			maxx = Math.max(maxx, child.width);
-			child.x = GAP;			
-		}
-		maxy += GAP;
-		widget.width = maxx + 2*GAP;
-		widget.height = maxy;
-	}
-	//=============================================================================================
-	
 }
 //*************************************************************************************************
