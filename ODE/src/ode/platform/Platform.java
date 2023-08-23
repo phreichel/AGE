@@ -4,6 +4,7 @@ package ode.platform;
 
 import ode.event.Events;
 import ode.gui.GUI;
+import ode.model.Model;
 
 //*************************************************************************************************
 public class Platform {
@@ -15,8 +16,9 @@ public class Platform {
 	//=============================================================================================
 
 	//=============================================================================================
-	public Platform(Events events, GUI gui) {
+	public Platform(Events events, Model model, GUI gui) {
 		newtInputAdapter.register(events);
+		newtGraphicsAdapter.register(model);
 		newtGraphicsAdapter.register(gui);
 		newtWindow.register(newtInputAdapter);
 		newtWindow.register(newtGraphicsAdapter);

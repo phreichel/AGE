@@ -6,6 +6,7 @@ import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
 
 import ode.gui.GUI;
+import ode.model.Model;
 
 //*************************************************************************************************
 class NEWTGraphicsAdapter implements GLEventListener {
@@ -13,8 +14,15 @@ class NEWTGraphicsAdapter implements GLEventListener {
 	//=============================================================================================
 	private Graphics graphics = new Graphics();
 	private GUI gui = null;
+	private Model model = null;
 	//=============================================================================================
 
+	//=============================================================================================
+	public void register(Model model) {
+		this.model = model; 
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public void register(GUI gui) {
 		this.gui = gui; 
@@ -36,6 +44,8 @@ class NEWTGraphicsAdapter implements GLEventListener {
 	public void display(GLAutoDrawable drawable) {
 		graphics.init(drawable);
 		graphics.startFrame();
+		model.render(graphics);
+		graphics.clearDepth();
 		gui.render(graphics);
 	}
 	//=============================================================================================

@@ -5,6 +5,7 @@ package ode.client;
 import ode.event.Events;
 import ode.gui.GUI;
 import ode.gui.Widget;
+import ode.model.Model;
 import ode.platform.Platform;
 import ode.schedule.Scheduler;
 
@@ -14,7 +15,8 @@ public class Client {
 	//=============================================================================================
 	private final Events events = new Events();
 	private final GUI gui = new GUI(events);
-	private final Platform platform = new Platform(events, gui);
+	private final Model model = new Model(events);
+	private final Platform platform = new Platform(events, model, gui);
 	private final Scheduler scheduler = new Scheduler();
 	//=============================================================================================
 
@@ -42,9 +44,10 @@ public class Client {
 		frame.attach(scores);
 		frame.setPosition(30, 30);
 		
-		scheduler.add(1000000000L / 80L, (n, p) -> gui.update( (float) (n*p) / 1000000000L ));
-		scheduler.add(1000000000L / 60L, (n, p) -> platform.update());
-		
+		scheduler.add(1000000000L / 100L, (n, p) -> model.update((float) (n*p) / 1000000000L ));
+		scheduler.add(1000000000L / 30L, (n, p) -> gui.update( (float) (n*p) / 1000000000L ));
+		scheduler.add(1000000000L / 30L, (n, p) -> platform.update());
+
 	}
 	//=============================================================================================
 
