@@ -5,6 +5,8 @@ package ode.platform;
 import java.awt.Font;
 import java.awt.geom.Rectangle2D;
 
+import javax.vecmath.Matrix4f;
+
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.glu.GLU;
@@ -99,6 +101,16 @@ public class Graphics {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	float[] matrix = new float[16];
+	//=============================================================================================
+
+	//=============================================================================================
+	public void applyMatrix(Matrix4f m) {
+		
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public void translate(float x, float y, float z) {
 		gl.glTranslatef(x, y, z);

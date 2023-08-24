@@ -4,6 +4,8 @@ package ode.model;
 
 import java.util.Set;
 
+import ode.platform.Graphics;
+
 //*************************************************************************************************
 public class RenderSystem {
 
@@ -16,19 +18,24 @@ public class RenderSystem {
 		this.entitySet = entitySet;
 	}
 	//=============================================================================================
+
 	
 	//=============================================================================================
-	public void update() {
+	public void update(Graphics graphics) {
 		for (Entity entity : entitySet) {
-			update(entity);
+			update(graphics, entity);
 		}
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private void update(Entity entity) {
+	private void update(Graphics graphics ,Entity entity) {
 		PoseData poseData = entity.model.poseDataMap.get(entity);
-		//System.out.println(poseData.location);
+		if (poseData != null) { 
+			graphics.pushTransform();
+			graphics.applyMatrix(poseData.pose);
+			graphics.popTransform();
+		}
 	}
 	//=============================================================================================
 	

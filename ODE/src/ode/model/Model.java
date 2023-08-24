@@ -68,13 +68,13 @@ public class Model {
 	public void update(float dT) {
 		kineticSystem.update(dT);
 		poseSystem.update();
-		renderSystem.update();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void render(Graphics graphics) {
 		graphics.beginSceneMode();
+		renderSystem.update(graphics);
 	}
 	//=============================================================================================
 	
