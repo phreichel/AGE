@@ -11,7 +11,7 @@ public class PoseData {
 
 	//=============================================================================================
 	public final Vector3f location = new Vector3f();
-	public final Quat4f orientation = new Quat4f();
+	public final Quat4f orientation = new Quat4f(0, 0, 0, 1);
 	public final Matrix4f pose = new Matrix4f();
 	//=============================================================================================
 	

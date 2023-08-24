@@ -5,6 +5,9 @@ package ode.client;
 import ode.event.Events;
 import ode.gui.GUI;
 import ode.gui.Widget;
+import ode.model.CameraData;
+import ode.model.Entity;
+import ode.model.KineticData;
 import ode.model.Model;
 import ode.platform.Platform;
 import ode.schedule.Scheduler;
@@ -43,6 +46,14 @@ public class Client {
 		frame.attach(buttons);
 		frame.attach(scores);
 		frame.setPosition(30, 30);
+
+		Entity camera = model.createCamera();
+		CameraData cameraData = model.cameraDataMap.get(camera);
+		cameraData.active = true;
+		
+		Entity body = model.createBody();
+		KineticData kineticData = model.kineticDataMap.get(body);
+		kineticData.velocity.set(.1f, .1f, -.3f);
 		
 		scheduler.add(1000000000L / 100L, (n, p) -> model.update((float) (n*p) / 1000000000L ));
 		scheduler.add(1000000000L / 30L, (n, p) -> gui.update( (float) (n*p) / 1000000000L ));

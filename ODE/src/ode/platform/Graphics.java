@@ -70,7 +70,23 @@ public class Graphics {
 		gl.glLoadIdentity();
 	}
 	//=============================================================================================
-	
+
+	//=============================================================================================
+	public void beginSceneMode() {
+		gl.glEnable(GL2.GL_LIGHTING);
+		gl.glEnable(GL2.GL_DEPTH_TEST);
+		gl.glEnable(GL2.GL_CULL_FACE);
+		gl.glEnable(GL2.GL_COLOR_MATERIAL);
+		gl.glColorMaterial(GL2.GL_FRONT_AND_BACK, GL2.GL_AMBIENT_AND_DIFFUSE);
+		gl.glMatrixMode(GL2.GL_PROJECTION);
+		gl.glLoadIdentity();
+		float aspect = (float) window.getSurfaceWidth() / window.getSurfaceHeight();
+		glu.gluPerspective(35f, aspect, 0.1f, 1000f);
+		gl.glMatrixMode(GL2.GL_MODELVIEW);
+		gl.glLoadIdentity();
+	}
+	//=============================================================================================
+
 	//=============================================================================================
 	public void pushTransform() {
 		gl.glPushMatrix();
