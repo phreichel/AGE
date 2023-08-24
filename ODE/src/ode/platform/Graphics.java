@@ -107,7 +107,23 @@ public class Graphics {
 
 	//=============================================================================================
 	public void applyMatrix(Matrix4f m) {
-		
+		matrix[0] = m.m00;
+		matrix[1] = m.m01;
+		matrix[2] = m.m02;
+		matrix[3] = m.m03;
+		matrix[4] = m.m10;
+		matrix[5] = m.m11;
+		matrix[6] = m.m12;
+		matrix[7] = m.m13;
+		matrix[8] = m.m20;
+		matrix[9] = m.m21;
+		matrix[10] = m.m22;
+		matrix[11] = m.m23;
+		matrix[12] = m.m30;
+		matrix[13] = m.m31;
+		matrix[14] = m.m32;
+		matrix[15] = m.m33;
+		gl.glLoadMatrixf(matrix, 0);
 	}
 	//=============================================================================================
 	
@@ -155,6 +171,16 @@ public class Graphics {
 		textRenderer.draw3D(text, x + ofsx, y-(h-ofsy), z, 1);
 		textRenderer.end3DRendering();
 		gl.glPopMatrix();
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void drawBox(
+			float x1, float y1, float z1,
+			float x2, float y2, float z2) {
+		gl.glBegin(GL2.GL_LINES);
+		
+		gl.glEnd();
 	}
 	//=============================================================================================
 	
