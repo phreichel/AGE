@@ -21,7 +21,7 @@ public class PoseSystem {
 	//=============================================================================================
 	public void update() {
 		for (Entry<Entity, PoseData> entry : poseDataMap.entrySet()) {
-			Entity entity = entry.getKey();
+			// Entity entity = entry.getKey();
 			PoseData poseData = entry.getValue();
 			poseData.pose.setRotation(poseData.orientation);
 			poseData.pose.setTranslation(poseData.location);
