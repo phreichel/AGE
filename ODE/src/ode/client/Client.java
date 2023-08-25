@@ -2,6 +2,9 @@
 package ode.client;
 //*************************************************************************************************
 
+import javax.vecmath.AxisAngle4f;
+import javax.vecmath.Vector3f;
+
 import ode.event.Events;
 import ode.gui.GUI;
 import ode.gui.Widget;
@@ -53,7 +56,11 @@ public class Client {
 		
 		Entity body = model.createBody();
 		KineticData kineticData = model.kineticDataMap.get(body);
-		kineticData.velocity.set(.1f, .1f, -.3f);
+		kineticData.velocity.set(0f, 0f, -.3f);
+
+		Vector3f nrm = new Vector3f(1, 1, 1);
+		nrm.normalize();
+		kineticData.rotation.set(new AxisAngle4f(nrm, (float) Math.toRadians(10f)));
 		
 		scheduler.add(1000000000L / 100L, (n, p) -> model.update((float) (n*p) / 1000000000L ));
 		scheduler.add(1000000000L / 30L, (n, p) -> gui.update( (float) (n*p) / 1000000000L ));

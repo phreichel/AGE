@@ -33,10 +33,13 @@ public class KineticSystem {
 			Entity entity = entry.getKey();
 			KineticData kineticData = entry.getValue();
 			PoseData poseData = poseDataMap.get(entity);
-			locationRate.scale(dT, kineticData.velocity);
-			orientationRate.scale(dT, kineticData.rotation);
+			locationRate.scale(dT * .5f, kineticData.velocity);
 			poseData.location.add(locationRate);
-			poseData.orientation.mul(orientationRate);
+			kineticData.rotation.normalize();
+			orientationRate.scale(dT, kineticData.rotation);
+			orientationRate.w = 1f;
+			poseData.orientation.mul(orientationRate, poseData.orientation);
+			poseData.orientation.normalize();
 		}
 	}
 	//=============================================================================================
