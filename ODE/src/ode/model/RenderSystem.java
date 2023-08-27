@@ -30,7 +30,7 @@ public class RenderSystem {
 
 	//=============================================================================================
 	private void update(Graphics graphics ,Entity entity) {
-		PoseData poseData = entity.model.poseDataMap.get(entity);
+		PoseData poseData = entity.getPoseData();
 		if (poseData != null) { 
 			graphics.pushTransform();
 			graphics.multMatrix(poseData.pose);

@@ -21,10 +21,14 @@ public class GUI {
 	
 	//=============================================================================================
 	public final Set<Widget> widgets = new HashSet<>();
-	public final Map<Widget, RenderData> renderMap = new HashMap<>();
 	public final Map<Widget, ClickData> clickMap = new HashMap<>();
-	public final Map<Widget, String> textMap = new HashMap<>();
+	public final Map<Widget, DimensionData> dimensionMap = new HashMap<>();
+	public final Map<Widget, FlagsData> flagsMap = new HashMap<>();
+	public final Map<Widget, HierarchyData> hierarchyMap = new HashMap<>();
 	public final Map<Widget, LayoutData> layoutMap = new HashMap<>();
+	public final Map<Widget, PositionData> positionMap = new HashMap<>();
+	public final Map<Widget, RenderData> renderMap = new HashMap<>();
+	public final Map<Widget, String> textMap = new HashMap<>();
 	//=============================================================================================
 
 	//=============================================================================================
@@ -52,7 +56,18 @@ public class GUI {
 	//=============================================================================================
 	public Widget createBox() {
 		Widget widget = createWidget();
-		widget.setBounds(10, 10, 100, 100);
+		FlagsData flagsData = new FlagsData();
+		flagsMap.put(widget, flagsData);
+		PositionData positionData = new PositionData();
+		positionData.x = 10;
+		positionData.y = 10;
+		positionMap.put(widget, positionData);
+		DimensionData dimensionData = new DimensionData();
+		dimensionData.width = 100;
+		dimensionData.height = 100;
+		dimensionMap.put(widget, dimensionData);
+		HierarchyData hierarchyData = new HierarchyData();
+		hierarchyMap.put(widget, hierarchyData);
 		RenderData renderData = new RenderData();
 		renderData.type = RenderData.BOX;
 		renderMap.put(widget, renderData);
@@ -65,7 +80,18 @@ public class GUI {
 	//=============================================================================================
 	public Widget createLabel(String label) {
 		Widget widget = createWidget();
-		widget.setBounds(0, 0, 200, 20);
+		FlagsData flagsData = new FlagsData();
+		flagsMap.put(widget, flagsData);
+		PositionData positionData = new PositionData();
+		positionData.x = 0;
+		positionData.y = 0;
+		positionMap.put(widget, positionData);
+		DimensionData dimensionData = new DimensionData();
+		dimensionData.width = 200;
+		dimensionData.height = 20;
+		dimensionMap.put(widget, dimensionData);
+		HierarchyData hierarchyData = new HierarchyData();
+		hierarchyMap.put(widget, hierarchyData);
 		RenderData renderData = new RenderData();
 		renderData.type = RenderData.LABEL;
 		renderMap.put(widget, renderData);
@@ -77,7 +103,18 @@ public class GUI {
 	//=============================================================================================
 	public Widget createButton(String label, Action action) {
 		Widget widget = createWidget();
-		widget.setBounds(0, 0, 120, 20);
+		FlagsData flagsData = new FlagsData();
+		flagsMap.put(widget, flagsData);
+		PositionData positionData = new PositionData();
+		positionData.x = 0;
+		positionData.y = 0;
+		positionMap.put(widget, positionData);
+		DimensionData dimensionData = new DimensionData();
+		dimensionData.width = 120;
+		dimensionData.height = 20;
+		dimensionMap.put(widget, dimensionData);
+		HierarchyData hierarchyData = new HierarchyData();
+		hierarchyMap.put(widget, hierarchyData);
 		RenderData renderData = new RenderData();
 		renderData.type = RenderData.BUTTON;
 		renderMap.put(widget, renderData);
@@ -90,77 +127,6 @@ public class GUI {
 	}
 	//=============================================================================================
 	
-	//=============================================================================================
-	public boolean delete(Widget widget) {
-		if (widget.parent != null) return false;
-		if (!widget.children.isEmpty()) return false;
-		widgets.remove(widget);
-		return true;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public boolean attach(Widget parent, Widget widget) {
-		if (widget.parent != null) return false;
-		widget.parent = parent;
-		parent.children.add(widget);
-		return true;
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public boolean detach(Widget widget) {
-		if (widget.parent == null) return false;
-		widget.parent.children.remove(widget);
-		widget.parent = null;
-		return true;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public boolean moveToTop(Widget widget) {
-		if (widget.parent == null) return false;
-		widget.parent.children.remove(widget);
-		widget.parent.children.add(0, widget);
-		return true;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public boolean moveToBottom(Widget widget) {
-		if (widget.parent == null) return false;
-		widget.parent.children.remove(widget);
-		widget.parent.children.add(widget);
-		return true;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public boolean moveUp(Widget widget) {
-		if (widget.parent == null) return false;
-		int idxFrom = widget.parent.children.indexOf(widget);
-		int idxTo = idxFrom-1;
-		if (idxTo >= 0) {
-			widget.parent.children.remove(widget);
-			widget.parent.children.add(idxTo, widget);
-		}
-		return true;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public boolean moveDown(Widget widget) {
-		if (widget.parent == null) return false;
-		int idxFrom = widget.parent.children.indexOf(widget);
-		int idxTo = idxFrom+1;
-		if (idxTo <= widget.parent.children.size()) {
-			widget.parent.children.remove(widget);
-			widget.parent.children.add(idxTo, widget);
-		}
-		return true;
-	}
-	//=============================================================================================
-
 	//=============================================================================================
 	public void resize(float width, float height) {
 		this.width = width;

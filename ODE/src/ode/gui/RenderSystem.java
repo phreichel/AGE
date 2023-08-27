@@ -35,7 +35,7 @@ public class RenderSystem {
 
 	//=============================================================================================
 	private void render(Widget widget, Graphics graphics) {
-		RenderData renderData = widget.gui.renderMap.get(widget);
+		RenderData renderData = widget.getRenderData();
 		if (renderData.type == RenderData.BOX) renderBox(widget, graphics);
 		if (renderData.type == RenderData.LABEL) renderLabel(widget, graphics);
 		if (renderData.type == RenderData.BUTTON) renderButton(widget, graphics);
@@ -44,11 +44,13 @@ public class RenderSystem {
 
 	//=============================================================================================
 	private void renderBox(Widget widget, Graphics graphics) {
-		float x = widget.globalX();
-		float y = widget.globalY();
-		float z = widget.globalZ() * FACTOR;	
-		float w = widget.width;
-		float h = widget.height;
+		DimensionData dimensionData = widget.getDimensionData();
+		float[] globalPosition = getGlobalPosition(widget, new float[] {0, 0, 0});
+		float x = globalPosition[0];
+		float y = globalPosition[1];
+		float z = globalPosition[2] * FACTOR;	
+		float w = dimensionData.width;
+		float h = dimensionData.height;
 		graphics.pushTransform();
 		graphics.translate(x, y, z);
 		graphics.setColor(.3f, .3f, .5f);
@@ -62,16 +64,19 @@ public class RenderSystem {
 
 	//=============================================================================================
 	private void renderButton(Widget widget, Graphics graphics) {
-		String label = widget.gui.textMap.get(widget);
-		ClickData clickData = widget.gui.clickMap.get(widget);
-		float x = widget.globalX();
-		float y = widget.globalY();
-		float z = widget.globalZ() * FACTOR;	
-		float w = widget.width;
-		float h = widget.height;
+		ClickData clickData = widget.getClickData();
+		DimensionData dimensionData = widget.getDimensionData();
+		FlagsData flagsData = widget.getFlagsData();
+		String label = widget.getTextData();
+		float[] globalPosition = getGlobalPosition(widget, new float[] {0, 0, 0});
+		float x = globalPosition[0];
+		float y = globalPosition[1];
+		float z = globalPosition[2] * FACTOR;	
+		float w = dimensionData.width;
+		float h = dimensionData.height;
 		graphics.pushTransform();
 		graphics.translate(x, y, z);
-		if (!widget.flags.get(Widget.HOVER)) {
+		if (!flagsData.flags.get(FlagsData.HOVER)) {
 			graphics.setColor(.4f, .4f, 1f);
 		} else {
 			graphics.setColor(.6f, .6f, 1f);
@@ -93,12 +98,14 @@ public class RenderSystem {
 
 	//=============================================================================================
 	private void renderLabel(Widget widget, Graphics graphics) {
-		String label = widget.gui.textMap.get(widget);
-		float x = widget.globalX();
-		float y = widget.globalY();
-		float z = widget.globalZ() * FACTOR;	
-		float w = widget.width;
-		float h = widget.height;
+		DimensionData dimensionData = widget.getDimensionData();
+		String label = widget.getTextData();
+		float[] globalPosition = getGlobalPosition(widget, new float[] {0, 0, 0});
+		float x = globalPosition[0];
+		float y = globalPosition[1];
+		float z = globalPosition[2] * FACTOR;	
+		float w = dimensionData.width;
+		float h = dimensionData.height;
 		graphics.pushTransform();
 		graphics.translate(x, y, z);
 		graphics.setColor(1f, 1f, 1f);
@@ -109,6 +116,18 @@ public class RenderSystem {
 		graphics.translate(0, 0, OFFSET);
 		graphics.drawText(label, 0, 0, 0, w, h, 0, 0, 0);
 		graphics.popTransform();
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private float[] getGlobalPosition(Widget widget, float[] target) {
+		if (widget == null) return target;
+		HierarchyData hierarchyData = widget.getHierarchyData();
+		PositionData positionData = widget.getPositionData();
+		target[0] += positionData.x;
+		target[1] += positionData.y;
+		target[2] += 1;
+		return getGlobalPosition(hierarchyData.parent, target);
 	}
 	//=============================================================================================
 	

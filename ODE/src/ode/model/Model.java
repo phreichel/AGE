@@ -87,7 +87,7 @@ public class Model {
 			}
 		}
 		if (entity == null) throw new ODEException("No Active Camera");
-		PoseData poseData = entity.model.poseDataMap.get(entity);
+		PoseData poseData = entity.getPoseData();
 		Matrix4f camTransform = new Matrix4f(poseData.pose);
 		camTransform.transpose();
 		graphics.beginSceneMode(camTransform, camData.fov, camData.near, camData.far);

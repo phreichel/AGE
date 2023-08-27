@@ -30,26 +30,33 @@ public class LayoutData {
 
 	//=============================================================================================
 	private void perform(Widget widget) {
-		LayoutData data = widget.gui.layoutMap.get(widget);
+		DimensionData widgetDimensionData = widget.getDimensionData();
+		LayoutData data = widget.getLayoutData();
+		HierarchyData hierarchyData = widget.getHierarchyData();
 		float offset = data.padding_top;
 		float maxwidth = 0f;
-		for (Widget child : widget.children) {
-			if (!child.flags.get(Widget.DISPLAYED)) continue;
-			child.x = data.padding_left;
-			child.y = offset;
-			offset += child.height;
+		for (Widget child : hierarchyData.children) {
+			FlagsData flagsData = widget.getFlagsData();
+			if (!flagsData.flags.get(FlagsData.DISPLAYED)) continue;
+			DimensionData dimensionData = child.getDimensionData();
+			PositionData positionData = child.getPositionData();
+			positionData.x = data.padding_left;
+			positionData.y = offset;
+			offset += dimensionData.height;
 			offset += spacing;
-			maxwidth = Math.max(maxwidth, child.width);
+			maxwidth = Math.max(maxwidth, dimensionData.width);
 		}
 		if ((alignment == CENTER) || (alignment == END)) {
-			for (Widget child : widget.children) {
-				float xalign = maxwidth - child.width;
+			for (Widget child : hierarchyData.children) {
+				DimensionData dimensionData = child.getDimensionData();
+				PositionData positionData = child.getPositionData();
+				float xalign = maxwidth - dimensionData.width;
 				if (alignment == CENTER) xalign *= .5f;
-				child.x += xalign;
+				positionData.x += xalign;
 			}
 		}
-		widget.width = data.padding_left + maxwidth + data.padding_right;
-		widget.height = offset - spacing + padding_bottom;
+		widgetDimensionData.width = data.padding_left + maxwidth + data.padding_right;
+		widgetDimensionData.height = offset - spacing + padding_bottom;
 	}
 	//=============================================================================================
 	

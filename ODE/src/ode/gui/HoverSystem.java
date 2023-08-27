@@ -31,9 +31,11 @@ public class HoverSystem implements Handler {
 		float z = -1;
 		Widget active = null;
 		for (Widget widget : widgets) {
-			widget.flags.clear(Widget.HOVER);
-			if (isInside(widget, pointer_x, pointer_y)) {
-				float cmp = widget.globalZ();
+			FlagsData flagsData = widget.getFlagsData();
+			flagsData.flags.clear(FlagsData.HOVER);
+			float[] globalPosition = getGlobalPosition(widget, new float[] { 0, 0, 0 });
+			if (isInside(widget, globalPosition, pointer_x, pointer_y)) {
+				float cmp = globalPosition[2];
 				if (cmp > z) {
 					z = cmp;
 					active = widget;
@@ -41,17 +43,19 @@ public class HoverSystem implements Handler {
 			}
 		}
 		if (active != null) {
-			active.flags.set(Widget.HOVER);
+			FlagsData flagsData = active.getFlagsData();
+			flagsData.flags.set(FlagsData.HOVER);
 		}
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private boolean isInside(Widget widget, float x, float y) {
-		float x1 = widget.globalX();
-		float y1 = widget.globalY();
-		float x2 = x1 + widget.width;
-		float y2 = y1 + widget.height;
+	private boolean isInside(Widget widget, float[] globalPosition, float x, float y) {
+		DimensionData dimensionData = widget.getDimensionData();
+		float x1 = globalPosition[0];
+		float y1 = globalPosition[1];
+		float x2 = x1 + dimensionData.width;
+		float y2 = y1 + dimensionData.height;
 		return (x >= x1) && (x <= x2) && (y >= y1) && (y <= y2);
 	}
 	//=============================================================================================
@@ -61,6 +65,18 @@ public class HoverSystem implements Handler {
 		PointerData pointerData = (PointerData) event.data[0];
 		pointer_x = pointerData.x;
 		pointer_y = pointerData.y;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private float[] getGlobalPosition(Widget widget, float[] target) {
+		if (widget == null) return target;
+		HierarchyData hierarchyData = widget.getHierarchyData();
+		PositionData positionData = widget.getPositionData();
+		target[0] += positionData.x;
+		target[1] += positionData.y;
+		target[2] += 1;
+		return getGlobalPosition(hierarchyData.parent, target);
 	}
 	//=============================================================================================
 	

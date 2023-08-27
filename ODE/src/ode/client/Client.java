@@ -7,6 +7,8 @@ import javax.vecmath.Vector3f;
 
 import ode.event.Events;
 import ode.gui.GUI;
+import ode.gui.HierarchyData;
+import ode.gui.PositionData;
 import ode.gui.Widget;
 import ode.model.CameraData;
 import ode.model.Entity;
@@ -37,19 +39,21 @@ public class Client {
 		Widget b1 = gui.createButton("START", (w) -> System.out.println(w.uuid));
 		Widget b2 = gui.createButton("QUIT", (w) -> terminate = true);
 		Widget buttons = gui.createBox();
-		buttons.attach(b1);
-		buttons.attach(b2);
+		attach(buttons, b1);
+		attach(buttons, b2);
 		
 		Widget scores = gui.createBox();
 		for (int i=0; i<10; i++) {
 			Widget score = gui.createLabel("???");
-			scores.attach(score);
+			attach(scores, score);
 		}
 		
 		Widget frame = gui.createBox();
-		frame.attach(buttons);
-		frame.attach(scores);
-		frame.setPosition(30, 30);
+		attach(frame, buttons);
+		attach(frame, scores);
+		PositionData positionData = frame.getPositionData();
+		positionData.x = 30;
+		positionData.y = 30;
 
 		Entity camera = model.createCamera();
 		CameraData cameraData = model.cameraDataMap.get(camera);
@@ -82,6 +86,15 @@ public class Client {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	private void attach(Widget parent, Widget child) {
+		HierarchyData parentHierarchy = parent.getHierarchyData();
+		HierarchyData childHierarchy = child.getHierarchyData();
+		parentHierarchy.children.add(child);
+		childHierarchy.parent = parent;
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public void run() {
 		terminate = false;
