@@ -12,6 +12,7 @@ import ode.model.CameraData;
 import ode.model.Entity;
 import ode.model.KineticData;
 import ode.model.Model;
+import ode.model.PoseData;
 import ode.platform.Platform;
 import ode.schedule.Scheduler;
 
@@ -53,14 +54,26 @@ public class Client {
 		Entity camera = model.createCamera();
 		CameraData cameraData = model.cameraDataMap.get(camera);
 		cameraData.active = true;
-		
-		Entity body = model.createBody();
-		KineticData kineticData = model.kineticDataMap.get(body);
-		kineticData.velocity.set(0f, 0f, -.3f);
+		KineticData kineticCamData = model.kineticDataMap.get(camera);
+		kineticCamData.rotation.set(new AxisAngle4f(0, 0, -1, (float) Math.toRadians(15f)));
 
-		Vector3f nrm = new Vector3f(1, 1, 1);
-		nrm.normalize();
-		kineticData.rotation.set(new AxisAngle4f(nrm, (float) Math.toRadians(10f)));
+		for (int i=0; i<25; i++) {
+			Entity body = model.createBody();
+			PoseData poseData = model.poseDataMap.get(body);
+			poseData.location.set(0, 0, -5f);
+			KineticData kineticData = model.kineticDataMap.get(body);
+			float a = (float) ((Math.random() - .5) * 0.2);
+			float b = (float) ((Math.random() - .5) * 0.2);
+			float c = (float) (Math.random() * 0.2);
+			kineticData.velocity.set(a, b, -.5f - c);
+			Vector3f nrm = new Vector3f(
+				(float) (Math.random() - .5),
+				(float) (Math.random() - .5),
+				(float) (Math.random() - .5));
+			nrm.normalize();
+			float deg = (float) Math.random() * 90f;
+			kineticData.rotation.set(new AxisAngle4f(nrm, (float) Math.toRadians(deg)));
+		}
 		
 		scheduler.add(1000000000L / 100L, (n, p) -> model.update((float) (n*p) / 1000000000L ));
 		scheduler.add(1000000000L / 30L, (n, p) -> gui.update( (float) (n*p) / 1000000000L ));

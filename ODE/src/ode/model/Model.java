@@ -4,10 +4,14 @@ package ode.model;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+
+import javax.vecmath.Matrix4f;
 
 import ode.event.Events;
 import ode.platform.Graphics;
+import ode.util.ODEException;
 
 //*************************************************************************************************
 
@@ -73,7 +77,20 @@ public class Model {
 
 	//=============================================================================================
 	public void render(Graphics graphics) {
-		graphics.beginSceneMode();
+		Entity entity = null;
+		CameraData camData = null;
+		for (Entry<Entity, CameraData> entry : cameraDataMap.entrySet()) {
+			camData = entry.getValue();
+			if (camData.active) {
+				entity = entry.getKey();
+				break;
+			}
+		}
+		if (entity == null) throw new ODEException("No Active Camera");
+		PoseData poseData = entity.model.poseDataMap.get(entity);
+		Matrix4f camTransform = new Matrix4f(poseData.pose);
+		camTransform.transpose();
+		graphics.beginSceneMode(camTransform, camData.fov, camData.near, camData.far);
 		renderSystem.update(graphics);
 	}
 	//=============================================================================================

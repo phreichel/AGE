@@ -101,13 +101,13 @@ public class RenderSystem {
 		float h = widget.height;
 		graphics.pushTransform();
 		graphics.translate(x, y, z);
-		graphics.setColor(.4f, .4f, .4f);
+		graphics.setColor(1f, 1f, 1f);
 		graphics.fillRectangle(0, 0, w, h);
 		graphics.translate(0, 0, OFFSET);
 		graphics.setColor(.2f, .2f, .2f);
 		graphics.drawRectangle(0, 0, w, h);
 		graphics.translate(0, 0, OFFSET);
-		graphics.drawText(label, 0, 0, 0, w, h, 1, 1, 1);
+		graphics.drawText(label, 0, 0, 0, w, h, 0, 0, 0);
 		graphics.popTransform();
 	}
 	//=============================================================================================

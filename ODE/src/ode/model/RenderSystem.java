@@ -33,7 +33,7 @@ public class RenderSystem {
 		PoseData poseData = entity.model.poseDataMap.get(entity);
 		if (poseData != null) { 
 			graphics.pushTransform();
-			graphics.applyMatrix(poseData.pose);
+			graphics.multMatrix(poseData.pose);
 			graphics.setColor(1, 0, 0);
 			graphics.drawBox(-1,-1,-1, 1, 1, 1);
 			graphics.popTransform();

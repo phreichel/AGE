@@ -62,7 +62,7 @@ public class Graphics {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void beginSceneMode() {
+	public void beginSceneMode(Matrix4f camTransform, float fovy, float near, float far) {
 		gl.glEnable(GL2.GL_LIGHTING);
 		gl.glEnable(GL2.GL_LIGHT0);
 		gl.glEnable(GL2.GL_DEPTH_TEST);
@@ -72,9 +72,10 @@ public class Graphics {
 		gl.glMatrixMode(GL2.GL_PROJECTION);
 		gl.glLoadIdentity();
 		float aspect = (float) window.getSurfaceWidth() / window.getSurfaceHeight();
-		glu.gluPerspective(35f, aspect, 0.1f, 1000f);
+		glu.gluPerspective(fovy, aspect, near, far);
 		gl.glMatrixMode(GL2.GL_MODELVIEW);
 		gl.glLoadIdentity();
+		applyMatrix(camTransform);
 	}
 	//=============================================================================================
 
@@ -125,6 +126,28 @@ public class Graphics {
 		matrix[14] = m.m23;
 		matrix[15] = m.m33;
 		gl.glLoadMatrixf(matrix, 0);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void multMatrix(Matrix4f m) {
+		matrix[0] = m.m00;
+		matrix[1] = m.m10;
+		matrix[2] = m.m20;
+		matrix[3] = m.m30;
+		matrix[4] = m.m01;
+		matrix[5] = m.m11;
+		matrix[6] = m.m21;
+		matrix[7] = m.m31;
+		matrix[8] = m.m02;
+		matrix[9] = m.m12;
+		matrix[10] = m.m22;
+		matrix[11] = m.m32;
+		matrix[12] = m.m03;
+		matrix[13] = m.m13;
+		matrix[14] = m.m23;
+		matrix[15] = m.m33;
+		gl.glMultMatrixf(matrix, 0);
 	}
 	//=============================================================================================
 	
