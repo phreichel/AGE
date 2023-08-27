@@ -46,84 +46,42 @@ public class GUI {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private Widget createWidget() {
-		Widget widget = new Widget(this);
-		widgets.add(widget);
-		return widget;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
 	public Widget createBox() {
-		Widget widget = createWidget();
-		FlagsData flagsData = new FlagsData();
-		flagsMap.put(widget, flagsData);
-		PositionData positionData = new PositionData();
-		positionData.x = 10;
-		positionData.y = 10;
-		positionMap.put(widget, positionData);
-		DimensionData dimensionData = new DimensionData();
-		dimensionData.width = 100;
-		dimensionData.height = 100;
-		dimensionMap.put(widget, dimensionData);
-		HierarchyData hierarchyData = new HierarchyData();
-		hierarchyMap.put(widget, hierarchyData);
-		RenderData renderData = new RenderData();
-		renderData.type = RenderData.BOX;
-		renderMap.put(widget, renderData);
-		LayoutData layoutData = new LayoutData();
-		layoutMap.put(widget, layoutData);
-		return widget;
+		return (new WidgetBuilder(this))
+			.withFlagsData(FlagsData.DISPLAYED)
+			.withPositionData(10, 10)
+			.withDimensionData(100, 100)
+			.withHierarchyData()
+			.withRenderData(RenderData.BOX)
+			.withLayoutData(5, 5, 5, 5, 5, LayoutData.CENTER)
+			.build();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public Widget createLabel(String label) {
-		Widget widget = createWidget();
-		FlagsData flagsData = new FlagsData();
-		flagsMap.put(widget, flagsData);
-		PositionData positionData = new PositionData();
-		positionData.x = 0;
-		positionData.y = 0;
-		positionMap.put(widget, positionData);
-		DimensionData dimensionData = new DimensionData();
-		dimensionData.width = 200;
-		dimensionData.height = 20;
-		dimensionMap.put(widget, dimensionData);
-		HierarchyData hierarchyData = new HierarchyData();
-		hierarchyMap.put(widget, hierarchyData);
-		RenderData renderData = new RenderData();
-		renderData.type = RenderData.LABEL;
-		renderMap.put(widget, renderData);
-		textMap.put(widget, label);
-		return widget;
+		return (new WidgetBuilder(this))
+			.withFlagsData(FlagsData.DISPLAYED)
+			.withPositionData(0, 0)
+			.withDimensionData(200, 20)
+			.withHierarchyData()
+			.withRenderData(RenderData.LABEL)
+			.withTextData(label)
+			.build();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public Widget createButton(String label, Action action) {
-		Widget widget = createWidget();
-		FlagsData flagsData = new FlagsData();
-		flagsMap.put(widget, flagsData);
-		PositionData positionData = new PositionData();
-		positionData.x = 0;
-		positionData.y = 0;
-		positionMap.put(widget, positionData);
-		DimensionData dimensionData = new DimensionData();
-		dimensionData.width = 120;
-		dimensionData.height = 20;
-		dimensionMap.put(widget, dimensionData);
-		HierarchyData hierarchyData = new HierarchyData();
-		hierarchyMap.put(widget, hierarchyData);
-		RenderData renderData = new RenderData();
-		renderData.type = RenderData.BUTTON;
-		renderMap.put(widget, renderData);
-		textMap.put(widget, label);
-		ClickData clickData = new ClickData();
-		clickData.decay = 0;
-		clickData.action = action;
-		clickMap.put(widget,  clickData);
-		return widget;
+		return (new WidgetBuilder(this))
+			.withFlagsData(FlagsData.DISPLAYED)
+			.withPositionData(0, 0)
+			.withDimensionData(120, 20)
+			.withHierarchyData()
+			.withRenderData(RenderData.BUTTON)
+			.withTextData(label)
+			.withClickData(0, action)
+			.build();
 	}
 	//=============================================================================================
 	

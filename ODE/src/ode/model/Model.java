@@ -8,6 +8,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import javax.vecmath.Matrix4f;
+import javax.vecmath.Quat4f;
+import javax.vecmath.Vector3f;
 
 import ode.event.Events;
 import ode.platform.Graphics;
@@ -37,34 +39,21 @@ public class Model {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private Entity createEntity() {
-		Entity entity = new Entity(this);
-		entities.add(entity);
-		return entity;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
 	public Entity createCamera() {
-		Entity entity = createEntity();
-		KineticData kineticData = new KineticData();
-		kineticDataMap.put(entity, kineticData);
-		PoseData poseData = new PoseData();
-		poseDataMap.put(entity, poseData);
-		CameraData cameraData = new CameraData();
-		cameraDataMap.put(entity, cameraData);
-		return entity;
+		return new EntityBuilder(this)
+			.withPoseData(new Vector3f(), new Quat4f(0, 0, 0, 1))
+			.withKineticData(new Vector3f(), new Quat4f(0, 0, 0, 1))
+			.withCameraData(65f, .4f, 1000f, true)
+			.build();
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	public Entity createBody() {
-		Entity entity = createEntity();
-		KineticData kineticData = new KineticData();
-		kineticDataMap.put(entity, kineticData);
-		PoseData poseData = new PoseData();
-		poseDataMap.put(entity, poseData);
-		return entity;
+		return new EntityBuilder(this)
+			.withPoseData(new Vector3f(), new Quat4f(0, 0, 0, 1))
+			.withKineticData(new Vector3f(), new Quat4f(0, 0, 0, 1))
+			.build();
 	}
 	//=============================================================================================
 	
