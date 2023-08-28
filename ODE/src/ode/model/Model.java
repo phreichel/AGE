@@ -38,8 +38,8 @@ public class Model {
 
 	//=============================================================================================
 	private PoseSystem poseSystem = new PoseSystem(poseMap);
-	private LinearKineticSystem linearKineticSystem = new LinearKineticSystem(linearVelocityMap);
-	private RotationKineticSystem rotationKineticSystem = new RotationKineticSystem(rotationVelocityMap);
+	private KineticLinearSystem kineticLinearSystem = new KineticLinearSystem(linearVelocityMap);
+	private KineticAngularSystem kineticAngularSystem = new KineticAngularSystem(rotationVelocityMap);
 	private RenderSystem renderSystem = new RenderSystem(renderMap);
 	//=============================================================================================
 
@@ -90,8 +90,8 @@ public class Model {
 	
 	//=============================================================================================
 	public void update(float dT) {
-		linearKineticSystem.update(dT);
-		rotationKineticSystem.update(dT);
+		kineticLinearSystem.update(dT);
+		kineticAngularSystem.update(dT);
 		poseSystem.update();
 	}
 	//=============================================================================================

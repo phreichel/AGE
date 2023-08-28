@@ -28,8 +28,9 @@ public class GUI {
 	public final Map<Widget, Vector2f> dimensionMap = new HashMap<>();
 	public final Map<Widget, FlagData> flagsMap = new HashMap<>();
 	public final Map<Widget, HierarchyData> hierarchyMap = new HashMap<>();
-	public final Map<Widget, LayoutData> layoutMap = new HashMap<>();
+	public final Map<Widget, LayoutEnum> layoutMap = new HashMap<>();
 	public final Map<Widget, Inset> paddingMap = new HashMap<>();
+	public final Map<Widget, AlignEnum> alignMap = new HashMap<>();
 	public final Map<Widget, Vector2f> positionMap = new HashMap<>();
 	public final Map<Widget, RenderEnum> renderMap = new HashMap<>();
 	public final Map<Widget, String> textMap = new HashMap<>();
@@ -63,7 +64,8 @@ public class GUI {
 			.withDimensionData(100, 100)
 			.withHierarchyData()
 			.withRenderData(RenderEnum.BOX)
-			.withLayoutData(5, LayoutData.CENTER)
+			.withLayoutData(LayoutEnum.VERTICAL)
+			.withAlignData(AlignEnum.CENTER)
 			.withPaddingData(5,  5,  5,  5)
 			.build();
 	}
@@ -77,6 +79,7 @@ public class GUI {
 			.withDimensionData(200, 20)
 			.withHierarchyData()
 			.withRenderData(RenderEnum.LABEL)
+			.withAlignData(AlignEnum.CENTER)
 			.withTextData(label)
 			.build();
 	}
@@ -90,6 +93,7 @@ public class GUI {
 			.withDimensionData(120, 20)
 			.withHierarchyData()
 			.withRenderData(RenderEnum.BUTTON)
+			.withAlignData(AlignEnum.CENTER)
 			.withTextData(label)
 			.withTriggerData(TriggerEnum.LEFT_CLICK, action)
 			.build();

@@ -58,11 +58,15 @@ public class WidgetBuilder {
 	//=============================================================================================
 
 	//=============================================================================================
-	public WidgetBuilder withLayoutData(float spacing, int alignment) {
-		LayoutData layoutData = new LayoutData();
-		layoutData.spacing = spacing;
-		layoutData.alignment = alignment;
-		gui.layoutMap.put(widget, layoutData);
+	public WidgetBuilder withLayoutData(LayoutEnum layoutEnum) {
+		gui.layoutMap.put(widget, layoutEnum);
+		return this;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public WidgetBuilder withAlignData(AlignEnum alignment) {
+		gui.alignMap.put(widget, alignment);
 		return this;
 	}
 	//=============================================================================================

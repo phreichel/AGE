@@ -38,7 +38,7 @@ public class TriggerSystem implements Handler {
 
 	//=============================================================================================
 	private void handleDecay(float dT) {
-		final float TIME_FACTOR = 10f;
+		final float TIME_FACTOR = 5f;
 		for (Widget widget : widgets) {
 			TriggerData triggerData = widget.getTriggerData();
 			if (triggerData != null) {
@@ -50,9 +50,7 @@ public class TriggerSystem implements Handler {
 
 	//=============================================================================================
 	private void handleTrigger() {
-
 		if (clickDetected == null) return;
-
 		Widget active = getActiveWidget();
 		if (active != null) {
 			TriggerData triggerData = active.getTriggerData();
@@ -60,15 +58,13 @@ public class TriggerSystem implements Handler {
 				if (triggerData.decay < 0.001f) {
 					Action action = triggerData.actionMap.get(clickDetected);
 					if (action != null) {
+						triggerData.decay = 1f;
 						action.perform(active);
 					}
-					triggerData.decay = 1f;
 				} 
 			}
 		}
-	
 		clickDetected = null;
-		
 	}
 	//=============================================================================================
 

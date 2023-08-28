@@ -5,32 +5,35 @@ package ode.model;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javax.vecmath.Vector3f;
+import javax.vecmath.Quat4f;
 
 //*************************************************************************************************
-public class LinearKineticSystem {
+public class KineticAngularSystem {
 
 	//=============================================================================================
-	private Map<Entity, Vector3f> linearVelocityMap;
+	private Map<Entity, Quat4f> rotationVelocityMap;
 	//=============================================================================================
 
 	//=============================================================================================
-	public LinearKineticSystem(Map<Entity, Vector3f> linearVelocityMap) {
-		this.linearVelocityMap = linearVelocityMap;
+	public KineticAngularSystem(Map<Entity, Quat4f> rotationVelocityMap) {
+		this.rotationVelocityMap = rotationVelocityMap;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void update(float dT) {
-		Vector3f locationChangeRate = new Vector3f();
-		for (Entry<Entity, Vector3f> entry : linearVelocityMap.entrySet()) {
+		Quat4f orientationChangeRate = new Quat4f();
+		for (Entry<Entity, Quat4f> entry : rotationVelocityMap.entrySet()) {
 			Entity entity = entry.getKey();
-			Vector3f linearVelocityData = entry.getValue();
+			Quat4f rotationVelocityData = entry.getValue();
 
-			Vector3f positionData = entity.getPositionData();
-			if (positionData != null) {
-				locationChangeRate.scale(dT * .5f, linearVelocityData);
-				positionData.add(locationChangeRate);
+			Quat4f orientationData = entity.getOrientationData();
+			if (orientationData != null) {
+				rotationVelocityData.normalize();
+				orientationChangeRate.scale(dT, rotationVelocityData);
+				orientationChangeRate.w = 1f;
+				orientationData.mul(orientationChangeRate, orientationData);
+				orientationData.normalize();
 			}
 		}
 	}
