@@ -4,6 +4,8 @@ package ode.gui;
 
 import javax.vecmath.Vector2f;
 
+import ode.util.Inset;
+
 //*************************************************************************************************
 public class WidgetBuilder {
 
@@ -93,7 +95,7 @@ public class WidgetBuilder {
 
 	//=============================================================================================
 	public WidgetBuilder withPaddingData(float top, float bottom, float left, float right) {
-		InsetData paddingData = new InsetData();
+		Inset paddingData = new Inset();
 		paddingData.top = top;
 		paddingData.bottom = bottom;
 		paddingData.left = left;

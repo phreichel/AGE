@@ -4,6 +4,8 @@ package ode.gui;
 
 import javax.vecmath.Vector2f;
 
+import ode.util.Inset;
+
 //*************************************************************************************************
 public class LayoutData {
 
@@ -30,7 +32,7 @@ public class LayoutData {
 	private void perform(Widget widget) {
 		Vector2f widgetDimensionData = widget.getDimensionData();
 		HierarchyData hierarchyData = widget.getHierarchyData();
-		InsetData paddingData = widget.getPaddingData();
+		Inset paddingData = widget.getPaddingData();
 		float offset = paddingData.top;
 		float maxwidth = 0f;
 		for (Widget child : hierarchyData.children) {
