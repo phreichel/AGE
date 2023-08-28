@@ -46,10 +46,16 @@ public class GUI {
 		events.register(Event.MOUSE_MOVED, hoverSystem);
 	}
 	//=============================================================================================
+
+	//=============================================================================================
+	public WidgetBuilder build() {
+		return new WidgetBuilder(this);
+	}
+	//=============================================================================================
 	
 	//=============================================================================================
 	public Widget createBox() {
-		return (new WidgetBuilder(this))
+		return build()
 			.withFlagsData(FlagsData.DISPLAYED)
 			.withPositionData(10, 10)
 			.withDimensionData(100, 100)
@@ -62,7 +68,7 @@ public class GUI {
 
 	//=============================================================================================
 	public Widget createLabel(String label) {
-		return (new WidgetBuilder(this))
+		return build()
 			.withFlagsData(FlagsData.DISPLAYED)
 			.withPositionData(0, 0)
 			.withDimensionData(200, 20)
@@ -75,7 +81,7 @@ public class GUI {
 
 	//=============================================================================================
 	public Widget createButton(String label, Action action) {
-		return (new WidgetBuilder(this))
+		return build()
 			.withFlagsData(FlagsData.DISPLAYED)
 			.withPositionData(0, 0)
 			.withDimensionData(120, 20)
