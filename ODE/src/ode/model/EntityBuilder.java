@@ -1,6 +1,7 @@
 //*************************************************************************************************
 package ode.model;
 
+import javax.vecmath.Matrix4f;
 import javax.vecmath.Quat4f;
 import javax.vecmath.Vector3f;
 
@@ -35,23 +36,89 @@ public class EntityBuilder {
 	//=============================================================================================
 
 	//=============================================================================================
-	public EntityBuilder withKineticData(Vector3f velocity, Quat4f rotation) {
-		KineticData kineticData = new KineticData();
-		kineticData.velocity.set(velocity);
-		kineticData.rotation.set(rotation);
-		model.kineticDataMap.put(entity, kineticData);
+	public EntityBuilder withLinearVelocityData() {
+		Vector3f linearVelocityData = new Vector3f();
+		model.linearVelocityDataMap.put(entity, linearVelocityData);
+		return this;		
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public EntityBuilder withLinearVelocityData(Vector3f linearVelocity) {
+		Vector3f linearVelocityData = new Vector3f(linearVelocity);
+		model.linearVelocityDataMap.put(entity, linearVelocityData);
 		return this;		
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public EntityBuilder withPoseData(Vector3f location, Quat4f orientation) {
-		PoseData poseData = new PoseData();
-		poseData.location.set(location);
-		poseData.orientation.set(orientation);
-		poseData.pose.setIdentity();
-		poseData.pose.setRotation(orientation);
-		poseData.pose.setTranslation(location);
+	public EntityBuilder withLinearVelocityData(float vx, float vy, float vz) {
+		Vector3f linearVelocityData = new Vector3f(vx, vy, vz);
+		model.linearVelocityDataMap.put(entity, linearVelocityData);
+		return this;		
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public EntityBuilder withRotationVelocityData() {
+		Quat4f rotationVelocityData = new Quat4f(0, 0, 0, 1);
+		model.rotationVelocityDataMap.put(entity, rotationVelocityData);
+		return this;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public EntityBuilder withRotationVelocityData(Quat4f rotationVelocity) {
+		Quat4f rotationVelocityData = new Quat4f(rotationVelocity);
+		model.rotationVelocityDataMap.put(entity, rotationVelocityData);
+		return this;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public EntityBuilder withPositionData() {
+		Vector3f positionData = new Vector3f();
+		model.positionDataMap.put(entity, positionData);
+		return this;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public EntityBuilder withPositionData(Vector3f position) {
+		Vector3f positionData = new Vector3f(position);
+		model.positionDataMap.put(entity, positionData);
+		return this;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public EntityBuilder withPositionData(float x, float y, float z) {
+		Vector3f positionData = new Vector3f(x, y, z);
+		model.positionDataMap.put(entity, positionData);
+		return this;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public EntityBuilder withOrientationData() {
+		Quat4f orientationData = new Quat4f(0, 0, 0, 1);
+		model.orientationDataMap.put(entity, orientationData);
+		return this;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public EntityBuilder withOrientationData(Quat4f orientation) {
+		Quat4f orientationData = new Quat4f(orientation);
+		model.orientationDataMap.put(entity, orientationData);
+		return this;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public EntityBuilder withPoseData() {
+		Matrix4f poseData = new Matrix4f();
+		poseData.setIdentity();
 		model.poseDataMap.put(entity, poseData);
 		return this;		
 	}

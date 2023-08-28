@@ -28,21 +28,28 @@ public class Model {
 	//=============================================================================================
 	public Set<Entity> entities = new HashSet<>();
 	public Map<Entity, CameraData> cameraDataMap = new HashMap<>();
-	public Map<Entity, PoseData> poseDataMap = new HashMap<>();
-	public Map<Entity, KineticData> kineticDataMap = new HashMap<>();
+	public Map<Entity, Vector3f> positionDataMap = new HashMap<>();
+	public Map<Entity, Quat4f> orientationDataMap = new HashMap<>();
+	public Map<Entity, Matrix4f> poseDataMap = new HashMap<>();
+	public Map<Entity, Vector3f> linearVelocityDataMap = new HashMap<>();
+	public Map<Entity, Quat4f> rotationVelocityDataMap = new HashMap<>();
 	//=============================================================================================
 
 	//=============================================================================================
 	private PoseSystem poseSystem = new PoseSystem(poseDataMap);
-	private KineticSystem kineticSystem = new KineticSystem(poseDataMap, kineticDataMap);
+	private LinearKineticSystem linearKineticSystem = new LinearKineticSystem(linearVelocityDataMap);
+	private RotationKineticSystem rotationKineticSystem = new RotationKineticSystem(rotationVelocityDataMap);
 	private RenderSystem renderSystem = new RenderSystem(entities);
 	//=============================================================================================
 	
 	//=============================================================================================
 	public Entity createCamera() {
 		return new EntityBuilder(this)
-			.withPoseData(new Vector3f(), new Quat4f(0, 0, 0, 1))
-			.withKineticData(new Vector3f(), new Quat4f(0, 0, 0, 1))
+			.withPositionData()
+			.withOrientationData()
+			.withPoseData()
+			.withLinearVelocityData()
+			.withRotationVelocityData()
 			.withCameraData(65f, .4f, 1000f, true)
 			.build();
 	}
@@ -51,15 +58,19 @@ public class Model {
 	//=============================================================================================
 	public Entity createBody() {
 		return new EntityBuilder(this)
-			.withPoseData(new Vector3f(), new Quat4f(0, 0, 0, 1))
-			.withKineticData(new Vector3f(), new Quat4f(0, 0, 0, 1))
+			.withPositionData()
+			.withOrientationData()
+			.withPoseData()
+			.withLinearVelocityData()
+			.withRotationVelocityData()
 			.build();
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	public void update(float dT) {
-		kineticSystem.update(dT);
+		linearKineticSystem.update(dT);
+		rotationKineticSystem.update(dT);
 		poseSystem.update();
 	}
 	//=============================================================================================
@@ -76,8 +87,7 @@ public class Model {
 			}
 		}
 		if (entity == null) throw new ODEException("No Active Camera");
-		PoseData poseData = entity.getPoseData();
-		Matrix4f camTransform = new Matrix4f(poseData.pose);
+		Matrix4f camTransform = new Matrix4f(entity.getPoseData());
 		camTransform.transpose();
 		graphics.beginSceneMode(camTransform, camData.fov, camData.near, camData.far);
 		renderSystem.update(graphics);

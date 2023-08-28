@@ -5,41 +5,33 @@ package ode.model;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javax.vecmath.Quat4f;
 import javax.vecmath.Vector3f;
 
 //*************************************************************************************************
-public class KineticSystem {
+public class LinearKineticSystem {
 
 	//=============================================================================================
-	private Map<Entity, PoseData> poseDataMap;
-	private Map<Entity, KineticData> kineticDataMap;
+	private Map<Entity, Vector3f> linearVelocityDataMap;
 	//=============================================================================================
 
 	//=============================================================================================
-	public KineticSystem(
-			Map<Entity, PoseData> poseDataMap,
-			Map<Entity, KineticData> kineticDataMap) {
-		this.poseDataMap = poseDataMap;
-		this.kineticDataMap = kineticDataMap;
+	public LinearKineticSystem(Map<Entity, Vector3f> linearVelocityDataMap) {
+		this.linearVelocityDataMap = linearVelocityDataMap;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void update(float dT) {
-		Vector3f locationRate = new Vector3f();
-		Quat4f   orientationRate = new Quat4f();
-		for (Entry<Entity, KineticData> entry : kineticDataMap.entrySet()) {
+		Vector3f locationChangeRate = new Vector3f();
+		for (Entry<Entity, Vector3f> entry : linearVelocityDataMap.entrySet()) {
 			Entity entity = entry.getKey();
-			KineticData kineticData = entry.getValue();
-			PoseData poseData = poseDataMap.get(entity);
-			locationRate.scale(dT * .5f, kineticData.velocity);
-			poseData.location.add(locationRate);
-			kineticData.rotation.normalize();
-			orientationRate.scale(dT, kineticData.rotation);
-			orientationRate.w = 1f;
-			poseData.orientation.mul(orientationRate, poseData.orientation);
-			poseData.orientation.normalize();
+			Vector3f linearVelocityData = entry.getValue();
+
+			Vector3f positionData = entity.getPositionData();
+			if (positionData != null) {
+				locationChangeRate.scale(dT * .5f, linearVelocityData);
+				positionData.add(locationChangeRate);
+			}
 		}
 	}
 	//=============================================================================================

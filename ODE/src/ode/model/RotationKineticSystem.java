@@ -5,33 +5,36 @@ package ode.model;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javax.vecmath.Matrix4f;
 import javax.vecmath.Quat4f;
-import javax.vecmath.Vector3f;
 
 //*************************************************************************************************
-public class PoseSystem {
+public class RotationKineticSystem {
 
 	//=============================================================================================
-	private Map<Entity, Matrix4f> poseDataMap;
+	private Map<Entity, Quat4f> rotationVelocityDataMap;
 	//=============================================================================================
 
 	//=============================================================================================
-	public PoseSystem(Map<Entity, Matrix4f> poseDataMap) {
-		this.poseDataMap = poseDataMap;
+	public RotationKineticSystem(Map<Entity, Quat4f> rotationVelocityDataMap) {
+		this.rotationVelocityDataMap = rotationVelocityDataMap;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void update() {
-		for (Entry<Entity, Matrix4f> entry : poseDataMap.entrySet()) {
+	public void update(float dT) {
+		Quat4f orientationChangeRate = new Quat4f();
+		for (Entry<Entity, Quat4f> entry : rotationVelocityDataMap.entrySet()) {
 			Entity entity = entry.getKey();
-			Matrix4f poseData = entry.getValue();
-			Vector3f position = entity.getPositionData();
-			Quat4f orientation = entity.getOrientationData();
-			poseData.setIdentity();
-			if (position != null) poseData.setTranslation(position);
-			if (orientation != null) poseData.setRotation(orientation);
+			Quat4f rotationVelocityData = entry.getValue();
+
+			Quat4f orientationData = entity.getOrientationData();
+			if (orientationData != null) {
+				rotationVelocityData.normalize();
+				orientationChangeRate.scale(dT, rotationVelocityData);
+				orientationChangeRate.w = 1f;
+				orientationData.mul(orientationChangeRate, orientationData);
+				orientationData.normalize();
+			}
 		}
 	}
 	//=============================================================================================

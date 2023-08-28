@@ -4,6 +4,8 @@ package ode.model;
 
 import java.util.Set;
 
+import javax.vecmath.Matrix4f;
+
 import ode.platform.Graphics;
 
 //*************************************************************************************************
@@ -30,10 +32,10 @@ public class RenderSystem {
 
 	//=============================================================================================
 	private void update(Graphics graphics ,Entity entity) {
-		PoseData poseData = entity.getPoseData();
+		Matrix4f poseData = entity.getPoseData();
 		if (poseData != null) { 
 			graphics.pushTransform();
-			graphics.multMatrix(poseData.pose);
+			graphics.multMatrix(poseData);
 			graphics.setColor(1, 0, 0);
 			graphics.drawBox(-1,-1,-1, 1, 1, 1);
 			graphics.popTransform();
