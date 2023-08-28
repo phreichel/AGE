@@ -7,6 +7,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import javax.vecmath.Vector2f;
+
 import ode.event.Event;
 import ode.event.Events;
 import ode.platform.Graphics;
@@ -22,11 +24,11 @@ public class GUI {
 	//=============================================================================================
 	public final Set<Widget> widgets = new HashSet<>();
 	public final Map<Widget, ClickData> clickMap = new HashMap<>();
-	public final Map<Widget, DimensionData> dimensionMap = new HashMap<>();
+	public final Map<Widget, Vector2f> dimensionMap = new HashMap<>();
 	public final Map<Widget, FlagsData> flagsMap = new HashMap<>();
 	public final Map<Widget, HierarchyData> hierarchyMap = new HashMap<>();
 	public final Map<Widget, LayoutData> layoutMap = new HashMap<>();
-	public final Map<Widget, PositionData> positionMap = new HashMap<>();
+	public final Map<Widget, Vector2f> positionMap = new HashMap<>();
 	public final Map<Widget, RenderData> renderMap = new HashMap<>();
 	public final Map<Widget, String> textMap = new HashMap<>();
 	//=============================================================================================

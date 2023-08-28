@@ -2,6 +2,8 @@
 package ode.gui;
 //*************************************************************************************************
 
+import javax.vecmath.Vector2f;
+
 //*************************************************************************************************
 public class LayoutData {
 
@@ -30,7 +32,7 @@ public class LayoutData {
 
 	//=============================================================================================
 	private void perform(Widget widget) {
-		DimensionData widgetDimensionData = widget.getDimensionData();
+		Vector2f widgetDimensionData = widget.getDimensionData();
 		LayoutData data = widget.getLayoutData();
 		HierarchyData hierarchyData = widget.getHierarchyData();
 		float offset = data.padding_top;
@@ -38,25 +40,25 @@ public class LayoutData {
 		for (Widget child : hierarchyData.children) {
 			FlagsData flagsData = widget.getFlagsData();
 			if (!flagsData.flags.get(FlagsData.DISPLAYED)) continue;
-			DimensionData dimensionData = child.getDimensionData();
-			PositionData positionData = child.getPositionData();
+			Vector2f dimensionData = child.getDimensionData();
+			Vector2f positionData = child.getPositionData();
 			positionData.x = data.padding_left;
 			positionData.y = offset;
-			offset += dimensionData.height;
+			offset += dimensionData.y;
 			offset += spacing;
-			maxwidth = Math.max(maxwidth, dimensionData.width);
+			maxwidth = Math.max(maxwidth, dimensionData.x);
 		}
 		if ((alignment == CENTER) || (alignment == END)) {
 			for (Widget child : hierarchyData.children) {
-				DimensionData dimensionData = child.getDimensionData();
-				PositionData positionData = child.getPositionData();
-				float xalign = maxwidth - dimensionData.width;
+				Vector2f dimensionData = child.getDimensionData();
+				Vector2f positionData = child.getPositionData();
+				float xalign = maxwidth - dimensionData.x;
 				if (alignment == CENTER) xalign *= .5f;
 				positionData.x += xalign;
 			}
 		}
-		widgetDimensionData.width = data.padding_left + maxwidth + data.padding_right;
-		widgetDimensionData.height = offset - spacing + padding_bottom;
+		widgetDimensionData.x = data.padding_left + maxwidth + data.padding_right;
+		widgetDimensionData.y = offset - spacing + padding_bottom;
 	}
 	//=============================================================================================
 	

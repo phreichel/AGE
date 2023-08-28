@@ -5,6 +5,8 @@ package ode.gui;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import javax.vecmath.Vector2f;
+
 import ode.platform.Graphics;
 
 //*************************************************************************************************
@@ -44,13 +46,13 @@ public class RenderSystem {
 
 	//=============================================================================================
 	private void renderBox(Widget widget, Graphics graphics) {
-		DimensionData dimensionData = widget.getDimensionData();
+		Vector2f dimensionData = widget.getDimensionData();
 		float[] globalPosition = getGlobalPosition(widget, new float[] {0, 0, 0});
 		float x = globalPosition[0];
 		float y = globalPosition[1];
 		float z = globalPosition[2] * FACTOR;	
-		float w = dimensionData.width;
-		float h = dimensionData.height;
+		float w = dimensionData.x;
+		float h = dimensionData.y;
 		graphics.pushTransform();
 		graphics.translate(x, y, z);
 		graphics.setColor(.3f, .3f, .5f);
@@ -65,15 +67,15 @@ public class RenderSystem {
 	//=============================================================================================
 	private void renderButton(Widget widget, Graphics graphics) {
 		ClickData clickData = widget.getClickData();
-		DimensionData dimensionData = widget.getDimensionData();
+		Vector2f dimensionData = widget.getDimensionData();
 		FlagsData flagsData = widget.getFlagsData();
 		String label = widget.getTextData();
 		float[] globalPosition = getGlobalPosition(widget, new float[] {0, 0, 0});
 		float x = globalPosition[0];
 		float y = globalPosition[1];
 		float z = globalPosition[2] * FACTOR;	
-		float w = dimensionData.width;
-		float h = dimensionData.height;
+		float w = dimensionData.x;
+		float h = dimensionData.y;
 		graphics.pushTransform();
 		graphics.translate(x, y, z);
 		if (!flagsData.flags.get(FlagsData.HOVER)) {
@@ -98,14 +100,14 @@ public class RenderSystem {
 
 	//=============================================================================================
 	private void renderLabel(Widget widget, Graphics graphics) {
-		DimensionData dimensionData = widget.getDimensionData();
+		Vector2f dimensionData = widget.getDimensionData();
 		String label = widget.getTextData();
 		float[] globalPosition = getGlobalPosition(widget, new float[] {0, 0, 0});
 		float x = globalPosition[0];
 		float y = globalPosition[1];
 		float z = globalPosition[2] * FACTOR;	
-		float w = dimensionData.width;
-		float h = dimensionData.height;
+		float w = dimensionData.x;
+		float h = dimensionData.y;
 		graphics.pushTransform();
 		graphics.translate(x, y, z);
 		graphics.setColor(1f, 1f, 1f);
@@ -123,7 +125,7 @@ public class RenderSystem {
 	private float[] getGlobalPosition(Widget widget, float[] target) {
 		if (widget == null) return target;
 		HierarchyData hierarchyData = widget.getHierarchyData();
-		PositionData positionData = widget.getPositionData();
+		Vector2f positionData = widget.getPositionData();
 		target[0] += positionData.x;
 		target[1] += positionData.y;
 		target[2] += 1;

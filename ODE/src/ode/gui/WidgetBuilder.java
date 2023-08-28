@@ -2,6 +2,8 @@
 package ode.gui;
 //*************************************************************************************************
 
+import javax.vecmath.Vector2f;
+
 //*************************************************************************************************
 public class WidgetBuilder {
 
@@ -31,9 +33,7 @@ public class WidgetBuilder {
 	
 	//=============================================================================================
 	public WidgetBuilder withPositionData(float x, float y) {
-		PositionData positionData = new PositionData();
-		positionData.x = x;
-		positionData.y = y;
+		Vector2f positionData = new Vector2f(x, y);
 		gui.positionMap.put(widget, positionData);
 		return this;
 	}
@@ -41,9 +41,7 @@ public class WidgetBuilder {
 	
 	//=============================================================================================
 	public WidgetBuilder withDimensionData(float width, float height) {
-		DimensionData dimensionData = new DimensionData();
-		dimensionData.width = width;
-		dimensionData.height = height;
+		Vector2f dimensionData = new Vector2f(width, height);
 		gui.dimensionMap.put(widget, dimensionData);
 		return this;
 	}

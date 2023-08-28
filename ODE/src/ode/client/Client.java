@@ -4,12 +4,12 @@ package ode.client;
 
 import javax.vecmath.AxisAngle4f;
 import javax.vecmath.Quat4f;
+import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
 
 import ode.event.Events;
 import ode.gui.GUI;
 import ode.gui.HierarchyData;
-import ode.gui.PositionData;
 import ode.gui.Widget;
 import ode.model.CameraData;
 import ode.model.Entity;
@@ -50,9 +50,8 @@ public class Client {
 		Widget frame = gui.createBox();
 		attach(frame, buttons);
 		attach(frame, scores);
-		PositionData positionData = frame.getPositionData();
-		positionData.x = 30;
-		positionData.y = 30;
+		Vector2f positionData = frame.getPositionData();
+		positionData.set(30, 30);
 
 		Entity camera = model.createCamera();
 		

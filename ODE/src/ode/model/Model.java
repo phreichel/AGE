@@ -41,10 +41,16 @@ public class Model {
 	private RotationKineticSystem rotationKineticSystem = new RotationKineticSystem(rotationVelocityDataMap);
 	private RenderSystem renderSystem = new RenderSystem(entities);
 	//=============================================================================================
+
+	//=============================================================================================
+	public EntityBuilder build() {
+		return new EntityBuilder(this);
+	}
+	//=============================================================================================
 	
 	//=============================================================================================
 	public Entity createCamera() {
-		return new EntityBuilder(this)
+		return build()
 			.withPositionData()
 			.withOrientationData()
 			.withPoseData()
@@ -57,13 +63,25 @@ public class Model {
 	
 	//=============================================================================================
 	public Entity createBody() {
-		return new EntityBuilder(this)
+		return build()
 			.withPositionData()
 			.withOrientationData()
 			.withPoseData()
 			.withLinearVelocityData()
 			.withRotationVelocityData()
 			.build();
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void remove(Entity entity) {
+		entities.remove(entity);
+		cameraDataMap.remove(entity);
+		positionDataMap.remove(entity);
+		poseDataMap.remove(entity);
+		orientationDataMap.remove(entity);
+		linearVelocityDataMap.remove(entity);
+		rotationVelocityDataMap.remove(entity);
 	}
 	//=============================================================================================
 	
