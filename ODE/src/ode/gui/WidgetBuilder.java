@@ -56,12 +56,8 @@ public class WidgetBuilder {
 	//=============================================================================================
 
 	//=============================================================================================
-	public WidgetBuilder withLayoutData(float top, float bottom, float left, float right, float spacing, int alignment) {
+	public WidgetBuilder withLayoutData(float spacing, int alignment) {
 		LayoutData layoutData = new LayoutData();
-		layoutData.padding_top = top;
-		layoutData.padding_bottom = bottom;
-		layoutData.padding_left = left;
-		layoutData.padding_right = right;
 		layoutData.spacing = spacing;
 		layoutData.alignment = alignment;
 		gui.layoutMap.put(widget, layoutData);
@@ -91,6 +87,18 @@ public class WidgetBuilder {
 			gui.triggerMap.put(widget, triggerData);
 		}
 		triggerData.actionMap.put(trigger, action);
+		return this;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public WidgetBuilder withPaddingData(float top, float bottom, float left, float right) {
+		InsetData paddingData = new InsetData();
+		paddingData.top = top;
+		paddingData.bottom = bottom;
+		paddingData.left = left;
+		paddingData.right = right;
+		gui.paddingMap.put(widget, paddingData);
 		return this;
 	}
 	//=============================================================================================

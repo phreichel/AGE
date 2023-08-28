@@ -17,11 +17,7 @@ public class LayoutData {
 	public static final int END = inc++;
 	//=============================================================================================
 	
-	//=============================================================================================
-	public float padding_top = 5f;
-	public float padding_bottom = 5f;
-	public float padding_left = 5f;
-	public float padding_right = 5f;
+	//============================================================================================s=
 	public float spacing   = 5f;
 	public int   alignment = CENTER;
 	//=============================================================================================
@@ -33,16 +29,16 @@ public class LayoutData {
 	//=============================================================================================
 	private void perform(Widget widget) {
 		Vector2f widgetDimensionData = widget.getDimensionData();
-		LayoutData data = widget.getLayoutData();
 		HierarchyData hierarchyData = widget.getHierarchyData();
-		float offset = data.padding_top;
+		InsetData paddingData = widget.getPaddingData();
+		float offset = paddingData.top;
 		float maxwidth = 0f;
 		for (Widget child : hierarchyData.children) {
 			FlagData flagsData = widget.getFlagsData();
 			if (!flagsData.flags.contains(FlagEnum.DISPLAYED)) continue;
 			Vector2f dimensionData = child.getDimensionData();
 			Vector2f positionData = child.getPositionData();
-			positionData.x = data.padding_left;
+			positionData.x = paddingData.left;
 			positionData.y = offset;
 			offset += dimensionData.y;
 			offset += spacing;
@@ -57,8 +53,8 @@ public class LayoutData {
 				positionData.x += xalign;
 			}
 		}
-		widgetDimensionData.x = data.padding_left + maxwidth + data.padding_right;
-		widgetDimensionData.y = offset - spacing + padding_bottom;
+		widgetDimensionData.x = paddingData.left + maxwidth + paddingData.right;
+		widgetDimensionData.y = offset - spacing + paddingData.bottom;
 	}
 	//=============================================================================================
 	

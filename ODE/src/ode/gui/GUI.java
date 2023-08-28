@@ -28,6 +28,7 @@ public class GUI {
 	public final Map<Widget, FlagData> flagsMap = new HashMap<>();
 	public final Map<Widget, HierarchyData> hierarchyMap = new HashMap<>();
 	public final Map<Widget, LayoutData> layoutMap = new HashMap<>();
+	public final Map<Widget, InsetData> paddingMap = new HashMap<>();
 	public final Map<Widget, Vector2f> positionMap = new HashMap<>();
 	public final Map<Widget, RenderEnum> renderMap = new HashMap<>();
 	public final Map<Widget, String> textMap = new HashMap<>();
@@ -61,7 +62,8 @@ public class GUI {
 			.withDimensionData(100, 100)
 			.withHierarchyData()
 			.withRenderData(RenderEnum.BOX)
-			.withLayoutData(5, 5, 5, 5, 5, LayoutData.CENTER)
+			.withLayoutData(5, LayoutData.CENTER)
+			.withPaddingData(5,  5,  5,  5)
 			.build();
 	}
 	//=============================================================================================
