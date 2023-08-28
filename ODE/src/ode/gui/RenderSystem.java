@@ -69,7 +69,7 @@ public class RenderSystem {
 
 	//=============================================================================================
 	private void renderButton(Widget widget, Graphics graphics) {
-		ClickData clickData = widget.getClickData();
+		TriggerData clickData = widget.getTriggerData();
 		Vector2f dimensionData = widget.getDimensionData();
 		FlagData flagsData = widget.getFlagsData();
 		String label = widget.getTextData();

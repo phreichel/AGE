@@ -23,7 +23,7 @@ public class GUI {
 	
 	//=============================================================================================
 	public final Set<Widget> widgets = new HashSet<>();
-	public final Map<Widget, ClickData> clickMap = new HashMap<>();
+	public final Map<Widget, TriggerData> triggerMap = new HashMap<>();
 	public final Map<Widget, Vector2f> dimensionMap = new HashMap<>();
 	public final Map<Widget, FlagData> flagsMap = new HashMap<>();
 	public final Map<Widget, HierarchyData> hierarchyMap = new HashMap<>();
@@ -36,7 +36,7 @@ public class GUI {
 	//=============================================================================================
 	private RenderSystem renderSystem = new RenderSystem(renderMap);
 	private HoverSystem hoverSystem = new HoverSystem(widgets);
-	private ClickSystem clickSystem = new ClickSystem(widgets, clickMap);
+	private TriggerSystem clickSystem = new TriggerSystem(widgets);
 	private LayoutSystem layoutSystem = new LayoutSystem(layoutMap);
 	//=============================================================================================
 
@@ -88,7 +88,7 @@ public class GUI {
 			.withHierarchyData()
 			.withRenderData(RenderEnum.BUTTON)
 			.withTextData(label)
-			.withClickData(0, action)
+			.withTriggerData(TriggerEnum.LEFT_CLICK, action)
 			.build();
 	}
 	//=============================================================================================

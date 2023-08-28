@@ -2,7 +2,6 @@
 package ode.gui;
 //*************************************************************************************************
 
-import java.util.Map;
 import java.util.Set;
 
 import javax.vecmath.Vector2f;
@@ -12,42 +11,69 @@ import ode.event.Handler;
 import ode.event.PointerData;
 
 //*************************************************************************************************
-public class ClickSystem implements Handler {
+public class TriggerSystem implements Handler {
 
 	//=============================================================================================
 	private Set<Widget> widgets;
-	private Map<Widget, ClickData> clickDataMap;
 	//=============================================================================================
 
 	//=============================================================================================
-	public ClickSystem(Set<Widget> widgets, Map<Widget, ClickData> clickDataMap) {
+	public TriggerSystem(Set<Widget> widgets) {
 		this.widgets = widgets;
-		this.clickDataMap = clickDataMap;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private boolean clickDetected = false;
+	private TriggerEnum clickDetected = null;
 	private float pointer_x;
 	private float pointer_y;
 	//=============================================================================================
 	
 	//=============================================================================================
 	public void update(float dT) {
+		handleDecay(dT);
+		handleTrigger();
+	}
+	//=============================================================================================
 
+	//=============================================================================================
+	private void handleDecay(float dT) {
+		final float TIME_FACTOR = 10f;
 		for (Widget widget : widgets) {
-			ClickData clickData = clickDataMap.get(widget);
-			if (clickData != null) {
-				if (clickData.decay != 0) {
-					clickData.decay -= dT * 8;
-					clickData.decay = Math.max(0f, clickData.decay);
-				}
+			TriggerData triggerData = widget.getTriggerData();
+			if (triggerData != null) {
+				triggerData.decay = Math.max(0f, triggerData.decay - dT * TIME_FACTOR);
 			}
 		}
+	}
+	//=============================================================================================
 
-		if (!clickDetected) return;
-		clickDetected = false;
+	//=============================================================================================
+	private void handleTrigger() {
 
+		if (clickDetected == null) return;
+
+		Widget active = getActiveWidget();
+		if (active != null) {
+			TriggerData triggerData = active.getTriggerData();
+			if (triggerData != null) {
+				if (triggerData.decay < 0.001f) {
+					Action action = triggerData.actionMap.get(clickDetected);
+					if (action != null) {
+						action.perform(active);
+					}
+					triggerData.decay = 1f;
+				} 
+			}
+		}
+	
+		clickDetected = null;
+		
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private Widget getActiveWidget() {
 		float z = -1;
 		Widget active = null;
 		for (Widget widget : widgets) {
@@ -60,18 +86,10 @@ public class ClickSystem implements Handler {
 				}
 			}
 		}
-		
-		ClickData clickData = clickDataMap.get(active);
-		if (clickData != null) {
-			if (clickData.decay == 0f) {
-				clickData.decay = 1f;
-				clickData.action.perform(active);
-			} 
-		}
-		
+		return active;
 	}
 	//=============================================================================================
-
+	
 	//=============================================================================================
 	private boolean isInside(Widget widget, float[] globalPosition, float x, float y) {
 		Vector2f dimensionData = widget.getDimensionData();
@@ -98,12 +116,21 @@ public class ClickSystem implements Handler {
 	//=============================================================================================
 	public void handle(Event event) {
 		if (event.type != Event.MOUSE_CLICKED) return;
+		if (clickDetected != null) return;
 		PointerData pointerData = (PointerData) event.data[0];
-		if (pointerData.button != PointerData.BUTTON1) return;
-		if (pointerData.count < 1) return;
 		pointer_x = pointerData.x;
 		pointer_y = pointerData.y;
-		clickDetected = true;
+		if (pointerData.button == PointerData.BUTTON1 && pointerData.count == 1) {
+			clickDetected = TriggerEnum.LEFT_CLICK;
+		} else if (pointerData.button == PointerData.BUTTON1 && pointerData.count == 2) {
+			clickDetected = TriggerEnum.LEFT_DOUBLE_CLICK;
+		} else if (pointerData.button == PointerData.BUTTON2 && pointerData.count == 1) {
+			clickDetected = TriggerEnum.RIGHT_CLICK;
+		} else if (pointerData.button == PointerData.BUTTON2 && pointerData.count == 2) {
+			clickDetected = TriggerEnum.RIGHT_DOUBLE_CLICK;
+		} else if (pointerData.button == PointerData.BUTTON3 && pointerData.count == 1) {
+			clickDetected = TriggerEnum.MIDDLE_CLICK;
+		}
 	}
 	//=============================================================================================
 	

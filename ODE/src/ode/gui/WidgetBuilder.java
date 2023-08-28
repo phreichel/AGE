@@ -84,11 +84,13 @@ public class WidgetBuilder {
 	//=============================================================================================
 
 	//=============================================================================================
-	public WidgetBuilder withClickData(float decay, Action action) {
-		ClickData clickData = new ClickData();
-		clickData.decay = decay;
-		clickData.action = action;
-		gui.clickMap.put(widget, clickData);
+	public WidgetBuilder withTriggerData(TriggerEnum trigger, Action action) {
+		TriggerData triggerData = widget.getTriggerData();
+		if (triggerData == null) {
+			triggerData = new TriggerData();
+			gui.triggerMap.put(widget, triggerData);
+		}
+		triggerData.actionMap.put(trigger, action);
 		return this;
 	}
 	//=============================================================================================
