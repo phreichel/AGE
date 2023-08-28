@@ -22,7 +22,7 @@ public class WidgetBuilder {
 
 	//=============================================================================================
 	public WidgetBuilder withFlagsData(FlagEnum ... flags) {
-		FlagsData flagsData = new FlagsData();
+		FlagData flagsData = new FlagData();
 		for (FlagEnum flag : flags) {
 			flagsData.flags.add(flag);
 		}

@@ -71,7 +71,7 @@ public class RenderSystem {
 	private void renderButton(Widget widget, Graphics graphics) {
 		ClickData clickData = widget.getClickData();
 		Vector2f dimensionData = widget.getDimensionData();
-		FlagsData flagsData = widget.getFlagsData();
+		FlagData flagsData = widget.getFlagsData();
 		String label = widget.getTextData();
 		float[] globalPosition = getGlobalPosition(widget, new float[] {0, 0, 0});
 		float x = globalPosition[0];

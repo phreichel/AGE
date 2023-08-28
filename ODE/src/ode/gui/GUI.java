@@ -25,7 +25,7 @@ public class GUI {
 	public final Set<Widget> widgets = new HashSet<>();
 	public final Map<Widget, ClickData> clickMap = new HashMap<>();
 	public final Map<Widget, Vector2f> dimensionMap = new HashMap<>();
-	public final Map<Widget, FlagsData> flagsMap = new HashMap<>();
+	public final Map<Widget, FlagData> flagsMap = new HashMap<>();
 	public final Map<Widget, HierarchyData> hierarchyMap = new HashMap<>();
 	public final Map<Widget, LayoutData> layoutMap = new HashMap<>();
 	public final Map<Widget, Vector2f> positionMap = new HashMap<>();

@@ -38,7 +38,7 @@ public class LayoutData {
 		float offset = data.padding_top;
 		float maxwidth = 0f;
 		for (Widget child : hierarchyData.children) {
-			FlagsData flagsData = widget.getFlagsData();
+			FlagData flagsData = widget.getFlagsData();
 			if (!flagsData.flags.contains(FlagEnum.DISPLAYED)) continue;
 			Vector2f dimensionData = child.getDimensionData();
 			Vector2f positionData = child.getPositionData();

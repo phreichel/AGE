@@ -5,7 +5,7 @@ package ode.gui;
 import java.util.EnumSet;
 
 //*************************************************************************************************
-public class FlagsData {
+public class FlagData {
 
 	//=============================================================================================
 	public final EnumSet<FlagEnum> flags = EnumSet.of(FlagEnum.DISPLAYED);
