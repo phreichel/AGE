@@ -11,19 +11,19 @@ import javax.vecmath.Vector3f;
 public class LinearKineticSystem {
 
 	//=============================================================================================
-	private Map<Entity, Vector3f> linearVelocityDataMap;
+	private Map<Entity, Vector3f> linearVelocityMap;
 	//=============================================================================================
 
 	//=============================================================================================
-	public LinearKineticSystem(Map<Entity, Vector3f> linearVelocityDataMap) {
-		this.linearVelocityDataMap = linearVelocityDataMap;
+	public LinearKineticSystem(Map<Entity, Vector3f> linearVelocityMap) {
+		this.linearVelocityMap = linearVelocityMap;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void update(float dT) {
 		Vector3f locationChangeRate = new Vector3f();
-		for (Entry<Entity, Vector3f> entry : linearVelocityDataMap.entrySet()) {
+		for (Entry<Entity, Vector3f> entry : linearVelocityMap.entrySet()) {
 			Entity entity = entry.getKey();
 			Vector3f linearVelocityData = entry.getValue();
 

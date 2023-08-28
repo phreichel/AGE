@@ -22,37 +22,37 @@ public class Entity {
 
 	//=============================================================================================
 	public CameraData getCameraData() {
-		return model.cameraDataMap.get(this);
+		return model.cameraMap.get(this);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	public Vector3f getLinearVelocityData() {
-		return model.linearVelocityDataMap.get(this);
+		return model.linearVelocityMap.get(this);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public Quat4f getRotationVelocityData() {
-		return model.rotationVelocityDataMap.get(this);
+		return model.rotationVelocityMap.get(this);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public Vector3f getPositionData() {
-		return model.positionDataMap.get(this);
+		return model.positionMap.get(this);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public Quat4f getOrientationData() {
-		return model.orientationDataMap.get(this);
+		return model.orientationMap.get(this);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	public Matrix4f getPoseData() {
-		return model.poseDataMap.get(this);
+		return model.poseMap.get(this);
 	}
 	//=============================================================================================
 

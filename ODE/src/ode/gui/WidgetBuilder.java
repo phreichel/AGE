@@ -21,10 +21,10 @@ public class WidgetBuilder {
 	//=============================================================================================
 
 	//=============================================================================================
-	public WidgetBuilder withFlagsData(int ... flags) {
+	public WidgetBuilder withFlagsData(FlagEnum ... flags) {
 		FlagsData flagsData = new FlagsData();
-		for (int flag : flags) {
-			flagsData.flags.set(flag);
+		for (FlagEnum flag : flags) {
+			flagsData.flags.add(flag);
 		}
 		gui.flagsMap.put(widget, flagsData);
 		return this;
@@ -70,9 +70,7 @@ public class WidgetBuilder {
 	//=============================================================================================
 
 	//=============================================================================================
-	public WidgetBuilder withRenderData(int type) {
-		RenderData renderData = new RenderData();
-		renderData.type = type;
+	public WidgetBuilder withRenderData(RenderEnum renderData) {
 		gui.renderMap.put(widget, renderData);
 		return this;
 	}

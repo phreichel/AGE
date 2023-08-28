@@ -30,7 +30,7 @@ public class EntityBuilder {
 		cameraData.near = near;
 		cameraData.far = far;
 		cameraData.active = active;
-		model.cameraDataMap.put(entity, cameraData);
+		model.cameraMap.put(entity, cameraData);
 		return this;		
 	}
 	//=============================================================================================
@@ -38,7 +38,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withLinearVelocityData() {
 		Vector3f linearVelocityData = new Vector3f();
-		model.linearVelocityDataMap.put(entity, linearVelocityData);
+		model.linearVelocityMap.put(entity, linearVelocityData);
 		return this;		
 	}
 	//=============================================================================================
@@ -46,7 +46,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withLinearVelocityData(Vector3f linearVelocity) {
 		Vector3f linearVelocityData = new Vector3f(linearVelocity);
-		model.linearVelocityDataMap.put(entity, linearVelocityData);
+		model.linearVelocityMap.put(entity, linearVelocityData);
 		return this;		
 	}
 	//=============================================================================================
@@ -54,7 +54,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withLinearVelocityData(float vx, float vy, float vz) {
 		Vector3f linearVelocityData = new Vector3f(vx, vy, vz);
-		model.linearVelocityDataMap.put(entity, linearVelocityData);
+		model.linearVelocityMap.put(entity, linearVelocityData);
 		return this;		
 	}
 	//=============================================================================================
@@ -62,7 +62,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withRotationVelocityData() {
 		Quat4f rotationVelocityData = new Quat4f(0, 0, 0, 1);
-		model.rotationVelocityDataMap.put(entity, rotationVelocityData);
+		model.rotationVelocityMap.put(entity, rotationVelocityData);
 		return this;
 	}
 	//=============================================================================================
@@ -70,7 +70,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withRotationVelocityData(Quat4f rotationVelocity) {
 		Quat4f rotationVelocityData = new Quat4f(rotationVelocity);
-		model.rotationVelocityDataMap.put(entity, rotationVelocityData);
+		model.rotationVelocityMap.put(entity, rotationVelocityData);
 		return this;
 	}
 	//=============================================================================================
@@ -78,7 +78,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withPositionData() {
 		Vector3f positionData = new Vector3f();
-		model.positionDataMap.put(entity, positionData);
+		model.positionMap.put(entity, positionData);
 		return this;
 	}
 	//=============================================================================================
@@ -86,7 +86,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withPositionData(Vector3f position) {
 		Vector3f positionData = new Vector3f(position);
-		model.positionDataMap.put(entity, positionData);
+		model.positionMap.put(entity, positionData);
 		return this;
 	}
 	//=============================================================================================
@@ -94,7 +94,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withPositionData(float x, float y, float z) {
 		Vector3f positionData = new Vector3f(x, y, z);
-		model.positionDataMap.put(entity, positionData);
+		model.positionMap.put(entity, positionData);
 		return this;
 	}
 	//=============================================================================================
@@ -102,7 +102,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withOrientationData() {
 		Quat4f orientationData = new Quat4f(0, 0, 0, 1);
-		model.orientationDataMap.put(entity, orientationData);
+		model.orientationMap.put(entity, orientationData);
 		return this;
 	}
 	//=============================================================================================
@@ -110,7 +110,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withOrientationData(Quat4f orientation) {
 		Quat4f orientationData = new Quat4f(orientation);
-		model.orientationDataMap.put(entity, orientationData);
+		model.orientationMap.put(entity, orientationData);
 		return this;
 	}
 	//=============================================================================================
@@ -119,7 +119,14 @@ public class EntityBuilder {
 	public EntityBuilder withPoseData() {
 		Matrix4f poseData = new Matrix4f();
 		poseData.setIdentity();
-		model.poseDataMap.put(entity, poseData);
+		model.poseMap.put(entity, poseData);
+		return this;		
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public EntityBuilder withRenderData(RenderEnum renderData) {
+		model.renderMap.put(entity, renderData);
 		return this;		
 	}
 	//=============================================================================================

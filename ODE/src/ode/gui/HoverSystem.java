@@ -34,7 +34,7 @@ public class HoverSystem implements Handler {
 		Widget active = null;
 		for (Widget widget : widgets) {
 			FlagsData flagsData = widget.getFlagsData();
-			flagsData.flags.clear(FlagsData.HOVER);
+			flagsData.flags.remove(FlagEnum.HOVER);
 			float[] globalPosition = getGlobalPosition(widget, new float[] { 0, 0, 0 });
 			if (isInside(widget, globalPosition, pointer_x, pointer_y)) {
 				float cmp = globalPosition[2];
@@ -46,7 +46,7 @@ public class HoverSystem implements Handler {
 		}
 		if (active != null) {
 			FlagsData flagsData = active.getFlagsData();
-			flagsData.flags.set(FlagsData.HOVER);
+			flagsData.flags.add(FlagEnum.HOVER);
 		}
 	}
 	//=============================================================================================

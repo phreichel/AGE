@@ -18,18 +18,18 @@ public class RenderSystem {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private Map<Widget, RenderData> renderMap;
+	private Map<Widget, RenderEnum> renderMap;
 	//=============================================================================================
 
 	//=============================================================================================
-	public RenderSystem(Map<Widget, RenderData> renderMap) {
+	public RenderSystem(Map<Widget, RenderEnum> renderMap) {
 		this.renderMap = renderMap;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	public void update(Graphics graphics) {
-		for (Entry<Widget, RenderData> entry : renderMap.entrySet()) {
+		for (Entry<Widget, RenderEnum> entry : renderMap.entrySet()) {
 			render(entry.getKey(), graphics);
 		}
 	}
@@ -37,10 +37,13 @@ public class RenderSystem {
 
 	//=============================================================================================
 	private void render(Widget widget, Graphics graphics) {
-		RenderData renderData = widget.getRenderData();
-		if (renderData.type == RenderData.BOX) renderBox(widget, graphics);
-		if (renderData.type == RenderData.LABEL) renderLabel(widget, graphics);
-		if (renderData.type == RenderData.BUTTON) renderButton(widget, graphics);
+		RenderEnum renderData = widget.getRenderData();
+		switch (renderData) {
+			case BOX: renderBox(widget, graphics); break;
+			case LABEL: renderLabel(widget, graphics); break;
+			case BUTTON: renderButton(widget, graphics); break;
+			default: break;
+		}
 	}
 	//=============================================================================================
 
@@ -78,7 +81,7 @@ public class RenderSystem {
 		float h = dimensionData.y;
 		graphics.pushTransform();
 		graphics.translate(x, y, z);
-		if (!flagsData.flags.get(FlagsData.HOVER)) {
+		if (!flagsData.flags.contains(FlagEnum.HOVER)) {
 			graphics.setColor(.4f, .4f, 1f);
 		} else {
 			graphics.setColor(.6f, .6f, 1f);

@@ -27,19 +27,20 @@ public class Model {
 
 	//=============================================================================================
 	public Set<Entity> entities = new HashSet<>();
-	public Map<Entity, CameraData> cameraDataMap = new HashMap<>();
-	public Map<Entity, Vector3f> positionDataMap = new HashMap<>();
-	public Map<Entity, Quat4f> orientationDataMap = new HashMap<>();
-	public Map<Entity, Matrix4f> poseDataMap = new HashMap<>();
-	public Map<Entity, Vector3f> linearVelocityDataMap = new HashMap<>();
-	public Map<Entity, Quat4f> rotationVelocityDataMap = new HashMap<>();
+	public Map<Entity, CameraData> cameraMap = new HashMap<>();
+	public Map<Entity, Vector3f> positionMap = new HashMap<>();
+	public Map<Entity, Quat4f> orientationMap = new HashMap<>();
+	public Map<Entity, Matrix4f> poseMap = new HashMap<>();
+	public Map<Entity, Vector3f> linearVelocityMap = new HashMap<>();
+	public Map<Entity, RenderEnum> renderMap = new HashMap<>();
+	public Map<Entity, Quat4f> rotationVelocityMap = new HashMap<>();
 	//=============================================================================================
 
 	//=============================================================================================
-	private PoseSystem poseSystem = new PoseSystem(poseDataMap);
-	private LinearKineticSystem linearKineticSystem = new LinearKineticSystem(linearVelocityDataMap);
-	private RotationKineticSystem rotationKineticSystem = new RotationKineticSystem(rotationVelocityDataMap);
-	private RenderSystem renderSystem = new RenderSystem(entities);
+	private PoseSystem poseSystem = new PoseSystem(poseMap);
+	private LinearKineticSystem linearKineticSystem = new LinearKineticSystem(linearVelocityMap);
+	private RotationKineticSystem rotationKineticSystem = new RotationKineticSystem(rotationVelocityMap);
+	private RenderSystem renderSystem = new RenderSystem(renderMap);
 	//=============================================================================================
 
 	//=============================================================================================
@@ -69,6 +70,7 @@ public class Model {
 			.withPoseData()
 			.withLinearVelocityData()
 			.withRotationVelocityData()
+			.withRenderData(RenderEnum.BOX)
 			.build();
 	}
 	//=============================================================================================
@@ -76,12 +78,13 @@ public class Model {
 	//=============================================================================================
 	public void remove(Entity entity) {
 		entities.remove(entity);
-		cameraDataMap.remove(entity);
-		positionDataMap.remove(entity);
-		poseDataMap.remove(entity);
-		orientationDataMap.remove(entity);
-		linearVelocityDataMap.remove(entity);
-		rotationVelocityDataMap.remove(entity);
+		cameraMap.remove(entity);
+		positionMap.remove(entity);
+		poseMap.remove(entity);
+		orientationMap.remove(entity);
+		linearVelocityMap.remove(entity);
+		renderMap.remove(entity);
+		rotationVelocityMap.remove(entity);
 	}
 	//=============================================================================================
 	
@@ -97,7 +100,7 @@ public class Model {
 	public void render(Graphics graphics) {
 		Entity entity = null;
 		CameraData camData = null;
-		for (Entry<Entity, CameraData> entry : cameraDataMap.entrySet()) {
+		for (Entry<Entity, CameraData> entry : cameraMap.entrySet()) {
 			camData = entry.getValue();
 			if (camData.active) {
 				entity = entry.getKey();

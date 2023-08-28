@@ -29,7 +29,7 @@ public class GUI {
 	public final Map<Widget, HierarchyData> hierarchyMap = new HashMap<>();
 	public final Map<Widget, LayoutData> layoutMap = new HashMap<>();
 	public final Map<Widget, Vector2f> positionMap = new HashMap<>();
-	public final Map<Widget, RenderData> renderMap = new HashMap<>();
+	public final Map<Widget, RenderEnum> renderMap = new HashMap<>();
 	public final Map<Widget, String> textMap = new HashMap<>();
 	//=============================================================================================
 
@@ -56,11 +56,11 @@ public class GUI {
 	//=============================================================================================
 	public Widget createBox() {
 		return build()
-			.withFlagsData(FlagsData.DISPLAYED)
+			.withFlagsData(FlagEnum.DISPLAYED)
 			.withPositionData(10, 10)
 			.withDimensionData(100, 100)
 			.withHierarchyData()
-			.withRenderData(RenderData.BOX)
+			.withRenderData(RenderEnum.BOX)
 			.withLayoutData(5, 5, 5, 5, 5, LayoutData.CENTER)
 			.build();
 	}
@@ -69,11 +69,11 @@ public class GUI {
 	//=============================================================================================
 	public Widget createLabel(String label) {
 		return build()
-			.withFlagsData(FlagsData.DISPLAYED)
+			.withFlagsData(FlagEnum.DISPLAYED)
 			.withPositionData(0, 0)
 			.withDimensionData(200, 20)
 			.withHierarchyData()
-			.withRenderData(RenderData.LABEL)
+			.withRenderData(RenderEnum.LABEL)
 			.withTextData(label)
 			.build();
 	}
@@ -82,11 +82,11 @@ public class GUI {
 	//=============================================================================================
 	public Widget createButton(String label, Action action) {
 		return build()
-			.withFlagsData(FlagsData.DISPLAYED)
+			.withFlagsData(FlagEnum.DISPLAYED)
 			.withPositionData(0, 0)
 			.withDimensionData(120, 20)
 			.withHierarchyData()
-			.withRenderData(RenderData.BUTTON)
+			.withRenderData(RenderEnum.BUTTON)
 			.withTextData(label)
 			.withClickData(0, action)
 			.build();

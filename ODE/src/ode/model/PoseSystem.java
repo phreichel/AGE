@@ -13,18 +13,18 @@ import javax.vecmath.Vector3f;
 public class PoseSystem {
 
 	//=============================================================================================
-	private Map<Entity, Matrix4f> poseDataMap;
+	private Map<Entity, Matrix4f> poseMap;
 	//=============================================================================================
 
 	//=============================================================================================
-	public PoseSystem(Map<Entity, Matrix4f> poseDataMap) {
-		this.poseDataMap = poseDataMap;
+	public PoseSystem(Map<Entity, Matrix4f> poseMap) {
+		this.poseMap = poseMap;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void update() {
-		for (Entry<Entity, Matrix4f> entry : poseDataMap.entrySet()) {
+		for (Entry<Entity, Matrix4f> entry : poseMap.entrySet()) {
 			Entity entity = entry.getKey();
 			Matrix4f poseData = entry.getValue();
 			Vector3f position = entity.getPositionData();

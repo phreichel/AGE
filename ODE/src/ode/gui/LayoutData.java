@@ -39,7 +39,7 @@ public class LayoutData {
 		float maxwidth = 0f;
 		for (Widget child : hierarchyData.children) {
 			FlagsData flagsData = widget.getFlagsData();
-			if (!flagsData.flags.get(FlagsData.DISPLAYED)) continue;
+			if (!flagsData.flags.contains(FlagEnum.DISPLAYED)) continue;
 			Vector2f dimensionData = child.getDimensionData();
 			Vector2f positionData = child.getPositionData();
 			positionData.x = data.padding_left;
