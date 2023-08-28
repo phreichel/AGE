@@ -1,5 +1,6 @@
 //*************************************************************************************************
 package ode.model;
+//*************************************************************************************************
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -16,31 +17,31 @@ import ode.platform.Graphics;
 import ode.util.ODEException;
 
 //*************************************************************************************************
-
-//*************************************************************************************************
 public class Model {
 	
 	//=============================================================================================
-	public Model(Events events) {
-	}
+	public Model(Events events) {}
 	//=============================================================================================
 
 	//=============================================================================================
 	public Set<Entity> entities = new HashSet<>();
-	public Map<Entity, CameraData> cameraMap = new HashMap<>();
-	public Map<Entity, Vector3f> positionMap = new HashMap<>();
-	public Map<Entity, Quat4f> orientationMap = new HashMap<>();
-	public Map<Entity, Matrix4f> poseMap = new HashMap<>();
-	public Map<Entity, Vector3f> linearVelocityMap = new HashMap<>();
-	public Map<Entity, RenderEnum> renderMap = new HashMap<>();
-	public Map<Entity, Quat4f> rotationVelocityMap = new HashMap<>();
 	//=============================================================================================
 
 	//=============================================================================================
-	private PoseSystem poseSystem = new PoseSystem(poseMap);
-	private KineticLinearSystem kineticLinearSystem = new KineticLinearSystem(linearVelocityMap);
-	private KineticAngularSystem kineticAngularSystem = new KineticAngularSystem(rotationVelocityMap);
-	private RenderSystem renderSystem = new RenderSystem(renderMap);
+	public Map<Entity, CameraData> cameraMap          = new HashMap<>();
+	public Map<Entity, Matrix4f>   poseMap            = new HashMap<>();
+	public Map<Entity, Vector3f>   positionMap        = new HashMap<>();
+	public Map<Entity, Quat4f>     orientationMap     = new HashMap<>();
+	public Map<Entity, Vector3f>   linearVelocityMap  = new HashMap<>();
+	public Map<Entity, Quat4f>     angularVelocityMap = new HashMap<>();
+	public Map<Entity, RenderEnum> renderMap          = new HashMap<>();
+	//=============================================================================================
+
+	//=============================================================================================
+	private PoseSystem           poseSystem           = new PoseSystem();
+	private KineticLinearSystem  kineticLinearSystem  = new KineticLinearSystem();
+	private KineticAngularSystem kineticAngularSystem = new KineticAngularSystem();
+	private RenderSystem         renderSystem         = new RenderSystem();
 	//=============================================================================================
 
 	//=============================================================================================
@@ -58,6 +59,9 @@ public class Model {
 			.withLinearVelocityData()
 			.withRotationVelocityData()
 			.withCameraData(65f, .4f, 1000f, true)
+			.register(kineticLinearSystem)
+			.register(kineticAngularSystem)
+			.register(poseSystem)
 			.build();
 	}
 	//=============================================================================================
@@ -71,6 +75,10 @@ public class Model {
 			.withLinearVelocityData()
 			.withRotationVelocityData()
 			.withRenderData(RenderEnum.BOX)
+			.register(kineticLinearSystem)
+			.register(kineticAngularSystem)
+			.register(poseSystem)
+			.register(renderSystem)
 			.build();
 	}
 	//=============================================================================================
@@ -84,7 +92,7 @@ public class Model {
 		orientationMap.remove(entity);
 		linearVelocityMap.remove(entity);
 		renderMap.remove(entity);
-		rotationVelocityMap.remove(entity);
+		angularVelocityMap.remove(entity);
 	}
 	//=============================================================================================
 	

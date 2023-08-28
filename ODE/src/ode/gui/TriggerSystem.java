@@ -2,7 +2,7 @@
 package ode.gui;
 //*************************************************************************************************
 
-import java.util.Set;
+import java.util.ArrayList;
 
 import javax.vecmath.Vector2f;
 
@@ -11,16 +11,10 @@ import ode.event.Handler;
 import ode.event.PointerData;
 
 //*************************************************************************************************
-public class TriggerSystem implements Handler {
+public class TriggerSystem extends ArrayList<Widget> implements Handler {
 
 	//=============================================================================================
-	private Set<Widget> widgets;
-	//=============================================================================================
-
-	//=============================================================================================
-	public TriggerSystem(Set<Widget> widgets) {
-		this.widgets = widgets;
-	}
+	private static final long serialVersionUID = 1L;
 	//=============================================================================================
 
 	//=============================================================================================
@@ -39,7 +33,7 @@ public class TriggerSystem implements Handler {
 	//=============================================================================================
 	private void handleDecay(float dT) {
 		final float TIME_FACTOR = 5f;
-		for (Widget widget : widgets) {
+		for (Widget widget : this) {
 			TriggerData triggerData = widget.getTriggerData();
 			if (triggerData != null) {
 				triggerData.decay = Math.max(0f, triggerData.decay - dT * TIME_FACTOR);
@@ -72,7 +66,7 @@ public class TriggerSystem implements Handler {
 	private Widget getActiveWidget() {
 		float z = -1;
 		Widget active = null;
-		for (Widget widget : widgets) {
+		for (Widget widget : this) {
 			float[] globalPosition = getGlobalPosition(widget, new float[] { 0, 0, 0 });
 			if (isInside(widget, globalPosition, pointer_x, pointer_y)) {
 				float cmp = globalPosition[2];

@@ -2,31 +2,22 @@
 package ode.model;
 //*************************************************************************************************
 
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.ArrayList;
 
 import javax.vecmath.Vector3f;
 
 //*************************************************************************************************
-public class KineticLinearSystem {
+public class KineticLinearSystem extends ArrayList<Entity> {
 
 	//=============================================================================================
-	private Map<Entity, Vector3f> linearVelocityMap;
+	private static final long serialVersionUID = 1L;
 	//=============================================================================================
-
-	//=============================================================================================
-	public KineticLinearSystem(Map<Entity, Vector3f> linearVelocityMap) {
-		this.linearVelocityMap = linearVelocityMap;
-	}
-	//=============================================================================================
-
+	
 	//=============================================================================================
 	public void update(float dT) {
 		Vector3f locationChangeRate = new Vector3f();
-		for (Entry<Entity, Vector3f> entry : linearVelocityMap.entrySet()) {
-			Entity entity = entry.getKey();
-			Vector3f linearVelocityData = entry.getValue();
-
+		for (Entity entity : this) {
+			Vector3f linearVelocityData = entity.getLinearVelocityData();
 			Vector3f positionData = entity.getPositionData();
 			if (positionData != null) {
 				locationChangeRate.scale(dT * .5f, linearVelocityData);

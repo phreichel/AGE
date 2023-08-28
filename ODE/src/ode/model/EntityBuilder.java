@@ -1,11 +1,12 @@
 //*************************************************************************************************
 package ode.model;
+//*************************************************************************************************
+
+import java.util.List;
 
 import javax.vecmath.Matrix4f;
 import javax.vecmath.Quat4f;
 import javax.vecmath.Vector3f;
-
-//*************************************************************************************************
 
 //*************************************************************************************************
 public class EntityBuilder {
@@ -62,7 +63,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withRotationVelocityData() {
 		Quat4f rotationVelocityData = new Quat4f(0, 0, 0, 1);
-		model.rotationVelocityMap.put(entity, rotationVelocityData);
+		model.angularVelocityMap.put(entity, rotationVelocityData);
 		return this;
 	}
 	//=============================================================================================
@@ -70,7 +71,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withRotationVelocityData(Quat4f rotationVelocity) {
 		Quat4f rotationVelocityData = new Quat4f(rotationVelocity);
-		model.rotationVelocityMap.put(entity, rotationVelocityData);
+		model.angularVelocityMap.put(entity, rotationVelocityData);
 		return this;
 	}
 	//=============================================================================================
@@ -128,6 +129,13 @@ public class EntityBuilder {
 	public EntityBuilder withRenderData(RenderEnum renderData) {
 		model.renderMap.put(entity, renderData);
 		return this;		
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public EntityBuilder register(List<Entity> system) {
+		system.add(entity);
+		return this;
 	}
 	//=============================================================================================
 	

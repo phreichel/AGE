@@ -2,7 +2,7 @@
 package ode.gui;
 //*************************************************************************************************
 
-import java.util.Set;
+import java.util.ArrayList;
 
 import javax.vecmath.Vector2f;
 
@@ -11,18 +11,12 @@ import ode.event.Handler;
 import ode.event.PointerData;
 
 //*************************************************************************************************
-public class HoverSystem implements Handler {
+public class HoverSystem extends ArrayList<Widget> implements Handler {
 
 	//=============================================================================================
-	private Set<Widget> widgets;
+	private static final long serialVersionUID = 1L;
 	//=============================================================================================
-
-	//=============================================================================================
-	public HoverSystem(Set<Widget> widgets) {
-		this.widgets = widgets;
-	}
-	//=============================================================================================
-
+	
 	//=============================================================================================
 	private float pointer_x;
 	private float pointer_y;
@@ -32,7 +26,7 @@ public class HoverSystem implements Handler {
 	public void update() {
 		float z = -1;
 		Widget active = null;
-		for (Widget widget : widgets) {
+		for (Widget widget : this) {
 			FlagData flagsData = widget.getFlagsData();
 			flagsData.flags.remove(FlagEnum.HOVER);
 			float[] globalPosition = getGlobalPosition(widget, new float[] { 0, 0, 0 });

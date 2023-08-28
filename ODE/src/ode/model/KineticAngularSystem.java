@@ -2,31 +2,22 @@
 package ode.model;
 //*************************************************************************************************
 
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.ArrayList;
 
 import javax.vecmath.Quat4f;
 
 //*************************************************************************************************
-public class KineticAngularSystem {
+public class KineticAngularSystem extends ArrayList<Entity> {
 
 	//=============================================================================================
-	private Map<Entity, Quat4f> rotationVelocityMap;
+	private static final long serialVersionUID = 1L;
 	//=============================================================================================
-
-	//=============================================================================================
-	public KineticAngularSystem(Map<Entity, Quat4f> rotationVelocityMap) {
-		this.rotationVelocityMap = rotationVelocityMap;
-	}
-	//=============================================================================================
-
+	
 	//=============================================================================================
 	public void update(float dT) {
 		Quat4f orientationChangeRate = new Quat4f();
-		for (Entry<Entity, Quat4f> entry : rotationVelocityMap.entrySet()) {
-			Entity entity = entry.getKey();
-			Quat4f rotationVelocityData = entry.getValue();
-
+		for (Entity entity : this) {
+			Quat4f rotationVelocityData = entity.getRotationVelocityData();
 			Quat4f orientationData = entity.getOrientationData();
 			if (orientationData != null) {
 				rotationVelocityData.normalize();

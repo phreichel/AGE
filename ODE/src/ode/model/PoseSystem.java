@@ -2,31 +2,23 @@
 package ode.model;
 //*************************************************************************************************
 
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.ArrayList;
 
 import javax.vecmath.Matrix4f;
 import javax.vecmath.Quat4f;
 import javax.vecmath.Vector3f;
 
 //*************************************************************************************************
-public class PoseSystem {
+public class PoseSystem extends ArrayList<Entity> {
 
 	//=============================================================================================
-	private Map<Entity, Matrix4f> poseMap;
+	private static final long serialVersionUID = 1L;
 	//=============================================================================================
-
-	//=============================================================================================
-	public PoseSystem(Map<Entity, Matrix4f> poseMap) {
-		this.poseMap = poseMap;
-	}
-	//=============================================================================================
-
+	
 	//=============================================================================================
 	public void update() {
-		for (Entry<Entity, Matrix4f> entry : poseMap.entrySet()) {
-			Entity entity = entry.getKey();
-			Matrix4f poseData = entry.getValue();
+		for (Entity entity : this) {
+			Matrix4f poseData = entity.getPoseData();
 			Vector3f position = entity.getPositionData();
 			Quat4f orientation = entity.getOrientationData();
 			poseData.setIdentity();

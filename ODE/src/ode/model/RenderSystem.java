@@ -2,32 +2,23 @@
 package ode.model;
 //*************************************************************************************************
 
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.ArrayList;
 
 import javax.vecmath.Matrix4f;
 
 import ode.platform.Graphics;
 
 //*************************************************************************************************
-public class RenderSystem {
+public class RenderSystem extends ArrayList<Entity> {
 
 	//=============================================================================================
-	private Map<Entity, RenderEnum> renderMap;
+	private static final long serialVersionUID = 1L;
 	//=============================================================================================
 
-	//=============================================================================================
-	public RenderSystem(Map<Entity, RenderEnum> renderMap) {
-		this.renderMap = renderMap;
-	}
-	//=============================================================================================
-
-	
 	//=============================================================================================
 	public void update(Graphics graphics) {
-		for (Entry<Entity, RenderEnum> entry : renderMap.entrySet()) {
-			Entity entity = entry.getKey();
-			RenderEnum renderData = entry.getValue();
+		for (Entity entity : this) {
+			RenderEnum renderData = entity.getRenderData();
 			switch (renderData) {
 				case BOX: renderBox(graphics, entity); break;
 				default: break;

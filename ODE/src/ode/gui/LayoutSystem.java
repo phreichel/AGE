@@ -2,31 +2,23 @@
 package ode.gui;
 //*************************************************************************************************
 
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.ArrayList;
 
 import javax.vecmath.Vector2f;
 
 import ode.util.Inset;
 
 //*************************************************************************************************
-public class LayoutSystem {
+public class LayoutSystem  extends ArrayList<Widget> {
 
 	//=============================================================================================
-	private Map<Widget, LayoutEnum> layoutMap;
-	//=============================================================================================
-
-	//=============================================================================================
-	public LayoutSystem(Map<Widget, LayoutEnum> layoutMap) {
-		this.layoutMap = layoutMap;
-	}
+	private static final long serialVersionUID = 1L;
 	//=============================================================================================
 	
 	//=============================================================================================
 	public void update() {
-		for (Entry<Widget, LayoutEnum> entry : layoutMap.entrySet()) {
-			Widget widget = entry.getKey();
-			LayoutEnum layoutData = entry.getValue();
+		for (Widget widget : this) {
+			LayoutEnum layoutData = widget.getLayoutData();
 			switch (layoutData) {
 				case VERTICAL: layoutVertical(widget); break;
 				default: break;

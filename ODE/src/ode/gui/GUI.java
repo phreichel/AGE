@@ -24,28 +24,31 @@ public class GUI {
 	
 	//=============================================================================================
 	public final Set<Widget> widgets = new HashSet<>();
-	public final Map<Widget, TriggerData> triggerMap = new HashMap<>();
-	public final Map<Widget, Vector2f> dimensionMap = new HashMap<>();
-	public final Map<Widget, FlagData> flagsMap = new HashMap<>();
-	public final Map<Widget, HierarchyData> hierarchyMap = new HashMap<>();
-	public final Map<Widget, LayoutEnum> layoutMap = new HashMap<>();
-	public final Map<Widget, Inset> paddingMap = new HashMap<>();
-	public final Map<Widget, AlignEnum> alignMap = new HashMap<>();
-	public final Map<Widget, Vector2f> positionMap = new HashMap<>();
-	public final Map<Widget, RenderEnum> renderMap = new HashMap<>();
-	public final Map<Widget, String> textMap = new HashMap<>();
 	//=============================================================================================
 
 	//=============================================================================================
-	private RenderSystem renderSystem = new RenderSystem(renderMap);
-	private HoverSystem hoverSystem = new HoverSystem(widgets);
-	private TriggerSystem clickSystem = new TriggerSystem(widgets);
-	private LayoutSystem layoutSystem = new LayoutSystem(layoutMap);
+	public final Map<Widget, TriggerData>   triggerMap   = new HashMap<>();
+	public final Map<Widget, Vector2f>      dimensionMap = new HashMap<>();
+	public final Map<Widget, FlagData>      flagsMap     = new HashMap<>();
+	public final Map<Widget, HierarchyData> hierarchyMap = new HashMap<>();
+	public final Map<Widget, LayoutEnum>    layoutMap    = new HashMap<>();
+	public final Map<Widget, Inset>         paddingMap   = new HashMap<>();
+	public final Map<Widget, AlignEnum>     alignMap     = new HashMap<>();
+	public final Map<Widget, Vector2f>      positionMap  = new HashMap<>();
+	public final Map<Widget, RenderEnum>    renderMap    = new HashMap<>();
+	public final Map<Widget, String>        textMap      = new HashMap<>();
+	//=============================================================================================
+
+	//=============================================================================================
+	private TriggerSystem triggerSystem = new TriggerSystem();
+	private HoverSystem   hoverSystem   = new HoverSystem();
+	private LayoutSystem  layoutSystem  = new LayoutSystem();
+	private RenderSystem  renderSystem  = new RenderSystem();
 	//=============================================================================================
 
 	//=============================================================================================
 	public GUI(Events events) {
-		events.register(Event.MOUSE_CLICKED, clickSystem);
+		events.register(Event.MOUSE_CLICKED, triggerSystem);
 		events.register(Event.MOUSE_MOVED, hoverSystem);
 	}
 	//=============================================================================================
@@ -67,6 +70,10 @@ public class GUI {
 			.withLayoutData(LayoutEnum.VERTICAL)
 			.withAlignData(AlignEnum.CENTER)
 			.withPaddingData(5,  5,  5,  5)
+			.register(triggerSystem)
+			.register(hoverSystem)
+			.register(layoutSystem)
+			.register(renderSystem)
 			.build();
 	}
 	//=============================================================================================
@@ -81,6 +88,9 @@ public class GUI {
 			.withRenderData(RenderEnum.LABEL)
 			.withAlignData(AlignEnum.CENTER)
 			.withTextData(label)
+			.register(triggerSystem)
+			.register(hoverSystem)
+			.register(renderSystem)
 			.build();
 	}
 	//=============================================================================================
@@ -96,6 +106,9 @@ public class GUI {
 			.withAlignData(AlignEnum.CENTER)
 			.withTextData(label)
 			.withTriggerData(TriggerEnum.LEFT_CLICK, action)
+			.register(triggerSystem)
+			.register(hoverSystem)
+			.register(renderSystem)
 			.build();
 	}
 	//=============================================================================================
@@ -109,7 +122,7 @@ public class GUI {
 
 	//=============================================================================================
 	public void update(float dT) {
-		clickSystem.update(dT);
+		triggerSystem.update(dT);
 		hoverSystem.update();
 		layoutSystem.update();
 	}
