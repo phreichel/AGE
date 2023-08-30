@@ -18,13 +18,13 @@ public class Widget {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void addComonent(WidgetComponentEnum ident, Object component) {
+	public void addComponent(WidgetComponentEnum ident, Object component) {
 		components.put(ident, component);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public Object getComonent(WidgetComponentEnum ident) {
+	public Object getComponent(WidgetComponentEnum ident) {
 		return components.get(ident);
 	}
 	//=============================================================================================

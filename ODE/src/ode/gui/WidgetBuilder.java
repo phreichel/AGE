@@ -30,7 +30,7 @@ public class WidgetBuilder {
 		for (FlagEnum flag : flags) {
 			flagsData.flags.add(flag);
 		}
-		widget.addComonent(WidgetComponentEnum.FLAGS, flagsData);
+		widget.addComponent(WidgetComponentEnum.FLAGS, flagsData);
 		return this;
 	}
 	//=============================================================================================
@@ -38,7 +38,7 @@ public class WidgetBuilder {
 	//=============================================================================================
 	public WidgetBuilder withPositionData(float x, float y) {
 		Vector2f positionData = new Vector2f(x, y);
-		widget.addComonent(WidgetComponentEnum.POSITION, positionData);
+		widget.addComponent(WidgetComponentEnum.POSITION, positionData);
 		return this;
 	}
 	//=============================================================================================
@@ -46,7 +46,7 @@ public class WidgetBuilder {
 	//=============================================================================================
 	public WidgetBuilder withDimensionData(float width, float height) {
 		Vector2f dimensionData = new Vector2f(width, height);
-		widget.addComonent(WidgetComponentEnum.DIMENSION, dimensionData);
+		widget.addComponent(WidgetComponentEnum.DIMENSION, dimensionData);
 		return this;
 	}
 	//=============================================================================================
@@ -54,35 +54,35 @@ public class WidgetBuilder {
 	//=============================================================================================
 	public WidgetBuilder withHierarchyData() {
 		HierarchyData hierarchyData = new HierarchyData();
-		widget.addComonent(WidgetComponentEnum.HIERARCHY, hierarchyData);
+		widget.addComponent(WidgetComponentEnum.HIERARCHY, hierarchyData);
 		return this;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public WidgetBuilder withLayoutData(LayoutEnum layoutEnum) {
-		widget.addComonent(WidgetComponentEnum.LAYOUT, layoutEnum);
+		widget.addComponent(WidgetComponentEnum.LAYOUT, layoutEnum);
 		return this;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	public WidgetBuilder withAlignData(AlignEnum alignment) {
-		widget.addComonent(WidgetComponentEnum.ALIGN, alignment);
+		widget.addComponent(WidgetComponentEnum.ALIGN, alignment);
 		return this;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public WidgetBuilder withRenderData(RenderEnum renderData) {
-		widget.addComonent(WidgetComponentEnum.RENDER, renderData);
+		widget.addComponent(WidgetComponentEnum.RENDER, renderData);
 		return this;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public WidgetBuilder withTextData(String text) {
-		widget.addComonent(WidgetComponentEnum.TEXT, text);
+		widget.addComponent(WidgetComponentEnum.TEXT, text);
 		return this;
 	}
 	//=============================================================================================
@@ -92,7 +92,7 @@ public class WidgetBuilder {
 		TriggerData triggerData = widget.getTriggerData();
 		if (triggerData == null) {
 			triggerData = new TriggerData();
-			widget.addComonent(WidgetComponentEnum.TRIGGER, triggerData);
+			widget.addComponent(WidgetComponentEnum.TRIGGER, triggerData);
 		}
 		triggerData.actionMap.put(trigger, action);
 		return this;
@@ -106,7 +106,7 @@ public class WidgetBuilder {
 		paddingData.bottom = bottom;
 		paddingData.left = left;
 		paddingData.right = right;
-		widget.addComonent(WidgetComponentEnum.PADDING, paddingData);
+		widget.addComponent(WidgetComponentEnum.PADDING, paddingData);
 		return this;
 	}
 	//=============================================================================================
