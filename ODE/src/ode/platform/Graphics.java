@@ -12,10 +12,15 @@ import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.util.awt.TextRenderer;
 
+import ode.asset.JOGLTexture;
+import ode.asset.ODEAssets;
+import ode.asset.ODETexture;
+
 //*************************************************************************************************
 public class Graphics {
 
 	//=============================================================================================
+	private ODEAssets assets;
 	private GLAutoDrawable window;
 	private GL2 gl;
 	private GLU glu;
@@ -26,7 +31,8 @@ public class Graphics {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void init(GLAutoDrawable drawable) {
+	public void init(ODEAssets assets, GLAutoDrawable drawable) {
+		this.assets = assets;
 		window = drawable;
 		gl = window.getGL().getGL2();
 		glu = GLU.createGLU(gl);
@@ -88,6 +94,27 @@ public class Graphics {
 	//=============================================================================================
 	public void setColor(float r, float g, float b, float a) {
 		gl.glColor4f(r, g, b, a);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public ODETexture loadTexture(String path) {
+		return assets.getTextureManager().requestTexture(path);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void useTexture(ODETexture texture) {
+		gl.glEnable(GL2.GL_TEXTURE_2D);
+		JOGLTexture tx = (JOGLTexture) texture;
+		tx.texture.bind(gl);
+		tx.texture.enable(gl);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void stopUseTexture() {
+		gl.glDisable(GL2.GL_TEXTURE_2D);
 	}
 	//=============================================================================================
 	
@@ -206,39 +233,63 @@ public class Graphics {
 		gl.glBegin(GL2.GL_QUADS);
 
 		gl.glNormal3f(0, 0, 1);
+		gl.glTexCoord2f(0, 0);
 		gl.glVertex3f(x1, y1, z2);
+		gl.glTexCoord2f(1, 0);
 		gl.glVertex3f(x2, y1, z2);
+		gl.glTexCoord2f(1, 1);
 		gl.glVertex3f(x2, y2, z2);
+		gl.glTexCoord2f(0, 1);
 		gl.glVertex3f(x1, y2, z2);
 
 		gl.glNormal3f(0, 0, -1);
+		gl.glTexCoord2f(0, 0);
 		gl.glVertex3f(x1, y1, z1);
+		gl.glTexCoord2f(1, 0);
 		gl.glVertex3f(x1, y2, z1);
+		gl.glTexCoord2f(1, 1);
 		gl.glVertex3f(x2, y2, z1);
+		gl.glTexCoord2f(0, 1);
 		gl.glVertex3f(x2, y1, z1);
 
 		gl.glNormal3f(1, 0, 0);
+		gl.glTexCoord2f(0, 0);
 		gl.glVertex3f(x2, y1, z2);
+		gl.glTexCoord2f(1, 0);
 		gl.glVertex3f(x2, y1, z1);
+		gl.glTexCoord2f(1, 1);
 		gl.glVertex3f(x2, y2, z1);
+		gl.glTexCoord2f(0, 1);
 		gl.glVertex3f(x2, y2, z2);
 
 		gl.glNormal3f(-1, 0, 0);
+		gl.glTexCoord2f(0, 0);
 		gl.glVertex3f(x1, y1, z2);
+		gl.glTexCoord2f(1, 0);
 		gl.glVertex3f(x1, y2, z2);
+		gl.glTexCoord2f(1, 1);
 		gl.glVertex3f(x1, y2, z1);
+		gl.glTexCoord2f(0, 1);
 		gl.glVertex3f(x1, y1, z1);
 
 		gl.glNormal3f(0, 1, 0);
+		gl.glTexCoord2f(0, 0);
 		gl.glVertex3f(x1, y2, z2);
+		gl.glTexCoord2f(1, 0);
 		gl.glVertex3f(x2, y2, z2);
+		gl.glTexCoord2f(1, 1);
 		gl.glVertex3f(x2, y2, z1);
+		gl.glTexCoord2f(0, 1);
 		gl.glVertex3f(x1, y2, z1);
 
 		gl.glNormal3f(0, -1, 0);
+		gl.glTexCoord2f(0, 0);
 		gl.glVertex3f(x1, y1, z1);
+		gl.glTexCoord2f(1, 0);
 		gl.glVertex3f(x2, y1, z1);
+		gl.glTexCoord2f(1, 1);
 		gl.glVertex3f(x2, y1, z2);
+		gl.glTexCoord2f(0, 1);
 		gl.glVertex3f(x1, y1, z2);
 		
 		gl.glEnd();

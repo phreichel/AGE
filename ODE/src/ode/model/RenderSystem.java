@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import javax.vecmath.Matrix4f;
 
+import ode.asset.ODETexture;
 import ode.platform.Graphics;
 
 //*************************************************************************************************
@@ -30,11 +31,14 @@ public class RenderSystem extends ArrayList<Entity> {
 	//=============================================================================================
 	private void renderBox(Graphics graphics ,Entity entity) {
 		Matrix4f poseData = entity.getPoseData();
-		if (poseData != null) { 
+		if (poseData != null) {
+			ODETexture tx = graphics.loadTexture("asset/snippet.png");
 			graphics.pushTransform();
 			graphics.multMatrix(poseData);
-			graphics.setColor(1, 0, 0);
+			graphics.setColor(1f, 0f, 0f);
+			graphics.useTexture(tx);
 			graphics.drawBox(-1,-1,-1, 1, 1, 1);
+			graphics.stopUseTexture();
 			graphics.popTransform();
 		}
 	}

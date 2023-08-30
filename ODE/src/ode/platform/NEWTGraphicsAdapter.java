@@ -5,6 +5,8 @@ package ode.platform;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
 
+import ode.asset.JOGLTextureManager;
+import ode.asset.ODEAssets;
 import ode.gui.GUI;
 import ode.model.Model;
 
@@ -12,9 +14,10 @@ import ode.model.Model;
 class NEWTGraphicsAdapter implements GLEventListener {
 
 	//=============================================================================================
-	private Graphics graphics = new Graphics();
-	private GUI gui = null;
-	private Model model = null;
+	private Graphics  graphics = new Graphics();
+	private ODEAssets assets = new ODEAssets(new JOGLTextureManager());
+	private GUI       gui = null;
+	private Model     model = null;
 	//=============================================================================================
 
 	//=============================================================================================
@@ -42,7 +45,7 @@ class NEWTGraphicsAdapter implements GLEventListener {
 	
 	//=============================================================================================
 	public void display(GLAutoDrawable drawable) {
-		graphics.init(drawable);
+		graphics.init(assets, drawable);
 		graphics.startFrame();
 		model.render(graphics);
 		graphics.clearDepth();
