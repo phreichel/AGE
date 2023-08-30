@@ -2,6 +2,8 @@
 package ode.gui;
 //*************************************************************************************************
 
+import java.util.EnumMap;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.vecmath.Vector2f;
@@ -12,90 +14,87 @@ import ode.util.Inset;
 public class Widget {
 
 	//=============================================================================================
-	public final UUID uuid = UUID.randomUUID();
+	private final Map<WidgetComponentEnum, Object> components = new EnumMap<>(WidgetComponentEnum.class);
 	//=============================================================================================
 
 	//=============================================================================================
-	private final GUI gui;
-	//=============================================================================================
-
-	//=============================================================================================
-	Widget(GUI gui) {
-		this.gui = gui; 
+	public void addComonent(WidgetComponentEnum ident, Object component) {
+		components.put(ident, component);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
+	public Object getComonent(WidgetComponentEnum ident) {
+		return components.get(ident);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	@SuppressWarnings("unchecked")
+	public <C> C getComponent(WidgetComponentEnum ident, Class<C> componentClass) {
+		return (C) components.get(ident);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	public TriggerData getTriggerData() {
-		return gui.triggerMap.get(this);
+		return getComponent(WidgetComponentEnum.TRIGGER, TriggerData.class);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public Vector2f getDimensionData() {
-		return gui.dimensionMap.get(this);
+		return getComponent(WidgetComponentEnum.DIMENSION, Vector2f.class);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public FlagData getFlagsData() {
-		return gui.flagsMap.get(this);
+		return getComponent(WidgetComponentEnum.FLAGS, FlagData.class);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public HierarchyData getHierarchyData() {
-		return gui.hierarchyMap.get(this);
+		return getComponent(WidgetComponentEnum.HIERARCHY, HierarchyData.class);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	public Vector2f getPositionData() {
-		return gui.positionMap.get(this);
+		return getComponent(WidgetComponentEnum.POSITION, Vector2f.class);
 	}
 	//=============================================================================================
 
-	//=============================================================================================
+	//=============================================================================================s
 	public LayoutEnum getLayoutData() {
-		return gui.layoutMap.get(this);
+		return getComponent(WidgetComponentEnum.LAYOUT, LayoutEnum.class);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public AlignEnum getAlignData() {
-		return gui.alignMap.get(this);
+		return getComponent(WidgetComponentEnum.ALIGN, AlignEnum.class);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	public RenderEnum getRenderData() {
-		return gui.renderMap.get(this);
+		return getComponent(WidgetComponentEnum.RENDER, RenderEnum.class);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public String getTextData() {
-		return gui.textMap.get(this);
+		return getComponent(WidgetComponentEnum.TEXT, String.class);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public Inset getPaddingData() {
-		return gui.paddingMap.get(this);
+		return getComponent(WidgetComponentEnum.PADDING, Inset.class);
 	}
 	//=============================================================================================
 	
-	//=============================================================================================
-	public int hashCode() {
-		return uuid.hashCode();
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public boolean equals(Object obj) {
-		return uuid.equals(obj);
-	}
-	//=============================================================================================
-
 }
 //*************************************************************************************************

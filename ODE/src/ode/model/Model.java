@@ -2,19 +2,11 @@
 package ode.model;
 //*************************************************************************************************
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
-
-import javax.vecmath.Matrix4f;
-import javax.vecmath.Quat4f;
-import javax.vecmath.Vector3f;
 
 import ode.event.Events;
 import ode.platform.Graphics;
-import ode.util.ODEException;
 
 //*************************************************************************************************
 public class Model {
@@ -28,19 +20,10 @@ public class Model {
 	//=============================================================================================
 
 	//=============================================================================================
-	public Map<Entity, CameraData> cameraMap          = new HashMap<>();
-	public Map<Entity, Matrix4f>   poseMap            = new HashMap<>();
-	public Map<Entity, Vector3f>   positionMap        = new HashMap<>();
-	public Map<Entity, Quat4f>     orientationMap     = new HashMap<>();
-	public Map<Entity, Vector3f>   linearVelocityMap  = new HashMap<>();
-	public Map<Entity, Quat4f>     angularVelocityMap = new HashMap<>();
-	public Map<Entity, RenderEnum> renderMap          = new HashMap<>();
-	//=============================================================================================
-
-	//=============================================================================================
 	private PoseSystem           poseSystem           = new PoseSystem();
 	private KineticLinearSystem  kineticLinearSystem  = new KineticLinearSystem();
 	private KineticAngularSystem kineticAngularSystem = new KineticAngularSystem();
+	private CameraSystem         cameraSystem         = new CameraSystem();
 	private RenderSystem         renderSystem         = new RenderSystem();
 	//=============================================================================================
 
@@ -62,6 +45,7 @@ public class Model {
 			.register(kineticLinearSystem)
 			.register(kineticAngularSystem)
 			.register(poseSystem)
+			.register(cameraSystem)
 			.build();
 	}
 	//=============================================================================================
@@ -86,13 +70,6 @@ public class Model {
 	//=============================================================================================
 	public void remove(Entity entity) {
 		entities.remove(entity);
-		cameraMap.remove(entity);
-		positionMap.remove(entity);
-		poseMap.remove(entity);
-		orientationMap.remove(entity);
-		linearVelocityMap.remove(entity);
-		renderMap.remove(entity);
-		angularVelocityMap.remove(entity);
 	}
 	//=============================================================================================
 	
@@ -106,19 +83,7 @@ public class Model {
 
 	//=============================================================================================
 	public void render(Graphics graphics) {
-		Entity entity = null;
-		CameraData camData = null;
-		for (Entry<Entity, CameraData> entry : cameraMap.entrySet()) {
-			camData = entry.getValue();
-			if (camData.active) {
-				entity = entry.getKey();
-				break;
-			}
-		}
-		if (entity == null) throw new ODEException("No Active Camera");
-		Matrix4f camTransform = new Matrix4f(entity.getPoseData());
-		camTransform.transpose();
-		graphics.beginSceneMode(camTransform, camData.fov, camData.near, camData.far);
+		cameraSystem.update(graphics);
 		renderSystem.update(graphics);
 	}
 	//=============================================================================================

@@ -27,19 +27,6 @@ public class GUI {
 	//=============================================================================================
 
 	//=============================================================================================
-	public final Map<Widget, TriggerData>   triggerMap   = new HashMap<>();
-	public final Map<Widget, Vector2f>      dimensionMap = new HashMap<>();
-	public final Map<Widget, FlagData>      flagsMap     = new HashMap<>();
-	public final Map<Widget, HierarchyData> hierarchyMap = new HashMap<>();
-	public final Map<Widget, LayoutEnum>    layoutMap    = new HashMap<>();
-	public final Map<Widget, Inset>         paddingMap   = new HashMap<>();
-	public final Map<Widget, AlignEnum>     alignMap     = new HashMap<>();
-	public final Map<Widget, Vector2f>      positionMap  = new HashMap<>();
-	public final Map<Widget, RenderEnum>    renderMap    = new HashMap<>();
-	public final Map<Widget, String>        textMap      = new HashMap<>();
-	//=============================================================================================
-
-	//=============================================================================================
 	private TriggerSystem triggerSystem = new TriggerSystem();
 	private HoverSystem   hoverSystem   = new HoverSystem();
 	private LayoutSystem  layoutSystem  = new LayoutSystem();

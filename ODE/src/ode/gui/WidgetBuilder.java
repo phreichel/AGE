@@ -19,7 +19,7 @@ public class WidgetBuilder {
 	//=============================================================================================
 	public WidgetBuilder(GUI gui) {
 		this.gui = gui;
-		widget = new Widget(gui);
+		widget = new Widget();
 		gui.widgets.add(widget);
 	}
 	//=============================================================================================
@@ -30,7 +30,7 @@ public class WidgetBuilder {
 		for (FlagEnum flag : flags) {
 			flagsData.flags.add(flag);
 		}
-		gui.flagsMap.put(widget, flagsData);
+		widget.addComonent(WidgetComponentEnum.FLAGS, flagsData);
 		return this;
 	}
 	//=============================================================================================
@@ -38,7 +38,7 @@ public class WidgetBuilder {
 	//=============================================================================================
 	public WidgetBuilder withPositionData(float x, float y) {
 		Vector2f positionData = new Vector2f(x, y);
-		gui.positionMap.put(widget, positionData);
+		widget.addComonent(WidgetComponentEnum.POSITION, positionData);
 		return this;
 	}
 	//=============================================================================================
@@ -46,7 +46,7 @@ public class WidgetBuilder {
 	//=============================================================================================
 	public WidgetBuilder withDimensionData(float width, float height) {
 		Vector2f dimensionData = new Vector2f(width, height);
-		gui.dimensionMap.put(widget, dimensionData);
+		widget.addComonent(WidgetComponentEnum.DIMENSION, dimensionData);
 		return this;
 	}
 	//=============================================================================================
@@ -54,35 +54,35 @@ public class WidgetBuilder {
 	//=============================================================================================
 	public WidgetBuilder withHierarchyData() {
 		HierarchyData hierarchyData = new HierarchyData();
-		gui.hierarchyMap.put(widget, hierarchyData);
+		widget.addComonent(WidgetComponentEnum.HIERARCHY, hierarchyData);
 		return this;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public WidgetBuilder withLayoutData(LayoutEnum layoutEnum) {
-		gui.layoutMap.put(widget, layoutEnum);
+		widget.addComonent(WidgetComponentEnum.LAYOUT, layoutEnum);
 		return this;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	public WidgetBuilder withAlignData(AlignEnum alignment) {
-		gui.alignMap.put(widget, alignment);
+		widget.addComonent(WidgetComponentEnum.ALIGN, alignment);
 		return this;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public WidgetBuilder withRenderData(RenderEnum renderData) {
-		gui.renderMap.put(widget, renderData);
+		widget.addComonent(WidgetComponentEnum.RENDER, renderData);
 		return this;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public WidgetBuilder withTextData(String text) {
-		gui.textMap.put(widget, text);
+		widget.addComonent(WidgetComponentEnum.TEXT, text);
 		return this;
 	}
 	//=============================================================================================
@@ -92,7 +92,7 @@ public class WidgetBuilder {
 		TriggerData triggerData = widget.getTriggerData();
 		if (triggerData == null) {
 			triggerData = new TriggerData();
-			gui.triggerMap.put(widget, triggerData);
+			widget.addComonent(WidgetComponentEnum.TRIGGER, triggerData);
 		}
 		triggerData.actionMap.put(trigger, action);
 		return this;
@@ -106,7 +106,7 @@ public class WidgetBuilder {
 		paddingData.bottom = bottom;
 		paddingData.left = left;
 		paddingData.right = right;
-		gui.paddingMap.put(widget, paddingData);
+		widget.addComonent(WidgetComponentEnum.PADDING, paddingData);
 		return this;
 	}
 	//=============================================================================================

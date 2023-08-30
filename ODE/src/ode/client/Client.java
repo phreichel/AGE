@@ -35,7 +35,7 @@ public class Client {
 	//=============================================================================================
 	public void configure(String[] args) {
 		
-		Widget b1 = gui.createButton("START", (w) -> System.out.println(w.uuid));
+		Widget b1 = gui.createButton("START", (w) -> System.out.println("CLIIK"));
 		Widget b2 = gui.createButton("QUIT", (w) -> terminate = true);
 		Widget buttons = gui.createBox();
 		attach(buttons, b1);
