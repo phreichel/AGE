@@ -5,6 +5,8 @@ package ode.gui;
 import java.util.EnumMap;
 import java.util.Map;
 
+import ode.util.ODEException;
+
 //*************************************************************************************************
 public class Widget {
 
@@ -14,6 +16,9 @@ public class Widget {
 
 	//=============================================================================================
 	public void addComponent(WidgetEnum ident, Object component) {
+		if (!ident.getComponentClass().isInstance(component)) {
+			throw new ODEException("Invalid Component Class. expected: " + ident.getComponentClass().getName() + " detected: " + component.getClass().getName());
+		}
 		components.put(ident, component);
 	}
 	//=============================================================================================

@@ -2,17 +2,37 @@
 package ode.model;
 //*************************************************************************************************
 
+import javax.vecmath.Matrix4f;
+import javax.vecmath.Quat4f;
+import javax.vecmath.Vector3f;
+
 //*************************************************************************************************
 public enum EntityEnum {
 
 	//=============================================================================================
-	CAMERA,
-	POSITION,
-	ORIENTATION,
-	LINEAR_VELOCITY,
-	ANGULAR_VELOCITY,
-	POSE,
-	RENDER
+	CAMERA(CameraData.class),
+	POSITION(Vector3f.class),
+	ORIENTATION(Quat4f.class),
+	LINEAR_VELOCITY(Vector3f.class),
+	ANGULAR_VELOCITY(Quat4f.class),
+	POSE(Matrix4f.class),
+	RENDER(RenderEnum.class);
+	//=============================================================================================
+
+	//=============================================================================================
+	private Class<?> componentClass = null;
+	//=============================================================================================
+	
+	//=============================================================================================
+	private EntityEnum(Class<?> componentClass) {
+		this.componentClass = componentClass;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public Class<?> getComponentClass() {
+		return componentClass;
+	}
 	//=============================================================================================
 	
 }

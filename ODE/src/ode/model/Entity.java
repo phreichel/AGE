@@ -5,6 +5,8 @@ package ode.model;
 import java.util.EnumMap;
 import java.util.Map;
 
+import ode.util.ODEException;
+
 //*************************************************************************************************
 public class Entity {
 
@@ -21,6 +23,9 @@ public class Entity {
 
 	//=============================================================================================
 	public void addComponent(EntityEnum ident, Object component) {
+		if (!ident.getComponentClass().isInstance(component)) {
+			throw new ODEException("Invalid Component Class. expected: " + ident.getComponentClass().getName() + " detected: " + component.getClass().getName());
+		}
 		components.put(ident, component);
 	}
 	//=============================================================================================
