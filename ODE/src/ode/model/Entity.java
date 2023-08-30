@@ -1,21 +1,16 @@
 //*************************************************************************************************
 package ode.model;
+//*************************************************************************************************
 
 import java.util.EnumMap;
 import java.util.Map;
-
-import javax.vecmath.Matrix4f;
-import javax.vecmath.Quat4f;
-import javax.vecmath.Vector3f;
-
-//*************************************************************************************************
 
 //*************************************************************************************************
 public class Entity {
 
 	//=============================================================================================
 	private final Model model;
-	private final Map<ComponentEnum, Object> components = new EnumMap<>(ComponentEnum.class);
+	private final Map<EntityEnum, Object> components = new EnumMap<>(EntityEnum.class);
 	//=============================================================================================
 
 	//=============================================================================================
@@ -25,63 +20,21 @@ public class Entity {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void addComponent(ComponentEnum ident, Object component) {
+	public void addComponent(EntityEnum ident, Object component) {
 		components.put(ident, component);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public Object getComponent(ComponentEnum ident) {
+	public Object getComponent(EntityEnum ident) {
 		return components.get(ident);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	@SuppressWarnings("unchecked")
-	public <C> C getComponent(ComponentEnum ident, Class<C> componentClass) {
+	public <C> C getComponent(EntityEnum ident, Class<C> componentClass) {
 		return (C) components.get(ident);
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public CameraData getCameraData() {
-		return getComponent(ComponentEnum.CAMERA, CameraData.class);
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public Vector3f getLinearVelocityData() {
-		return getComponent(ComponentEnum.LINEAR_VELOCITY, Vector3f.class);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public Quat4f getRotationVelocityData() {
-		return getComponent(ComponentEnum.ANGULAR_VELOCITY, Quat4f.class);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public Vector3f getPositionData() {
-		return getComponent(ComponentEnum.POSITION, Vector3f.class);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public Quat4f getOrientationData() {
-		return getComponent(ComponentEnum.ORIENTATION, Quat4f.class);
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public Matrix4f getPoseData() {
-		return getComponent(ComponentEnum.POSE, Matrix4f.class);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public RenderEnum getRenderData() {
-		return getComponent(ComponentEnum.RENDER, RenderEnum.class);
 	}
 	//=============================================================================================
 	

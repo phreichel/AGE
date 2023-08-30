@@ -19,7 +19,7 @@ public class RenderSystem extends ArrayList<Entity> {
 	//=============================================================================================
 	public void update(Graphics graphics) {
 		for (Entity entity : this) {
-			RenderEnum renderData = entity.getRenderData();
+			RenderEnum renderData = entity.getComponent(EntityEnum.RENDER, RenderEnum.class);
 			switch (renderData) {
 				case BOX: renderBox(graphics, entity); break;
 				default: break;
@@ -30,7 +30,7 @@ public class RenderSystem extends ArrayList<Entity> {
 
 	//=============================================================================================
 	private void renderBox(Graphics graphics ,Entity entity) {
-		Matrix4f poseData = entity.getPoseData();
+		Matrix4f poseData = entity.getComponent(EntityEnum.POSE, Matrix4f.class);
 		if (poseData != null) {
 			ODETexture tx = graphics.loadTexture("asset/snippet.png");
 			graphics.pushTransform();

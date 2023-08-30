@@ -30,7 +30,7 @@ public class RenderSystem extends ArrayList<Widget> {
 
 	//=============================================================================================
 	private void render(Widget widget, Graphics graphics) {
-		RenderEnum renderData = widget.getRenderData();
+		RenderEnum renderData = widget.getComponent(WidgetEnum.RENDER, RenderEnum.class);
 		switch (renderData) {
 			case BOX: renderBox(widget, graphics); break;
 			case LABEL: renderLabel(widget, graphics); break;
@@ -42,7 +42,7 @@ public class RenderSystem extends ArrayList<Widget> {
 
 	//=============================================================================================
 	private void renderBox(Widget widget, Graphics graphics) {
-		Vector2f dimensionData = widget.getDimensionData();
+		Vector2f dimensionData = widget.getComponent(WidgetEnum.DIMENSION, Vector2f.class);
 		float[] globalPosition = getGlobalPosition(widget, new float[] {0, 0, 0});
 		float x = globalPosition[0];
 		float y = globalPosition[1];
@@ -62,10 +62,10 @@ public class RenderSystem extends ArrayList<Widget> {
 
 	//=============================================================================================
 	private void renderButton(Widget widget, Graphics graphics) {
-		TriggerData clickData = widget.getTriggerData();
-		Vector2f dimensionData = widget.getDimensionData();
-		FlagData flagsData = widget.getFlagsData();
-		String label = widget.getTextData();
+		TriggerData clickData = widget.getComponent(WidgetEnum.TRIGGER, TriggerData.class);
+		Vector2f dimensionData = widget.getComponent(WidgetEnum.DIMENSION, Vector2f.class);
+		FlagData flagsData = widget.getComponent(WidgetEnum.FLAGS, FlagData.class);
+		String label = widget.getComponent(WidgetEnum.TEXT, String.class);
 		float[] globalPosition = getGlobalPosition(widget, new float[] {0, 0, 0});
 		float x = globalPosition[0];
 		float y = globalPosition[1];
@@ -96,8 +96,8 @@ public class RenderSystem extends ArrayList<Widget> {
 
 	//=============================================================================================
 	private void renderLabel(Widget widget, Graphics graphics) {
-		Vector2f dimensionData = widget.getDimensionData();
-		String label = widget.getTextData();
+		Vector2f dimensionData = widget.getComponent(WidgetEnum.DIMENSION, Vector2f.class);
+		String label = widget.getComponent(WidgetEnum.TEXT, String.class);
 		float[] globalPosition = getGlobalPosition(widget, new float[] {0, 0, 0});
 		float x = globalPosition[0];
 		float y = globalPosition[1];
@@ -120,8 +120,8 @@ public class RenderSystem extends ArrayList<Widget> {
 	//=============================================================================================
 	private float[] getGlobalPosition(Widget widget, float[] target) {
 		if (widget == null) return target;
-		HierarchyData hierarchyData = widget.getHierarchyData();
-		Vector2f positionData = widget.getPositionData();
+		HierarchyData hierarchyData = widget.getComponent(WidgetEnum.HIERARCHY, HierarchyData.class);
+		Vector2f positionData = widget.getComponent(WidgetEnum.POSITION, Vector2f.class);
 		target[0] += positionData.x;
 		target[1] += positionData.y;
 		target[2] += 1;

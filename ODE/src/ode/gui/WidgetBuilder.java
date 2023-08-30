@@ -12,13 +12,11 @@ import ode.util.Inset;
 public class WidgetBuilder {
 
 	//=============================================================================================
-	private GUI gui;
 	private Widget widget;
 	//=============================================================================================
 
 	//=============================================================================================
 	public WidgetBuilder(GUI gui) {
-		this.gui = gui;
 		widget = new Widget();
 		gui.widgets.add(widget);
 	}
@@ -30,7 +28,7 @@ public class WidgetBuilder {
 		for (FlagEnum flag : flags) {
 			flagsData.flags.add(flag);
 		}
-		widget.addComponent(WidgetComponentEnum.FLAGS, flagsData);
+		widget.addComponent(WidgetEnum.FLAGS, flagsData);
 		return this;
 	}
 	//=============================================================================================
@@ -38,7 +36,7 @@ public class WidgetBuilder {
 	//=============================================================================================
 	public WidgetBuilder withPositionData(float x, float y) {
 		Vector2f positionData = new Vector2f(x, y);
-		widget.addComponent(WidgetComponentEnum.POSITION, positionData);
+		widget.addComponent(WidgetEnum.POSITION, positionData);
 		return this;
 	}
 	//=============================================================================================
@@ -46,7 +44,7 @@ public class WidgetBuilder {
 	//=============================================================================================
 	public WidgetBuilder withDimensionData(float width, float height) {
 		Vector2f dimensionData = new Vector2f(width, height);
-		widget.addComponent(WidgetComponentEnum.DIMENSION, dimensionData);
+		widget.addComponent(WidgetEnum.DIMENSION, dimensionData);
 		return this;
 	}
 	//=============================================================================================
@@ -54,45 +52,45 @@ public class WidgetBuilder {
 	//=============================================================================================
 	public WidgetBuilder withHierarchyData() {
 		HierarchyData hierarchyData = new HierarchyData();
-		widget.addComponent(WidgetComponentEnum.HIERARCHY, hierarchyData);
+		widget.addComponent(WidgetEnum.HIERARCHY, hierarchyData);
 		return this;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public WidgetBuilder withLayoutData(LayoutEnum layoutEnum) {
-		widget.addComponent(WidgetComponentEnum.LAYOUT, layoutEnum);
+		widget.addComponent(WidgetEnum.LAYOUT, layoutEnum);
 		return this;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	public WidgetBuilder withAlignData(AlignEnum alignment) {
-		widget.addComponent(WidgetComponentEnum.ALIGN, alignment);
+		widget.addComponent(WidgetEnum.ALIGN, alignment);
 		return this;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public WidgetBuilder withRenderData(RenderEnum renderData) {
-		widget.addComponent(WidgetComponentEnum.RENDER, renderData);
+		widget.addComponent(WidgetEnum.RENDER, renderData);
 		return this;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public WidgetBuilder withTextData(String text) {
-		widget.addComponent(WidgetComponentEnum.TEXT, text);
+		widget.addComponent(WidgetEnum.TEXT, text);
 		return this;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public WidgetBuilder withTriggerData(TriggerEnum trigger, Action action) {
-		TriggerData triggerData = widget.getTriggerData();
+		TriggerData triggerData = widget.getComponent(WidgetEnum.TRIGGER, TriggerData.class);
 		if (triggerData == null) {
 			triggerData = new TriggerData();
-			widget.addComponent(WidgetComponentEnum.TRIGGER, triggerData);
+			widget.addComponent(WidgetEnum.TRIGGER, triggerData);
 		}
 		triggerData.actionMap.put(trigger, action);
 		return this;
@@ -106,7 +104,7 @@ public class WidgetBuilder {
 		paddingData.bottom = bottom;
 		paddingData.left = left;
 		paddingData.right = right;
-		widget.addComponent(WidgetComponentEnum.PADDING, paddingData);
+		widget.addComponent(WidgetEnum.PADDING, paddingData);
 		return this;
 	}
 	//=============================================================================================

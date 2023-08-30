@@ -11,8 +11,10 @@ import ode.event.Events;
 import ode.gui.GUI;
 import ode.gui.HierarchyData;
 import ode.gui.Widget;
+import ode.gui.WidgetEnum;
 import ode.model.CameraData;
 import ode.model.Entity;
+import ode.model.EntityEnum;
 import ode.model.Model;
 import ode.platform.Platform;
 import ode.schedule.Scheduler;
@@ -50,31 +52,31 @@ public class Client {
 		Widget frame = gui.createBox();
 		attach(frame, buttons);
 		attach(frame, scores);
-		Vector2f positionData = frame.getPositionData();
+		Vector2f positionData = frame.getComponent(WidgetEnum.POSITION, Vector2f.class);
 		positionData.set(30, 30);
 
 		Entity camera = model.createCamera();
 		
-		CameraData cameraData = camera.getCameraData();
+		CameraData cameraData = camera.getComponent(EntityEnum.CAMERA, CameraData.class);
 		cameraData.active = true;
 		
-		Quat4f rotationVelocityData = camera.getRotationVelocityData();
+		Quat4f rotationVelocityData = camera.getComponent(EntityEnum.ANGULAR_VELOCITY, Quat4f.class);
 		rotationVelocityData.set(new AxisAngle4f(0, 0, -1, (float) Math.toRadians(15f)));
 
 		for (int i=0; i<25; i++) {
 			
 			Entity body = model.createBody();
 			
-			Vector3f bodyPositionData = body.getPositionData();
+			Vector3f bodyPositionData = body.getComponent(EntityEnum.POSITION, Vector3f.class);
 			bodyPositionData.set(0, 0, -5f);
 			
-			Vector3f linearVelocityData = body.getLinearVelocityData();
+			Vector3f linearVelocityData = body.getComponent(EntityEnum.LINEAR_VELOCITY, Vector3f.class);
 			float a = (float) ((Math.random() - .5) * 0.2);
 			float b = (float) ((Math.random() - .5) * 0.2);
 			float c = (float) (Math.random() * 0.2);
 			linearVelocityData.set(a, b, -.5f - c);
 
-			Quat4f bodyRotationVelocityData = body.getRotationVelocityData();
+			Quat4f bodyRotationVelocityData = body.getComponent(EntityEnum.ANGULAR_VELOCITY, Quat4f.class);
 			Vector3f nrm = new Vector3f(
 				(float) (Math.random() - .5),
 				(float) (Math.random() - .5),
@@ -94,8 +96,8 @@ public class Client {
 
 	//=============================================================================================
 	private void attach(Widget parent, Widget child) {
-		HierarchyData parentHierarchy = parent.getHierarchyData();
-		HierarchyData childHierarchy = child.getHierarchyData();
+		HierarchyData parentHierarchy = parent.getComponent(WidgetEnum.HIERARCHY, HierarchyData.class);
+		HierarchyData childHierarchy = child.getComponent(WidgetEnum.HIERARCHY, HierarchyData.class);
 		parentHierarchy.children.add(child);
 		childHierarchy.parent = parent;
 	}

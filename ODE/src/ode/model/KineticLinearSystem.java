@@ -17,8 +17,8 @@ public class KineticLinearSystem extends ArrayList<Entity> {
 	public void update(float dT) {
 		Vector3f locationChangeRate = new Vector3f();
 		for (Entity entity : this) {
-			Vector3f linearVelocityData = entity.getLinearVelocityData();
-			Vector3f positionData = entity.getPositionData();
+			Vector3f linearVelocityData = entity.getComponent(EntityEnum.LINEAR_VELOCITY, Vector3f.class);
+			Vector3f positionData = entity.getComponent(EntityEnum.POSITION, Vector3f.class);
 			if (positionData != null) {
 				locationChangeRate.scale(dT * .5f, linearVelocityData);
 				positionData.add(locationChangeRate);

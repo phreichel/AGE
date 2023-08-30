@@ -2,17 +2,12 @@
 package ode.gui;
 //*************************************************************************************************
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
-
-import javax.vecmath.Vector2f;
 
 import ode.event.Event;
 import ode.event.Events;
 import ode.platform.Graphics;
-import ode.util.Inset;
 
 //*************************************************************************************************
 public class GUI {

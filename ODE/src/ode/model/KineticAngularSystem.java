@@ -17,8 +17,8 @@ public class KineticAngularSystem extends ArrayList<Entity> {
 	public void update(float dT) {
 		Quat4f orientationChangeRate = new Quat4f();
 		for (Entity entity : this) {
-			Quat4f rotationVelocityData = entity.getRotationVelocityData();
-			Quat4f orientationData = entity.getOrientationData();
+			Quat4f rotationVelocityData = entity.getComponent(EntityEnum.ANGULAR_VELOCITY, Quat4f.class);
+			Quat4f orientationData = entity.getComponent(EntityEnum.ORIENTATION, Quat4f.class);
 			if (orientationData != null) {
 				rotationVelocityData.normalize();
 				orientationChangeRate.scale(dT, rotationVelocityData);

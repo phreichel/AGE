@@ -19,9 +19,9 @@ public class CameraSystem extends ArrayList<Entity> {
 	//=============================================================================================
 	public void update(Graphics graphics) {
 		for (Entity entity : this) {
-			CameraData cameraData = entity.getCameraData();
+			CameraData cameraData = entity.getComponent(EntityEnum.CAMERA, CameraData.class);
 			if (cameraData.active) {
-				Matrix4f camTransform = new Matrix4f(entity.getPoseData());
+				Matrix4f camTransform = new Matrix4f(entity.getComponent(EntityEnum.POSE, Matrix4f.class));
 				camTransform.transpose();
 				graphics.beginSceneMode(camTransform, cameraData.fov, cameraData.near, cameraData.far);
 				return;

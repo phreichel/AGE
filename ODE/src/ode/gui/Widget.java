@@ -4,95 +4,30 @@ package ode.gui;
 
 import java.util.EnumMap;
 import java.util.Map;
-import java.util.UUID;
-
-import javax.vecmath.Vector2f;
-
-import ode.util.Inset;
 
 //*************************************************************************************************
 public class Widget {
 
 	//=============================================================================================
-	private final Map<WidgetComponentEnum, Object> components = new EnumMap<>(WidgetComponentEnum.class);
+	private final Map<WidgetEnum, Object> components = new EnumMap<>(WidgetEnum.class);
 	//=============================================================================================
 
 	//=============================================================================================
-	public void addComponent(WidgetComponentEnum ident, Object component) {
+	public void addComponent(WidgetEnum ident, Object component) {
 		components.put(ident, component);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public Object getComponent(WidgetComponentEnum ident) {
+	public Object getComponent(WidgetEnum ident) {
 		return components.get(ident);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	@SuppressWarnings("unchecked")
-	public <C> C getComponent(WidgetComponentEnum ident, Class<C> componentClass) {
+	public <C> C getComponent(WidgetEnum ident, Class<C> componentClass) {
 		return (C) components.get(ident);
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public TriggerData getTriggerData() {
-		return getComponent(WidgetComponentEnum.TRIGGER, TriggerData.class);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public Vector2f getDimensionData() {
-		return getComponent(WidgetComponentEnum.DIMENSION, Vector2f.class);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public FlagData getFlagsData() {
-		return getComponent(WidgetComponentEnum.FLAGS, FlagData.class);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public HierarchyData getHierarchyData() {
-		return getComponent(WidgetComponentEnum.HIERARCHY, HierarchyData.class);
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public Vector2f getPositionData() {
-		return getComponent(WidgetComponentEnum.POSITION, Vector2f.class);
-	}
-	//=============================================================================================
-
-	//=============================================================================================s
-	public LayoutEnum getLayoutData() {
-		return getComponent(WidgetComponentEnum.LAYOUT, LayoutEnum.class);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public AlignEnum getAlignData() {
-		return getComponent(WidgetComponentEnum.ALIGN, AlignEnum.class);
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public RenderEnum getRenderData() {
-		return getComponent(WidgetComponentEnum.RENDER, RenderEnum.class);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public String getTextData() {
-		return getComponent(WidgetComponentEnum.TEXT, String.class);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public Inset getPaddingData() {
-		return getComponent(WidgetComponentEnum.PADDING, Inset.class);
 	}
 	//=============================================================================================
 	

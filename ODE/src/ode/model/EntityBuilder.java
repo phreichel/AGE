@@ -29,7 +29,7 @@ public class EntityBuilder {
 		cameraData.near = near;
 		cameraData.far = far;
 		cameraData.active = active;
-		entity.addComponent(ComponentEnum.CAMERA, cameraData);
+		entity.addComponent(EntityEnum.CAMERA, cameraData);
 		return this;		
 	}
 	//=============================================================================================
@@ -37,7 +37,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withLinearVelocityData() {
 		Vector3f linearVelocityData = new Vector3f();
-		entity.addComponent(ComponentEnum.LINEAR_VELOCITY, linearVelocityData);
+		entity.addComponent(EntityEnum.LINEAR_VELOCITY, linearVelocityData);
 		return this;		
 	}
 	//=============================================================================================
@@ -45,7 +45,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withLinearVelocityData(Vector3f linearVelocity) {
 		Vector3f linearVelocityData = new Vector3f(linearVelocity);
-		entity.addComponent(ComponentEnum.LINEAR_VELOCITY, linearVelocityData);
+		entity.addComponent(EntityEnum.LINEAR_VELOCITY, linearVelocityData);
 		return this;		
 	}
 	//=============================================================================================
@@ -53,7 +53,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withLinearVelocityData(float vx, float vy, float vz) {
 		Vector3f linearVelocityData = new Vector3f(vx, vy, vz);
-		entity.addComponent(ComponentEnum.LINEAR_VELOCITY, linearVelocityData);
+		entity.addComponent(EntityEnum.LINEAR_VELOCITY, linearVelocityData);
 		return this;		
 	}
 	//=============================================================================================
@@ -61,7 +61,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withRotationVelocityData() {
 		Quat4f rotationVelocityData = new Quat4f(0, 0, 0, 1);
-		entity.addComponent(ComponentEnum.ANGULAR_VELOCITY, rotationVelocityData);
+		entity.addComponent(EntityEnum.ANGULAR_VELOCITY, rotationVelocityData);
 		return this;
 	}
 	//=============================================================================================
@@ -69,7 +69,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withRotationVelocityData(Quat4f rotationVelocity) {
 		Quat4f rotationVelocityData = new Quat4f(rotationVelocity);
-		entity.addComponent(ComponentEnum.ANGULAR_VELOCITY, rotationVelocityData);
+		entity.addComponent(EntityEnum.ANGULAR_VELOCITY, rotationVelocityData);
 		return this;
 	}
 	//=============================================================================================
@@ -77,7 +77,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withPositionData() {
 		Vector3f positionData = new Vector3f();
-		entity.addComponent(ComponentEnum.POSITION, positionData);
+		entity.addComponent(EntityEnum.POSITION, positionData);
 		return this;
 	}
 	//=============================================================================================
@@ -85,7 +85,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withPositionData(Vector3f position) {
 		Vector3f positionData = new Vector3f(position);
-		entity.addComponent(ComponentEnum.POSITION, positionData);
+		entity.addComponent(EntityEnum.POSITION, positionData);
 		return this;
 	}
 	//=============================================================================================
@@ -93,7 +93,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withPositionData(float x, float y, float z) {
 		Vector3f positionData = new Vector3f(x, y, z);
-		entity.addComponent(ComponentEnum.POSITION, positionData);
+		entity.addComponent(EntityEnum.POSITION, positionData);
 		return this;
 	}
 	//=============================================================================================
@@ -101,7 +101,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withOrientationData() {
 		Quat4f orientationData = new Quat4f(0, 0, 0, 1);
-		entity.addComponent(ComponentEnum.ORIENTATION, orientationData);
+		entity.addComponent(EntityEnum.ORIENTATION, orientationData);
 		return this;
 	}
 	//=============================================================================================
@@ -109,7 +109,7 @@ public class EntityBuilder {
 	//=============================================================================================
 	public EntityBuilder withOrientationData(Quat4f orientation) {
 		Quat4f orientationData = new Quat4f(orientation);
-		entity.addComponent(ComponentEnum.ORIENTATION, orientationData);
+		entity.addComponent(EntityEnum.ORIENTATION, orientationData);
 		return this;
 	}
 	//=============================================================================================
@@ -118,14 +118,14 @@ public class EntityBuilder {
 	public EntityBuilder withPoseData() {
 		Matrix4f poseData = new Matrix4f();
 		poseData.setIdentity();
-		entity.addComponent(ComponentEnum.POSE, poseData);
+		entity.addComponent(EntityEnum.POSE, poseData);
 		return this;		
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public EntityBuilder withRenderData(RenderEnum renderData) {
-		entity.addComponent(ComponentEnum.RENDER, renderData);
+		entity.addComponent(EntityEnum.RENDER, renderData);
 		return this;		
 	}
 	//=============================================================================================

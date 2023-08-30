@@ -27,7 +27,7 @@ public class HoverSystem extends ArrayList<Widget> implements Handler {
 		float z = -1;
 		Widget active = null;
 		for (Widget widget : this) {
-			FlagData flagsData = widget.getFlagsData();
+			FlagData flagsData = widget.getComponent(WidgetEnum.FLAGS, FlagData.class);
 			flagsData.flags.remove(FlagEnum.HOVER);
 			float[] globalPosition = getGlobalPosition(widget, new float[] { 0, 0, 0 });
 			if (isInside(widget, globalPosition, pointer_x, pointer_y)) {
@@ -39,7 +39,7 @@ public class HoverSystem extends ArrayList<Widget> implements Handler {
 			}
 		}
 		if (active != null) {
-			FlagData flagsData = active.getFlagsData();
+			FlagData flagsData = active.getComponent(WidgetEnum.FLAGS, FlagData.class);
 			flagsData.flags.add(FlagEnum.HOVER);
 		}
 	}
@@ -47,7 +47,7 @@ public class HoverSystem extends ArrayList<Widget> implements Handler {
 
 	//=============================================================================================
 	private boolean isInside(Widget widget, float[] globalPosition, float x, float y) {
-		Vector2f dimensionData = widget.getDimensionData();
+		Vector2f dimensionData = widget.getComponent(WidgetEnum.DIMENSION, Vector2f.class);
 		float x1 = globalPosition[0];
 		float y1 = globalPosition[1];
 		float x2 = x1 + dimensionData.x;
@@ -67,8 +67,8 @@ public class HoverSystem extends ArrayList<Widget> implements Handler {
 	//=============================================================================================
 	private float[] getGlobalPosition(Widget widget, float[] target) {
 		if (widget == null) return target;
-		HierarchyData hierarchyData = widget.getHierarchyData();
-		Vector2f positionData = widget.getPositionData();
+		HierarchyData hierarchyData = widget.getComponent(WidgetEnum.HIERARCHY, HierarchyData.class);
+		Vector2f positionData = widget.getComponent(WidgetEnum.POSITION, Vector2f.class);
 		target[0] += positionData.x;
 		target[1] += positionData.y;
 		target[2] += 1;

@@ -34,7 +34,7 @@ public class TriggerSystem extends ArrayList<Widget> implements Handler {
 	private void handleDecay(float dT) {
 		final float TIME_FACTOR = 5f;
 		for (Widget widget : this) {
-			TriggerData triggerData = widget.getTriggerData();
+			TriggerData triggerData = widget.getComponent(WidgetEnum.TRIGGER, TriggerData.class);
 			if (triggerData != null) {
 				triggerData.decay = Math.max(0f, triggerData.decay - dT * TIME_FACTOR);
 			}
@@ -47,7 +47,7 @@ public class TriggerSystem extends ArrayList<Widget> implements Handler {
 		if (clickDetected == null) return;
 		Widget active = getActiveWidget();
 		if (active != null) {
-			TriggerData triggerData = active.getTriggerData();
+			TriggerData triggerData = active.getComponent(WidgetEnum.TRIGGER, TriggerData.class);
 			if (triggerData != null) {
 				if (triggerData.decay < 0.001f) {
 					Action action = triggerData.actionMap.get(clickDetected);
@@ -82,7 +82,7 @@ public class TriggerSystem extends ArrayList<Widget> implements Handler {
 	
 	//=============================================================================================
 	private boolean isInside(Widget widget, float[] globalPosition, float x, float y) {
-		Vector2f dimensionData = widget.getDimensionData();
+		Vector2f dimensionData = widget.getComponent(WidgetEnum.DIMENSION, Vector2f.class);
 		float x1 = globalPosition[0];
 		float y1 = globalPosition[1];
 		float x2 = x1 + dimensionData.x;
@@ -94,8 +94,8 @@ public class TriggerSystem extends ArrayList<Widget> implements Handler {
 	//=============================================================================================
 	private float[] getGlobalPosition(Widget widget, float[] target) {
 		if (widget == null) return target;
-		HierarchyData hierarchyData = widget.getHierarchyData();
-		Vector2f positionData = widget.getPositionData();
+		HierarchyData hierarchyData = widget.getComponent(WidgetEnum.HIERARCHY, HierarchyData.class);
+		Vector2f positionData = widget.getComponent(WidgetEnum.POSITION, Vector2f.class);
 		target[0] += positionData.x;
 		target[1] += positionData.y;
 		target[2] += 1;
