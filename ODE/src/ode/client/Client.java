@@ -53,7 +53,7 @@ public class Client {
 		attach(frame, buttons);
 		attach(frame, scores);
 		Vector2f positionData = frame.getComponent(WidgetEnum.POSITION, Vector2f.class);
-		positionData.set(30, 30);
+		positionData.set(5, 5);
 
 		Entity camera = model.createCamera();
 		

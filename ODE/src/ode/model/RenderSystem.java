@@ -35,7 +35,7 @@ public class RenderSystem extends ArrayList<Entity> {
 			ODETexture tx = graphics.loadTexture("asset/snippet.png");
 			graphics.pushTransform();
 			graphics.multMatrix(poseData);
-			graphics.setColor(1f, 0f, 0f);
+			graphics.setColor(.8f, .6f, 0f);
 			graphics.useTexture(tx);
 			graphics.drawBox(-1,-1,-1, 1, 1, 1);
 			graphics.stopUseTexture();
