@@ -37,7 +37,7 @@ public class LayoutSystem  extends ArrayList<Widget> {
 		float offset = paddingData.top;
 		float maxwidth = 0f;
 		for (Widget child : hierarchyData.children) {
-			FlagData flagsData = widget.getComponent(WidgetEnum.FLAGS, FlagData.class);
+			FlagData flagsData = child.getComponent(WidgetEnum.FLAGS, FlagData.class);
 			if (!flagsData.flags.contains(FlagEnum.DISPLAYED)) continue;
 			Vector2f dimensionData = child.getComponent(WidgetEnum.DIMENSION, Vector2f.class);
 			Vector2f positionData = child.getComponent(WidgetEnum.POSITION, Vector2f.class);

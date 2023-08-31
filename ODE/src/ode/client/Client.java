@@ -39,20 +39,31 @@ public class Client {
 	//=============================================================================================
 	private Widget startMenu;
 	private Widget pauseButton;
+	private Widget bStart;
+	private Widget bResume;
+	private Widget bStop;
 	//=============================================================================================
 	
 	//=============================================================================================
 	public void configure(String[] args) {
 		
-		Widget b1 = gui.createButton("START", this::startGame);
-		Widget b2 = gui.createButton("WINOWED", (w) -> platform.setFullscreen(false));
-		Widget b3 = gui.createButton("FULLSCREEN", (w) -> platform.setFullscreen(true));
-		Widget b4 = gui.createButton("QUIT", (w) -> terminate = true);
+		bStart = gui.createButton("START", this::startGame);
+		bResume = gui.createButton("RESUME", this::resumeGame);
+		FlagData resumeFlagData = bResume.getComponent(WidgetEnum.FLAGS, FlagData.class);
+		resumeFlagData.flags.remove(FlagEnum.DISPLAYED);
+		bStop = gui.createButton("STOP", this::stopGame);
+		FlagData stopFlagData = bStop.getComponent(WidgetEnum.FLAGS, FlagData.class);
+		stopFlagData.flags.remove(FlagEnum.DISPLAYED);
+		Widget b1 = gui.createButton("WINOWED", (w) -> platform.setFullscreen(false));
+		Widget b2 = gui.createButton("FULLSCREEN", (w) -> platform.setFullscreen(true));
+		Widget b3 = gui.createButton("QUIT", (w) -> terminate = true);
 		Widget buttons = gui.createBox();
+		attach(buttons, bStart);
+		attach(buttons, bResume);
+		attach(buttons, bStop);
 		attach(buttons, b1);
 		attach(buttons, b2);
 		attach(buttons, b3);
-		attach(buttons, b4);
 		
 		Widget scores = gui.createBox();
 		for (int i=0; i<10; i++) {
@@ -127,9 +138,17 @@ public class Client {
 		{
 			FlagData flagData =startMenu.getComponent(WidgetEnum.FLAGS, FlagData.class);
 			flagData.flags.remove(FlagEnum.DISPLAYED);
-		}
-		{
+		}{
 			FlagData flagData =pauseButton.getComponent(WidgetEnum.FLAGS, FlagData.class);
+			flagData.flags.add(FlagEnum.DISPLAYED);
+		}{
+			FlagData flagData =bStart.getComponent(WidgetEnum.FLAGS, FlagData.class);
+			flagData.flags.remove(FlagEnum.DISPLAYED);
+		}{
+			FlagData flagData =bResume.getComponent(WidgetEnum.FLAGS, FlagData.class);
+			flagData.flags.add(FlagEnum.DISPLAYED);
+		}{
+			FlagData flagData =bStop.getComponent(WidgetEnum.FLAGS, FlagData.class);
 			flagData.flags.add(FlagEnum.DISPLAYED);
 		}
 	}
@@ -140,10 +159,42 @@ public class Client {
 		{
 			FlagData flagData =pauseButton.getComponent(WidgetEnum.FLAGS, FlagData.class);
 			flagData.flags.remove(FlagEnum.DISPLAYED);
+		}{
+			FlagData flagData =startMenu.getComponent(WidgetEnum.FLAGS, FlagData.class);
+			flagData.flags.add(FlagEnum.DISPLAYED);
 		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void resumeGame(Widget widget) {
+		{
+			FlagData flagData =startMenu.getComponent(WidgetEnum.FLAGS, FlagData.class);
+			flagData.flags.remove(FlagEnum.DISPLAYED);
+		}{
+			FlagData flagData =pauseButton.getComponent(WidgetEnum.FLAGS, FlagData.class);
+			flagData.flags.add(FlagEnum.DISPLAYED);
+		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void stopGame(Widget widget) {
 		{
 			FlagData flagData =startMenu.getComponent(WidgetEnum.FLAGS, FlagData.class);
 			flagData.flags.add(FlagEnum.DISPLAYED);
+		}{
+			FlagData flagData =pauseButton.getComponent(WidgetEnum.FLAGS, FlagData.class);
+			flagData.flags.remove(FlagEnum.DISPLAYED);
+		}{
+			FlagData flagData =bStart.getComponent(WidgetEnum.FLAGS, FlagData.class);
+			flagData.flags.add(FlagEnum.DISPLAYED);
+		}{
+			FlagData flagData =bResume.getComponent(WidgetEnum.FLAGS, FlagData.class);
+			flagData.flags.remove(FlagEnum.DISPLAYED);
+		}{
+			FlagData flagData =bStop.getComponent(WidgetEnum.FLAGS, FlagData.class);
+			flagData.flags.remove(FlagEnum.DISPLAYED);
 		}
 	}
 	//=============================================================================================
