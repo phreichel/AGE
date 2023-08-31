@@ -67,12 +67,15 @@ public class TriggerSystem extends ArrayList<Widget> implements Handler {
 		float z = -1;
 		Widget active = null;
 		for (Widget widget : this) {
-			float[] globalPosition = getGlobalPosition(widget, new float[] { 0, 0, 0 });
-			if (isInside(widget, globalPosition, pointer_x, pointer_y)) {
-				float cmp = globalPosition[2];
-				if (cmp > z) {
-					z = cmp;
-					active = widget;
+			FlagData flagData = widget.getComponent(WidgetEnum.FLAGS, FlagData.class);
+			if (flagData.flags.contains(FlagEnum.DISPLAYED)) {
+				float[] globalPosition = getGlobalPosition(widget, new float[] { 0, 0, 0 });
+				if (isInside(widget, globalPosition, pointer_x, pointer_y)) {
+					float cmp = globalPosition[2];
+					if (cmp > z) {
+						z = cmp;
+						active = widget;
+					}
 				}
 			}
 		}

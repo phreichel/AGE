@@ -8,6 +8,8 @@ import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
 
 import ode.event.Events;
+import ode.gui.FlagData;
+import ode.gui.FlagEnum;
 import ode.gui.GUI;
 import ode.gui.HierarchyData;
 import ode.gui.Widget;
@@ -33,15 +35,24 @@ public class Client {
 	//=============================================================================================
 	private boolean terminate = false;
 	//=============================================================================================
+
+	//=============================================================================================
+	private Widget startMenu;
+	private Widget pauseButton;
+	//=============================================================================================
 	
 	//=============================================================================================
 	public void configure(String[] args) {
 		
-		Widget b1 = gui.createButton("START", (w) -> System.out.println("CLIIK"));
-		Widget b2 = gui.createButton("QUIT", (w) -> terminate = true);
+		Widget b1 = gui.createButton("START", this::startGame);
+		Widget b2 = gui.createButton("WINOWED", (w) -> platform.setFullscreen(false));
+		Widget b3 = gui.createButton("FULLSCREEN", (w) -> platform.setFullscreen(true));
+		Widget b4 = gui.createButton("QUIT", (w) -> terminate = true);
 		Widget buttons = gui.createBox();
 		attach(buttons, b1);
 		attach(buttons, b2);
+		attach(buttons, b3);
+		attach(buttons, b4);
 		
 		Widget scores = gui.createBox();
 		for (int i=0; i<10; i++) {
@@ -49,12 +60,20 @@ public class Client {
 			attach(scores, score);
 		}
 		
-		Widget frame = gui.createBox();
-		attach(frame, buttons);
-		attach(frame, scores);
-		Vector2f positionData = frame.getComponent(WidgetEnum.POSITION, Vector2f.class);
+		startMenu = gui.createBox();
+		attach(startMenu, buttons);
+		attach(startMenu, scores);
+		Vector2f positionData = startMenu.getComponent(WidgetEnum.POSITION, Vector2f.class);
 		positionData.set(5, 5);
 
+		pauseButton = gui.createButton("+", this::pauseGame);
+		Vector2f btnPositionData = pauseButton.getComponent(WidgetEnum.POSITION, Vector2f.class);
+		btnPositionData.set(5, 5);
+		Vector2f btnDimensionData = pauseButton.getComponent(WidgetEnum.DIMENSION, Vector2f.class);
+		btnDimensionData.set(btnDimensionData.y, btnDimensionData.y);
+		FlagData flagData = pauseButton.getComponent(WidgetEnum.FLAGS, FlagData.class);
+		flagData.flags.remove(FlagEnum.DISPLAYED);
+		
 		Entity camera = model.createCamera();
 		
 		CameraData cameraData = camera.getComponent(EntityEnum.CAMERA, CameraData.class);
@@ -100,6 +119,32 @@ public class Client {
 		HierarchyData childHierarchy = child.getComponent(WidgetEnum.HIERARCHY, HierarchyData.class);
 		parentHierarchy.children.add(child);
 		childHierarchy.parent = parent;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void startGame(Widget widget) {
+		{
+			FlagData flagData =startMenu.getComponent(WidgetEnum.FLAGS, FlagData.class);
+			flagData.flags.remove(FlagEnum.DISPLAYED);
+		}
+		{
+			FlagData flagData =pauseButton.getComponent(WidgetEnum.FLAGS, FlagData.class);
+			flagData.flags.add(FlagEnum.DISPLAYED);
+		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void pauseGame(Widget widget) {
+		{
+			FlagData flagData =pauseButton.getComponent(WidgetEnum.FLAGS, FlagData.class);
+			flagData.flags.remove(FlagEnum.DISPLAYED);
+		}
+		{
+			FlagData flagData =startMenu.getComponent(WidgetEnum.FLAGS, FlagData.class);
+			flagData.flags.add(FlagEnum.DISPLAYED);
+		}
 	}
 	//=============================================================================================
 	

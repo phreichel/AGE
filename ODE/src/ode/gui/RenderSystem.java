@@ -30,16 +30,32 @@ public class RenderSystem extends ArrayList<Widget> {
 
 	//=============================================================================================
 	private void render(Widget widget, Graphics graphics) {
-		RenderEnum renderData = widget.getComponent(WidgetEnum.RENDER, RenderEnum.class);
-		switch (renderData) {
-			case BOX: renderBox(widget, graphics); break;
-			case LABEL: renderLabel(widget, graphics); break;
-			case BUTTON: renderButton(widget, graphics); break;
-			default: break;
+		if (visible(widget)) {
+			RenderEnum renderData = widget.getComponent(WidgetEnum.RENDER, RenderEnum.class);
+			switch (renderData) {
+				case BOX: renderBox(widget, graphics); break;
+				case LABEL: renderLabel(widget, graphics); break;
+				case BUTTON: renderButton(widget, graphics); break;
+				default: break;
+			}
 		}
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	private boolean visible(Widget widget) {
+		FlagData flagData = widget.getComponent(WidgetEnum.FLAGS, FlagData.class);
+		if (!flagData.flags.contains(FlagEnum.DISPLAYED)) return false;
+		HierarchyData hierarchyData = widget.getComponent(WidgetEnum.HIERARCHY, HierarchyData.class);
+		if (hierarchyData != null) {
+			if (hierarchyData.parent != null) {
+				return visible(hierarchyData.parent);
+			}
+		}
+		return true;
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	private void renderBox(Widget widget, Graphics graphics) {
 		Vector2f dimensionData = widget.getComponent(WidgetEnum.DIMENSION, Vector2f.class);

@@ -29,12 +29,14 @@ public class HoverSystem extends ArrayList<Widget> implements Handler {
 		for (Widget widget : this) {
 			FlagData flagsData = widget.getComponent(WidgetEnum.FLAGS, FlagData.class);
 			flagsData.flags.remove(FlagEnum.HOVER);
-			float[] globalPosition = getGlobalPosition(widget, new float[] { 0, 0, 0 });
-			if (isInside(widget, globalPosition, pointer_x, pointer_y)) {
-				float cmp = globalPosition[2];
-				if (cmp > z) {
-					z = cmp;
-					active = widget;
+			if (flagsData.flags.contains(FlagEnum.DISPLAYED)) {
+				float[] globalPosition = getGlobalPosition(widget, new float[] { 0, 0, 0 });
+				if (isInside(widget, globalPosition, pointer_x, pointer_y)) {
+					float cmp = globalPosition[2];
+					if (cmp > z) {
+						z = cmp;
+						active = widget;
+					}
 				}
 			}
 		}
