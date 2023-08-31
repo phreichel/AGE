@@ -2,6 +2,9 @@
 package ode.client;
 //*************************************************************************************************
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.vecmath.AxisAngle4f;
 import javax.vecmath.Quat4f;
 import javax.vecmath.Vector2f;
@@ -18,6 +21,7 @@ import ode.model.CameraData;
 import ode.model.Entity;
 import ode.model.EntityEnum;
 import ode.model.Model;
+import ode.model.RenderEnum;
 import ode.platform.Platform;
 import ode.schedule.Scheduler;
 
@@ -42,11 +46,21 @@ public class Client {
 	private Widget bStart;
 	private Widget bResume;
 	private Widget bStop;
+	private Widget[] hiscores = new Widget[10];
 	//=============================================================================================
 	
 	//=============================================================================================
 	public void configure(String[] args) {
-		
+		setupGUI();
+		setupIdleScene();
+		scheduler.add(1000000000L / 100L, (n, p) -> model.update((float) (n*p) / 1000000000L ));
+		scheduler.add(1000000000L / 30L, (n, p) -> gui.update( (float) (n*p) / 1000000000L ));
+		scheduler.add(1000000000L / 30L, (n, p) -> platform.update());
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void setupGUI() {
 		bStart = gui.createButton("START", this::startGame);
 		bResume = gui.createButton("RESUME", this::resumeGame);
 		FlagData resumeFlagData = bResume.getComponent(WidgetEnum.FLAGS, FlagData.class);
@@ -67,8 +81,9 @@ public class Client {
 		
 		Widget scores = gui.createBox();
 		for (int i=0; i<10; i++) {
-			Widget score = gui.createLabel("???");
+			Widget score = gui.createLabel("---");
 			attach(scores, score);
+			hiscores[i] = score;
 		}
 		
 		startMenu = gui.createBox();
@@ -84,22 +99,23 @@ public class Client {
 		btnDimensionData.set(btnDimensionData.y, btnDimensionData.y);
 		FlagData flagData = pauseButton.getComponent(WidgetEnum.FLAGS, FlagData.class);
 		flagData.flags.remove(FlagEnum.DISPLAYED);
-		
-		Entity camera = model.createCamera();
-		
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void setupIdleScene() {
+	
+		Entity camera = model.createCamera();		
 		CameraData cameraData = camera.getComponent(EntityEnum.CAMERA, CameraData.class);
 		cameraData.active = true;
-		
 		Quat4f rotationVelocityData = camera.getComponent(EntityEnum.ANGULAR_VELOCITY, Quat4f.class);
 		rotationVelocityData.set(new AxisAngle4f(0, 0, -1, (float) Math.toRadians(15f)));
 
 		for (int i=0; i<25; i++) {
-			
-			Entity body = model.createBody();
-			
+			Entity body = model.createBody(RenderEnum.BOX);
 			Vector3f bodyPositionData = body.getComponent(EntityEnum.POSITION, Vector3f.class);
 			bodyPositionData.set(0, 0, -5f);
-			
+
 			Vector3f linearVelocityData = body.getComponent(EntityEnum.LINEAR_VELOCITY, Vector3f.class);
 			float a = (float) ((Math.random() - .5) * 0.2);
 			float b = (float) ((Math.random() - .5) * 0.2);
@@ -114,16 +130,40 @@ public class Client {
 			nrm.normalize();
 			float deg = (float) Math.random() * 90f;
 			bodyRotationVelocityData.set(new AxisAngle4f(nrm, (float) Math.toRadians(deg)));
-			
-		}
-		
-		scheduler.add(1000000000L / 100L, (n, p) -> model.update((float) (n*p) / 1000000000L ));
-		scheduler.add(1000000000L / 30L, (n, p) -> gui.update( (float) (n*p) / 1000000000L ));
-		scheduler.add(1000000000L / 30L, (n, p) -> platform.update());
-
+		}		
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	private void setupGameScene() {
+		{
+			Entity camera = model.createCamera();
+			CameraData cameraData = camera.getComponent(EntityEnum.CAMERA, CameraData.class);
+			cameraData.active = true;
+			Vector3f position = camera.getComponent(EntityEnum.POSITION, Vector3f.class);
+			position.set(0, 1, 10f);
+			Quat4f orientation = camera.getComponent(EntityEnum.ORIENTATION, Quat4f.class);
+			orientation.set(new AxisAngle4f(1, 0, 0, (float) Math.toRadians(10)));
+		}
+		for (int i=-11; i<12; i++) {
+			for (int j=0; j<15; j++) {
+				Entity block = model.createBody(RenderEnum.BLOCK);
+				Vector3f position = block.getComponent(EntityEnum.POSITION, Vector3f.class);
+				position.set(i, j * .5f, 0f);
+			}
+		}
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void clearScene() {
+		List<Entity> ettys = new ArrayList<>(model.entities);
+		for (Entity etty : ettys) {
+			model.remove(etty);
+		}
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	private void attach(Widget parent, Widget child) {
 		HierarchyData parentHierarchy = parent.getComponent(WidgetEnum.HIERARCHY, HierarchyData.class);
@@ -151,6 +191,8 @@ public class Client {
 			FlagData flagData =bStop.getComponent(WidgetEnum.FLAGS, FlagData.class);
 			flagData.flags.add(FlagEnum.DISPLAYED);
 		}
+		clearScene();
+		setupGameScene();
 	}
 	//=============================================================================================
 
@@ -196,6 +238,8 @@ public class Client {
 			FlagData flagData =bStop.getComponent(WidgetEnum.FLAGS, FlagData.class);
 			flagData.flags.remove(FlagEnum.DISPLAYED);
 		}
+		clearScene();
+		setupIdleScene();
 	}
 	//=============================================================================================
 	

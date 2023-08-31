@@ -22,6 +22,7 @@ public class RenderSystem extends ArrayList<Entity> {
 			RenderEnum renderData = entity.getComponent(EntityEnum.RENDER, RenderEnum.class);
 			switch (renderData) {
 				case BOX: renderBox(graphics, entity); break;
+				case BLOCK: renderBlock(graphics, entity); break;
 				default: break;
 			}
 		}
@@ -44,5 +45,18 @@ public class RenderSystem extends ArrayList<Entity> {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	private void renderBlock(Graphics graphics ,Entity entity) {
+		Matrix4f poseData = entity.getComponent(EntityEnum.POSE, Matrix4f.class);
+		if (poseData != null) {
+			graphics.pushTransform();
+			graphics.multMatrix(poseData);
+			graphics.setColor(1f, 0f, 0f);
+			graphics.drawBox(-.45f,-.2f,-.2f, .45f, .2f, .2f);
+			graphics.popTransform();
+		}
+	}
+	//=============================================================================================
+	
 }
 //*************************************************************************************************

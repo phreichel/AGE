@@ -7,6 +7,7 @@ import java.util.Set;
 
 import ode.event.Events;
 import ode.platform.Graphics;
+import ode.util.ODEException;
 
 //*************************************************************************************************
 public class Model {
@@ -51,14 +52,14 @@ public class Model {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Entity createBody() {
+	public Entity createBody(RenderEnum renderEnum) {
 		return build()
 			.withPositionData()
 			.withOrientationData()
 			.withPoseData()
 			.withLinearVelocityData()
 			.withRotationVelocityData()
-			.withRenderData(RenderEnum.BOX)
+			.withRenderData(renderEnum)
 			.register(kineticLinearSystem)
 			.register(kineticAngularSystem)
 			.register(poseSystem)
@@ -70,6 +71,11 @@ public class Model {
 	//=============================================================================================
 	public void remove(Entity entity) {
 		entities.remove(entity);
+		poseSystem.remove(entity);
+		kineticLinearSystem.remove(entity);
+		kineticAngularSystem.remove(entity);
+		cameraSystem.remove(entity);
+		renderSystem.remove(entity);
 	}
 	//=============================================================================================
 	
@@ -83,8 +89,12 @@ public class Model {
 
 	//=============================================================================================
 	public void render(Graphics graphics) {
-		cameraSystem.update(graphics);
-		renderSystem.update(graphics);
+		try {
+			cameraSystem.update(graphics);
+			renderSystem.update(graphics);
+		} catch (ODEException e) {
+			
+		}
 	}
 	//=============================================================================================
 	

@@ -23,6 +23,12 @@ public class CameraSystem extends ArrayList<Entity> {
 			if (cameraData.active) {
 				Matrix4f camTransform = new Matrix4f(entity.getComponent(EntityEnum.POSE, Matrix4f.class));
 				camTransform.transpose();
+				camTransform.m03 = - camTransform.m30;
+				camTransform.m13 = - camTransform.m31;
+				camTransform.m23 = - camTransform.m32;
+				camTransform.m30 = 0;
+				camTransform.m31 = 0;
+				camTransform.m32 = 0;
 				graphics.beginSceneMode(camTransform, cameraData.fov, cameraData.near, cameraData.far);
 				return;
 			}
