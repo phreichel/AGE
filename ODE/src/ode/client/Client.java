@@ -68,7 +68,7 @@ public class Client {
 		bStop = gui.createButton("STOP", this::stopGame);
 		FlagData stopFlagData = bStop.getComponent(WidgetEnum.FLAGS, FlagData.class);
 		stopFlagData.flags.remove(FlagEnum.DISPLAYED);
-		Widget b1 = gui.createButton("WINOWED", (w) -> platform.setFullscreen(false));
+		Widget b1 = gui.createButton("WINDOWED", (w) -> platform.setFullscreen(false));
 		Widget b2 = gui.createButton("FULLSCREEN", (w) -> platform.setFullscreen(true));
 		Widget b3 = gui.createButton("QUIT", (w) -> terminate = true);
 		Widget buttons = gui.createBox();
