@@ -1,106 +1,108 @@
 //*************************************************************************************************
-package ode.gui;
+package ode.platform;
 //*************************************************************************************************
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import com.jogamp.newt.opengl.GLWindow;
+import com.jogamp.opengl.GLCapabilities;
+import com.jogamp.opengl.GLProfile;
 
-import ode.platform.ODEGraphics;
+import ode.gui.ODEWidgets;
 
 //*************************************************************************************************
-public class ODEWidgets {
+public class ODEPlatform {
 
 	//=============================================================================================
-	private final List<ODEWidget> roots = new ArrayList<>();
-	private final List<ODEWidget> roots_ro = Collections.unmodifiableList(roots);
-	//=============================================================================================
-	
-	//=============================================================================================
-	final List<ODEWidget> widgets = new ArrayList<ODEWidget>();
-	private final List<ODEWidget> widgets_ro = Collections.unmodifiableList(widgets);
+	private GLWindow window;
+	private ODEGraphicsHandler graphicsHandler = new ODEGraphicsHandler();
 	//=============================================================================================
 
 	//=============================================================================================
-	private ODETheme theme = new ODETheme();
-	//=============================================================================================
-	
-	//=============================================================================================
-	private final ODEWidgetRenderer renderer = new ODEWidgetRenderer(roots_ro);
-	//=============================================================================================
-	
-	//=============================================================================================
-	public List<ODEWidget> roots() {
-		return roots_ro;
+	public ODEPlatform() {
+		GLProfile profile = GLProfile.getDefault();
+		GLCapabilities capabilities = new GLCapabilities(profile);
+		window = GLWindow.create(capabilities);
+		window.addGLEventListener(graphicsHandler);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void root(ODEWidget ... widgets) {
-		this.roots.addAll(List.of(widgets));
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public void unroot(ODEWidget ... widgets) {
-		this.roots.removeAll(List.of(widgets));
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public void destroy(ODEWidget ... widgets) {
-		for (ODEWidget widget : widgets) {
-			unroot(widget);
-			destroy(widget.children().toArray(new ODEWidget[] {}));
-		}
+	public void assign(ODEWidgets widgets) {
+		this.graphicsHandler.assign(widgets);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public List<ODEWidget> widgets() {
-		return widgets_ro;
+	public String title() {
+		return window.getTitle();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public List<ODEWidget> unattached(List<ODEWidget> dst) {
-		for (ODEWidget widget : widgets) {
-			if (widget.parent() == null) {
-				dst.add(widget);
-			}
-		}
-		return dst;
+	public void title(String title) {
+		window.setTitle(title);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public boolean fullscreen() {
+		return window.isFullscreen();
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void fullscreen(boolean fullscreen) {
+		window.setFullscreen(fullscreen);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public boolean maximized() {
+		return window.isMaximizedHorz() && window.isMaximizedVert();
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void maximized(boolean maximized) {
+		window.setMaximized(maximized, maximized);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public int width() {
+		return window.getWidth();
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public int height() {
+		return window.getHeight();
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public List<ODEWidget> named(String name, List<ODEWidget> dst) {
-		for (ODEWidget widget : widgets) {
-			if (widget.name().equals(name)) {
-				dst.add(widget);
-			}
-		}
-		return dst;
+	public void size(int width, int height) {
+		window.setSize(width, height);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public ODETheme theme() {
-		return theme;
+	public boolean displayed() {
+		return window.isVisible();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void theme(ODETheme theme) {
-		this.theme = theme;
+	public void displayed(boolean displayed) {
+		window.setVisible(displayed);
 	}
 	//=============================================================================================
-	
+
 	//=============================================================================================
-	public void render(ODEGraphics graphics) {
-		renderer.render(graphics);
+	public void render() {
+		window.display();
 	}
 	//=============================================================================================
 	
 }
 //*************************************************************************************************
+

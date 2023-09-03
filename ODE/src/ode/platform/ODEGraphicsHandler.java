@@ -1,51 +1,51 @@
 //*************************************************************************************************
-package ode.gui;
+package ode.platform;
 //*************************************************************************************************
 
-import java.util.List;
+import com.jogamp.opengl.GLAutoDrawable;
+import com.jogamp.opengl.GLEventListener;
 
-import ode.platform.ODEGraphics;
+import ode.gui.ODEWidgets;
 
 //*************************************************************************************************
-public class ODEWidgetRenderer {
+public class ODEGraphicsHandler implements GLEventListener {
 
 	//=============================================================================================
-	private List<ODEWidget> roots;
+	private final ODEGraphics graphics = new ODEGraphics();
+	private ODEWidgets widgets = null;
 	//=============================================================================================
 
 	//=============================================================================================
-	public ODEWidgetRenderer(List<ODEWidget> roots) {
-		this.roots = roots;
+	public void assign(ODEWidgets widgets) {
+		this.widgets = widgets;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void init(GLAutoDrawable drawable) {
+		graphics.assign(drawable);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void render(ODEGraphics graphics) {
-		renderSiblings(roots, graphics);
+	public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
+		graphics.assign(drawable);
 	}
 	//=============================================================================================
+	
 
 	//=============================================================================================
-	private void renderSiblings(List<ODEWidget> siblings, ODEGraphics graphics) {
-		for (ODEWidget widget : siblings) {
-			graphics.pushTransformation();
-			graphics.translate(widget.position());
-			renderWidget(widget, graphics);
-			graphics.popTransformation();
+	public void display(GLAutoDrawable drawable) {
+		graphics.assign(drawable);
+		if (widgets != null) {
+			widgets.render(graphics);
 		}
 	}
 	//=============================================================================================
-
+	
 	//=============================================================================================
-	private void renderWidget(ODEWidget widget, ODEGraphics graphics) {
-		renderArea(widget, graphics);
-		renderSiblings(widget.children(), graphics);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private void renderArea(ODEWidget widget, ODEGraphics graphics) {
-		
+	public void dispose(GLAutoDrawable drawable) {
+		graphics.assign(drawable);
 	}
 	//=============================================================================================
 	
