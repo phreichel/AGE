@@ -3,7 +3,7 @@ package ode.client;
 
 import ode.gui.GUI;
 import ode.gui.Widget;
-import ode.platform.Platform;
+import ode.npa.Platform;
 
 //*************************************************************************************************
 

@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.vecmath.Color4f;
 
-import ode.platform.Graphics;
+import ode.npa.Graphics;
 
 //*************************************************************************************************
 public class Renderer {

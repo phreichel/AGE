@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 import ode.gui.Widget.TAG;
-import ode.platform.Graphics;
+import ode.npa.Graphics;
 
 //*************************************************************************************************
 public class GUI {
