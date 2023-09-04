@@ -9,7 +9,10 @@ import java.util.List;
 import javax.vecmath.Vector2f;
 
 import ode.gui.Widget.TAG;
+import ode.msg.Key;
+import ode.msg.KeyData;
 import ode.msg.Msg;
+import ode.msg.MsgBox;
 import ode.msg.PointerData;
 import ode.npa.Graphics;
 
@@ -31,6 +34,7 @@ public class GUI {
 	//=============================================================================================
 	
 	//=============================================================================================
+	private MsgBox msgbox;
 	private Vector2f ppos = new Vector2f();
 	//=============================================================================================
 	
@@ -38,6 +42,12 @@ public class GUI {
 	private final Renderer renderer = new Renderer(ppos, roots_ro);
 	//=============================================================================================
 
+	//=============================================================================================
+	public void assign(MsgBox msgbox) {
+		this.msgbox = msgbox;
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public List<Widget> roots() {
 		return roots_ro;
@@ -167,10 +177,21 @@ public class GUI {
 	//=============================================================================================
 	public void handleEvent(Msg msg) {
 		switch (msg.id()) {
-		case POINTER_MOVED:
+		case KEY_PRESSED: {
+			KeyData data = msg.data(KeyData.class);
+			if (data.key().equals(Key.ESCAPE)) {
+				msgbox
+					.build()
+					.terminate()
+					.post();
+			}
+			break;
+		}
+		case POINTER_MOVED: {
 			PointerData data = msg.data(PointerData.class);
 			ppos.set(data.x(), data.y());
 			break;
+		}
 		default:
 			break;
 		}

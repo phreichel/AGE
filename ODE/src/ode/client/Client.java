@@ -39,6 +39,7 @@ public class Client {
 		msgbox = new MsgBox();
 		platform = new Platform();
 		gui = new GUI();
+		gui.assign(msgbox);
 		platform.assign(msgbox);
 		platform.assign(gui);
 		msgbox.subscribe(ID.TERMINATE, this::handleEvent);
