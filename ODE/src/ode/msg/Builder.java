@@ -131,6 +131,7 @@ public class Builder {
 		case POINTER_PRESSED:
 		case POINTER_RELEASED:
 		case POINTER_CLICKED:
+		case POINTER_WHEEL:
 			cls = PointerData.class;
 			break;
 		default:

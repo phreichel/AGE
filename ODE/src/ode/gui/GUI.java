@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.vecmath.Vector2f;
+import javax.vecmath.Vector3f;
 
 import ode.gui.Widget.TAG;
 import ode.msg.Key;
@@ -35,7 +36,7 @@ public class GUI {
 	
 	//=============================================================================================
 	private MsgBox msgbox;
-	private Vector2f ppos = new Vector2f();
+	private Vector3f ppos = new Vector3f(0, 0, 5);
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -187,9 +188,15 @@ public class GUI {
 			}
 			break;
 		}
+		case POINTER_WHEEL: {
+			PointerData data = msg.data(PointerData.class);
+			ppos.z += data.wheelY();
+			break;
+		}
 		case POINTER_MOVED: {
 			PointerData data = msg.data(PointerData.class);
-			ppos.set(data.x(), data.y());
+			ppos.x = data.x();
+			ppos.y = data.y();
 			break;
 		}
 		default:
