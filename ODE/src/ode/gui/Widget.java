@@ -21,6 +21,7 @@ public class Widget extends Node<Widget> {
 	//=============================================================================================
 	
 	//=============================================================================================
+	private GUI gui;
 	private String name;
 	private Type type;
 	private final Set<TAG> tags = EnumSet.noneOf(TAG.class);
@@ -32,8 +33,9 @@ public class Widget extends Node<Widget> {
 	//=============================================================================================
 
 	//=============================================================================================
-	public Widget(GUI widgets) {
-		widgets.widgets.add(this);
+	public Widget(GUI gui) {
+		this.gui = gui;
+		this.gui.widgets.add(this);
 	}
 	//=============================================================================================
 

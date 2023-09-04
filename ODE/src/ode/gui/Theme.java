@@ -38,8 +38,8 @@ public class Theme {
 
 		Style group = base.derive();
 		group.put(KEY.BACKGROUND, new Color4f(.3f, .3f, .3f, 1));
-		group.put(KEY.BORDER_LIGHT, new Color4f(1f, 1f, 1f, 1));
-		group.put(KEY.BORDER_DARK, new Color4f(0f, 0f, 0f, 1));
+		group.put(KEY.BORDER_LIGHT, new Color4f(1f, .5f, .5f, 1));
+		group.put(KEY.BORDER_DARK, new Color4f(.5f, 0f, 0f, 1));
 	
 		styles.put(Type.BUTTON, button);
 		styles.put(Type.GROUP, group);

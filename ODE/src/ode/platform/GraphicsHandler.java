@@ -2,6 +2,8 @@
 package ode.platform;
 //*************************************************************************************************
 
+import javax.vecmath.Color4f;
+
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
 
@@ -37,6 +39,7 @@ public class GraphicsHandler implements GLEventListener {
 	//=============================================================================================
 	public void display(GLAutoDrawable drawable) {
 		graphics.assign(drawable);
+		graphics.clearColor(0f, 0f, .2f, 1f);
 		graphics.clear();
 		if (widgets != null) {
 			widgets.render(graphics);

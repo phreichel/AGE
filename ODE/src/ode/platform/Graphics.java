@@ -27,6 +27,18 @@ public class Graphics {
 	//=============================================================================================
 
 	//=============================================================================================
+	public void clearColor(Color4f c) {
+		gl.glClearColor(c.x, c.y, c.z, c.w);
+	}
+	//=============================================================================================	
+
+	//=============================================================================================
+	public void clearColor(float r, float g, float b, float a) {
+		gl.glClearColor(r, g, b, a);
+	}
+	//=============================================================================================	
+	
+	//=============================================================================================
 	public void clear() {
 		gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
 	}
@@ -41,7 +53,7 @@ public class Graphics {
 		gl.glLoadIdentity();
 		int w = window.getSurfaceWidth();
 		int h = window.getSurfaceHeight();
-		glu.gluOrtho2D(0, w-1, h-1, 0);
+		glu.gluOrtho2D(-1, w, h, -1);
 		gl.glMatrixMode(GL2.GL_MODELVIEW);
 		gl.glLoadIdentity();
 	}
@@ -76,6 +88,17 @@ public class Graphics {
 	}
 	//=============================================================================================	
 
+	//=============================================================================================
+	public void color(float r, float g, float b, float a) {
+		if (a != 1f) {
+			gl.glEnable(GL2.GL_BLEND);
+		} else {
+			gl.glDisable(GL2.GL_BLEND);
+		}
+		gl.glColor4f(r, g, b, a);
+	}
+	//=============================================================================================	
+	
 	//=============================================================================================
 	public void fillRectangle(float x, float y, float w, float h) {
 		gl.glBegin(GL2.GL_QUADS);
