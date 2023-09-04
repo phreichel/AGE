@@ -9,7 +9,7 @@ import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.glu.GLU;
 
 //*************************************************************************************************
-public class ODEGraphics {
+public class Graphics {
 
 	//=============================================================================================
 	private GLAutoDrawable window;

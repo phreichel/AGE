@@ -1,23 +1,39 @@
 //*************************************************************************************************
-package ode.gui;
+package ode.util;
 //*************************************************************************************************
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 //*************************************************************************************************
-public class ODETheme {
+public class Hierarchy<Node> {
 
 	//=============================================================================================
-	private ODEStyle base;
-	private final Map<ODEWidgetType, ODEStyle> styles = new HashMap<>();
+	private Map<Node, Node> parentMap = new HashMap<>();
+	private Map<Node, List<Node>> childMap = new HashMap<>();
 	//=============================================================================================
 
 	//=============================================================================================
-	public ODEStyle get(ODEWidgetType type) {
-		ODEStyle style= styles.get(type);
-		if (style == null) style = base;
-		return style;
+	public void attach(Node parent, Node child) {
+		parentMap.put(child, parent);
+		List<Node> childList = childMap.get(parent);
+		if (childList == null) {
+			childList = new ArrayList<>();
+			childMap.put(parent, childList);
+		}
+		childList.add(child);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public Node detach(Node node) {
+		Node parent = parentMap.get(node);
+		List<Node> childList = childMap.get(parent);
+		parentMap.remove(node);
+		childList.remove(node);
+		return node;
 	}
 	//=============================================================================================
 	

@@ -1,51 +1,63 @@
 //*************************************************************************************************
-package ode.platform;
+package ode.util;
 //*************************************************************************************************
 
-import com.jogamp.opengl.GLAutoDrawable;
-import com.jogamp.opengl.GLEventListener;
-
-import ode.gui.ODEWidgets;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 //*************************************************************************************************
-public class ODEGraphicsHandler implements GLEventListener {
+@SuppressWarnings("rawtypes")
+public class Node<N extends Node> {
 
 	//=============================================================================================
-	private final ODEGraphics graphics = new ODEGraphics();
-	private ODEWidgets widgets = null;
+	protected N parent = null;
+	protected final List<N> children = new ArrayList<>(5);
+	protected final List<N> children_ro = Collections.unmodifiableList(children);
 	//=============================================================================================
 
 	//=============================================================================================
-	public void assign(ODEWidgets widgets) {
-		this.widgets = widgets;
+	public N parent() {
+		return parent;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public List<N> children() {
+		return children_ro;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void init(GLAutoDrawable drawable) {
-		graphics.assign(drawable);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
-		graphics.assign(drawable);
-	}
-	//=============================================================================================
-	
-
-	//=============================================================================================
-	public void display(GLAutoDrawable drawable) {
-		graphics.assign(drawable);
-		if (widgets != null) {
-			widgets.render(graphics);
+	@SuppressWarnings("unchecked")
+	public void attach(N child) {
+		if (child.parent != null) {
+			throw new ODEException("Node already attached.");
 		}
+		child.parent = this;
+		parent.children.add(child);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	@SuppressWarnings("unchecked")
+	public void attach(int idx, N child) {
+		if (child.parent != null) {
+			throw new ODEException("Node already attached.");
+		}
+		child.parent = this;
+		parent.children.add(idx, child);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void dispose(GLAutoDrawable drawable) {
-		graphics.assign(drawable);
+	@SuppressWarnings("unchecked")
+	public void detach(N child) {
+		if (child.parent != this) {
+			throw new ODEException("Node not attached to parent.");
+		}
+		children.remove(child);
+		child.parent = null;
 	}
 	//=============================================================================================
 	

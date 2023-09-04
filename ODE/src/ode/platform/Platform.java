@@ -1,78 +1,108 @@
 //*************************************************************************************************
-package ode.gui;
+package ode.platform;
 //*************************************************************************************************
 
-import java.util.EnumMap;
-import java.util.Map;
+import com.jogamp.newt.opengl.GLWindow;
+import com.jogamp.opengl.GLCapabilities;
+import com.jogamp.opengl.GLProfile;
 
-import javax.vecmath.Color4f;
+import ode.gui.GUI;
 
 //*************************************************************************************************
-public class ODEStyle {
+public class Platform {
 
 	//=============================================================================================
-	public enum KEY {
-		FOREGROUND,
-		BACKGROUND
+	private GLWindow window;
+	private GraphicsHandler graphicsHandler = new GraphicsHandler();
+	//=============================================================================================
+
+	//=============================================================================================
+	public Platform() {
+		GLProfile profile = GLProfile.getDefault();
+		GLCapabilities capabilities = new GLCapabilities(profile);
+		window = GLWindow.create(capabilities);
+		window.addGLEventListener(graphicsHandler);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void assign(GUI widgets) {
+		this.graphicsHandler.assign(widgets);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	private ODEStyle parent;
-	private Map<KEY, Object> properties= new EnumMap<>(KEY.class);
-	//=============================================================================================
-
-	//=============================================================================================
-	public ODEStyle() {
-		this.parent = null;
+	public String title() {
+		return window.getTitle();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	ODEStyle(ODEStyle parent) {
-		this.parent = parent;
+	public void title(String title) {
+		window.setTitle(title);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public ODEStyle derive() {
-		return new ODEStyle(this);
+	public boolean fullscreen() {
+		return window.isFullscreen();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public ODEStyle put(KEY key, Object value) {
-		properties.put(key, value);
-		return this;
+	public void fullscreen(boolean fullscreen) {
+		window.setFullscreen(fullscreen);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public boolean maximized() {
+		return window.isMaximizedHorz() && window.isMaximizedVert();
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void maximized(boolean maximized) {
+		window.setMaximized(maximized, maximized);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public int width() {
+		return window.getWidth();
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public int height() {
+		return window.getHeight();
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Object get(KEY key) {
-		Object value = properties.get(key);
-		return (value != null) ? value : (parent != null) ? parent.get(key) : null;
+	public void size(int width, int height) {
+		window.setSize(width, height);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	@SuppressWarnings("unchecked")
-	public <C> C get(KEY key, Class<C> clazz) {
-		C value = (C) properties.get(key);
-		return (value != null) ? value : (parent != null) ? parent.get(key, clazz) : null;
+	public boolean displayed() {
+		return window.isVisible();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public Color4f foreground() {
-		return get(KEY.FOREGROUND, Color4f.class);
+	public void displayed(boolean displayed) {
+		window.setVisible(displayed);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public Color4f background() {
-		return get(KEY.BACKGROUND, Color4f.class);
+	public void render() {
+		window.display();
 	}
 	//=============================================================================================
 	
 }
 //*************************************************************************************************
+

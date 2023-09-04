@@ -1,65 +1,65 @@
 //*************************************************************************************************
-package ode.util;
-//*************************************************************************************************
+package ode.client;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import ode.gui.GUI;
+import ode.platform.Platform;
 
 //*************************************************************************************************
-@SuppressWarnings("rawtypes")
-public class ODENode<N extends ODENode> {
+
+//*************************************************************************************************
+public class Client {
 
 	//=============================================================================================
-	protected N parent = null;
-	protected final List<N> children = new ArrayList<>(5);
-	protected final List<N> children_ro = Collections.unmodifiableList(children);
-	//=============================================================================================
-
-	//=============================================================================================
-	public N parent() {
-		return parent;
-	}
+	private final Platform platform;
+	private final GUI widgets;
 	//=============================================================================================
 
 	//=============================================================================================
-	public List<N> children() {
-		return children_ro;
+	public Client() {
+		platform = new Platform();
+		widgets = new GUI();
+		platform.assign(widgets);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	@SuppressWarnings("unchecked")
-	public void attach(N child) {
-		if (child.parent != null) {
-			throw new ODEException("Node already attached.");
-		}
-		child.parent = this;
-		parent.children.add(child);
+	public void configure(String[] args) {
+		configurePlatform();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	@SuppressWarnings("unchecked")
-	public void attach(int idx, N child) {
-		if (child.parent != null) {
-			throw new ODEException("Node already attached.");
-		}
-		child.parent = this;
-		parent.children.add(idx, child);
+	private void configurePlatform() {
+		platform.title("ODE Client Window");
+		platform.size(800, 600);
+		platform.maximized(true);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	@SuppressWarnings("unchecked")
-	public void detach(N child) {
-		if (child.parent != this) {
-			throw new ODEException("Node not attached to parent.");
+	private void configureWidgets() {
+		
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void run() {
+		platform.displayed(true);
+		boolean terminate = false;
+		while (!terminate) {
+			platform.render();
+			Thread.yield();
 		}
-		children.remove(child);
-		child.parent = null;
 	}
 	//=============================================================================================
 	
+	//=============================================================================================
+	public static void main(String[] args) {
+		Client client = new Client();
+		client.configure(args);
+		client.run();
+	}
+	//=============================================================================================
+
 }
 //*************************************************************************************************

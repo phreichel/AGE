@@ -2,123 +2,154 @@
 package ode.gui;
 //*************************************************************************************************
 
-import javax.vecmath.Vector2f;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-import ode.gui.ODEWidget.TAG;
+import ode.gui.Widget.TAG;
+import ode.platform.Graphics;
 
 //*************************************************************************************************
-public class ODEWidgetBuilder {
+public class GUI {
 
 	//=============================================================================================
-	private ODEWidget widget;
-	private ODEWidgets widgets;
-	private ODEWidgetBuilder parentBuilder;
+	private final List<Widget> roots = new ArrayList<>();
+	private final List<Widget> roots_ro = Collections.unmodifiableList(roots);
+	//=============================================================================================
+
+	//=============================================================================================
+	final List<Widget> widgets = new ArrayList<Widget>();
+	private final List<Widget> widgets_ro = Collections.unmodifiableList(widgets);
+	//=============================================================================================
+
+	//=============================================================================================
+	private Theme theme = new Theme();
+	private final Renderer renderer = new Renderer(roots_ro);
 	//=============================================================================================
 	
 	//=============================================================================================
-	public ODEWidgetBuilder(ODEWidgets widgets) {
-		this.widgets = widgets; 
-		widget = new ODEWidget(widgets);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public ODEWidgetBuilder root(ODEWidgets widgets) {
-		widgets.root(this.widget);
-		return this;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public ODEWidgetBuilder type(ODEWidgetType type) {
-		widget.type(type);
-		return this;
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public ODEWidgetBuilder name(String name) {
-		widget.name(name);
-		return this;
+	public List<Widget> roots() {
+		return roots_ro;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public ODEWidgetBuilder tag(TAG ... tags) {
-		widget.set(tags);
-		return this;
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public ODEWidgetBuilder position(Vector2f position) {
-		widget.position(position);
-		return this;
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public ODEWidgetBuilder position(float x, float y) {
-		widget.position(x, y);
-		return this;
+	public void root(Widget ... widgets) {
+		this.roots.addAll(List.of(widgets));
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public ODEWidgetBuilder dimension(Vector2f dimension) {
-		widget.dimension(dimension);
-		return this;
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public ODEWidgetBuilder dimension(float x, float y) {
-		widget.dimension(x, y);
-		return this;
+	public void unroot(Widget ... widgets) {
+		this.roots.removeAll(List.of(widgets));
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public ODEWidgetBuilder text(String text) {
-		widget.text(text);
-		return this;
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public ODEWidgetBuilder style(ODEStyle style) {
-		widget.style(style);
-		return this;
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public ODEWidgetBuilder child(ODEWidget ... children) {
-		for (ODEWidget child : children) {
-			widget.attach(child);
+	public void destroy(Widget ... widgets) {
+		for (Widget widget : widgets) {
+			unroot(widget);
+			destroy(widget.children().toArray(new Widget[] {}));
 		}
-		return this;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public ODEWidgetBuilder push() {
-		ODEWidgetBuilder childBuilder = new ODEWidgetBuilder(widgets);
-		childBuilder.parentBuilder = this;
-		this.widget.attach(childBuilder.widget);
-		return childBuilder;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public ODEWidgetBuilder pop() {
-		return parentBuilder;
+	public List<Widget> widgets() {
+		return widgets_ro;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public ODEWidget widget() {
-		return widget;
+	public List<Widget> unattached(List<Widget> dst) {
+		for (Widget widget : widgets) {
+			if (widget.parent() == null) {
+				dst.add(widget);
+			}
+		}
+		return dst;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public List<Widget> named(String name, List<Widget> dst) {
+		for (Widget widget : widgets) {
+			if (widget.name().equals(name)) {
+				dst.add(widget);
+			}
+		}
+		return dst;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public Builder newBuilder() {
+		return new Builder(this);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public Builder newLabel(String text) {
+		Type type = Type.LABEL;
+		return newBuilder()
+			.type(type)
+			.tag(TAG.DISPLAY)
+			.text(text)
+			.style(theme.get(type))
+			.dimension(150, 20);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public Builder newButton(String text) {
+		Type type = Type.BUTTON;
+		return newBuilder()
+			.type(type)
+			.tag(TAG.DISPLAY)
+			.text(text)
+			.style(theme.get(type))
+			.dimension(100, 20);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public Builder newTextField(String text) {
+		Type type = Type.TEXTFIELD;
+		return newBuilder()
+			.type(type)
+			.tag(TAG.DISPLAY)
+			.text(text)
+			.style(theme.get(type))
+			.dimension(200, 20);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public Builder newGroup() {
+		Type type = Type.GROUP;
+		return newBuilder()
+			.type(type)
+			.tag(TAG.DISPLAY)
+			.style(theme.get(type))
+			.dimension(300, 800);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public Theme theme() {
+		return theme;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void theme(Theme theme) {
+		this.theme = theme;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void render(Graphics graphics) {
+		renderer.render(graphics);
 	}
 	//=============================================================================================
 	

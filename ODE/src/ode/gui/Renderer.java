@@ -4,30 +4,30 @@ package ode.gui;
 
 import java.util.List;
 
-import ode.platform.ODEGraphics;
+import ode.platform.Graphics;
 
 //*************************************************************************************************
-public class ODEWidgetRenderer {
+public class Renderer {
 
 	//=============================================================================================
-	private List<ODEWidget> roots;
+	private List<Widget> roots;
 	//=============================================================================================
 
 	//=============================================================================================
-	public ODEWidgetRenderer(List<ODEWidget> roots) {
+	public Renderer(List<Widget> roots) {
 		this.roots = roots;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void render(ODEGraphics graphics) {
+	public void render(Graphics graphics) {
 		renderSiblings(roots, graphics);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private void renderSiblings(List<ODEWidget> siblings, ODEGraphics graphics) {
-		for (ODEWidget widget : siblings) {
+	private void renderSiblings(List<Widget> siblings, Graphics graphics) {
+		for (Widget widget : siblings) {
 			graphics.pushTransformation();
 			graphics.translate(widget.position());
 			renderWidget(widget, graphics);
@@ -37,14 +37,14 @@ public class ODEWidgetRenderer {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void renderWidget(ODEWidget widget, ODEGraphics graphics) {
+	private void renderWidget(Widget widget, Graphics graphics) {
 		renderArea(widget, graphics);
 		renderSiblings(widget.children(), graphics);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private void renderArea(ODEWidget widget, ODEGraphics graphics) {
+	private void renderArea(Widget widget, Graphics graphics) {
 		
 	}
 	//=============================================================================================
