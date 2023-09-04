@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import ode.gui.ODEWidget.TAG;
 import ode.platform.ODEGraphics;
 
 //*************************************************************************************************
@@ -15,7 +16,7 @@ public class ODEWidgets {
 	private final List<ODEWidget> roots = new ArrayList<>();
 	private final List<ODEWidget> roots_ro = Collections.unmodifiableList(roots);
 	//=============================================================================================
-	
+
 	//=============================================================================================
 	final List<ODEWidget> widgets = new ArrayList<ODEWidget>();
 	private final List<ODEWidget> widgets_ro = Collections.unmodifiableList(widgets);
@@ -23,9 +24,6 @@ public class ODEWidgets {
 
 	//=============================================================================================
 	private ODETheme theme = new ODETheme();
-	//=============================================================================================
-	
-	//=============================================================================================
 	private final ODEWidgetRenderer renderer = new ODEWidgetRenderer(roots_ro);
 	//=============================================================================================
 	
@@ -84,6 +82,48 @@ public class ODEWidgets {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	public ODEWidgetBuilder newBuilder() {
+		return new ODEWidgetBuilder(this);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public ODEWidgetBuilder newButton(String text) {
+		ODEWidgetType type = ODEWidgetType.BUTTON;
+		return newBuilder()
+			.type(type)
+			.tag(TAG.DISPLAY)
+			.text(text)
+			.style(theme.get(type))
+			.dimension(100, 20);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public ODEWidgetBuilder newTextField(String text) {
+		ODEWidgetType type = ODEWidgetType.TEXTFIELD;
+		return newBuilder()
+			.type(type)
+			.tag(TAG.DISPLAY)
+			.text(text)
+			.style(theme.get(type))
+			.dimension(100, 20);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public ODEWidgetBuilder newLabel(String text) {
+		ODEWidgetType type = ODEWidgetType.LABEL;
+		return newBuilder()
+			.type(type)
+			.tag(TAG.DISPLAY)
+			.text(text)
+			.style(theme.get(type))
+			.dimension(100, 20);
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public ODETheme theme() {
 		return theme;
