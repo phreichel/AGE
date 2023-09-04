@@ -2,8 +2,6 @@
 package ode.platform;
 //*************************************************************************************************
 
-import javax.vecmath.Color4f;
-
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
 
