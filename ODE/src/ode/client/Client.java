@@ -2,6 +2,7 @@
 package ode.client;
 
 import ode.gui.GUI;
+import ode.gui.Widget;
 import ode.platform.Platform;
 
 //*************************************************************************************************
@@ -11,20 +12,21 @@ public class Client {
 
 	//=============================================================================================
 	private final Platform platform;
-	private final GUI widgets;
+	private final GUI gui;
 	//=============================================================================================
 
 	//=============================================================================================
 	public Client() {
 		platform = new Platform();
-		widgets = new GUI();
-		platform.assign(widgets);
+		gui = new GUI();
+		platform.assign(gui);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	public void configure(String[] args) {
 		configurePlatform();
+		configureWidgets();
 	}
 	//=============================================================================================
 
@@ -38,7 +40,17 @@ public class Client {
 	
 	//=============================================================================================
 	private void configureWidgets() {
-		
+		Widget root = gui.newGroup().widget();
+		root.position(50, 10);
+
+		Widget root2 = gui.newGroup().widget();
+		root2.position(5, 5);
+		root2.dimension(250, 50);
+		Widget btnQuit = gui.newButton("Quit").widget();
+		btnQuit.position(5, 5);
+		gui.root(root);
+		root.attach(root2);
+		root2.attach(btnQuit);
 	}
 	//=============================================================================================
 

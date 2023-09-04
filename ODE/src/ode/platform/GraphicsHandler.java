@@ -37,6 +37,7 @@ public class GraphicsHandler implements GLEventListener {
 	//=============================================================================================
 	public void display(GLAutoDrawable drawable) {
 		graphics.assign(drawable);
+		graphics.clear();
 		if (widgets != null) {
 			widgets.render(graphics);
 		}

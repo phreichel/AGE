@@ -12,7 +12,7 @@ import javax.vecmath.Vector2f;
 import ode.util.Node;
 
 //*************************************************************************************************
-class Widget extends Node<Widget> {
+public class Widget extends Node<Widget> {
 
 	//=============================================================================================
 	public enum TAG {

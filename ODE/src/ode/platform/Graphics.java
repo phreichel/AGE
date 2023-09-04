@@ -2,6 +2,7 @@
 package ode.platform;
 //*************************************************************************************************
 
+import javax.vecmath.Color4f;
 import javax.vecmath.Vector2f;
 
 import com.jogamp.opengl.GL2;
@@ -26,6 +27,27 @@ public class Graphics {
 	//=============================================================================================
 
 	//=============================================================================================
+	public void clear() {
+		gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void ortho() {
+		gl.glDisable(GL2.GL_LIGHTING);
+		gl.glDisable(GL2.GL_DEPTH_TEST);
+		gl.glDisable(GL2.GL_CULL_FACE);
+		gl.glMatrixMode(GL2.GL_PROJECTION);
+		gl.glLoadIdentity();
+		int w = window.getSurfaceWidth();
+		int h = window.getSurfaceHeight();
+		glu.gluOrtho2D(0, w-1, h-1, 0);
+		gl.glMatrixMode(GL2.GL_MODELVIEW);
+		gl.glLoadIdentity();
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	public void pushTransformation() {
 		gl.glPushMatrix();
 	}
@@ -40,6 +62,62 @@ public class Graphics {
 	//=============================================================================================
 	public void translate(Vector2f position) {
 		gl.glTranslatef(position.x, position.y, 0f);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void color(Color4f c) {
+		if (c.w != 1f) {
+			gl.glEnable(GL2.GL_BLEND);
+		} else {
+			gl.glDisable(GL2.GL_BLEND);
+		}
+		gl.glColor4f(c.x, c.y, c.z, c.w);
+	}
+	//=============================================================================================	
+
+	//=============================================================================================
+	public void fillRectangle(float x, float y, float w, float h) {
+		gl.glBegin(GL2.GL_QUADS);
+		gl.glVertex2f(x+0,y+0);
+		gl.glVertex2f(x+w,y+0);
+		gl.glVertex2f(x+w,y+h);
+		gl.glVertex2f(x+0,y+h);
+		gl.glEnd();
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void drawRectangle(float x, float y, float w, float h) {
+		draw2DLineLoop(
+			x+0, y+0,
+			x+w, y+0,
+			x+w, y+h,
+			x+0, y+h);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void draw2DLineStrip(float ... coords) {
+		gl.glBegin(GL2.GL_LINE_STRIP);
+		for (int i=0; i<coords.length;) {
+			float x = coords[i++];
+			float y = coords[i++];
+			gl.glVertex2f(x,y);
+		}
+		gl.glEnd();
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void draw2DLineLoop(float ... coords) {
+		gl.glBegin(GL2.GL_LINE_LOOP);
+		for (int i=0; i<coords.length;) {
+			float x = coords[i++];
+			float y = coords[i++];
+			gl.glVertex2f(x,y);
+		}
+		gl.glEnd();
 	}
 	//=============================================================================================
 	

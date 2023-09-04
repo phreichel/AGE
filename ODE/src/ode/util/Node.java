@@ -35,7 +35,7 @@ public class Node<N extends Node> {
 			throw new ODEException("Node already attached.");
 		}
 		child.parent = this;
-		parent.children.add(child);
+		children.add(child);
 	}
 	//=============================================================================================
 
