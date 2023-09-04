@@ -13,7 +13,7 @@ import ode.util.ODEException;
 public class Msg {
 
 	//=============================================================================================
-	static enum ID {
+	public static enum ID {
 		KEY_PRESSED,
 		KEY_RELEASED,
 		KEY_TYPED,
@@ -23,7 +23,8 @@ public class Msg {
 		POINTER_PRESSED,
 		POINTER_RELEASED,
 		POINTER_CLICKED,
-		POINTER_WHEEL
+		POINTER_WHEEL,
+		TERMINATE
 	}
 	//=============================================================================================
 

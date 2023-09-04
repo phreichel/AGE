@@ -13,7 +13,7 @@ public class Builder {
 	//=============================================================================================
 
 	//=============================================================================================
-	public Builder(MsgBox msgbox, Msg msg) {
+	Builder(MsgBox msgbox, Msg msg) {
 		this.msgbox = msgbox;
 		this.msg = msg;
 	}
@@ -105,6 +105,13 @@ public class Builder {
 		init(ID.POINTER_WHEEL);
 		PointerData data = msg.data(PointerData.class);
 		data.set(wx, wy, x, y);
+		return this;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public Builder terminate() {
+		init(ID.TERMINATE);
 		return this;
 	}
 	//=============================================================================================

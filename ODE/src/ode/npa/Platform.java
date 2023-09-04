@@ -7,24 +7,37 @@ import com.jogamp.opengl.GLCapabilities;
 import com.jogamp.opengl.GLProfile;
 
 import ode.gui.GUI;
+import ode.msg.MsgBox;
 
 //*************************************************************************************************
 public class Platform {
 
 	//=============================================================================================
-	private GLWindow window;
+	private InputHandler inputHandler = new InputHandler();
 	private GraphicsHandler graphicsHandler = new GraphicsHandler();
 	//=============================================================================================
 
+	//=============================================================================================
+	private GLWindow window;
+	//=============================================================================================
+	
 	//=============================================================================================
 	public Platform() {
 		GLProfile profile = GLProfile.getDefault();
 		GLCapabilities capabilities = new GLCapabilities(profile);
 		window = GLWindow.create(capabilities);
+		window.addKeyListener(inputHandler);
+		window.addMouseListener(inputHandler);
 		window.addGLEventListener(graphicsHandler);
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	public void assign(MsgBox msgbox) {
+		this.inputHandler.assign(msgbox);
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public void assign(GUI widgets) {
 		this.graphicsHandler.assign(widgets);

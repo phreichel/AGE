@@ -60,8 +60,8 @@ public class MsgBox {
 	
 	//=============================================================================================
 	public void update(long timeout) {
-		long mark = System.nanoTime() + timeout;
-		long now = mark;
+		long now = System.nanoTime();
+		long mark = now + timeout;
 		while (now < mark) {
 			Msg msg = null;
 			synchronized (queue) {

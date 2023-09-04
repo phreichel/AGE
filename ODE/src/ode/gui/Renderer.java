@@ -5,6 +5,7 @@ package ode.gui;
 import java.util.List;
 
 import javax.vecmath.Color4f;
+import javax.vecmath.Vector2f;
 
 import ode.npa.Graphics;
 
@@ -16,7 +17,12 @@ public class Renderer {
 	//=============================================================================================
 
 	//=============================================================================================
-	public Renderer(List<Widget> roots) {
+	private Vector2f ppos;
+	//=============================================================================================
+	
+	//=============================================================================================
+	public Renderer(Vector2f ppos, List<Widget> roots) {
+		this.ppos = ppos;
 		this.roots = roots;
 	}
 	//=============================================================================================
@@ -25,6 +31,8 @@ public class Renderer {
 	public void render(Graphics graphics) {
 		graphics.ortho();
 		renderSiblings(roots, graphics);
+		graphics.color(1, 1, 0, 1);
+		graphics.drawRectangle(ppos.x-2, ppos.y-2, 5, 5);
 	}
 	//=============================================================================================
 

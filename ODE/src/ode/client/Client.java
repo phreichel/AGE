@@ -1,28 +1,58 @@
 //*************************************************************************************************
 package ode.client;
+//*************************************************************************************************
 
 import ode.gui.GUI;
 import ode.gui.Widget;
+import ode.msg.Msg;
+import ode.msg.Msg.ID;
+import ode.msg.MsgBox;
 import ode.npa.Platform;
-
-//*************************************************************************************************
 
 //*************************************************************************************************
 public class Client {
 
 	//=============================================================================================
+	private final MsgBox msgbox;
 	private final Platform platform;
 	private final GUI gui;
 	//=============================================================================================
 
 	//=============================================================================================
-	public Client() {
-		platform = new Platform();
-		gui = new GUI();
-		platform.assign(gui);
+	private boolean terminate = false;
+	//=============================================================================================
+
+	//=============================================================================================
+	private void handleEvent(Msg msg) {
+		switch (msg.id()) {
+		case TERMINATE:
+			terminate = true;
+			break;
+		default:
+			break;
+		}
 	}
 	//=============================================================================================
 	
+	//=============================================================================================
+	public Client() {
+		msgbox = new MsgBox();
+		platform = new Platform();
+		gui = new GUI();
+		platform.assign(msgbox);
+		platform.assign(gui);
+		msgbox.subscribe(ID.TERMINATE, this::handleEvent);
+		msgbox.subscribe(ID.KEY_PRESSED, gui::handleEvent);
+		msgbox.subscribe(ID.KEY_RELEASED, gui::handleEvent);
+		msgbox.subscribe(ID.KEY_TYPED, gui::handleEvent);
+		msgbox.subscribe(ID.POINTER_MOVED, gui::handleEvent);
+		msgbox.subscribe(ID.POINTER_PRESSED, gui::handleEvent);
+		msgbox.subscribe(ID.POINTER_RELEASED, gui::handleEvent);
+		msgbox.subscribe(ID.POINTER_CLICKED, gui::handleEvent);
+		msgbox.subscribe(ID.POINTER_WHEEL, gui::handleEvent);
+	}
+	//=============================================================================================
+
 	//=============================================================================================
 	public void configure(String[] args) {
 		configurePlatform();
@@ -57,14 +87,16 @@ public class Client {
 	//=============================================================================================
 	public void run() {
 		platform.displayed(true);
-		boolean terminate = false;
+		terminate = false;
 		while (!terminate) {
+			msgbox.update(1000000000L / 120L);
 			platform.render();
 			Thread.yield();
 		}
+		terminate = false;
 	}
 	//=============================================================================================
-	
+
 	//=============================================================================================
 	public static void main(String[] args) {
 		Client client = new Client();
