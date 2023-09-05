@@ -71,6 +71,7 @@ public class Renderer {
 	//=============================================================================================
 	private void renderLabel(Widget widget, Graphics graphics) {
 		renderGeneric(widget, graphics);
+		graphics.drawText(widget.text(), 3, widget.dimension().y-3, "ode.system");
 	}
 	//=============================================================================================
 	
@@ -78,12 +79,14 @@ public class Renderer {
 	private void renderButton(Widget widget, Graphics graphics) {
 		renderGeneric(widget, graphics);
 		renderBorder(widget, graphics);
+		graphics.drawText(widget.text(), 3, widget.dimension().y-3, "ode.system");
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	private void renderTextfield(Widget widget, Graphics graphics) {
 		renderGeneric(widget, graphics);
+		graphics.drawText(widget.text(), 3, widget.dimension().y-3, "ode.system");
 	}
 	//=============================================================================================
 
@@ -99,7 +102,8 @@ public class Renderer {
 		Color4f fg = widget.style().foreground();
 		Color4f bg = widget.style().background();
 		graphics.color(bg);
-		graphics.fillRectangle(0, 0, widget.dimension().x, widget.dimension().y);
+		graphics.drawImage(0, 0, widget.dimension().x, widget.dimension().y, "ode.test");
+		//graphics.fillRectangle(0, 0, widget.dimension().x, widget.dimension().y);
 		graphics.color(fg);
 		graphics.drawRectangle(0, 0, widget.dimension().x, widget.dimension().y);
 	}

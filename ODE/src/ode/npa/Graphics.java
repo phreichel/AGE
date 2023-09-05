@@ -8,6 +8,10 @@ import javax.vecmath.Vector2f;
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.glu.GLU;
+import com.jogamp.opengl.util.awt.TextRenderer;
+import com.jogamp.opengl.util.texture.Texture;
+
+import ode.asset.Assets;
 
 //*************************************************************************************************
 public class Graphics {
@@ -16,6 +20,7 @@ public class Graphics {
 	private GLAutoDrawable window;
 	private GL2 gl;
 	private GLU glu;
+	private Assets assets;
 	//=============================================================================================
 
 	//=============================================================================================
@@ -26,6 +31,12 @@ public class Graphics {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	public void assign(Assets assets) {
+		this.assets = assets;
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public void clearColor(Color4f c) {
 		gl.glClearColor(c.x, c.y, c.z, c.w);
@@ -120,6 +131,36 @@ public class Graphics {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	public void drawImage(float x, float y, float w, float h, String name) {
+		Texture texture = assets.getTexture(name);
+		texture.bind(gl);
+		texture.enable(gl);
+		gl.glBegin(GL2.GL_QUADS);
+		gl.glTexCoord2f(0,1);
+		gl.glVertex2f(x+0,y+0);
+		gl.glTexCoord2f(1,1);
+		gl.glVertex2f(x+w,y+0);
+		gl.glTexCoord2f(1,0);
+		gl.glVertex2f(x+w,y+h);
+		gl.glTexCoord2f(0,0);
+		gl.glVertex2f(x+0,y+h);
+		gl.glEnd();
+		texture.disable(gl);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void drawText(String text, float x, float y, String name) {
+		TextRenderer textRenderer = assets.getFont(name);
+		gl.glScalef(1, -1, 1);
+		textRenderer.begin3DRendering();
+		textRenderer.draw3D(text, x, -y, 0, 1);
+		textRenderer.end3DRendering();
+		gl.glScalef(1, -1, 1);
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public void draw2DLineStrip(float ... coords) {
 		gl.glBegin(GL2.GL_LINE_STRIP);

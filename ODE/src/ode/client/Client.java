@@ -2,6 +2,7 @@
 package ode.client;
 //*************************************************************************************************
 
+import ode.asset.Assets;
 import ode.clock.Clock;
 import ode.gui.GUI;
 import ode.gui.Widget;
@@ -14,6 +15,7 @@ import ode.npa.Platform;
 public class Client {
 
 	//=============================================================================================
+	private final Assets assets;
 	private final Clock clock;
 	private final MsgBox msgbox;
 	private final Platform platform;
@@ -38,12 +40,14 @@ public class Client {
 	
 	//=============================================================================================
 	public Client() {
+		assets = new Assets();
 		clock = new Clock();
 		msgbox = new MsgBox();
 		platform = new Platform();
 		gui = new GUI();
 		gui.assign(msgbox);
 		platform.assign(msgbox);
+		platform.assign(assets);
 		platform.assign(gui);
 		msgbox.subscribe(ID.TERMINATE, this::handleEvent);
 		msgbox.subscribe(ID.KEY_PRESSED, gui::handleEvent);
@@ -73,6 +77,9 @@ public class Client {
 	
 	//=============================================================================================
 	public void configure(String[] args) {
+		assets.loadTexts("assets/configuration.properties");
+		assets.loadFonts("assets/fonts.properties");
+		assets.loadTextures("assets/textures.properties");
 		configurePlatform();
 		configureWidgets();
 	}
@@ -80,9 +87,15 @@ public class Client {
 
 	//=============================================================================================
 	private void configurePlatform() {
-		platform.title("ODE Client Window");
-		platform.size(800, 600);
-		platform.maximized(true);
+		String title = assets.resolveText("ode.platform.title");
+		int width = assets.getInt("ode.platform.width");
+		int height = assets.getInt("ode.platform.height");
+		boolean maximized = assets.getBoolean("ode.platform.maximized");
+		boolean fullscreen = assets.getBoolean("ode.platform.fullscreen");
+		platform.title(title);
+		platform.size(width, height);
+		platform.maximized(maximized);
+		platform.fullscreen(fullscreen);
 	}
 	//=============================================================================================
 	

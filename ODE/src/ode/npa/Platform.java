@@ -6,6 +6,7 @@ import com.jogamp.newt.opengl.GLWindow;
 import com.jogamp.opengl.GLCapabilities;
 import com.jogamp.opengl.GLProfile;
 
+import ode.asset.Assets;
 import ode.gui.GUI;
 import ode.msg.MsgBox;
 
@@ -35,6 +36,12 @@ public class Platform {
 	//=============================================================================================
 	public void assign(MsgBox msgbox) {
 		this.inputHandler.assign(msgbox);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void assign(Assets assets) {
+		this.graphicsHandler.assign(assets);
 	}
 	//=============================================================================================
 	
