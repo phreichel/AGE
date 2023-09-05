@@ -175,7 +175,7 @@ public class GUI {
 	//=============================================================================================
 
 	//=============================================================================================
-	private Widget hover = null;
+	private Widget pointerInside = null;
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -196,18 +196,38 @@ public class GUI {
 			ppos.z += data.wheelY();
 			break;
 		}
+		case POINTER_PRESSED: {
+			if (pointerInside != null) {
+				pointerInside.onPointerPressed(msg);
+			}
+			break;
+		}
+		case POINTER_RELEASED: {
+			if (pointerInside != null) {
+				pointerInside.onPointerReleased(msg);
+			}
+			break;
+		}
+		case POINTER_CLICKED: {
+			if (pointerInside != null) {
+				pointerInside.onPointerClicked(msg);
+			}
+			break;
+		}
 		case POINTER_MOVED: {
 			PointerData data = msg.data(PointerData.class);
 			ppos.x = data.x();
 			ppos.y = data.y();
-			Widget newHover = containsPointer(roots, msg, data.x(), data.y());
-			if (hover != newHover) {
-				if (hover != null) {
-					hover.clear(TAG.HOVER);
+			Widget newPointerInside = containsPointer(roots, msg, data.x(), data.y());
+			if (pointerInside != newPointerInside) {
+				if (pointerInside != null) {
+					pointerInside.clear(TAG.HOVER);
+					pointerInside.onPointerExit(msg);
 				}
-				hover = newHover;
-				if (hover != null) {
-					hover.set(TAG.HOVER);
+				pointerInside = newPointerInside;
+				if (pointerInside != null) {
+					pointerInside.set(TAG.HOVER);
+					pointerInside.onPointerEnter(msg);
 				}				
 			}
 			break;
