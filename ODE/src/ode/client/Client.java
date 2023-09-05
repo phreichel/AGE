@@ -2,6 +2,7 @@
 package ode.client;
 //*************************************************************************************************
 
+import ode.clock.Clock;
 import ode.gui.GUI;
 import ode.gui.Widget;
 import ode.msg.Msg;
@@ -13,6 +14,7 @@ import ode.npa.Platform;
 public class Client {
 
 	//=============================================================================================
+	private final Clock clock;
 	private final MsgBox msgbox;
 	private final Platform platform;
 	private final GUI gui;
@@ -36,6 +38,7 @@ public class Client {
 	
 	//=============================================================================================
 	public Client() {
+		clock = new Clock();
 		msgbox = new MsgBox();
 		platform = new Platform();
 		gui = new GUI();
@@ -51,9 +54,23 @@ public class Client {
 		msgbox.subscribe(ID.POINTER_RELEASED, gui::handleEvent);
 		msgbox.subscribe(ID.POINTER_CLICKED, gui::handleEvent);
 		msgbox.subscribe(ID.POINTER_WHEEL, gui::handleEvent);
+		clock.addFPS(120, this::updateTask);
+		clock.addFPS(30, this::renderTask);
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	private void updateTask(int count, long period, float dT) {
+		msgbox.update(period);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void renderTask(int count, long period, float dT) {
+		platform.render();
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public void configure(String[] args) {
 		configurePlatform();
@@ -73,7 +90,6 @@ public class Client {
 	private void configureWidgets() {
 		Widget root = gui.newGroup().widget();
 		root.position(50, 10);
-
 		Widget root2 = gui.newGroup().widget();
 		root2.position(5, 5);
 		root2.dimension(250, 50);
@@ -87,11 +103,11 @@ public class Client {
 
 	//=============================================================================================
 	public void run() {
-		platform.displayed(true);
 		terminate = false;
+		platform.displayed(true);
+		clock.init();
 		while (!terminate) {
-			msgbox.update(1000000000L / 120L);
-			platform.render();
+			clock.update();
 			Thread.yield();
 		}
 		terminate = false;
