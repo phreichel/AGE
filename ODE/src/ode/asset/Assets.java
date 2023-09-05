@@ -46,6 +46,8 @@ public class Assets {
 			ResourceBundle bundle = new PropertyResourceBundle(fileReader);
 			for (String key : bundle.keySet()) {
 				String value = bundle.getString(key);
+				System.out.printf("Loading Text %s: %s", key, value);
+				System.out.println();
 				texts.put(key, value);
 			}
 			fileReader.close();
@@ -141,8 +143,10 @@ public class Assets {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void loadTexture(String name, String path, boolean force) {
+	private void loadTexture(String name, String path, boolean force) {
 		if (textures.containsKey(name) && !force) return;
+		System.out.printf("Loading Texture %s: %s", name, path);
+		System.out.println();
 		try {
 			Texture texture = TextureIO.newTexture(new File(path), true);
 			textures.put(name, texture);
@@ -185,8 +189,10 @@ public class Assets {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void loadFont(String name, String fontspec, boolean force) {
+	private void loadFont(String name, String fontspec, boolean force) {
 		if (fonts.containsKey(name) && !force) return;
+		System.out.printf("Loading Font %s: %s", name, fontspec);
+		System.out.println();
 		java.awt.Font font = java.awt.Font.decode(fontspec);
 		TextRenderer renderer = new TextRenderer(font, true);
 		fonts.put(name, renderer);
