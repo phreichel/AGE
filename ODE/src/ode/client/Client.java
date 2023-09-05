@@ -103,11 +103,12 @@ public class Client {
 	private void configureWidgets() {
 		Widget root = gui.newGroup().widget();
 		root.position(50, 10);
+		root.dimension(900, 800);
 		Widget root2 = gui.newGroup().widget();
-		root2.position(5, 5);
+		root2.position(150, 25);
 		root2.dimension(250, 50);
 		Widget btnQuit = gui.newButton("Quit").widget();
-		btnQuit.position(5, 5);
+		btnQuit.position(45, 15);
 		gui.root(root);
 		root.attach(root2);
 		root2.attach(btnQuit);

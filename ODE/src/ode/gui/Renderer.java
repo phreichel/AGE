@@ -7,6 +7,7 @@ import java.util.List;
 import javax.vecmath.Color4f;
 import javax.vecmath.Vector3f;
 
+import ode.gui.Widget.TAG;
 import ode.npa.Graphics;
 
 //*************************************************************************************************
@@ -100,7 +101,7 @@ public class Renderer {
 	//=============================================================================================
 	private void renderGeneric(Widget widget, Graphics graphics) {
 		Color4f fg = widget.style().foreground();
-		Color4f bg = widget.style().background();
+		Color4f bg = widget.tagged(TAG.HOVER) ? widget.style().backgroundHover() : widget.style().background();
 		graphics.color(bg);
 		graphics.drawImage(0, 0, widget.dimension().x, widget.dimension().y, "ode.test");
 		//graphics.fillRectangle(0, 0, widget.dimension().x, widget.dimension().y);

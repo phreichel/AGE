@@ -14,6 +14,7 @@ public class Style {
 	public enum KEY {
 		FOREGROUND,
 		BACKGROUND,
+		BACKGROUD_HOVER,
 		BORDER_LIGHT,
 		BORDER_DARK
 	}
@@ -76,6 +77,12 @@ public class Style {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	public Color4f backgroundHover() {
+		return get(KEY.BACKGROUD_HOVER, Color4f.class);
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public Color4f borderLight() {
 		return get(KEY.BORDER_LIGHT, Color4f.class);

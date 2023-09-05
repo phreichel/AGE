@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
 
 import ode.gui.Widget.TAG;
@@ -176,6 +175,10 @@ public class GUI {
 	//=============================================================================================
 
 	//=============================================================================================
+	private Widget hover = null;
+	//=============================================================================================
+	
+	//=============================================================================================
 	public void handleEvent(Msg msg) {
 		switch (msg.id()) {
 		case KEY_PRESSED: {
@@ -197,6 +200,16 @@ public class GUI {
 			PointerData data = msg.data(PointerData.class);
 			ppos.x = data.x();
 			ppos.y = data.y();
+			Widget newHover = containsPointer(roots, msg, data.x(), data.y());
+			if (hover != newHover) {
+				if (hover != null) {
+					hover.clear(TAG.HOVER);
+				}
+				hover = newHover;
+				if (hover != null) {
+					hover.set(TAG.HOVER);
+				}				
+			}
 			break;
 		}
 		default:
@@ -204,6 +217,28 @@ public class GUI {
 		}
 	}
 	//=============================================================================================
-	
+
+	//=============================================================================================
+	private Widget containsPointer(List<Widget> widgets, Msg msg, float x, float y) {
+		for (Widget widget : widgets) {
+			float locX = x - widget.position().x;
+			float locY = y - widget.position().y;
+			Widget hover = containsPointer(widget.children(), msg, locX, locY);
+			if (hover != null) return hover; 
+		}
+		for (Widget widget : widgets) {
+			float locX = x - widget.position().x;
+			float locY = y - widget.position().y;
+			if (
+					(locX >= 0f) &&
+					(locY >= 0f) &&
+					(locX <= widget.dimension().x) &&
+					(locY <= widget.dimension().y)) {
+				return widget;
+			}
+		}
+		return null;
+	}
+	//=============================================================================================
 }
 //*************************************************************************************************

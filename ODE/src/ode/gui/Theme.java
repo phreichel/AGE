@@ -29,15 +29,18 @@ public class Theme {
 		base = new Style();
 		base.put(KEY.FOREGROUND, new Color4f(1, 0, 0, 1));
 		base.put(KEY.BACKGROUND, new Color4f(.8f, .8f, .8f, 1));
+		base.put(KEY.BACKGROUD_HOVER, new Color4f(1f, 1f, .8f, 1));
 		base.put(KEY.BORDER_LIGHT, new Color4f(.6f, 1f, .6f, 1));
 		base.put(KEY.BORDER_DARK, new Color4f(.3f, .6f, .3f, 1));
 		
 		Style button = base.derive();
 		button.put(KEY.FOREGROUND, new Color4f(0, 0, 1, 1));
 		button.put(KEY.BACKGROUND, new Color4f(.4f, .4f, 1f, 1));
+		button.put(KEY.BACKGROUD_HOVER, new Color4f(.8f, .8f, 1f, 1));
 
 		Style group = base.derive();
 		group.put(KEY.BACKGROUND, new Color4f(.3f, .3f, .3f, 1));
+		group.put(KEY.BACKGROUD_HOVER, new Color4f(.6f, .6f, .3f, 1));
 		group.put(KEY.BORDER_LIGHT, new Color4f(1f, .5f, .5f, 1));
 		group.put(KEY.BORDER_DARK, new Color4f(.5f, 0f, 0f, 1));
 	
