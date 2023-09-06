@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.vecmath.Color4f;
 
-import ode.gui.Widget.TAG;
 import ode.npa.Graphics;
 
 //*************************************************************************************************
@@ -42,7 +41,7 @@ public class Renderer {
 
 	//=============================================================================================
 	private void renderWidget(Widget widget, Graphics graphics) {
-		if (widget.match(TAG.DISPLAY)) {
+		if (widget.match(Flag.DISPLAYED)) {
 			renderArea(widget, graphics);
 			renderSiblings(widget.children(), graphics);
 		}
@@ -93,7 +92,7 @@ public class Renderer {
 	//=============================================================================================
 	private void renderGeneric(Widget widget, Graphics graphics) {
 		Color4f fg = widget.style().getColor(Style.FOREGROUND);
-		Color4f bg = widget.tagged(TAG.HOVER) ?
+		Color4f bg = widget.match(Flag.HOVERED) ?
 			widget.style().getColor(Style.BACKGROUND_HOVER) :
 			widget.style().getColor(Style.BACKGROUND);
 		graphics.color(bg);

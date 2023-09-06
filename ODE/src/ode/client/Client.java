@@ -4,9 +4,9 @@ package ode.client;
 
 import ode.asset.Assets;
 import ode.clock.Clock;
+import ode.gui.Flag;
 import ode.gui.GUI;
 import ode.gui.Widget;
-import ode.gui.Widget.TAG;
 import ode.log.Logger;
 import ode.msg.Msg;
 import ode.msg.Msg.ID;
@@ -111,7 +111,7 @@ public class Client {
 		Widget root2 = gui.newGroup().widget();
 		root2.position(150, 25);
 		root2.dimension(250, 50);
-		Widget btnQuit = gui.newButton("Quit").clear(TAG.DISPLAY).widget();
+		Widget btnQuit = gui.newButton("Quit").clear(Flag.DISPLAYED).widget();
 		btnQuit.position(45, 15);
 		gui.root(root);
 		root.attach(root2);

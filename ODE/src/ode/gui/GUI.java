@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import ode.gui.Widget.TAG;
 import ode.msg.Key;
 import ode.msg.KeyData;
 import ode.msg.Msg;
@@ -111,7 +110,7 @@ public class GUI {
 		Type type = Type.LABEL;
 		return newBuilder()
 			.type(type)
-			.set(TAG.DISPLAY)
+			.set(Flag.DISPLAYED)
 			.text(text)
 			.style(theme.get(type))
 			.dimension(150, 20);
@@ -123,7 +122,7 @@ public class GUI {
 		Type type = Type.BUTTON;
 		return newBuilder()
 			.type(type)
-			.set(TAG.DISPLAY)
+			.set(Flag.DISPLAYED)
 			.text(text)
 			.style(theme.get(type))
 			.dimension(100, 20);
@@ -135,7 +134,7 @@ public class GUI {
 		Type type = Type.TEXTFIELD;
 		return newBuilder()
 			.type(type)
-			.set(TAG.DISPLAY)
+			.set(Flag.DISPLAYED)
 			.text(text)
 			.style(theme.get(type))
 			.dimension(200, 20);
@@ -147,7 +146,7 @@ public class GUI {
 		Type type = Type.GROUP;
 		return newBuilder()
 			.type(type)
-			.set(TAG.DISPLAY)
+			.set(Flag.DISPLAYED)
 			.style(theme.get(type))
 			.dimension(300, 800);
 	}
@@ -214,12 +213,12 @@ public class GUI {
 			Widget newPointerInside = containsPointer(roots, msg, data.x(), data.y());
 			if (pointerInside != newPointerInside) {
 				if (pointerInside != null) {
-					pointerInside.clear(TAG.HOVER);
+					pointerInside.clear(Flag.HOVERED);
 					pointerInside.onPointerExit(msg);
 				}
 				pointerInside = newPointerInside;
 				if (pointerInside != null) {
-					pointerInside.set(TAG.HOVER);
+					pointerInside.set(Flag.HOVERED);
 					pointerInside.onPointerEnter(msg);
 				}				
 			}
@@ -234,7 +233,7 @@ public class GUI {
 	//=============================================================================================
 	private Widget containsPointer(List<Widget> widgets, Msg msg, float x, float y) {
 		for (Widget widget : widgets) {
-			if (widget.match(TAG.DISPLAY)) {
+			if (widget.match(Flag.DISPLAYED)) {
 				float locX = x - widget.position().x;
 				float locY = y - widget.position().y;
 				Widget hover = containsPointer(widget.children(), msg, locX, locY);
@@ -242,7 +241,7 @@ public class GUI {
 			}
 		}
 		for (Widget widget : widgets) {
-			if (widget.match(TAG.DISPLAY)) {
+			if (widget.match(Flag.DISPLAYED)) {
 				float locX = x - widget.position().x;
 				float locY = y - widget.position().y;
 				if (

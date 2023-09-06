@@ -5,8 +5,6 @@ package ode.gui;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.vecmath.Color4f;
-
 //*************************************************************************************************
 public class Theme {
 

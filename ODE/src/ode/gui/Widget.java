@@ -18,18 +18,11 @@ import ode.util.Node;
 public class Widget extends Node<Widget> {
 
 	//=============================================================================================
-	public enum TAG {
-		DISPLAY,
-		HOVER;
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
 	private GUI gui;
 	private String name;
 	private Type type;
-	private final Set<TAG> tags = EnumSet.noneOf(TAG.class);
-	private final Set<TAG> tags_ro = Collections.unmodifiableSet(tags);
+	private final Set<Flag> flags = EnumSet.noneOf(Flag.class);
+	private final Set<Flag> flags_ro = Collections.unmodifiableSet(flags);
 	private final Vector2f position = new Vector2f();
 	private final Vector2f dimension = new Vector2f();
 	private Style style;
@@ -74,32 +67,26 @@ public class Widget extends Node<Widget> {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public boolean tagged(TAG tag) {
-		return tags.contains(tag);
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public Set<TAG> tags() {
-		return tags_ro;
+	public Set<Flag> flags() {
+		return flags_ro;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public boolean match(TAG ... tags) {
-		return this.tags.containsAll(List.of(tags));
+	public boolean match(Flag ... flags) {
+		return this.flags.containsAll(List.of(flags));
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void set(TAG ... tags) {
-		this.tags.addAll(List.of(tags));
+	public void set(Flag ... flags) {
+		this.flags.addAll(List.of(flags));
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void clear(TAG ... tags) {
-		this.tags.removeAll(List.of(tags));
+	public void clear(Flag ... flags) {
+		this.flags.removeAll(List.of(flags));
 	}
 	//=============================================================================================
 	
