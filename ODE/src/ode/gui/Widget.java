@@ -9,6 +9,8 @@ import java.util.Set;
 
 import javax.vecmath.Vector2f;
 
+import ode.log.Level;
+import ode.log.Logger;
 import ode.msg.Msg;
 import ode.util.Node;
 
@@ -177,31 +179,31 @@ public class Widget extends Node<Widget> {
 
 	//=============================================================================================
 	public void onPointerEnter(Msg msg) {
-		System.out.println("ENTER");
+		Logger.log(Level.DEBUG, "ENTER");
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void onPointerExit(Msg msg) {		
-		System.out.println("EXIT");
+		Logger.log(Level.DEBUG, "EXIT");
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void onPointerPressed(Msg msg) {		
-		System.out.println("PRESS");
+		Logger.log(Level.DEBUG, "PRESSED");
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void onPointerReleased(Msg msg) {		
-		System.out.println("RELEASE");
+		Logger.log(Level.DEBUG, "RELEASED");
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void onPointerClicked(Msg msg) {		
-		System.out.println("CLICK");
+		Logger.log(Level.DEBUG, "CLICKED");
 	}
 	//=============================================================================================
 	
