@@ -6,6 +6,7 @@ import ode.asset.Assets;
 import ode.clock.Clock;
 import ode.gui.GUI;
 import ode.gui.Widget;
+import ode.log.Logger;
 import ode.msg.Msg;
 import ode.msg.Msg.ID;
 import ode.msg.MsgBox;
@@ -77,6 +78,7 @@ public class Client {
 	
 	//=============================================================================================
 	public void configure(String[] args) {
+		Logger.configure("assets/logging.cfg");
 		assets.loadTexts("assets/ode.cfg");
 		assets.loadColors("assets/colors.cfg");
 		assets.loadFonts("assets/fonts.cfg");

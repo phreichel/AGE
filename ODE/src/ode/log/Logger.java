@@ -2,12 +2,19 @@
 package ode.log;
 //*************************************************************************************************
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.Reader;
 import java.util.Calendar;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.PropertyResourceBundle;
+import java.util.ResourceBundle;
 import java.util.Set;
+
+import ode.util.ODEException;
 
 //*************************************************************************************************
 public class Logger {
@@ -16,6 +23,39 @@ public class Logger {
 	private static final Map<String, Logger> map = new HashMap<>();
 	//=============================================================================================
 
+	//=============================================================================================
+	public static void configure(String path) {
+		try {
+			File file = new File(path);
+			Reader fileReader = new FileReader(file);
+			ResourceBundle bundle = new PropertyResourceBundle(fileReader);
+			for (String key : bundle.keySet()) {
+				String value = bundle.getString(key);
+				String[] parts = key.split("\\.");
+				String instance = parts[0];
+				String property = parts[1];
+				Logger logger = Logger.get(instance);
+				if (property.equals("trace")) {
+					boolean b = Boolean.parseBoolean(value);
+					logger.trace(b);
+				} else if (property.equals("format")) {
+					logger.format(value);
+				} else if (property.equals("levels")) {
+					logger.clear();
+					String[] levels = value.split("\\s*,\\s*");
+					for (String l : levels) {
+						Level level = Level.valueOf(l);
+						logger.enable(level);
+					}
+				}
+			}
+			fileReader.close();
+		} catch (Exception e) {
+			throw new ODEException(e);
+		}
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public static Logger get(String instance) {		
 		Logger logger = map.get(instance);
@@ -94,6 +134,12 @@ public class Logger {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	public void clear() {
+		this.levels.clear();
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public void enable(Level ... levels) {
 		this.levels.addAll(List.of(levels));
