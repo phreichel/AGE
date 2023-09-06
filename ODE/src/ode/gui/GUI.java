@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import javax.vecmath.Vector3f;
-
 import ode.gui.Widget.TAG;
 import ode.msg.Key;
 import ode.msg.KeyData;
@@ -35,11 +33,10 @@ public class GUI {
 	
 	//=============================================================================================
 	private MsgBox msgbox;
-	private Vector3f ppos = new Vector3f(0, 0, 5);
 	//=============================================================================================
 	
 	//=============================================================================================
-	private final Renderer renderer = new Renderer(ppos, roots_ro);
+	private final Renderer renderer = new Renderer(roots_ro);
 	//=============================================================================================
 
 	//=============================================================================================
@@ -192,8 +189,6 @@ public class GUI {
 			break;
 		}
 		case POINTER_WHEEL: {
-			PointerData data = msg.data(PointerData.class);
-			ppos.z += data.wheelY();
 			break;
 		}
 		case POINTER_PRESSED: {
@@ -216,8 +211,6 @@ public class GUI {
 		}
 		case POINTER_MOVED: {
 			PointerData data = msg.data(PointerData.class);
-			ppos.x = data.x();
-			ppos.y = data.y();
 			Widget newPointerInside = containsPointer(roots, msg, data.x(), data.y());
 			if (pointerInside != newPointerInside) {
 				if (pointerInside != null) {
