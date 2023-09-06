@@ -53,14 +53,14 @@ public class Logger {
 	//=============================================================================================
 
 	//=============================================================================================
-	private Logger parent = null;
+	private boolean trace = false;
 	private Set<Level> levels = null;
 	private String format = null;
 	//=============================================================================================
 
 	//=============================================================================================
 	private Logger() {
-		this.parent = null;
+		this.trace = false;
 		this.levels = EnumSet.allOf(Level.class);
 		this.format = "%1$td.%1$tm.%1$ty %1$tH:%1$tM:%1$tS.%1$tN - %2$s: %3$s";
 	}
@@ -68,9 +68,9 @@ public class Logger {
 	
 	//=============================================================================================
 	private Logger(Logger parent) {
-		this.parent = parent;
-		this.format = null;
-		this.levels = null;
+		this.trace = parent.trace;
+		this.format = parent.format;
+		this.levels = EnumSet.copyOf(parent.levels);
 	}
 	//=============================================================================================
 	
@@ -79,6 +79,16 @@ public class Logger {
 		if (!levels.contains(level)) return;
 		Calendar now = Calendar.getInstance();
 		String output = String.format(message, params);
+		if (trace) {
+			StackTraceElement e = Thread.currentThread().getStackTrace()[4];
+			String location = String.format(
+				"%s (%s): %s.%s%n	",
+				e.getFileName(),
+				e.getLineNumber(),
+				e.getClassName(),
+				e.getMethodName());
+			output = location + output;
+		}
 		String tagged = String.format(format, now, level, output);
 		System.out.println(tagged);
 	}
@@ -96,6 +106,18 @@ public class Logger {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	public boolean trace() {
+		return trace;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void trace(boolean trace) {
+		this.trace = trace;
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public String format() {
 		return format;
