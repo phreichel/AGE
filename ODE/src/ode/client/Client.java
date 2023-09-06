@@ -78,6 +78,7 @@ public class Client {
 	//=============================================================================================
 	public void configure(String[] args) {
 		assets.loadTexts("assets/ode.cfg");
+		assets.loadColors("assets/colors.cfg");
 		assets.loadFonts("assets/fonts.cfg");
 		assets.loadTextures("assets/textures.cfg");
 		configurePlatform();

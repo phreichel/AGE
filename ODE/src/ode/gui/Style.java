@@ -2,7 +2,7 @@
 package ode.gui;
 //*************************************************************************************************
 
-import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.vecmath.Color4f;
@@ -11,18 +11,16 @@ import javax.vecmath.Color4f;
 public class Style {
 
 	//=============================================================================================
-	public enum KEY {
-		FOREGROUND,
-		BACKGROUND,
-		BACKGROUD_HOVER,
-		BORDER_LIGHT,
-		BORDER_DARK
-	}
+	public static final String FOREGROUND = "fg";
+	public static final String BACKGROUND = "bg";
+	public static final String BACKGROUND_HOVER = "bg_hover";
+	public static final String BORDER_LIGHT = "border_light";
+	public static final String BORDER_DARK = "border_dark";
 	//=============================================================================================
 	
 	//=============================================================================================
 	private Style parent;
-	private Map<KEY, Object> properties= new EnumMap<>(KEY.class);
+	private Map<String, Object> properties= new HashMap<>();
 	//=============================================================================================
 
 	//=============================================================================================
@@ -44,14 +42,21 @@ public class Style {
 	//=============================================================================================
 
 	//=============================================================================================
-	public Style put(KEY key, Object value) {
+	public Style put(String key, Object value) {
 		properties.put(key, value);
+		return this;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public Style putColor(String key, float r, float g, float b, float a) {
+		properties.put(key, new Color4f(r, g, b, a));
 		return this;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Object get(KEY key) {
+	public Object get(String key) {
 		Object value = properties.get(key);
 		return (value != null) ? value : (parent != null) ? parent.get(key) : null;
 	}
@@ -59,39 +64,15 @@ public class Style {
 
 	//=============================================================================================
 	@SuppressWarnings("unchecked")
-	public <C> C get(KEY key, Class<C> clazz) {
+	public <C> C get(String key, Class<C> clazz) {
 		C value = (C) properties.get(key);
 		return (value != null) ? value : (parent != null) ? parent.get(key, clazz) : null;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public Color4f foreground() {
-		return get(KEY.FOREGROUND, Color4f.class);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public Color4f background() {
-		return get(KEY.BACKGROUND, Color4f.class);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public Color4f backgroundHover() {
-		return get(KEY.BACKGROUD_HOVER, Color4f.class);
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public Color4f borderLight() {
-		return get(KEY.BORDER_LIGHT, Color4f.class);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public Color4f borderDark() {
-		return get(KEY.BORDER_DARK, Color4f.class);
+	public Color4f getColor(String key) {
+		return get(key, Color4f.class);
 	}
 	//=============================================================================================
 	

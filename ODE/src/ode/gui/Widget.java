@@ -152,7 +152,7 @@ public class Widget extends Node<Widget> {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Style style(Style.KEY key, Object value) {
+	public Style style(String key, Object value) {
 		this.style.put(key, value);
 		return this.style;
 	}

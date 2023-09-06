@@ -1,5 +1,6 @@
 //*************************************************************************************************
 package ode.asset;
+//*************************************************************************************************
 
 import java.io.File;
 import java.io.FileReader;
@@ -14,6 +15,8 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.vecmath.Color4f;
+
 import com.jogamp.opengl.util.awt.TextRenderer;
 import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureIO;
@@ -23,15 +26,13 @@ import ode.log.Logger;
 import ode.util.ODEException;
 
 //*************************************************************************************************
-
-//*************************************************************************************************
 public class Assets {
 
 	//=============================================================================================
 	private final Map<String, String> texts = new HashMap<>();
 	private final Map<String, Texture> textures = new HashMap<>();
 	private final Map<String, TextRenderer> fonts = new HashMap<>();
-	private final Map<String, Color> colors = new HashMap<>();
+	private final Map<String, Color4f> colors = new HashMap<>();
 	private final Map<String, Mesh> meshes = new HashMap<>();
 	//=============================================================================================
 
@@ -117,6 +118,36 @@ public class Assets {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	public void loadColors(String path) {
+		try {
+			File file = new File(path);
+			Reader fileReader = new FileReader(file);
+			ResourceBundle bundle = new PropertyResourceBundle(fileReader);
+			for (String key : bundle.keySet()) {
+				String value = bundle.getString(key);
+				Logger.log(Level.INFO,"Loading Color %s: %s", key, value);
+				String[] array = value.split(",");
+				float r = Float.parseFloat(array[0]);
+				float g = Float.parseFloat(array[1]);
+				float b = Float.parseFloat(array[2]);
+				float a = Float.parseFloat(array[3]);
+				Color4f color = new Color4f(r, g, b, a);
+				colors.put(key, color);
+			}
+			fileReader.close();
+		} catch (Exception e) {
+			throw new ODEException(e);
+		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public Color4f get(String name) {
+		return colors.get(name);
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public void loadTextures(String path) {
 		pendingTextureFiles.add(path);

@@ -90,8 +90,10 @@ public class Renderer {
 	
 	//=============================================================================================
 	private void renderGeneric(Widget widget, Graphics graphics) {
-		Color4f fg = widget.style().foreground();
-		Color4f bg = widget.tagged(TAG.HOVER) ? widget.style().backgroundHover() : widget.style().background();
+		Color4f fg = widget.style().getColor(Style.FOREGROUND);
+		Color4f bg = widget.tagged(TAG.HOVER) ?
+			widget.style().getColor(Style.BACKGROUND_HOVER) :
+			widget.style().getColor(Style.BACKGROUND);
 		graphics.color(bg);
 		graphics.drawImage(0, 0, widget.dimension().x, widget.dimension().y, "ode.test");
 		//graphics.fillRectangle(0, 0, widget.dimension().x, widget.dimension().y);
@@ -102,8 +104,8 @@ public class Renderer {
 
 	//=============================================================================================
 	private void renderBorder(Widget widget, Graphics graphics) {
-		Color4f b1 = widget.style().borderLight();
-		Color4f b2 = widget.style().borderDark();
+		Color4f b1 = widget.style().getColor(Style.BORDER_LIGHT);
+		Color4f b2 = widget.style().getColor(Style.BORDER_DARK);
 		graphics.color(b1);
 		graphics.draw2DLineStrip(
 			1, widget.dimension().y-1,
