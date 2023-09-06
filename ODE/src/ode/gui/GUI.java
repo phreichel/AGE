@@ -111,7 +111,7 @@ public class GUI {
 		Type type = Type.LABEL;
 		return newBuilder()
 			.type(type)
-			.tag(TAG.DISPLAY)
+			.set(TAG.DISPLAY)
 			.text(text)
 			.style(theme.get(type))
 			.dimension(150, 20);
@@ -123,7 +123,7 @@ public class GUI {
 		Type type = Type.BUTTON;
 		return newBuilder()
 			.type(type)
-			.tag(TAG.DISPLAY)
+			.set(TAG.DISPLAY)
 			.text(text)
 			.style(theme.get(type))
 			.dimension(100, 20);
@@ -135,7 +135,7 @@ public class GUI {
 		Type type = Type.TEXTFIELD;
 		return newBuilder()
 			.type(type)
-			.tag(TAG.DISPLAY)
+			.set(TAG.DISPLAY)
 			.text(text)
 			.style(theme.get(type))
 			.dimension(200, 20);
@@ -147,7 +147,7 @@ public class GUI {
 		Type type = Type.GROUP;
 		return newBuilder()
 			.type(type)
-			.tag(TAG.DISPLAY)
+			.set(TAG.DISPLAY)
 			.style(theme.get(type))
 			.dimension(300, 800);
 	}
@@ -234,20 +234,24 @@ public class GUI {
 	//=============================================================================================
 	private Widget containsPointer(List<Widget> widgets, Msg msg, float x, float y) {
 		for (Widget widget : widgets) {
-			float locX = x - widget.position().x;
-			float locY = y - widget.position().y;
-			Widget hover = containsPointer(widget.children(), msg, locX, locY);
-			if (hover != null) return hover; 
+			if (widget.match(TAG.DISPLAY)) {
+				float locX = x - widget.position().x;
+				float locY = y - widget.position().y;
+				Widget hover = containsPointer(widget.children(), msg, locX, locY);
+				if (hover != null) return hover; 
+			}
 		}
 		for (Widget widget : widgets) {
-			float locX = x - widget.position().x;
-			float locY = y - widget.position().y;
-			if (
-					(locX >= 0f) &&
-					(locY >= 0f) &&
-					(locX <= widget.dimension().x) &&
-					(locY <= widget.dimension().y)) {
-				return widget;
+			if (widget.match(TAG.DISPLAY)) {
+				float locX = x - widget.position().x;
+				float locY = y - widget.position().y;
+				if (
+						(locX >= 0f) &&
+						(locY >= 0f) &&
+						(locX <= widget.dimension().x) &&
+						(locY <= widget.dimension().y)) {
+					return widget;
+				}
 			}
 		}
 		return null;

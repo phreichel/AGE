@@ -42,8 +42,10 @@ public class Renderer {
 
 	//=============================================================================================
 	private void renderWidget(Widget widget, Graphics graphics) {
-		renderArea(widget, graphics);
-		renderSiblings(widget.children(), graphics);
+		if (widget.match(TAG.DISPLAY)) {
+			renderArea(widget, graphics);
+			renderSiblings(widget.children(), graphics);
+		}
 	}
 	//=============================================================================================
 
@@ -96,7 +98,6 @@ public class Renderer {
 			widget.style().getColor(Style.BACKGROUND);
 		graphics.color(bg);
 		graphics.drawImage(0, 0, widget.dimension().x, widget.dimension().y, "ode.test");
-		//graphics.fillRectangle(0, 0, widget.dimension().x, widget.dimension().y);
 		graphics.color(fg);
 		graphics.drawRectangle(0, 0, widget.dimension().x, widget.dimension().y);
 	}
