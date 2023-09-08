@@ -14,53 +14,45 @@ public class Factory {
 		this.gui = gui;
 	}
 	//=============================================================================================
+
+	//=============================================================================================
+	public Builder newWidget(Type type) {
+		return gui.newBuilder()
+			.type(type)
+			.set(Flag.DISPLAYED);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public Builder newFrame() {
+		return newWidget(Type.FRAME)
+			.dimension(300, 800);
+	}
+	//=============================================================================================
 	
 	//=============================================================================================
 	public Builder newLabel(String text) {
-		Type type = Type.LABEL;
-		return gui.newBuilder()
-			.type(type)
-			.set(Flag.DISPLAYED)
+		return newWidget(Type.LABEL)
 			.text(text)
-			.style(gui.theme().get(type))
 			.dimension(150, 20);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	public Builder newButton(String text) {
-		Type type = Type.BUTTON;
-		return gui.newBuilder()
-			.type(type)
-			.set(Flag.DISPLAYED)
+		return newWidget(Type.BUTTON)
 			.text(text)
-			.style(gui.theme().get(type))
 			.dimension(100, 20);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public Builder newTextField(String text) {
-		Type type = Type.TEXTFIELD;
-		return gui.newBuilder()
-			.type(type)
-			.set(Flag.DISPLAYED)
+		return newWidget(Type.TEXTFIELD)
 			.text(text)
-			.style(gui.theme().get(type))
 			.dimension(200, 20);
 	}
 	//=============================================================================================
-	
-	//=============================================================================================
-	public Builder newGroup() {
-		Type type = Type.GROUP;
-		return gui.newBuilder()
-			.type(type)
-			.set(Flag.DISPLAYED)
-			.style(gui.theme().get(type))
-			.dimension(300, 800);
-	}
-	//=============================================================================================
-	
+		
 }
 //*************************************************************************************************

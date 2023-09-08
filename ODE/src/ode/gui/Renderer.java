@@ -54,7 +54,7 @@ public class Renderer {
 		case LABEL: renderLabel(widget, graphics); break;
 		case BUTTON: renderButton(widget, graphics); break;
 		case TEXTFIELD: renderTextfield(widget, graphics); break;
-		case GROUP: renderGroup(widget, graphics); break;
+		case FRAME: renderGroup(widget, graphics); break;
 		default: renderGeneric(widget, graphics); break;
 		}
 	}
@@ -91,12 +91,10 @@ public class Renderer {
 	
 	//=============================================================================================
 	private void renderGeneric(Widget widget, Graphics graphics) {
-		Color4f fg = widget.style().getColor(Style.FOREGROUND);
-		Color4f bg = widget.match(Flag.HOVERED) ?
-			widget.style().getColor(Style.BACKGROUND_HOVER) :
-			widget.style().getColor(Style.BACKGROUND);
+		Color4f fg = new Color4f(.8f, .8f, .8f, 1);
+		Color4f bg = new Color4f(.6f, .6f, .6f, 1);
 		graphics.color(bg);
-		graphics.drawImage(0, 0, widget.dimension().x, widget.dimension().y, "ode.test");
+		graphics.fillRectangle(0, 0, widget.dimension().x, widget.dimension().y);		
 		graphics.color(fg);
 		graphics.drawRectangle(0, 0, widget.dimension().x, widget.dimension().y);
 	}
@@ -104,8 +102,8 @@ public class Renderer {
 
 	//=============================================================================================
 	private void renderBorder(Widget widget, Graphics graphics) {
-		Color4f b1 = widget.style().getColor(Style.BORDER_LIGHT);
-		Color4f b2 = widget.style().getColor(Style.BORDER_DARK);
+		Color4f b1 = new Color4f(1f, 1f, 1f, 1f);
+		Color4f b2 = new Color4f(.4f, .4f, .4f, 1f);
 		graphics.color(b1);
 		graphics.draw2DLineStrip(
 			1, widget.dimension().y-1,

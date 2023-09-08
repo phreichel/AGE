@@ -105,13 +105,13 @@ public class Client {
 	//=============================================================================================
 	private void configureWidgets() {
 		gui.factory()
-			.newGroup()
+			.newFrame()
 			.position(50, 10)
 			.dimension(128, 128)
 			.root(gui)
 			.widget();
 		Widget root2 = gui.factory()
-			.newGroup()
+			.newFrame()
 			.position(250, 10)
 			.dimension(128, 128)
 			.root(gui)
