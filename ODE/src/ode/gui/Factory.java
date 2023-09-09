@@ -90,7 +90,7 @@ public class Factory {
 		return newBox()
 			.set(Flag.REACTIVE)
 			.foreground(1, 1, 1, 1)
-			.background(.6f, .6f, .8f, 1)
+			.background(.2f, .2f, .6f, 1)
 			.child(
 				newLabel(caption)
 				.position(3, -3)

@@ -133,12 +133,13 @@ public class Messages implements MsgHandler {
 				activeWidget.parent().position().add(dpos);
 				lastPointerPosition.set(data.x(), data.y());
 			} else if (activeAction.equals(Flag.ACTION_PARENT_RESIZE)) {
+				Widget p = activeWidget.parent();
 				float dx = data.x() - lastPointerPosition.x;
-				float dy = data.y() - lastPointerPosition.y;
-				dpos.set(0,  -dy);
-				ddim.set(dx, -dy);
-				activeWidget.parent().position().sub(dpos);
-				activeWidget.parent().dimension().add(ddim);
+				float dy = lastPointerPosition.y - data.y();
+				dpos.set(0,  dy);
+				ddim.set(dx, dy);
+				p.position().sub(dpos);
+				p.dimension().add(ddim);
 				lastPointerPosition.set(data.x(), data.y());
 			}
 		} else {
