@@ -7,6 +7,7 @@ public enum Flag {
 
 	//=============================================================================================
 	DISPLAYED,
+	REACTIVE,
 	HOVERED,
 	ACTION_HOVER,
 	ACTION_PARENT_CLOSE,

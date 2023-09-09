@@ -91,7 +91,7 @@ public class Messages implements MsgHandler {
 			}
 		}
 		for (Widget widget : widgets) {
-			if (widget.match(Flag.DISPLAYED)) {
+			if (widget.match(Flag.DISPLAYED, Flag.REACTIVE)) {
 				float locX = x - widget.position().x;
 				float locY = y - widget.position().y;
 				if (

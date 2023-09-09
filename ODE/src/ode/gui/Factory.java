@@ -35,6 +35,7 @@ public class Factory {
 	//=============================================================================================
 	public Builder newFrame() {
 		return newWidget()
+			.set(Flag.REACTIVE)
 			.foreground(1, .8f, 0, 1)
 			.background(.6f, .6f, .6f, 1);
 	}
@@ -59,6 +60,7 @@ public class Factory {
 			String icon,
 			String text) {
 		return newWidget()
+			.set(Flag.REACTIVE)
 			.set(Flag.ACTION_HOVER)
 			.foreground(1, .8f, 0, 1)
 			.background(.4f, .4f, 1f, 1)
@@ -79,6 +81,7 @@ public class Factory {
 	//=============================================================================================
 	public Builder newTitlebar(String caption) {
 		return newBox()
+			.set(Flag.REACTIVE)
 			.foreground(1, 1, 1, 1)
 			.background(.6f, .6f, .8f, 1)
 			.child(
