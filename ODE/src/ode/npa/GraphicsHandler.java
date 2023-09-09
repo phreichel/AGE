@@ -14,7 +14,7 @@ public class GraphicsHandler implements GLEventListener {
 	//=============================================================================================
 	private final Graphics graphics = new Graphics();
 	private Assets assets = null;
-	private GUI widgets = null;
+	private GUI gui = null;
 	//=============================================================================================
 
 	//=============================================================================================
@@ -25,7 +25,7 @@ public class GraphicsHandler implements GLEventListener {
 	
 	//=============================================================================================
 	public void assign(GUI widgets) {
-		this.widgets = widgets;
+		this.gui = widgets;
 	}
 	//=============================================================================================
 	
@@ -40,6 +40,7 @@ public class GraphicsHandler implements GLEventListener {
 	public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
 		graphics.assign(assets);
 		graphics.assign(drawable);
+		gui.resize(width, height);
 	}
 	//=============================================================================================
 	
@@ -52,8 +53,8 @@ public class GraphicsHandler implements GLEventListener {
 		assets.loadPendingTextures();
 		graphics.clearColor(0f, 0f, .2f, 1f);
 		graphics.clear();
-		if (widgets != null) {
-			widgets.render(graphics);
+		if (gui != null) {
+			gui.render(graphics);
 		}
 	}
 	//=============================================================================================

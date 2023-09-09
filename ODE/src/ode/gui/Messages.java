@@ -122,9 +122,14 @@ public class Messages implements MsgHandler {
 		PointerData data = msg.data(PointerData.class);
 		if (activeWidget != null) {
 			if (activeAction.equals(Flag.ACTION_PARENT_MOVE)) {
+				Widget p = activeWidget.parent();
 				float dx = data.x() - lastPointerPosition.x;
 				float dy = data.y() - lastPointerPosition.y;
-				dpos.set(dx, dy);
+				float lx = Math.max(0, -(p.position().x + p.dimension().x - 100));
+				float ly = Math.max(0, -(p.position().y));
+				float hx = Math.min(0, -(p.position().x + 100 - gui.dimension().x));
+				float hy = Math.min(0, -(p.position().y + 100 - gui.dimension().y));
+				dpos.set(dx + lx + hx, dy + ly + hy);
 				activeWidget.parent().position().add(dpos);
 				lastPointerPosition.set(data.x(), data.y());
 			} else if (activeAction.equals(Flag.ACTION_PARENT_RESIZE)) {
