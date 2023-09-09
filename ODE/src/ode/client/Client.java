@@ -16,11 +16,11 @@ import ode.npa.Platform;
 public class Client {
 
 	//=============================================================================================
-	private final Assets assets;
-	private final Clock clock;
-	private final MsgBox msgbox;
+	private final Assets   assets;
+	private final Clock    clock;
+	private final MsgBox   msgbox;
 	private final Platform platform;
-	private final GUI gui;
+	private final GUI      gui;
 	//=============================================================================================
 
 	//=============================================================================================
@@ -44,21 +44,13 @@ public class Client {
 		assets = new Assets();
 		clock = new Clock();
 		msgbox = new MsgBox();
-		platform = new Platform();
 		gui = new GUI();
 		gui.assign(msgbox);
+		platform = new Platform();
 		platform.assign(msgbox);
 		platform.assign(assets);
 		platform.assign(gui);
 		msgbox.subscribe(ID.TERMINATE, this::handleEvent);
-		msgbox.subscribe(ID.KEY_PRESSED, gui::handleEvent);
-		msgbox.subscribe(ID.KEY_RELEASED, gui::handleEvent);
-		msgbox.subscribe(ID.KEY_TYPED, gui::handleEvent);
-		msgbox.subscribe(ID.POINTER_MOVED, gui::handleEvent);
-		msgbox.subscribe(ID.POINTER_PRESSED, gui::handleEvent);
-		msgbox.subscribe(ID.POINTER_RELEASED, gui::handleEvent);
-		msgbox.subscribe(ID.POINTER_CLICKED, gui::handleEvent);
-		msgbox.subscribe(ID.POINTER_WHEEL, gui::handleEvent);
 		clock.addFPS(120, this::updateTask);
 		clock.addFPS(30, this::renderTask);
 	}

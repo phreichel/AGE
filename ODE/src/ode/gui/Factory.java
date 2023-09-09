@@ -1,8 +1,5 @@
 //*************************************************************************************************
 package ode.gui;
-
-import ode.msg.Msg;
-
 //*************************************************************************************************
 
 //*************************************************************************************************
@@ -53,9 +50,7 @@ public class Factory {
 	
 	//=============================================================================================
 	public Builder newButton(String text) {	
-		return newButton(null, text)
-			.onPointerEnter(this::buttonOnPointerEnter)
-			.onPointerExit(this::buttonOnPointerExit);
+		return newButton(null, text);
 	}
 	//=============================================================================================
 	
@@ -64,6 +59,7 @@ public class Factory {
 			String icon,
 			String text) {
 		return newWidget()
+			.set(Flag.BUTTON)
 			.foreground(1, .8f, 0, 1)
 			.background(.4f, .4f, 1f, 1)
 			.icon(icon)
@@ -104,14 +100,16 @@ public class Factory {
 					.dimension(w-85, 20)
 					.widget(),
 				newToolButton("*")
+				.set(Flag.ACTION_PARENT_RESIZE)
 					.position(w-75, 5)
 					.widget(),
 				newToolButton("+")
+				.set(Flag.ACTION_PARENT_MOVE)
 					.position(w-50, 5)
 					.widget(),
 				newToolButton("X")
+					.set(Flag.ACTION_PARENT_CLOSE)
 					.position(w-25, 5)
-					.onPointerClick(this::windowCloseOnPointerClick)
 					.widget(),
 				newBox()
 					.position(5, 30)
@@ -121,23 +119,5 @@ public class Factory {
 	}
 	//=============================================================================================
 
-	//=============================================================================================
-	private void buttonOnPointerEnter(Msg msg, Widget widget) {
-		widget.background(1f, .4f, .4f, 1);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private void buttonOnPointerExit(Msg msg, Widget widget) {
-		widget.background(.4f, .4f, 1f, 1);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private void windowCloseOnPointerClick(Msg msg, Widget widget) {
-		widget.parent().clear(Flag.DISPLAYED);
-	}
-	//=============================================================================================
-	
 }
 //*************************************************************************************************

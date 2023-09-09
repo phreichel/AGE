@@ -6,23 +6,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import ode.msg.Key;
-import ode.msg.KeyData;
-import ode.msg.Msg;
 import ode.msg.MsgBox;
-import ode.msg.PointerData;
 import ode.npa.Graphics;
 
 //*************************************************************************************************
 public class GUI {
 
 	//=============================================================================================
-	private MsgBox msgbox;
-	//=============================================================================================
-
-	//=============================================================================================
-	private Factory factory = new Factory(this);
+	private final Factory factory = new Factory(this);
 	private final Renderer renderer = new Renderer(this);
+	private final Messages messages = new Messages(this);
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -37,7 +30,7 @@ public class GUI {
 
 	//=============================================================================================
 	public void assign(MsgBox msgbox) {
-		this.msgbox = msgbox;
+		messages.assign(msgbox);
 	}
 	//=============================================================================================
 	
@@ -114,92 +107,5 @@ public class GUI {
 	}
 	//=============================================================================================
 
-	//=============================================================================================
-	private Widget pointerInside = null;
-	//=============================================================================================
-	
-	//=============================================================================================
-	public void handleEvent(Msg msg) {
-		switch (msg.id()) {
-		case KEY_PRESSED: {
-			KeyData data = msg.data(KeyData.class);
-			if (data.key().equals(Key.ESCAPE)) {
-				msgbox
-					.build()
-					.terminate()
-					.post();
-			}
-			break;
-		}
-		case POINTER_WHEEL: {
-			break;
-		}
-		case POINTER_PRESSED: {
-			if (pointerInside != null) {
-				pointerInside.firePointerPress(msg);
-			}
-			break;
-		}
-		case POINTER_RELEASED: {
-			if (pointerInside != null) {
-				pointerInside.firePointerRelease(msg);
-			}
-			break;
-		}
-		case POINTER_CLICKED: {
-			if (pointerInside != null) {
-				pointerInside.firePointerClick(msg);
-			}
-			break;
-		}
-		case POINTER_MOVED: {
-			PointerData data = msg.data(PointerData.class);
-			Widget newPointerInside = containsPointer(roots, msg, data.x(), data.y());
-			if (pointerInside != newPointerInside) {
-				if (pointerInside != null) {
-					pointerInside.clear(Flag.HOVERED);
-					pointerInside.firePointerExit(msg);
-				}
-				pointerInside = newPointerInside;
-				if (pointerInside != null) {
-					pointerInside.set(Flag.HOVERED);
-					pointerInside.firePointerEnter(msg);
-				}				
-			}
-			break;
-		}
-		default:
-			break;
-		}
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private Widget containsPointer(List<Widget> widgets, Msg msg, float x, float y) {
-		for (Widget widget : widgets) {
-			if (widget.match(Flag.DISPLAYED)) {
-				float locX = x - widget.position().x;
-				float locY = y - widget.position().y;
-				Widget hover = containsPointer(widget.children(), msg, locX, locY);
-				if (hover != null) return hover; 
-			}
-		}
-		for (Widget widget : widgets) {
-			if (widget.match(Flag.DISPLAYED)) {
-				float locX = x - widget.position().x;
-				float locY = y - widget.position().y;
-				if (
-						(locX >= 0f) &&
-						(locY >= 0f) &&
-						(locX <= widget.dimension().x) &&
-						(locY <= widget.dimension().y)) {
-					return widget;
-				}
-			}
-		}
-		return null;
-	}
-	//=============================================================================================
-	
 }
 //*************************************************************************************************
