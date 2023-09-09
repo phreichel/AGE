@@ -59,7 +59,7 @@ public class Factory {
 			String icon,
 			String text) {
 		return newWidget()
-			.set(Flag.BUTTON)
+			.set(Flag.ACTION_HOVER)
 			.foreground(1, .8f, 0, 1)
 			.background(.4f, .4f, 1f, 1)
 			.icon(icon)
@@ -96,15 +96,13 @@ public class Factory {
 			.dimension(w, h)
 			.child(
 				newTitlebar(caption)
+					.set(Flag.ACTION_HOVER)
+					.set(Flag.ACTION_PARENT_MOVE)
 					.position(5, 5)
-					.dimension(w-85, 20)
+					.dimension(w-60, 20)
 					.widget(),
 				newToolButton("*")
-				.set(Flag.ACTION_PARENT_RESIZE)
-					.position(w-75, 5)
-					.widget(),
-				newToolButton("+")
-				.set(Flag.ACTION_PARENT_MOVE)
+					.set(Flag.ACTION_PARENT_RESIZE)
 					.position(w-50, 5)
 					.widget(),
 				newToolButton("X")

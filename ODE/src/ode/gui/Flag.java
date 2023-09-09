@@ -8,9 +8,7 @@ public enum Flag {
 	//=============================================================================================
 	DISPLAYED,
 	HOVERED,
-	FOCUSABLE,
-	FOCUSED,
-	BUTTON,
+	ACTION_HOVER,
 	ACTION_PARENT_CLOSE,
 	ACTION_PARENT_RESIZE,
 	ACTION_PARENT_MOVE

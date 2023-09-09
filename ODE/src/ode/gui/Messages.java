@@ -4,6 +4,7 @@ package ode.gui;
 
 import java.util.List;
 
+import javax.vecmath.Color4f;
 import javax.vecmath.Vector2f;
 
 import ode.msg.Key;
@@ -53,6 +54,7 @@ public class Messages implements MsgHandler {
 	//=============================================================================================
 	private final Vector2f dpos = new Vector2f();
 	private final Vector2f ddim = new Vector2f();
+	private final Color4f  tmp  = new Color4f();
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -141,14 +143,15 @@ public class Messages implements MsgHandler {
 			if (pointerInside != newPointerInside) {
 				if (pointerInside != null) {
 					pointerInside.clear(Flag.HOVERED);
-					if (pointerInside.match(Flag.BUTTON)) {
-						pointerInside.background(.4f, .4f, 1f, 1);
+					if (pointerInside.match(Flag.ACTION_HOVER)) {
+						pointerInside.background(tmp);
 					}
 				}
 				pointerInside = newPointerInside;
 				if (pointerInside != null) {
 					pointerInside.set(Flag.HOVERED);
-					if (pointerInside.match(Flag.BUTTON)) {
+					if (pointerInside.match(Flag.ACTION_HOVER)) {
+						tmp.set(pointerInside.background());
 						pointerInside.background(1f, .4f, .4f, 1);
 					}
 				}				

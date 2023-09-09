@@ -152,7 +152,7 @@ public class Widget extends Node<Widget> {
 
 	//=============================================================================================
 	public void background(Color4f background) {
-		this.foreground.set(background);
+		this.background.set(background);
 	}
 	//=============================================================================================
 
