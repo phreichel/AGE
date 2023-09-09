@@ -36,6 +36,7 @@ public class Factory {
 	public Builder newFrame() {
 		return newWidget()
 			.set(Flag.REACTIVE)
+			.set(Flag.LAYERABLE)
 			.foreground(1, .8f, 0, 1)
 			.background(.6f, .6f, .6f, 1);
 	}
@@ -96,6 +97,7 @@ public class Factory {
 	//=============================================================================================
 	public Builder newWindow(String caption, float w, float h) {
 		return newFrame()
+			.layout("window")
 			.dimension(w, h)
 			.child(
 				newTitlebar(caption)

@@ -10,14 +10,14 @@ public class Builder {
 
 	//=============================================================================================
 	private Widget  widget;
-	private GUI     widgets;
+	private GUI     gui;
 	private Builder parentBuilder;
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Builder(GUI widgets) {
-		this.widgets = widgets; 
-		widget = new Widget(widgets);
+	public Builder(GUI gui) {
+		this.gui = gui; 
+		widget = new Widget(gui);
 	}
 	//=============================================================================================
 
@@ -45,6 +45,13 @@ public class Builder {
 	//=============================================================================================
 	public Builder clear(Flag ... flags) {
 		widget.clear(flags);
+		return this;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public Builder layout(String layout) {
+		gui.layouts().put(widget, layout);
 		return this;
 	}
 	//=============================================================================================
@@ -137,7 +144,7 @@ public class Builder {
 
 	//=============================================================================================
 	public Builder push() {
-		Builder childBuilder = new Builder(widgets);
+		Builder childBuilder = new Builder(gui);
 		childBuilder.parentBuilder = this;
 		this.widget.attach(childBuilder.widget);
 		return childBuilder;

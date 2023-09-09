@@ -59,6 +59,7 @@ public class Client {
 	//=============================================================================================
 	private void updateTask(int count, long period, float dT) {
 		msgbox.update(period);
+		gui.update();
 	}
 	//=============================================================================================
 	
@@ -96,27 +97,12 @@ public class Client {
 	
 	//=============================================================================================
 	private void configureWidgets() {
-		gui.factory()
-			.newWindow("Sample Window", 800, 600)
-			.root(gui)
-			.position(20, 200);
-		gui.factory()
-			.newFrame()
-			.position(50, 10)
-			.dimension(128, 128)
-			.root(gui)
-			.widget();
-		Widget root2 = gui.factory()
-			.newFrame()
-			.position(250, 10)
-			.dimension(128, 128)
-			.root(gui)
-			.widget();
-		Widget btnQuit = gui.factory()
-			.newButton("Quit")
-			.position(5, 5)
-			.widget();
-		root2.attach(btnQuit);
+		for (int i=0; i<10; i++) {
+			gui.factory()
+				.newWindow("Sample Window " + (i+1), 800, 600)
+				.position(50 + 20*i, 50 + 20*i)
+				.root(gui);
+		}
 	}
 	//=============================================================================================
 

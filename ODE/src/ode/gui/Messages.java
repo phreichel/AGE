@@ -2,6 +2,8 @@
 package ode.gui;
 //*************************************************************************************************
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.vecmath.Color4f;
@@ -82,18 +84,14 @@ public class Messages implements MsgHandler {
 
 	//=============================================================================================
 	private Widget containsPointer(List<Widget> widgets, Msg msg, float x, float y) {
-		for (Widget widget : widgets) {
-			if (widget.match(Flag.DISPLAYED)) {
-				float locX = x - widget.position().x;
-				float locY = y - widget.position().y;
-				Widget hover = containsPointer(widget.children(), msg, locX, locY);
-				if (hover != null) return hover; 
-			}
-		}
-		for (Widget widget : widgets) {
+		List<Widget> rev = new ArrayList<>(widgets);
+		Collections.reverse(rev);
+		for (Widget widget : rev) {
+			float locX = x - widget.position().x;
+			float locY = y - widget.position().y;
+			Widget hover = containsPointer(widget.children(), msg, locX, locY);
+			if (hover != null) return hover;
 			if (widget.match(Flag.DISPLAYED, Flag.REACTIVE)) {
-				float locX = x - widget.position().x;
-				float locY = y - widget.position().y;
 				if (
 						(locX >= 0f) &&
 						(locY >= 0f) &&
@@ -163,6 +161,15 @@ public class Messages implements MsgHandler {
 	//=============================================================================================
 	private void onPointerPressed(Msg msg) {
 		if (pointerInside == null) return;
+		if (pointerInside.match(Flag.REACTIVE)) {
+			Widget widget = pointerInside;
+			while ((widget != null) && !widget.match(Flag.LAYERABLE)) {
+				widget = widget.parent();
+			}
+			if (widget != null) {
+				widget.toFront();
+			}
+		}
 		if (pointerInside.match(Flag.ACTION_PARENT_MOVE)) {
 			activeWidget = pointerInside;
 			activeAction = Flag.ACTION_PARENT_MOVE;
