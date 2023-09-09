@@ -42,14 +42,11 @@ public class Messages implements MsgHandler {
 	public void assign(MsgBox msgbox) {
 		this.msgbox = msgbox;
 		this.msgbox.subscribe(ID.TERMINATE, this);
-		this.msgbox.subscribe(ID.KEY_PRESSED, this);
-		this.msgbox.subscribe(ID.KEY_RELEASED, this);
 		this.msgbox.subscribe(ID.KEY_TYPED, this);
-		this.msgbox.subscribe(ID.POINTER_MOVED, this);
 		this.msgbox.subscribe(ID.POINTER_PRESSED, this);
 		this.msgbox.subscribe(ID.POINTER_RELEASED, this);
 		this.msgbox.subscribe(ID.POINTER_CLICKED, this);
-		this.msgbox.subscribe(ID.POINTER_WHEEL, this);
+		this.msgbox.subscribe(ID.POINTER_MOVED, this);
 	}
 	//=============================================================================================
 
@@ -61,73 +58,22 @@ public class Messages implements MsgHandler {
 	//=============================================================================================
 	public void handle(Msg msg) {
 		switch (msg.id()) {
-		case KEY_PRESSED: {
-			KeyData data = msg.data(KeyData.class);
-			if (data.key().equals(Key.ESCAPE)) {
-				msgbox
-					.build()
-					.terminate()
-					.post();
-			}
-			break;
-		}
-		case POINTER_WHEEL: {
-			break;
-		}
-		case POINTER_PRESSED: {
-			if (pointerInside != null) {
-				firePointerPress(msg, pointerInside);
-			}
-			break;
-		}
-		case POINTER_RELEASED: {
-			if (activeWidget != null) {
-				activeWidget = null;
-			} else if (pointerInside != null) {
-				firePointerRelease(msg, pointerInside);
-			}
-			break;
-		}
-		case POINTER_CLICKED: {
-			if (pointerInside != null) {
-				firePointerClick(msg, pointerInside);
-			}
-			break;
-		}
-		case POINTER_MOVED: {
-			PointerData data = msg.data(PointerData.class);
-			if (activeWidget != null) {
-				if (activeAction.equals(Flag.ACTION_PARENT_MOVE)) {
-					float dx = data.x() - lastPointerPosition.x;
-					float dy = data.y() - lastPointerPosition.y;
-					dpos.set(dx, dy);
-					activeWidget.parent().position().add(dpos);
-					lastPointerPosition.set(data.x(), data.y());
-				} else if (activeAction.equals(Flag.ACTION_PARENT_RESIZE)) {
-					float dx = data.x() - lastPointerPosition.x;
-					float dy = data.y() - lastPointerPosition.y;
-					dpos.set(0,  -dy);
-					ddim.set(dx, -dy);
-					activeWidget.parent().position().sub(dpos);
-					activeWidget.parent().dimension().add(ddim);
-					lastPointerPosition.set(data.x(), data.y());
-				}
-			} else {
-				Widget newPointerInside = containsPointer(gui.roots(), msg, data.x(), data.y());
-				if (pointerInside != newPointerInside) {
-					if (pointerInside != null) {
-						firePointerExit(msg, pointerInside);
-					}
-					pointerInside = newPointerInside;
-					if (pointerInside != null) {
-						firePointerEnter(msg, pointerInside);
-					}				
-				}
-			}
-			break;
-		}
-		default:
-			break;
+			case KEY_TYPED:
+				onKeyTyped(msg);
+				break;
+			case POINTER_PRESSED:
+				onPointerPressed(msg);
+				break;
+			case POINTER_RELEASED:
+				onPointerReleased(msg);
+				break;
+			case POINTER_CLICKED:
+				onPointerClicked(msg);
+				break;
+			case POINTER_MOVED:
+				onPointerMoved(msg);
+				break;
+			default: break;
 		}
 	}
 	//=============================================================================================
@@ -160,32 +106,67 @@ public class Messages implements MsgHandler {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void firePointerEnter(Msg msg, Widget widget) {
-		widget.set(Flag.HOVERED);
-		if (widget.match(Flag.BUTTON)) {
-			widget.background(1f, .4f, .4f, 1);
-		}
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private void firePointerExit(Msg msg, Widget widget) {
-		widget.clear(Flag.HOVERED);
-		if (widget.match(Flag.BUTTON)) {
-			widget.background(.4f, .4f, 1f, 1);
+	private void onKeyTyped(Msg msg) {
+		KeyData data = msg.data(KeyData.class);
+		if (data.key().equals(Key.ESCAPE)) {
+			msgbox
+				.build()
+				.terminate()
+				.post();
 		}
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void firePointerPress(Msg msg, Widget widget) {
-		if (widget.match(Flag.ACTION_PARENT_MOVE)) {
-			activeWidget = widget;
+	private void onPointerMoved(Msg msg) {
+		PointerData data = msg.data(PointerData.class);
+		if (activeWidget != null) {
+			if (activeAction.equals(Flag.ACTION_PARENT_MOVE)) {
+				float dx = data.x() - lastPointerPosition.x;
+				float dy = data.y() - lastPointerPosition.y;
+				dpos.set(dx, dy);
+				activeWidget.parent().position().add(dpos);
+				lastPointerPosition.set(data.x(), data.y());
+			} else if (activeAction.equals(Flag.ACTION_PARENT_RESIZE)) {
+				float dx = data.x() - lastPointerPosition.x;
+				float dy = data.y() - lastPointerPosition.y;
+				dpos.set(0,  -dy);
+				ddim.set(dx, -dy);
+				activeWidget.parent().position().sub(dpos);
+				activeWidget.parent().dimension().add(ddim);
+				lastPointerPosition.set(data.x(), data.y());
+			}
+		} else {
+			Widget newPointerInside = containsPointer(gui.roots(), msg, data.x(), data.y());
+			if (pointerInside != newPointerInside) {
+				if (pointerInside != null) {
+					pointerInside.clear(Flag.HOVERED);
+					if (pointerInside.match(Flag.BUTTON)) {
+						pointerInside.background(.4f, .4f, 1f, 1);
+					}
+				}
+				pointerInside = newPointerInside;
+				if (pointerInside != null) {
+					pointerInside.set(Flag.HOVERED);
+					if (pointerInside.match(Flag.BUTTON)) {
+						pointerInside.background(1f, .4f, .4f, 1);
+					}
+				}				
+			}
+		}
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void onPointerPressed(Msg msg) {
+		if (pointerInside == null) return;
+		if (pointerInside.match(Flag.ACTION_PARENT_MOVE)) {
+			activeWidget = pointerInside;
 			activeAction = Flag.ACTION_PARENT_MOVE;
 			PointerData pointerData = msg.data(PointerData.class);
 			lastPointerPosition.set(pointerData.x(), pointerData.y());
-		} else if (widget.match(Flag.ACTION_PARENT_RESIZE)) {
-			activeWidget = widget;
+		} else if (pointerInside.match(Flag.ACTION_PARENT_RESIZE)) {
+			activeWidget = pointerInside;
 			activeAction = Flag.ACTION_PARENT_RESIZE;
 			PointerData pointerData = msg.data(PointerData.class);
 			lastPointerPosition.set(pointerData.x(), pointerData.y());
@@ -194,14 +175,18 @@ public class Messages implements MsgHandler {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void firePointerRelease(Msg msg, Widget widget) {
+	private void onPointerReleased(Msg msg) {
+		if (activeWidget != null) {
+			activeWidget = null;
+		}
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private void firePointerClick(Msg msg, Widget widget) {
-		if (widget.match(Flag.ACTION_PARENT_CLOSE)) {
-			widget.parent().clear(Flag.DISPLAYED);
+	private void onPointerClicked(Msg msg) {
+		if (pointerInside == null) return;
+		if (pointerInside.match(Flag.ACTION_PARENT_CLOSE)) {
+			pointerInside.parent().clear(Flag.DISPLAYED);
 		}
 	}
 	//=============================================================================================
