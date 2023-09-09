@@ -136,19 +136,19 @@ public class GUI {
 		}
 		case POINTER_PRESSED: {
 			if (pointerInside != null) {
-				pointerInside.onPointerPressed(msg);
+				pointerInside.firePointerPress(msg);
 			}
 			break;
 		}
 		case POINTER_RELEASED: {
 			if (pointerInside != null) {
-				pointerInside.onPointerReleased(msg);
+				pointerInside.firePointerRelease(msg);
 			}
 			break;
 		}
 		case POINTER_CLICKED: {
 			if (pointerInside != null) {
-				pointerInside.onPointerClicked(msg);
+				pointerInside.firePointerClick(msg);
 			}
 			break;
 		}
@@ -158,12 +158,12 @@ public class GUI {
 			if (pointerInside != newPointerInside) {
 				if (pointerInside != null) {
 					pointerInside.clear(Flag.HOVERED);
-					pointerInside.onPointerExit(msg);
+					pointerInside.firePointerExit(msg);
 				}
 				pointerInside = newPointerInside;
 				if (pointerInside != null) {
 					pointerInside.set(Flag.HOVERED);
-					pointerInside.onPointerEnter(msg);
+					pointerInside.firePointerEnter(msg);
 				}				
 			}
 			break;

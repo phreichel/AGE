@@ -134,6 +134,7 @@ public class Graphics {
 	//=============================================================================================
 	public void drawImage(float x, float y, float w, float h, String name) {
 		Texture texture = assets.getTexture(name);
+		if (texture == null) return;
 		texture.bind(gl);
 		texture.enable(gl);
 		gl.glBegin(GL2.GL_QUADS);
@@ -152,6 +153,7 @@ public class Graphics {
 
 	//=============================================================================================
 	public void drawText(String text, float x, float y, String name) {
+		if (text == null) return;
 		TextRenderer textRenderer = assets.getFont(name);
 		gl.glScalef(1, -1, 1);
 		textRenderer.begin3DRendering();

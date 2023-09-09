@@ -105,6 +105,10 @@ public class Client {
 	//=============================================================================================
 	private void configureWidgets() {
 		gui.factory()
+			.newWindow("Sample Window", 800, 600)
+			.root(gui)
+			.position(20, 200);
+		gui.factory()
 			.newFrame()
 			.position(50, 10)
 			.dimension(128, 128)

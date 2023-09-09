@@ -40,7 +40,7 @@ public class Assets {
 	private final List<String> pendingFontFiles = new ArrayList<>();
 	private final List<String> pendingTextureFiles = new ArrayList<>();
 	//=============================================================================================
-	
+
 	//=============================================================================================
 	public void loadTexts(String path) {
 		try {
