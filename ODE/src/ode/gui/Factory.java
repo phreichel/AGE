@@ -66,7 +66,13 @@ public class Factory {
 			.foreground(1, .8f, 0, 1)
 			.background(.4f, .4f, 1f, 1)
 			.icon(icon)
-			.text(text)
+			.child(
+				newLabel(text)
+				.font("ode.font.title")
+				.position(3, 3)
+				.dimension(94, 14)
+				.widget()
+			)
 			.dimension(100, 20);
 	}
 	//=============================================================================================
@@ -106,7 +112,7 @@ public class Factory {
 					.position(5, 5)
 					.dimension(w-60, 20)
 					.widget(),
-				newToolButton("*")
+				newToolButton("+")
 					.set(Flag.ACTION_PARENT_RESIZE)
 					.position(w-50, 5)
 					.widget(),
