@@ -112,11 +112,21 @@ public class Client {
 					.action(Actions.QUIT)
 					.widget()
 			);
+		/*
 		for (int i=0; i<10; i++) {
 			f.newWindow("Sample Window " + (i+1), 800, 600)
 				.position(50 + 20*i, 50 + 20*i)
-				.root(gui);
+				.root(gui)
+				.widget()
+				.children()
+				.get(3)
+				.attach(f
+					.newButton("TEST")
+					.position(30, 40)
+					.widget()
+				);
 		}
+		*/
 	}
 	//=============================================================================================
 
