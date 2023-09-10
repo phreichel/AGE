@@ -5,10 +5,8 @@ package ode.gui;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import javax.vecmath.Color4f;
 import javax.vecmath.Vector2f;
-
 import ode.msg.Key;
 import ode.msg.KeyData;
 import ode.msg.Msg;
@@ -140,6 +138,7 @@ public class Messages implements MsgHandler {
 				ddim.set(dx, dy);
 				p.position().sub(dpos);
 				p.dimension().add(ddim);
+				p.set(Flag.DIRTY);
 				lastPointerPosition.set(data.x(), data.y());
 			}
 		} else {
@@ -200,9 +199,8 @@ public class Messages implements MsgHandler {
 
 	//=============================================================================================
 	private void onPointerClicked(Msg msg) {
-		if (pointerInside == null) return;
-		if (pointerInside.match(Flag.ACTION_PARENT_CLOSE)) {
-			pointerInside.parent().clear(Flag.DISPLAYED);
+		if (pointerInside != null && pointerInside.action() != null) {
+			gui.postAction(pointerInside);
 		}
 	}
 	//=============================================================================================

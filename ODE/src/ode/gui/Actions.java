@@ -2,139 +2,94 @@
 package ode.gui;
 //*************************************************************************************************
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import ode.msg.MsgBox;
+import ode.npa.Platform;
+
 //*************************************************************************************************
-public class Factory {
+public class Actions {
 
 	//=============================================================================================
-	private GUI gui;
+	public static final String CLOSE_PARENT = "close parent";
+	public static final String TOGGLE_FULLSCREEN = "toggle fullscreen";
+	public static final String QUIT = "quit";
 	//=============================================================================================
 
 	//=============================================================================================
-	public Factory(GUI gui) {
-		this.gui = gui;
+	private Platform platform;
+	private MsgBox msgbox;
+	//=============================================================================================
+	
+	//=============================================================================================
+	private final Map<String, Action> actions = new HashMap<>();
+	private final List<Widget> widgets = new ArrayList<>();
+	//=============================================================================================
+
+	//=============================================================================================
+	public Actions() {
+		add(CLOSE_PARENT, this::closeParent);
+		add(TOGGLE_FULLSCREEN, this::toggleFullscreen);
+		add(QUIT, this::quit);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public Builder newWidget() {
-		return gui.newBuilder()
-			.set(Flag.DISPLAYED);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public Builder newLabel(String text) {
-		return newWidget()
-			.text(text)
-			.foreground(0, 0, 0, 0)
-			.background(0, 0, 0, 0);
+	public void assign(Platform platform) {
+		this.platform = platform;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Builder newFrame() {
-		return newWidget()
-			.set(Flag.REACTIVE)
-			.set(Flag.LAYERABLE)
-			.foreground(1, .8f, 0, 1)
-			.background(.6f, .6f, .6f, 1);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public Builder newBox() {
-		return newWidget()
-			.foreground(1, 1, 1, 1)
-			.background(.8f, .8f, .8f, 1);
+	public void assign(MsgBox msgbox) {
+		this.msgbox = msgbox;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Builder newButton(String text) {	
-		return newButton(null, text);
+	public void post(Widget widget) {
+		widgets.add(widget);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void add(String name, Action action) {
+		actions.put(name, action);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Builder newButton(
-			String icon,
-			String text) {
-		return newWidget()
-			.set(Flag.REACTIVE)
-			.set(Flag.ACTION_HOVER)
-			.foreground(1, .8f, 0, 1)
-			.background(.4f, .4f, 1f, 1)
-			.icon(icon)
-			.dimension(120, 20)
-			.child(
-				newLabel(text)
-				.font("ode.font.title")
-				.position(3, 17)
-				.widget()
-			);
+	public void update() {
+		for (Widget widget : widgets) {
+			Action action = actions.get(widget.action());
+			action.perform(widget);
+		}
+		widgets.clear();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public Builder newToolButton(String caption) {
-		return newButton(caption)
-			.font("ode.font.title")
-			.dimension(20, 20);
+	private void closeParent(Widget widget) {
+		widget.parent().clear(Flag.DISPLAYED);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public Builder newTitlebar(String caption) {
-		return newBox()
-			.set(Flag.REACTIVE)
-			.foreground(1, 1, 1, 1)
-			.background(.2f, .2f, .6f, 1)
-			.dimension(20, 120)
-			.child(
-				newLabel(caption)
-				.position(3, 17)
-				.font("ode.font.title")
-				.widget()
-			);
+	private void toggleFullscreen(Widget widget) {
+		boolean toggle = !platform.fullscreen();
+		platform.fullscreen(toggle);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Builder newWindow(String caption, float w, float h) {
-		return newFrame()
-			.layout("window")
-			.dimension(w, h)
-			.child(
-				newTitlebar(caption)
-					.set(Flag.DIRTY)
-					.set(Flag.ACTION_HOVER)
-					.set(Flag.ACTION_PARENT_MOVE)
-					.position(5, 5)
-					.widget(),
-				newToolButton("+")
-					.set(Flag.ACTION_PARENT_RESIZE)
-					.widget(),
-				newToolButton("X")
-					.action(Actions.CLOSE_PARENT)
-					.widget(),
-				newBox()
-					.position(5, 30)
-					.widget()
-			);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public Builder newVerticalBox() {
-		return newBox()
-			.layout("vertical");
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public Builder newHorizontalBox() {
-		return newBox()
-			.layout("horizontal");
+	private void quit(Widget widget) {
+		msgbox
+			.build()
+			.terminate()
+			.post();
 	}
 	//=============================================================================================
 	

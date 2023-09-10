@@ -4,8 +4,9 @@ package ode.client;
 
 import ode.asset.Assets;
 import ode.clock.Clock;
+import ode.gui.Actions;
+import ode.gui.Factory;
 import ode.gui.GUI;
-import ode.gui.Widget;
 import ode.log.Logger;
 import ode.msg.Msg;
 import ode.msg.Msg.ID;
@@ -50,6 +51,7 @@ public class Client {
 		platform.assign(msgbox);
 		platform.assign(assets);
 		platform.assign(gui);
+		gui.assign(platform);
 		msgbox.subscribe(ID.TERMINATE, this::handleEvent);
 		clock.addFPS(120, this::updateTask);
 		clock.addFPS(30, this::renderTask);
@@ -97,9 +99,21 @@ public class Client {
 	
 	//=============================================================================================
 	private void configureWidgets() {
+		Factory f = gui.factory(); 
+		f.newVerticalBox()
+			.root(gui)
+			.position(10, 10)
+			.child(
+				f.newButton("Toggle Full Screen")
+					.dimension(200, 20)
+					.action("toggle fullscreen")
+					.widget(),
+				f.newButton("Quit")
+					.action(Actions.QUIT)
+					.widget()
+			);
 		for (int i=0; i<10; i++) {
-			gui.factory()
-				.newWindow("Sample Window " + (i+1), 800, 600)
+			f.newWindow("Sample Window " + (i+1), 800, 600)
 				.position(50 + 20*i, 50 + 20*i)
 				.root(gui);
 		}

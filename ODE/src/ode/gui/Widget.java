@@ -39,6 +39,7 @@ public class Widget extends Node<Widget> {
 	private String font;
 	private String text;
 	private String icon;
+	private String action;
 	//=============================================================================================
 
 	//=============================================================================================
@@ -81,13 +82,21 @@ public class Widget extends Node<Widget> {
 	
 	//=============================================================================================
 	public void set(Flag ... flags) {
-		this.flags.addAll(List.of(flags));
+		List<Flag> list = List.of(flags);
+		this.flags.addAll(list);
+		if (parent != null && list.contains(Flag.DISPLAYED)) {
+			parent.set(Flag.DIRTY);
+		}
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void clear(Flag ... flags) {
-		this.flags.removeAll(List.of(flags));
+		List<Flag> list = List.of(flags);
+		this.flags.removeAll(list);
+		if (parent != null && list.contains(Flag.DISPLAYED)) {
+			parent.set(Flag.DIRTY);
+		}
 	}
 	//=============================================================================================
 	
@@ -100,12 +109,18 @@ public class Widget extends Node<Widget> {
 	//=============================================================================================
 	public void position(Vector2f position) {
 		this.position.set(position);
+		if (parent != null) {
+			parent.set(Flag.DIRTY);
+		}
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void position(float x, float y) {
 		this.position.set(x, y);
+		if (parent != null) {
+			parent.set(Flag.DIRTY);
+		}
 	}
 	//=============================================================================================
 	
@@ -119,6 +134,9 @@ public class Widget extends Node<Widget> {
 	public void dimension(Vector2f dimension) {
 		this.dimension.set(dimension);
 		set(Flag.DIRTY);
+		if (parent != null) {
+			parent.set(Flag.DIRTY);
+		}
 	}
 	//=============================================================================================
 
@@ -126,6 +144,9 @@ public class Widget extends Node<Widget> {
 	public void dimension(float x, float y) {
 		this.dimension.set(x, y);
 		set(Flag.DIRTY);
+		if (parent != null) {
+			parent.set(Flag.DIRTY);
+		}
 	}
 	//=============================================================================================
 
@@ -202,10 +223,44 @@ public class Widget extends Node<Widget> {
 	//=============================================================================================
 
 	//=============================================================================================
+	public String action() {
+		return action;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void action(String action) {
+		this.action = action;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void attach(Widget child) {
+		super.attach(child);
+		set(Flag.DIRTY);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void attach(int idx, Widget child) {
+		super.attach(idx, child);
+		set(Flag.DIRTY);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void detach(Widget child) {
+		super.detach(child);
+		set(Flag.DIRTY);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	public void toFront() {
 		if (parent != null) {
 			parent.children.remove(this);
 			parent.children.add(this);
+			parent.set(Flag.DIRTY);
 		} else {
 			gui.toFront(this);
 		}

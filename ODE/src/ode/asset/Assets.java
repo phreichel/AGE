@@ -14,13 +14,10 @@ import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import javax.vecmath.Color4f;
-
 import com.jogamp.opengl.util.awt.TextRenderer;
 import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureIO;
-
 import ode.log.Level;
 import ode.log.Logger;
 import ode.util.ODEException;
@@ -33,7 +30,6 @@ public class Assets {
 	private final Map<String, Texture> textures = new HashMap<>();
 	private final Map<String, TextRenderer> fonts = new HashMap<>();
 	private final Map<String, Color4f> colors = new HashMap<>();
-	private final Map<String, Mesh> meshes = new HashMap<>();
 	//=============================================================================================
 
 	//=============================================================================================

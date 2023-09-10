@@ -5,20 +5,20 @@ package ode.gui;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import javax.vecmath.Vector2f;
-
 import ode.msg.MsgBox;
 import ode.npa.Graphics;
+import ode.npa.Platform;
 
 //*************************************************************************************************
 public class GUI {
 
 	//=============================================================================================
-	private final Factory factory = new Factory(this);
+	private final Factory  factory  = new Factory(this);
 	private final Renderer renderer = new Renderer(this);
 	private final Messages messages = new Messages(this);
-	private final Layouts layouts = new Layouts();
+	private final Layouts  layouts  = new Layouts();
+	private final Actions  actions  = new Actions();
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -34,10 +34,17 @@ public class GUI {
 	//=============================================================================================
 	private final Vector2f dimension = new Vector2f();
 	//=============================================================================================
+
+	//=============================================================================================
+	public void assign(Platform platform) {
+		actions.assign(platform);
+	}
+	//=============================================================================================
 	
 	//=============================================================================================
 	public void assign(MsgBox msgbox) {
 		messages.assign(msgbox);
+		actions.assign(msgbox);
 	}
 	//=============================================================================================
 	
@@ -77,6 +84,12 @@ public class GUI {
 	//=============================================================================================
 	public Layouts layouts() {
 		return layouts;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void postAction(Widget actionWidget) {
+		actions.post(actionWidget);
 	}
 	//=============================================================================================
 	
@@ -131,6 +144,7 @@ public class GUI {
 
 	//=============================================================================================
 	public void update() {
+		actions.update();
 		layouts.update();
 	}
 	//=============================================================================================
