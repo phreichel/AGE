@@ -110,6 +110,8 @@ public class Client {
 					.widget(),
 				f.newButton("Quit")
 					.action(Actions.QUIT)
+					.widget(),
+				f.newTextbox()
 					.widget()
 			);
 		/*
