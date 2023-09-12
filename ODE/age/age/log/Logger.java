@@ -1,0 +1,179 @@
+//*************************************************************************************************
+package age.log;
+//*************************************************************************************************
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.Reader;
+import java.util.Calendar;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.PropertyResourceBundle;
+import java.util.ResourceBundle;
+import java.util.Set;
+import age.AGEException;
+
+//*************************************************************************************************
+public class Logger {
+
+	//=============================================================================================
+	private static final Map<String, Logger> map = new HashMap<>();
+	//=============================================================================================
+
+	//=============================================================================================
+	public static void configure(String path) {
+		try {
+			File file = new File(path);
+			Reader fileReader = new FileReader(file);
+			ResourceBundle bundle = new PropertyResourceBundle(fileReader);
+			for (String key : bundle.keySet()) {
+				String value = bundle.getString(key);
+				String[] parts = key.split("\\.");
+				String instance = parts[0];
+				String property = parts[1];
+				Logger logger = Logger.get(instance);
+				if (property.equals("trace")) {
+					boolean b = Boolean.parseBoolean(value);
+					logger.trace(b);
+				} else if (property.equals("format")) {
+					logger.format(value);
+				} else if (property.equals("levels")) {
+					logger.clear();
+					String[] levels = value.split("\\s*,\\s*");
+					for (String l : levels) {
+						Level level = Level.valueOf(l);
+						logger.enable(level);
+					}
+				}
+			}
+			fileReader.close();
+		} catch (Exception e) {
+			throw new AGEException(e);
+		}
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public static Logger get(String instance) {		
+		Logger logger = map.get(instance);
+		if (logger == null) {
+			if (instance.equals("default")) {
+				logger = new Logger();
+				map.put(instance, logger);
+			} else {
+				Logger parent = get("default");
+				if (parent == null) {
+					parent = new Logger();
+					map.put("default", parent);
+				}
+				logger = new Logger(parent);
+				map.put(instance, logger);
+			}
+		}
+		return logger;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public static void log(Level level, String message, Object ... params) {
+		log("default", level, message, params);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public static void log(String instance, Level level, String message, Object ... params) {
+		Logger logger = get(instance);
+		if (logger != null) {
+			logger.write(level, message, params);
+		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private boolean trace = false;
+	private Set<Level> levels = null;
+	private String format = null;
+	//=============================================================================================
+
+	//=============================================================================================
+	private Logger() {
+		this.trace = false;
+		this.levels = EnumSet.allOf(Level.class);
+		this.format = "%1$td.%1$tm.%1$ty %1$tH:%1$tM:%1$tS.%1$tN - %2$s: %3$s";
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private Logger(Logger parent) {
+		this.trace = parent.trace;
+		this.format = parent.format;
+		this.levels = EnumSet.copyOf(parent.levels);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void write(Level level, String message, Object ... params) {
+		if (!levels.contains(level)) return;
+		Calendar now = Calendar.getInstance();
+		String output = String.format(message, params);
+		if (trace) {
+			StackTraceElement e = Thread.currentThread().getStackTrace()[4];
+			String location = String.format(
+				"%s (%s): %s.%s%n	",
+				e.getFileName(),
+				e.getLineNumber(),
+				e.getClassName(),
+				e.getMethodName());
+			output = location + output;
+		}
+		String tagged = String.format(format, now, level, output);
+		System.out.println(tagged);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void clear() {
+		this.levels.clear();
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void enable(Level ... levels) {
+		this.levels.addAll(List.of(levels));
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void disable(Level ... levels) {
+		this.levels.removeAll(List.of(levels));
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public boolean trace() {
+		return trace;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void trace(boolean trace) {
+		this.trace = trace;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public String format() {
+		return format;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void format(String format) {
+		this.format = format;
+	}
+	//=============================================================================================
+	
+}
+//*************************************************************************************************

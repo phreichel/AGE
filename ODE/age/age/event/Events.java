@@ -9,12 +9,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
+import age.log.Level;
+import age.log.Logger;
+
 //*************************************************************************************************
 public class Events {
 
 	//=============================================================================================
 	private final Queue<Event> cache  = new LinkedList<>();
-	private final List<Event>  events = new ArrayList<>();
+	private final List<Event>  inbox  = new ArrayList<>();
+	private final List<Event>  outbox = new ArrayList<>();
 	private final Map<Type, List<Handler>> handlers = new EnumMap<>(Type.class);
 	//=============================================================================================
 
@@ -103,16 +107,30 @@ public class Events {
 
 	//=============================================================================================
 	public void update() {
-		for (Event event : events) {
+		synchronized (inbox) {
+			outbox.addAll(inbox);
+			inbox.clear();
+		}
+		for (Event event : outbox) {
 			handle(event);
 		}
-		events.clear();
+		outbox.clear();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	private void handle(Event event) {
 		Type type = event.type();
+		Logger.log(
+			Level.DEBUG,
+			"Handle Event %s, {%s:%s} {%s,%s,%s,%s}",
+			type,
+			event.key(),
+			event.character(),
+			event.x(),
+			event.y(),
+			event.button(),
+			event.count());
 		List<Handler> list = handlers.get(type);
 		if (list != null) {
 			for (Handler handler : list) {
@@ -125,7 +143,9 @@ public class Events {
 
 	//=============================================================================================
 	private void post(Event event) {
-		events.add(event);
+		synchronized (inbox) {
+			inbox.add(event);
+		}
 	}
 	//=============================================================================================
 	
