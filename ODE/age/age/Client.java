@@ -4,6 +4,7 @@ package age;
 
 import age.port.Port;
 import age.port.jogl.JOGLPort;
+import age.task.Tasks;
 import age.clock.Clock;
 import age.event.Events;
 import age.log.Level;
@@ -15,7 +16,8 @@ public class Client {
 	//=============================================================================================
 	private Clock clock = new Clock();
 	private Events events = new Events();
-	private Port  port = new JOGLPort();
+	private Tasks tasks = new Tasks();
+	private Port port = new JOGLPort();
 	//=============================================================================================
 
 	//=============================================================================================
@@ -42,6 +44,7 @@ public class Client {
 	//=============================================================================================
 	private void update(int count, long nanoperiod, float dT) {
 		events.update();
+		tasks.update(dT);
 	}
 	//=============================================================================================
 	
