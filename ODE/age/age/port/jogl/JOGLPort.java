@@ -103,6 +103,7 @@ public class JOGLPort implements Port {
 		eventListener = new JOGLEventListener();
 		window.addKeyListener(eventListener);
 		window.addMouseListener(eventListener);
+		window.addWindowListener(eventListener);
 		renderListener = new JOGLRenderListener(this);
 		window.addGLEventListener(renderListener);
 	}

@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import javax.vecmath.Vector2f;
 import age.AGEException;
+import age.port.Graphics;
 
 //*************************************************************************************************
 public class Widget {
@@ -135,6 +136,18 @@ public class Widget {
 		if (parent == null) throw new AGEException("Parent is NULL");
 		parent.children.remove(this);
 		parent = null;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void render(Graphics g) {
+		g.pushTransformation();
+		g.translate(position);
+		g.color(0.7f, 0.7f, 0.7f);
+		g.rectangle(dimension, true);
+		g.color(1f, 0, 0);
+		g.rectangle(dimension, true);
+		g.popTransformation();
 	}
 	//=============================================================================================
 	

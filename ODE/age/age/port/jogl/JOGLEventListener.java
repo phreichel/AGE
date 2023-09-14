@@ -2,16 +2,22 @@
 package age.port.jogl;
 //*************************************************************************************************
 
+import com.jogamp.newt.Window;
 import com.jogamp.newt.event.KeyEvent;
 import com.jogamp.newt.event.KeyListener;
 import com.jogamp.newt.event.MouseEvent;
 import com.jogamp.newt.event.MouseListener;
+import com.jogamp.newt.event.WindowEvent;
+import com.jogamp.newt.event.WindowListener;
+import com.jogamp.newt.event.WindowUpdateEvent;
+import com.jogamp.newt.opengl.GLWindow;
+
 import age.event.Button;
 import age.event.Events;
 import age.event.Key;
 
 //*************************************************************************************************
-class JOGLEventListener implements KeyListener, MouseListener {
+class JOGLEventListener implements KeyListener, MouseListener, WindowListener {
 
 	//=============================================================================================
 	private Events events = null;
@@ -111,6 +117,45 @@ class JOGLEventListener implements KeyListener, MouseListener {
 				translateKey(e.getKeySymbol()),
 				e.getKeyChar());
 		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void windowResized(WindowEvent e) {
+		Window window = (Window) e.getSource();
+		float w = window.getWidth();
+		float h = window.getHeight();
+		events.postSurfaceResized(w, h);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void windowMoved(WindowEvent e) {
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void windowDestroyNotify(WindowEvent e) {
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void windowDestroyed(WindowEvent e) {
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void windowGainedFocus(WindowEvent e) {
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void windowLostFocus(WindowEvent e) {
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void windowRepaint(WindowUpdateEvent e) {
 	}
 	//=============================================================================================
 

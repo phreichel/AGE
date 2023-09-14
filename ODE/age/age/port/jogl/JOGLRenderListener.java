@@ -37,6 +37,7 @@ class JOGLRenderListener implements GLEventListener {
 	//=============================================================================================
 	public void display(GLAutoDrawable drawable) {
 		graphics.assign(drawable);
+		graphics.clear();
 		for (Renderable renderable : port.get()) {
 			renderable.render(graphics);
 		}

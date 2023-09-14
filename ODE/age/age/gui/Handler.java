@@ -1,63 +1,50 @@
 //*************************************************************************************************
-package age;
+package age.gui;
 //*************************************************************************************************
 
-import age.port.Port;
-import age.port.jogl.JOGLPort;
-import age.task.Tasks;
-import age.clock.Clock;
+import age.event.Event;
 import age.event.Events;
-import age.gui.Widgets;
-import age.log.Level;
-import age.log.Logger;
+import age.event.Type;
 
 //*************************************************************************************************
-public class Client {
+class Handler {
 
 	//=============================================================================================
-	private Clock clock = new Clock();
-	private Events events = new Events();
-	private Widgets widgets = new Widgets();
-	private Tasks tasks = new Tasks();
-	private Port port = new JOGLPort();
+	private final Widgets widgets;
 	//=============================================================================================
 
 	//=============================================================================================
-	public void run() {
-		port.create();
-		port.add(widgets);
-		port.assign(events);
-		widgets.assign(events);
-		clock.addFPS(60, this::render);
-		clock.addFPS(120, this::update);
-		port.visible(true);
-		Logger.log(Level.DEBUG, "Start Client Loop");
-		while (true) {
-			clock.update();
-			Thread.yield();
-		}
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private void render(int count, long nanoperiod, float dT) {
-		port.render();
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private void update(int count, long nanoperiod, float dT) {
-		events.update();
-		tasks.update(dT);
+	public Handler(Widgets widgets) {
+		this.widgets = widgets;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public static void main(String[] args) {
-		Logger.log(Level.INFO, "Client Main Start");
-		Client client = new Client();
-		client.run();
-		Logger.log(Level.INFO, "Client Main Stop");
+	public void assign(Events events) {
+		events.assign(Type.KEY_PRESSED, this::handleKeyboard);
+		events.assign(Type.KEY_RELEASED, this::handleKeyboard);
+		events.assign(Type.KEY_TYPED, this::handleKeyboard);
+		events.assign(Type.POINTER_PRESSED, this::handlePointer);
+		events.assign(Type.POINTER_RELEASED, this::handlePointer);
+		events.assign(Type.POINTER_CLICKED, this::handlePointer);
+		events.assign(Type.POINTER_MOVED, this::handlePointer);
+		events.assign(Type.SURFACE_RESIZED, this::handleSurface);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void handleKeyboard(Event e) {
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void handlePointer(Event e) {
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void handleSurface(Event e) {
+		widgets.root().dimension(e.dimension());
 	}
 	//=============================================================================================
 	

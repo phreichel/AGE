@@ -106,6 +106,14 @@ public class Events {
 	//=============================================================================================
 
 	//=============================================================================================
+	public void postSurfaceResized(float w, float h) {
+		Event event = alloc();
+		event.surfaceResized(w, h);
+		post(event);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	public void update() {
 		synchronized (inbox) {
 			outbox.addAll(inbox);
@@ -123,14 +131,16 @@ public class Events {
 		Type type = event.type();
 		Logger.log(
 			Level.DEBUG,
-			"Handle Event %s, {%s:%s} {%s,%s,%s,%s}",
+			"Handle Event %s, {%s:%s} {%s,%s,%s,%s} {%s:%s}",
 			type,
 			event.key(),
 			event.character(),
 			event.x(),
 			event.y(),
 			event.button(),
-			event.count());
+			event.count(),
+			event.width(),
+			event.height());
 		List<Handler> list = handlers.get(type);
 		if (list != null) {
 			for (Handler handler : list) {
