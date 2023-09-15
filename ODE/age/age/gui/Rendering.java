@@ -47,7 +47,10 @@ public class Rendering implements Renderable {
 			g.color(1f, 0, 0);
 			g.rectangle(widget.dimension(), true);
 		} else if (widget.match(Flag.BUTTON)) {
-			g.color(.8f, 0f, 0f);
+			if (!widget.match(Flag.HOVER))
+				g.color(.8f, 0f, 0f);
+			else
+				g.color(1f, .3f, .3f);
 			String image = widget.image();
 			if (image != null) {
 				g.texture(0, 0, widget.dimension().x, widget.dimension().y, image);
@@ -62,6 +65,11 @@ public class Rendering implements Renderable {
 			g.color(1f, 0f, 0f);
 			g.rectangle(widget.dimension(), true);
 		} else if (widget.match(Flag.TITLE)) {
+			if (!widget.match(Flag.HOVER))
+				g.color(.2f, 0f, 0f);
+			else
+				g.color(.4f, 0f, 0f);
+			g.rectangle(widget.dimension(), false);
 			g.color(.4f, 0f, 0f);
 			g.rectangle(widget.dimension(), true);
 			g.text(3, widget.dimension().y-3, widget.text());

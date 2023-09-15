@@ -33,7 +33,7 @@ public class Client {
 		widgets.assign(port);
 		widgets.assign(events);
 
-		for (int i=0; i<1; i++) {
+		for (int i=0; i<5; i++) {
 			Window window = new Window();
 			window.position(50 + 15*i, 50 + 35*i);
 			widgets.root().add(window);
