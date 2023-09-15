@@ -10,8 +10,6 @@ import com.jogamp.newt.event.MouseListener;
 import com.jogamp.newt.event.WindowEvent;
 import com.jogamp.newt.event.WindowListener;
 import com.jogamp.newt.event.WindowUpdateEvent;
-import com.jogamp.newt.opengl.GLWindow;
-
 import age.event.Button;
 import age.event.Events;
 import age.event.Key;

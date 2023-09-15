@@ -1,55 +1,78 @@
 //*************************************************************************************************
-package age.port.jogl;
+package age.gui;
 //*************************************************************************************************
 
-import com.jogamp.opengl.GLAutoDrawable;
-import com.jogamp.opengl.GLEventListener;
-
-import age.port.Renderable;
-
 //*************************************************************************************************
-class JOGLRenderListener implements GLEventListener {
+public class Window extends Widget {
 
 	//=============================================================================================
-	private final JOGLPort port; 
-	private final JOGLGraphics graphics;
+	private Widget title = new Widget();
+	private Widget size  = new Widget();
+	private Widget close = new Widget();
+	private Widget page  = new Widget();
 	//=============================================================================================
 
 	//=============================================================================================
-	public JOGLRenderListener(JOGLPort port) {
-		this.port = port;
-		graphics = new JOGLGraphics(port);
+	public Window(Flag ... flags) {
+		super(flags);
+		flag(Flag.FRAME);
+		construct();
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void init(GLAutoDrawable drawable) {
-		graphics.assign(drawable);
-		graphics.init();
+	private void construct() {
+		
+		final float W = 800;
+		final float H = 600;
+		final float V = 20;
+		final float G = 5;
+		
+		dimension(W, H);
+		
+		title.flag(Flag.TITLE);
+		title.position(G, G);
+		title.dimension(W-2*V-4*G, V);
+		title.dock(0, 1, 0, 0);
+		
+		size.flag(Flag.BUTTON);
+		size.image("size");
+		size.position(W-2*V-2*G, G);
+		size.dimension(V, V);
+		size.dock(1, 1, 0, 0);
+		
+		close.flag(Flag.BUTTON);
+		close.image("close");
+		close.position(W-1*V-1*G, G);
+		close.dimension(V, V);
+		close.dock(1, 1, 0, 0);
+		
+		page.flag(Flag.CANVAS);
+		page.position(G, V+2*G);
+		page.dimension(W-2*G, H-V-3*G);
+		page.dock(0, 1, 0, 1);
+		
+		title("AGE Window");
+		
+		this.add(title);
+		this.add(size);
+		this.add(close);
+		this.add(page);
+		
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
-		graphics.assign(drawable);
+	public String title() {
+		return this.title.text();
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void display(GLAutoDrawable drawable) {
-		graphics.assign(drawable);
-		graphics.clear();
-		for (Renderable renderable : port.get()) {
-			renderable.render(graphics);
-		}
+	public void title(String title) {
+		this.title.text(title);
 	}
 	//=============================================================================================
-
-	//=============================================================================================
-	public void dispose(GLAutoDrawable drawable) {
-		graphics.assign(drawable);
-	}
-	//=============================================================================================
-
+	
 }
 //*************************************************************************************************

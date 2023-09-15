@@ -21,6 +21,8 @@ public interface Graphics {
 	public void rectangle(Vector2f dim, boolean hollow);
 	public void rectangle(Vector2f pos, Vector2f dim, boolean hollow);
 	public void rectangle(float x, float y, float w, float h, boolean hollow);
+	public void text(float x, float y, String text);
+	public void texture(float x, float y, float w, float h, String texture);
 	//=============================================================================================
 	
 }

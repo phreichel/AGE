@@ -8,6 +8,7 @@ import age.task.Tasks;
 import age.clock.Clock;
 import age.event.Events;
 import age.gui.Widgets;
+import age.gui.Window;
 import age.log.Level;
 import age.log.Logger;
 
@@ -24,18 +25,31 @@ public class Client {
 
 	//=============================================================================================
 	public void run() {
+	
+		Logger.get("default").disable(Level.DEBUG);
+
 		port.create();
-		port.add(widgets);
 		port.assign(events);
+		widgets.assign(port);
 		widgets.assign(events);
+
+		for (int i=0; i<1; i++) {
+			Window window = new Window();
+			window.position(50 + 15*i, 50 + 35*i);
+			widgets.root().add(window);
+		}
+		
 		clock.addFPS(60, this::render);
 		clock.addFPS(120, this::update);
-		port.visible(true);
+		
 		Logger.log(Level.DEBUG, "Start Client Loop");
+
+		port.visible(true);
 		while (true) {
 			clock.update();
 			Thread.yield();
 		}
+
 	}
 	//=============================================================================================
 
