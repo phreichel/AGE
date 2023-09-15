@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.vecmath.Vector2f;
+
+import age.event.Button;
 import age.event.Event;
 import age.event.Events;
 import age.event.Type;
@@ -73,7 +75,7 @@ class Handling {
 
 			// init title drag
 			if (hovered != null) {
-				if (hovered.match(Flag.TITLE)) {
+				if (hovered.match(Flag.TITLE) && e.button().equals(Button.BTN1)) {
 					Widget frame = hovered;
 					while (frame != null) {
 						if (frame.match(Flag.FRAME)) {
@@ -88,7 +90,7 @@ class Handling {
 					}
 				}
 				// init size button drag
-				else if ((hovered.match(Flag.BUTTON) && hovered.image().equals("size"))) {
+				else if ((hovered.match(Flag.BUTTON) &&  e.button().equals(Button.BTN1) && hovered.image().equals("size"))) {
 					Widget frame = hovered;
 					while (frame != null) {
 						if (frame.match(Flag.FRAME)) {
