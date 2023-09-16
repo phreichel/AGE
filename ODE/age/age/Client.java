@@ -10,7 +10,7 @@ import age.event.Events;
 import age.gui.Widgets;
 import age.gui.Window;
 import age.log.Level;
-import age.log.Logger;
+import age.log.Log;
 
 //*************************************************************************************************
 public class Client {
@@ -26,7 +26,7 @@ public class Client {
 	//=============================================================================================
 	public void run() {
 	
-		Logger.get("default").disable(Level.DEBUG);
+		Log.get("default").disable(Level.DEBUG);
 
 		port.create();
 		port.assign(events);
@@ -42,8 +42,9 @@ public class Client {
 		clock.addFPS(60, this::render);
 		clock.addFPS(120, this::update);
 		
-		Logger.log(Level.DEBUG, "Start Client Loop");
+		Log.debug("Start Client Loop");
 
+		port.fullscreen(true);
 		port.visible(true);
 		while (true) {
 			clock.update();
@@ -68,10 +69,10 @@ public class Client {
 	
 	//=============================================================================================
 	public static void main(String[] args) {
-		Logger.log(Level.INFO, "Client Main Start");
+		Log.info("Client Main Start");
 		Client client = new Client();
 		client.run();
-		Logger.log(Level.INFO, "Client Main Stop");
+		Log.info("Client Main Stop");
 	}
 	//=============================================================================================
 	

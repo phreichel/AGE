@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Queue;
 
 import age.log.Level;
-import age.log.Logger;
+import age.log.Log;
 
 //*************************************************************************************************
 public class Events {
@@ -129,8 +129,7 @@ public class Events {
 	//=============================================================================================
 	private void handle(Event event) {
 		Type type = event.type();
-		Logger.log(
-			Level.DEBUG,
+		Log.debug(
 			"Handle Event %s, {%s:%s} {%s,%s,%s,%s} {%s:%s}",
 			type,
 			event.key(),

@@ -61,10 +61,10 @@ class Handling {
 		hovered = hover(tmp, widgets.root());
 		if (hovered != null) hovered.flag(Flag.HOVER);
 		
-		// to front
+		// button actions
 		if (e.type().equals(Type.POINTER_PRESSED)) {
 
-			// to front
+			// to front on any button press
 			Widget front = hovered;
 			while (front != null) {
 				if (front.match(Flag.FRAME)) {
@@ -73,7 +73,7 @@ class Handling {
 				front = front.parent();
 			}
 
-			// init title drag
+			// init title drag on left button click
 			if (hovered != null) {
 				if (hovered.match(Flag.TITLE) && e.button().equals(Button.BTN1)) {
 					Widget frame = hovered;
@@ -89,7 +89,7 @@ class Handling {
 						command = "move";
 					}
 				}
-				// init size button drag
+				// init size button drag on left button click
 				else if ((hovered.match(Flag.BUTTON) &&  e.button().equals(Button.BTN1) && hovered.image().equals("size"))) {
 					Widget frame = hovered;
 					while (frame != null) {
@@ -107,6 +107,7 @@ class Handling {
 			}
 		}
 		
+		// while action dragging (move or size..)
 		else if (
 			e.type().equals(Type.POINTER_MOVED) ||
 			e.type().equals(Type.POINTER_RELEASED)) {

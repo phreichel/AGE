@@ -16,10 +16,10 @@ import java.util.Set;
 import age.AGEException;
 
 //*************************************************************************************************
-public class Logger {
+public class Log {
 
 	//=============================================================================================
-	private static final Map<String, Logger> map = new HashMap<>();
+	private static final Map<String, Log> map = new HashMap<>();
 	//=============================================================================================
 
 	//=============================================================================================
@@ -33,18 +33,18 @@ public class Logger {
 				String[] parts = key.split("\\.");
 				String instance = parts[0];
 				String property = parts[1];
-				Logger logger = Logger.get(instance);
+				Log log = Log.get(instance);
 				if (property.equals("trace")) {
 					boolean b = Boolean.parseBoolean(value);
-					logger.trace(b);
+					log.trace(b);
 				} else if (property.equals("format")) {
-					logger.format(value);
+					log.format(value);
 				} else if (property.equals("levels")) {
-					logger.clear();
+					log.clear();
 					String[] levels = value.split("\\s*,\\s*");
 					for (String l : levels) {
 						Level level = Level.valueOf(l);
-						logger.enable(level);
+						log.enable(level);
 					}
 				}
 			}
@@ -56,23 +56,23 @@ public class Logger {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public static Logger get(String instance) {		
-		Logger logger = map.get(instance);
-		if (logger == null) {
+	public static Log get(String instance) {		
+		Log log = map.get(instance);
+		if (log == null) {
 			if (instance.equals("default")) {
-				logger = new Logger();
-				map.put(instance, logger);
+				log = new Log();
+				map.put(instance, log);
 			} else {
-				Logger parent = get("default");
+				Log parent = get("default");
 				if (parent == null) {
-					parent = new Logger();
+					parent = new Log();
 					map.put("default", parent);
 				}
-				logger = new Logger(parent);
-				map.put(instance, logger);
+				log = new Log(parent);
+				map.put(instance, log);
 			}
 		}
-		return logger;
+		return log;
 	}
 	//=============================================================================================
 	
@@ -83,14 +83,74 @@ public class Logger {
 	//=============================================================================================
 
 	//=============================================================================================
+	public static void info(String message, Object ... params) {
+		log("default", Level.INFO, message, params);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public static void warn(String message, Object ... params) {
+		log("default", Level.WARNING, message, params);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public static void error(String message, Object ... params) {
+		log("default", Level.ERROR, message, params);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public static void debug(String message, Object ... params) {
+		log("default", Level.DEBUG, message, params);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	public static void log(String instance, Level level, String message, Object ... params) {
-		Logger logger = get(instance);
-		if (logger != null) {
-			logger.write(level, message, params);
+		Log log = get(instance);
+		if (log != null) {
+			log.write(level, message, params);
 		}
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	public static void info(String instance, String message, Object ... params) {
+		Log log = get(instance);
+		if (log != null) {
+			log.write(Level.INFO, message, params);
+		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public static void warn(String instance, String message, Object ... params) {
+		Log log = get(instance);
+		if (log != null) {
+			log.write(Level.WARNING, message, params);
+		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public static void error(String instance, String message, Object ... params) {
+		Log log = get(instance);
+		if (log != null) {
+			log.write(Level.ERROR, message, params);
+		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public static void debug(String instance, String message, Object ... params) {
+		Log log = get(instance);
+		if (log != null) {
+			log.write(Level.DEBUG, message, params);
+		}
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	private boolean trace = false;
 	private Set<Level> levels = null;
@@ -98,7 +158,7 @@ public class Logger {
 	//=============================================================================================
 
 	//=============================================================================================
-	private Logger() {
+	private Log() {
 		this.trace = false;
 		this.levels = EnumSet.allOf(Level.class);
 		this.format = "%1$td.%1$tm.%1$ty %1$tH:%1$tM:%1$tS.%1$tN - %2$s: %3$s";
@@ -106,7 +166,7 @@ public class Logger {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private Logger(Logger parent) {
+	private Log(Log parent) {
 		this.trace = parent.trace;
 		this.format = parent.format;
 		this.levels = EnumSet.copyOf(parent.levels);
