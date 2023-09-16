@@ -11,6 +11,7 @@ import age.event.Button;
 import age.event.Event;
 import age.event.Events;
 import age.event.Type;
+import age.log.Log;
 
 //*************************************************************************************************
 class Handling {
@@ -60,76 +61,111 @@ class Handling {
 		if (hovered != null) hovered.clear(Flag.HOVER);
 		hovered = hover(tmp, widgets.root());
 		if (hovered != null) hovered.flag(Flag.HOVER);
-		
-		// button actions
-		if (e.type().equals(Type.POINTER_PRESSED)) {
 
-			// to front on any button press
-			Widget front = hovered;
+		pressedFrameToFront(e);
+		
+		// frame actions
+		startFrameSizeAction(e);
+		startFrameDragAction(e);
+		updateFrameAction(e);
+		stopFrameAction(e);
+		
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void pressedFrameToFront(Event e) {
+		Widget front = hovered;
+		if (e.type().equals(Type.POINTER_PRESSED)) {
 			while (front != null) {
 				if (front.match(Flag.FRAME)) {
 					front.toFront();
 				}
 				front = front.parent();
 			}
-
-			// init title drag on left button click
-			if (hovered != null) {
-				if (hovered.match(Flag.TITLE) && e.button().equals(Button.BTN1)) {
-					Widget frame = hovered;
-					while (frame != null) {
-						if (frame.match(Flag.FRAME)) {
-							break;
-						}
-						frame = frame.parent();
-					}
-					if (frame != null) {
-						dragged = frame;
-						ref.set(e.position());
-						command = "move";
-					}
-				}
-				// init size button drag on left button click
-				else if ((hovered.match(Flag.BUTTON) &&  e.button().equals(Button.BTN1) && hovered.image().equals("size"))) {
-					Widget frame = hovered;
-					while (frame != null) {
-						if (frame.match(Flag.FRAME)) {
-							break;
-						}
-						frame = frame.parent();
-					}
-					if (frame != null) {
-						dragged = frame;
-						ref.set(e.position());
-						command = "size";
-					}
-				}
-			}
 		}
-		
-		// while action dragging (move or size..)
-		else if (
-			e.type().equals(Type.POINTER_MOVED) ||
-			e.type().equals(Type.POINTER_RELEASED)) {
-			if (dragged != null) {
-				ref.sub(e.position(), ref);
-				if (command.equals("move")) {
-					dragged.positionAdd(ref);
-				}
-				else if (command.equals("size")) {
-					dragged.positionAdd(0, ref.y);
-					dragged.dimensionAdd(ref.x, -ref.y);
-				}
-				ref.set(e.position());
-				if (e.type().equals(Type.POINTER_RELEASED)) {
-					dragged = null;
-				}
-			}
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void startFrameSizeAction(Event e) {
+		if (
+			dragged == null &&
+			hovered != null &&
+			hovered.match(Flag.BUTTON) &&
+			e.type().equals(Type.POINTER_PRESSED) &&
+			e.button().equals(Button.BTN1) &&
+			hovered.image().equals("size")
+		) {
+			updateActionState(e, "size");
 		}
-
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void startFrameDragAction(Event e) {
+		if (
+			dragged == null &&
+			hovered != null &&
+			hovered.match(Flag.TITLE) &&
+			e.type().equals(Type.POINTER_PRESSED) &&
+			e.button().equals(Button.BTN1)
+		) {
+			updateActionState(e, "move");
+		}
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	private void updateActionState(Event e, String cmd) {
+
+		Widget frame = hovered;
+		while (frame != null) {
+			if (frame.match(Flag.FRAME)) {
+				break;
+			}
+			frame = frame.parent();
+		}
+		
+		if (frame != null) {
+			dragged = frame;
+			ref.set(e.position());
+			command = cmd;
+		}
+		
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void updateFrameAction(Event e) {
+		if (
+			dragged != null &&
+			e.type().equals(Type.POINTER_MOVED)
+		) {
+			ref.sub(e.position(), ref);
+			if (command.equals("move")) {
+				dragged.positionAdd(ref);
+			}
+			else if (command.equals("size")) {
+				dragged.positionAdd(0, ref.y);
+				dragged.dimensionAdd(ref.x, -ref.y);
+			}
+			ref.set(e.position());
+		}
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void stopFrameAction(Event e) {
+		if (
+			dragged != null &&
+			e.type().equals(Type.POINTER_RELEASED)
+		){
+			dragged = null;
+		}
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	private Widget hover(Vector2f pos, Widget widget) {
 		Widget result = null;
