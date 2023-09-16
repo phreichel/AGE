@@ -1,0 +1,69 @@
+.TH "age.clock.Alarm" 3 "Version 1" "ODE Framework" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+age.clock.Alarm
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinit\fP (long nanotime)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (long nanotime)"
+.br
+.in -1c
+.SS "Package Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAlarm\fP (long \fBnanoperiod\fP, \fBTask\fP \fBtask\fP)"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBtrigger\fP (int count, float dT)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "long \fBnanoperiod\fP"
+.br
+.ti -1c
+.RI "\fBTask\fP \fBtask\fP"
+.br
+.ti -1c
+.RI "long \fBmark\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "age\&.clock\&.Alarm\&.Alarm (long nanoperiod, \fBTask\fP task)\fC [package]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void age\&.clock\&.Alarm\&.init (long nanotime)"
+
+.SS "void age\&.clock\&.Alarm\&.trigger (int count, float dT)\fC [private]\fP"
+
+.SS "void age\&.clock\&.Alarm\&.update (long nanotime)"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "long age\&.clock\&.Alarm\&.mark\fC [private]\fP"
+
+.SS "long age\&.clock\&.Alarm\&.nanoperiod\fC [private]\fP"
+
+.SS "\fBTask\fP age\&.clock\&.Alarm\&.task\fC [private]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ODE Framework from the source code\&.

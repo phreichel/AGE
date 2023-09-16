@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumage_1_1gui_1_1_flag" xml:lang="en-US">
+<title>age.gui.Flag Enum Reference</title>
+<indexterm><primary>age.gui.Flag</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumage_1_1gui_1_1_flag_1ab197c2f6cdccb5b95f7ba28c676afdb2">BOX</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1gui_1_1_flag_1a22b582260b0024c663670786ecd14f7b">FRAME</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1gui_1_1_flag_1a2375fd49fd6373f4d46faff6201f03db">BUTTON</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1gui_1_1_flag_1a043d2fa0f85d55f2a2f6174766efdf89">CANVAS</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1gui_1_1_flag_1a92309c4784b372a86bc3606c90913989">TITLE</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1gui_1_1_flag_1acf60e07e56e48c4a0dc01a265ab35bf1">HOVERED</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1gui_1_1_flag_1ad0cdaa44442c8c09c55de8333a9b580c">HIDDEN</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enumage_1_1gui_1_1_flag_1ab197c2f6cdccb5b95f7ba28c676afdb2"/><section>
+    <title>BOX</title>
+<indexterm><primary>BOX</primary><secondary>age.gui.Flag</secondary></indexterm>
+<indexterm><primary>age.gui.Flag</primary><secondary>BOX</secondary></indexterm>
+<para><computeroutput>age.gui.Flag.BOX</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1gui_1_1_flag_1a2375fd49fd6373f4d46faff6201f03db"/><section>
+    <title>BUTTON</title>
+<indexterm><primary>BUTTON</primary><secondary>age.gui.Flag</secondary></indexterm>
+<indexterm><primary>age.gui.Flag</primary><secondary>BUTTON</secondary></indexterm>
+<para><computeroutput>age.gui.Flag.BUTTON</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1gui_1_1_flag_1a043d2fa0f85d55f2a2f6174766efdf89"/><section>
+    <title>CANVAS</title>
+<indexterm><primary>CANVAS</primary><secondary>age.gui.Flag</secondary></indexterm>
+<indexterm><primary>age.gui.Flag</primary><secondary>CANVAS</secondary></indexterm>
+<para><computeroutput>age.gui.Flag.CANVAS</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1gui_1_1_flag_1a22b582260b0024c663670786ecd14f7b"/><section>
+    <title>FRAME</title>
+<indexterm><primary>FRAME</primary><secondary>age.gui.Flag</secondary></indexterm>
+<indexterm><primary>age.gui.Flag</primary><secondary>FRAME</secondary></indexterm>
+<para><computeroutput>age.gui.Flag.FRAME</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1gui_1_1_flag_1ad0cdaa44442c8c09c55de8333a9b580c"/><section>
+    <title>HIDDEN</title>
+<indexterm><primary>HIDDEN</primary><secondary>age.gui.Flag</secondary></indexterm>
+<indexterm><primary>age.gui.Flag</primary><secondary>HIDDEN</secondary></indexterm>
+<para><computeroutput>age.gui.Flag.HIDDEN</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1gui_1_1_flag_1acf60e07e56e48c4a0dc01a265ab35bf1"/><section>
+    <title>HOVERED</title>
+<indexterm><primary>HOVERED</primary><secondary>age.gui.Flag</secondary></indexterm>
+<indexterm><primary>age.gui.Flag</primary><secondary>HOVERED</secondary></indexterm>
+<para><computeroutput>age.gui.Flag.HOVERED</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1gui_1_1_flag_1a92309c4784b372a86bc3606c90913989"/><section>
+    <title>TITLE</title>
+<indexterm><primary>TITLE</primary><secondary>age.gui.Flag</secondary></indexterm>
+<indexterm><primary>age.gui.Flag</primary><secondary>TITLE</secondary></indexterm>
+<para><computeroutput>age.gui.Flag.TITLE</computeroutput></para></section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+d:/GIT/repos/ODE/age/age/gui/<link linkend="__flag_8java">Flag.java</link></section>
+</section>

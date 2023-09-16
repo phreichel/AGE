@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classage_1_1event_1_1_event" xml:lang="en-US">
+<title>age.event.Event Class Reference</title>
+<indexterm><primary>age.event.Event</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_event_1ad60211c79dbbffc85408cb0d4aebbcfb">clear</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_type">Type</link> <link linkend="_classage_1_1event_1_1_event_1a08e94a0c776171f06ff81a1f57039b4a">type</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_key">Key</link> <link linkend="_classage_1_1event_1_1_event_1aa22a34c8ea57b9184f4a878ff90df99a">key</link> ()</para>
+</listitem>
+            <listitem><para>char <link linkend="_classage_1_1event_1_1_event_1a3fb014ade4addb34755b524c91e528f5">character</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_button">Button</link> <link linkend="_classage_1_1event_1_1_event_1aed13ac5f62a070b15a852215c77214e3">button</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_classage_1_1event_1_1_event_1a5088703a7d22050c6960b64352f13793">count</link> ()</para>
+</listitem>
+            <listitem><para>float <link linkend="_classage_1_1event_1_1_event_1a792682652f6f470eec7720544df72e73">x</link> ()</para>
+</listitem>
+            <listitem><para>float <link linkend="_classage_1_1event_1_1_event_1abc85767d2293abbbcbdacbb664f0de54">y</link> ()</para>
+</listitem>
+            <listitem><para>Vector2f <link linkend="_classage_1_1event_1_1_event_1a8e3b1e5fe78f75ac6502f1a2d632fa7f">position</link> ()</para>
+</listitem>
+            <listitem><para>float <link linkend="_classage_1_1event_1_1_event_1a5387afd9bff5d6f17236c5dc6bbb0270">width</link> ()</para>
+</listitem>
+            <listitem><para>float <link linkend="_classage_1_1event_1_1_event_1ac48edfd04e5a7c90eeb01ae4377e7626">height</link> ()</para>
+</listitem>
+            <listitem><para>Vector2f <link linkend="_classage_1_1event_1_1_event_1a3afddd440fc2877e42d951c946096f9d">dimension</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_classage_1_1event_1_1_event_1ae4e803eebd5868105e289d49f2f0fd57">command</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_event_1afc24d191a8ec0a1517fe251bf4fcbee5">keyPressed</link> (<link linkend="_enumage_1_1event_1_1_key">Key</link> <link linkend="_classage_1_1event_1_1_event_1a2c61680aad4c85b4355635418ec1bff5">key</link>, char <link linkend="_classage_1_1event_1_1_event_1a630467255ee3d815c648d94e66beaf5b">character</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_event_1afddc2c56ad096b6d0a74119cbb8ac666">keyReleased</link> (<link linkend="_enumage_1_1event_1_1_key">Key</link> <link linkend="_classage_1_1event_1_1_event_1a2c61680aad4c85b4355635418ec1bff5">key</link>, char <link linkend="_classage_1_1event_1_1_event_1a630467255ee3d815c648d94e66beaf5b">character</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_event_1aff68355e55ec49d1b2668baf3dd6298d">keyTyped</link> (<link linkend="_enumage_1_1event_1_1_key">Key</link> <link linkend="_classage_1_1event_1_1_event_1a2c61680aad4c85b4355635418ec1bff5">key</link>, char <link linkend="_classage_1_1event_1_1_event_1a630467255ee3d815c648d94e66beaf5b">character</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_event_1a60df303110b82cb4836aca4fcb699973">pointerEntered</link> (float <link linkend="_classage_1_1event_1_1_event_1a792682652f6f470eec7720544df72e73">x</link>, float <link linkend="_classage_1_1event_1_1_event_1abc85767d2293abbbcbdacbb664f0de54">y</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_event_1a17ec98505f6298414e59a6e94fe36743">pointerExited</link> (float <link linkend="_classage_1_1event_1_1_event_1a792682652f6f470eec7720544df72e73">x</link>, float <link linkend="_classage_1_1event_1_1_event_1abc85767d2293abbbcbdacbb664f0de54">y</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_event_1a2ea39cbe8909e6691259f0704fd7ca40">pointerMoved</link> (float <link linkend="_classage_1_1event_1_1_event_1a792682652f6f470eec7720544df72e73">x</link>, float <link linkend="_classage_1_1event_1_1_event_1abc85767d2293abbbcbdacbb664f0de54">y</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_event_1a24f1b3cbfd4040079e257038e7324667">pointerPressed</link> (<link linkend="_enumage_1_1event_1_1_button">Button</link> <link linkend="_classage_1_1event_1_1_event_1a3ff2a7a1a397e69cb5a7691f85207331">button</link>, int <link linkend="_classage_1_1event_1_1_event_1a2902997966378cb2c90c9743418eb357">count</link>, float <link linkend="_classage_1_1event_1_1_event_1a792682652f6f470eec7720544df72e73">x</link>, float <link linkend="_classage_1_1event_1_1_event_1abc85767d2293abbbcbdacbb664f0de54">y</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_event_1ac5ee6d7877f6772eecf4f02e5bc47692">pointerClicked</link> (<link linkend="_enumage_1_1event_1_1_button">Button</link> <link linkend="_classage_1_1event_1_1_event_1a3ff2a7a1a397e69cb5a7691f85207331">button</link>, int <link linkend="_classage_1_1event_1_1_event_1a2902997966378cb2c90c9743418eb357">count</link>, float <link linkend="_classage_1_1event_1_1_event_1a792682652f6f470eec7720544df72e73">x</link>, float <link linkend="_classage_1_1event_1_1_event_1abc85767d2293abbbcbdacbb664f0de54">y</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_event_1ad1705b9afd4292c376d76bb4414cd224">pointerReleased</link> (<link linkend="_enumage_1_1event_1_1_button">Button</link> <link linkend="_classage_1_1event_1_1_event_1a3ff2a7a1a397e69cb5a7691f85207331">button</link>, int <link linkend="_classage_1_1event_1_1_event_1a2902997966378cb2c90c9743418eb357">count</link>, float <link linkend="_classage_1_1event_1_1_event_1a792682652f6f470eec7720544df72e73">x</link>, float <link linkend="_classage_1_1event_1_1_event_1abc85767d2293abbbcbdacbb664f0de54">y</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_event_1a732858e15796f8430ecea29f1a226df3">surfaceResized</link> (float w, float h)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_event_1aa5f1ac3bd74a79591af7b8fe9619a94f">surfaceCloseRequest</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_event_1a9abc22a9b871d6907da0f76d482fa64b">taskCommand</link> (String <link linkend="_classage_1_1event_1_1_event_1a14ae75375d68b69854a4c6c0d8233f7c">command</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Package Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classage_1_1event_1_1_event_1ab85cbe8e943fdd72ca10df6aed7e58dc">Event</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_event_1ab8a3b1ecb8608092cd5b47d3cfe1dc3c">keyEvent</link> (<link linkend="_enumage_1_1event_1_1_type">Type</link> <link linkend="_classage_1_1event_1_1_event_1a8d2f4c36a1d38918cf0d3fe68dde9ded">type</link>, <link linkend="_enumage_1_1event_1_1_key">Key</link> <link linkend="_classage_1_1event_1_1_event_1a2c61680aad4c85b4355635418ec1bff5">key</link>, char <link linkend="_classage_1_1event_1_1_event_1a630467255ee3d815c648d94e66beaf5b">character</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_event_1a801bfbeccc05ee9c21ab307bdeff4895">pointerEvent</link> (<link linkend="_enumage_1_1event_1_1_type">Type</link> <link linkend="_classage_1_1event_1_1_event_1a8d2f4c36a1d38918cf0d3fe68dde9ded">type</link>, <link linkend="_enumage_1_1event_1_1_button">Button</link> <link linkend="_classage_1_1event_1_1_event_1a3ff2a7a1a397e69cb5a7691f85207331">button</link>, int <link linkend="_classage_1_1event_1_1_event_1a2902997966378cb2c90c9743418eb357">count</link>, float <link linkend="_classage_1_1event_1_1_event_1a792682652f6f470eec7720544df72e73">x</link>, float <link linkend="_classage_1_1event_1_1_event_1abc85767d2293abbbcbdacbb664f0de54">y</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_type">Type</link> <link linkend="_classage_1_1event_1_1_event_1a8d2f4c36a1d38918cf0d3fe68dde9ded">type</link> = <link linkend="_enumage_1_1event_1_1_type_1a18e0413044f2f33c86234ec9f4d557b2">Type.NONE</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_key">Key</link> <link linkend="_classage_1_1event_1_1_event_1a2c61680aad4c85b4355635418ec1bff5">key</link> = <link linkend="_enumage_1_1event_1_1_key_1ab4c55985ae60f6e544903265f9ce79e3">Key.NONE</link></para>
+</listitem>
+            <listitem><para>char <link linkend="_classage_1_1event_1_1_event_1a630467255ee3d815c648d94e66beaf5b">character</link> = &apos;\0&apos;</para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_button">Button</link> <link linkend="_classage_1_1event_1_1_event_1a3ff2a7a1a397e69cb5a7691f85207331">button</link> = <link linkend="_enumage_1_1event_1_1_button_1ad622801bcfc4d8695ed110601123419e">Button.NONE</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_classage_1_1event_1_1_event_1a2902997966378cb2c90c9743418eb357">count</link> = -1</para>
+</listitem>
+            <listitem><para>Vector2f <link linkend="_classage_1_1event_1_1_event_1aa9fb3bc830d1b9e64758148f5c5d5f9a">position</link> = new Vector2f()</para>
+</listitem>
+            <listitem><para>Vector2f <link linkend="_classage_1_1event_1_1_event_1ab4bc7a0c08b42dff5dfde6621a449dc3">dimension</link> = new Vector2f()</para>
+</listitem>
+            <listitem><para>String <link linkend="_classage_1_1event_1_1_event_1a14ae75375d68b69854a4c6c0d8233f7c">command</link> = null</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classage_1_1event_1_1_event_1ab85cbe8e943fdd72ca10df6aed7e58dc"/><section>
+    <title>Event()</title>
+<indexterm><primary>Event</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>Event</secondary></indexterm>
+<para><computeroutput>age.event.Event.Event ( )<computeroutput>[package]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classage_1_1event_1_1_event_1aed13ac5f62a070b15a852215c77214e3"/><section>
+    <title>button()</title>
+<indexterm><primary>button</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>button</secondary></indexterm>
+<para><computeroutput><link linkend="_enumage_1_1event_1_1_button">Button</link> age.event.Event.button ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a3fb014ade4addb34755b524c91e528f5"/><section>
+    <title>character()</title>
+<indexterm><primary>character</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>character</secondary></indexterm>
+<para><computeroutput>char age.event.Event.character ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1ad60211c79dbbffc85408cb0d4aebbcfb"/><section>
+    <title>clear()</title>
+<indexterm><primary>clear</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>clear</secondary></indexterm>
+<para><computeroutput>void age.event.Event.clear ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1ae4e803eebd5868105e289d49f2f0fd57"/><section>
+    <title>command()</title>
+<indexterm><primary>command</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>command</secondary></indexterm>
+<para><computeroutput>String age.event.Event.command ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a5088703a7d22050c6960b64352f13793"/><section>
+    <title>count()</title>
+<indexterm><primary>count</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>count</secondary></indexterm>
+<para><computeroutput>int age.event.Event.count ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a3afddd440fc2877e42d951c946096f9d"/><section>
+    <title>dimension()</title>
+<indexterm><primary>dimension</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>dimension</secondary></indexterm>
+<para><computeroutput>Vector2f age.event.Event.dimension ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1ac48edfd04e5a7c90eeb01ae4377e7626"/><section>
+    <title>height()</title>
+<indexterm><primary>height</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>height</secondary></indexterm>
+<para><computeroutput>float age.event.Event.height ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1aa22a34c8ea57b9184f4a878ff90df99a"/><section>
+    <title>key()</title>
+<indexterm><primary>key</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>key</secondary></indexterm>
+<para><computeroutput><link linkend="_enumage_1_1event_1_1_key">Key</link> age.event.Event.key ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1ab8a3b1ecb8608092cd5b47d3cfe1dc3c"/><section>
+    <title>keyEvent()</title>
+<indexterm><primary>keyEvent</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>keyEvent</secondary></indexterm>
+<para><computeroutput>void age.event.Event.keyEvent (<link linkend="_enumage_1_1event_1_1_type">Type</link> type, <link linkend="_enumage_1_1event_1_1_key">Key</link> key, char character)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1afc24d191a8ec0a1517fe251bf4fcbee5"/><section>
+    <title>keyPressed()</title>
+<indexterm><primary>keyPressed</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>keyPressed</secondary></indexterm>
+<para><computeroutput>void age.event.Event.keyPressed (<link linkend="_enumage_1_1event_1_1_key">Key</link> key, char character)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1afddc2c56ad096b6d0a74119cbb8ac666"/><section>
+    <title>keyReleased()</title>
+<indexterm><primary>keyReleased</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>keyReleased</secondary></indexterm>
+<para><computeroutput>void age.event.Event.keyReleased (<link linkend="_enumage_1_1event_1_1_key">Key</link> key, char character)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1aff68355e55ec49d1b2668baf3dd6298d"/><section>
+    <title>keyTyped()</title>
+<indexterm><primary>keyTyped</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>keyTyped</secondary></indexterm>
+<para><computeroutput>void age.event.Event.keyTyped (<link linkend="_enumage_1_1event_1_1_key">Key</link> key, char character)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1ac5ee6d7877f6772eecf4f02e5bc47692"/><section>
+    <title>pointerClicked()</title>
+<indexterm><primary>pointerClicked</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>pointerClicked</secondary></indexterm>
+<para><computeroutput>void age.event.Event.pointerClicked (<link linkend="_enumage_1_1event_1_1_button">Button</link> button, int count, float x, float y)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a60df303110b82cb4836aca4fcb699973"/><section>
+    <title>pointerEntered()</title>
+<indexterm><primary>pointerEntered</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>pointerEntered</secondary></indexterm>
+<para><computeroutput>void age.event.Event.pointerEntered (float x, float y)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a801bfbeccc05ee9c21ab307bdeff4895"/><section>
+    <title>pointerEvent()</title>
+<indexterm><primary>pointerEvent</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>pointerEvent</secondary></indexterm>
+<para><computeroutput>void age.event.Event.pointerEvent (<link linkend="_enumage_1_1event_1_1_type">Type</link> type, <link linkend="_enumage_1_1event_1_1_button">Button</link> button, int count, float x, float y)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a17ec98505f6298414e59a6e94fe36743"/><section>
+    <title>pointerExited()</title>
+<indexterm><primary>pointerExited</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>pointerExited</secondary></indexterm>
+<para><computeroutput>void age.event.Event.pointerExited (float x, float y)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a2ea39cbe8909e6691259f0704fd7ca40"/><section>
+    <title>pointerMoved()</title>
+<indexterm><primary>pointerMoved</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>pointerMoved</secondary></indexterm>
+<para><computeroutput>void age.event.Event.pointerMoved (float x, float y)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a24f1b3cbfd4040079e257038e7324667"/><section>
+    <title>pointerPressed()</title>
+<indexterm><primary>pointerPressed</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>pointerPressed</secondary></indexterm>
+<para><computeroutput>void age.event.Event.pointerPressed (<link linkend="_enumage_1_1event_1_1_button">Button</link> button, int count, float x, float y)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1ad1705b9afd4292c376d76bb4414cd224"/><section>
+    <title>pointerReleased()</title>
+<indexterm><primary>pointerReleased</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>pointerReleased</secondary></indexterm>
+<para><computeroutput>void age.event.Event.pointerReleased (<link linkend="_enumage_1_1event_1_1_button">Button</link> button, int count, float x, float y)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a8e3b1e5fe78f75ac6502f1a2d632fa7f"/><section>
+    <title>position()</title>
+<indexterm><primary>position</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>position</secondary></indexterm>
+<para><computeroutput>Vector2f age.event.Event.position ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1aa5f1ac3bd74a79591af7b8fe9619a94f"/><section>
+    <title>surfaceCloseRequest()</title>
+<indexterm><primary>surfaceCloseRequest</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>surfaceCloseRequest</secondary></indexterm>
+<para><computeroutput>void age.event.Event.surfaceCloseRequest ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a732858e15796f8430ecea29f1a226df3"/><section>
+    <title>surfaceResized()</title>
+<indexterm><primary>surfaceResized</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>surfaceResized</secondary></indexterm>
+<para><computeroutput>void age.event.Event.surfaceResized (float w, float h)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a9abc22a9b871d6907da0f76d482fa64b"/><section>
+    <title>taskCommand()</title>
+<indexterm><primary>taskCommand</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>taskCommand</secondary></indexterm>
+<para><computeroutput>void age.event.Event.taskCommand (String command)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a08e94a0c776171f06ff81a1f57039b4a"/><section>
+    <title>type()</title>
+<indexterm><primary>type</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>type</secondary></indexterm>
+<para><computeroutput><link linkend="_enumage_1_1event_1_1_type">Type</link> age.event.Event.type ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a5387afd9bff5d6f17236c5dc6bbb0270"/><section>
+    <title>width()</title>
+<indexterm><primary>width</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>width</secondary></indexterm>
+<para><computeroutput>float age.event.Event.width ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a792682652f6f470eec7720544df72e73"/><section>
+    <title>x()</title>
+<indexterm><primary>x</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>x</secondary></indexterm>
+<para><computeroutput>float age.event.Event.x ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1abc85767d2293abbbcbdacbb664f0de54"/><section>
+    <title>y()</title>
+<indexterm><primary>y</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>y</secondary></indexterm>
+<para><computeroutput>float age.event.Event.y ( )</computeroutput></para></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classage_1_1event_1_1_event_1a3ff2a7a1a397e69cb5a7691f85207331"/><section>
+    <title>button</title>
+<indexterm><primary>button</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>button</secondary></indexterm>
+<para><computeroutput><link linkend="_enumage_1_1event_1_1_button">Button</link> age.event.Event.button = <link linkend="_enumage_1_1event_1_1_button_1ad622801bcfc4d8695ed110601123419e">Button.NONE</link><computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a630467255ee3d815c648d94e66beaf5b"/><section>
+    <title>character</title>
+<indexterm><primary>character</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>character</secondary></indexterm>
+<para><computeroutput>char age.event.Event.character = &apos;\0&apos;<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a14ae75375d68b69854a4c6c0d8233f7c"/><section>
+    <title>command</title>
+<indexterm><primary>command</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>command</secondary></indexterm>
+<para><computeroutput>String age.event.Event.command = null<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a2902997966378cb2c90c9743418eb357"/><section>
+    <title>count</title>
+<indexterm><primary>count</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>count</secondary></indexterm>
+<para><computeroutput>int age.event.Event.count = -1<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1ab4bc7a0c08b42dff5dfde6621a449dc3"/><section>
+    <title>dimension</title>
+<indexterm><primary>dimension</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>dimension</secondary></indexterm>
+<para><computeroutput>Vector2f age.event.Event.dimension = new Vector2f()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a2c61680aad4c85b4355635418ec1bff5"/><section>
+    <title>key</title>
+<indexterm><primary>key</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>key</secondary></indexterm>
+<para><computeroutput><link linkend="_enumage_1_1event_1_1_key">Key</link> age.event.Event.key = <link linkend="_enumage_1_1event_1_1_key_1ab4c55985ae60f6e544903265f9ce79e3">Key.NONE</link><computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1aa9fb3bc830d1b9e64758148f5c5d5f9a"/><section>
+    <title>position</title>
+<indexterm><primary>position</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>position</secondary></indexterm>
+<para><computeroutput>Vector2f age.event.Event.position = new Vector2f()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_event_1a8d2f4c36a1d38918cf0d3fe68dde9ded"/><section>
+    <title>type</title>
+<indexterm><primary>type</primary><secondary>age.event.Event</secondary></indexterm>
+<indexterm><primary>age.event.Event</primary><secondary>type</secondary></indexterm>
+<para><computeroutput><link linkend="_enumage_1_1event_1_1_type">Type</link> age.event.Event.type = <link linkend="_enumage_1_1event_1_1_type_1a18e0413044f2f33c86234ec9f4d557b2">Type.NONE</link><computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following file:</para>
+d:/GIT/repos/ODE/age/age/event/<link linkend="__event_8java">Event.java</link></section>
+</section>

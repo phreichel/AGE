@@ -1,0 +1,112 @@
+.TH "age.Client" 3 "Version 1" "ODE Framework" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+age.Client
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBrun\fP ()"
+.br
+.ti -1c
+.RI "void \fBshutdown\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBmain\fP (String[] args)"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetup\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetupGUI\fP ()"
+.br
+.ti -1c
+.RI "void \fBtoggleSysmenu\fP ()"
+.br
+.ti -1c
+.RI "void \fBloop\fP ()"
+.br
+.ti -1c
+.RI "void \fBrender\fP (int count, long nanoperiod, float dT)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (int count, long nanoperiod, float dT)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "Clock \fBclock\fP = new Clock()"
+.br
+.ti -1c
+.RI "Events \fBevents\fP = new Events()"
+.br
+.ti -1c
+.RI "Widgets \fBwidgets\fP = new Widgets()"
+.br
+.ti -1c
+.RI "Tasks \fBtasks\fP = new Tasks()"
+.br
+.ti -1c
+.RI "Port \fBport\fP = new JOGLPort()"
+.br
+.ti -1c
+.RI "boolean \fBrunning\fP = false"
+.br
+.ti -1c
+.RI "Widget \fBsysMenuFrame\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "void age\&.Client\&.loop ()\fC [private]\fP"
+
+.SS "static void age\&.Client\&.main (String[] args)\fC [static]\fP"
+
+.SS "void age\&.Client\&.render (int count, long nanoperiod, float dT)\fC [private]\fP"
+
+.SS "void age\&.Client\&.run ()"
+
+.SS "void age\&.Client\&.setup ()\fC [private]\fP"
+
+.SS "void age\&.Client\&.setupGUI ()\fC [private]\fP"
+
+.SS "void age\&.Client\&.shutdown ()"
+
+.SS "void age\&.Client\&.toggleSysmenu ()\fC [private]\fP"
+
+.SS "void age\&.Client\&.update (int count, long nanoperiod, float dT)\fC [private]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "Clock age\&.Client\&.clock = new Clock()\fC [private]\fP"
+
+.SS "Events age\&.Client\&.events = new Events()\fC [private]\fP"
+
+.SS "Port age\&.Client\&.port = new JOGLPort()\fC [private]\fP"
+
+.SS "boolean age\&.Client\&.running = false\fC [private]\fP"
+
+.SS "Widget age\&.Client\&.sysMenuFrame\fC [private]\fP"
+
+.SS "Tasks age\&.Client\&.tasks = new Tasks()\fC [private]\fP"
+
+.SS "Widgets age\&.Client\&.widgets = new Widgets()\fC [private]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ODE Framework from the source code\&.

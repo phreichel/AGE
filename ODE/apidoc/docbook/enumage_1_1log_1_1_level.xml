@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumage_1_1log_1_1_level" xml:lang="en-US">
+<title>age.log.Level Enum Reference</title>
+<indexterm><primary>age.log.Level</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumage_1_1log_1_1_level_1a63cca1792443b1143844d5c6abf95dc9">ERROR</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1log_1_1_level_1a7001832c048c57c40a6689cd386a8bd8">WARNING</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1log_1_1_level_1a267375864f6a8b317a3ebff04bb92955">INFO</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1log_1_1_level_1a0240ef6f94d0cb6fdb161d3d44b1d7c2">DEBUG</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enumage_1_1log_1_1_level_1a0240ef6f94d0cb6fdb161d3d44b1d7c2"/><section>
+    <title>DEBUG</title>
+<indexterm><primary>DEBUG</primary><secondary>age.log.Level</secondary></indexterm>
+<indexterm><primary>age.log.Level</primary><secondary>DEBUG</secondary></indexterm>
+<para><computeroutput>age.log.Level.DEBUG</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1log_1_1_level_1a63cca1792443b1143844d5c6abf95dc9"/><section>
+    <title>ERROR</title>
+<indexterm><primary>ERROR</primary><secondary>age.log.Level</secondary></indexterm>
+<indexterm><primary>age.log.Level</primary><secondary>ERROR</secondary></indexterm>
+<para><computeroutput>age.log.Level.ERROR</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1log_1_1_level_1a267375864f6a8b317a3ebff04bb92955"/><section>
+    <title>INFO</title>
+<indexterm><primary>INFO</primary><secondary>age.log.Level</secondary></indexterm>
+<indexterm><primary>age.log.Level</primary><secondary>INFO</secondary></indexterm>
+<para><computeroutput>age.log.Level.INFO</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1log_1_1_level_1a7001832c048c57c40a6689cd386a8bd8"/><section>
+    <title>WARNING</title>
+<indexterm><primary>WARNING</primary><secondary>age.log.Level</secondary></indexterm>
+<indexterm><primary>age.log.Level</primary><secondary>WARNING</secondary></indexterm>
+<para><computeroutput>age.log.Level.WARNING</computeroutput></para></section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+d:/GIT/repos/ODE/age/age/log/<link linkend="__level_8java">Level.java</link></section>
+</section>

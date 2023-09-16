@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classage_1_1gui_1_1_widgets" xml:lang="en-US">
+<title>age.gui.Widgets Class Reference</title>
+<indexterm><primary>age.gui.Widgets</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classage_1_1gui_1_1_widgets_1a48839aa9b99d001c5ddae35d52778921">Widgets</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widgets_1aaad79c1e69c8bbac8561af457e1967f4">assign</link> (Port port)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widgets_1acfc7029f18e1e48fbdfd4d918f3f9bc1">assign</link> (Events events)</para>
+</listitem>
+            <listitem><para><link linkend="_classage_1_1gui_1_1_widget">Widget</link> <link linkend="_classage_1_1gui_1_1_widgets_1a166658fd5c4088389f47d983387cf7c5">root</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classage_1_1gui_1_1_widget">Widget</link> <link linkend="_classage_1_1gui_1_1_widgets_1a8b07c2b9014911230dabb9ac647cd70c">root</link> = new <link linkend="_classage_1_1gui_1_1_widget">Widget</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_classage_1_1gui_1_1_handling">Handling</link> <link linkend="_classage_1_1gui_1_1_widgets_1a590d710ee33d56405e4e3645842a487e">handling</link> = new <link linkend="_classage_1_1gui_1_1_handling">Handling</link>(this)</para>
+</listitem>
+            <listitem><para><link linkend="_classage_1_1gui_1_1_rendering">Rendering</link> <link linkend="_classage_1_1gui_1_1_widgets_1a157aee1f77f7ab622436b4b82abcf27b">rendering</link> = new <link linkend="_classage_1_1gui_1_1_rendering">Rendering</link>(this)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classage_1_1gui_1_1_widgets_1a48839aa9b99d001c5ddae35d52778921"/><section>
+    <title>Widgets()</title>
+<indexterm><primary>Widgets</primary><secondary>age.gui.Widgets</secondary></indexterm>
+<indexterm><primary>age.gui.Widgets</primary><secondary>Widgets</secondary></indexterm>
+<para><computeroutput>age.gui.Widgets.Widgets ( )</computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classage_1_1gui_1_1_widgets_1acfc7029f18e1e48fbdfd4d918f3f9bc1"/><section>
+    <title>assign()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>assign</primary><secondary>age.gui.Widgets</secondary></indexterm>
+<indexterm><primary>age.gui.Widgets</primary><secondary>assign</secondary></indexterm>
+<para><computeroutput>void age.gui.Widgets.assign (Events events)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widgets_1aaad79c1e69c8bbac8561af457e1967f4"/><section>
+    <title>assign()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>assign</primary><secondary>age.gui.Widgets</secondary></indexterm>
+<indexterm><primary>age.gui.Widgets</primary><secondary>assign</secondary></indexterm>
+<para><computeroutput>void age.gui.Widgets.assign (Port port)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widgets_1a166658fd5c4088389f47d983387cf7c5"/><section>
+    <title>root()</title>
+<indexterm><primary>root</primary><secondary>age.gui.Widgets</secondary></indexterm>
+<indexterm><primary>age.gui.Widgets</primary><secondary>root</secondary></indexterm>
+<para><computeroutput><link linkend="_classage_1_1gui_1_1_widget">Widget</link> age.gui.Widgets.root ( )</computeroutput></para></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classage_1_1gui_1_1_widgets_1a590d710ee33d56405e4e3645842a487e"/><section>
+    <title>handling</title>
+<indexterm><primary>handling</primary><secondary>age.gui.Widgets</secondary></indexterm>
+<indexterm><primary>age.gui.Widgets</primary><secondary>handling</secondary></indexterm>
+<para><computeroutput><link linkend="_classage_1_1gui_1_1_handling">Handling</link> age.gui.Widgets.handling = new <link linkend="_classage_1_1gui_1_1_handling">Handling</link>(this)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widgets_1a157aee1f77f7ab622436b4b82abcf27b"/><section>
+    <title>rendering</title>
+<indexterm><primary>rendering</primary><secondary>age.gui.Widgets</secondary></indexterm>
+<indexterm><primary>age.gui.Widgets</primary><secondary>rendering</secondary></indexterm>
+<para><computeroutput><link linkend="_classage_1_1gui_1_1_rendering">Rendering</link> age.gui.Widgets.rendering = new <link linkend="_classage_1_1gui_1_1_rendering">Rendering</link>(this)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widgets_1a8b07c2b9014911230dabb9ac647cd70c"/><section>
+    <title>root</title>
+<indexterm><primary>root</primary><secondary>age.gui.Widgets</secondary></indexterm>
+<indexterm><primary>age.gui.Widgets</primary><secondary>root</secondary></indexterm>
+<para><computeroutput><link linkend="_classage_1_1gui_1_1_widget">Widget</link> age.gui.Widgets.root = new <link linkend="_classage_1_1gui_1_1_widget">Widget</link>()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following file:</para>
+d:/GIT/repos/ODE/age/age/gui/<link linkend="__widgets_8java">Widgets.java</link></section>
+</section>

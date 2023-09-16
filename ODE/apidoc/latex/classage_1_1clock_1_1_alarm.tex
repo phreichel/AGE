@@ -1,0 +1,84 @@
+\doxysection{age.\+clock.\+Alarm Class Reference}
+\hypertarget{classage_1_1clock_1_1_alarm}{}\label{classage_1_1clock_1_1_alarm}\index{age.clock.Alarm@{age.clock.Alarm}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classage_1_1clock_1_1_alarm_a2d0ff2184fa41e0f47817224290fdb44}{init}} (long nanotime)
+\item 
+void \mbox{\hyperlink{classage_1_1clock_1_1_alarm_a808d3cf830447b57fcfe60547929a46d}{update}} (long nanotime)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Package Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classage_1_1clock_1_1_alarm_ac025fba9c450971103ff04baa259d5ca}{Alarm}} (long \mbox{\hyperlink{classage_1_1clock_1_1_alarm_a6244c2ed75feda03f196defa3d697ef3}{nanoperiod}}, \mbox{\hyperlink{interfaceage_1_1clock_1_1_task}{Task}} \mbox{\hyperlink{classage_1_1clock_1_1_alarm_af7537fd56660e507824884f14fc67009}{task}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classage_1_1clock_1_1_alarm_ab206cd8177710e09865733c7ad1fee01}{trigger}} (int count, float dT)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{classage_1_1clock_1_1_alarm_a6244c2ed75feda03f196defa3d697ef3}{nanoperiod}}
+\item 
+\mbox{\hyperlink{interfaceage_1_1clock_1_1_task}{Task}} \mbox{\hyperlink{classage_1_1clock_1_1_alarm_af7537fd56660e507824884f14fc67009}{task}}
+\item 
+long \mbox{\hyperlink{classage_1_1clock_1_1_alarm_a637135f72702c7aa8ca32c7b19dee0b2}{mark}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classage_1_1clock_1_1_alarm_ac025fba9c450971103ff04baa259d5ca}\label{classage_1_1clock_1_1_alarm_ac025fba9c450971103ff04baa259d5ca} 
+\index{age.clock.Alarm@{age.clock.Alarm}!Alarm@{Alarm}}
+\index{Alarm@{Alarm}!age.clock.Alarm@{age.clock.Alarm}}
+\doxysubsubsection{\texorpdfstring{Alarm()}{Alarm()}}
+{\footnotesize\ttfamily age.\+clock.\+Alarm.\+Alarm (\begin{DoxyParamCaption}\item[{long}]{nanoperiod,  }\item[{\mbox{\hyperlink{interfaceage_1_1clock_1_1_task}{Task}}}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [package]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classage_1_1clock_1_1_alarm_a2d0ff2184fa41e0f47817224290fdb44}\label{classage_1_1clock_1_1_alarm_a2d0ff2184fa41e0f47817224290fdb44} 
+\index{age.clock.Alarm@{age.clock.Alarm}!init@{init}}
+\index{init@{init}!age.clock.Alarm@{age.clock.Alarm}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void age.\+clock.\+Alarm.\+init (\begin{DoxyParamCaption}\item[{long}]{nanotime }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1clock_1_1_alarm_ab206cd8177710e09865733c7ad1fee01}\label{classage_1_1clock_1_1_alarm_ab206cd8177710e09865733c7ad1fee01} 
+\index{age.clock.Alarm@{age.clock.Alarm}!trigger@{trigger}}
+\index{trigger@{trigger}!age.clock.Alarm@{age.clock.Alarm}}
+\doxysubsubsection{\texorpdfstring{trigger()}{trigger()}}
+{\footnotesize\ttfamily void age.\+clock.\+Alarm.\+trigger (\begin{DoxyParamCaption}\item[{int}]{count,  }\item[{float}]{dT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1clock_1_1_alarm_a808d3cf830447b57fcfe60547929a46d}\label{classage_1_1clock_1_1_alarm_a808d3cf830447b57fcfe60547929a46d} 
+\index{age.clock.Alarm@{age.clock.Alarm}!update@{update}}
+\index{update@{update}!age.clock.Alarm@{age.clock.Alarm}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void age.\+clock.\+Alarm.\+update (\begin{DoxyParamCaption}\item[{long}]{nanotime }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classage_1_1clock_1_1_alarm_a637135f72702c7aa8ca32c7b19dee0b2}\label{classage_1_1clock_1_1_alarm_a637135f72702c7aa8ca32c7b19dee0b2} 
+\index{age.clock.Alarm@{age.clock.Alarm}!mark@{mark}}
+\index{mark@{mark}!age.clock.Alarm@{age.clock.Alarm}}
+\doxysubsubsection{\texorpdfstring{mark}{mark}}
+{\footnotesize\ttfamily long age.\+clock.\+Alarm.\+mark\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1clock_1_1_alarm_a6244c2ed75feda03f196defa3d697ef3}\label{classage_1_1clock_1_1_alarm_a6244c2ed75feda03f196defa3d697ef3} 
+\index{age.clock.Alarm@{age.clock.Alarm}!nanoperiod@{nanoperiod}}
+\index{nanoperiod@{nanoperiod}!age.clock.Alarm@{age.clock.Alarm}}
+\doxysubsubsection{\texorpdfstring{nanoperiod}{nanoperiod}}
+{\footnotesize\ttfamily long age.\+clock.\+Alarm.\+nanoperiod\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1clock_1_1_alarm_af7537fd56660e507824884f14fc67009}\label{classage_1_1clock_1_1_alarm_af7537fd56660e507824884f14fc67009} 
+\index{age.clock.Alarm@{age.clock.Alarm}!task@{task}}
+\index{task@{task}!age.clock.Alarm@{age.clock.Alarm}}
+\doxysubsubsection{\texorpdfstring{task}{task}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interfaceage_1_1clock_1_1_task}{Task}} age.\+clock.\+Alarm.\+task\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+d\+:/\+GIT/repos/\+ODE/age/age/clock/\mbox{\hyperlink{_alarm_8java}{Alarm.\+java}}\end{DoxyCompactItemize}

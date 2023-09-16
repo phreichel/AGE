@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_2e68cb93e5c8fdef3d665d4b21ab592e" xml:lang="en-US">
+<title>d:/GIT/repos/ODE/age/age/gui Directory Reference</title>
+<indexterm><primary>d:/GIT/repos/ODE/age/age/gui Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__dock_8java">Dock.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__flag_8java">Flag.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__handling_8java">Handling.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__rendering_8java">Rendering.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__widget_8java">Widget.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__widgets_8java">Widgets.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__window_8java">Window.java</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interfaceage_1_1clock_1_1_task" xml:lang="en-US">
+<title>age.clock.Task Interface Reference</title>
+<indexterm><primary>age.clock.Task</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_interfaceage_1_1clock_1_1_task_1a7cc692c047ef94b010ba8d5172e6a6be">run</link> (int count, long nanoperiod, float dT)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_interfaceage_1_1clock_1_1_task_1a7cc692c047ef94b010ba8d5172e6a6be"/><section>
+    <title>run()</title>
+<indexterm><primary>run</primary><secondary>age.clock.Task</secondary></indexterm>
+<indexterm><primary>age.clock.Task</primary><secondary>run</secondary></indexterm>
+<para><computeroutput>void age.clock.Task.run (int count, long nanoperiod, float dT)</computeroutput></para></section>
+<para>
+The documentation for this interface was generated from the following file:</para>
+d:/GIT/repos/ODE/age/age/clock/<link linkend="_clock_2_task_8java">Task.java</link></section>
+</section>

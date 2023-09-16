@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classage_1_1gui_1_1_dock" xml:lang="en-US">
+<title>age.gui.Dock Class Reference</title>
+<indexterm><primary>age.gui.Dock</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>float <link linkend="_classage_1_1gui_1_1_dock_1a1221b1b541f09af36e4bf5c4be5de7bb">top</link> ()</para>
+</listitem>
+            <listitem><para>float <link linkend="_classage_1_1gui_1_1_dock_1ae84c08965ccea93c3641e5d905cdf441">bottom</link> ()</para>
+</listitem>
+            <listitem><para>float <link linkend="_classage_1_1gui_1_1_dock_1ac27a6619307622c8cbca36bb412969c1">left</link> ()</para>
+</listitem>
+            <listitem><para>float <link linkend="_classage_1_1gui_1_1_dock_1ade9cf4724cea341e7dc06ccef47bd235">right</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_dock_1aa3404b703809f0cef73464ca810b11ee">set</link> (<link linkend="_classage_1_1gui_1_1_dock">Dock</link> dock)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_dock_1a36ff630fe5e0e8785a9c0ee06a7e85a5">set</link> (float <link linkend="_classage_1_1gui_1_1_dock_1ab2607ac1d826809a50187da1416f5394">left</link>, float <link linkend="_classage_1_1gui_1_1_dock_1a91a83530c11a0a9397550f59d7cf2e9f">right</link>, float <link linkend="_classage_1_1gui_1_1_dock_1a67101d4283d059c9a1d8312c99b8b4cc">top</link>, float <link linkend="_classage_1_1gui_1_1_dock_1a356a80bea2988512ef5d25adf2cb4936">bottom</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para>float <link linkend="_classage_1_1gui_1_1_dock_1ab2607ac1d826809a50187da1416f5394">left</link> = 0</para>
+</listitem>
+            <listitem><para>float <link linkend="_classage_1_1gui_1_1_dock_1a91a83530c11a0a9397550f59d7cf2e9f">right</link> = 0</para>
+</listitem>
+            <listitem><para>float <link linkend="_classage_1_1gui_1_1_dock_1a67101d4283d059c9a1d8312c99b8b4cc">top</link> = 0</para>
+</listitem>
+            <listitem><para>float <link linkend="_classage_1_1gui_1_1_dock_1a356a80bea2988512ef5d25adf2cb4936">bottom</link> = 0</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classage_1_1gui_1_1_dock_1ae84c08965ccea93c3641e5d905cdf441"/><section>
+    <title>bottom()</title>
+<indexterm><primary>bottom</primary><secondary>age.gui.Dock</secondary></indexterm>
+<indexterm><primary>age.gui.Dock</primary><secondary>bottom</secondary></indexterm>
+<para><computeroutput>float age.gui.Dock.bottom ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_dock_1ac27a6619307622c8cbca36bb412969c1"/><section>
+    <title>left()</title>
+<indexterm><primary>left</primary><secondary>age.gui.Dock</secondary></indexterm>
+<indexterm><primary>age.gui.Dock</primary><secondary>left</secondary></indexterm>
+<para><computeroutput>float age.gui.Dock.left ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_dock_1ade9cf4724cea341e7dc06ccef47bd235"/><section>
+    <title>right()</title>
+<indexterm><primary>right</primary><secondary>age.gui.Dock</secondary></indexterm>
+<indexterm><primary>age.gui.Dock</primary><secondary>right</secondary></indexterm>
+<para><computeroutput>float age.gui.Dock.right ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_dock_1aa3404b703809f0cef73464ca810b11ee"/><section>
+    <title>set()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>set</primary><secondary>age.gui.Dock</secondary></indexterm>
+<indexterm><primary>age.gui.Dock</primary><secondary>set</secondary></indexterm>
+<para><computeroutput>void age.gui.Dock.set (<link linkend="_classage_1_1gui_1_1_dock">Dock</link> dock)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_dock_1a36ff630fe5e0e8785a9c0ee06a7e85a5"/><section>
+    <title>set()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>set</primary><secondary>age.gui.Dock</secondary></indexterm>
+<indexterm><primary>age.gui.Dock</primary><secondary>set</secondary></indexterm>
+<para><computeroutput>void age.gui.Dock.set (float left, float right, float top, float bottom)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_dock_1a1221b1b541f09af36e4bf5c4be5de7bb"/><section>
+    <title>top()</title>
+<indexterm><primary>top</primary><secondary>age.gui.Dock</secondary></indexterm>
+<indexterm><primary>age.gui.Dock</primary><secondary>top</secondary></indexterm>
+<para><computeroutput>float age.gui.Dock.top ( )</computeroutput></para></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classage_1_1gui_1_1_dock_1a356a80bea2988512ef5d25adf2cb4936"/><section>
+    <title>bottom</title>
+<indexterm><primary>bottom</primary><secondary>age.gui.Dock</secondary></indexterm>
+<indexterm><primary>age.gui.Dock</primary><secondary>bottom</secondary></indexterm>
+<para><computeroutput>float age.gui.Dock.bottom = 0<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_dock_1ab2607ac1d826809a50187da1416f5394"/><section>
+    <title>left</title>
+<indexterm><primary>left</primary><secondary>age.gui.Dock</secondary></indexterm>
+<indexterm><primary>age.gui.Dock</primary><secondary>left</secondary></indexterm>
+<para><computeroutput>float age.gui.Dock.left = 0<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_dock_1a91a83530c11a0a9397550f59d7cf2e9f"/><section>
+    <title>right</title>
+<indexterm><primary>right</primary><secondary>age.gui.Dock</secondary></indexterm>
+<indexterm><primary>age.gui.Dock</primary><secondary>right</secondary></indexterm>
+<para><computeroutput>float age.gui.Dock.right = 0<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_dock_1a67101d4283d059c9a1d8312c99b8b4cc"/><section>
+    <title>top</title>
+<indexterm><primary>top</primary><secondary>age.gui.Dock</secondary></indexterm>
+<indexterm><primary>age.gui.Dock</primary><secondary>top</secondary></indexterm>
+<para><computeroutput>float age.gui.Dock.top = 0<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following file:</para>
+d:/GIT/repos/ODE/age/age/gui/<link linkend="__dock_8java">Dock.java</link></section>
+</section>

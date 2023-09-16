@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classage_1_1event_1_1_events" xml:lang="en-US">
+<title>age.event.Events Class Reference</title>
+<indexterm><primary>age.event.Events</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_events_1a6c049da2700b4f0c96149f4c9b983d75">assign</link> (<link linkend="_enumage_1_1event_1_1_type">Type</link> type, <link linkend="_interfaceage_1_1event_1_1_handler">Handler</link> handler)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_events_1aa3400c7599690218e5b670098f502bdc">postKeyPressed</link> (<link linkend="_enumage_1_1event_1_1_key">Key</link> key, char character)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_events_1a55cde1319d64cfce44bf06efd7825124">postKeyReleased</link> (<link linkend="_enumage_1_1event_1_1_key">Key</link> key, char character)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_events_1aa7f7e2c555e3a2690e1739b23783aa33">postKeyTyped</link> (<link linkend="_enumage_1_1event_1_1_key">Key</link> key, char character)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_events_1a135ad2f4082b3d38d012153449c1b9fb">postPointerEntered</link> (float x, float y)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_events_1ad5d38948f40fe4dccd79b19147549844">postPointerExited</link> (float x, float y)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_events_1a6aad279918486b2064a580746772e862">postPointerMoved</link> (float x, float y)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_events_1ae808ab7aa8356907ad8c4cc3fa3a930f">postPointerPressed</link> (<link linkend="_enumage_1_1event_1_1_button">Button</link> button, int count, float x, float y)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_events_1ae5ff25a0b815fdd27028a0d4a0b6f572">postPointerReleased</link> (<link linkend="_enumage_1_1event_1_1_button">Button</link> button, int count, float x, float y)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_events_1afd4d23b22bf8e623f20518b027278738">postPointerClicked</link> (<link linkend="_enumage_1_1event_1_1_button">Button</link> button, int count, float x, float y)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_events_1a5df4a2ee8c00f8a859475af777b2cc2d">postSurfaceResized</link> (float w, float h)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_events_1a00ba879f820a8e8c99b7a98845d41588">postSurfaceCloseRequest</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_events_1ad744d321d5bfeb26a84eee06315888e9">postTaskCommand</link> (String command)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_events_1ae2f519f0688e3f1c1d008d5b515cce0b">update</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_events_1a0dc1e5b84f4877ec11ac782514523a06">handle</link> (<link linkend="_classage_1_1event_1_1_event">Event</link> event)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_events_1a37f91e6c3fab5c788e275a0424a40aa4">post</link> (<link linkend="_classage_1_1event_1_1_event">Event</link> event)</para>
+</listitem>
+            <listitem><para><link linkend="_classage_1_1event_1_1_event">Event</link> <link linkend="_classage_1_1event_1_1_events_1a8d40ffb1305d6ffab195a2472bf6ebd8">alloc</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1event_1_1_events_1aab603a52953b9be7ce6362006dc41f8b">free</link> (<link linkend="_classage_1_1event_1_1_event">Event</link> event)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para>final Queue&lt; <link linkend="_classage_1_1event_1_1_event">Event</link> &gt; <link linkend="_classage_1_1event_1_1_events_1a219da60248dc4b3f391b10934ca52b0b">cache</link> = new LinkedList&lt;&gt;()</para>
+</listitem>
+            <listitem><para>final List&lt; <link linkend="_classage_1_1event_1_1_event">Event</link> &gt; <link linkend="_classage_1_1event_1_1_events_1a76dba772f85e49579b741660f77fc871">inbox</link> = new ArrayList&lt;&gt;()</para>
+</listitem>
+            <listitem><para>final List&lt; <link linkend="_classage_1_1event_1_1_event">Event</link> &gt; <link linkend="_classage_1_1event_1_1_events_1a887ccadf847630dbb936fba8bb7753ad">outbox</link> = new ArrayList&lt;&gt;()</para>
+</listitem>
+            <listitem><para>final Map&lt; <link linkend="_enumage_1_1event_1_1_type">Type</link>, List&lt; <link linkend="_interfaceage_1_1event_1_1_handler">Handler</link> &gt; &gt; <link linkend="_classage_1_1event_1_1_events_1a71cc98d71bb1136b1b8a7aa8fa01e6b0">handlers</link> = new EnumMap&lt;&gt;(Type.class)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classage_1_1event_1_1_events_1a8d40ffb1305d6ffab195a2472bf6ebd8"/><section>
+    <title>alloc()</title>
+<indexterm><primary>alloc</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>alloc</secondary></indexterm>
+<para><computeroutput><link linkend="_classage_1_1event_1_1_event">Event</link> age.event.Events.alloc ( )<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1a6c049da2700b4f0c96149f4c9b983d75"/><section>
+    <title>assign()</title>
+<indexterm><primary>assign</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>assign</secondary></indexterm>
+<para><computeroutput>void age.event.Events.assign (<link linkend="_enumage_1_1event_1_1_type">Type</link> type, <link linkend="_interfaceage_1_1event_1_1_handler">Handler</link> handler)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1aab603a52953b9be7ce6362006dc41f8b"/><section>
+    <title>free()</title>
+<indexterm><primary>free</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>free</secondary></indexterm>
+<para><computeroutput>void age.event.Events.free (<link linkend="_classage_1_1event_1_1_event">Event</link> event)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1a0dc1e5b84f4877ec11ac782514523a06"/><section>
+    <title>handle()</title>
+<indexterm><primary>handle</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>handle</secondary></indexterm>
+<para><computeroutput>void age.event.Events.handle (<link linkend="_classage_1_1event_1_1_event">Event</link> event)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1a37f91e6c3fab5c788e275a0424a40aa4"/><section>
+    <title>post()</title>
+<indexterm><primary>post</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>post</secondary></indexterm>
+<para><computeroutput>void age.event.Events.post (<link linkend="_classage_1_1event_1_1_event">Event</link> event)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1aa3400c7599690218e5b670098f502bdc"/><section>
+    <title>postKeyPressed()</title>
+<indexterm><primary>postKeyPressed</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>postKeyPressed</secondary></indexterm>
+<para><computeroutput>void age.event.Events.postKeyPressed (<link linkend="_enumage_1_1event_1_1_key">Key</link> key, char character)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1a55cde1319d64cfce44bf06efd7825124"/><section>
+    <title>postKeyReleased()</title>
+<indexterm><primary>postKeyReleased</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>postKeyReleased</secondary></indexterm>
+<para><computeroutput>void age.event.Events.postKeyReleased (<link linkend="_enumage_1_1event_1_1_key">Key</link> key, char character)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1aa7f7e2c555e3a2690e1739b23783aa33"/><section>
+    <title>postKeyTyped()</title>
+<indexterm><primary>postKeyTyped</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>postKeyTyped</secondary></indexterm>
+<para><computeroutput>void age.event.Events.postKeyTyped (<link linkend="_enumage_1_1event_1_1_key">Key</link> key, char character)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1afd4d23b22bf8e623f20518b027278738"/><section>
+    <title>postPointerClicked()</title>
+<indexterm><primary>postPointerClicked</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>postPointerClicked</secondary></indexterm>
+<para><computeroutput>void age.event.Events.postPointerClicked (<link linkend="_enumage_1_1event_1_1_button">Button</link> button, int count, float x, float y)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1a135ad2f4082b3d38d012153449c1b9fb"/><section>
+    <title>postPointerEntered()</title>
+<indexterm><primary>postPointerEntered</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>postPointerEntered</secondary></indexterm>
+<para><computeroutput>void age.event.Events.postPointerEntered (float x, float y)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1ad5d38948f40fe4dccd79b19147549844"/><section>
+    <title>postPointerExited()</title>
+<indexterm><primary>postPointerExited</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>postPointerExited</secondary></indexterm>
+<para><computeroutput>void age.event.Events.postPointerExited (float x, float y)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1a6aad279918486b2064a580746772e862"/><section>
+    <title>postPointerMoved()</title>
+<indexterm><primary>postPointerMoved</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>postPointerMoved</secondary></indexterm>
+<para><computeroutput>void age.event.Events.postPointerMoved (float x, float y)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1ae808ab7aa8356907ad8c4cc3fa3a930f"/><section>
+    <title>postPointerPressed()</title>
+<indexterm><primary>postPointerPressed</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>postPointerPressed</secondary></indexterm>
+<para><computeroutput>void age.event.Events.postPointerPressed (<link linkend="_enumage_1_1event_1_1_button">Button</link> button, int count, float x, float y)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1ae5ff25a0b815fdd27028a0d4a0b6f572"/><section>
+    <title>postPointerReleased()</title>
+<indexterm><primary>postPointerReleased</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>postPointerReleased</secondary></indexterm>
+<para><computeroutput>void age.event.Events.postPointerReleased (<link linkend="_enumage_1_1event_1_1_button">Button</link> button, int count, float x, float y)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1a00ba879f820a8e8c99b7a98845d41588"/><section>
+    <title>postSurfaceCloseRequest()</title>
+<indexterm><primary>postSurfaceCloseRequest</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>postSurfaceCloseRequest</secondary></indexterm>
+<para><computeroutput>void age.event.Events.postSurfaceCloseRequest ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1a5df4a2ee8c00f8a859475af777b2cc2d"/><section>
+    <title>postSurfaceResized()</title>
+<indexterm><primary>postSurfaceResized</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>postSurfaceResized</secondary></indexterm>
+<para><computeroutput>void age.event.Events.postSurfaceResized (float w, float h)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1ad744d321d5bfeb26a84eee06315888e9"/><section>
+    <title>postTaskCommand()</title>
+<indexterm><primary>postTaskCommand</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>postTaskCommand</secondary></indexterm>
+<para><computeroutput>void age.event.Events.postTaskCommand (String command)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1ae2f519f0688e3f1c1d008d5b515cce0b"/><section>
+    <title>update()</title>
+<indexterm><primary>update</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>void age.event.Events.update ( )</computeroutput></para></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classage_1_1event_1_1_events_1a219da60248dc4b3f391b10934ca52b0b"/><section>
+    <title>cache</title>
+<indexterm><primary>cache</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>cache</secondary></indexterm>
+<para><computeroutput>final Queue&lt;<link linkend="_classage_1_1event_1_1_event">Event</link>&gt; age.event.Events.cache = new LinkedList&lt;&gt;()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1a71cc98d71bb1136b1b8a7aa8fa01e6b0"/><section>
+    <title>handlers</title>
+<indexterm><primary>handlers</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>handlers</secondary></indexterm>
+<para><computeroutput>final Map&lt;<link linkend="_enumage_1_1event_1_1_type">Type</link>, List&lt;<link linkend="_interfaceage_1_1event_1_1_handler">Handler</link>&gt; &gt; age.event.Events.handlers = new EnumMap&lt;&gt;(Type.class)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1a76dba772f85e49579b741660f77fc871"/><section>
+    <title>inbox</title>
+<indexterm><primary>inbox</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>inbox</secondary></indexterm>
+<para><computeroutput>final List&lt;<link linkend="_classage_1_1event_1_1_event">Event</link>&gt; age.event.Events.inbox = new ArrayList&lt;&gt;()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1event_1_1_events_1a887ccadf847630dbb936fba8bb7753ad"/><section>
+    <title>outbox</title>
+<indexterm><primary>outbox</primary><secondary>age.event.Events</secondary></indexterm>
+<indexterm><primary>age.event.Events</primary><secondary>outbox</secondary></indexterm>
+<para><computeroutput>final List&lt;<link linkend="_classage_1_1event_1_1_event">Event</link>&gt; age.event.Events.outbox = new ArrayList&lt;&gt;()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following file:</para>
+d:/GIT/repos/ODE/age/age/event/<link linkend="__events_8java">Events.java</link></section>
+</section>

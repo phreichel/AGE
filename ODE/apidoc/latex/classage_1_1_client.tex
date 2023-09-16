@@ -1,0 +1,153 @@
+\doxysection{age.\+Client Class Reference}
+\hypertarget{classage_1_1_client}{}\label{classage_1_1_client}\index{age.Client@{age.Client}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classage_1_1_client_a023439dea78c658bcaeaae6892bb92b3}{run}} ()
+\item 
+void \mbox{\hyperlink{classage_1_1_client_aa3d70999bea29a591d2be32d22e451ca}{shutdown}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classage_1_1_client_a6e1d4a4e7ba35d0093669ce85883e7f5}{main}} (String\mbox{[}$\,$\mbox{]} args)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classage_1_1_client_a0db5c60227453971995a576c445a5a3f}{setup}} ()
+\item 
+void \mbox{\hyperlink{classage_1_1_client_ae16cfa941683189d30cacdb0192f4cb3}{setup\+GUI}} ()
+\item 
+void \mbox{\hyperlink{classage_1_1_client_ac0b3d463af7142f5b66db4b81084982c}{toggle\+Sysmenu}} ()
+\item 
+void \mbox{\hyperlink{classage_1_1_client_a85b29db66a0a45f1e3d85232b0dbb42a}{loop}} ()
+\item 
+void \mbox{\hyperlink{classage_1_1_client_a262cc274d1a72947a7ae85e9d37d45b1}{render}} (int count, long nanoperiod, float dT)
+\item 
+void \mbox{\hyperlink{classage_1_1_client_acf3073007d568913e9de853ed6ed71c5}{update}} (int count, long nanoperiod, float dT)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Clock \mbox{\hyperlink{classage_1_1_client_a8c0610502a16a2ce49c33088a8252906}{clock}} = new Clock()
+\item 
+Events \mbox{\hyperlink{classage_1_1_client_a54f8e8d8678897a00caef041fd075a9c}{events}} = new Events()
+\item 
+Widgets \mbox{\hyperlink{classage_1_1_client_ae40b26f92a722a72a7d01019ef93e62d}{widgets}} = new Widgets()
+\item 
+Tasks \mbox{\hyperlink{classage_1_1_client_a96afc357b587d2936315f4699dcbf89e}{tasks}} = new Tasks()
+\item 
+Port \mbox{\hyperlink{classage_1_1_client_a723a726cf731976e3d291a1dfbebd7c3}{port}} = new JOGLPort()
+\item 
+boolean \mbox{\hyperlink{classage_1_1_client_a78da685fcde97d6dc65d3b5aa1eff5fb}{running}} = false
+\item 
+Widget \mbox{\hyperlink{classage_1_1_client_a8f55ec15c3c114c616438694718836c4}{sys\+Menu\+Frame}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classage_1_1_client_a85b29db66a0a45f1e3d85232b0dbb42a}\label{classage_1_1_client_a85b29db66a0a45f1e3d85232b0dbb42a} 
+\index{age.Client@{age.Client}!loop@{loop}}
+\index{loop@{loop}!age.Client@{age.Client}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void age.\+Client.\+loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1_client_a6e1d4a4e7ba35d0093669ce85883e7f5}\label{classage_1_1_client_a6e1d4a4e7ba35d0093669ce85883e7f5} 
+\index{age.Client@{age.Client}!main@{main}}
+\index{main@{main}!age.Client@{age.Client}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily static void age.\+Client.\+main (\begin{DoxyParamCaption}\item[{String\mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classage_1_1_client_a262cc274d1a72947a7ae85e9d37d45b1}\label{classage_1_1_client_a262cc274d1a72947a7ae85e9d37d45b1} 
+\index{age.Client@{age.Client}!render@{render}}
+\index{render@{render}!age.Client@{age.Client}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void age.\+Client.\+render (\begin{DoxyParamCaption}\item[{int}]{count,  }\item[{long}]{nanoperiod,  }\item[{float}]{dT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1_client_a023439dea78c658bcaeaae6892bb92b3}\label{classage_1_1_client_a023439dea78c658bcaeaae6892bb92b3} 
+\index{age.Client@{age.Client}!run@{run}}
+\index{run@{run}!age.Client@{age.Client}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void age.\+Client.\+run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1_client_a0db5c60227453971995a576c445a5a3f}\label{classage_1_1_client_a0db5c60227453971995a576c445a5a3f} 
+\index{age.Client@{age.Client}!setup@{setup}}
+\index{setup@{setup}!age.Client@{age.Client}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void age.\+Client.\+setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1_client_ae16cfa941683189d30cacdb0192f4cb3}\label{classage_1_1_client_ae16cfa941683189d30cacdb0192f4cb3} 
+\index{age.Client@{age.Client}!setupGUI@{setupGUI}}
+\index{setupGUI@{setupGUI}!age.Client@{age.Client}}
+\doxysubsubsection{\texorpdfstring{setupGUI()}{setupGUI()}}
+{\footnotesize\ttfamily void age.\+Client.\+setup\+GUI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1_client_aa3d70999bea29a591d2be32d22e451ca}\label{classage_1_1_client_aa3d70999bea29a591d2be32d22e451ca} 
+\index{age.Client@{age.Client}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!age.Client@{age.Client}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily void age.\+Client.\+shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1_client_ac0b3d463af7142f5b66db4b81084982c}\label{classage_1_1_client_ac0b3d463af7142f5b66db4b81084982c} 
+\index{age.Client@{age.Client}!toggleSysmenu@{toggleSysmenu}}
+\index{toggleSysmenu@{toggleSysmenu}!age.Client@{age.Client}}
+\doxysubsubsection{\texorpdfstring{toggleSysmenu()}{toggleSysmenu()}}
+{\footnotesize\ttfamily void age.\+Client.\+toggle\+Sysmenu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1_client_acf3073007d568913e9de853ed6ed71c5}\label{classage_1_1_client_acf3073007d568913e9de853ed6ed71c5} 
+\index{age.Client@{age.Client}!update@{update}}
+\index{update@{update}!age.Client@{age.Client}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void age.\+Client.\+update (\begin{DoxyParamCaption}\item[{int}]{count,  }\item[{long}]{nanoperiod,  }\item[{float}]{dT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classage_1_1_client_a8c0610502a16a2ce49c33088a8252906}\label{classage_1_1_client_a8c0610502a16a2ce49c33088a8252906} 
+\index{age.Client@{age.Client}!clock@{clock}}
+\index{clock@{clock}!age.Client@{age.Client}}
+\doxysubsubsection{\texorpdfstring{clock}{clock}}
+{\footnotesize\ttfamily Clock age.\+Client.\+clock = new Clock()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1_client_a54f8e8d8678897a00caef041fd075a9c}\label{classage_1_1_client_a54f8e8d8678897a00caef041fd075a9c} 
+\index{age.Client@{age.Client}!events@{events}}
+\index{events@{events}!age.Client@{age.Client}}
+\doxysubsubsection{\texorpdfstring{events}{events}}
+{\footnotesize\ttfamily Events age.\+Client.\+events = new Events()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1_client_a723a726cf731976e3d291a1dfbebd7c3}\label{classage_1_1_client_a723a726cf731976e3d291a1dfbebd7c3} 
+\index{age.Client@{age.Client}!port@{port}}
+\index{port@{port}!age.Client@{age.Client}}
+\doxysubsubsection{\texorpdfstring{port}{port}}
+{\footnotesize\ttfamily Port age.\+Client.\+port = new JOGLPort()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1_client_a78da685fcde97d6dc65d3b5aa1eff5fb}\label{classage_1_1_client_a78da685fcde97d6dc65d3b5aa1eff5fb} 
+\index{age.Client@{age.Client}!running@{running}}
+\index{running@{running}!age.Client@{age.Client}}
+\doxysubsubsection{\texorpdfstring{running}{running}}
+{\footnotesize\ttfamily boolean age.\+Client.\+running = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1_client_a8f55ec15c3c114c616438694718836c4}\label{classage_1_1_client_a8f55ec15c3c114c616438694718836c4} 
+\index{age.Client@{age.Client}!sysMenuFrame@{sysMenuFrame}}
+\index{sysMenuFrame@{sysMenuFrame}!age.Client@{age.Client}}
+\doxysubsubsection{\texorpdfstring{sysMenuFrame}{sysMenuFrame}}
+{\footnotesize\ttfamily Widget age.\+Client.\+sys\+Menu\+Frame\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1_client_a96afc357b587d2936315f4699dcbf89e}\label{classage_1_1_client_a96afc357b587d2936315f4699dcbf89e} 
+\index{age.Client@{age.Client}!tasks@{tasks}}
+\index{tasks@{tasks}!age.Client@{age.Client}}
+\doxysubsubsection{\texorpdfstring{tasks}{tasks}}
+{\footnotesize\ttfamily Tasks age.\+Client.\+tasks = new Tasks()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1_client_ae40b26f92a722a72a7d01019ef93e62d}\label{classage_1_1_client_ae40b26f92a722a72a7d01019ef93e62d} 
+\index{age.Client@{age.Client}!widgets@{widgets}}
+\index{widgets@{widgets}!age.Client@{age.Client}}
+\doxysubsubsection{\texorpdfstring{widgets}{widgets}}
+{\footnotesize\ttfamily Widgets age.\+Client.\+widgets = new Widgets()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+d\+:/\+GIT/repos/\+ODE/age/age/\mbox{\hyperlink{_client_8java}{Client.\+java}}\end{DoxyCompactItemize}

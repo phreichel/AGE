@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classage_1_1_client" xml:lang="en-US">
+<title>age.Client Class Reference</title>
+<indexterm><primary>age.Client</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_classage_1_1_client_1a023439dea78c658bcaeaae6892bb92b3">run</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1_client_1aa3d70999bea29a591d2be32d22e451ca">shutdown</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static void <link linkend="_classage_1_1_client_1a6e1d4a4e7ba35d0093669ce85883e7f5">main</link> (String[] args)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_classage_1_1_client_1a0db5c60227453971995a576c445a5a3f">setup</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1_client_1ae16cfa941683189d30cacdb0192f4cb3">setupGUI</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1_client_1ac0b3d463af7142f5b66db4b81084982c">toggleSysmenu</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1_client_1a85b29db66a0a45f1e3d85232b0dbb42a">loop</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1_client_1a262cc274d1a72947a7ae85e9d37d45b1">render</link> (int count, long nanoperiod, float dT)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1_client_1acf3073007d568913e9de853ed6ed71c5">update</link> (int count, long nanoperiod, float dT)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para>Clock <link linkend="_classage_1_1_client_1a8c0610502a16a2ce49c33088a8252906">clock</link> = new Clock()</para>
+</listitem>
+            <listitem><para>Events <link linkend="_classage_1_1_client_1a54f8e8d8678897a00caef041fd075a9c">events</link> = new Events()</para>
+</listitem>
+            <listitem><para>Widgets <link linkend="_classage_1_1_client_1ae40b26f92a722a72a7d01019ef93e62d">widgets</link> = new Widgets()</para>
+</listitem>
+            <listitem><para>Tasks <link linkend="_classage_1_1_client_1a96afc357b587d2936315f4699dcbf89e">tasks</link> = new Tasks()</para>
+</listitem>
+            <listitem><para>Port <link linkend="_classage_1_1_client_1a723a726cf731976e3d291a1dfbebd7c3">port</link> = new JOGLPort()</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classage_1_1_client_1a78da685fcde97d6dc65d3b5aa1eff5fb">running</link> = false</para>
+</listitem>
+            <listitem><para>Widget <link linkend="_classage_1_1_client_1a8f55ec15c3c114c616438694718836c4">sysMenuFrame</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classage_1_1_client_1a85b29db66a0a45f1e3d85232b0dbb42a"/><section>
+    <title>loop()</title>
+<indexterm><primary>loop</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>loop</secondary></indexterm>
+<para><computeroutput>void age.Client.loop ( )<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1_client_1a6e1d4a4e7ba35d0093669ce85883e7f5"/><section>
+    <title>main()</title>
+<indexterm><primary>main</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>main</secondary></indexterm>
+<para><computeroutput>static void age.Client.main (String[] args)<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1_client_1a262cc274d1a72947a7ae85e9d37d45b1"/><section>
+    <title>render()</title>
+<indexterm><primary>render</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>render</secondary></indexterm>
+<para><computeroutput>void age.Client.render (int count, long nanoperiod, float dT)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1_client_1a023439dea78c658bcaeaae6892bb92b3"/><section>
+    <title>run()</title>
+<indexterm><primary>run</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>run</secondary></indexterm>
+<para><computeroutput>void age.Client.run ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1_client_1a0db5c60227453971995a576c445a5a3f"/><section>
+    <title>setup()</title>
+<indexterm><primary>setup</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>setup</secondary></indexterm>
+<para><computeroutput>void age.Client.setup ( )<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1_client_1ae16cfa941683189d30cacdb0192f4cb3"/><section>
+    <title>setupGUI()</title>
+<indexterm><primary>setupGUI</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>setupGUI</secondary></indexterm>
+<para><computeroutput>void age.Client.setupGUI ( )<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1_client_1aa3d70999bea29a591d2be32d22e451ca"/><section>
+    <title>shutdown()</title>
+<indexterm><primary>shutdown</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>shutdown</secondary></indexterm>
+<para><computeroutput>void age.Client.shutdown ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1_client_1ac0b3d463af7142f5b66db4b81084982c"/><section>
+    <title>toggleSysmenu()</title>
+<indexterm><primary>toggleSysmenu</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>toggleSysmenu</secondary></indexterm>
+<para><computeroutput>void age.Client.toggleSysmenu ( )<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1_client_1acf3073007d568913e9de853ed6ed71c5"/><section>
+    <title>update()</title>
+<indexterm><primary>update</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>void age.Client.update (int count, long nanoperiod, float dT)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classage_1_1_client_1a8c0610502a16a2ce49c33088a8252906"/><section>
+    <title>clock</title>
+<indexterm><primary>clock</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>clock</secondary></indexterm>
+<para><computeroutput>Clock age.Client.clock = new Clock()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1_client_1a54f8e8d8678897a00caef041fd075a9c"/><section>
+    <title>events</title>
+<indexterm><primary>events</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>events</secondary></indexterm>
+<para><computeroutput>Events age.Client.events = new Events()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1_client_1a723a726cf731976e3d291a1dfbebd7c3"/><section>
+    <title>port</title>
+<indexterm><primary>port</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>port</secondary></indexterm>
+<para><computeroutput>Port age.Client.port = new JOGLPort()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1_client_1a78da685fcde97d6dc65d3b5aa1eff5fb"/><section>
+    <title>running</title>
+<indexterm><primary>running</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>running</secondary></indexterm>
+<para><computeroutput>boolean age.Client.running = false<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1_client_1a8f55ec15c3c114c616438694718836c4"/><section>
+    <title>sysMenuFrame</title>
+<indexterm><primary>sysMenuFrame</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>sysMenuFrame</secondary></indexterm>
+<para><computeroutput>Widget age.Client.sysMenuFrame<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1_client_1a96afc357b587d2936315f4699dcbf89e"/><section>
+    <title>tasks</title>
+<indexterm><primary>tasks</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>tasks</secondary></indexterm>
+<para><computeroutput>Tasks age.Client.tasks = new Tasks()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1_client_1ae40b26f92a722a72a7d01019ef93e62d"/><section>
+    <title>widgets</title>
+<indexterm><primary>widgets</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>widgets</secondary></indexterm>
+<para><computeroutput>Widgets age.Client.widgets = new Widgets()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following file:</para>
+d:/GIT/repos/ODE/age/age/<link linkend="__client_8java">Client.java</link></section>
+</section>

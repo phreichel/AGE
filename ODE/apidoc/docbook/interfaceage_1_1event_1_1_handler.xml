@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interfaceage_1_1event_1_1_handler" xml:lang="en-US">
+<title>age.event.Handler Interface Reference</title>
+<indexterm><primary>age.event.Handler</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_interfaceage_1_1event_1_1_handler_1ad8e33eeae0fffeb26c6e67d50f82dd42">handle</link> (<link linkend="_classage_1_1event_1_1_event">Event</link> event)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_interfaceage_1_1event_1_1_handler_1ad8e33eeae0fffeb26c6e67d50f82dd42"/><section>
+    <title>handle()</title>
+<indexterm><primary>handle</primary><secondary>age.event.Handler</secondary></indexterm>
+<indexterm><primary>age.event.Handler</primary><secondary>handle</secondary></indexterm>
+<para><computeroutput>void age.event.Handler.handle (<link linkend="_classage_1_1event_1_1_event">Event</link> event)</computeroutput></para></section>
+<para>
+The documentation for this interface was generated from the following file:</para>
+d:/GIT/repos/ODE/age/age/event/<link linkend="__handler_8java">Handler.java</link></section>
+</section>

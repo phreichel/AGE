@@ -1,0 +1,168 @@
+.TH "age.log.Log" 3 "Version 1" "ODE Framework" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+age.log.Log
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.ti -1c
+.RI "void \fBenable\fP (\fBLevel\fP \&.\&.\&. \fBlevels\fP)"
+.br
+.ti -1c
+.RI "void \fBdisable\fP (\fBLevel\fP \&.\&.\&. \fBlevels\fP)"
+.br
+.ti -1c
+.RI "boolean \fBtrace\fP ()"
+.br
+.ti -1c
+.RI "void \fBtrace\fP (boolean trace)"
+.br
+.ti -1c
+.RI "String \fBformat\fP ()"
+.br
+.ti -1c
+.RI "void \fBformat\fP (String format)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBconfigure\fP (String path)"
+.br
+.ti -1c
+.RI "static \fBLog\fP \fBget\fP (String instance)"
+.br
+.ti -1c
+.RI "static void \fBlog\fP (\fBLevel\fP level, String message, Object \&.\&.\&. params)"
+.br
+.ti -1c
+.RI "static void \fBinfo\fP (String message, Object \&.\&.\&. params)"
+.br
+.ti -1c
+.RI "static void \fBwarn\fP (String message, Object \&.\&.\&. params)"
+.br
+.ti -1c
+.RI "static void \fBerror\fP (String message, Object \&.\&.\&. params)"
+.br
+.ti -1c
+.RI "static void \fBdebug\fP (String message, Object \&.\&.\&. params)"
+.br
+.ti -1c
+.RI "static void \fBlog\fP (String instance, \fBLevel\fP level, String message, Object \&.\&.\&. params)"
+.br
+.ti -1c
+.RI "static void \fBinfo\fP (String instance, String message, Object \&.\&.\&. params)"
+.br
+.ti -1c
+.RI "static void \fBwarn\fP (String instance, String message, Object \&.\&.\&. params)"
+.br
+.ti -1c
+.RI "static void \fBerror\fP (String instance, String message, Object \&.\&.\&. params)"
+.br
+.ti -1c
+.RI "static void \fBdebug\fP (String instance, String message, Object \&.\&.\&. params)"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLog\fP ()"
+.br
+.ti -1c
+.RI "\fBLog\fP (\fBLog\fP parent)"
+.br
+.ti -1c
+.RI "void \fBwrite\fP (\fBLevel\fP level, String message, Object \&.\&.\&. params)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "boolean \fBtrace\fP = false"
+.br
+.ti -1c
+.RI "Set< \fBLevel\fP > \fBlevels\fP = null"
+.br
+.ti -1c
+.RI "String \fBformat\fP = null"
+.br
+.in -1c
+.SS "Static Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final Map< String, \fBLog\fP > \fBmap\fP = new HashMap<>()"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "age\&.log\&.Log\&.Log ()\fC [private]\fP"
+
+.SS "age\&.log\&.Log\&.Log (\fBLog\fP parent)\fC [private]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void age\&.log\&.Log\&.clear ()"
+
+.SS "static void age\&.log\&.Log\&.configure (String path)\fC [static]\fP"
+
+.SS "static void age\&.log\&.Log\&.debug (String instance, String message, Object \&.\&.\&. params)\fC [static]\fP"
+
+.SS "static void age\&.log\&.Log\&.debug (String message, Object \&.\&.\&. params)\fC [static]\fP"
+
+.SS "void age\&.log\&.Log\&.disable (\fBLevel\fP \&.\&.\&. levels)"
+
+.SS "void age\&.log\&.Log\&.enable (\fBLevel\fP \&.\&.\&. levels)"
+
+.SS "static void age\&.log\&.Log\&.error (String instance, String message, Object \&.\&.\&. params)\fC [static]\fP"
+
+.SS "static void age\&.log\&.Log\&.error (String message, Object \&.\&.\&. params)\fC [static]\fP"
+
+.SS "String age\&.log\&.Log\&.format ()"
+
+.SS "void age\&.log\&.Log\&.format (String format)"
+
+.SS "static \fBLog\fP age\&.log\&.Log\&.get (String instance)\fC [static]\fP"
+
+.SS "static void age\&.log\&.Log\&.info (String instance, String message, Object \&.\&.\&. params)\fC [static]\fP"
+
+.SS "static void age\&.log\&.Log\&.info (String message, Object \&.\&.\&. params)\fC [static]\fP"
+
+.SS "static void age\&.log\&.Log\&.log (\fBLevel\fP level, String message, Object \&.\&.\&. params)\fC [static]\fP"
+
+.SS "static void age\&.log\&.Log\&.log (String instance, \fBLevel\fP level, String message, Object \&.\&.\&. params)\fC [static]\fP"
+
+.SS "boolean age\&.log\&.Log\&.trace ()"
+
+.SS "void age\&.log\&.Log\&.trace (boolean trace)"
+
+.SS "static void age\&.log\&.Log\&.warn (String instance, String message, Object \&.\&.\&. params)\fC [static]\fP"
+
+.SS "static void age\&.log\&.Log\&.warn (String message, Object \&.\&.\&. params)\fC [static]\fP"
+
+.SS "void age\&.log\&.Log\&.write (\fBLevel\fP level, String message, Object \&.\&.\&. params)\fC [private]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "String age\&.log\&.Log\&.format = null\fC [private]\fP"
+
+.SS "Set<\fBLevel\fP> age\&.log\&.Log\&.levels = null\fC [private]\fP"
+
+.SS "final Map<String, \fBLog\fP> age\&.log\&.Log\&.map = new HashMap<>()\fC [static]\fP, \fC [private]\fP"
+
+.SS "boolean age\&.log\&.Log\&.trace = false\fC [private]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ODE Framework from the source code\&.

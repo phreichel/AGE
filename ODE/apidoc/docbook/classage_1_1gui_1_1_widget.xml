@@ -1,0 +1,368 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classage_1_1gui_1_1_widget" xml:lang="en-US">
+<title>age.gui.Widget Class Reference</title>
+<indexterm><primary>age.gui.Widget</primary></indexterm>
+<para>Inheritance diagram for age.gui.Widget:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classage_1_1gui_1_1_widget.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classage_1_1gui_1_1_widget_1a056a7d41a4fb5afbffee1e2e53b88eb9">Widget</link> (<link linkend="_enumage_1_1gui_1_1_flag">Flag</link> ... <link linkend="_classage_1_1gui_1_1_widget_1ad37485fa67bf6c87e4c39c714ec6070d">flags</link>)</para>
+</listitem>
+            <listitem><para>float <link linkend="_classage_1_1gui_1_1_widget_1ac39709450c36d2e8a8e9247b904a768b">x</link> ()</para>
+</listitem>
+            <listitem><para>float <link linkend="_classage_1_1gui_1_1_widget_1ad22defbfa65e24bd875f3d5a20eff174">y</link> ()</para>
+</listitem>
+            <listitem><para>float <link linkend="_classage_1_1gui_1_1_widget_1a67540d5598731fa038e6be10d8ddf085">width</link> ()</para>
+</listitem>
+            <listitem><para>float <link linkend="_classage_1_1gui_1_1_widget_1a31a086e9219bfa1027d68c05a82c17a9">height</link> ()</para>
+</listitem>
+            <listitem><para>Vector2f <link linkend="_classage_1_1gui_1_1_widget_1a253d318bb0f3e8c26b1fba7f04f81a4b">position</link> ()</para>
+</listitem>
+            <listitem><para>Vector2f <link linkend="_classage_1_1gui_1_1_widget_1a764d9e5c02a40e613b6f0e4855521860">dimension</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classage_1_1gui_1_1_dock">Dock</link> <link linkend="_classage_1_1gui_1_1_widget_1a44cffbbe7b74ac0120d159bbd471618c">dock</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a21d3464578646806675359b962c91118">dock</link> (<link linkend="_classage_1_1gui_1_1_dock">Dock</link> dock)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a50ad389daff7506a6d927a7a5b08bca7">dock</link> (float top, float bottom, float left, float right)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a4f97380baa9636412b9ce4f5ace20e37">position</link> (Vector2f position)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a58c079993d839715bf79d193701dc0a2">position</link> (float <link linkend="_classage_1_1gui_1_1_widget_1ac39709450c36d2e8a8e9247b904a768b">x</link>, float <link linkend="_classage_1_1gui_1_1_widget_1ad22defbfa65e24bd875f3d5a20eff174">y</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a5a35294fb214610533efe2ef220ce559">positionAdd</link> (Vector2f <link linkend="_classage_1_1gui_1_1_widget_1a3921b5b67adda46c2fcd4c7ed939673e">position</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1ab80d087ab6342603e0551ab98d1be29c">positionAdd</link> (float <link linkend="_classage_1_1gui_1_1_widget_1ac39709450c36d2e8a8e9247b904a768b">x</link>, float <link linkend="_classage_1_1gui_1_1_widget_1ad22defbfa65e24bd875f3d5a20eff174">y</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a58dd4b0f90f26dbb1bd7933685effca9">dimension</link> (Vector2f dimension)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1ae327b4ca4880365b5c4e4f77e4cc4004">dimension</link> (float <link linkend="_classage_1_1gui_1_1_widget_1a67540d5598731fa038e6be10d8ddf085">width</link>, float <link linkend="_classage_1_1gui_1_1_widget_1a31a086e9219bfa1027d68c05a82c17a9">height</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a0221ea498415e675db56159cf1ca26d9">dimensionAdd</link> (Vector2f <link linkend="_classage_1_1gui_1_1_widget_1a4df8f7d1d89354c73cfd4495444d3e61">dimension</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1aa66d547355dbbf44974e2b22d0243b8d">dimensionAdd</link> (float <link linkend="_classage_1_1gui_1_1_widget_1a67540d5598731fa038e6be10d8ddf085">width</link>, float <link linkend="_classage_1_1gui_1_1_widget_1a31a086e9219bfa1027d68c05a82c17a9">height</link>)</para>
+</listitem>
+            <listitem><para>Set&lt; <link linkend="_enumage_1_1gui_1_1_flag">Flag</link> &gt; <link linkend="_classage_1_1gui_1_1_widget_1a85d9eb9cda1be212331da6976e03a28b">flags</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a675da93ea5c668200e6c4566839a24ad">flag</link> (<link linkend="_enumage_1_1gui_1_1_flag">Flag</link> ... <link linkend="_classage_1_1gui_1_1_widget_1ad37485fa67bf6c87e4c39c714ec6070d">flags</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a9ca8506912ca08be6b29297d0c4a7370">clear</link> (<link linkend="_enumage_1_1gui_1_1_flag">Flag</link> ... <link linkend="_classage_1_1gui_1_1_widget_1ad37485fa67bf6c87e4c39c714ec6070d">flags</link>)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classage_1_1gui_1_1_widget_1ad8e48c7dadae345260f39c0b299ead71">match</link> (<link linkend="_enumage_1_1gui_1_1_flag">Flag</link> ... <link linkend="_classage_1_1gui_1_1_widget_1ad37485fa67bf6c87e4c39c714ec6070d">flags</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_classage_1_1gui_1_1_widget">Widget</link> <link linkend="_classage_1_1gui_1_1_widget_1a0f2f4f99c3d19a5664bef999b553844a">parent</link> ()</para>
+</listitem>
+            <listitem><para>List&lt; <link linkend="_classage_1_1gui_1_1_widget">Widget</link> &gt; <link linkend="_classage_1_1gui_1_1_widget_1a51e3fca26841840c654b041fc4fcd69f">children</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1ac20fe4a56b48d389c8bf105f18027215">add</link> (<link linkend="_classage_1_1gui_1_1_widget">Widget</link> child)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a7f5579ed2097481e293f2cda48c45211">add</link> (int idx, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> child)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a20a80b46273eab62c1632f35f87acfc3">remove</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a801497610aa02da04b5208942298813b">toFront</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_classage_1_1gui_1_1_widget_1ad85b2fe801bbc0a8d1ad7c8445d832c0">text</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1aa6820e55a60fb156fbb63c8a9fffdb52">text</link> (String text)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classage_1_1gui_1_1_widget_1a8869f9de96ba0266b4661b96aafeaaf0">image</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a6076ffc2830ceb4988c4478d4e0b3fe3">image</link> (String image)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classage_1_1gui_1_1_widget_1a4eb0e5b4581ceb4be8ea0d22558a37d6">command</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a37ca083d05d621231368b36a07622aa2">command</link> (String command)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a16cd0f2d82a7033922ffa1a9a7b11c12">resized</link> (float dx, float dy)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1ac6a8df618cbf79985dcba11a7747b586">parentResized</link> (float dx, float dy)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para>final Set&lt; <link linkend="_enumage_1_1gui_1_1_flag">Flag</link> &gt; <link linkend="_classage_1_1gui_1_1_widget_1ad37485fa67bf6c87e4c39c714ec6070d">flags</link> = EnumSet.noneOf(Flag.class)</para>
+</listitem>
+            <listitem><para>final Set&lt; <link linkend="_enumage_1_1gui_1_1_flag">Flag</link> &gt; <link linkend="_classage_1_1gui_1_1_widget_1ab2b73972e074c7b78b77839fc52f2af5">flags_ro</link> = Collections.unmodifiableSet(<link linkend="_classage_1_1gui_1_1_widget_1ad37485fa67bf6c87e4c39c714ec6070d">flags</link>)</para>
+</listitem>
+            <listitem><para>final Vector2f <link linkend="_classage_1_1gui_1_1_widget_1a3921b5b67adda46c2fcd4c7ed939673e">position</link> = new Vector2f()</para>
+</listitem>
+            <listitem><para>final Vector2f <link linkend="_classage_1_1gui_1_1_widget_1a4df8f7d1d89354c73cfd4495444d3e61">dimension</link> = new Vector2f()</para>
+</listitem>
+            <listitem><para>final <link linkend="_classage_1_1gui_1_1_dock">Dock</link> <link linkend="_classage_1_1gui_1_1_widget_1a31131f1d3578c2bdd2d02405ccd82cae">dock</link> = new <link linkend="_classage_1_1gui_1_1_dock">Dock</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_classage_1_1gui_1_1_widget">Widget</link> <link linkend="_classage_1_1gui_1_1_widget_1aa3129b9d3e351e86d1529c131f8aebdd">parent</link> = null</para>
+</listitem>
+            <listitem><para>final List&lt; <link linkend="_classage_1_1gui_1_1_widget">Widget</link> &gt; <link linkend="_classage_1_1gui_1_1_widget_1a7587edf83c0127c950e33e372bdeb17b">children</link> = new ArrayList&lt;&gt;(10)</para>
+</listitem>
+            <listitem><para>final List&lt; <link linkend="_classage_1_1gui_1_1_widget">Widget</link> &gt; <link linkend="_classage_1_1gui_1_1_widget_1a5ea93cb8bd29ade7cbc30124e312295e">children_ro</link> = Collections.unmodifiableList(<link linkend="_classage_1_1gui_1_1_widget_1a7587edf83c0127c950e33e372bdeb17b">children</link>)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classage_1_1gui_1_1_widget_1a61337571531402c6f02a183d174e6907">text</link> = null</para>
+</listitem>
+            <listitem><para>String <link linkend="_classage_1_1gui_1_1_widget_1a56d04a86ce1c6b822e4006fccf123753">image</link> = null</para>
+</listitem>
+            <listitem><para>String <link linkend="_classage_1_1gui_1_1_widget_1ab1183d9cd403cae7c813ff3367212f09">command</link> = null</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a056a7d41a4fb5afbffee1e2e53b88eb9"/><section>
+    <title>Widget()</title>
+<indexterm><primary>Widget</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>Widget</secondary></indexterm>
+<para><computeroutput>age.gui.Widget.Widget (<link linkend="_enumage_1_1gui_1_1_flag">Flag</link> ... flags)</computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a7f5579ed2097481e293f2cda48c45211"/><section>
+    <title>add()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>add</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>add</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.add (int idx, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> child)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1ac20fe4a56b48d389c8bf105f18027215"/><section>
+    <title>add()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>add</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>add</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.add (<link linkend="_classage_1_1gui_1_1_widget">Widget</link> child)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a51e3fca26841840c654b041fc4fcd69f"/><section>
+    <title>children()</title>
+<indexterm><primary>children</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>children</secondary></indexterm>
+<para><computeroutput>List&lt; <link linkend="_classage_1_1gui_1_1_widget">Widget</link> &gt; age.gui.Widget.children ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a9ca8506912ca08be6b29297d0c4a7370"/><section>
+    <title>clear()</title>
+<indexterm><primary>clear</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>clear</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.clear (<link linkend="_enumage_1_1gui_1_1_flag">Flag</link> ... flags)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a4eb0e5b4581ceb4be8ea0d22558a37d6"/><section>
+    <title>command()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>command</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>command</secondary></indexterm>
+<para><computeroutput>String age.gui.Widget.command ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a37ca083d05d621231368b36a07622aa2"/><section>
+    <title>command()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>command</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>command</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.command (String command)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a764d9e5c02a40e613b6f0e4855521860"/><section>
+    <title>dimension()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>dimension</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>dimension</secondary></indexterm>
+<para><computeroutput>Vector2f age.gui.Widget.dimension ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1ae327b4ca4880365b5c4e4f77e4cc4004"/><section>
+    <title>dimension()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>dimension</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>dimension</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.dimension (float width, float height)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a58dd4b0f90f26dbb1bd7933685effca9"/><section>
+    <title>dimension()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>dimension</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>dimension</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.dimension (Vector2f dimension)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1aa66d547355dbbf44974e2b22d0243b8d"/><section>
+    <title>dimensionAdd()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>dimensionAdd</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>dimensionAdd</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.dimensionAdd (float width, float height)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a0221ea498415e675db56159cf1ca26d9"/><section>
+    <title>dimensionAdd()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>dimensionAdd</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>dimensionAdd</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.dimensionAdd (Vector2f dimension)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a44cffbbe7b74ac0120d159bbd471618c"/><section>
+    <title>dock()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>dock</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>dock</secondary></indexterm>
+<para><computeroutput><link linkend="_classage_1_1gui_1_1_dock">Dock</link> age.gui.Widget.dock ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a21d3464578646806675359b962c91118"/><section>
+    <title>dock()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>dock</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>dock</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.dock (<link linkend="_classage_1_1gui_1_1_dock">Dock</link> dock)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a50ad389daff7506a6d927a7a5b08bca7"/><section>
+    <title>dock()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>dock</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>dock</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.dock (float top, float bottom, float left, float right)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a675da93ea5c668200e6c4566839a24ad"/><section>
+    <title>flag()</title>
+<indexterm><primary>flag</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>flag</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.flag (<link linkend="_enumage_1_1gui_1_1_flag">Flag</link> ... flags)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a85d9eb9cda1be212331da6976e03a28b"/><section>
+    <title>flags()</title>
+<indexterm><primary>flags</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>flags</secondary></indexterm>
+<para><computeroutput>Set&lt; <link linkend="_enumage_1_1gui_1_1_flag">Flag</link> &gt; age.gui.Widget.flags ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a31a086e9219bfa1027d68c05a82c17a9"/><section>
+    <title>height()</title>
+<indexterm><primary>height</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>height</secondary></indexterm>
+<para><computeroutput>float age.gui.Widget.height ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a8869f9de96ba0266b4661b96aafeaaf0"/><section>
+    <title>image()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>image</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>image</secondary></indexterm>
+<para><computeroutput>String age.gui.Widget.image ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a6076ffc2830ceb4988c4478d4e0b3fe3"/><section>
+    <title>image()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>image</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>image</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.image (String image)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1ad8e48c7dadae345260f39c0b299ead71"/><section>
+    <title>match()</title>
+<indexterm><primary>match</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>match</secondary></indexterm>
+<para><computeroutput>boolean age.gui.Widget.match (<link linkend="_enumage_1_1gui_1_1_flag">Flag</link> ... flags)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a0f2f4f99c3d19a5664bef999b553844a"/><section>
+    <title>parent()</title>
+<indexterm><primary>parent</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>parent</secondary></indexterm>
+<para><computeroutput><link linkend="_classage_1_1gui_1_1_widget">Widget</link> age.gui.Widget.parent ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1ac6a8df618cbf79985dcba11a7747b586"/><section>
+    <title>parentResized()</title>
+<indexterm><primary>parentResized</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>parentResized</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.parentResized (float dx, float dy)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a253d318bb0f3e8c26b1fba7f04f81a4b"/><section>
+    <title>position()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>position</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>position</secondary></indexterm>
+<para><computeroutput>Vector2f age.gui.Widget.position ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a58c079993d839715bf79d193701dc0a2"/><section>
+    <title>position()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>position</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>position</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.position (float x, float y)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a4f97380baa9636412b9ce4f5ace20e37"/><section>
+    <title>position()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>position</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>position</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.position (Vector2f position)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1ab80d087ab6342603e0551ab98d1be29c"/><section>
+    <title>positionAdd()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>positionAdd</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>positionAdd</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.positionAdd (float x, float y)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a5a35294fb214610533efe2ef220ce559"/><section>
+    <title>positionAdd()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>positionAdd</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>positionAdd</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.positionAdd (Vector2f position)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a20a80b46273eab62c1632f35f87acfc3"/><section>
+    <title>remove()</title>
+<indexterm><primary>remove</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>remove</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.remove ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a16cd0f2d82a7033922ffa1a9a7b11c12"/><section>
+    <title>resized()</title>
+<indexterm><primary>resized</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>resized</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.resized (float dx, float dy)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1ad85b2fe801bbc0a8d1ad7c8445d832c0"/><section>
+    <title>text()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>text</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>text</secondary></indexterm>
+<para><computeroutput>String age.gui.Widget.text ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1aa6820e55a60fb156fbb63c8a9fffdb52"/><section>
+    <title>text()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>text</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>text</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.text (String text)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a801497610aa02da04b5208942298813b"/><section>
+    <title>toFront()</title>
+<indexterm><primary>toFront</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>toFront</secondary></indexterm>
+<para><computeroutput>void age.gui.Widget.toFront ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a67540d5598731fa038e6be10d8ddf085"/><section>
+    <title>width()</title>
+<indexterm><primary>width</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>width</secondary></indexterm>
+<para><computeroutput>float age.gui.Widget.width ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1ac39709450c36d2e8a8e9247b904a768b"/><section>
+    <title>x()</title>
+<indexterm><primary>x</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>x</secondary></indexterm>
+<para><computeroutput>float age.gui.Widget.x ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1ad22defbfa65e24bd875f3d5a20eff174"/><section>
+    <title>y()</title>
+<indexterm><primary>y</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>y</secondary></indexterm>
+<para><computeroutput>float age.gui.Widget.y ( )</computeroutput></para></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a7587edf83c0127c950e33e372bdeb17b"/><section>
+    <title>children</title>
+<indexterm><primary>children</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>children</secondary></indexterm>
+<para><computeroutput>final List&lt;<link linkend="_classage_1_1gui_1_1_widget">Widget</link>&gt; age.gui.Widget.children = new ArrayList&lt;&gt;(10)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a5ea93cb8bd29ade7cbc30124e312295e"/><section>
+    <title>children_ro</title>
+<indexterm><primary>children_ro</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>children_ro</secondary></indexterm>
+<para><computeroutput>final List&lt;<link linkend="_classage_1_1gui_1_1_widget">Widget</link>&gt; age.gui.Widget.children_ro = Collections.unmodifiableList(<link linkend="_classage_1_1gui_1_1_widget_1a7587edf83c0127c950e33e372bdeb17b">children</link>)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1ab1183d9cd403cae7c813ff3367212f09"/><section>
+    <title>command</title>
+<indexterm><primary>command</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>command</secondary></indexterm>
+<para><computeroutput>String age.gui.Widget.command = null<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a4df8f7d1d89354c73cfd4495444d3e61"/><section>
+    <title>dimension</title>
+<indexterm><primary>dimension</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>dimension</secondary></indexterm>
+<para><computeroutput>final Vector2f age.gui.Widget.dimension = new Vector2f()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a31131f1d3578c2bdd2d02405ccd82cae"/><section>
+    <title>dock</title>
+<indexterm><primary>dock</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>dock</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classage_1_1gui_1_1_dock">Dock</link> age.gui.Widget.dock = new <link linkend="_classage_1_1gui_1_1_dock">Dock</link>()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1ad37485fa67bf6c87e4c39c714ec6070d"/><section>
+    <title>flags</title>
+<indexterm><primary>flags</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>flags</secondary></indexterm>
+<para><computeroutput>final Set&lt;<link linkend="_enumage_1_1gui_1_1_flag">Flag</link>&gt; age.gui.Widget.flags = EnumSet.noneOf(Flag.class)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1ab2b73972e074c7b78b77839fc52f2af5"/><section>
+    <title>flags_ro</title>
+<indexterm><primary>flags_ro</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>flags_ro</secondary></indexterm>
+<para><computeroutput>final Set&lt;<link linkend="_enumage_1_1gui_1_1_flag">Flag</link>&gt; age.gui.Widget.flags_ro = Collections.unmodifiableSet(<link linkend="_classage_1_1gui_1_1_widget_1ad37485fa67bf6c87e4c39c714ec6070d">flags</link>)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a56d04a86ce1c6b822e4006fccf123753"/><section>
+    <title>image</title>
+<indexterm><primary>image</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>image</secondary></indexterm>
+<para><computeroutput>String age.gui.Widget.image = null<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1aa3129b9d3e351e86d1529c131f8aebdd"/><section>
+    <title>parent</title>
+<indexterm><primary>parent</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>parent</secondary></indexterm>
+<para><computeroutput><link linkend="_classage_1_1gui_1_1_widget">Widget</link> age.gui.Widget.parent = null<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a3921b5b67adda46c2fcd4c7ed939673e"/><section>
+    <title>position</title>
+<indexterm><primary>position</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>position</secondary></indexterm>
+<para><computeroutput>final Vector2f age.gui.Widget.position = new Vector2f()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_widget_1a61337571531402c6f02a183d174e6907"/><section>
+    <title>text</title>
+<indexterm><primary>text</primary><secondary>age.gui.Widget</secondary></indexterm>
+<indexterm><primary>age.gui.Widget</primary><secondary>text</secondary></indexterm>
+<para><computeroutput>String age.gui.Widget.text = null<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following file:</para>
+d:/GIT/repos/ODE/age/age/gui/<link linkend="__widget_8java">Widget.java</link></section>
+</section>

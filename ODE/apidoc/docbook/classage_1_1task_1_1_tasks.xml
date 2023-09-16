@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classage_1_1task_1_1_tasks" xml:lang="en-US">
+<title>age.task.Tasks Class Reference</title>
+<indexterm><primary>age.task.Tasks</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_classage_1_1task_1_1_tasks_1a4d5c3f11b5535d72b266d23ae16996ca">assign</link> (Port <link linkend="_classage_1_1task_1_1_tasks_1a1b33f2de0b853a491ec3d0cb742aecb7">port</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1task_1_1_tasks_1a9621eb5c2d62f1994d8c1a99ddbff5a6">assign</link> (<link linkend="_classage_1_1_client">Client</link> <link linkend="_classage_1_1task_1_1_tasks_1a5cc73c826b9a250d4f7c2a0ccf21fc0a">client</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1task_1_1_tasks_1a6db32ed78f0e91622b715e527761d368">assign</link> (Events events)</para>
+</listitem>
+            <listitem><para><link linkend="_classage_1_1task_1_1_tasks_1a0b0d34363464540d6b08a8a343e51d3e">Tasks</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1task_1_1_tasks_1aabe17fc5fdd67a8e75a8de505867fef8">put</link> (String command)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1task_1_1_tasks_1aa793590c4003fcd29573917f9d3bf04c">assign</link> (String command, <link linkend="_interfaceage_1_1task_1_1_task">Task</link> task)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1task_1_1_tasks_1a3ed284bc688ad5866104a8cfc81bb9a6">update</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_classage_1_1task_1_1_tasks_1a2ca6132551301fae56f9178d1478320f">handleEvent</link> (Event e)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1task_1_1_tasks_1ac4c574b8ed51d172ff223b5440c4916a">construct</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1task_1_1_tasks_1a71c03c03630ef3d51e705f0cf1c5b3ec">perform</link> (String command)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1task_1_1_tasks_1a65b60f3b8234085202ae2a7fb4e7a40e">toggleFullscreen</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1task_1_1_tasks_1a746c9842fc794b3f825bf916e2ece513">shutdown</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para>final List&lt; String &gt; <link linkend="_classage_1_1task_1_1_tasks_1ab905773041638765182da887773e9ff8">inbox</link> = new ArrayList&lt;&gt;()</para>
+</listitem>
+            <listitem><para>final List&lt; String &gt; <link linkend="_classage_1_1task_1_1_tasks_1af468b1abcf4d87853cc2e5199cf8136c">outbox</link> = new ArrayList&lt;&gt;()</para>
+</listitem>
+            <listitem><para>final Map&lt; String, <link linkend="_interfaceage_1_1task_1_1_task">Task</link> &gt; <link linkend="_classage_1_1task_1_1_tasks_1a6054e051452f1c50bee64b0db004c7f4">tasks</link> = new HashMap&lt;&gt;()</para>
+</listitem>
+            <listitem><para>Port <link linkend="_classage_1_1task_1_1_tasks_1a1b33f2de0b853a491ec3d0cb742aecb7">port</link></para>
+</listitem>
+            <listitem><para><link linkend="_classage_1_1_client">Client</link> <link linkend="_classage_1_1task_1_1_tasks_1a5cc73c826b9a250d4f7c2a0ccf21fc0a">client</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classage_1_1task_1_1_tasks_1a0b0d34363464540d6b08a8a343e51d3e"/><section>
+    <title>Tasks()</title>
+<indexterm><primary>Tasks</primary><secondary>age.task.Tasks</secondary></indexterm>
+<indexterm><primary>age.task.Tasks</primary><secondary>Tasks</secondary></indexterm>
+<para><computeroutput>age.task.Tasks.Tasks ( )</computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classage_1_1task_1_1_tasks_1a9621eb5c2d62f1994d8c1a99ddbff5a6"/><section>
+    <title>assign()<computeroutput>[1/4]</computeroutput></title>
+<indexterm><primary>assign</primary><secondary>age.task.Tasks</secondary></indexterm>
+<indexterm><primary>age.task.Tasks</primary><secondary>assign</secondary></indexterm>
+<para><computeroutput>void age.task.Tasks.assign (<link linkend="_classage_1_1_client">Client</link> client)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1task_1_1_tasks_1a6db32ed78f0e91622b715e527761d368"/><section>
+    <title>assign()<computeroutput>[2/4]</computeroutput></title>
+<indexterm><primary>assign</primary><secondary>age.task.Tasks</secondary></indexterm>
+<indexterm><primary>age.task.Tasks</primary><secondary>assign</secondary></indexterm>
+<para><computeroutput>void age.task.Tasks.assign (Events events)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1task_1_1_tasks_1a4d5c3f11b5535d72b266d23ae16996ca"/><section>
+    <title>assign()<computeroutput>[3/4]</computeroutput></title>
+<indexterm><primary>assign</primary><secondary>age.task.Tasks</secondary></indexterm>
+<indexterm><primary>age.task.Tasks</primary><secondary>assign</secondary></indexterm>
+<para><computeroutput>void age.task.Tasks.assign (Port port)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1task_1_1_tasks_1aa793590c4003fcd29573917f9d3bf04c"/><section>
+    <title>assign()<computeroutput>[4/4]</computeroutput></title>
+<indexterm><primary>assign</primary><secondary>age.task.Tasks</secondary></indexterm>
+<indexterm><primary>age.task.Tasks</primary><secondary>assign</secondary></indexterm>
+<para><computeroutput>void age.task.Tasks.assign (String command, <link linkend="_interfaceage_1_1task_1_1_task">Task</link> task)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1task_1_1_tasks_1ac4c574b8ed51d172ff223b5440c4916a"/><section>
+    <title>construct()</title>
+<indexterm><primary>construct</primary><secondary>age.task.Tasks</secondary></indexterm>
+<indexterm><primary>age.task.Tasks</primary><secondary>construct</secondary></indexterm>
+<para><computeroutput>void age.task.Tasks.construct ( )<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1task_1_1_tasks_1a2ca6132551301fae56f9178d1478320f"/><section>
+    <title>handleEvent()</title>
+<indexterm><primary>handleEvent</primary><secondary>age.task.Tasks</secondary></indexterm>
+<indexterm><primary>age.task.Tasks</primary><secondary>handleEvent</secondary></indexterm>
+<para><computeroutput>void age.task.Tasks.handleEvent (Event e)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1task_1_1_tasks_1a71c03c03630ef3d51e705f0cf1c5b3ec"/><section>
+    <title>perform()</title>
+<indexterm><primary>perform</primary><secondary>age.task.Tasks</secondary></indexterm>
+<indexterm><primary>age.task.Tasks</primary><secondary>perform</secondary></indexterm>
+<para><computeroutput>void age.task.Tasks.perform (String command)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1task_1_1_tasks_1aabe17fc5fdd67a8e75a8de505867fef8"/><section>
+    <title>put()</title>
+<indexterm><primary>put</primary><secondary>age.task.Tasks</secondary></indexterm>
+<indexterm><primary>age.task.Tasks</primary><secondary>put</secondary></indexterm>
+<para><computeroutput>void age.task.Tasks.put (String command)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1task_1_1_tasks_1a746c9842fc794b3f825bf916e2ece513"/><section>
+    <title>shutdown()</title>
+<indexterm><primary>shutdown</primary><secondary>age.task.Tasks</secondary></indexterm>
+<indexterm><primary>age.task.Tasks</primary><secondary>shutdown</secondary></indexterm>
+<para><computeroutput>void age.task.Tasks.shutdown ( )<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1task_1_1_tasks_1a65b60f3b8234085202ae2a7fb4e7a40e"/><section>
+    <title>toggleFullscreen()</title>
+<indexterm><primary>toggleFullscreen</primary><secondary>age.task.Tasks</secondary></indexterm>
+<indexterm><primary>age.task.Tasks</primary><secondary>toggleFullscreen</secondary></indexterm>
+<para><computeroutput>void age.task.Tasks.toggleFullscreen ( )<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1task_1_1_tasks_1a3ed284bc688ad5866104a8cfc81bb9a6"/><section>
+    <title>update()</title>
+<indexterm><primary>update</primary><secondary>age.task.Tasks</secondary></indexterm>
+<indexterm><primary>age.task.Tasks</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>void age.task.Tasks.update ( )</computeroutput></para></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classage_1_1task_1_1_tasks_1a5cc73c826b9a250d4f7c2a0ccf21fc0a"/><section>
+    <title>client</title>
+<indexterm><primary>client</primary><secondary>age.task.Tasks</secondary></indexterm>
+<indexterm><primary>age.task.Tasks</primary><secondary>client</secondary></indexterm>
+<para><computeroutput><link linkend="_classage_1_1_client">Client</link> age.task.Tasks.client<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1task_1_1_tasks_1ab905773041638765182da887773e9ff8"/><section>
+    <title>inbox</title>
+<indexterm><primary>inbox</primary><secondary>age.task.Tasks</secondary></indexterm>
+<indexterm><primary>age.task.Tasks</primary><secondary>inbox</secondary></indexterm>
+<para><computeroutput>final List&lt;String&gt; age.task.Tasks.inbox = new ArrayList&lt;&gt;()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1task_1_1_tasks_1af468b1abcf4d87853cc2e5199cf8136c"/><section>
+    <title>outbox</title>
+<indexterm><primary>outbox</primary><secondary>age.task.Tasks</secondary></indexterm>
+<indexterm><primary>age.task.Tasks</primary><secondary>outbox</secondary></indexterm>
+<para><computeroutput>final List&lt;String&gt; age.task.Tasks.outbox = new ArrayList&lt;&gt;()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1task_1_1_tasks_1a1b33f2de0b853a491ec3d0cb742aecb7"/><section>
+    <title>port</title>
+<indexterm><primary>port</primary><secondary>age.task.Tasks</secondary></indexterm>
+<indexterm><primary>age.task.Tasks</primary><secondary>port</secondary></indexterm>
+<para><computeroutput>Port age.task.Tasks.port<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1task_1_1_tasks_1a6054e051452f1c50bee64b0db004c7f4"/><section>
+    <title>tasks</title>
+<indexterm><primary>tasks</primary><secondary>age.task.Tasks</secondary></indexterm>
+<indexterm><primary>age.task.Tasks</primary><secondary>tasks</secondary></indexterm>
+<para><computeroutput>final Map&lt;String, <link linkend="_interfaceage_1_1task_1_1_task">Task</link>&gt; age.task.Tasks.tasks = new HashMap&lt;&gt;()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following file:</para>
+d:/GIT/repos/ODE/age/age/task/<link linkend="__tasks_8java">Tasks.java</link></section>
+</section>

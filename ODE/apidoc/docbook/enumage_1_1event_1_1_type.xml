@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumage_1_1event_1_1_type" xml:lang="en-US">
+<title>age.event.Type Enum Reference</title>
+<indexterm><primary>age.event.Type</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_type_1a18e0413044f2f33c86234ec9f4d557b2">NONE</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_type_1a97bc6557d63b437ffcd481538282bf90">KEY_PRESSED</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_type_1a60c15bbfe2947ef396787ce6028acbe8">KEY_RELEASED</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_type_1a5e1b2123aa29bdc517d470b2d8910a3c">KEY_TYPED</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_type_1a846cfde52adde9d8121a69bd5f64dbcc">POINTER_ENTERED</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_type_1a44545ba74077e12709ee53316d3632fd">POINTER_EXITED</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_type_1aaacd48b7e6d25069c4f982a01fa97f6b">POINTER_PRESSED</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_type_1a0efebd6f0b16b9210c979db80def7d3b">POINTER_RELEASED</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_type_1a8b79402257bffa6037b5a78adecbe6b1">POINTER_CLICKED</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_type_1a4b1fc0f79087edf2d14219c672cef3c6">POINTER_MOVED</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_type_1a830104c3fbaac1720a559418c0e9c571">SURFACE_RESIZED</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_type_1a0984982dcf90bb4bf510007b8df58a1c">SURFACE_CLOSE_REQUEST</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1event_1_1_type_1a353a65ede040bfe18a56756a6c34e43f">TASK_COMMAND</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enumage_1_1event_1_1_type_1a97bc6557d63b437ffcd481538282bf90"/><section>
+    <title>KEY_PRESSED</title>
+<indexterm><primary>KEY_PRESSED</primary><secondary>age.event.Type</secondary></indexterm>
+<indexterm><primary>age.event.Type</primary><secondary>KEY_PRESSED</secondary></indexterm>
+<para><computeroutput>age.event.Type.KEY_PRESSED</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1event_1_1_type_1a60c15bbfe2947ef396787ce6028acbe8"/><section>
+    <title>KEY_RELEASED</title>
+<indexterm><primary>KEY_RELEASED</primary><secondary>age.event.Type</secondary></indexterm>
+<indexterm><primary>age.event.Type</primary><secondary>KEY_RELEASED</secondary></indexterm>
+<para><computeroutput>age.event.Type.KEY_RELEASED</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1event_1_1_type_1a5e1b2123aa29bdc517d470b2d8910a3c"/><section>
+    <title>KEY_TYPED</title>
+<indexterm><primary>KEY_TYPED</primary><secondary>age.event.Type</secondary></indexterm>
+<indexterm><primary>age.event.Type</primary><secondary>KEY_TYPED</secondary></indexterm>
+<para><computeroutput>age.event.Type.KEY_TYPED</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1event_1_1_type_1a18e0413044f2f33c86234ec9f4d557b2"/><section>
+    <title>NONE</title>
+<indexterm><primary>NONE</primary><secondary>age.event.Type</secondary></indexterm>
+<indexterm><primary>age.event.Type</primary><secondary>NONE</secondary></indexterm>
+<para><computeroutput>age.event.Type.NONE</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1event_1_1_type_1a8b79402257bffa6037b5a78adecbe6b1"/><section>
+    <title>POINTER_CLICKED</title>
+<indexterm><primary>POINTER_CLICKED</primary><secondary>age.event.Type</secondary></indexterm>
+<indexterm><primary>age.event.Type</primary><secondary>POINTER_CLICKED</secondary></indexterm>
+<para><computeroutput>age.event.Type.POINTER_CLICKED</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1event_1_1_type_1a846cfde52adde9d8121a69bd5f64dbcc"/><section>
+    <title>POINTER_ENTERED</title>
+<indexterm><primary>POINTER_ENTERED</primary><secondary>age.event.Type</secondary></indexterm>
+<indexterm><primary>age.event.Type</primary><secondary>POINTER_ENTERED</secondary></indexterm>
+<para><computeroutput>age.event.Type.POINTER_ENTERED</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1event_1_1_type_1a44545ba74077e12709ee53316d3632fd"/><section>
+    <title>POINTER_EXITED</title>
+<indexterm><primary>POINTER_EXITED</primary><secondary>age.event.Type</secondary></indexterm>
+<indexterm><primary>age.event.Type</primary><secondary>POINTER_EXITED</secondary></indexterm>
+<para><computeroutput>age.event.Type.POINTER_EXITED</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1event_1_1_type_1a4b1fc0f79087edf2d14219c672cef3c6"/><section>
+    <title>POINTER_MOVED</title>
+<indexterm><primary>POINTER_MOVED</primary><secondary>age.event.Type</secondary></indexterm>
+<indexterm><primary>age.event.Type</primary><secondary>POINTER_MOVED</secondary></indexterm>
+<para><computeroutput>age.event.Type.POINTER_MOVED</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1event_1_1_type_1aaacd48b7e6d25069c4f982a01fa97f6b"/><section>
+    <title>POINTER_PRESSED</title>
+<indexterm><primary>POINTER_PRESSED</primary><secondary>age.event.Type</secondary></indexterm>
+<indexterm><primary>age.event.Type</primary><secondary>POINTER_PRESSED</secondary></indexterm>
+<para><computeroutput>age.event.Type.POINTER_PRESSED</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1event_1_1_type_1a0efebd6f0b16b9210c979db80def7d3b"/><section>
+    <title>POINTER_RELEASED</title>
+<indexterm><primary>POINTER_RELEASED</primary><secondary>age.event.Type</secondary></indexterm>
+<indexterm><primary>age.event.Type</primary><secondary>POINTER_RELEASED</secondary></indexterm>
+<para><computeroutput>age.event.Type.POINTER_RELEASED</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1event_1_1_type_1a0984982dcf90bb4bf510007b8df58a1c"/><section>
+    <title>SURFACE_CLOSE_REQUEST</title>
+<indexterm><primary>SURFACE_CLOSE_REQUEST</primary><secondary>age.event.Type</secondary></indexterm>
+<indexterm><primary>age.event.Type</primary><secondary>SURFACE_CLOSE_REQUEST</secondary></indexterm>
+<para><computeroutput>age.event.Type.SURFACE_CLOSE_REQUEST</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1event_1_1_type_1a830104c3fbaac1720a559418c0e9c571"/><section>
+    <title>SURFACE_RESIZED</title>
+<indexterm><primary>SURFACE_RESIZED</primary><secondary>age.event.Type</secondary></indexterm>
+<indexterm><primary>age.event.Type</primary><secondary>SURFACE_RESIZED</secondary></indexterm>
+<para><computeroutput>age.event.Type.SURFACE_RESIZED</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1event_1_1_type_1a353a65ede040bfe18a56756a6c34e43f"/><section>
+    <title>TASK_COMMAND</title>
+<indexterm><primary>TASK_COMMAND</primary><secondary>age.event.Type</secondary></indexterm>
+<indexterm><primary>age.event.Type</primary><secondary>TASK_COMMAND</secondary></indexterm>
+<para><computeroutput>age.event.Type.TASK_COMMAND</computeroutput></para></section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+d:/GIT/repos/ODE/age/age/event/<link linkend="__type_8java">Type.java</link></section>
+</section>

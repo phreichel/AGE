@@ -1,0 +1,267 @@
+.TH "age.gui.Widget" 3 "Version 1" "ODE Framework" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+age.gui.Widget
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBage\&.gui\&.Window\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBWidget\fP (\fBFlag\fP \&.\&.\&. \fBflags\fP)"
+.br
+.ti -1c
+.RI "float \fBx\fP ()"
+.br
+.ti -1c
+.RI "float \fBy\fP ()"
+.br
+.ti -1c
+.RI "float \fBwidth\fP ()"
+.br
+.ti -1c
+.RI "float \fBheight\fP ()"
+.br
+.ti -1c
+.RI "Vector2f \fBposition\fP ()"
+.br
+.ti -1c
+.RI "Vector2f \fBdimension\fP ()"
+.br
+.ti -1c
+.RI "\fBDock\fP \fBdock\fP ()"
+.br
+.ti -1c
+.RI "void \fBdock\fP (\fBDock\fP dock)"
+.br
+.ti -1c
+.RI "void \fBdock\fP (float top, float bottom, float left, float right)"
+.br
+.ti -1c
+.RI "void \fBposition\fP (Vector2f position)"
+.br
+.ti -1c
+.RI "void \fBposition\fP (float \fBx\fP, float \fBy\fP)"
+.br
+.ti -1c
+.RI "void \fBpositionAdd\fP (Vector2f \fBposition\fP)"
+.br
+.ti -1c
+.RI "void \fBpositionAdd\fP (float \fBx\fP, float \fBy\fP)"
+.br
+.ti -1c
+.RI "void \fBdimension\fP (Vector2f dimension)"
+.br
+.ti -1c
+.RI "void \fBdimension\fP (float \fBwidth\fP, float \fBheight\fP)"
+.br
+.ti -1c
+.RI "void \fBdimensionAdd\fP (Vector2f \fBdimension\fP)"
+.br
+.ti -1c
+.RI "void \fBdimensionAdd\fP (float \fBwidth\fP, float \fBheight\fP)"
+.br
+.ti -1c
+.RI "Set< \fBFlag\fP > \fBflags\fP ()"
+.br
+.ti -1c
+.RI "void \fBflag\fP (\fBFlag\fP \&.\&.\&. \fBflags\fP)"
+.br
+.ti -1c
+.RI "void \fBclear\fP (\fBFlag\fP \&.\&.\&. \fBflags\fP)"
+.br
+.ti -1c
+.RI "boolean \fBmatch\fP (\fBFlag\fP \&.\&.\&. \fBflags\fP)"
+.br
+.ti -1c
+.RI "\fBWidget\fP \fBparent\fP ()"
+.br
+.ti -1c
+.RI "List< \fBWidget\fP > \fBchildren\fP ()"
+.br
+.ti -1c
+.RI "void \fBadd\fP (\fBWidget\fP child)"
+.br
+.ti -1c
+.RI "void \fBadd\fP (int idx, \fBWidget\fP child)"
+.br
+.ti -1c
+.RI "void \fBremove\fP ()"
+.br
+.ti -1c
+.RI "void \fBtoFront\fP ()"
+.br
+.ti -1c
+.RI "String \fBtext\fP ()"
+.br
+.ti -1c
+.RI "void \fBtext\fP (String text)"
+.br
+.ti -1c
+.RI "String \fBimage\fP ()"
+.br
+.ti -1c
+.RI "void \fBimage\fP (String image)"
+.br
+.ti -1c
+.RI "String \fBcommand\fP ()"
+.br
+.ti -1c
+.RI "void \fBcommand\fP (String command)"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBresized\fP (float dx, float dy)"
+.br
+.ti -1c
+.RI "void \fBparentResized\fP (float dx, float dy)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "final Set< \fBFlag\fP > \fBflags\fP = EnumSet\&.noneOf(Flag\&.class)"
+.br
+.ti -1c
+.RI "final Set< \fBFlag\fP > \fBflags_ro\fP = Collections\&.unmodifiableSet(\fBflags\fP)"
+.br
+.ti -1c
+.RI "final Vector2f \fBposition\fP = new Vector2f()"
+.br
+.ti -1c
+.RI "final Vector2f \fBdimension\fP = new Vector2f()"
+.br
+.ti -1c
+.RI "final \fBDock\fP \fBdock\fP = new \fBDock\fP()"
+.br
+.ti -1c
+.RI "\fBWidget\fP \fBparent\fP = null"
+.br
+.ti -1c
+.RI "final List< \fBWidget\fP > \fBchildren\fP = new ArrayList<>(10)"
+.br
+.ti -1c
+.RI "final List< \fBWidget\fP > \fBchildren_ro\fP = Collections\&.unmodifiableList(\fBchildren\fP)"
+.br
+.ti -1c
+.RI "String \fBtext\fP = null"
+.br
+.ti -1c
+.RI "String \fBimage\fP = null"
+.br
+.ti -1c
+.RI "String \fBcommand\fP = null"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "age\&.gui\&.Widget\&.Widget (\fBFlag\fP \&.\&.\&. flags)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void age\&.gui\&.Widget\&.add (int idx, \fBWidget\fP child)"
+
+.SS "void age\&.gui\&.Widget\&.add (\fBWidget\fP child)"
+
+.SS "List< \fBWidget\fP > age\&.gui\&.Widget\&.children ()"
+
+.SS "void age\&.gui\&.Widget\&.clear (\fBFlag\fP \&.\&.\&. flags)"
+
+.SS "String age\&.gui\&.Widget\&.command ()"
+
+.SS "void age\&.gui\&.Widget\&.command (String command)"
+
+.SS "Vector2f age\&.gui\&.Widget\&.dimension ()"
+
+.SS "void age\&.gui\&.Widget\&.dimension (float width, float height)"
+
+.SS "void age\&.gui\&.Widget\&.dimension (Vector2f dimension)"
+
+.SS "void age\&.gui\&.Widget\&.dimensionAdd (float width, float height)"
+
+.SS "void age\&.gui\&.Widget\&.dimensionAdd (Vector2f dimension)"
+
+.SS "\fBDock\fP age\&.gui\&.Widget\&.dock ()"
+
+.SS "void age\&.gui\&.Widget\&.dock (\fBDock\fP dock)"
+
+.SS "void age\&.gui\&.Widget\&.dock (float top, float bottom, float left, float right)"
+
+.SS "void age\&.gui\&.Widget\&.flag (\fBFlag\fP \&.\&.\&. flags)"
+
+.SS "Set< \fBFlag\fP > age\&.gui\&.Widget\&.flags ()"
+
+.SS "float age\&.gui\&.Widget\&.height ()"
+
+.SS "String age\&.gui\&.Widget\&.image ()"
+
+.SS "void age\&.gui\&.Widget\&.image (String image)"
+
+.SS "boolean age\&.gui\&.Widget\&.match (\fBFlag\fP \&.\&.\&. flags)"
+
+.SS "\fBWidget\fP age\&.gui\&.Widget\&.parent ()"
+
+.SS "void age\&.gui\&.Widget\&.parentResized (float dx, float dy)\fC [private]\fP"
+
+.SS "Vector2f age\&.gui\&.Widget\&.position ()"
+
+.SS "void age\&.gui\&.Widget\&.position (float x, float y)"
+
+.SS "void age\&.gui\&.Widget\&.position (Vector2f position)"
+
+.SS "void age\&.gui\&.Widget\&.positionAdd (float x, float y)"
+
+.SS "void age\&.gui\&.Widget\&.positionAdd (Vector2f position)"
+
+.SS "void age\&.gui\&.Widget\&.remove ()"
+
+.SS "void age\&.gui\&.Widget\&.resized (float dx, float dy)\fC [private]\fP"
+
+.SS "String age\&.gui\&.Widget\&.text ()"
+
+.SS "void age\&.gui\&.Widget\&.text (String text)"
+
+.SS "void age\&.gui\&.Widget\&.toFront ()"
+
+.SS "float age\&.gui\&.Widget\&.width ()"
+
+.SS "float age\&.gui\&.Widget\&.x ()"
+
+.SS "float age\&.gui\&.Widget\&.y ()"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final List<\fBWidget\fP> age\&.gui\&.Widget\&.children = new ArrayList<>(10)\fC [private]\fP"
+
+.SS "final List<\fBWidget\fP> age\&.gui\&.Widget\&.children_ro = Collections\&.unmodifiableList(\fBchildren\fP)\fC [private]\fP"
+
+.SS "String age\&.gui\&.Widget\&.command = null\fC [private]\fP"
+
+.SS "final Vector2f age\&.gui\&.Widget\&.dimension = new Vector2f()\fC [private]\fP"
+
+.SS "final \fBDock\fP age\&.gui\&.Widget\&.dock = new \fBDock\fP()\fC [private]\fP"
+
+.SS "final Set<\fBFlag\fP> age\&.gui\&.Widget\&.flags = EnumSet\&.noneOf(Flag\&.class)\fC [private]\fP"
+
+.SS "final Set<\fBFlag\fP> age\&.gui\&.Widget\&.flags_ro = Collections\&.unmodifiableSet(\fBflags\fP)\fC [private]\fP"
+
+.SS "String age\&.gui\&.Widget\&.image = null\fC [private]\fP"
+
+.SS "\fBWidget\fP age\&.gui\&.Widget\&.parent = null\fC [private]\fP"
+
+.SS "final Vector2f age\&.gui\&.Widget\&.position = new Vector2f()\fC [private]\fP"
+
+.SS "String age\&.gui\&.Widget\&.text = null\fC [private]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ODE Framework from the source code\&.

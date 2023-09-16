@@ -1,0 +1,130 @@
+.TH "age.gui.Handling" 3 "Version 1" "ODE Framework" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+age.gui.Handling
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHandling\fP (\fBWidgets\fP \fBwidgets\fP)"
+.br
+.ti -1c
+.RI "void \fBassign\fP (Events \fBevents\fP)"
+.br
+.ti -1c
+.RI "void \fBhandleKeyboard\fP (Event e)"
+.br
+.ti -1c
+.RI "void \fBhandlePointer\fP (Event e)"
+.br
+.ti -1c
+.RI "void \fBhandleSurface\fP (Event e)"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBpressedFrameToFront\fP (Event e)"
+.br
+.ti -1c
+.RI "void \fBbuttonClickAction\fP (Event e)"
+.br
+.ti -1c
+.RI "void \fBstartFrameSizeAction\fP (Event e)"
+.br
+.ti -1c
+.RI "void \fBstartFrameDragAction\fP (Event e)"
+.br
+.ti -1c
+.RI "void \fBupdateActionState\fP (Event e, String \fBaction\fP)"
+.br
+.ti -1c
+.RI "void \fBupdateFrameAction\fP (Event e)"
+.br
+.ti -1c
+.RI "void \fBstopFrameAction\fP (Event e)"
+.br
+.ti -1c
+.RI "\fBWidget\fP \fBhovered\fP (Vector2f pos, \fBWidget\fP widget)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "Events \fBevents\fP"
+.br
+.ti -1c
+.RI "final \fBWidgets\fP \fBwidgets\fP"
+.br
+.ti -1c
+.RI "\fBWidget\fP \fBhovered\fP = null"
+.br
+.ti -1c
+.RI "\fBWidget\fP \fBdragged\fP = null"
+.br
+.ti -1c
+.RI "String \fBaction\fP = null"
+.br
+.ti -1c
+.RI "final Vector2f \fBref\fP = new Vector2f()"
+.br
+.ti -1c
+.RI "final Vector2f \fBtmp\fP = new Vector2f()"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "age\&.gui\&.Handling\&.Handling (\fBWidgets\fP widgets)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void age\&.gui\&.Handling\&.assign (Events events)"
+
+.SS "void age\&.gui\&.Handling\&.buttonClickAction (Event e)\fC [private]\fP"
+
+.SS "void age\&.gui\&.Handling\&.handleKeyboard (Event e)"
+
+.SS "void age\&.gui\&.Handling\&.handlePointer (Event e)"
+
+.SS "void age\&.gui\&.Handling\&.handleSurface (Event e)"
+
+.SS "\fBWidget\fP age\&.gui\&.Handling\&.hovered (Vector2f pos, \fBWidget\fP widget)\fC [private]\fP"
+
+.SS "void age\&.gui\&.Handling\&.pressedFrameToFront (Event e)\fC [private]\fP"
+
+.SS "void age\&.gui\&.Handling\&.startFrameDragAction (Event e)\fC [private]\fP"
+
+.SS "void age\&.gui\&.Handling\&.startFrameSizeAction (Event e)\fC [private]\fP"
+
+.SS "void age\&.gui\&.Handling\&.stopFrameAction (Event e)\fC [private]\fP"
+
+.SS "void age\&.gui\&.Handling\&.updateActionState (Event e, String action)\fC [private]\fP"
+
+.SS "void age\&.gui\&.Handling\&.updateFrameAction (Event e)\fC [private]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "String age\&.gui\&.Handling\&.action = null\fC [private]\fP"
+
+.SS "\fBWidget\fP age\&.gui\&.Handling\&.dragged = null\fC [private]\fP"
+
+.SS "Events age\&.gui\&.Handling\&.events\fC [private]\fP"
+
+.SS "\fBWidget\fP age\&.gui\&.Handling\&.hovered = null\fC [private]\fP"
+
+.SS "final Vector2f age\&.gui\&.Handling\&.ref = new Vector2f()\fC [private]\fP"
+
+.SS "final Vector2f age\&.gui\&.Handling\&.tmp = new Vector2f()\fC [private]\fP"
+
+.SS "final \fBWidgets\fP age\&.gui\&.Handling\&.widgets\fC [private]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ODE Framework from the source code\&.

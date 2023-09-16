@@ -1,0 +1,198 @@
+\doxysection{age.\+event.\+Events Class Reference}
+\hypertarget{classage_1_1event_1_1_events}{}\label{classage_1_1event_1_1_events}\index{age.event.Events@{age.event.Events}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classage_1_1event_1_1_events_a6c049da2700b4f0c96149f4c9b983d75}{assign}} (\mbox{\hyperlink{enumage_1_1event_1_1_type}{Type}} type, \mbox{\hyperlink{interfaceage_1_1event_1_1_handler}{Handler}} handler)
+\item 
+void \mbox{\hyperlink{classage_1_1event_1_1_events_aa3400c7599690218e5b670098f502bdc}{post\+Key\+Pressed}} (\mbox{\hyperlink{enumage_1_1event_1_1_key}{Key}} key, char character)
+\item 
+void \mbox{\hyperlink{classage_1_1event_1_1_events_a55cde1319d64cfce44bf06efd7825124}{post\+Key\+Released}} (\mbox{\hyperlink{enumage_1_1event_1_1_key}{Key}} key, char character)
+\item 
+void \mbox{\hyperlink{classage_1_1event_1_1_events_aa7f7e2c555e3a2690e1739b23783aa33}{post\+Key\+Typed}} (\mbox{\hyperlink{enumage_1_1event_1_1_key}{Key}} key, char character)
+\item 
+void \mbox{\hyperlink{classage_1_1event_1_1_events_a135ad2f4082b3d38d012153449c1b9fb}{post\+Pointer\+Entered}} (float x, float y)
+\item 
+void \mbox{\hyperlink{classage_1_1event_1_1_events_ad5d38948f40fe4dccd79b19147549844}{post\+Pointer\+Exited}} (float x, float y)
+\item 
+void \mbox{\hyperlink{classage_1_1event_1_1_events_a6aad279918486b2064a580746772e862}{post\+Pointer\+Moved}} (float x, float y)
+\item 
+void \mbox{\hyperlink{classage_1_1event_1_1_events_ae808ab7aa8356907ad8c4cc3fa3a930f}{post\+Pointer\+Pressed}} (\mbox{\hyperlink{enumage_1_1event_1_1_button}{Button}} button, int count, float x, float y)
+\item 
+void \mbox{\hyperlink{classage_1_1event_1_1_events_ae5ff25a0b815fdd27028a0d4a0b6f572}{post\+Pointer\+Released}} (\mbox{\hyperlink{enumage_1_1event_1_1_button}{Button}} button, int count, float x, float y)
+\item 
+void \mbox{\hyperlink{classage_1_1event_1_1_events_afd4d23b22bf8e623f20518b027278738}{post\+Pointer\+Clicked}} (\mbox{\hyperlink{enumage_1_1event_1_1_button}{Button}} button, int count, float x, float y)
+\item 
+void \mbox{\hyperlink{classage_1_1event_1_1_events_a5df4a2ee8c00f8a859475af777b2cc2d}{post\+Surface\+Resized}} (float w, float h)
+\item 
+void \mbox{\hyperlink{classage_1_1event_1_1_events_a00ba879f820a8e8c99b7a98845d41588}{post\+Surface\+Close\+Request}} ()
+\item 
+void \mbox{\hyperlink{classage_1_1event_1_1_events_ad744d321d5bfeb26a84eee06315888e9}{post\+Task\+Command}} (String command)
+\item 
+void \mbox{\hyperlink{classage_1_1event_1_1_events_ae2f519f0688e3f1c1d008d5b515cce0b}{update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classage_1_1event_1_1_events_a0dc1e5b84f4877ec11ac782514523a06}{handle}} (\mbox{\hyperlink{classage_1_1event_1_1_event}{Event}} event)
+\item 
+void \mbox{\hyperlink{classage_1_1event_1_1_events_a37f91e6c3fab5c788e275a0424a40aa4}{post}} (\mbox{\hyperlink{classage_1_1event_1_1_event}{Event}} event)
+\item 
+\mbox{\hyperlink{classage_1_1event_1_1_event}{Event}} \mbox{\hyperlink{classage_1_1event_1_1_events_a8d40ffb1305d6ffab195a2472bf6ebd8}{alloc}} ()
+\item 
+void \mbox{\hyperlink{classage_1_1event_1_1_events_aab603a52953b9be7ce6362006dc41f8b}{free}} (\mbox{\hyperlink{classage_1_1event_1_1_event}{Event}} event)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final Queue$<$ \mbox{\hyperlink{classage_1_1event_1_1_event}{Event}} $>$ \mbox{\hyperlink{classage_1_1event_1_1_events_a219da60248dc4b3f391b10934ca52b0b}{cache}} = new Linked\+List$<$$>$()
+\item 
+final List$<$ \mbox{\hyperlink{classage_1_1event_1_1_event}{Event}} $>$ \mbox{\hyperlink{classage_1_1event_1_1_events_a76dba772f85e49579b741660f77fc871}{inbox}} = new Array\+List$<$$>$()
+\item 
+final List$<$ \mbox{\hyperlink{classage_1_1event_1_1_event}{Event}} $>$ \mbox{\hyperlink{classage_1_1event_1_1_events_a887ccadf847630dbb936fba8bb7753ad}{outbox}} = new Array\+List$<$$>$()
+\item 
+final Map$<$ \mbox{\hyperlink{enumage_1_1event_1_1_type}{Type}}, List$<$ \mbox{\hyperlink{interfaceage_1_1event_1_1_handler}{Handler}} $>$ $>$ \mbox{\hyperlink{classage_1_1event_1_1_events_a71cc98d71bb1136b1b8a7aa8fa01e6b0}{handlers}} = new Enum\+Map$<$$>$(Type.\+class)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classage_1_1event_1_1_events_a8d40ffb1305d6ffab195a2472bf6ebd8}\label{classage_1_1event_1_1_events_a8d40ffb1305d6ffab195a2472bf6ebd8} 
+\index{age.event.Events@{age.event.Events}!alloc@{alloc}}
+\index{alloc@{alloc}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{alloc()}{alloc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classage_1_1event_1_1_event}{Event}} age.\+event.\+Events.\+alloc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1event_1_1_events_a6c049da2700b4f0c96149f4c9b983d75}\label{classage_1_1event_1_1_events_a6c049da2700b4f0c96149f4c9b983d75} 
+\index{age.event.Events@{age.event.Events}!assign@{assign}}
+\index{assign@{assign}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{assign()}{assign()}}
+{\footnotesize\ttfamily void age.\+event.\+Events.\+assign (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumage_1_1event_1_1_type}{Type}}}]{type,  }\item[{\mbox{\hyperlink{interfaceage_1_1event_1_1_handler}{Handler}}}]{handler }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1event_1_1_events_aab603a52953b9be7ce6362006dc41f8b}\label{classage_1_1event_1_1_events_aab603a52953b9be7ce6362006dc41f8b} 
+\index{age.event.Events@{age.event.Events}!free@{free}}
+\index{free@{free}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{free()}{free()}}
+{\footnotesize\ttfamily void age.\+event.\+Events.\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classage_1_1event_1_1_event}{Event}}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1event_1_1_events_a0dc1e5b84f4877ec11ac782514523a06}\label{classage_1_1event_1_1_events_a0dc1e5b84f4877ec11ac782514523a06} 
+\index{age.event.Events@{age.event.Events}!handle@{handle}}
+\index{handle@{handle}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{handle()}{handle()}}
+{\footnotesize\ttfamily void age.\+event.\+Events.\+handle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classage_1_1event_1_1_event}{Event}}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1event_1_1_events_a37f91e6c3fab5c788e275a0424a40aa4}\label{classage_1_1event_1_1_events_a37f91e6c3fab5c788e275a0424a40aa4} 
+\index{age.event.Events@{age.event.Events}!post@{post}}
+\index{post@{post}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{post()}{post()}}
+{\footnotesize\ttfamily void age.\+event.\+Events.\+post (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classage_1_1event_1_1_event}{Event}}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1event_1_1_events_aa3400c7599690218e5b670098f502bdc}\label{classage_1_1event_1_1_events_aa3400c7599690218e5b670098f502bdc} 
+\index{age.event.Events@{age.event.Events}!postKeyPressed@{postKeyPressed}}
+\index{postKeyPressed@{postKeyPressed}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{postKeyPressed()}{postKeyPressed()}}
+{\footnotesize\ttfamily void age.\+event.\+Events.\+post\+Key\+Pressed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumage_1_1event_1_1_key}{Key}}}]{key,  }\item[{char}]{character }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1event_1_1_events_a55cde1319d64cfce44bf06efd7825124}\label{classage_1_1event_1_1_events_a55cde1319d64cfce44bf06efd7825124} 
+\index{age.event.Events@{age.event.Events}!postKeyReleased@{postKeyReleased}}
+\index{postKeyReleased@{postKeyReleased}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{postKeyReleased()}{postKeyReleased()}}
+{\footnotesize\ttfamily void age.\+event.\+Events.\+post\+Key\+Released (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumage_1_1event_1_1_key}{Key}}}]{key,  }\item[{char}]{character }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1event_1_1_events_aa7f7e2c555e3a2690e1739b23783aa33}\label{classage_1_1event_1_1_events_aa7f7e2c555e3a2690e1739b23783aa33} 
+\index{age.event.Events@{age.event.Events}!postKeyTyped@{postKeyTyped}}
+\index{postKeyTyped@{postKeyTyped}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{postKeyTyped()}{postKeyTyped()}}
+{\footnotesize\ttfamily void age.\+event.\+Events.\+post\+Key\+Typed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumage_1_1event_1_1_key}{Key}}}]{key,  }\item[{char}]{character }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1event_1_1_events_afd4d23b22bf8e623f20518b027278738}\label{classage_1_1event_1_1_events_afd4d23b22bf8e623f20518b027278738} 
+\index{age.event.Events@{age.event.Events}!postPointerClicked@{postPointerClicked}}
+\index{postPointerClicked@{postPointerClicked}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{postPointerClicked()}{postPointerClicked()}}
+{\footnotesize\ttfamily void age.\+event.\+Events.\+post\+Pointer\+Clicked (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumage_1_1event_1_1_button}{Button}}}]{button,  }\item[{int}]{count,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1event_1_1_events_a135ad2f4082b3d38d012153449c1b9fb}\label{classage_1_1event_1_1_events_a135ad2f4082b3d38d012153449c1b9fb} 
+\index{age.event.Events@{age.event.Events}!postPointerEntered@{postPointerEntered}}
+\index{postPointerEntered@{postPointerEntered}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{postPointerEntered()}{postPointerEntered()}}
+{\footnotesize\ttfamily void age.\+event.\+Events.\+post\+Pointer\+Entered (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1event_1_1_events_ad5d38948f40fe4dccd79b19147549844}\label{classage_1_1event_1_1_events_ad5d38948f40fe4dccd79b19147549844} 
+\index{age.event.Events@{age.event.Events}!postPointerExited@{postPointerExited}}
+\index{postPointerExited@{postPointerExited}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{postPointerExited()}{postPointerExited()}}
+{\footnotesize\ttfamily void age.\+event.\+Events.\+post\+Pointer\+Exited (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1event_1_1_events_a6aad279918486b2064a580746772e862}\label{classage_1_1event_1_1_events_a6aad279918486b2064a580746772e862} 
+\index{age.event.Events@{age.event.Events}!postPointerMoved@{postPointerMoved}}
+\index{postPointerMoved@{postPointerMoved}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{postPointerMoved()}{postPointerMoved()}}
+{\footnotesize\ttfamily void age.\+event.\+Events.\+post\+Pointer\+Moved (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1event_1_1_events_ae808ab7aa8356907ad8c4cc3fa3a930f}\label{classage_1_1event_1_1_events_ae808ab7aa8356907ad8c4cc3fa3a930f} 
+\index{age.event.Events@{age.event.Events}!postPointerPressed@{postPointerPressed}}
+\index{postPointerPressed@{postPointerPressed}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{postPointerPressed()}{postPointerPressed()}}
+{\footnotesize\ttfamily void age.\+event.\+Events.\+post\+Pointer\+Pressed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumage_1_1event_1_1_button}{Button}}}]{button,  }\item[{int}]{count,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1event_1_1_events_ae5ff25a0b815fdd27028a0d4a0b6f572}\label{classage_1_1event_1_1_events_ae5ff25a0b815fdd27028a0d4a0b6f572} 
+\index{age.event.Events@{age.event.Events}!postPointerReleased@{postPointerReleased}}
+\index{postPointerReleased@{postPointerReleased}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{postPointerReleased()}{postPointerReleased()}}
+{\footnotesize\ttfamily void age.\+event.\+Events.\+post\+Pointer\+Released (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumage_1_1event_1_1_button}{Button}}}]{button,  }\item[{int}]{count,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1event_1_1_events_a00ba879f820a8e8c99b7a98845d41588}\label{classage_1_1event_1_1_events_a00ba879f820a8e8c99b7a98845d41588} 
+\index{age.event.Events@{age.event.Events}!postSurfaceCloseRequest@{postSurfaceCloseRequest}}
+\index{postSurfaceCloseRequest@{postSurfaceCloseRequest}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{postSurfaceCloseRequest()}{postSurfaceCloseRequest()}}
+{\footnotesize\ttfamily void age.\+event.\+Events.\+post\+Surface\+Close\+Request (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1event_1_1_events_a5df4a2ee8c00f8a859475af777b2cc2d}\label{classage_1_1event_1_1_events_a5df4a2ee8c00f8a859475af777b2cc2d} 
+\index{age.event.Events@{age.event.Events}!postSurfaceResized@{postSurfaceResized}}
+\index{postSurfaceResized@{postSurfaceResized}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{postSurfaceResized()}{postSurfaceResized()}}
+{\footnotesize\ttfamily void age.\+event.\+Events.\+post\+Surface\+Resized (\begin{DoxyParamCaption}\item[{float}]{w,  }\item[{float}]{h }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1event_1_1_events_ad744d321d5bfeb26a84eee06315888e9}\label{classage_1_1event_1_1_events_ad744d321d5bfeb26a84eee06315888e9} 
+\index{age.event.Events@{age.event.Events}!postTaskCommand@{postTaskCommand}}
+\index{postTaskCommand@{postTaskCommand}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{postTaskCommand()}{postTaskCommand()}}
+{\footnotesize\ttfamily void age.\+event.\+Events.\+post\+Task\+Command (\begin{DoxyParamCaption}\item[{String}]{command }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1event_1_1_events_ae2f519f0688e3f1c1d008d5b515cce0b}\label{classage_1_1event_1_1_events_ae2f519f0688e3f1c1d008d5b515cce0b} 
+\index{age.event.Events@{age.event.Events}!update@{update}}
+\index{update@{update}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void age.\+event.\+Events.\+update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classage_1_1event_1_1_events_a219da60248dc4b3f391b10934ca52b0b}\label{classage_1_1event_1_1_events_a219da60248dc4b3f391b10934ca52b0b} 
+\index{age.event.Events@{age.event.Events}!cache@{cache}}
+\index{cache@{cache}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{cache}{cache}}
+{\footnotesize\ttfamily final Queue$<$\mbox{\hyperlink{classage_1_1event_1_1_event}{Event}}$>$ age.\+event.\+Events.\+cache = new Linked\+List$<$$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1event_1_1_events_a71cc98d71bb1136b1b8a7aa8fa01e6b0}\label{classage_1_1event_1_1_events_a71cc98d71bb1136b1b8a7aa8fa01e6b0} 
+\index{age.event.Events@{age.event.Events}!handlers@{handlers}}
+\index{handlers@{handlers}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{handlers}{handlers}}
+{\footnotesize\ttfamily final Map$<$\mbox{\hyperlink{enumage_1_1event_1_1_type}{Type}}, List$<$\mbox{\hyperlink{interfaceage_1_1event_1_1_handler}{Handler}}$>$ $>$ age.\+event.\+Events.\+handlers = new Enum\+Map$<$$>$(Type.\+class)\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1event_1_1_events_a76dba772f85e49579b741660f77fc871}\label{classage_1_1event_1_1_events_a76dba772f85e49579b741660f77fc871} 
+\index{age.event.Events@{age.event.Events}!inbox@{inbox}}
+\index{inbox@{inbox}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{inbox}{inbox}}
+{\footnotesize\ttfamily final List$<$\mbox{\hyperlink{classage_1_1event_1_1_event}{Event}}$>$ age.\+event.\+Events.\+inbox = new Array\+List$<$$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1event_1_1_events_a887ccadf847630dbb936fba8bb7753ad}\label{classage_1_1event_1_1_events_a887ccadf847630dbb936fba8bb7753ad} 
+\index{age.event.Events@{age.event.Events}!outbox@{outbox}}
+\index{outbox@{outbox}!age.event.Events@{age.event.Events}}
+\doxysubsubsection{\texorpdfstring{outbox}{outbox}}
+{\footnotesize\ttfamily final List$<$\mbox{\hyperlink{classage_1_1event_1_1_event}{Event}}$>$ age.\+event.\+Events.\+outbox = new Array\+List$<$$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+d\+:/\+GIT/repos/\+ODE/age/age/event/\mbox{\hyperlink{_events_8java}{Events.\+java}}\end{DoxyCompactItemize}

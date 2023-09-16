@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interfaceage_1_1port_1_1_renderable" xml:lang="en-US">
+<title>age.port.Renderable Interface Reference</title>
+<indexterm><primary>age.port.Renderable</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_interfaceage_1_1port_1_1_renderable_1a9f4a7ecf6f3e24b4cf7c056bd0a04170">render</link> (<link linkend="_interfaceage_1_1port_1_1_graphics">Graphics</link> g)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_interfaceage_1_1port_1_1_renderable_1a9f4a7ecf6f3e24b4cf7c056bd0a04170"/><section>
+    <title>render()</title>
+<indexterm><primary>render</primary><secondary>age.port.Renderable</secondary></indexterm>
+<indexterm><primary>age.port.Renderable</primary><secondary>render</secondary></indexterm>
+<para><computeroutput>void age.port.Renderable.render (<link linkend="_interfaceage_1_1port_1_1_graphics">Graphics</link> g)</computeroutput></para></section>
+<para>
+The documentation for this interface was generated from the following file:</para>
+d:/GIT/repos/ODE/age/age/port/<link linkend="__renderable_8java">Renderable.java</link></section>
+</section>

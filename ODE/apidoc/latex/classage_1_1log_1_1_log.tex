@@ -1,0 +1,239 @@
+\doxysection{age.\+log.\+Log Class Reference}
+\hypertarget{classage_1_1log_1_1_log}{}\label{classage_1_1log_1_1_log}\index{age.log.Log@{age.log.Log}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classage_1_1log_1_1_log_a83385a931d6297af627b99cd27058e09}{clear}} ()
+\item 
+void \mbox{\hyperlink{classage_1_1log_1_1_log_af802f6d30f9aaf40974af55fae60bd1f}{enable}} (\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}} ... \mbox{\hyperlink{classage_1_1log_1_1_log_a54927b4f7cb1517b2fc741cb6820d03d}{levels}})
+\item 
+void \mbox{\hyperlink{classage_1_1log_1_1_log_ac9cae23ecd1eb1b308c5b7989bc6435e}{disable}} (\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}} ... \mbox{\hyperlink{classage_1_1log_1_1_log_a54927b4f7cb1517b2fc741cb6820d03d}{levels}})
+\item 
+boolean \mbox{\hyperlink{classage_1_1log_1_1_log_a23772c6924a0fcf35d36ee03e4f8577b}{trace}} ()
+\item 
+void \mbox{\hyperlink{classage_1_1log_1_1_log_ae60f2d19f8b928ab9655f602302cd620}{trace}} (boolean trace)
+\item 
+String \mbox{\hyperlink{classage_1_1log_1_1_log_a87fcf1bc97ece331e1d07714909bd715}{format}} ()
+\item 
+void \mbox{\hyperlink{classage_1_1log_1_1_log_a8eb49a05d3798ce5d345a7094df83ba0}{format}} (String format)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classage_1_1log_1_1_log_a7b75db5628d94a42654dbed84fa49afa}{configure}} (String path)
+\item 
+static \mbox{\hyperlink{classage_1_1log_1_1_log}{Log}} \mbox{\hyperlink{classage_1_1log_1_1_log_a20be7735d5182af073b90a9c711f55ef}{get}} (String instance)
+\item 
+static void \mbox{\hyperlink{classage_1_1log_1_1_log_aaa003eaf8cd33807e94fe81fae1383e4}{log}} (\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}} level, String message, Object ... params)
+\item 
+static void \mbox{\hyperlink{classage_1_1log_1_1_log_ab51ac0e63309bb2418fd7bb9c3d01d38}{info}} (String message, Object ... params)
+\item 
+static void \mbox{\hyperlink{classage_1_1log_1_1_log_a0476c88c594750b1efbb5936dfcf54a4}{warn}} (String message, Object ... params)
+\item 
+static void \mbox{\hyperlink{classage_1_1log_1_1_log_a5ec2b0d109684e58ba061a2bd13ed8d0}{error}} (String message, Object ... params)
+\item 
+static void \mbox{\hyperlink{classage_1_1log_1_1_log_a897998f3d6c5a7e1595ae77c8d578c6e}{debug}} (String message, Object ... params)
+\item 
+static void \mbox{\hyperlink{classage_1_1log_1_1_log_a1d58782062656b62eb49bfee0338cf2a}{log}} (String instance, \mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}} level, String message, Object ... params)
+\item 
+static void \mbox{\hyperlink{classage_1_1log_1_1_log_a12aa1afceba1da44c62a66a21c2b5040}{info}} (String instance, String message, Object ... params)
+\item 
+static void \mbox{\hyperlink{classage_1_1log_1_1_log_a06e5cb665b3236603a9208b718de6f39}{warn}} (String instance, String message, Object ... params)
+\item 
+static void \mbox{\hyperlink{classage_1_1log_1_1_log_a333e9ca8fa3dd75e0669fa0a78d72414}{error}} (String instance, String message, Object ... params)
+\item 
+static void \mbox{\hyperlink{classage_1_1log_1_1_log_ae6b863bd76bf69f36a4456033b768144}{debug}} (String instance, String message, Object ... params)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classage_1_1log_1_1_log_a5159eaf179f879f27809e47d55a94573}{Log}} ()
+\item 
+\mbox{\hyperlink{classage_1_1log_1_1_log_a3ab72819c28e733c675d193ef9bfa668}{Log}} (\mbox{\hyperlink{classage_1_1log_1_1_log}{Log}} parent)
+\item 
+void \mbox{\hyperlink{classage_1_1log_1_1_log_ab92b9cd2b6292eb281bafd966b4c121a}{write}} (\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}} level, String message, Object ... params)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+boolean \mbox{\hyperlink{classage_1_1log_1_1_log_a69f3e81f678610114d3e5bf4c383e6e0}{trace}} = false
+\item 
+Set$<$ \mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}} $>$ \mbox{\hyperlink{classage_1_1log_1_1_log_a54927b4f7cb1517b2fc741cb6820d03d}{levels}} = null
+\item 
+String \mbox{\hyperlink{classage_1_1log_1_1_log_a281e2a3398ae1f16a14c1e838da5cfdd}{format}} = null
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final Map$<$ String, \mbox{\hyperlink{classage_1_1log_1_1_log}{Log}} $>$ \mbox{\hyperlink{classage_1_1log_1_1_log_ab1cba1418cbba0750a8f545451d83e2a}{map}} = new Hash\+Map$<$$>$()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classage_1_1log_1_1_log_a5159eaf179f879f27809e47d55a94573}\label{classage_1_1log_1_1_log_a5159eaf179f879f27809e47d55a94573} 
+\index{age.log.Log@{age.log.Log}!Log@{Log}}
+\index{Log@{Log}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{Log()}{Log()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily age.\+log.\+Log.\+Log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1log_1_1_log_a3ab72819c28e733c675d193ef9bfa668}\label{classage_1_1log_1_1_log_a3ab72819c28e733c675d193ef9bfa668} 
+\index{age.log.Log@{age.log.Log}!Log@{Log}}
+\index{Log@{Log}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{Log()}{Log()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily age.\+log.\+Log.\+Log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classage_1_1log_1_1_log}{Log}}}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classage_1_1log_1_1_log_a83385a931d6297af627b99cd27058e09}\label{classage_1_1log_1_1_log_a83385a931d6297af627b99cd27058e09} 
+\index{age.log.Log@{age.log.Log}!clear@{clear}}
+\index{clear@{clear}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void age.\+log.\+Log.\+clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1log_1_1_log_a7b75db5628d94a42654dbed84fa49afa}\label{classage_1_1log_1_1_log_a7b75db5628d94a42654dbed84fa49afa} 
+\index{age.log.Log@{age.log.Log}!configure@{configure}}
+\index{configure@{configure}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{configure()}{configure()}}
+{\footnotesize\ttfamily static void age.\+log.\+Log.\+configure (\begin{DoxyParamCaption}\item[{String}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classage_1_1log_1_1_log_ae6b863bd76bf69f36a4456033b768144}\label{classage_1_1log_1_1_log_ae6b863bd76bf69f36a4456033b768144} 
+\index{age.log.Log@{age.log.Log}!debug@{debug}}
+\index{debug@{debug}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{debug()}{debug()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void age.\+log.\+Log.\+debug (\begin{DoxyParamCaption}\item[{String}]{instance,  }\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classage_1_1log_1_1_log_a897998f3d6c5a7e1595ae77c8d578c6e}\label{classage_1_1log_1_1_log_a897998f3d6c5a7e1595ae77c8d578c6e} 
+\index{age.log.Log@{age.log.Log}!debug@{debug}}
+\index{debug@{debug}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{debug()}{debug()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void age.\+log.\+Log.\+debug (\begin{DoxyParamCaption}\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classage_1_1log_1_1_log_ac9cae23ecd1eb1b308c5b7989bc6435e}\label{classage_1_1log_1_1_log_ac9cae23ecd1eb1b308c5b7989bc6435e} 
+\index{age.log.Log@{age.log.Log}!disable@{disable}}
+\index{disable@{disable}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{disable()}{disable()}}
+{\footnotesize\ttfamily void age.\+log.\+Log.\+disable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}} ...}]{levels }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1log_1_1_log_af802f6d30f9aaf40974af55fae60bd1f}\label{classage_1_1log_1_1_log_af802f6d30f9aaf40974af55fae60bd1f} 
+\index{age.log.Log@{age.log.Log}!enable@{enable}}
+\index{enable@{enable}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{enable()}{enable()}}
+{\footnotesize\ttfamily void age.\+log.\+Log.\+enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}} ...}]{levels }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1log_1_1_log_a333e9ca8fa3dd75e0669fa0a78d72414}\label{classage_1_1log_1_1_log_a333e9ca8fa3dd75e0669fa0a78d72414} 
+\index{age.log.Log@{age.log.Log}!error@{error}}
+\index{error@{error}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void age.\+log.\+Log.\+error (\begin{DoxyParamCaption}\item[{String}]{instance,  }\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classage_1_1log_1_1_log_a5ec2b0d109684e58ba061a2bd13ed8d0}\label{classage_1_1log_1_1_log_a5ec2b0d109684e58ba061a2bd13ed8d0} 
+\index{age.log.Log@{age.log.Log}!error@{error}}
+\index{error@{error}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void age.\+log.\+Log.\+error (\begin{DoxyParamCaption}\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classage_1_1log_1_1_log_a87fcf1bc97ece331e1d07714909bd715}\label{classage_1_1log_1_1_log_a87fcf1bc97ece331e1d07714909bd715} 
+\index{age.log.Log@{age.log.Log}!format@{format}}
+\index{format@{format}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{format()}{format()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily String age.\+log.\+Log.\+format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1log_1_1_log_a8eb49a05d3798ce5d345a7094df83ba0}\label{classage_1_1log_1_1_log_a8eb49a05d3798ce5d345a7094df83ba0} 
+\index{age.log.Log@{age.log.Log}!format@{format}}
+\index{format@{format}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{format()}{format()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void age.\+log.\+Log.\+format (\begin{DoxyParamCaption}\item[{String}]{format }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1log_1_1_log_a20be7735d5182af073b90a9c711f55ef}\label{classage_1_1log_1_1_log_a20be7735d5182af073b90a9c711f55ef} 
+\index{age.log.Log@{age.log.Log}!get@{get}}
+\index{get@{get}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classage_1_1log_1_1_log}{Log}} age.\+log.\+Log.\+get (\begin{DoxyParamCaption}\item[{String}]{instance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classage_1_1log_1_1_log_a12aa1afceba1da44c62a66a21c2b5040}\label{classage_1_1log_1_1_log_a12aa1afceba1da44c62a66a21c2b5040} 
+\index{age.log.Log@{age.log.Log}!info@{info}}
+\index{info@{info}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{info()}{info()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void age.\+log.\+Log.\+info (\begin{DoxyParamCaption}\item[{String}]{instance,  }\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classage_1_1log_1_1_log_ab51ac0e63309bb2418fd7bb9c3d01d38}\label{classage_1_1log_1_1_log_ab51ac0e63309bb2418fd7bb9c3d01d38} 
+\index{age.log.Log@{age.log.Log}!info@{info}}
+\index{info@{info}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{info()}{info()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void age.\+log.\+Log.\+info (\begin{DoxyParamCaption}\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classage_1_1log_1_1_log_aaa003eaf8cd33807e94fe81fae1383e4}\label{classage_1_1log_1_1_log_aaa003eaf8cd33807e94fe81fae1383e4} 
+\index{age.log.Log@{age.log.Log}!log@{log}}
+\index{log@{log}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void age.\+log.\+Log.\+log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}}}]{level,  }\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classage_1_1log_1_1_log_a1d58782062656b62eb49bfee0338cf2a}\label{classage_1_1log_1_1_log_a1d58782062656b62eb49bfee0338cf2a} 
+\index{age.log.Log@{age.log.Log}!log@{log}}
+\index{log@{log}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void age.\+log.\+Log.\+log (\begin{DoxyParamCaption}\item[{String}]{instance,  }\item[{\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}}}]{level,  }\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classage_1_1log_1_1_log_a23772c6924a0fcf35d36ee03e4f8577b}\label{classage_1_1log_1_1_log_a23772c6924a0fcf35d36ee03e4f8577b} 
+\index{age.log.Log@{age.log.Log}!trace@{trace}}
+\index{trace@{trace}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{trace()}{trace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boolean age.\+log.\+Log.\+trace (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1log_1_1_log_ae60f2d19f8b928ab9655f602302cd620}\label{classage_1_1log_1_1_log_ae60f2d19f8b928ab9655f602302cd620} 
+\index{age.log.Log@{age.log.Log}!trace@{trace}}
+\index{trace@{trace}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{trace()}{trace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void age.\+log.\+Log.\+trace (\begin{DoxyParamCaption}\item[{boolean}]{trace }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1log_1_1_log_a06e5cb665b3236603a9208b718de6f39}\label{classage_1_1log_1_1_log_a06e5cb665b3236603a9208b718de6f39} 
+\index{age.log.Log@{age.log.Log}!warn@{warn}}
+\index{warn@{warn}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{warn()}{warn()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void age.\+log.\+Log.\+warn (\begin{DoxyParamCaption}\item[{String}]{instance,  }\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classage_1_1log_1_1_log_a0476c88c594750b1efbb5936dfcf54a4}\label{classage_1_1log_1_1_log_a0476c88c594750b1efbb5936dfcf54a4} 
+\index{age.log.Log@{age.log.Log}!warn@{warn}}
+\index{warn@{warn}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{warn()}{warn()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void age.\+log.\+Log.\+warn (\begin{DoxyParamCaption}\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classage_1_1log_1_1_log_ab92b9cd2b6292eb281bafd966b4c121a}\label{classage_1_1log_1_1_log_ab92b9cd2b6292eb281bafd966b4c121a} 
+\index{age.log.Log@{age.log.Log}!write@{write}}
+\index{write@{write}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void age.\+log.\+Log.\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}}}]{level,  }\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classage_1_1log_1_1_log_a281e2a3398ae1f16a14c1e838da5cfdd}\label{classage_1_1log_1_1_log_a281e2a3398ae1f16a14c1e838da5cfdd} 
+\index{age.log.Log@{age.log.Log}!format@{format}}
+\index{format@{format}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{format}{format}}
+{\footnotesize\ttfamily String age.\+log.\+Log.\+format = null\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1log_1_1_log_a54927b4f7cb1517b2fc741cb6820d03d}\label{classage_1_1log_1_1_log_a54927b4f7cb1517b2fc741cb6820d03d} 
+\index{age.log.Log@{age.log.Log}!levels@{levels}}
+\index{levels@{levels}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{levels}{levels}}
+{\footnotesize\ttfamily Set$<$\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}}$>$ age.\+log.\+Log.\+levels = null\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1log_1_1_log_ab1cba1418cbba0750a8f545451d83e2a}\label{classage_1_1log_1_1_log_ab1cba1418cbba0750a8f545451d83e2a} 
+\index{age.log.Log@{age.log.Log}!map@{map}}
+\index{map@{map}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{map}{map}}
+{\footnotesize\ttfamily final Map$<$String, \mbox{\hyperlink{classage_1_1log_1_1_log}{Log}}$>$ age.\+log.\+Log.\+map = new Hash\+Map$<$$>$()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{classage_1_1log_1_1_log_a69f3e81f678610114d3e5bf4c383e6e0}\label{classage_1_1log_1_1_log_a69f3e81f678610114d3e5bf4c383e6e0} 
+\index{age.log.Log@{age.log.Log}!trace@{trace}}
+\index{trace@{trace}!age.log.Log@{age.log.Log}}
+\doxysubsubsection{\texorpdfstring{trace}{trace}}
+{\footnotesize\ttfamily boolean age.\+log.\+Log.\+trace = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+d\+:/\+GIT/repos/\+ODE/age/age/log/\mbox{\hyperlink{_log_8java}{Log.\+java}}\end{DoxyCompactItemize}

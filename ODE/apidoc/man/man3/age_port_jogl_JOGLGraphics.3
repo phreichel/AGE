@@ -1,0 +1,162 @@
+.TH "age.port.jogl.JOGLGraphics" 3 "Version 1" "ODE Framework" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+age.port.jogl.JOGLGraphics
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBage\&.port\&.Graphics\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBassign\fP (GLAutoDrawable \fBdrawable\fP)"
+.br
+.ti -1c
+.RI "void \fBinit\fP ()"
+.br
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.ti -1c
+.RI "void \fBmode2D\fP ()"
+.br
+.ti -1c
+.RI "void \fBmode3D\fP (float fovy, float near, float far)"
+.br
+.ti -1c
+.RI "void \fBpushTransformation\fP ()"
+.br
+.ti -1c
+.RI "void \fBpopTransformation\fP ()"
+.br
+.ti -1c
+.RI "void \fBtranslate\fP (Vector2f t)"
+.br
+.ti -1c
+.RI "void \fBtranslate\fP (float x, float y)"
+.br
+.ti -1c
+.RI "void \fBcolor\fP (Color4f c)"
+.br
+.ti -1c
+.RI "void \fBcolor\fP (float r, float g, float b)"
+.br
+.ti -1c
+.RI "void \fBcolor\fP (float r, float g, float b, float a)"
+.br
+.ti -1c
+.RI "void \fBrectangle\fP (Vector2f dim, boolean hollow)"
+.br
+.ti -1c
+.RI "void \fBrectangle\fP (Vector2f pos, Vector2f dim, boolean hollow)"
+.br
+.ti -1c
+.RI "void \fBrectangle\fP (float x, float y, float w, float h, boolean hollow)"
+.br
+.ti -1c
+.RI "void \fBtext\fP (float x, float y, String text)"
+.br
+.ti -1c
+.RI "void \fBtexture\fP (float x, float y, float w, float h, String texture)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "GLAutoDrawable \fBdrawable\fP = null"
+.br
+.ti -1c
+.RI "GL2 \fBgl\fP = null"
+.br
+.ti -1c
+.RI "GLU \fBglu\fP = null"
+.br
+.ti -1c
+.RI "TextRenderer \fBtitleText\fP"
+.br
+.ti -1c
+.RI "Map< String, Texture > \fBtextures\fP = new HashMap<>()"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.assign (GLAutoDrawable drawable)"
+
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.clear ()"
+
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.color (Color4f c)"
+
+.PP
+Implements \fBage\&.port\&.Graphics\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.color (float r, float g, float b)"
+
+.PP
+Implements \fBage\&.port\&.Graphics\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.color (float r, float g, float b, float a)"
+
+.PP
+Implements \fBage\&.port\&.Graphics\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.init ()"
+
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.mode2D ()"
+
+.PP
+Implements \fBage\&.port\&.Graphics\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.mode3D (float fovy, float near, float far)"
+
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.popTransformation ()"
+
+.PP
+Implements \fBage\&.port\&.Graphics\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.pushTransformation ()"
+
+.PP
+Implements \fBage\&.port\&.Graphics\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.rectangle (float x, float y, float w, float h, boolean hollow)"
+
+.PP
+Implements \fBage\&.port\&.Graphics\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.rectangle (Vector2f dim, boolean hollow)"
+
+.PP
+Implements \fBage\&.port\&.Graphics\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.rectangle (Vector2f pos, Vector2f dim, boolean hollow)"
+
+.PP
+Implements \fBage\&.port\&.Graphics\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.text (float x, float y, String text)"
+
+.PP
+Implements \fBage\&.port\&.Graphics\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.texture (float x, float y, float w, float h, String texture)"
+
+.PP
+Implements \fBage\&.port\&.Graphics\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.translate (float x, float y)"
+
+.PP
+Implements \fBage\&.port\&.Graphics\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.translate (Vector2f t)"
+
+.PP
+Implements \fBage\&.port\&.Graphics\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "GLAutoDrawable age\&.port\&.jogl\&.JOGLGraphics\&.drawable = null\fC [private]\fP"
+
+.SS "GL2 age\&.port\&.jogl\&.JOGLGraphics\&.gl = null\fC [private]\fP"
+
+.SS "GLU age\&.port\&.jogl\&.JOGLGraphics\&.glu = null\fC [private]\fP"
+
+.SS "Map<String, Texture> age\&.port\&.jogl\&.JOGLGraphics\&.textures = new HashMap<>()\fC [private]\fP"
+
+.SS "TextRenderer age\&.port\&.jogl\&.JOGLGraphics\&.titleText\fC [private]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ODE Framework from the source code\&.

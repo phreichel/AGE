@@ -1,0 +1,161 @@
+.TH "age.port.jogl.JOGLPort" 3 "Version 1" "ODE Framework" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+age.port.jogl.JOGLPort
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBage\&.port\&.Port\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBassign\fP (Events events)"
+.br
+.ti -1c
+.RI "String \fBtitle\fP ()"
+.br
+.ti -1c
+.RI "void \fBtitle\fP (String title)"
+.br
+.ti -1c
+.RI "boolean \fBmaximized\fP ()"
+.br
+.ti -1c
+.RI "void \fBmaximized\fP (boolean maximized)"
+.br
+.ti -1c
+.RI "boolean \fBfullscreen\fP ()"
+.br
+.ti -1c
+.RI "void \fBfullscreen\fP (boolean fullscreen)"
+.br
+.ti -1c
+.RI "boolean \fBvisible\fP ()"
+.br
+.ti -1c
+.RI "void \fBvisible\fP (boolean visible)"
+.br
+.ti -1c
+.RI "float \fBwidth\fP ()"
+.br
+.ti -1c
+.RI "float \fBheight\fP ()"
+.br
+.ti -1c
+.RI "void \fBsize\fP (float \fBwidth\fP, float \fBheight\fP)"
+.br
+.ti -1c
+.RI "void \fBadd\fP (\fBRenderable\fP renderable)"
+.br
+.ti -1c
+.RI "List< \fBRenderable\fP > \fBget\fP ()"
+.br
+.ti -1c
+.RI "void \fBcreate\fP ()"
+.br
+.ti -1c
+.RI "void \fBrender\fP ()"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "GLWindow \fBwindow\fP = null"
+.br
+.ti -1c
+.RI "\fBJOGLEventListener\fP \fBeventListener\fP = null"
+.br
+.ti -1c
+.RI "\fBJOGLRenderListener\fP \fBrenderListener\fP = null"
+.br
+.ti -1c
+.RI "final List< \fBRenderable\fP > \fBrenderables\fP = new ArrayList<>()"
+.br
+.ti -1c
+.RI "final List< \fBRenderable\fP > \fBrenderables_ro\fP = Collections\&.unmodifiableList(\fBrenderables\fP)"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "void age\&.port\&.jogl\&.JOGLPort\&.add (\fBRenderable\fP renderable)"
+
+.PP
+Implements \fBage\&.port\&.Port\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLPort\&.assign (Events events)"
+
+.PP
+Implements \fBage\&.port\&.Port\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLPort\&.create ()"
+
+.PP
+Implements \fBage\&.port\&.Port\fP\&.
+.SS "boolean age\&.port\&.jogl\&.JOGLPort\&.fullscreen ()"
+
+.PP
+Implements \fBage\&.port\&.Port\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLPort\&.fullscreen (boolean fullscreen)"
+
+.PP
+Implements \fBage\&.port\&.Port\fP\&.
+.SS "List< \fBRenderable\fP > age\&.port\&.jogl\&.JOGLPort\&.get ()"
+
+.SS "float age\&.port\&.jogl\&.JOGLPort\&.height ()"
+
+.PP
+Implements \fBage\&.port\&.Port\fP\&.
+.SS "boolean age\&.port\&.jogl\&.JOGLPort\&.maximized ()"
+
+.PP
+Implements \fBage\&.port\&.Port\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLPort\&.maximized (boolean maximized)"
+
+.PP
+Implements \fBage\&.port\&.Port\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLPort\&.render ()"
+
+.PP
+Implements \fBage\&.port\&.Port\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLPort\&.size (float width, float height)"
+
+.PP
+Implements \fBage\&.port\&.Port\fP\&.
+.SS "String age\&.port\&.jogl\&.JOGLPort\&.title ()"
+
+.PP
+Implements \fBage\&.port\&.Port\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLPort\&.title (String title)"
+
+.PP
+Implements \fBage\&.port\&.Port\fP\&.
+.SS "boolean age\&.port\&.jogl\&.JOGLPort\&.visible ()"
+
+.PP
+Implements \fBage\&.port\&.Port\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLPort\&.visible (boolean visible)"
+
+.PP
+Implements \fBage\&.port\&.Port\fP\&.
+.SS "float age\&.port\&.jogl\&.JOGLPort\&.width ()"
+
+.PP
+Implements \fBage\&.port\&.Port\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBJOGLEventListener\fP age\&.port\&.jogl\&.JOGLPort\&.eventListener = null\fC [private]\fP"
+
+.SS "final List<\fBRenderable\fP> age\&.port\&.jogl\&.JOGLPort\&.renderables = new ArrayList<>()\fC [private]\fP"
+
+.SS "final List<\fBRenderable\fP> age\&.port\&.jogl\&.JOGLPort\&.renderables_ro = Collections\&.unmodifiableList(\fBrenderables\fP)\fC [private]\fP"
+
+.SS "\fBJOGLRenderListener\fP age\&.port\&.jogl\&.JOGLPort\&.renderListener = null\fC [private]\fP"
+
+.SS "GLWindow age\&.port\&.jogl\&.JOGLPort\&.window = null\fC [private]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ODE Framework from the source code\&.
