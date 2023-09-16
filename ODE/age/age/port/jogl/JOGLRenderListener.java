@@ -18,7 +18,7 @@ class JOGLRenderListener implements GLEventListener {
 	//=============================================================================================
 	public JOGLRenderListener(JOGLPort port) {
 		this.port = port;
-		graphics = new JOGLGraphics(port);
+		graphics = new JOGLGraphics();
 	}
 	//=============================================================================================
 	
