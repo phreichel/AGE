@@ -159,8 +159,7 @@ class Handling {
 				dragged.positionAdd(ref);
 			}
 			else if (action.equals("size")) {
-				dragged.positionAdd(0, ref.y);
-				dragged.dimensionAdd(ref.x, -ref.y);
+				dragged.dimensionAdd(ref.x, ref.y);
 			}
 			ref.set(e.position());
 		}

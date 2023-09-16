@@ -27,23 +27,19 @@ public class Window extends Widget {
 		final float H = 600;
 		final float V = 20;
 		final float G = 5;
+
+		title("AGE Window");
 		
 		dimension(W, H);
 		
 		title.flag(Flag.TITLE);
 		title.position(G, G);
-		title.dimension(W-2*V-4*G, V);
+		title.dimension(W-V-3*G, V);
 		title.dock(0, 1, 0, 0);
-		
-		size.flag(Flag.BUTTON);
-		size.image("size");
-		size.position(W-2*V-2*G, G);
-		size.dimension(V, V);
-		size.dock(1, 1, 0, 0);
 		
 		close.flag(Flag.BUTTON);
 		close.image("close");
-		close.position(W-1*V-1*G, G);
+		close.position(W-V-G, G);
 		close.dimension(V, V);
 		close.dock(1, 1, 0, 0);
 		
@@ -51,13 +47,17 @@ public class Window extends Widget {
 		page.position(G, V+2*G);
 		page.dimension(W-2*G, H-V-3*G);
 		page.dock(0, 1, 0, 1);
-		
-		title("AGE Window");
+
+		size.flag(Flag.BUTTON);
+		size.image("size");
+		size.position(W-V-G, H-V-G);
+		size.dimension(V, V);
+		size.dock(1, 1, 1, 1);
 		
 		this.add(title);
-		this.add(size);
 		this.add(close);
 		this.add(page);
+		this.add(size);
 		
 	}
 	//=============================================================================================
