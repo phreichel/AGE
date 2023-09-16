@@ -178,5 +178,5 @@
 <para><computeroutput>final List&lt;<link linkend="_classage_1_1event_1_1_event">Event</link>&gt; age.event.Events.outbox = new ArrayList&lt;&gt;()<computeroutput>[private]</computeroutput></computeroutput></para></section>
 <para>
 The documentation for this class was generated from the following file:</para>
-d:/GIT/repos/ODE/age/age/event/<link linkend="__events_8java">Events.java</link></section>
+D:/GIT/repos/ODE/age/age/event/<link linkend="__events_8java">Events.java</link></section>
 </section>

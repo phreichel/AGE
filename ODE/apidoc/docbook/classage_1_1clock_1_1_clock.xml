@@ -54,5 +54,5 @@
 <para><computeroutput>final List&lt;<link linkend="_classage_1_1clock_1_1_alarm">Alarm</link>&gt; age.clock.Clock.alarms = new ArrayList&lt;&gt;()<computeroutput>[private]</computeroutput></computeroutput></para></section>
 <para>
 The documentation for this class was generated from the following file:</para>
-d:/GIT/repos/ODE/age/age/clock/<link linkend="__clock_8java">Clock.java</link></section>
+D:/GIT/repos/ODE/age/age/clock/<link linkend="__clock_8java">Clock.java</link></section>
 </section>

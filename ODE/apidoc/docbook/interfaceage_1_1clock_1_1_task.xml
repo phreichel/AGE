@@ -18,5 +18,5 @@
 <para><computeroutput>void age.clock.Task.run (int count, long nanoperiod, float dT)</computeroutput></para></section>
 <para>
 The documentation for this interface was generated from the following file:</para>
-d:/GIT/repos/ODE/age/age/clock/<link linkend="_clock_2_task_8java">Task.java</link></section>
+D:/GIT/repos/ODE/age/age/clock/<link linkend="_clock_2_task_8java">Task.java</link></section>
 </section>
