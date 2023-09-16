@@ -6,12 +6,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.vecmath.Vector2f;
-
 import age.event.Button;
 import age.event.Event;
 import age.event.Events;
 import age.event.Type;
-import age.log.Log;
 
 //*************************************************************************************************
 class Handling {
