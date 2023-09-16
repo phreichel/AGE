@@ -5,6 +5,8 @@ package age.port.jogl;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import com.jogamp.nativewindow.WindowClosingProtocol.WindowClosingMode;
 import com.jogamp.newt.opengl.GLWindow;
 import com.jogamp.opengl.GLCapabilities;
 import com.jogamp.opengl.GLProfile;
@@ -25,13 +27,13 @@ public class JOGLPort implements Port {
 	private final List<Renderable> renderables = new ArrayList<>();
 	private final List<Renderable> renderables_ro = Collections.unmodifiableList(renderables);
 	//=============================================================================================
-	
+
 	//=============================================================================================
 	public void assign(Events events) {
 		eventListener.assign(events);
 	}
 	//=============================================================================================
-	
+
 	//=============================================================================================
 	public String title() {
 		return window.getTitle();
@@ -65,6 +67,15 @@ public class JOGLPort implements Port {
 	//=============================================================================================
 	public void fullscreen(boolean fullscreen) {
 		window.setFullscreen(fullscreen);
+		/*
+		 * This did fix some problems that happen when the window is made visible in FullScreen initially.
+		 * So, do not do that. It messes up things. Always only go to fullscreen when window is visible.
+		if (!fullscreen) {
+			if (window.getY() < 30) {
+				window.setPosition(window.getX(), 30);
+			}
+		}
+		*/
 	}
 	//=============================================================================================
 
@@ -80,6 +91,26 @@ public class JOGLPort implements Port {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	public float width() {
+		return window.getWidth();
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public float height() {
+		return window.getHeight();
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void size(float width, float height) {
+		window.setSize(
+			(int) width,
+			(int) height);
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public void add(Renderable renderable) {
 		renderables.add(renderable);
@@ -97,6 +128,7 @@ public class JOGLPort implements Port {
 		GLProfile glProfile = GLProfile.getDefault();
 		GLCapabilities glCapabilities = new GLCapabilities(glProfile);
 		window = GLWindow.create(glCapabilities);
+		window.setDefaultCloseOperation(WindowClosingMode.DO_NOTHING_ON_CLOSE);
 		window.setTitle("AGE - A Game Engine - 0.01");
 		window.setSize(800, 600);
 		window.setMaximized(true, true);

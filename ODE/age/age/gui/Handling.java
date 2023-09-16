@@ -15,13 +15,14 @@ import age.event.Type;
 class Handling {
 
 	//=============================================================================================
+	private Events events;
 	private final Widgets widgets;
 	//=============================================================================================
 
 	//=============================================================================================
 	private Widget hovered = null;
 	private Widget dragged = null;
-	private String command = null;
+	private String action = null;
 	private final Vector2f ref = new Vector2f();
 	private final Vector2f tmp = new Vector2f();
 	//=============================================================================================
@@ -34,6 +35,7 @@ class Handling {
 	
 	//=============================================================================================
 	public void assign(Events events) {
+		this.events = events;
 		events.assign(Type.KEY_PRESSED, this::handleKeyboard);
 		events.assign(Type.KEY_RELEASED, this::handleKeyboard);
 		events.assign(Type.KEY_TYPED, this::handleKeyboard);
@@ -44,7 +46,7 @@ class Handling {
 		events.assign(Type.SURFACE_RESIZED, this::handleSurface);
 	}
 	//=============================================================================================
-	
+
 	//=============================================================================================
 	public void handleKeyboard(Event e) {
 	}
@@ -56,11 +58,12 @@ class Handling {
 		tmp.set(e.position());
 
 		// hover
-		if (hovered != null) hovered.clear(Flag.HOVER);
-		hovered = hover(tmp, widgets.root());
-		if (hovered != null) hovered.flag(Flag.HOVER);
+		if (hovered != null) hovered.clear(Flag.HOVERED);
+		hovered = hovered(tmp, widgets.root());
+		if (hovered != null) hovered.flag(Flag.HOVERED);
 
 		pressedFrameToFront(e);
+		buttonClickAction(e);
 		
 		// frame actions
 		startFrameSizeAction(e);
@@ -81,6 +84,20 @@ class Handling {
 				}
 				front = front.parent();
 			}
+		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void buttonClickAction(Event e) {
+		if (
+			hovered != null &&
+			hovered.match(Flag.BUTTON) &&
+			hovered.command() != null &&
+			e.type().equals(Type.POINTER_RELEASED) &&
+			e.button().equals(Button.BTN1)
+		) {
+			events.postTaskCommand(hovered.command());
 		}
 	}
 	//=============================================================================================
@@ -115,8 +132,7 @@ class Handling {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void updateActionState(Event e, String cmd) {
-
+	private void updateActionState(Event e, String action) {
 		Widget frame = hovered;
 		while (frame != null) {
 			if (frame.match(Flag.FRAME)) {
@@ -124,13 +140,11 @@ class Handling {
 			}
 			frame = frame.parent();
 		}
-		
 		if (frame != null) {
 			dragged = frame;
 			ref.set(e.position());
-			command = cmd;
+			this.action = action;
 		}
-		
 	}
 	//=============================================================================================
 	
@@ -141,10 +155,10 @@ class Handling {
 			e.type().equals(Type.POINTER_MOVED)
 		) {
 			ref.sub(e.position(), ref);
-			if (command.equals("move")) {
+			if (action.equals("move")) {
 				dragged.positionAdd(ref);
 			}
-			else if (command.equals("size")) {
+			else if (action.equals("size")) {
 				dragged.positionAdd(0, ref.y);
 				dragged.dimensionAdd(ref.x, -ref.y);
 			}
@@ -158,41 +172,45 @@ class Handling {
 		if (
 			dragged != null &&
 			e.type().equals(Type.POINTER_RELEASED)
-		){
+		) {
 			dragged = null;
 		}
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	private Widget hover(Vector2f pos, Widget widget) {
+	private Widget hovered(Vector2f pos, Widget widget) {
 		Widget result = null;
-		pos.sub(widget.position());
-		Vector2f dim = widget.dimension();
-		if (
-			(pos.x >= 0f) &&
-			(pos.y >= 0f) &&
-			(pos.x <= dim.x) &&
-			(pos.y <= dim.y)
-		) {
-			List<Widget> rev = new ArrayList<>(widget.children());
-			Collections.reverse(rev);
-			for (Widget child : rev) {
-				result = hover(pos, child);
-				if (result != null) break;
+		if (!widget.match(Flag.HIDDEN)) {
+			pos.sub(widget.position());
+			Vector2f dim = widget.dimension();
+			if (
+				(pos.x >= 0f) &&
+				(pos.y >= 0f) &&
+				(pos.x <= dim.x) &&
+				(pos.y <= dim.y)
+			) {
+				List<Widget> rev = new ArrayList<>(widget.children());
+				Collections.reverse(rev);
+				for (Widget child : rev) {
+					result = hovered(pos, child);
+					if (result != null) break;
+				}
+				if (result == null) {
+					result = widget;
+				}
 			}
-			if (result == null) {
-				result = widget;
-			}
+			pos.add(widget.position());
 		}
-		pos.add(widget.position());
 		return result;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	public void handleSurface(Event e) {
-		widgets.root().dimension(e.dimension());
+		widgets
+			.root()
+			.dimension(e.dimension());
 	}
 	//=============================================================================================
 	

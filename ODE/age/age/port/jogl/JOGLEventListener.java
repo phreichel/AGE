@@ -11,8 +11,10 @@ import com.jogamp.newt.event.WindowEvent;
 import com.jogamp.newt.event.WindowListener;
 import com.jogamp.newt.event.WindowUpdateEvent;
 import age.event.Button;
+import age.event.Event;
 import age.event.Events;
 import age.event.Key;
+import age.event.Type;
 
 //*************************************************************************************************
 class JOGLEventListener implements KeyListener, MouseListener, WindowListener {
@@ -24,6 +26,7 @@ class JOGLEventListener implements KeyListener, MouseListener, WindowListener {
 	//=============================================================================================
 	public void assign(Events events) {
 		this.events = events;
+		events.assign(Type.SURFACE_CLOSE_REQUEST, this::handleSurfaceCloseRequest);
 	}
 	//=============================================================================================
 	
@@ -134,6 +137,7 @@ class JOGLEventListener implements KeyListener, MouseListener, WindowListener {
 
 	//=============================================================================================
 	public void windowDestroyNotify(WindowEvent e) {
+		events.postSurfaceCloseRequest();
 	}
 	//=============================================================================================
 
@@ -157,6 +161,12 @@ class JOGLEventListener implements KeyListener, MouseListener, WindowListener {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	private void handleSurfaceCloseRequest(Event e) {
+		events.postTaskCommand("shutdown");
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	private Button translateButton(short button) {
 		switch (button) {

@@ -29,25 +29,28 @@ public class Rendering implements Renderable {
 
 	//=============================================================================================
 	private void render(Graphics g, Widget widget) {
-		g.pushTransformation();
-		g.translate(widget.position());
-		renderWidget(g, widget);
-		renderChildren(g, widget.children());
-		g.popTransformation();
+		if (!widget.match(Flag.HIDDEN)) {
+			g.pushTransformation();
+			g.translate(widget.position());
+			renderWidget(g, widget);
+			renderChildren(g, widget.children());
+			g.popTransformation();
+		}
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	private void renderWidget(Graphics g, Widget widget) {
-		if (widget.match(Flag.ROOT)) {
-			// nothing
+		if (widget.match(Flag.BOX)) {
+			g.color(.4f, 0f, 0f);
+			g.rectangle(widget.dimension(), true);
 		} else if (widget.match(Flag.FRAME)) {
 			g.color(.2f, 0f, 0f);
 			g.rectangle(widget.dimension(), false);
 			g.color(1f, 0, 0);
 			g.rectangle(widget.dimension(), true);
 		} else if (widget.match(Flag.BUTTON)) {
-			if (!widget.match(Flag.HOVER))
+			if (!widget.match(Flag.HOVERED))
 				g.color(.8f, 0f, 0f);
 			else
 				g.color(1f, .3f, .3f);
@@ -57,15 +60,13 @@ public class Rendering implements Renderable {
 			} else {
 				g.rectangle(widget.dimension(), false);
 			}
-			g.color(1f, 0f, 0f);
-			g.rectangle(widget.dimension(), true);
 		} else if (widget.match(Flag.CANVAS)) {
 			g.color(0f, 0f, .2f);
 			g.rectangle(widget.dimension(), false);
 			g.color(1f, 0f, 0f);
 			g.rectangle(widget.dimension(), true);
 		} else if (widget.match(Flag.TITLE)) {
-			if (!widget.match(Flag.HOVER))
+			if (!widget.match(Flag.HOVERED))
 				g.color(.2f, 0f, 0f);
 			else
 				g.color(.4f, 0f, 0f);
@@ -73,9 +74,6 @@ public class Rendering implements Renderable {
 			g.color(.4f, 0f, 0f);
 			g.rectangle(widget.dimension(), true);
 			g.text(3, widget.dimension().y-3, widget.text());
-		} else {
-			g.color(.4f, 0f, 0f);
-			g.rectangle(widget.dimension(), true);
 		}
 	}
 	//=============================================================================================
