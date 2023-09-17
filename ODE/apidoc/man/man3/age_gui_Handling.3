@@ -41,13 +41,16 @@ age.gui.Handling
 .RI "void \fBstartFrameDragAction\fP (Event e)"
 .br
 .ti -1c
+.RI "void \fBstartScrollHandleAction\fP (Event e)"
+.br
+.ti -1c
 .RI "void \fBupdateActionState\fP (Event e, String \fBaction\fP)"
 .br
 .ti -1c
-.RI "void \fBupdateFrameAction\fP (Event e)"
+.RI "void \fBupdateDragAction\fP (Event e)"
 .br
 .ti -1c
-.RI "void \fBstopFrameAction\fP (Event e)"
+.RI "void \fBstopDragAction\fP (Event e)"
 .br
 .ti -1c
 .RI "\fBWidget\fP \fBhovered\fP (Vector2f pos, \fBWidget\fP widget)"
@@ -102,11 +105,13 @@ age.gui.Handling
 
 .SS "void age\&.gui\&.Handling\&.startFrameSizeAction (Event e)\fC [private]\fP"
 
-.SS "void age\&.gui\&.Handling\&.stopFrameAction (Event e)\fC [private]\fP"
+.SS "void age\&.gui\&.Handling\&.startScrollHandleAction (Event e)\fC [private]\fP"
+
+.SS "void age\&.gui\&.Handling\&.stopDragAction (Event e)\fC [private]\fP"
 
 .SS "void age\&.gui\&.Handling\&.updateActionState (Event e, String action)\fC [private]\fP"
 
-.SS "void age\&.gui\&.Handling\&.updateFrameAction (Event e)\fC [private]\fP"
+.SS "void age\&.gui\&.Handling\&.updateDragAction (Event e)\fC [private]\fP"
 
 .SH "Member Data Documentation"
 .PP 

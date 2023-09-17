@@ -21,6 +21,8 @@
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1gui_1_1_v_scroller_1a48cf625d0cde06b8a074d2467d0f9948">value</link> (int <link linkend="_classage_1_1gui_1_1_v_scroller_1a7141810dd82f6b1c3cf21258fb88e571">mark</link>)</para>
 </listitem>
+            <listitem><para><link linkend="_classage_1_1gui_1_1_widget">Widget</link> <link linkend="_classage_1_1gui_1_1_v_scroller_1aa3038da25c32a763864e336540eabf70">handle</link> ()</para>
+</listitem>
         </itemizedlist>
 </simplesect>
 Public Member Functions inherited from <link linkend="_classage_1_1gui_1_1_widget">age.gui.Widget</link>        <itemizedlist>
@@ -141,6 +143,11 @@ Public Member Functions inherited from <link linkend="_classage_1_1gui_1_1_widge
 <indexterm><primary>create</primary><secondary>age.gui.VScroller</secondary></indexterm>
 <indexterm><primary>age.gui.VScroller</primary><secondary>create</secondary></indexterm>
 <para><computeroutput>void age.gui.VScroller.create ( )<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_v_scroller_1aa3038da25c32a763864e336540eabf70"/><section>
+    <title>handle()</title>
+<indexterm><primary>handle</primary><secondary>age.gui.VScroller</secondary></indexterm>
+<indexterm><primary>age.gui.VScroller</primary><secondary>handle</secondary></indexterm>
+<para><computeroutput><link linkend="_classage_1_1gui_1_1_widget">Widget</link> age.gui.VScroller.handle ( )</computeroutput></para></section>
 <anchor xml:id="_classage_1_1gui_1_1_v_scroller_1a047f8ee29d847524bf343ecf96653342"/><section>
     <title>set()</title>
 <indexterm><primary>set</primary><secondary>age.gui.VScroller</secondary></indexterm>

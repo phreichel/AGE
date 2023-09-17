@@ -111,6 +111,18 @@ public class Multiline extends Widget {
 	//=============================================================================================
 
 	//=============================================================================================
+	public void rescale(float dy) {
+		float total = scroller.dimension().y;
+		float part = scroller.handle().dimension().y;
+		float mTotal = total - part;
+		float mScale = dy / mTotal;
+		float c = count()-1;
+		int d = (int) Math.rint(mScale * c);
+		offset(offset() + d);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	public void update() {
 		if (offset() != 0 || count() > page()) {
 			scroller.clear(Flag.HIDDEN);

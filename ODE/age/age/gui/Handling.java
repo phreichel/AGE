@@ -10,6 +10,7 @@ import age.event.Button;
 import age.event.Event;
 import age.event.Events;
 import age.event.Type;
+import age.log.Log;
 
 //*************************************************************************************************
 class Handling {
@@ -68,8 +69,9 @@ class Handling {
 		// frame actions
 		startFrameSizeAction(e);
 		startFrameDragAction(e);
-		updateFrameAction(e);
-		stopFrameAction(e);
+		startScrollHandleAction(e);
+		updateDragAction(e);
+		stopDragAction(e);
 		
 	}
 	//=============================================================================================
@@ -132,10 +134,28 @@ class Handling {
 	//=============================================================================================
 
 	//=============================================================================================
+	private void startScrollHandleAction(Event e) {
+		if (
+			dragged == null &&
+			hovered != null &&
+			hovered.match(Flag.HANDLE) &&
+			e.type().equals(Type.POINTER_PRESSED) &&
+			e.button().equals(Button.BTN1)
+		) {
+			updateActionState(e, "handle");
+		}
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	private void updateActionState(Event e, String action) {
 		Widget frame = hovered;
+		Flag flag = Flag.FRAME;
+		if (action.equals("handle")) {
+			flag = Flag.HANDLE;
+		}
 		while (frame != null) {
-			if (frame.match(Flag.FRAME)) {
+			if (frame.match(flag)) {
 				break;
 			}
 			frame = frame.parent();
@@ -149,7 +169,7 @@ class Handling {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void updateFrameAction(Event e) {
+	private void updateDragAction(Event e) {
 		if (
 			dragged != null &&
 			e.type().equals(Type.POINTER_MOVED)
@@ -157,8 +177,11 @@ class Handling {
 			ref.sub(e.position(), ref);
 			if (action.equals("move")) {
 				dragged.positionAdd(ref);
-			}
-			else if (action.equals("size")) {
+			} else if (action.equals("handle")) {
+				// TODO: THIS IS A HACK!!! and has to be refactored for framework quality.
+				Multiline ml = (Multiline) dragged.parent().parent().parent();
+				ml.rescale(ref.y);
+			} else if (action.equals("size")) {
 				dragged.dimensionAdd(ref.x, ref.y);
 			}
 			ref.set(e.position());
@@ -167,7 +190,7 @@ class Handling {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void stopFrameAction(Event e) {
+	private void stopDragAction(Event e) {
 		if (
 			dragged != null &&
 			e.type().equals(Type.POINTER_RELEASED)

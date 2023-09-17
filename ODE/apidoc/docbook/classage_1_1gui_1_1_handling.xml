@@ -28,11 +28,13 @@
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1gui_1_1_handling_1abb6fe6b9df3f0567e73623519d8ee4c3">startFrameDragAction</link> (Event e)</para>
 </listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_handling_1afc0b7cb771a5462283f7bac1bc3a71d8">startScrollHandleAction</link> (Event e)</para>
+</listitem>
             <listitem><para>void <link linkend="_classage_1_1gui_1_1_handling_1a6d906759d30300a72f33fe5bd14464d6">updateActionState</link> (Event e, String <link linkend="_classage_1_1gui_1_1_handling_1a5bd233aa040ae8176ad38133c12f697b">action</link>)</para>
 </listitem>
-            <listitem><para>void <link linkend="_classage_1_1gui_1_1_handling_1ac36fb5abfbe4834979d7b45cba7b7f11">updateFrameAction</link> (Event e)</para>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_handling_1aca7897e91f5544b3818ed179f6011d24">updateDragAction</link> (Event e)</para>
 </listitem>
-            <listitem><para>void <link linkend="_classage_1_1gui_1_1_handling_1ad3035d64787284b6494122f2782c08f7">stopFrameAction</link> (Event e)</para>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_handling_1a245765ef87ecd1993aa9e0a103472fb1">stopDragAction</link> (Event e)</para>
 </listitem>
             <listitem><para><link linkend="_classage_1_1gui_1_1_widget">Widget</link> <link linkend="_classage_1_1gui_1_1_handling_1a56d3867df6b82946df40d6e81d112adb">hovered</link> (Vector2f pos, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> widget)</para>
 </listitem>
@@ -112,21 +114,26 @@
 <indexterm><primary>startFrameSizeAction</primary><secondary>age.gui.Handling</secondary></indexterm>
 <indexterm><primary>age.gui.Handling</primary><secondary>startFrameSizeAction</secondary></indexterm>
 <para><computeroutput>void age.gui.Handling.startFrameSizeAction (Event e)<computeroutput>[private]</computeroutput></computeroutput></para></section>
-<anchor xml:id="_classage_1_1gui_1_1_handling_1ad3035d64787284b6494122f2782c08f7"/><section>
-    <title>stopFrameAction()</title>
-<indexterm><primary>stopFrameAction</primary><secondary>age.gui.Handling</secondary></indexterm>
-<indexterm><primary>age.gui.Handling</primary><secondary>stopFrameAction</secondary></indexterm>
-<para><computeroutput>void age.gui.Handling.stopFrameAction (Event e)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_handling_1afc0b7cb771a5462283f7bac1bc3a71d8"/><section>
+    <title>startScrollHandleAction()</title>
+<indexterm><primary>startScrollHandleAction</primary><secondary>age.gui.Handling</secondary></indexterm>
+<indexterm><primary>age.gui.Handling</primary><secondary>startScrollHandleAction</secondary></indexterm>
+<para><computeroutput>void age.gui.Handling.startScrollHandleAction (Event e)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_handling_1a245765ef87ecd1993aa9e0a103472fb1"/><section>
+    <title>stopDragAction()</title>
+<indexterm><primary>stopDragAction</primary><secondary>age.gui.Handling</secondary></indexterm>
+<indexterm><primary>age.gui.Handling</primary><secondary>stopDragAction</secondary></indexterm>
+<para><computeroutput>void age.gui.Handling.stopDragAction (Event e)<computeroutput>[private]</computeroutput></computeroutput></para></section>
 <anchor xml:id="_classage_1_1gui_1_1_handling_1a6d906759d30300a72f33fe5bd14464d6"/><section>
     <title>updateActionState()</title>
 <indexterm><primary>updateActionState</primary><secondary>age.gui.Handling</secondary></indexterm>
 <indexterm><primary>age.gui.Handling</primary><secondary>updateActionState</secondary></indexterm>
 <para><computeroutput>void age.gui.Handling.updateActionState (Event e, String action)<computeroutput>[private]</computeroutput></computeroutput></para></section>
-<anchor xml:id="_classage_1_1gui_1_1_handling_1ac36fb5abfbe4834979d7b45cba7b7f11"/><section>
-    <title>updateFrameAction()</title>
-<indexterm><primary>updateFrameAction</primary><secondary>age.gui.Handling</secondary></indexterm>
-<indexterm><primary>age.gui.Handling</primary><secondary>updateFrameAction</secondary></indexterm>
-<para><computeroutput>void age.gui.Handling.updateFrameAction (Event e)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_handling_1aca7897e91f5544b3818ed179f6011d24"/><section>
+    <title>updateDragAction()</title>
+<indexterm><primary>updateDragAction</primary><secondary>age.gui.Handling</secondary></indexterm>
+<indexterm><primary>age.gui.Handling</primary><secondary>updateDragAction</secondary></indexterm>
+<para><computeroutput>void age.gui.Handling.updateDragAction (Event e)<computeroutput>[private]</computeroutput></computeroutput></para></section>
 </section>
 <section>
 <title>Member Data Documentation</title>

@@ -37,6 +37,8 @@
 </listitem>
             <listitem><para>int[] <link linkend="_classage_1_1gui_1_1_multiline_1a2bdbd72f198d31f8ced606b90a295ecb">buffer</link> ()</para>
 </listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_multiline_1a60efb79fe14d7e031e349f78222bcb19">rescale</link> (float dy)</para>
+</listitem>
             <listitem><para>void <link linkend="_classage_1_1gui_1_1_multiline_1a18a0a0b944be56a0b91c524c0d526dd3">update</link> ()</para>
 </listitem>
         </itemizedlist>
@@ -187,6 +189,11 @@ Public Member Functions inherited from <link linkend="_classage_1_1gui_1_1_widge
 <indexterm><primary>page</primary><secondary>age.gui.Multiline</secondary></indexterm>
 <indexterm><primary>age.gui.Multiline</primary><secondary>page</secondary></indexterm>
 <para><computeroutput>int age.gui.Multiline.page ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_multiline_1a60efb79fe14d7e031e349f78222bcb19"/><section>
+    <title>rescale()</title>
+<indexterm><primary>rescale</primary><secondary>age.gui.Multiline</secondary></indexterm>
+<indexterm><primary>age.gui.Multiline</primary><secondary>rescale</secondary></indexterm>
+<para><computeroutput>void age.gui.Multiline.rescale (float dy)</computeroutput></para></section>
 <anchor xml:id="_classage_1_1gui_1_1_multiline_1ab7fe16f831a08428cd9fb3eb0e80a1c3"/><section>
     <title>text()</title>
 <indexterm><primary>text</primary><secondary>age.gui.Multiline</secondary></indexterm>
