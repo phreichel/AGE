@@ -10,7 +10,6 @@ import age.event.Button;
 import age.event.Event;
 import age.event.Events;
 import age.event.Type;
-import age.log.Log;
 
 //*************************************************************************************************
 class Handling {
