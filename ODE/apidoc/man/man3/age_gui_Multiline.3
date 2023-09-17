@@ -1,0 +1,217 @@
+.TH "age.gui.Multiline" 3 "Version 1" "ODE Framework" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+age.gui.Multiline
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBage\&.gui\&.Widget\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMultiline\fP ()"
+.br
+.ti -1c
+.RI "void \fBassign\fP (Tasks tasks)"
+.br
+.ti -1c
+.RI "void \fBtext\fP (String text)"
+.br
+.ti -1c
+.RI "int \fBoffset\fP ()"
+.br
+.ti -1c
+.RI "void \fBup\fP ()"
+.br
+.ti -1c
+.RI "void \fBdown\fP ()"
+.br
+.ti -1c
+.RI "void \fBoffset\fP (int offset)"
+.br
+.ti -1c
+.RI "int \fBcount\fP ()"
+.br
+.ti -1c
+.RI "int \fBpage\fP ()"
+.br
+.ti -1c
+.RI "int \fBlineHeight\fP ()"
+.br
+.ti -1c
+.RI "CharSequence \fBline\fP (int idx)"
+.br
+.ti -1c
+.RI "int[] \fBbuffer\fP ()"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBage\&.gui\&.Widget\fP
+.in +1c
+.ti -1c
+.RI "\fBWidget\fP (\fBFlag\fP \&.\&.\&. \fBflags\fP)"
+.br
+.ti -1c
+.RI "float \fBx\fP ()"
+.br
+.ti -1c
+.RI "float \fBy\fP ()"
+.br
+.ti -1c
+.RI "float \fBwidth\fP ()"
+.br
+.ti -1c
+.RI "float \fBheight\fP ()"
+.br
+.ti -1c
+.RI "Vector2f \fBposition\fP ()"
+.br
+.ti -1c
+.RI "Vector2f \fBdimension\fP ()"
+.br
+.ti -1c
+.RI "\fBDock\fP \fBdock\fP ()"
+.br
+.ti -1c
+.RI "void \fBdock\fP (\fBDock\fP dock)"
+.br
+.ti -1c
+.RI "void \fBdock\fP (float top, float bottom, float left, float right)"
+.br
+.ti -1c
+.RI "void \fBposition\fP (Vector2f position)"
+.br
+.ti -1c
+.RI "void \fBposition\fP (float \fBx\fP, float \fBy\fP)"
+.br
+.ti -1c
+.RI "void \fBpositionAdd\fP (Vector2f \fBposition\fP)"
+.br
+.ti -1c
+.RI "void \fBpositionAdd\fP (float \fBx\fP, float \fBy\fP)"
+.br
+.ti -1c
+.RI "void \fBdimension\fP (Vector2f dimension)"
+.br
+.ti -1c
+.RI "void \fBdimension\fP (float \fBwidth\fP, float \fBheight\fP)"
+.br
+.ti -1c
+.RI "void \fBdimensionAdd\fP (Vector2f \fBdimension\fP)"
+.br
+.ti -1c
+.RI "void \fBdimensionAdd\fP (float \fBwidth\fP, float \fBheight\fP)"
+.br
+.ti -1c
+.RI "Set< \fBFlag\fP > \fBflags\fP ()"
+.br
+.ti -1c
+.RI "void \fBflag\fP (\fBFlag\fP \&.\&.\&. \fBflags\fP)"
+.br
+.ti -1c
+.RI "void \fBclear\fP (\fBFlag\fP \&.\&.\&. \fBflags\fP)"
+.br
+.ti -1c
+.RI "boolean \fBmatch\fP (\fBFlag\fP \&.\&.\&. \fBflags\fP)"
+.br
+.ti -1c
+.RI "\fBWidget\fP \fBparent\fP ()"
+.br
+.ti -1c
+.RI "List< \fBWidget\fP > \fBchildren\fP ()"
+.br
+.ti -1c
+.RI "void \fBadd\fP (\fBWidget\fP child)"
+.br
+.ti -1c
+.RI "void \fBadd\fP (int idx, \fBWidget\fP child)"
+.br
+.ti -1c
+.RI "void \fBremove\fP ()"
+.br
+.ti -1c
+.RI "void \fBtoFront\fP ()"
+.br
+.ti -1c
+.RI "String \fBtext\fP ()"
+.br
+.ti -1c
+.RI "String \fBimage\fP ()"
+.br
+.ti -1c
+.RI "void \fBimage\fP (String image)"
+.br
+.ti -1c
+.RI "String \fBcommand\fP ()"
+.br
+.ti -1c
+.RI "void \fBcommand\fP (String command)"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcreate\fP ()"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBoffset\fP"
+.br
+.ti -1c
+.RI "int[] \fBbuffer\fP = new int[1024]"
+.br
+.ti -1c
+.RI "\fBVScroller\fP \fBscroller\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "age\&.gui\&.Multiline\&.Multiline ()"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void age\&.gui\&.Multiline\&.assign (Tasks tasks)"
+
+.SS "int[] age\&.gui\&.Multiline\&.buffer ()"
+
+.SS "int age\&.gui\&.Multiline\&.count ()"
+
+.SS "void age\&.gui\&.Multiline\&.create ()\fC [private]\fP"
+
+.SS "void age\&.gui\&.Multiline\&.down ()"
+
+.SS "CharSequence age\&.gui\&.Multiline\&.line (int idx)"
+
+.SS "int age\&.gui\&.Multiline\&.lineHeight ()"
+
+.SS "int age\&.gui\&.Multiline\&.offset ()"
+
+.SS "void age\&.gui\&.Multiline\&.offset (int offset)"
+
+.SS "int age\&.gui\&.Multiline\&.page ()"
+
+.SS "void age\&.gui\&.Multiline\&.text (String text)"
+
+.PP
+Reimplemented from \fBage\&.gui\&.Widget\fP\&.
+.SS "void age\&.gui\&.Multiline\&.up ()"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "int [] age\&.gui\&.Multiline\&.buffer = new int[1024]\fC [private]\fP"
+
+.SS "int age\&.gui\&.Multiline\&.offset\fC [private]\fP"
+
+.SS "\fBVScroller\fP age\&.gui\&.Multiline\&.scroller\fC [private]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ODE Framework from the source code\&.

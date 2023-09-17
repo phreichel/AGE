@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classage_1_1gui_1_1_multiline" xml:lang="en-US">
+<title>age.gui.Multiline Class Reference</title>
+<indexterm><primary>age.gui.Multiline</primary></indexterm>
+<para>Inheritance diagram for age.gui.Multiline:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classage_1_1gui_1_1_multiline.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classage_1_1gui_1_1_multiline_1a0e70106f8b44a1d882b0909048621bd9">Multiline</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_multiline_1a2b5b5edaef9a8279c85a51b460131534">assign</link> (Tasks tasks)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_multiline_1ab7fe16f831a08428cd9fb3eb0e80a1c3">text</link> (String text)</para>
+</listitem>
+            <listitem><para>int <link linkend="_classage_1_1gui_1_1_multiline_1abe65b5bd7522c3f4316755bf81cb789c">offset</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_multiline_1ad6aa40b8419c4225a374071235e52ac2">up</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_multiline_1ae97f5e93b0772fba212bb68d453d27de">down</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_multiline_1a980d674162468abb3cbd373e7b577dbf">offset</link> (int offset)</para>
+</listitem>
+            <listitem><para>int <link linkend="_classage_1_1gui_1_1_multiline_1a7d4c0995a91328497881fa9d4b8439c0">count</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_classage_1_1gui_1_1_multiline_1aa16c9a4291d527f3aba362384d6f99fe">page</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_classage_1_1gui_1_1_multiline_1a65fb6bc81647d153db6eeb7e2a5867e6">lineHeight</link> ()</para>
+</listitem>
+            <listitem><para>CharSequence <link linkend="_classage_1_1gui_1_1_multiline_1aa4c8aa94b8e7bb8a28c059de0a20b51a">line</link> (int idx)</para>
+</listitem>
+            <listitem><para>int[] <link linkend="_classage_1_1gui_1_1_multiline_1a2bdbd72f198d31f8ced606b90a295ecb">buffer</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_classage_1_1gui_1_1_widget">age.gui.Widget</link>        <itemizedlist>
+            <listitem><para><link linkend="_classage_1_1gui_1_1_widget_1a056a7d41a4fb5afbffee1e2e53b88eb9">Widget</link> (<link linkend="_enumage_1_1gui_1_1_flag">Flag</link> ... <link linkend="_classage_1_1gui_1_1_widget_1ad37485fa67bf6c87e4c39c714ec6070d">flags</link>)</para>
+</listitem>
+            <listitem><para>float <link linkend="_classage_1_1gui_1_1_widget_1ac39709450c36d2e8a8e9247b904a768b">x</link> ()</para>
+</listitem>
+            <listitem><para>float <link linkend="_classage_1_1gui_1_1_widget_1ad22defbfa65e24bd875f3d5a20eff174">y</link> ()</para>
+</listitem>
+            <listitem><para>float <link linkend="_classage_1_1gui_1_1_widget_1a67540d5598731fa038e6be10d8ddf085">width</link> ()</para>
+</listitem>
+            <listitem><para>float <link linkend="_classage_1_1gui_1_1_widget_1a31a086e9219bfa1027d68c05a82c17a9">height</link> ()</para>
+</listitem>
+            <listitem><para>Vector2f <link linkend="_classage_1_1gui_1_1_widget_1a253d318bb0f3e8c26b1fba7f04f81a4b">position</link> ()</para>
+</listitem>
+            <listitem><para>Vector2f <link linkend="_classage_1_1gui_1_1_widget_1a764d9e5c02a40e613b6f0e4855521860">dimension</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classage_1_1gui_1_1_dock">Dock</link> <link linkend="_classage_1_1gui_1_1_widget_1a44cffbbe7b74ac0120d159bbd471618c">dock</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a21d3464578646806675359b962c91118">dock</link> (<link linkend="_classage_1_1gui_1_1_dock">Dock</link> dock)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a50ad389daff7506a6d927a7a5b08bca7">dock</link> (float top, float bottom, float left, float right)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a4f97380baa9636412b9ce4f5ace20e37">position</link> (Vector2f position)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a58c079993d839715bf79d193701dc0a2">position</link> (float <link linkend="_classage_1_1gui_1_1_widget_1ac39709450c36d2e8a8e9247b904a768b">x</link>, float <link linkend="_classage_1_1gui_1_1_widget_1ad22defbfa65e24bd875f3d5a20eff174">y</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a5a35294fb214610533efe2ef220ce559">positionAdd</link> (Vector2f <link linkend="_classage_1_1gui_1_1_widget_1a3921b5b67adda46c2fcd4c7ed939673e">position</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1ab80d087ab6342603e0551ab98d1be29c">positionAdd</link> (float <link linkend="_classage_1_1gui_1_1_widget_1ac39709450c36d2e8a8e9247b904a768b">x</link>, float <link linkend="_classage_1_1gui_1_1_widget_1ad22defbfa65e24bd875f3d5a20eff174">y</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a58dd4b0f90f26dbb1bd7933685effca9">dimension</link> (Vector2f dimension)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1ae327b4ca4880365b5c4e4f77e4cc4004">dimension</link> (float <link linkend="_classage_1_1gui_1_1_widget_1a67540d5598731fa038e6be10d8ddf085">width</link>, float <link linkend="_classage_1_1gui_1_1_widget_1a31a086e9219bfa1027d68c05a82c17a9">height</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a0221ea498415e675db56159cf1ca26d9">dimensionAdd</link> (Vector2f <link linkend="_classage_1_1gui_1_1_widget_1a4df8f7d1d89354c73cfd4495444d3e61">dimension</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1aa66d547355dbbf44974e2b22d0243b8d">dimensionAdd</link> (float <link linkend="_classage_1_1gui_1_1_widget_1a67540d5598731fa038e6be10d8ddf085">width</link>, float <link linkend="_classage_1_1gui_1_1_widget_1a31a086e9219bfa1027d68c05a82c17a9">height</link>)</para>
+</listitem>
+            <listitem><para>Set&lt; <link linkend="_enumage_1_1gui_1_1_flag">Flag</link> &gt; <link linkend="_classage_1_1gui_1_1_widget_1a85d9eb9cda1be212331da6976e03a28b">flags</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a675da93ea5c668200e6c4566839a24ad">flag</link> (<link linkend="_enumage_1_1gui_1_1_flag">Flag</link> ... <link linkend="_classage_1_1gui_1_1_widget_1ad37485fa67bf6c87e4c39c714ec6070d">flags</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a9ca8506912ca08be6b29297d0c4a7370">clear</link> (<link linkend="_enumage_1_1gui_1_1_flag">Flag</link> ... <link linkend="_classage_1_1gui_1_1_widget_1ad37485fa67bf6c87e4c39c714ec6070d">flags</link>)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classage_1_1gui_1_1_widget_1ad8e48c7dadae345260f39c0b299ead71">match</link> (<link linkend="_enumage_1_1gui_1_1_flag">Flag</link> ... <link linkend="_classage_1_1gui_1_1_widget_1ad37485fa67bf6c87e4c39c714ec6070d">flags</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_classage_1_1gui_1_1_widget">Widget</link> <link linkend="_classage_1_1gui_1_1_widget_1a0f2f4f99c3d19a5664bef999b553844a">parent</link> ()</para>
+</listitem>
+            <listitem><para>List&lt; <link linkend="_classage_1_1gui_1_1_widget">Widget</link> &gt; <link linkend="_classage_1_1gui_1_1_widget_1a51e3fca26841840c654b041fc4fcd69f">children</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1ac20fe4a56b48d389c8bf105f18027215">add</link> (<link linkend="_classage_1_1gui_1_1_widget">Widget</link> child)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a7f5579ed2097481e293f2cda48c45211">add</link> (int idx, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> child)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a20a80b46273eab62c1632f35f87acfc3">remove</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a801497610aa02da04b5208942298813b">toFront</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_classage_1_1gui_1_1_widget_1ad85b2fe801bbc0a8d1ad7c8445d832c0">text</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_classage_1_1gui_1_1_widget_1a8869f9de96ba0266b4661b96aafeaaf0">image</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a6076ffc2830ceb4988c4478d4e0b3fe3">image</link> (String image)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classage_1_1gui_1_1_widget_1a4eb0e5b4581ceb4be8ea0d22558a37d6">command</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_widget_1a37ca083d05d621231368b36a07622aa2">command</link> (String command)</para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Private Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_multiline_1a1f1429186b02f3b0a7d46c8fabfca688">create</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_classage_1_1gui_1_1_multiline_1a7cda2c0fedc23a09f7f8a9a2c6e65499">offset</link></para>
+</listitem>
+            <listitem><para>int[] <link linkend="_classage_1_1gui_1_1_multiline_1ac0c68e61b1b33e9d997f5881ba91c9d2">buffer</link> = new int[1024]</para>
+</listitem>
+            <listitem><para><link linkend="_classage_1_1gui_1_1_v_scroller">VScroller</link> <link linkend="_classage_1_1gui_1_1_multiline_1a6a38ec4abd92df9e1b571f39c05e1bdb">scroller</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classage_1_1gui_1_1_multiline_1a0e70106f8b44a1d882b0909048621bd9"/><section>
+    <title>Multiline()</title>
+<indexterm><primary>Multiline</primary><secondary>age.gui.Multiline</secondary></indexterm>
+<indexterm><primary>age.gui.Multiline</primary><secondary>Multiline</secondary></indexterm>
+<para><computeroutput>age.gui.Multiline.Multiline ( )</computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classage_1_1gui_1_1_multiline_1a2b5b5edaef9a8279c85a51b460131534"/><section>
+    <title>assign()</title>
+<indexterm><primary>assign</primary><secondary>age.gui.Multiline</secondary></indexterm>
+<indexterm><primary>age.gui.Multiline</primary><secondary>assign</secondary></indexterm>
+<para><computeroutput>void age.gui.Multiline.assign (Tasks tasks)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_multiline_1a2bdbd72f198d31f8ced606b90a295ecb"/><section>
+    <title>buffer()</title>
+<indexterm><primary>buffer</primary><secondary>age.gui.Multiline</secondary></indexterm>
+<indexterm><primary>age.gui.Multiline</primary><secondary>buffer</secondary></indexterm>
+<para><computeroutput>int[] age.gui.Multiline.buffer ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_multiline_1a7d4c0995a91328497881fa9d4b8439c0"/><section>
+    <title>count()</title>
+<indexterm><primary>count</primary><secondary>age.gui.Multiline</secondary></indexterm>
+<indexterm><primary>age.gui.Multiline</primary><secondary>count</secondary></indexterm>
+<para><computeroutput>int age.gui.Multiline.count ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_multiline_1a1f1429186b02f3b0a7d46c8fabfca688"/><section>
+    <title>create()</title>
+<indexterm><primary>create</primary><secondary>age.gui.Multiline</secondary></indexterm>
+<indexterm><primary>age.gui.Multiline</primary><secondary>create</secondary></indexterm>
+<para><computeroutput>void age.gui.Multiline.create ( )<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_multiline_1ae97f5e93b0772fba212bb68d453d27de"/><section>
+    <title>down()</title>
+<indexterm><primary>down</primary><secondary>age.gui.Multiline</secondary></indexterm>
+<indexterm><primary>age.gui.Multiline</primary><secondary>down</secondary></indexterm>
+<para><computeroutput>void age.gui.Multiline.down ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_multiline_1aa4c8aa94b8e7bb8a28c059de0a20b51a"/><section>
+    <title>line()</title>
+<indexterm><primary>line</primary><secondary>age.gui.Multiline</secondary></indexterm>
+<indexterm><primary>age.gui.Multiline</primary><secondary>line</secondary></indexterm>
+<para><computeroutput>CharSequence age.gui.Multiline.line (int idx)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_multiline_1a65fb6bc81647d153db6eeb7e2a5867e6"/><section>
+    <title>lineHeight()</title>
+<indexterm><primary>lineHeight</primary><secondary>age.gui.Multiline</secondary></indexterm>
+<indexterm><primary>age.gui.Multiline</primary><secondary>lineHeight</secondary></indexterm>
+<para><computeroutput>int age.gui.Multiline.lineHeight ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_multiline_1abe65b5bd7522c3f4316755bf81cb789c"/><section>
+    <title>offset()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>offset</primary><secondary>age.gui.Multiline</secondary></indexterm>
+<indexterm><primary>age.gui.Multiline</primary><secondary>offset</secondary></indexterm>
+<para><computeroutput>int age.gui.Multiline.offset ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_multiline_1a980d674162468abb3cbd373e7b577dbf"/><section>
+    <title>offset()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>offset</primary><secondary>age.gui.Multiline</secondary></indexterm>
+<indexterm><primary>age.gui.Multiline</primary><secondary>offset</secondary></indexterm>
+<para><computeroutput>void age.gui.Multiline.offset (int offset)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_multiline_1aa16c9a4291d527f3aba362384d6f99fe"/><section>
+    <title>page()</title>
+<indexterm><primary>page</primary><secondary>age.gui.Multiline</secondary></indexterm>
+<indexterm><primary>age.gui.Multiline</primary><secondary>page</secondary></indexterm>
+<para><computeroutput>int age.gui.Multiline.page ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_multiline_1ab7fe16f831a08428cd9fb3eb0e80a1c3"/><section>
+    <title>text()</title>
+<indexterm><primary>text</primary><secondary>age.gui.Multiline</secondary></indexterm>
+<indexterm><primary>age.gui.Multiline</primary><secondary>text</secondary></indexterm>
+<para><computeroutput>void age.gui.Multiline.text (String text)</computeroutput></para><para>
+Reimplemented from <link linkend="_classage_1_1gui_1_1_widget_1aa6820e55a60fb156fbb63c8a9fffdb52">age.gui.Widget</link>.</para>
+</section>
+<anchor xml:id="_classage_1_1gui_1_1_multiline_1ad6aa40b8419c4225a374071235e52ac2"/><section>
+    <title>up()</title>
+<indexterm><primary>up</primary><secondary>age.gui.Multiline</secondary></indexterm>
+<indexterm><primary>age.gui.Multiline</primary><secondary>up</secondary></indexterm>
+<para><computeroutput>void age.gui.Multiline.up ( )</computeroutput></para></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classage_1_1gui_1_1_multiline_1ac0c68e61b1b33e9d997f5881ba91c9d2"/><section>
+    <title>buffer</title>
+<indexterm><primary>buffer</primary><secondary>age.gui.Multiline</secondary></indexterm>
+<indexterm><primary>age.gui.Multiline</primary><secondary>buffer</secondary></indexterm>
+<para><computeroutput>int [] age.gui.Multiline.buffer = new int[1024]<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_multiline_1a7cda2c0fedc23a09f7f8a9a2c6e65499"/><section>
+    <title>offset</title>
+<indexterm><primary>offset</primary><secondary>age.gui.Multiline</secondary></indexterm>
+<indexterm><primary>age.gui.Multiline</primary><secondary>offset</secondary></indexterm>
+<para><computeroutput>int age.gui.Multiline.offset<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_multiline_1a6a38ec4abd92df9e1b571f39c05e1bdb"/><section>
+    <title>scroller</title>
+<indexterm><primary>scroller</primary><secondary>age.gui.Multiline</secondary></indexterm>
+<indexterm><primary>age.gui.Multiline</primary><secondary>scroller</secondary></indexterm>
+<para><computeroutput><link linkend="_classage_1_1gui_1_1_v_scroller">VScroller</link> age.gui.Multiline.scroller<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following file:</para>
+D:/GIT/repos/ODE/age/age/gui/<link linkend="__multiline_8java">Multiline.java</link></section>
+</section>

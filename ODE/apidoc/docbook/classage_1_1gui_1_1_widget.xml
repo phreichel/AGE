@@ -284,7 +284,7 @@
 <indexterm><primary>text</primary><secondary>age.gui.Widget</secondary></indexterm>
 <indexterm><primary>age.gui.Widget</primary><secondary>text</secondary></indexterm>
 <para><computeroutput>void age.gui.Widget.text (String text)</computeroutput></para><para>
-Reimplemented in <link linkend="_classage_1_1gui_1_1_multiline_widget_1a6268d61820f75d446ad98d10b7e01c13">age.gui.MultilineWidget</link>.</para>
+Reimplemented in <link linkend="_classage_1_1gui_1_1_multiline_1ab7fe16f831a08428cd9fb3eb0e80a1c3">age.gui.Multiline</link>.</para>
 </section>
 <anchor xml:id="_classage_1_1gui_1_1_widget_1a801497610aa02da04b5208942298813b"/><section>
     <title>toFront()</title>
