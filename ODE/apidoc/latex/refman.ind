@@ -257,8 +257,9 @@
     \subitem {BUTTON}, \hyperpage{29}
     \subitem {CANVAS}, \hyperpage{29}
     \subitem {FRAME}, \hyperpage{29}
+    \subitem {HANDLE}, \hyperpage{29}
     \subitem {HIDDEN}, \hyperpage{29}
-    \subitem {HOVERED}, \hyperpage{29}
+    \subitem {HOVERED}, \hyperpage{30}
     \subitem {MULTILINE}, \hyperpage{30}
     \subitem {TITLE}, \hyperpage{30}
   \item {age.gui.Handling}, \hyperpage{34}
@@ -295,6 +296,7 @@
     \subitem {scroller}, \hyperpage{69}
     \subitem {text}, \hyperpage{69}
     \subitem {up}, \hyperpage{69}
+    \subitem {update}, \hyperpage{69}
   \item {age.gui.Rendering}, \hyperpage{73}
     \subitem {render}, \hyperpage{73}
     \subitem {renderChildren}, \hyperpage{73}
@@ -307,40 +309,46 @@
     \subitem {btnDn}, \hyperpage{82}
     \subitem {btnUp}, \hyperpage{82}
     \subitem {create}, \hyperpage{81}
+    \subitem {handle}, \hyperpage{82}
+    \subitem {mark}, \hyperpage{82}
+    \subitem {page}, \hyperpage{82}
+    \subitem {set}, \hyperpage{81}
+    \subitem {size}, \hyperpage{82}
     \subitem {uuid}, \hyperpage{82}
+    \subitem {value}, \hyperpage{82}
     \subitem {VScroller}, \hyperpage{81}
-  \item {age.gui.Widget}, \hyperpage{82}
+  \item {age.gui.Widget}, \hyperpage{83}
     \subitem {add}, \hyperpage{84}
     \subitem {children}, \hyperpage{84}, \hyperpage{88}
     \subitem {children\_ro}, \hyperpage{88}
     \subitem {clear}, \hyperpage{84}
-    \subitem {command}, \hyperpage{84}, \hyperpage{88}
-    \subitem {dimension}, \hyperpage{84}, \hyperpage{88}
+    \subitem {command}, \hyperpage{84, 85}, \hyperpage{88}
+    \subitem {dimension}, \hyperpage{85}, \hyperpage{88}
     \subitem {dimensionAdd}, \hyperpage{85}
     \subitem {dock}, \hyperpage{85}, \hyperpage{88}
-    \subitem {flag}, \hyperpage{85}
-    \subitem {flags}, \hyperpage{85}, \hyperpage{88}
+    \subitem {flag}, \hyperpage{86}
+    \subitem {flags}, \hyperpage{86}, \hyperpage{88}
     \subitem {flags\_ro}, \hyperpage{88}
-    \subitem {height}, \hyperpage{85}
-    \subitem {image}, \hyperpage{85, 86}, \hyperpage{88}
+    \subitem {height}, \hyperpage{86}
+    \subitem {image}, \hyperpage{86}, \hyperpage{89}
     \subitem {match}, \hyperpage{86}
-    \subitem {parent}, \hyperpage{86}, \hyperpage{88}
+    \subitem {parent}, \hyperpage{86}, \hyperpage{89}
     \subitem {parentResized}, \hyperpage{86}
-    \subitem {position}, \hyperpage{86}, \hyperpage{88}
-    \subitem {positionAdd}, \hyperpage{86}
+    \subitem {position}, \hyperpage{86, 87}, \hyperpage{89}
+    \subitem {positionAdd}, \hyperpage{87}
     \subitem {remove}, \hyperpage{87}
     \subitem {resized}, \hyperpage{87}
-    \subitem {text}, \hyperpage{87, 88}
+    \subitem {text}, \hyperpage{87}, \hyperpage{89}
     \subitem {toFront}, \hyperpage{87}
-    \subitem {Widget}, \hyperpage{83}
-    \subitem {width}, \hyperpage{87}
-    \subitem {x}, \hyperpage{87}
-    \subitem {y}, \hyperpage{87}
+    \subitem {Widget}, \hyperpage{84}
+    \subitem {width}, \hyperpage{88}
+    \subitem {x}, \hyperpage{88}
+    \subitem {y}, \hyperpage{88}
   \item {age.gui.Widgets}, \hyperpage{89}
-    \subitem {assign}, \hyperpage{89}
+    \subitem {assign}, \hyperpage{90}
     \subitem {handling}, \hyperpage{90}
     \subitem {rendering}, \hyperpage{90}
-    \subitem {root}, \hyperpage{89, 90}
+    \subitem {root}, \hyperpage{90}
     \subitem {Widgets}, \hyperpage{89}
   \item {age.gui.Window}, \hyperpage{90}
     \subitem {close}, \hyperpage{92}
@@ -349,7 +357,7 @@
     \subitem {page}, \hyperpage{92}
     \subitem {size}, \hyperpage{92}
     \subitem {title}, \hyperpage{92}
-    \subitem {Window}, \hyperpage{91}
+    \subitem {Window}, \hyperpage{92}
   \item {age.log}, \hyperpage{10}
   \item {age.log.Level}, \hyperpage{61}
     \subitem {DEBUG}, \hyperpage{61}
@@ -502,7 +510,7 @@
     \subitem {age.gui.Handling}, \hyperpage{35}
     \subitem {age.gui.Multiline}, \hyperpage{68}
     \subitem {age.gui.VScroller}, \hyperpage{81}
-    \subitem {age.gui.Widgets}, \hyperpage{89}
+    \subitem {age.gui.Widgets}, \hyperpage{90}
     \subitem {age.port.jogl.JOGLEventListener}, \hyperpage{38}
     \subitem {age.port.jogl.JOGLGraphics}, \hyperpage{41}
     \subitem {age.port.jogl.JOGLPort}, \hyperpage{46}
@@ -585,7 +593,7 @@
     \subitem {age.port.jogl.JOGLGraphics}, \hyperpage{42}
   \item {command}
     \subitem {age.event.Event}, \hyperpage{21}, \hyperpage{24}
-    \subitem {age.gui.Widget}, \hyperpage{84}, \hyperpage{88}
+    \subitem {age.gui.Widget}, \hyperpage{84, 85}, \hyperpage{88}
   \item {configure}
     \subitem {age.log.Log}, \hyperpage{63}
   \item {construct}
@@ -653,7 +661,7 @@
     \subitem {age.event.Key}, \hyperpage{54}
   \item {dimension}
     \subitem {age.event.Event}, \hyperpage{21}, \hyperpage{25}
-    \subitem {age.gui.Widget}, \hyperpage{84}, \hyperpage{88}
+    \subitem {age.gui.Widget}, \hyperpage{85}, \hyperpage{88}
   \item {dimensionAdd}
     \subitem {age.gui.Widget}, \hyperpage{85}
   \item {disable}
@@ -729,9 +737,9 @@
   \item {F9}
     \subitem {age.event.Key}, \hyperpage{56}
   \item {flag}
-    \subitem {age.gui.Widget}, \hyperpage{85}
+    \subitem {age.gui.Widget}, \hyperpage{86}
   \item {flags}
-    \subitem {age.gui.Widget}, \hyperpage{85}, \hyperpage{88}
+    \subitem {age.gui.Widget}, \hyperpage{86}, \hyperpage{88}
   \item {flags\_ro}
     \subitem {age.gui.Widget}, \hyperpage{88}
   \item {fonts}
@@ -766,9 +774,12 @@
 
   \item {H}
     \subitem {age.event.Key}, \hyperpage{56}
+  \item {HANDLE}
+    \subitem {age.gui.Flag}, \hyperpage{29}
   \item {handle}
     \subitem {age.event.Events}, \hyperpage{26}
     \subitem {age.event.Handler}, \hyperpage{34}
+    \subitem {age.gui.VScroller}, \hyperpage{82}
   \item {handleEvent}
     \subitem {age.task.Tasks}, \hyperpage{76}
   \item {handleKeyboard}
@@ -787,13 +798,13 @@
     \subitem {age.gui.Widgets}, \hyperpage{90}
   \item {height}
     \subitem {age.event.Event}, \hyperpage{22}
-    \subitem {age.gui.Widget}, \hyperpage{85}
+    \subitem {age.gui.Widget}, \hyperpage{86}
     \subitem {age.port.jogl.JOGLPort}, \hyperpage{46}
     \subitem {age.port.Port}, \hyperpage{71}
   \item {HIDDEN}
     \subitem {age.gui.Flag}, \hyperpage{29}
   \item {HOVERED}
-    \subitem {age.gui.Flag}, \hyperpage{29}
+    \subitem {age.gui.Flag}, \hyperpage{30}
   \item {hovered}
     \subitem {age.gui.Handling}, \hyperpage{35, 36}
 
@@ -802,7 +813,7 @@
   \item {I}
     \subitem {age.event.Key}, \hyperpage{56}
   \item {image}
-    \subitem {age.gui.Widget}, \hyperpage{85, 86}, \hyperpage{88}
+    \subitem {age.gui.Widget}, \hyperpage{86}, \hyperpage{89}
   \item {inbox}
     \subitem {age.event.Events}, \hyperpage{28}
     \subitem {age.task.Tasks}, \hyperpage{77}
@@ -879,6 +890,7 @@
     \subitem {age.log.Log}, \hyperpage{66}
   \item {mark}
     \subitem {age.clock.Alarm}, \hyperpage{13}
+    \subitem {age.gui.VScroller}, \hyperpage{82}
   \item {match}
     \subitem {age.gui.Widget}, \hyperpage{86}
   \item {maximized}
@@ -965,13 +977,14 @@
     \subitem {age.event.Key}, \hyperpage{58}
   \item {page}
     \subitem {age.gui.Multiline}, \hyperpage{68}
+    \subitem {age.gui.VScroller}, \hyperpage{82}
     \subitem {age.gui.Window}, \hyperpage{92}
   \item {PAGE\_DOWN}
     \subitem {age.event.Key}, \hyperpage{58}
   \item {PAGE\_UP}
     \subitem {age.event.Key}, \hyperpage{59}
   \item {parent}
-    \subitem {age.gui.Widget}, \hyperpage{86}, \hyperpage{88}
+    \subitem {age.gui.Widget}, \hyperpage{86}, \hyperpage{89}
   \item {parentResized}
     \subitem {age.gui.Widget}, \hyperpage{86}
   \item {PAUSE}
@@ -1018,9 +1031,9 @@
     \subitem {age.event.Key}, \hyperpage{59}
   \item {position}
     \subitem {age.event.Event}, \hyperpage{23}, \hyperpage{25}
-    \subitem {age.gui.Widget}, \hyperpage{86}, \hyperpage{88}
+    \subitem {age.gui.Widget}, \hyperpage{86, 87}, \hyperpage{89}
   \item {positionAdd}
-    \subitem {age.gui.Widget}, \hyperpage{86}
+    \subitem {age.gui.Widget}, \hyperpage{87}
   \item {post}
     \subitem {age.event.Events}, \hyperpage{26}
   \item {postKeyPressed}
@@ -1104,7 +1117,7 @@
   \item {right}
     \subitem {age.gui.Dock}, \hyperpage{19, 20}
   \item {root}
-    \subitem {age.gui.Widgets}, \hyperpage{89, 90}
+    \subitem {age.gui.Widgets}, \hyperpage{90}
   \item {run}
     \subitem {age.Client}, \hyperpage{16}
     \subitem {age.clock.Task}, \hyperpage{74}
@@ -1123,6 +1136,7 @@
     \subitem {age.AGEException}, \hyperpage{12}
   \item {set}
     \subitem {age.gui.Dock}, \hyperpage{19}
+    \subitem {age.gui.VScroller}, \hyperpage{81}
   \item {setup}
     \subitem {age.Client}, \hyperpage{16}
   \item {setupGUI}
@@ -1133,6 +1147,7 @@
     \subitem {age.Client}, \hyperpage{16}
     \subitem {age.task.Tasks}, \hyperpage{76}
   \item {size}
+    \subitem {age.gui.VScroller}, \hyperpage{82}
     \subitem {age.gui.Window}, \hyperpage{92}
     \subitem {age.port.jogl.JOGLPort}, \hyperpage{47}
     \subitem {age.port.Port}, \hyperpage{71}
@@ -1178,7 +1193,7 @@
     \subitem {age.task.Tasks}, \hyperpage{77}
   \item {text}
     \subitem {age.gui.Multiline}, \hyperpage{69}
-    \subitem {age.gui.Widget}, \hyperpage{87, 88}
+    \subitem {age.gui.Widget}, \hyperpage{87}, \hyperpage{89}
     \subitem {age.port.Graphics}, \hyperpage{32}
     \subitem {age.port.jogl.JOGLGraphics}, \hyperpage{43}
   \item {texture}
@@ -1229,6 +1244,7 @@
     \subitem {age.clock.Alarm}, \hyperpage{13}
     \subitem {age.clock.Clock}, \hyperpage{18}
     \subitem {age.event.Events}, \hyperpage{28}
+    \subitem {age.gui.Multiline}, \hyperpage{69}
     \subitem {age.task.Tasks}, \hyperpage{77}
   \item {updateActionState}
     \subitem {age.gui.Handling}, \hyperpage{36}
@@ -1241,6 +1257,8 @@
 
   \item {V}
     \subitem {age.event.Key}, \hyperpage{60}
+  \item {value}
+    \subitem {age.gui.VScroller}, \hyperpage{82}
   \item {visible}
     \subitem {age.port.jogl.JOGLPort}, \hyperpage{47, 48}
     \subitem {age.port.Port}, \hyperpage{72}
@@ -1256,7 +1274,7 @@
   \item {WARNING}
     \subitem {age.log.Level}, \hyperpage{61}
   \item {Widget}
-    \subitem {age.gui.Widget}, \hyperpage{83}
+    \subitem {age.gui.Widget}, \hyperpage{84}
   \item {Widgets}
     \subitem {age.gui.Widgets}, \hyperpage{89}
   \item {widgets}
@@ -1265,11 +1283,11 @@
     \subitem {age.gui.Rendering}, \hyperpage{74}
   \item {width}
     \subitem {age.event.Event}, \hyperpage{24}
-    \subitem {age.gui.Widget}, \hyperpage{87}
+    \subitem {age.gui.Widget}, \hyperpage{88}
     \subitem {age.port.jogl.JOGLPort}, \hyperpage{48}
     \subitem {age.port.Port}, \hyperpage{72}
   \item {Window}
-    \subitem {age.gui.Window}, \hyperpage{91}
+    \subitem {age.gui.Window}, \hyperpage{92}
   \item {window}
     \subitem {age.port.jogl.JOGLPort}, \hyperpage{48}
   \item {windowDestroyed}
@@ -1295,7 +1313,7 @@
     \subitem {age.event.Key}, \hyperpage{61}
   \item {x}
     \subitem {age.event.Event}, \hyperpage{24}
-    \subitem {age.gui.Widget}, \hyperpage{87}
+    \subitem {age.gui.Widget}, \hyperpage{88}
 
   \indexspace
 
@@ -1303,7 +1321,7 @@
     \subitem {age.event.Key}, \hyperpage{61}
   \item {y}
     \subitem {age.event.Event}, \hyperpage{24}
-    \subitem {age.gui.Widget}, \hyperpage{87}
+    \subitem {age.gui.Widget}, \hyperpage{88}
 
   \indexspace
 

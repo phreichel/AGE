@@ -158,10 +158,11 @@
 \contentsline {subsubsection}{\numberline {6.9.1.2}BUTTON}{29}{subsubsection.6.9.1.2}%
 \contentsline {subsubsection}{\numberline {6.9.1.3}CANVAS}{29}{subsubsection.6.9.1.3}%
 \contentsline {subsubsection}{\numberline {6.9.1.4}FRAME}{29}{subsubsection.6.9.1.4}%
-\contentsline {subsubsection}{\numberline {6.9.1.5}HIDDEN}{29}{subsubsection.6.9.1.5}%
-\contentsline {subsubsection}{\numberline {6.9.1.6}HOVERED}{30}{subsubsection.6.9.1.6}%
-\contentsline {subsubsection}{\numberline {6.9.1.7}MULTILINE}{30}{subsubsection.6.9.1.7}%
-\contentsline {subsubsection}{\numberline {6.9.1.8}TITLE}{30}{subsubsection.6.9.1.8}%
+\contentsline {subsubsection}{\numberline {6.9.1.5}HANDLE}{29}{subsubsection.6.9.1.5}%
+\contentsline {subsubsection}{\numberline {6.9.1.6}HIDDEN}{30}{subsubsection.6.9.1.6}%
+\contentsline {subsubsection}{\numberline {6.9.1.7}HOVERED}{30}{subsubsection.6.9.1.7}%
+\contentsline {subsubsection}{\numberline {6.9.1.8}MULTILINE}{30}{subsubsection.6.9.1.8}%
+\contentsline {subsubsection}{\numberline {6.9.1.9}TITLE}{30}{subsubsection.6.9.1.9}%
 \contentsline {section}{\numberline {6.10}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}port.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Graphics Interface Reference}{30}{section.6.10}%
 \contentsline {subsection}{\numberline {6.10.1}Member Function Documentation}{31}{subsection.6.10.1}%
 \contentsline {subsubsection}{\numberline {6.10.1.1}calcMultitext()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{31}{subsubsection.6.10.1.1}%
@@ -438,6 +439,7 @@
 \contentsline {subsubsection}{\numberline {6.20.2.10}page()}{69}{subsubsection.6.20.2.10}%
 \contentsline {subsubsection}{\numberline {6.20.2.11}text()}{69}{subsubsection.6.20.2.11}%
 \contentsline {subsubsection}{\numberline {6.20.2.12}up()}{69}{subsubsection.6.20.2.12}%
+\contentsline {subsubsection}{\numberline {6.20.2.13}update()}{69}{subsubsection.6.20.2.13}%
 \contentsline {subsection}{\numberline {6.20.3}Member Data Documentation}{69}{subsection.6.20.3}%
 \contentsline {subsubsection}{\numberline {6.20.3.1}buffer}{69}{subsubsection.6.20.3.1}%
 \contentsline {subsubsection}{\numberline {6.20.3.2}offset}{69}{subsubsection.6.20.3.2}%
@@ -523,50 +525,56 @@
 \contentsline {subsection}{\numberline {6.29.2}Member Function Documentation}{81}{subsection.6.29.2}%
 \contentsline {subsubsection}{\numberline {6.29.2.1}assign()}{81}{subsubsection.6.29.2.1}%
 \contentsline {subsubsection}{\numberline {6.29.2.2}create()}{81}{subsubsection.6.29.2.2}%
+\contentsline {subsubsection}{\numberline {6.29.2.3}set()}{82}{subsubsection.6.29.2.3}%
+\contentsline {subsubsection}{\numberline {6.29.2.4}value()}{82}{subsubsection.6.29.2.4}%
 \contentsline {subsection}{\numberline {6.29.3}Member Data Documentation}{82}{subsection.6.29.3}%
 \contentsline {subsubsection}{\numberline {6.29.3.1}bar}{82}{subsubsection.6.29.3.1}%
 \contentsline {subsubsection}{\numberline {6.29.3.2}btnDn}{82}{subsubsection.6.29.3.2}%
 \contentsline {subsubsection}{\numberline {6.29.3.3}btnUp}{82}{subsubsection.6.29.3.3}%
-\contentsline {subsubsection}{\numberline {6.29.3.4}uuid}{82}{subsubsection.6.29.3.4}%
-\contentsline {section}{\numberline {6.30}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Widget Class Reference}{82}{section.6.30}%
-\contentsline {subsection}{\numberline {6.30.1}Constructor \& Destructor Documentation}{83}{subsection.6.30.1}%
-\contentsline {subsubsection}{\numberline {6.30.1.1}Widget()}{83}{subsubsection.6.30.1.1}%
+\contentsline {subsubsection}{\numberline {6.29.3.4}handle}{82}{subsubsection.6.29.3.4}%
+\contentsline {subsubsection}{\numberline {6.29.3.5}mark}{82}{subsubsection.6.29.3.5}%
+\contentsline {subsubsection}{\numberline {6.29.3.6}page}{82}{subsubsection.6.29.3.6}%
+\contentsline {subsubsection}{\numberline {6.29.3.7}size}{82}{subsubsection.6.29.3.7}%
+\contentsline {subsubsection}{\numberline {6.29.3.8}uuid}{83}{subsubsection.6.29.3.8}%
+\contentsline {section}{\numberline {6.30}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Widget Class Reference}{83}{section.6.30}%
+\contentsline {subsection}{\numberline {6.30.1}Constructor \& Destructor Documentation}{84}{subsection.6.30.1}%
+\contentsline {subsubsection}{\numberline {6.30.1.1}Widget()}{84}{subsubsection.6.30.1.1}%
 \contentsline {subsection}{\numberline {6.30.2}Member Function Documentation}{84}{subsection.6.30.2}%
 \contentsline {subsubsection}{\numberline {6.30.2.1}add()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{84}{subsubsection.6.30.2.1}%
 \contentsline {subsubsection}{\numberline {6.30.2.2}add()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{84}{subsubsection.6.30.2.2}%
 \contentsline {subsubsection}{\numberline {6.30.2.3}children()}{84}{subsubsection.6.30.2.3}%
 \contentsline {subsubsection}{\numberline {6.30.2.4}clear()}{84}{subsubsection.6.30.2.4}%
-\contentsline {subsubsection}{\numberline {6.30.2.5}command()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{84}{subsubsection.6.30.2.5}%
-\contentsline {subsubsection}{\numberline {6.30.2.6}command()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{84}{subsubsection.6.30.2.6}%
-\contentsline {subsubsection}{\numberline {6.30.2.7}dimension()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{84}{subsubsection.6.30.2.7}%
-\contentsline {subsubsection}{\numberline {6.30.2.8}dimension()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{84}{subsubsection.6.30.2.8}%
+\contentsline {subsubsection}{\numberline {6.30.2.5}command()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{85}{subsubsection.6.30.2.5}%
+\contentsline {subsubsection}{\numberline {6.30.2.6}command()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{85}{subsubsection.6.30.2.6}%
+\contentsline {subsubsection}{\numberline {6.30.2.7}dimension()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{85}{subsubsection.6.30.2.7}%
+\contentsline {subsubsection}{\numberline {6.30.2.8}dimension()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{85}{subsubsection.6.30.2.8}%
 \contentsline {subsubsection}{\numberline {6.30.2.9}dimension()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{85}{subsubsection.6.30.2.9}%
 \contentsline {subsubsection}{\numberline {6.30.2.10}dimensionAdd()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{85}{subsubsection.6.30.2.10}%
 \contentsline {subsubsection}{\numberline {6.30.2.11}dimensionAdd()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{85}{subsubsection.6.30.2.11}%
 \contentsline {subsubsection}{\numberline {6.30.2.12}dock()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{85}{subsubsection.6.30.2.12}%
 \contentsline {subsubsection}{\numberline {6.30.2.13}dock()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{85}{subsubsection.6.30.2.13}%
-\contentsline {subsubsection}{\numberline {6.30.2.14}dock()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{85}{subsubsection.6.30.2.14}%
-\contentsline {subsubsection}{\numberline {6.30.2.15}flag()}{85}{subsubsection.6.30.2.15}%
-\contentsline {subsubsection}{\numberline {6.30.2.16}flags()}{85}{subsubsection.6.30.2.16}%
-\contentsline {subsubsection}{\numberline {6.30.2.17}height()}{85}{subsubsection.6.30.2.17}%
+\contentsline {subsubsection}{\numberline {6.30.2.14}dock()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{86}{subsubsection.6.30.2.14}%
+\contentsline {subsubsection}{\numberline {6.30.2.15}flag()}{86}{subsubsection.6.30.2.15}%
+\contentsline {subsubsection}{\numberline {6.30.2.16}flags()}{86}{subsubsection.6.30.2.16}%
+\contentsline {subsubsection}{\numberline {6.30.2.17}height()}{86}{subsubsection.6.30.2.17}%
 \contentsline {subsubsection}{\numberline {6.30.2.18}image()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{86}{subsubsection.6.30.2.18}%
 \contentsline {subsubsection}{\numberline {6.30.2.19}image()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{86}{subsubsection.6.30.2.19}%
 \contentsline {subsubsection}{\numberline {6.30.2.20}match()}{86}{subsubsection.6.30.2.20}%
 \contentsline {subsubsection}{\numberline {6.30.2.21}parent()}{86}{subsubsection.6.30.2.21}%
 \contentsline {subsubsection}{\numberline {6.30.2.22}parentResized()}{86}{subsubsection.6.30.2.22}%
-\contentsline {subsubsection}{\numberline {6.30.2.23}position()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{86}{subsubsection.6.30.2.23}%
-\contentsline {subsubsection}{\numberline {6.30.2.24}position()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{86}{subsubsection.6.30.2.24}%
-\contentsline {subsubsection}{\numberline {6.30.2.25}position()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{86}{subsubsection.6.30.2.25}%
-\contentsline {subsubsection}{\numberline {6.30.2.26}positionAdd()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{86}{subsubsection.6.30.2.26}%
+\contentsline {subsubsection}{\numberline {6.30.2.23}position()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{87}{subsubsection.6.30.2.23}%
+\contentsline {subsubsection}{\numberline {6.30.2.24}position()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{87}{subsubsection.6.30.2.24}%
+\contentsline {subsubsection}{\numberline {6.30.2.25}position()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{87}{subsubsection.6.30.2.25}%
+\contentsline {subsubsection}{\numberline {6.30.2.26}positionAdd()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{87}{subsubsection.6.30.2.26}%
 \contentsline {subsubsection}{\numberline {6.30.2.27}positionAdd()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{87}{subsubsection.6.30.2.27}%
 \contentsline {subsubsection}{\numberline {6.30.2.28}remove()}{87}{subsubsection.6.30.2.28}%
 \contentsline {subsubsection}{\numberline {6.30.2.29}resized()}{87}{subsubsection.6.30.2.29}%
 \contentsline {subsubsection}{\numberline {6.30.2.30}text()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{87}{subsubsection.6.30.2.30}%
 \contentsline {subsubsection}{\numberline {6.30.2.31}text()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{87}{subsubsection.6.30.2.31}%
-\contentsline {subsubsection}{\numberline {6.30.2.32}toFront()}{87}{subsubsection.6.30.2.32}%
-\contentsline {subsubsection}{\numberline {6.30.2.33}width()}{87}{subsubsection.6.30.2.33}%
-\contentsline {subsubsection}{\numberline {6.30.2.34}x()}{87}{subsubsection.6.30.2.34}%
-\contentsline {subsubsection}{\numberline {6.30.2.35}y()}{87}{subsubsection.6.30.2.35}%
+\contentsline {subsubsection}{\numberline {6.30.2.32}toFront()}{88}{subsubsection.6.30.2.32}%
+\contentsline {subsubsection}{\numberline {6.30.2.33}width()}{88}{subsubsection.6.30.2.33}%
+\contentsline {subsubsection}{\numberline {6.30.2.34}x()}{88}{subsubsection.6.30.2.34}%
+\contentsline {subsubsection}{\numberline {6.30.2.35}y()}{88}{subsubsection.6.30.2.35}%
 \contentsline {subsection}{\numberline {6.30.3}Member Data Documentation}{88}{subsection.6.30.3}%
 \contentsline {subsubsection}{\numberline {6.30.3.1}children}{88}{subsubsection.6.30.3.1}%
 \contentsline {subsubsection}{\numberline {6.30.3.2}children\_ro}{88}{subsubsection.6.30.3.2}%
@@ -574,25 +582,25 @@
 \contentsline {subsubsection}{\numberline {6.30.3.4}dimension}{88}{subsubsection.6.30.3.4}%
 \contentsline {subsubsection}{\numberline {6.30.3.5}dock}{88}{subsubsection.6.30.3.5}%
 \contentsline {subsubsection}{\numberline {6.30.3.6}flags}{88}{subsubsection.6.30.3.6}%
-\contentsline {subsubsection}{\numberline {6.30.3.7}flags\_ro}{88}{subsubsection.6.30.3.7}%
-\contentsline {subsubsection}{\numberline {6.30.3.8}image}{88}{subsubsection.6.30.3.8}%
-\contentsline {subsubsection}{\numberline {6.30.3.9}parent}{88}{subsubsection.6.30.3.9}%
-\contentsline {subsubsection}{\numberline {6.30.3.10}position}{88}{subsubsection.6.30.3.10}%
+\contentsline {subsubsection}{\numberline {6.30.3.7}flags\_ro}{89}{subsubsection.6.30.3.7}%
+\contentsline {subsubsection}{\numberline {6.30.3.8}image}{89}{subsubsection.6.30.3.8}%
+\contentsline {subsubsection}{\numberline {6.30.3.9}parent}{89}{subsubsection.6.30.3.9}%
+\contentsline {subsubsection}{\numberline {6.30.3.10}position}{89}{subsubsection.6.30.3.10}%
 \contentsline {subsubsection}{\numberline {6.30.3.11}text}{89}{subsubsection.6.30.3.11}%
 \contentsline {section}{\numberline {6.31}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Widgets Class Reference}{89}{section.6.31}%
 \contentsline {subsection}{\numberline {6.31.1}Constructor \& Destructor Documentation}{89}{subsection.6.31.1}%
 \contentsline {subsubsection}{\numberline {6.31.1.1}Widgets()}{89}{subsubsection.6.31.1.1}%
-\contentsline {subsection}{\numberline {6.31.2}Member Function Documentation}{89}{subsection.6.31.2}%
-\contentsline {subsubsection}{\numberline {6.31.2.1}assign()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{89}{subsubsection.6.31.2.1}%
-\contentsline {subsubsection}{\numberline {6.31.2.2}assign()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{89}{subsubsection.6.31.2.2}%
-\contentsline {subsubsection}{\numberline {6.31.2.3}root()}{89}{subsubsection.6.31.2.3}%
+\contentsline {subsection}{\numberline {6.31.2}Member Function Documentation}{90}{subsection.6.31.2}%
+\contentsline {subsubsection}{\numberline {6.31.2.1}assign()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{90}{subsubsection.6.31.2.1}%
+\contentsline {subsubsection}{\numberline {6.31.2.2}assign()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{90}{subsubsection.6.31.2.2}%
+\contentsline {subsubsection}{\numberline {6.31.2.3}root()}{90}{subsubsection.6.31.2.3}%
 \contentsline {subsection}{\numberline {6.31.3}Member Data Documentation}{90}{subsection.6.31.3}%
 \contentsline {subsubsection}{\numberline {6.31.3.1}handling}{90}{subsubsection.6.31.3.1}%
 \contentsline {subsubsection}{\numberline {6.31.3.2}rendering}{90}{subsubsection.6.31.3.2}%
 \contentsline {subsubsection}{\numberline {6.31.3.3}root}{90}{subsubsection.6.31.3.3}%
 \contentsline {section}{\numberline {6.32}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{90}{section.6.32}%
-\contentsline {subsection}{\numberline {6.32.1}Constructor \& Destructor Documentation}{91}{subsection.6.32.1}%
-\contentsline {subsubsection}{\numberline {6.32.1.1}Window()}{91}{subsubsection.6.32.1.1}%
+\contentsline {subsection}{\numberline {6.32.1}Constructor \& Destructor Documentation}{92}{subsection.6.32.1}%
+\contentsline {subsubsection}{\numberline {6.32.1.1}Window()}{92}{subsubsection.6.32.1.1}%
 \contentsline {subsection}{\numberline {6.32.2}Member Function Documentation}{92}{subsection.6.32.2}%
 \contentsline {subsubsection}{\numberline {6.32.2.1}construct()}{92}{subsubsection.6.32.2.1}%
 \contentsline {subsubsection}{\numberline {6.32.2.2}getPage()}{92}{subsubsection.6.32.2.2}%

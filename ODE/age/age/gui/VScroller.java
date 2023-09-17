@@ -14,11 +14,18 @@ public class VScroller extends Widget {
 	//=============================================================================================
 	private Widget btnUp;
 	private Widget bar;
+	private Widget handle;
 	private Widget btnDn;
 	//=============================================================================================
 
 	//=============================================================================================
 	private UUID uuid = UUID.randomUUID();
+	//=============================================================================================
+
+	//=============================================================================================
+	private int size;
+	private int page;
+	private int mark;
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -36,6 +43,40 @@ public class VScroller extends Widget {
 		tasks.assign(cmdUp, taskUp);
 		tasks.assign(cmdDn, taskDn);
 		
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void set(int size, int page, int mark) {
+
+		this.size = size;
+		this.page = page;
+		this.mark = mark;
+		
+		float sFull = this.size + this.page - 1;
+		float sPart = this.page;
+		float scale = sPart / sFull; 
+		
+		float tFull = bar.dimension().y;
+		float tPart = tFull * scale;
+		
+		handle.dimension().y = tPart;
+
+		float srFull = this.size-1;
+		float srPart = this.mark;
+		float srScale = srPart / srFull;
+		
+		float trFull = tFull - tPart;
+		float trPart = trFull * srScale;
+		
+		handle.position().y = trPart;
+		
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void value(int mark) {
+		set(this.size, this.page, mark);
 	}
 	//=============================================================================================
 	
@@ -61,6 +102,11 @@ public class VScroller extends Widget {
 		bar.dimension(10, 46);
 		bar.dock(0, 1, 0, 1);
 		add(bar);
+		
+		handle = new Widget(Flag.HANDLE);
+		handle.position(0, 0);
+		handle.dimension(10, 20);
+		bar.add(handle);
 		
 		btnDn = new Widget(Flag.BUTTON);
 		btnDn.position(0, 60);

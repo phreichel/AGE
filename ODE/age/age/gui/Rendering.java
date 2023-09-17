@@ -74,6 +74,9 @@ public class Rendering implements Renderable {
 			g.color(.4f, 0f, 0f);
 			g.rectangle(widget.dimension(), true);
 			g.text(3, widget.dimension().y-3, widget.text(), "title");
+		} else if (widget.match(Flag.HANDLE)) {
+			g.color(1f, 0f, 0f);
+			g.rectangle(widget.dimension(), false);
 		} else if (widget.match(Flag.MULTILINE)) {
 			Multiline ml = (Multiline) widget;
 			g.color(0f, 0f, .5f);
@@ -90,6 +93,7 @@ public class Rendering implements Renderable {
 				ml.dimension().y-6,
 				"text",
 				ml.buffer());
+			ml.update();
 			for (int i=0; i<ml.page(); i++) {
 				int idx = ml.offset() + i;
 				if (idx >= ml.count()) break;

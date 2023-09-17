@@ -17,6 +17,12 @@ Inherits \fBage\&.gui\&.Widget\fP\&.
 .ti -1c
 .RI "void \fBassign\fP (Tasks tasks, Task taskUp, Task taskDn)"
 .br
+.ti -1c
+.RI "void \fBset\fP (int \fBsize\fP, int \fBpage\fP, int \fBmark\fP)"
+.br
+.ti -1c
+.RI "void \fBvalue\fP (int \fBmark\fP)"
+.br
 .in -1c
 
 Public Member Functions inherited from \fBage\&.gui\&.Widget\fP
@@ -141,10 +147,22 @@ Public Member Functions inherited from \fBage\&.gui\&.Widget\fP
 .RI "\fBWidget\fP \fBbar\fP"
 .br
 .ti -1c
+.RI "\fBWidget\fP \fBhandle\fP"
+.br
+.ti -1c
 .RI "\fBWidget\fP \fBbtnDn\fP"
 .br
 .ti -1c
 .RI "UUID \fBuuid\fP = UUID\&.randomUUID()"
+.br
+.ti -1c
+.RI "int \fBsize\fP"
+.br
+.ti -1c
+.RI "int \fBpage\fP"
+.br
+.ti -1c
+.RI "int \fBmark\fP"
 .br
 .in -1c
 .SH "Constructor & Destructor Documentation"
@@ -157,6 +175,10 @@ Public Member Functions inherited from \fBage\&.gui\&.Widget\fP
 
 .SS "void age\&.gui\&.VScroller\&.create ()\fC [private]\fP"
 
+.SS "void age\&.gui\&.VScroller\&.set (int size, int page, int mark)"
+
+.SS "void age\&.gui\&.VScroller\&.value (int mark)"
+
 .SH "Member Data Documentation"
 .PP 
 .SS "\fBWidget\fP age\&.gui\&.VScroller\&.bar\fC [private]\fP"
@@ -164,6 +186,14 @@ Public Member Functions inherited from \fBage\&.gui\&.Widget\fP
 .SS "\fBWidget\fP age\&.gui\&.VScroller\&.btnDn\fC [private]\fP"
 
 .SS "\fBWidget\fP age\&.gui\&.VScroller\&.btnUp\fC [private]\fP"
+
+.SS "\fBWidget\fP age\&.gui\&.VScroller\&.handle\fC [private]\fP"
+
+.SS "int age\&.gui\&.VScroller\&.mark\fC [private]\fP"
+
+.SS "int age\&.gui\&.VScroller\&.page\fC [private]\fP"
+
+.SS "int age\&.gui\&.VScroller\&.size\fC [private]\fP"
 
 .SS "UUID age\&.gui\&.VScroller\&.uuid = UUID\&.randomUUID()\fC [private]\fP"
 

@@ -17,6 +17,10 @@
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1gui_1_1_v_scroller_1a1ce56a2e4e698065994fba49c81977e5">assign</link> (Tasks tasks, Task taskUp, Task taskDn)</para>
 </listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_v_scroller_1a047f8ee29d847524bf343ecf96653342">set</link> (int <link linkend="_classage_1_1gui_1_1_v_scroller_1a79a4e22e42c2dfd554bdff7290d572e7">size</link>, int <link linkend="_classage_1_1gui_1_1_v_scroller_1a593795e7b302e4e9aef8a0b18e8057c5">page</link>, int <link linkend="_classage_1_1gui_1_1_v_scroller_1a7141810dd82f6b1c3cf21258fb88e571">mark</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_v_scroller_1a48cf625d0cde06b8a074d2467d0f9948">value</link> (int <link linkend="_classage_1_1gui_1_1_v_scroller_1a7141810dd82f6b1c3cf21258fb88e571">mark</link>)</para>
+</listitem>
         </itemizedlist>
 </simplesect>
 Public Member Functions inherited from <link linkend="_classage_1_1gui_1_1_widget">age.gui.Widget</link>        <itemizedlist>
@@ -103,9 +107,17 @@ Public Member Functions inherited from <link linkend="_classage_1_1gui_1_1_widge
 </listitem>
             <listitem><para><link linkend="_classage_1_1gui_1_1_widget">Widget</link> <link linkend="_classage_1_1gui_1_1_v_scroller_1ad22d0b653b73f6971cfef2c7e3819986">bar</link></para>
 </listitem>
+            <listitem><para><link linkend="_classage_1_1gui_1_1_widget">Widget</link> <link linkend="_classage_1_1gui_1_1_v_scroller_1aeb0502e5cbd7e55970e6107ad21e9898">handle</link></para>
+</listitem>
             <listitem><para><link linkend="_classage_1_1gui_1_1_widget">Widget</link> <link linkend="_classage_1_1gui_1_1_v_scroller_1ac67868f0f5d307d3d21938ab45d670d6">btnDn</link></para>
 </listitem>
             <listitem><para>UUID <link linkend="_classage_1_1gui_1_1_v_scroller_1a89e5d0dfa59184f3ea65bc4b4c8d0fc5">uuid</link> = UUID.randomUUID()</para>
+</listitem>
+            <listitem><para>int <link linkend="_classage_1_1gui_1_1_v_scroller_1a79a4e22e42c2dfd554bdff7290d572e7">size</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_classage_1_1gui_1_1_v_scroller_1a593795e7b302e4e9aef8a0b18e8057c5">page</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_classage_1_1gui_1_1_v_scroller_1a7141810dd82f6b1c3cf21258fb88e571">mark</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -129,6 +141,16 @@ Public Member Functions inherited from <link linkend="_classage_1_1gui_1_1_widge
 <indexterm><primary>create</primary><secondary>age.gui.VScroller</secondary></indexterm>
 <indexterm><primary>age.gui.VScroller</primary><secondary>create</secondary></indexterm>
 <para><computeroutput>void age.gui.VScroller.create ( )<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_v_scroller_1a047f8ee29d847524bf343ecf96653342"/><section>
+    <title>set()</title>
+<indexterm><primary>set</primary><secondary>age.gui.VScroller</secondary></indexterm>
+<indexterm><primary>age.gui.VScroller</primary><secondary>set</secondary></indexterm>
+<para><computeroutput>void age.gui.VScroller.set (int size, int page, int mark)</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_v_scroller_1a48cf625d0cde06b8a074d2467d0f9948"/><section>
+    <title>value()</title>
+<indexterm><primary>value</primary><secondary>age.gui.VScroller</secondary></indexterm>
+<indexterm><primary>age.gui.VScroller</primary><secondary>value</secondary></indexterm>
+<para><computeroutput>void age.gui.VScroller.value (int mark)</computeroutput></para></section>
 </section>
 <section>
 <title>Member Data Documentation</title>
@@ -147,6 +169,26 @@ Public Member Functions inherited from <link linkend="_classage_1_1gui_1_1_widge
 <indexterm><primary>btnUp</primary><secondary>age.gui.VScroller</secondary></indexterm>
 <indexterm><primary>age.gui.VScroller</primary><secondary>btnUp</secondary></indexterm>
 <para><computeroutput><link linkend="_classage_1_1gui_1_1_widget">Widget</link> age.gui.VScroller.btnUp<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_v_scroller_1aeb0502e5cbd7e55970e6107ad21e9898"/><section>
+    <title>handle</title>
+<indexterm><primary>handle</primary><secondary>age.gui.VScroller</secondary></indexterm>
+<indexterm><primary>age.gui.VScroller</primary><secondary>handle</secondary></indexterm>
+<para><computeroutput><link linkend="_classage_1_1gui_1_1_widget">Widget</link> age.gui.VScroller.handle<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_v_scroller_1a7141810dd82f6b1c3cf21258fb88e571"/><section>
+    <title>mark</title>
+<indexterm><primary>mark</primary><secondary>age.gui.VScroller</secondary></indexterm>
+<indexterm><primary>age.gui.VScroller</primary><secondary>mark</secondary></indexterm>
+<para><computeroutput>int age.gui.VScroller.mark<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_v_scroller_1a593795e7b302e4e9aef8a0b18e8057c5"/><section>
+    <title>page</title>
+<indexterm><primary>page</primary><secondary>age.gui.VScroller</secondary></indexterm>
+<indexterm><primary>age.gui.VScroller</primary><secondary>page</secondary></indexterm>
+<para><computeroutput>int age.gui.VScroller.page<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_v_scroller_1a79a4e22e42c2dfd554bdff7290d572e7"/><section>
+    <title>size</title>
+<indexterm><primary>size</primary><secondary>age.gui.VScroller</secondary></indexterm>
+<indexterm><primary>age.gui.VScroller</primary><secondary>size</secondary></indexterm>
+<para><computeroutput>int age.gui.VScroller.size<computeroutput>[private]</computeroutput></computeroutput></para></section>
 <anchor xml:id="_classage_1_1gui_1_1_v_scroller_1a89e5d0dfa59184f3ea65bc4b4c8d0fc5"/><section>
     <title>uuid</title>
 <indexterm><primary>uuid</primary><secondary>age.gui.VScroller</secondary></indexterm>

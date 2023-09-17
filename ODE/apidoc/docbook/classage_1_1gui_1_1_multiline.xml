@@ -37,6 +37,8 @@
 </listitem>
             <listitem><para>int[] <link linkend="_classage_1_1gui_1_1_multiline_1a2bdbd72f198d31f8ced606b90a295ecb">buffer</link> ()</para>
 </listitem>
+            <listitem><para>void <link linkend="_classage_1_1gui_1_1_multiline_1a18a0a0b944be56a0b91c524c0d526dd3">update</link> ()</para>
+</listitem>
         </itemizedlist>
 </simplesect>
 Public Member Functions inherited from <link linkend="_classage_1_1gui_1_1_widget">age.gui.Widget</link>        <itemizedlist>
@@ -197,6 +199,11 @@ Reimplemented from <link linkend="_classage_1_1gui_1_1_widget_1aa6820e55a60fb156
 <indexterm><primary>up</primary><secondary>age.gui.Multiline</secondary></indexterm>
 <indexterm><primary>age.gui.Multiline</primary><secondary>up</secondary></indexterm>
 <para><computeroutput>void age.gui.Multiline.up ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_multiline_1a18a0a0b944be56a0b91c524c0d526dd3"/><section>
+    <title>update()</title>
+<indexterm><primary>update</primary><secondary>age.gui.Multiline</secondary></indexterm>
+<indexterm><primary>age.gui.Multiline</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>void age.gui.Multiline.update ( )</computeroutput></para></section>
 </section>
 <section>
 <title>Member Data Documentation</title>

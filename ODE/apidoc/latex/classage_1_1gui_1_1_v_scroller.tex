@@ -12,6 +12,10 @@ Inheritance diagram for age.\+gui.\+VScroller\+:\begin{figure}[H]
 \mbox{\hyperlink{classage_1_1gui_1_1_v_scroller_aa15ca522c83f1dcfe5d42b9108d4b34d}{VScroller}} ()
 \item 
 void \mbox{\hyperlink{classage_1_1gui_1_1_v_scroller_a1ce56a2e4e698065994fba49c81977e5}{assign}} (Tasks tasks, Task task\+Up, Task task\+Dn)
+\item 
+void \mbox{\hyperlink{classage_1_1gui_1_1_v_scroller_a047f8ee29d847524bf343ecf96653342}{set}} (int \mbox{\hyperlink{classage_1_1gui_1_1_v_scroller_a79a4e22e42c2dfd554bdff7290d572e7}{size}}, int \mbox{\hyperlink{classage_1_1gui_1_1_v_scroller_a593795e7b302e4e9aef8a0b18e8057c5}{page}}, int \mbox{\hyperlink{classage_1_1gui_1_1_v_scroller_a7141810dd82f6b1c3cf21258fb88e571}{mark}})
+\item 
+void \mbox{\hyperlink{classage_1_1gui_1_1_v_scroller_a48cf625d0cde06b8a074d2467d0f9948}{value}} (int \mbox{\hyperlink{classage_1_1gui_1_1_v_scroller_a7141810dd82f6b1c3cf21258fb88e571}{mark}})
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classage_1_1gui_1_1_widget}{age.\+gui.\+Widget}}}
 \begin{DoxyCompactItemize}
@@ -96,9 +100,17 @@ void \mbox{\hyperlink{classage_1_1gui_1_1_v_scroller_ace15caafdd553fbbab9cb75dde
 \item 
 \mbox{\hyperlink{classage_1_1gui_1_1_widget}{Widget}} \mbox{\hyperlink{classage_1_1gui_1_1_v_scroller_ad22d0b653b73f6971cfef2c7e3819986}{bar}}
 \item 
+\mbox{\hyperlink{classage_1_1gui_1_1_widget}{Widget}} \mbox{\hyperlink{classage_1_1gui_1_1_v_scroller_aeb0502e5cbd7e55970e6107ad21e9898}{handle}}
+\item 
 \mbox{\hyperlink{classage_1_1gui_1_1_widget}{Widget}} \mbox{\hyperlink{classage_1_1gui_1_1_v_scroller_ac67868f0f5d307d3d21938ab45d670d6}{btn\+Dn}}
 \item 
 UUID \mbox{\hyperlink{classage_1_1gui_1_1_v_scroller_a89e5d0dfa59184f3ea65bc4b4c8d0fc5}{uuid}} = UUID.\+random\+UUID()
+\item 
+int \mbox{\hyperlink{classage_1_1gui_1_1_v_scroller_a79a4e22e42c2dfd554bdff7290d572e7}{size}}
+\item 
+int \mbox{\hyperlink{classage_1_1gui_1_1_v_scroller_a593795e7b302e4e9aef8a0b18e8057c5}{page}}
+\item 
+int \mbox{\hyperlink{classage_1_1gui_1_1_v_scroller_a7141810dd82f6b1c3cf21258fb88e571}{mark}}
 \end{DoxyCompactItemize}
 
 
@@ -124,6 +136,18 @@ UUID \mbox{\hyperlink{classage_1_1gui_1_1_v_scroller_a89e5d0dfa59184f3ea65bc4b4c
 \doxysubsubsection{\texorpdfstring{create()}{create()}}
 {\footnotesize\ttfamily void age.\+gui.\+VScroller.\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+\Hypertarget{classage_1_1gui_1_1_v_scroller_a047f8ee29d847524bf343ecf96653342}\label{classage_1_1gui_1_1_v_scroller_a047f8ee29d847524bf343ecf96653342} 
+\index{age.gui.VScroller@{age.gui.VScroller}!set@{set}}
+\index{set@{set}!age.gui.VScroller@{age.gui.VScroller}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily void age.\+gui.\+VScroller.\+set (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{int}]{page,  }\item[{int}]{mark }\end{DoxyParamCaption})}
+
+\Hypertarget{classage_1_1gui_1_1_v_scroller_a48cf625d0cde06b8a074d2467d0f9948}\label{classage_1_1gui_1_1_v_scroller_a48cf625d0cde06b8a074d2467d0f9948} 
+\index{age.gui.VScroller@{age.gui.VScroller}!value@{value}}
+\index{value@{value}!age.gui.VScroller@{age.gui.VScroller}}
+\doxysubsubsection{\texorpdfstring{value()}{value()}}
+{\footnotesize\ttfamily void age.\+gui.\+VScroller.\+value (\begin{DoxyParamCaption}\item[{int}]{mark }\end{DoxyParamCaption})}
+
 
 
 \doxysubsection{Member Data Documentation}
@@ -144,6 +168,30 @@ UUID \mbox{\hyperlink{classage_1_1gui_1_1_v_scroller_a89e5d0dfa59184f3ea65bc4b4c
 \index{btnUp@{btnUp}!age.gui.VScroller@{age.gui.VScroller}}
 \doxysubsubsection{\texorpdfstring{btnUp}{btnUp}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classage_1_1gui_1_1_widget}{Widget}} age.\+gui.\+VScroller.\+btn\+Up\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1gui_1_1_v_scroller_aeb0502e5cbd7e55970e6107ad21e9898}\label{classage_1_1gui_1_1_v_scroller_aeb0502e5cbd7e55970e6107ad21e9898} 
+\index{age.gui.VScroller@{age.gui.VScroller}!handle@{handle}}
+\index{handle@{handle}!age.gui.VScroller@{age.gui.VScroller}}
+\doxysubsubsection{\texorpdfstring{handle}{handle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classage_1_1gui_1_1_widget}{Widget}} age.\+gui.\+VScroller.\+handle\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1gui_1_1_v_scroller_a7141810dd82f6b1c3cf21258fb88e571}\label{classage_1_1gui_1_1_v_scroller_a7141810dd82f6b1c3cf21258fb88e571} 
+\index{age.gui.VScroller@{age.gui.VScroller}!mark@{mark}}
+\index{mark@{mark}!age.gui.VScroller@{age.gui.VScroller}}
+\doxysubsubsection{\texorpdfstring{mark}{mark}}
+{\footnotesize\ttfamily int age.\+gui.\+VScroller.\+mark\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1gui_1_1_v_scroller_a593795e7b302e4e9aef8a0b18e8057c5}\label{classage_1_1gui_1_1_v_scroller_a593795e7b302e4e9aef8a0b18e8057c5} 
+\index{age.gui.VScroller@{age.gui.VScroller}!page@{page}}
+\index{page@{page}!age.gui.VScroller@{age.gui.VScroller}}
+\doxysubsubsection{\texorpdfstring{page}{page}}
+{\footnotesize\ttfamily int age.\+gui.\+VScroller.\+page\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classage_1_1gui_1_1_v_scroller_a79a4e22e42c2dfd554bdff7290d572e7}\label{classage_1_1gui_1_1_v_scroller_a79a4e22e42c2dfd554bdff7290d572e7} 
+\index{age.gui.VScroller@{age.gui.VScroller}!size@{size}}
+\index{size@{size}!age.gui.VScroller@{age.gui.VScroller}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily int age.\+gui.\+VScroller.\+size\hspace{0.3cm}{\ttfamily [private]}}
 
 \Hypertarget{classage_1_1gui_1_1_v_scroller_a89e5d0dfa59184f3ea65bc4b4c8d0fc5}\label{classage_1_1gui_1_1_v_scroller_a89e5d0dfa59184f3ea65bc4b4c8d0fc5} 
 \index{age.gui.VScroller@{age.gui.VScroller}!uuid@{uuid}}
