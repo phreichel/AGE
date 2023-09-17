@@ -59,6 +59,7 @@ public class Client {
 
 	//=============================================================================================
 	private Widget sysMenuFrame;
+	private Widget windowFrame;
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -68,13 +69,13 @@ public class Client {
 
 		String text = Util.readFile("assets/sample.txt");
 
-		Widget windowFrame = new Widget();
+		windowFrame = new Widget();
 		windowFrame.position(root.position());
 		windowFrame.dimension(root.dimension());
 		windowFrame.dock(0, 1, 0, 1);
-
 		root.add(windowFrame);
-		for (int i=0; i<1; i++) {
+		
+		for (int i=0; i<5; i++) {
 			
 			Window window = new Window();
 			window.position(50 + 15*i, 50 + 35*i);
@@ -93,7 +94,7 @@ public class Client {
 
 		sysMenuFrame = new Widget(Flag.CANVAS, Flag.HIDDEN);
 		sysMenuFrame.position(0, 30);
-		sysMenuFrame.dimension(30, 55);
+		sysMenuFrame.dimension(30, 80);
 		root.add(sysMenuFrame);
 		
 		Widget fsButton = new Widget(Flag.BUTTON);
@@ -102,15 +103,20 @@ public class Client {
 		fsButton.image("fullscreen");
 		fsButton.command("fullscreen");
 		sysMenuFrame.add(fsButton);
+
+		Widget dtButton = new Widget(Flag.BUTTON);
+		dtButton.position(5, 30);
+		dtButton.dimension(20, 20);
+		dtButton.image("desk");
+		dtButton.command("desk");
+		sysMenuFrame.add(dtButton);
 		
 		Widget sdButtton = new Widget(Flag.BUTTON);
-		sdButtton.position(5, 30);
+		sdButtton.position(5, 55);
 		sdButtton.dimension(20, 20);
 		sdButtton.image("shutdown");
 		sdButtton.command("shutdown");
 		sysMenuFrame.add(sdButtton);
-
-		tasks.assign("sysmenu", this::toggleSysmenu);
 
 		Widget sysButton = new Widget(Flag.BUTTON);
 		sysButton.position(5, 5);
@@ -118,6 +124,9 @@ public class Client {
 		sysButton.image("plus");
 		sysButton.command("sysmenu");
 		root.add(sysButton);
+
+		tasks.assign("sysmenu", this::toggleSysmenu);
+		tasks.assign("desk", this::toggleDesktop);
 		
 	}
 	//=============================================================================================
@@ -128,6 +137,15 @@ public class Client {
 			sysMenuFrame.clear(Flag.HIDDEN);
 		else 
 			sysMenuFrame.flag(Flag.HIDDEN);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void toggleDesktop() {
+		if (windowFrame.match(Flag.HIDDEN))
+			windowFrame.clear(Flag.HIDDEN);
+		else 
+			windowFrame.flag(Flag.HIDDEN);
 	}
 	//=============================================================================================
 	

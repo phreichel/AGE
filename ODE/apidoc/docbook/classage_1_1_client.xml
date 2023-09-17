@@ -27,6 +27,8 @@
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1_client_1ac0b3d463af7142f5b66db4b81084982c">toggleSysmenu</link> ()</para>
 </listitem>
+            <listitem><para>void <link linkend="_classage_1_1_client_1ab39e903e80a1124f61f822fd5fa3f9cc">toggleDesktop</link> ()</para>
+</listitem>
             <listitem><para>void <link linkend="_classage_1_1_client_1a85b29db66a0a45f1e3d85232b0dbb42a">loop</link> ()</para>
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1_client_1a262cc274d1a72947a7ae85e9d37d45b1">render</link> (int count, long nanoperiod, float dT)</para>
@@ -51,6 +53,8 @@
             <listitem><para>boolean <link linkend="_classage_1_1_client_1a78da685fcde97d6dc65d3b5aa1eff5fb">running</link> = false</para>
 </listitem>
             <listitem><para>Widget <link linkend="_classage_1_1_client_1a8f55ec15c3c114c616438694718836c4">sysMenuFrame</link></para>
+</listitem>
+            <listitem><para>Widget <link linkend="_classage_1_1_client_1a5202a5a8cb08b1c1d5130a12bd9e2ba9">windowFrame</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -91,6 +95,11 @@
 <indexterm><primary>shutdown</primary><secondary>age.Client</secondary></indexterm>
 <indexterm><primary>age.Client</primary><secondary>shutdown</secondary></indexterm>
 <para><computeroutput>void age.Client.shutdown ( )</computeroutput></para></section>
+<anchor xml:id="_classage_1_1_client_1ab39e903e80a1124f61f822fd5fa3f9cc"/><section>
+    <title>toggleDesktop()</title>
+<indexterm><primary>toggleDesktop</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>toggleDesktop</secondary></indexterm>
+<para><computeroutput>void age.Client.toggleDesktop ( )<computeroutput>[private]</computeroutput></computeroutput></para></section>
 <anchor xml:id="_classage_1_1_client_1ac0b3d463af7142f5b66db4b81084982c"/><section>
     <title>toggleSysmenu()</title>
 <indexterm><primary>toggleSysmenu</primary><secondary>age.Client</secondary></indexterm>
@@ -139,6 +148,11 @@
 <indexterm><primary>widgets</primary><secondary>age.Client</secondary></indexterm>
 <indexterm><primary>age.Client</primary><secondary>widgets</secondary></indexterm>
 <para><computeroutput>Widgets age.Client.widgets = new Widgets()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1_client_1a5202a5a8cb08b1c1d5130a12bd9e2ba9"/><section>
+    <title>windowFrame</title>
+<indexterm><primary>windowFrame</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>windowFrame</secondary></indexterm>
+<para><computeroutput>Widget age.Client.windowFrame<computeroutput>[private]</computeroutput></computeroutput></para></section>
 <para>
 The documentation for this class was generated from the following file:</para>
 D:/GIT/repos/ODE/age/age/<link linkend="__client_8java">Client.java</link></section>

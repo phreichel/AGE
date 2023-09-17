@@ -36,6 +36,9 @@ age.Client
 .RI "void \fBtoggleSysmenu\fP ()"
 .br
 .ti -1c
+.RI "void \fBtoggleDesktop\fP ()"
+.br
+.ti -1c
 .RI "void \fBloop\fP ()"
 .br
 .ti -1c
@@ -69,6 +72,9 @@ age.Client
 .ti -1c
 .RI "Widget \fBsysMenuFrame\fP"
 .br
+.ti -1c
+.RI "Widget \fBwindowFrame\fP"
+.br
 .in -1c
 .SH "Member Function Documentation"
 .PP 
@@ -85,6 +91,8 @@ age.Client
 .SS "void age\&.Client\&.setupGUI ()\fC [private]\fP"
 
 .SS "void age\&.Client\&.shutdown ()"
+
+.SS "void age\&.Client\&.toggleDesktop ()\fC [private]\fP"
 
 .SS "void age\&.Client\&.toggleSysmenu ()\fC [private]\fP"
 
@@ -105,6 +113,8 @@ age.Client
 .SS "Tasks age\&.Client\&.tasks = new Tasks()\fC [private]\fP"
 
 .SS "Widgets age\&.Client\&.widgets = new Widgets()\fC [private]\fP"
+
+.SS "Widget age\&.Client\&.windowFrame\fC [private]\fP"
 
 
 .SH "Author"

@@ -79,6 +79,9 @@ class JOGLGraphics implements Graphics {
 
 			texture = TextureIO.newTexture(new File("./assets/textures/gui/arrowdown_inv.png"), true);
 			textures.put("arrowdown", texture);
+
+			texture = TextureIO.newTexture(new File("./assets/textures/gui/desk_inv.png"), true);
+			textures.put("desk", texture);
 			
 		} catch (Exception e) {
 			throw new AGEException(e);

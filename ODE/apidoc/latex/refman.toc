@@ -48,25 +48,27 @@
 \contentsline {subsubsection}{\numberline {6.3.1.8}BTN8}{15}{subsubsection.6.3.1.8}%
 \contentsline {subsubsection}{\numberline {6.3.1.9}NONE}{15}{subsubsection.6.3.1.9}%
 \contentsline {section}{\numberline {6.4}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client Class Reference}{15}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Member Function Documentation}{15}{subsection.6.4.1}%
-\contentsline {subsubsection}{\numberline {6.4.1.1}loop()}{15}{subsubsection.6.4.1.1}%
+\contentsline {subsection}{\numberline {6.4.1}Member Function Documentation}{16}{subsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.1.1}loop()}{16}{subsubsection.6.4.1.1}%
 \contentsline {subsubsection}{\numberline {6.4.1.2}main()}{16}{subsubsection.6.4.1.2}%
 \contentsline {subsubsection}{\numberline {6.4.1.3}render()}{16}{subsubsection.6.4.1.3}%
 \contentsline {subsubsection}{\numberline {6.4.1.4}run()}{16}{subsubsection.6.4.1.4}%
 \contentsline {subsubsection}{\numberline {6.4.1.5}setup()}{16}{subsubsection.6.4.1.5}%
 \contentsline {subsubsection}{\numberline {6.4.1.6}setupGUI()}{16}{subsubsection.6.4.1.6}%
 \contentsline {subsubsection}{\numberline {6.4.1.7}shutdown()}{16}{subsubsection.6.4.1.7}%
-\contentsline {subsubsection}{\numberline {6.4.1.8}toggleSysmenu()}{16}{subsubsection.6.4.1.8}%
-\contentsline {subsubsection}{\numberline {6.4.1.9}update()}{16}{subsubsection.6.4.1.9}%
-\contentsline {subsection}{\numberline {6.4.2}Member Data Documentation}{16}{subsection.6.4.2}%
-\contentsline {subsubsection}{\numberline {6.4.2.1}clock}{16}{subsubsection.6.4.2.1}%
+\contentsline {subsubsection}{\numberline {6.4.1.8}toggleDesktop()}{16}{subsubsection.6.4.1.8}%
+\contentsline {subsubsection}{\numberline {6.4.1.9}toggleSysmenu()}{16}{subsubsection.6.4.1.9}%
+\contentsline {subsubsection}{\numberline {6.4.1.10}update()}{17}{subsubsection.6.4.1.10}%
+\contentsline {subsection}{\numberline {6.4.2}Member Data Documentation}{17}{subsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {6.4.2.1}clock}{17}{subsubsection.6.4.2.1}%
 \contentsline {subsubsection}{\numberline {6.4.2.2}events}{17}{subsubsection.6.4.2.2}%
 \contentsline {subsubsection}{\numberline {6.4.2.3}port}{17}{subsubsection.6.4.2.3}%
 \contentsline {subsubsection}{\numberline {6.4.2.4}running}{17}{subsubsection.6.4.2.4}%
 \contentsline {subsubsection}{\numberline {6.4.2.5}sysMenuFrame}{17}{subsubsection.6.4.2.5}%
 \contentsline {subsubsection}{\numberline {6.4.2.6}tasks}{17}{subsubsection.6.4.2.6}%
 \contentsline {subsubsection}{\numberline {6.4.2.7}widgets}{17}{subsubsection.6.4.2.7}%
-\contentsline {section}{\numberline {6.5}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}clock.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Clock Class Reference}{17}{section.6.5}%
+\contentsline {subsubsection}{\numberline {6.4.2.8}windowFrame}{17}{subsubsection.6.4.2.8}%
+\contentsline {section}{\numberline {6.5}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}clock.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Clock Class Reference}{18}{section.6.5}%
 \contentsline {subsection}{\numberline {6.5.1}Member Function Documentation}{18}{subsection.6.5.1}%
 \contentsline {subsubsection}{\numberline {6.5.1.1}add()}{18}{subsubsection.6.5.1.1}%
 \contentsline {subsubsection}{\numberline {6.5.1.2}addFPS()}{18}{subsubsection.6.5.1.2}%
@@ -74,16 +76,16 @@
 \contentsline {subsubsection}{\numberline {6.5.1.4}update()}{18}{subsubsection.6.5.1.4}%
 \contentsline {subsection}{\numberline {6.5.2}Member Data Documentation}{18}{subsection.6.5.2}%
 \contentsline {subsubsection}{\numberline {6.5.2.1}alarms}{18}{subsubsection.6.5.2.1}%
-\contentsline {section}{\numberline {6.6}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dock Class Reference}{18}{section.6.6}%
+\contentsline {section}{\numberline {6.6}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dock Class Reference}{19}{section.6.6}%
 \contentsline {subsection}{\numberline {6.6.1}Member Function Documentation}{19}{subsection.6.6.1}%
 \contentsline {subsubsection}{\numberline {6.6.1.1}bottom()}{19}{subsubsection.6.6.1.1}%
 \contentsline {subsubsection}{\numberline {6.6.1.2}left()}{19}{subsubsection.6.6.1.2}%
 \contentsline {subsubsection}{\numberline {6.6.1.3}right()}{19}{subsubsection.6.6.1.3}%
 \contentsline {subsubsection}{\numberline {6.6.1.4}set()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{19}{subsubsection.6.6.1.4}%
 \contentsline {subsubsection}{\numberline {6.6.1.5}set()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{19}{subsubsection.6.6.1.5}%
-\contentsline {subsubsection}{\numberline {6.6.1.6}top()}{19}{subsubsection.6.6.1.6}%
-\contentsline {subsection}{\numberline {6.6.2}Member Data Documentation}{19}{subsection.6.6.2}%
-\contentsline {subsubsection}{\numberline {6.6.2.1}bottom}{19}{subsubsection.6.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.6.1.6}top()}{20}{subsubsection.6.6.1.6}%
+\contentsline {subsection}{\numberline {6.6.2}Member Data Documentation}{20}{subsection.6.6.2}%
+\contentsline {subsubsection}{\numberline {6.6.2.1}bottom}{20}{subsubsection.6.6.2.1}%
 \contentsline {subsubsection}{\numberline {6.6.2.2}left}{20}{subsubsection.6.6.2.2}%
 \contentsline {subsubsection}{\numberline {6.6.2.3}right}{20}{subsubsection.6.6.2.3}%
 \contentsline {subsubsection}{\numberline {6.6.2.4}top}{20}{subsubsection.6.6.2.4}%
@@ -95,7 +97,7 @@
 \contentsline {subsubsection}{\numberline {6.7.2.2}character()}{21}{subsubsection.6.7.2.2}%
 \contentsline {subsubsection}{\numberline {6.7.2.3}clear()}{21}{subsubsection.6.7.2.3}%
 \contentsline {subsubsection}{\numberline {6.7.2.4}command()}{21}{subsubsection.6.7.2.4}%
-\contentsline {subsubsection}{\numberline {6.7.2.5}count()}{21}{subsubsection.6.7.2.5}%
+\contentsline {subsubsection}{\numberline {6.7.2.5}count()}{22}{subsubsection.6.7.2.5}%
 \contentsline {subsubsection}{\numberline {6.7.2.6}dimension()}{22}{subsubsection.6.7.2.6}%
 \contentsline {subsubsection}{\numberline {6.7.2.7}height()}{22}{subsubsection.6.7.2.7}%
 \contentsline {subsubsection}{\numberline {6.7.2.8}key()}{22}{subsubsection.6.7.2.8}%
@@ -103,14 +105,14 @@
 \contentsline {subsubsection}{\numberline {6.7.2.10}keyPressed()}{22}{subsubsection.6.7.2.10}%
 \contentsline {subsubsection}{\numberline {6.7.2.11}keyReleased()}{22}{subsubsection.6.7.2.11}%
 \contentsline {subsubsection}{\numberline {6.7.2.12}keyTyped()}{22}{subsubsection.6.7.2.12}%
-\contentsline {subsubsection}{\numberline {6.7.2.13}pointerClicked()}{22}{subsubsection.6.7.2.13}%
+\contentsline {subsubsection}{\numberline {6.7.2.13}pointerClicked()}{23}{subsubsection.6.7.2.13}%
 \contentsline {subsubsection}{\numberline {6.7.2.14}pointerEntered()}{23}{subsubsection.6.7.2.14}%
 \contentsline {subsubsection}{\numberline {6.7.2.15}pointerEvent()}{23}{subsubsection.6.7.2.15}%
 \contentsline {subsubsection}{\numberline {6.7.2.16}pointerExited()}{23}{subsubsection.6.7.2.16}%
 \contentsline {subsubsection}{\numberline {6.7.2.17}pointerMoved()}{23}{subsubsection.6.7.2.17}%
 \contentsline {subsubsection}{\numberline {6.7.2.18}pointerPressed()}{23}{subsubsection.6.7.2.18}%
 \contentsline {subsubsection}{\numberline {6.7.2.19}pointerReleased()}{23}{subsubsection.6.7.2.19}%
-\contentsline {subsubsection}{\numberline {6.7.2.20}position()}{23}{subsubsection.6.7.2.20}%
+\contentsline {subsubsection}{\numberline {6.7.2.20}position()}{24}{subsubsection.6.7.2.20}%
 \contentsline {subsubsection}{\numberline {6.7.2.21}surfaceCloseRequest()}{24}{subsubsection.6.7.2.21}%
 \contentsline {subsubsection}{\numberline {6.7.2.22}surfaceResized()}{24}{subsubsection.6.7.2.22}%
 \contentsline {subsubsection}{\numberline {6.7.2.23}taskCommand()}{24}{subsubsection.6.7.2.23}%
@@ -120,7 +122,7 @@
 \contentsline {subsubsection}{\numberline {6.7.2.27}y()}{24}{subsubsection.6.7.2.27}%
 \contentsline {subsection}{\numberline {6.7.3}Member Data Documentation}{24}{subsection.6.7.3}%
 \contentsline {subsubsection}{\numberline {6.7.3.1}button}{24}{subsubsection.6.7.3.1}%
-\contentsline {subsubsection}{\numberline {6.7.3.2}character}{24}{subsubsection.6.7.3.2}%
+\contentsline {subsubsection}{\numberline {6.7.3.2}character}{25}{subsubsection.6.7.3.2}%
 \contentsline {subsubsection}{\numberline {6.7.3.3}command}{25}{subsubsection.6.7.3.3}%
 \contentsline {subsubsection}{\numberline {6.7.3.4}count}{25}{subsubsection.6.7.3.4}%
 \contentsline {subsubsection}{\numberline {6.7.3.5}dimension}{25}{subsubsection.6.7.3.5}%
