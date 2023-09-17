@@ -2,20 +2,62 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classage_1_1_util" xml:lang="en-US">
 <title>age.Util Class Reference</title>
 <indexterm><primary>age.Util</primary></indexterm>
+<para>
+
+<para>The AGE Utility class. </para>
+ 
+</para>
 <simplesect>
     <title>Static Public Member Functions    </title>
         <itemizedlist>
             <listitem><para>static final String <link linkend="_classage_1_1_util_1a5b8e354449679322235638e70f703a80">readFile</link> (String path)</para>
+
+<para>Static utility method to load and return text read from a file located by path. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The AGE Utility class. </para>
+</section>
 <section>
 <title>Member Function Documentation</title>
 <anchor xml:id="_classage_1_1_util_1a5b8e354449679322235638e70f703a80"/><section>
     <title>readFile()</title>
 <indexterm><primary>readFile</primary><secondary>age.Util</secondary></indexterm>
 <indexterm><primary>age.Util</primary><secondary>readFile</secondary></indexterm>
-<para><computeroutput>static final String age.Util.readFile (String path)<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<para><computeroutput>static final String age.Util.readFile (String path)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Static utility method to load and return text read from a file located by path. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>path</entry><entry>
+<para>The file path String of the file to be read </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The file contents as a text String </para>
+</formalpara>
+</para>
+</section>
 <para>
 The documentation for this class was generated from the following file:</para>
 D:/GIT/repos/ODE/age/age/<link linkend="__util_8java">Util.java</link></section>

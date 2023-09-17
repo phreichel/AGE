@@ -6,6 +6,8 @@
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>class <link linkend="_classage_1_1_a_g_e_exception">age.AGEException</link></para>
+
+<para>Root Exception for AGE. </para>
 </listitem>
         </itemizedlist>
 </simplesect>

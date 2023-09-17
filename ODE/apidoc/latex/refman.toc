@@ -10,643 +10,646 @@
 \contentsline {chapter}{\numberline {5}Namespace Documentation}{9}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Package age}{9}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Package age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}clock}{9}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Package age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}event}{9}{section.5.3}%
+\contentsline {section}{\numberline {5.3}Package age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}event}{10}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Package age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui}{10}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Package age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}log}{10}{section.5.5}%
 \contentsline {section}{\numberline {5.6}Package age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}port}{10}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Package age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}port.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}jogl}{10}{section.5.7}%
-\contentsline {section}{\numberline {5.8}Package age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}task}{10}{section.5.8}%
-\contentsline {chapter}{\numberline {6}Class Documentation}{11}{chapter.6}%
-\contentsline {section}{\numberline {6.1}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}AGEException Class Reference}{11}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Constructor \& Destructor Documentation}{11}{subsection.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.1.1}AGEException()\hspace {0.1cm}{\footnotesize \ttfamily [1/4]}}{11}{subsubsection.6.1.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.1.2}AGEException()\hspace {0.1cm}{\footnotesize \ttfamily [2/4]}}{11}{subsubsection.6.1.1.2}%
-\contentsline {subsubsection}{\numberline {6.1.1.3}AGEException()\hspace {0.1cm}{\footnotesize \ttfamily [3/4]}}{12}{subsubsection.6.1.1.3}%
-\contentsline {subsubsection}{\numberline {6.1.1.4}AGEException()\hspace {0.1cm}{\footnotesize \ttfamily [4/4]}}{12}{subsubsection.6.1.1.4}%
-\contentsline {subsection}{\numberline {6.1.2}Member Data Documentation}{12}{subsection.6.1.2}%
-\contentsline {subsubsection}{\numberline {6.1.2.1}serialVersionUID}{12}{subsubsection.6.1.2.1}%
-\contentsline {section}{\numberline {6.2}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}clock.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alarm Class Reference}{12}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Constructor \& Destructor Documentation}{13}{subsection.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.1.1}Alarm()}{13}{subsubsection.6.2.1.1}%
-\contentsline {subsection}{\numberline {6.2.2}Member Function Documentation}{13}{subsection.6.2.2}%
-\contentsline {subsubsection}{\numberline {6.2.2.1}init()}{13}{subsubsection.6.2.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.2.2}trigger()}{13}{subsubsection.6.2.2.2}%
-\contentsline {subsubsection}{\numberline {6.2.2.3}update()}{13}{subsubsection.6.2.2.3}%
-\contentsline {subsection}{\numberline {6.2.3}Member Data Documentation}{13}{subsection.6.2.3}%
-\contentsline {subsubsection}{\numberline {6.2.3.1}mark}{13}{subsubsection.6.2.3.1}%
-\contentsline {subsubsection}{\numberline {6.2.3.2}nanoperiod}{13}{subsubsection.6.2.3.2}%
-\contentsline {subsubsection}{\numberline {6.2.3.3}task}{13}{subsubsection.6.2.3.3}%
-\contentsline {section}{\numberline {6.3}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}event.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Button Enum Reference}{14}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Member Data Documentation}{14}{subsection.6.3.1}%
-\contentsline {subsubsection}{\numberline {6.3.1.1}BTN1}{14}{subsubsection.6.3.1.1}%
-\contentsline {subsubsection}{\numberline {6.3.1.2}BTN2}{14}{subsubsection.6.3.1.2}%
-\contentsline {subsubsection}{\numberline {6.3.1.3}BTN3}{14}{subsubsection.6.3.1.3}%
-\contentsline {subsubsection}{\numberline {6.3.1.4}BTN4}{14}{subsubsection.6.3.1.4}%
-\contentsline {subsubsection}{\numberline {6.3.1.5}BTN5}{14}{subsubsection.6.3.1.5}%
-\contentsline {subsubsection}{\numberline {6.3.1.6}BTN6}{14}{subsubsection.6.3.1.6}%
-\contentsline {subsubsection}{\numberline {6.3.1.7}BTN7}{14}{subsubsection.6.3.1.7}%
-\contentsline {subsubsection}{\numberline {6.3.1.8}BTN8}{15}{subsubsection.6.3.1.8}%
-\contentsline {subsubsection}{\numberline {6.3.1.9}NONE}{15}{subsubsection.6.3.1.9}%
-\contentsline {section}{\numberline {6.4}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client Class Reference}{15}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Member Function Documentation}{16}{subsection.6.4.1}%
-\contentsline {subsubsection}{\numberline {6.4.1.1}loop()}{16}{subsubsection.6.4.1.1}%
-\contentsline {subsubsection}{\numberline {6.4.1.2}main()}{16}{subsubsection.6.4.1.2}%
-\contentsline {subsubsection}{\numberline {6.4.1.3}render()}{16}{subsubsection.6.4.1.3}%
-\contentsline {subsubsection}{\numberline {6.4.1.4}run()}{16}{subsubsection.6.4.1.4}%
-\contentsline {subsubsection}{\numberline {6.4.1.5}setup()}{16}{subsubsection.6.4.1.5}%
-\contentsline {subsubsection}{\numberline {6.4.1.6}setupGUI()}{16}{subsubsection.6.4.1.6}%
-\contentsline {subsubsection}{\numberline {6.4.1.7}shutdown()}{16}{subsubsection.6.4.1.7}%
-\contentsline {subsubsection}{\numberline {6.4.1.8}toggleDesktop()}{16}{subsubsection.6.4.1.8}%
-\contentsline {subsubsection}{\numberline {6.4.1.9}toggleSysmenu()}{16}{subsubsection.6.4.1.9}%
-\contentsline {subsubsection}{\numberline {6.4.1.10}update()}{17}{subsubsection.6.4.1.10}%
-\contentsline {subsection}{\numberline {6.4.2}Member Data Documentation}{17}{subsection.6.4.2}%
-\contentsline {subsubsection}{\numberline {6.4.2.1}clock}{17}{subsubsection.6.4.2.1}%
-\contentsline {subsubsection}{\numberline {6.4.2.2}events}{17}{subsubsection.6.4.2.2}%
-\contentsline {subsubsection}{\numberline {6.4.2.3}port}{17}{subsubsection.6.4.2.3}%
-\contentsline {subsubsection}{\numberline {6.4.2.4}running}{17}{subsubsection.6.4.2.4}%
-\contentsline {subsubsection}{\numberline {6.4.2.5}sysMenuFrame}{17}{subsubsection.6.4.2.5}%
-\contentsline {subsubsection}{\numberline {6.4.2.6}tasks}{17}{subsubsection.6.4.2.6}%
-\contentsline {subsubsection}{\numberline {6.4.2.7}widgets}{17}{subsubsection.6.4.2.7}%
-\contentsline {subsubsection}{\numberline {6.4.2.8}windowFrame}{17}{subsubsection.6.4.2.8}%
-\contentsline {section}{\numberline {6.5}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}clock.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Clock Class Reference}{18}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Member Function Documentation}{18}{subsection.6.5.1}%
-\contentsline {subsubsection}{\numberline {6.5.1.1}add()}{18}{subsubsection.6.5.1.1}%
-\contentsline {subsubsection}{\numberline {6.5.1.2}addFPS()}{18}{subsubsection.6.5.1.2}%
-\contentsline {subsubsection}{\numberline {6.5.1.3}init()}{18}{subsubsection.6.5.1.3}%
-\contentsline {subsubsection}{\numberline {6.5.1.4}update()}{18}{subsubsection.6.5.1.4}%
-\contentsline {subsection}{\numberline {6.5.2}Member Data Documentation}{18}{subsection.6.5.2}%
-\contentsline {subsubsection}{\numberline {6.5.2.1}alarms}{18}{subsubsection.6.5.2.1}%
-\contentsline {section}{\numberline {6.6}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dock Class Reference}{19}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Member Function Documentation}{19}{subsection.6.6.1}%
-\contentsline {subsubsection}{\numberline {6.6.1.1}bottom()}{19}{subsubsection.6.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.6.1.2}left()}{19}{subsubsection.6.6.1.2}%
-\contentsline {subsubsection}{\numberline {6.6.1.3}right()}{19}{subsubsection.6.6.1.3}%
-\contentsline {subsubsection}{\numberline {6.6.1.4}set()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{19}{subsubsection.6.6.1.4}%
-\contentsline {subsubsection}{\numberline {6.6.1.5}set()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{19}{subsubsection.6.6.1.5}%
-\contentsline {subsubsection}{\numberline {6.6.1.6}top()}{20}{subsubsection.6.6.1.6}%
-\contentsline {subsection}{\numberline {6.6.2}Member Data Documentation}{20}{subsection.6.6.2}%
-\contentsline {subsubsection}{\numberline {6.6.2.1}bottom}{20}{subsubsection.6.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.6.2.2}left}{20}{subsubsection.6.6.2.2}%
-\contentsline {subsubsection}{\numberline {6.6.2.3}right}{20}{subsubsection.6.6.2.3}%
-\contentsline {subsubsection}{\numberline {6.6.2.4}top}{20}{subsubsection.6.6.2.4}%
-\contentsline {section}{\numberline {6.7}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}event.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Event Class Reference}{20}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}Constructor \& Destructor Documentation}{21}{subsection.6.7.1}%
-\contentsline {subsubsection}{\numberline {6.7.1.1}Event()}{21}{subsubsection.6.7.1.1}%
-\contentsline {subsection}{\numberline {6.7.2}Member Function Documentation}{21}{subsection.6.7.2}%
-\contentsline {subsubsection}{\numberline {6.7.2.1}button()}{21}{subsubsection.6.7.2.1}%
-\contentsline {subsubsection}{\numberline {6.7.2.2}character()}{21}{subsubsection.6.7.2.2}%
-\contentsline {subsubsection}{\numberline {6.7.2.3}clear()}{21}{subsubsection.6.7.2.3}%
-\contentsline {subsubsection}{\numberline {6.7.2.4}command()}{21}{subsubsection.6.7.2.4}%
-\contentsline {subsubsection}{\numberline {6.7.2.5}count()}{22}{subsubsection.6.7.2.5}%
-\contentsline {subsubsection}{\numberline {6.7.2.6}dimension()}{22}{subsubsection.6.7.2.6}%
-\contentsline {subsubsection}{\numberline {6.7.2.7}height()}{22}{subsubsection.6.7.2.7}%
-\contentsline {subsubsection}{\numberline {6.7.2.8}key()}{22}{subsubsection.6.7.2.8}%
-\contentsline {subsubsection}{\numberline {6.7.2.9}keyEvent()}{22}{subsubsection.6.7.2.9}%
-\contentsline {subsubsection}{\numberline {6.7.2.10}keyPressed()}{22}{subsubsection.6.7.2.10}%
-\contentsline {subsubsection}{\numberline {6.7.2.11}keyReleased()}{22}{subsubsection.6.7.2.11}%
-\contentsline {subsubsection}{\numberline {6.7.2.12}keyTyped()}{22}{subsubsection.6.7.2.12}%
-\contentsline {subsubsection}{\numberline {6.7.2.13}pointerClicked()}{23}{subsubsection.6.7.2.13}%
-\contentsline {subsubsection}{\numberline {6.7.2.14}pointerEntered()}{23}{subsubsection.6.7.2.14}%
-\contentsline {subsubsection}{\numberline {6.7.2.15}pointerEvent()}{23}{subsubsection.6.7.2.15}%
-\contentsline {subsubsection}{\numberline {6.7.2.16}pointerExited()}{23}{subsubsection.6.7.2.16}%
-\contentsline {subsubsection}{\numberline {6.7.2.17}pointerMoved()}{23}{subsubsection.6.7.2.17}%
-\contentsline {subsubsection}{\numberline {6.7.2.18}pointerPressed()}{23}{subsubsection.6.7.2.18}%
-\contentsline {subsubsection}{\numberline {6.7.2.19}pointerReleased()}{23}{subsubsection.6.7.2.19}%
-\contentsline {subsubsection}{\numberline {6.7.2.20}position()}{24}{subsubsection.6.7.2.20}%
-\contentsline {subsubsection}{\numberline {6.7.2.21}surfaceCloseRequest()}{24}{subsubsection.6.7.2.21}%
-\contentsline {subsubsection}{\numberline {6.7.2.22}surfaceResized()}{24}{subsubsection.6.7.2.22}%
-\contentsline {subsubsection}{\numberline {6.7.2.23}taskCommand()}{24}{subsubsection.6.7.2.23}%
-\contentsline {subsubsection}{\numberline {6.7.2.24}type()}{24}{subsubsection.6.7.2.24}%
-\contentsline {subsubsection}{\numberline {6.7.2.25}width()}{24}{subsubsection.6.7.2.25}%
-\contentsline {subsubsection}{\numberline {6.7.2.26}x()}{24}{subsubsection.6.7.2.26}%
-\contentsline {subsubsection}{\numberline {6.7.2.27}y()}{24}{subsubsection.6.7.2.27}%
-\contentsline {subsection}{\numberline {6.7.3}Member Data Documentation}{24}{subsection.6.7.3}%
-\contentsline {subsubsection}{\numberline {6.7.3.1}button}{24}{subsubsection.6.7.3.1}%
-\contentsline {subsubsection}{\numberline {6.7.3.2}character}{25}{subsubsection.6.7.3.2}%
-\contentsline {subsubsection}{\numberline {6.7.3.3}command}{25}{subsubsection.6.7.3.3}%
-\contentsline {subsubsection}{\numberline {6.7.3.4}count}{25}{subsubsection.6.7.3.4}%
-\contentsline {subsubsection}{\numberline {6.7.3.5}dimension}{25}{subsubsection.6.7.3.5}%
-\contentsline {subsubsection}{\numberline {6.7.3.6}key}{25}{subsubsection.6.7.3.6}%
-\contentsline {subsubsection}{\numberline {6.7.3.7}position}{25}{subsubsection.6.7.3.7}%
-\contentsline {subsubsection}{\numberline {6.7.3.8}type}{25}{subsubsection.6.7.3.8}%
-\contentsline {section}{\numberline {6.8}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}event.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Events Class Reference}{25}{section.6.8}%
-\contentsline {subsection}{\numberline {6.8.1}Member Function Documentation}{26}{subsection.6.8.1}%
-\contentsline {subsubsection}{\numberline {6.8.1.1}alloc()}{26}{subsubsection.6.8.1.1}%
-\contentsline {subsubsection}{\numberline {6.8.1.2}assign()}{26}{subsubsection.6.8.1.2}%
-\contentsline {subsubsection}{\numberline {6.8.1.3}free()}{26}{subsubsection.6.8.1.3}%
-\contentsline {subsubsection}{\numberline {6.8.1.4}handle()}{26}{subsubsection.6.8.1.4}%
-\contentsline {subsubsection}{\numberline {6.8.1.5}post()}{26}{subsubsection.6.8.1.5}%
-\contentsline {subsubsection}{\numberline {6.8.1.6}postKeyPressed()}{26}{subsubsection.6.8.1.6}%
-\contentsline {subsubsection}{\numberline {6.8.1.7}postKeyReleased()}{27}{subsubsection.6.8.1.7}%
-\contentsline {subsubsection}{\numberline {6.8.1.8}postKeyTyped()}{27}{subsubsection.6.8.1.8}%
-\contentsline {subsubsection}{\numberline {6.8.1.9}postPointerClicked()}{27}{subsubsection.6.8.1.9}%
-\contentsline {subsubsection}{\numberline {6.8.1.10}postPointerEntered()}{27}{subsubsection.6.8.1.10}%
-\contentsline {subsubsection}{\numberline {6.8.1.11}postPointerExited()}{27}{subsubsection.6.8.1.11}%
-\contentsline {subsubsection}{\numberline {6.8.1.12}postPointerMoved()}{27}{subsubsection.6.8.1.12}%
-\contentsline {subsubsection}{\numberline {6.8.1.13}postPointerPressed()}{27}{subsubsection.6.8.1.13}%
-\contentsline {subsubsection}{\numberline {6.8.1.14}postPointerReleased()}{28}{subsubsection.6.8.1.14}%
-\contentsline {subsubsection}{\numberline {6.8.1.15}postSurfaceCloseRequest()}{28}{subsubsection.6.8.1.15}%
-\contentsline {subsubsection}{\numberline {6.8.1.16}postSurfaceResized()}{28}{subsubsection.6.8.1.16}%
-\contentsline {subsubsection}{\numberline {6.8.1.17}postTaskCommand()}{28}{subsubsection.6.8.1.17}%
-\contentsline {subsubsection}{\numberline {6.8.1.18}update()}{28}{subsubsection.6.8.1.18}%
-\contentsline {subsection}{\numberline {6.8.2}Member Data Documentation}{28}{subsection.6.8.2}%
-\contentsline {subsubsection}{\numberline {6.8.2.1}cache}{28}{subsubsection.6.8.2.1}%
-\contentsline {subsubsection}{\numberline {6.8.2.2}handlers}{28}{subsubsection.6.8.2.2}%
-\contentsline {subsubsection}{\numberline {6.8.2.3}inbox}{28}{subsubsection.6.8.2.3}%
-\contentsline {subsubsection}{\numberline {6.8.2.4}outbox}{29}{subsubsection.6.8.2.4}%
-\contentsline {section}{\numberline {6.9}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Flag Enum Reference}{29}{section.6.9}%
-\contentsline {subsection}{\numberline {6.9.1}Member Data Documentation}{29}{subsection.6.9.1}%
-\contentsline {subsubsection}{\numberline {6.9.1.1}BOX}{29}{subsubsection.6.9.1.1}%
-\contentsline {subsubsection}{\numberline {6.9.1.2}BUTTON}{29}{subsubsection.6.9.1.2}%
-\contentsline {subsubsection}{\numberline {6.9.1.3}CANVAS}{29}{subsubsection.6.9.1.3}%
-\contentsline {subsubsection}{\numberline {6.9.1.4}FRAME}{29}{subsubsection.6.9.1.4}%
-\contentsline {subsubsection}{\numberline {6.9.1.5}HANDLE}{29}{subsubsection.6.9.1.5}%
-\contentsline {subsubsection}{\numberline {6.9.1.6}HIDDEN}{30}{subsubsection.6.9.1.6}%
-\contentsline {subsubsection}{\numberline {6.9.1.7}HOVERED}{30}{subsubsection.6.9.1.7}%
-\contentsline {subsubsection}{\numberline {6.9.1.8}MULTILINE}{30}{subsubsection.6.9.1.8}%
-\contentsline {subsubsection}{\numberline {6.9.1.9}TITLE}{30}{subsubsection.6.9.1.9}%
-\contentsline {section}{\numberline {6.10}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}port.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Graphics Interface Reference}{30}{section.6.10}%
-\contentsline {subsection}{\numberline {6.10.1}Member Function Documentation}{31}{subsection.6.10.1}%
-\contentsline {subsubsection}{\numberline {6.10.1.1}calcMultitext()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{31}{subsubsection.6.10.1.1}%
-\contentsline {subsubsection}{\numberline {6.10.1.2}calcMultitext()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{31}{subsubsection.6.10.1.2}%
-\contentsline {subsubsection}{\numberline {6.10.1.3}color()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{31}{subsubsection.6.10.1.3}%
-\contentsline {subsubsection}{\numberline {6.10.1.4}color()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{31}{subsubsection.6.10.1.4}%
-\contentsline {subsubsection}{\numberline {6.10.1.5}color()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{31}{subsubsection.6.10.1.5}%
-\contentsline {subsubsection}{\numberline {6.10.1.6}mode2D()}{32}{subsubsection.6.10.1.6}%
-\contentsline {subsubsection}{\numberline {6.10.1.7}popTransformation()}{32}{subsubsection.6.10.1.7}%
-\contentsline {subsubsection}{\numberline {6.10.1.8}pushTransformation()}{32}{subsubsection.6.10.1.8}%
-\contentsline {subsubsection}{\numberline {6.10.1.9}rectangle()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{32}{subsubsection.6.10.1.9}%
-\contentsline {subsubsection}{\numberline {6.10.1.10}rectangle()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{32}{subsubsection.6.10.1.10}%
-\contentsline {subsubsection}{\numberline {6.10.1.11}rectangle()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{32}{subsubsection.6.10.1.11}%
-\contentsline {subsubsection}{\numberline {6.10.1.12}text()}{33}{subsubsection.6.10.1.12}%
-\contentsline {subsubsection}{\numberline {6.10.1.13}texture()}{33}{subsubsection.6.10.1.13}%
-\contentsline {subsubsection}{\numberline {6.10.1.14}translate()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{33}{subsubsection.6.10.1.14}%
-\contentsline {subsubsection}{\numberline {6.10.1.15}translate()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{33}{subsubsection.6.10.1.15}%
-\contentsline {section}{\numberline {6.11}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}event.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler Interface Reference}{33}{section.6.11}%
-\contentsline {subsection}{\numberline {6.11.1}Member Function Documentation}{34}{subsection.6.11.1}%
-\contentsline {subsubsection}{\numberline {6.11.1.1}handle()}{34}{subsubsection.6.11.1.1}%
-\contentsline {section}{\numberline {6.12}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handling Class Reference}{34}{section.6.12}%
-\contentsline {subsection}{\numberline {6.12.1}Constructor \& Destructor Documentation}{34}{subsection.6.12.1}%
-\contentsline {subsubsection}{\numberline {6.12.1.1}Handling()}{34}{subsubsection.6.12.1.1}%
-\contentsline {subsection}{\numberline {6.12.2}Member Function Documentation}{35}{subsection.6.12.2}%
-\contentsline {subsubsection}{\numberline {6.12.2.1}assign()}{35}{subsubsection.6.12.2.1}%
-\contentsline {subsubsection}{\numberline {6.12.2.2}buttonClickAction()}{35}{subsubsection.6.12.2.2}%
-\contentsline {subsubsection}{\numberline {6.12.2.3}handleKeyboard()}{35}{subsubsection.6.12.2.3}%
-\contentsline {subsubsection}{\numberline {6.12.2.4}handlePointer()}{35}{subsubsection.6.12.2.4}%
-\contentsline {subsubsection}{\numberline {6.12.2.5}handleSurface()}{35}{subsubsection.6.12.2.5}%
-\contentsline {subsubsection}{\numberline {6.12.2.6}hovered()}{35}{subsubsection.6.12.2.6}%
-\contentsline {subsubsection}{\numberline {6.12.2.7}pressedFrameToFront()}{35}{subsubsection.6.12.2.7}%
-\contentsline {subsubsection}{\numberline {6.12.2.8}startFrameDragAction()}{35}{subsubsection.6.12.2.8}%
-\contentsline {subsubsection}{\numberline {6.12.2.9}startFrameSizeAction()}{36}{subsubsection.6.12.2.9}%
-\contentsline {subsubsection}{\numberline {6.12.2.10}startScrollHandleAction()}{36}{subsubsection.6.12.2.10}%
-\contentsline {subsubsection}{\numberline {6.12.2.11}stopDragAction()}{36}{subsubsection.6.12.2.11}%
-\contentsline {subsubsection}{\numberline {6.12.2.12}updateActionState()}{36}{subsubsection.6.12.2.12}%
-\contentsline {subsubsection}{\numberline {6.12.2.13}updateDragAction()}{36}{subsubsection.6.12.2.13}%
-\contentsline {subsection}{\numberline {6.12.3}Member Data Documentation}{36}{subsection.6.12.3}%
-\contentsline {subsubsection}{\numberline {6.12.3.1}action}{36}{subsubsection.6.12.3.1}%
-\contentsline {subsubsection}{\numberline {6.12.3.2}dragged}{36}{subsubsection.6.12.3.2}%
-\contentsline {subsubsection}{\numberline {6.12.3.3}events}{36}{subsubsection.6.12.3.3}%
-\contentsline {subsubsection}{\numberline {6.12.3.4}hovered}{36}{subsubsection.6.12.3.4}%
-\contentsline {subsubsection}{\numberline {6.12.3.5}ref}{37}{subsubsection.6.12.3.5}%
-\contentsline {subsubsection}{\numberline {6.12.3.6}tmp}{37}{subsubsection.6.12.3.6}%
-\contentsline {subsubsection}{\numberline {6.12.3.7}widgets}{37}{subsubsection.6.12.3.7}%
-\contentsline {section}{\numberline {6.13}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}port.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}jogl.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JOGLEvent\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Listener Class Reference}{37}{section.6.13}%
-\contentsline {subsection}{\numberline {6.13.1}Member Function Documentation}{38}{subsection.6.13.1}%
-\contentsline {subsubsection}{\numberline {6.13.1.1}assign()}{38}{subsubsection.6.13.1.1}%
-\contentsline {subsubsection}{\numberline {6.13.1.2}handleSurfaceCloseRequest()}{38}{subsubsection.6.13.1.2}%
-\contentsline {subsubsection}{\numberline {6.13.1.3}keyPressed()}{38}{subsubsection.6.13.1.3}%
-\contentsline {subsubsection}{\numberline {6.13.1.4}keyReleased()}{38}{subsubsection.6.13.1.4}%
-\contentsline {subsubsection}{\numberline {6.13.1.5}mouseClicked()}{38}{subsubsection.6.13.1.5}%
-\contentsline {subsubsection}{\numberline {6.13.1.6}mouseDragged()}{38}{subsubsection.6.13.1.6}%
-\contentsline {subsubsection}{\numberline {6.13.1.7}mouseEntered()}{39}{subsubsection.6.13.1.7}%
-\contentsline {subsubsection}{\numberline {6.13.1.8}mouseExited()}{39}{subsubsection.6.13.1.8}%
-\contentsline {subsubsection}{\numberline {6.13.1.9}mouseMoved()}{39}{subsubsection.6.13.1.9}%
-\contentsline {subsubsection}{\numberline {6.13.1.10}mousePressed()}{39}{subsubsection.6.13.1.10}%
-\contentsline {subsubsection}{\numberline {6.13.1.11}mouseReleased()}{39}{subsubsection.6.13.1.11}%
-\contentsline {subsubsection}{\numberline {6.13.1.12}mouseWheelMoved()}{39}{subsubsection.6.13.1.12}%
-\contentsline {subsubsection}{\numberline {6.13.1.13}translateButton()}{39}{subsubsection.6.13.1.13}%
-\contentsline {subsubsection}{\numberline {6.13.1.14}translateKey()}{39}{subsubsection.6.13.1.14}%
-\contentsline {subsubsection}{\numberline {6.13.1.15}windowDestroyed()}{39}{subsubsection.6.13.1.15}%
-\contentsline {subsubsection}{\numberline {6.13.1.16}windowDestroyNotify()}{40}{subsubsection.6.13.1.16}%
-\contentsline {subsubsection}{\numberline {6.13.1.17}windowGainedFocus()}{40}{subsubsection.6.13.1.17}%
-\contentsline {subsubsection}{\numberline {6.13.1.18}windowLostFocus()}{40}{subsubsection.6.13.1.18}%
-\contentsline {subsubsection}{\numberline {6.13.1.19}windowMoved()}{40}{subsubsection.6.13.1.19}%
-\contentsline {subsubsection}{\numberline {6.13.1.20}windowRepaint()}{40}{subsubsection.6.13.1.20}%
-\contentsline {subsubsection}{\numberline {6.13.1.21}windowResized()}{40}{subsubsection.6.13.1.21}%
-\contentsline {subsection}{\numberline {6.13.2}Member Data Documentation}{40}{subsection.6.13.2}%
-\contentsline {subsubsection}{\numberline {6.13.2.1}events}{40}{subsubsection.6.13.2.1}%
-\contentsline {section}{\numberline {6.14}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}port.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}jogl.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JOGLGraphics Class Reference}{41}{section.6.14}%
-\contentsline {subsection}{\numberline {6.14.1}Member Function Documentation}{41}{subsection.6.14.1}%
-\contentsline {subsubsection}{\numberline {6.14.1.1}assign()}{41}{subsubsection.6.14.1.1}%
-\contentsline {subsubsection}{\numberline {6.14.1.2}calcMultitext()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{42}{subsubsection.6.14.1.2}%
-\contentsline {subsubsection}{\numberline {6.14.1.3}calcMultitext()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{42}{subsubsection.6.14.1.3}%
-\contentsline {subsubsection}{\numberline {6.14.1.4}clear()}{42}{subsubsection.6.14.1.4}%
-\contentsline {subsubsection}{\numberline {6.14.1.5}color()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{42}{subsubsection.6.14.1.5}%
-\contentsline {subsubsection}{\numberline {6.14.1.6}color()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{42}{subsubsection.6.14.1.6}%
-\contentsline {subsubsection}{\numberline {6.14.1.7}color()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{42}{subsubsection.6.14.1.7}%
-\contentsline {subsubsection}{\numberline {6.14.1.8}init()}{43}{subsubsection.6.14.1.8}%
-\contentsline {subsubsection}{\numberline {6.14.1.9}mode2D()}{43}{subsubsection.6.14.1.9}%
-\contentsline {subsubsection}{\numberline {6.14.1.10}mode3D()}{43}{subsubsection.6.14.1.10}%
-\contentsline {subsubsection}{\numberline {6.14.1.11}popTransformation()}{43}{subsubsection.6.14.1.11}%
-\contentsline {subsubsection}{\numberline {6.14.1.12}pushTransformation()}{43}{subsubsection.6.14.1.12}%
-\contentsline {subsubsection}{\numberline {6.14.1.13}rectangle()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{43}{subsubsection.6.14.1.13}%
-\contentsline {subsubsection}{\numberline {6.14.1.14}rectangle()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{43}{subsubsection.6.14.1.14}%
-\contentsline {subsubsection}{\numberline {6.14.1.15}rectangle()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{44}{subsubsection.6.14.1.15}%
-\contentsline {subsubsection}{\numberline {6.14.1.16}text()}{44}{subsubsection.6.14.1.16}%
-\contentsline {subsubsection}{\numberline {6.14.1.17}texture()}{44}{subsubsection.6.14.1.17}%
-\contentsline {subsubsection}{\numberline {6.14.1.18}translate()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{44}{subsubsection.6.14.1.18}%
-\contentsline {subsubsection}{\numberline {6.14.1.19}translate()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{44}{subsubsection.6.14.1.19}%
-\contentsline {subsection}{\numberline {6.14.2}Member Data Documentation}{44}{subsection.6.14.2}%
-\contentsline {subsubsection}{\numberline {6.14.2.1}drawable}{44}{subsubsection.6.14.2.1}%
-\contentsline {subsubsection}{\numberline {6.14.2.2}fonts}{45}{subsubsection.6.14.2.2}%
-\contentsline {subsubsection}{\numberline {6.14.2.3}gl}{45}{subsubsection.6.14.2.3}%
-\contentsline {subsubsection}{\numberline {6.14.2.4}glu}{45}{subsubsection.6.14.2.4}%
-\contentsline {subsubsection}{\numberline {6.14.2.5}textures}{45}{subsubsection.6.14.2.5}%
-\contentsline {section}{\numberline {6.15}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}port.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}jogl.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JOGLPort Class Reference}{45}{section.6.15}%
-\contentsline {subsection}{\numberline {6.15.1}Member Function Documentation}{46}{subsection.6.15.1}%
-\contentsline {subsubsection}{\numberline {6.15.1.1}add()}{46}{subsubsection.6.15.1.1}%
-\contentsline {subsubsection}{\numberline {6.15.1.2}assign()}{46}{subsubsection.6.15.1.2}%
-\contentsline {subsubsection}{\numberline {6.15.1.3}create()}{46}{subsubsection.6.15.1.3}%
-\contentsline {subsubsection}{\numberline {6.15.1.4}fullscreen()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{46}{subsubsection.6.15.1.4}%
-\contentsline {subsubsection}{\numberline {6.15.1.5}fullscreen()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{46}{subsubsection.6.15.1.5}%
-\contentsline {subsubsection}{\numberline {6.15.1.6}get()}{46}{subsubsection.6.15.1.6}%
-\contentsline {subsubsection}{\numberline {6.15.1.7}height()}{47}{subsubsection.6.15.1.7}%
-\contentsline {subsubsection}{\numberline {6.15.1.8}maximized()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{47}{subsubsection.6.15.1.8}%
-\contentsline {subsubsection}{\numberline {6.15.1.9}maximized()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{47}{subsubsection.6.15.1.9}%
-\contentsline {subsubsection}{\numberline {6.15.1.10}render()}{47}{subsubsection.6.15.1.10}%
-\contentsline {subsubsection}{\numberline {6.15.1.11}size()}{47}{subsubsection.6.15.1.11}%
-\contentsline {subsubsection}{\numberline {6.15.1.12}title()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{47}{subsubsection.6.15.1.12}%
-\contentsline {subsubsection}{\numberline {6.15.1.13}title()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{47}{subsubsection.6.15.1.13}%
-\contentsline {subsubsection}{\numberline {6.15.1.14}visible()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{48}{subsubsection.6.15.1.14}%
-\contentsline {subsubsection}{\numberline {6.15.1.15}visible()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{48}{subsubsection.6.15.1.15}%
-\contentsline {subsubsection}{\numberline {6.15.1.16}width()}{48}{subsubsection.6.15.1.16}%
-\contentsline {subsection}{\numberline {6.15.2}Member Data Documentation}{48}{subsection.6.15.2}%
-\contentsline {subsubsection}{\numberline {6.15.2.1}eventListener}{48}{subsubsection.6.15.2.1}%
-\contentsline {subsubsection}{\numberline {6.15.2.2}renderables}{48}{subsubsection.6.15.2.2}%
-\contentsline {subsubsection}{\numberline {6.15.2.3}renderables\_ro}{48}{subsubsection.6.15.2.3}%
-\contentsline {subsubsection}{\numberline {6.15.2.4}renderListener}{48}{subsubsection.6.15.2.4}%
-\contentsline {subsubsection}{\numberline {6.15.2.5}window}{48}{subsubsection.6.15.2.5}%
-\contentsline {section}{\numberline {6.16}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}port.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}jogl.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JOGLRender\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Listener Class Reference}{49}{section.6.16}%
-\contentsline {subsection}{\numberline {6.16.1}Constructor \& Destructor Documentation}{49}{subsection.6.16.1}%
-\contentsline {subsubsection}{\numberline {6.16.1.1}JOGLRenderListener()}{49}{subsubsection.6.16.1.1}%
-\contentsline {subsection}{\numberline {6.16.2}Member Function Documentation}{49}{subsection.6.16.2}%
-\contentsline {subsubsection}{\numberline {6.16.2.1}display()}{49}{subsubsection.6.16.2.1}%
-\contentsline {subsubsection}{\numberline {6.16.2.2}dispose()}{49}{subsubsection.6.16.2.2}%
-\contentsline {subsubsection}{\numberline {6.16.2.3}init()}{49}{subsubsection.6.16.2.3}%
-\contentsline {subsubsection}{\numberline {6.16.2.4}reshape()}{50}{subsubsection.6.16.2.4}%
-\contentsline {subsection}{\numberline {6.16.3}Member Data Documentation}{50}{subsection.6.16.3}%
-\contentsline {subsubsection}{\numberline {6.16.3.1}graphics}{50}{subsubsection.6.16.3.1}%
-\contentsline {subsubsection}{\numberline {6.16.3.2}port}{50}{subsubsection.6.16.3.2}%
-\contentsline {section}{\numberline {6.17}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}event.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Key Enum Reference}{50}{section.6.17}%
-\contentsline {subsection}{\numberline {6.17.1}Member Data Documentation}{52}{subsection.6.17.1}%
-\contentsline {subsubsection}{\numberline {6.17.1.1}\_0}{52}{subsubsection.6.17.1.1}%
-\contentsline {subsubsection}{\numberline {6.17.1.2}\_1}{52}{subsubsection.6.17.1.2}%
-\contentsline {subsubsection}{\numberline {6.17.1.3}\_2}{52}{subsubsection.6.17.1.3}%
-\contentsline {subsubsection}{\numberline {6.17.1.4}\_3}{52}{subsubsection.6.17.1.4}%
-\contentsline {subsubsection}{\numberline {6.17.1.5}\_4}{52}{subsubsection.6.17.1.5}%
-\contentsline {subsubsection}{\numberline {6.17.1.6}\_5}{52}{subsubsection.6.17.1.6}%
-\contentsline {subsubsection}{\numberline {6.17.1.7}\_6}{52}{subsubsection.6.17.1.7}%
-\contentsline {subsubsection}{\numberline {6.17.1.8}\_7}{53}{subsubsection.6.17.1.8}%
-\contentsline {subsubsection}{\numberline {6.17.1.9}\_8}{53}{subsubsection.6.17.1.9}%
-\contentsline {subsubsection}{\numberline {6.17.1.10}\_9}{53}{subsubsection.6.17.1.10}%
-\contentsline {subsubsection}{\numberline {6.17.1.11}A}{53}{subsubsection.6.17.1.11}%
-\contentsline {subsubsection}{\numberline {6.17.1.12}ADD}{53}{subsubsection.6.17.1.12}%
-\contentsline {subsubsection}{\numberline {6.17.1.13}ALT}{53}{subsubsection.6.17.1.13}%
-\contentsline {subsubsection}{\numberline {6.17.1.14}B}{53}{subsubsection.6.17.1.14}%
-\contentsline {subsubsection}{\numberline {6.17.1.15}BACK\_SPACE}{53}{subsubsection.6.17.1.15}%
-\contentsline {subsubsection}{\numberline {6.17.1.16}C}{53}{subsubsection.6.17.1.16}%
-\contentsline {subsubsection}{\numberline {6.17.1.17}CAPS\_LOCK}{53}{subsubsection.6.17.1.17}%
-\contentsline {subsubsection}{\numberline {6.17.1.18}CONTROL}{54}{subsubsection.6.17.1.18}%
-\contentsline {subsubsection}{\numberline {6.17.1.19}D}{54}{subsubsection.6.17.1.19}%
-\contentsline {subsubsection}{\numberline {6.17.1.20}DECIMAL}{54}{subsubsection.6.17.1.20}%
-\contentsline {subsubsection}{\numberline {6.17.1.21}DELETE}{54}{subsubsection.6.17.1.21}%
-\contentsline {subsubsection}{\numberline {6.17.1.22}DIVIDE}{54}{subsubsection.6.17.1.22}%
-\contentsline {subsubsection}{\numberline {6.17.1.23}DOWN}{54}{subsubsection.6.17.1.23}%
-\contentsline {subsubsection}{\numberline {6.17.1.24}E}{54}{subsubsection.6.17.1.24}%
-\contentsline {subsubsection}{\numberline {6.17.1.25}END}{54}{subsubsection.6.17.1.25}%
-\contentsline {subsubsection}{\numberline {6.17.1.26}ENTER}{54}{subsubsection.6.17.1.26}%
-\contentsline {subsubsection}{\numberline {6.17.1.27}ESCAPE}{54}{subsubsection.6.17.1.27}%
-\contentsline {subsubsection}{\numberline {6.17.1.28}F}{55}{subsubsection.6.17.1.28}%
-\contentsline {subsubsection}{\numberline {6.17.1.29}F1}{55}{subsubsection.6.17.1.29}%
-\contentsline {subsubsection}{\numberline {6.17.1.30}F10}{55}{subsubsection.6.17.1.30}%
-\contentsline {subsubsection}{\numberline {6.17.1.31}F11}{55}{subsubsection.6.17.1.31}%
-\contentsline {subsubsection}{\numberline {6.17.1.32}F12}{55}{subsubsection.6.17.1.32}%
-\contentsline {subsubsection}{\numberline {6.17.1.33}F2}{55}{subsubsection.6.17.1.33}%
-\contentsline {subsubsection}{\numberline {6.17.1.34}F3}{55}{subsubsection.6.17.1.34}%
-\contentsline {subsubsection}{\numberline {6.17.1.35}F4}{55}{subsubsection.6.17.1.35}%
-\contentsline {subsubsection}{\numberline {6.17.1.36}F5}{55}{subsubsection.6.17.1.36}%
-\contentsline {subsubsection}{\numberline {6.17.1.37}F6}{55}{subsubsection.6.17.1.37}%
-\contentsline {subsubsection}{\numberline {6.17.1.38}F7}{56}{subsubsection.6.17.1.38}%
-\contentsline {subsubsection}{\numberline {6.17.1.39}F8}{56}{subsubsection.6.17.1.39}%
-\contentsline {subsubsection}{\numberline {6.17.1.40}F9}{56}{subsubsection.6.17.1.40}%
-\contentsline {subsubsection}{\numberline {6.17.1.41}G}{56}{subsubsection.6.17.1.41}%
-\contentsline {subsubsection}{\numberline {6.17.1.42}H}{56}{subsubsection.6.17.1.42}%
-\contentsline {subsubsection}{\numberline {6.17.1.43}I}{56}{subsubsection.6.17.1.43}%
-\contentsline {subsubsection}{\numberline {6.17.1.44}INSERT}{56}{subsubsection.6.17.1.44}%
-\contentsline {subsubsection}{\numberline {6.17.1.45}J}{56}{subsubsection.6.17.1.45}%
-\contentsline {subsubsection}{\numberline {6.17.1.46}K}{56}{subsubsection.6.17.1.46}%
-\contentsline {subsubsection}{\numberline {6.17.1.47}L}{56}{subsubsection.6.17.1.47}%
-\contentsline {subsubsection}{\numberline {6.17.1.48}LEFT}{57}{subsubsection.6.17.1.48}%
-\contentsline {subsubsection}{\numberline {6.17.1.49}M}{57}{subsubsection.6.17.1.49}%
-\contentsline {subsubsection}{\numberline {6.17.1.50}MENU}{57}{subsubsection.6.17.1.50}%
-\contentsline {subsubsection}{\numberline {6.17.1.51}MINUS}{57}{subsubsection.6.17.1.51}%
-\contentsline {subsubsection}{\numberline {6.17.1.52}MULTIPLY}{57}{subsubsection.6.17.1.52}%
-\contentsline {subsubsection}{\numberline {6.17.1.53}N}{57}{subsubsection.6.17.1.53}%
-\contentsline {subsubsection}{\numberline {6.17.1.54}NONE}{57}{subsubsection.6.17.1.54}%
-\contentsline {subsubsection}{\numberline {6.17.1.55}NP\_0}{57}{subsubsection.6.17.1.55}%
-\contentsline {subsubsection}{\numberline {6.17.1.56}NP\_1}{57}{subsubsection.6.17.1.56}%
-\contentsline {subsubsection}{\numberline {6.17.1.57}NP\_2}{57}{subsubsection.6.17.1.57}%
-\contentsline {subsubsection}{\numberline {6.17.1.58}NP\_3}{58}{subsubsection.6.17.1.58}%
-\contentsline {subsubsection}{\numberline {6.17.1.59}NP\_4}{58}{subsubsection.6.17.1.59}%
-\contentsline {subsubsection}{\numberline {6.17.1.60}NP\_5}{58}{subsubsection.6.17.1.60}%
-\contentsline {subsubsection}{\numberline {6.17.1.61}NP\_6}{58}{subsubsection.6.17.1.61}%
-\contentsline {subsubsection}{\numberline {6.17.1.62}NP\_7}{58}{subsubsection.6.17.1.62}%
-\contentsline {subsubsection}{\numberline {6.17.1.63}NP\_8}{58}{subsubsection.6.17.1.63}%
-\contentsline {subsubsection}{\numberline {6.17.1.64}NP\_9}{58}{subsubsection.6.17.1.64}%
-\contentsline {subsubsection}{\numberline {6.17.1.65}NUM\_LOCK}{58}{subsubsection.6.17.1.65}%
-\contentsline {subsubsection}{\numberline {6.17.1.66}O}{58}{subsubsection.6.17.1.66}%
-\contentsline {subsubsection}{\numberline {6.17.1.67}P}{58}{subsubsection.6.17.1.67}%
-\contentsline {subsubsection}{\numberline {6.17.1.68}PAGE\_DOWN}{59}{subsubsection.6.17.1.68}%
-\contentsline {subsubsection}{\numberline {6.17.1.69}PAGE\_UP}{59}{subsubsection.6.17.1.69}%
-\contentsline {subsubsection}{\numberline {6.17.1.70}PAUSE}{59}{subsubsection.6.17.1.70}%
-\contentsline {subsubsection}{\numberline {6.17.1.71}PLUS}{59}{subsubsection.6.17.1.71}%
-\contentsline {subsubsection}{\numberline {6.17.1.72}POS1}{59}{subsubsection.6.17.1.72}%
-\contentsline {subsubsection}{\numberline {6.17.1.73}PRINT\_SCREEN}{59}{subsubsection.6.17.1.73}%
-\contentsline {subsubsection}{\numberline {6.17.1.74}Q}{59}{subsubsection.6.17.1.74}%
-\contentsline {subsubsection}{\numberline {6.17.1.75}R}{59}{subsubsection.6.17.1.75}%
-\contentsline {subsubsection}{\numberline {6.17.1.76}RIGHT}{59}{subsubsection.6.17.1.76}%
-\contentsline {subsubsection}{\numberline {6.17.1.77}S}{59}{subsubsection.6.17.1.77}%
-\contentsline {subsubsection}{\numberline {6.17.1.78}SCROLL\_LOCK}{60}{subsubsection.6.17.1.78}%
-\contentsline {subsubsection}{\numberline {6.17.1.79}SHIFT}{60}{subsubsection.6.17.1.79}%
-\contentsline {subsubsection}{\numberline {6.17.1.80}SPACE}{60}{subsubsection.6.17.1.80}%
-\contentsline {subsubsection}{\numberline {6.17.1.81}SUBTRACT}{60}{subsubsection.6.17.1.81}%
-\contentsline {subsubsection}{\numberline {6.17.1.82}SYSTEM}{60}{subsubsection.6.17.1.82}%
-\contentsline {subsubsection}{\numberline {6.17.1.83}T}{60}{subsubsection.6.17.1.83}%
-\contentsline {subsubsection}{\numberline {6.17.1.84}TAB}{60}{subsubsection.6.17.1.84}%
-\contentsline {subsubsection}{\numberline {6.17.1.85}U}{60}{subsubsection.6.17.1.85}%
-\contentsline {subsubsection}{\numberline {6.17.1.86}UP}{60}{subsubsection.6.17.1.86}%
-\contentsline {subsubsection}{\numberline {6.17.1.87}V}{60}{subsubsection.6.17.1.87}%
-\contentsline {subsubsection}{\numberline {6.17.1.88}W}{61}{subsubsection.6.17.1.88}%
-\contentsline {subsubsection}{\numberline {6.17.1.89}X}{61}{subsubsection.6.17.1.89}%
-\contentsline {subsubsection}{\numberline {6.17.1.90}Y}{61}{subsubsection.6.17.1.90}%
-\contentsline {subsubsection}{\numberline {6.17.1.91}Z}{61}{subsubsection.6.17.1.91}%
-\contentsline {section}{\numberline {6.18}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}log.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Level Enum Reference}{61}{section.6.18}%
-\contentsline {subsection}{\numberline {6.18.1}Member Data Documentation}{61}{subsection.6.18.1}%
-\contentsline {subsubsection}{\numberline {6.18.1.1}DEBUG}{61}{subsubsection.6.18.1.1}%
-\contentsline {subsubsection}{\numberline {6.18.1.2}ERROR}{61}{subsubsection.6.18.1.2}%
-\contentsline {subsubsection}{\numberline {6.18.1.3}INFO}{61}{subsubsection.6.18.1.3}%
-\contentsline {subsubsection}{\numberline {6.18.1.4}WARNING}{62}{subsubsection.6.18.1.4}%
-\contentsline {section}{\numberline {6.19}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}log.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Log Class Reference}{62}{section.6.19}%
-\contentsline {subsection}{\numberline {6.19.1}Constructor \& Destructor Documentation}{63}{subsection.6.19.1}%
-\contentsline {subsubsection}{\numberline {6.19.1.1}Log()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{63}{subsubsection.6.19.1.1}%
-\contentsline {subsubsection}{\numberline {6.19.1.2}Log()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{63}{subsubsection.6.19.1.2}%
-\contentsline {subsection}{\numberline {6.19.2}Member Function Documentation}{63}{subsection.6.19.2}%
-\contentsline {subsubsection}{\numberline {6.19.2.1}clear()}{63}{subsubsection.6.19.2.1}%
-\contentsline {subsubsection}{\numberline {6.19.2.2}configure()}{63}{subsubsection.6.19.2.2}%
-\contentsline {subsubsection}{\numberline {6.19.2.3}debug()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{63}{subsubsection.6.19.2.3}%
-\contentsline {subsubsection}{\numberline {6.19.2.4}debug()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{63}{subsubsection.6.19.2.4}%
-\contentsline {subsubsection}{\numberline {6.19.2.5}disable()}{63}{subsubsection.6.19.2.5}%
-\contentsline {subsubsection}{\numberline {6.19.2.6}enable()}{64}{subsubsection.6.19.2.6}%
-\contentsline {subsubsection}{\numberline {6.19.2.7}error()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{64}{subsubsection.6.19.2.7}%
-\contentsline {subsubsection}{\numberline {6.19.2.8}error()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{64}{subsubsection.6.19.2.8}%
-\contentsline {subsubsection}{\numberline {6.19.2.9}format()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{64}{subsubsection.6.19.2.9}%
-\contentsline {subsubsection}{\numberline {6.19.2.10}format()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{64}{subsubsection.6.19.2.10}%
-\contentsline {subsubsection}{\numberline {6.19.2.11}get()}{64}{subsubsection.6.19.2.11}%
-\contentsline {subsubsection}{\numberline {6.19.2.12}info()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{64}{subsubsection.6.19.2.12}%
-\contentsline {subsubsection}{\numberline {6.19.2.13}info()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{64}{subsubsection.6.19.2.13}%
-\contentsline {subsubsection}{\numberline {6.19.2.14}log()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{65}{subsubsection.6.19.2.14}%
-\contentsline {subsubsection}{\numberline {6.19.2.15}log()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{65}{subsubsection.6.19.2.15}%
-\contentsline {subsubsection}{\numberline {6.19.2.16}trace()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{65}{subsubsection.6.19.2.16}%
-\contentsline {subsubsection}{\numberline {6.19.2.17}trace()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{65}{subsubsection.6.19.2.17}%
-\contentsline {subsubsection}{\numberline {6.19.2.18}warn()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{65}{subsubsection.6.19.2.18}%
-\contentsline {subsubsection}{\numberline {6.19.2.19}warn()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{65}{subsubsection.6.19.2.19}%
-\contentsline {subsubsection}{\numberline {6.19.2.20}write()}{65}{subsubsection.6.19.2.20}%
-\contentsline {subsection}{\numberline {6.19.3}Member Data Documentation}{66}{subsection.6.19.3}%
-\contentsline {subsubsection}{\numberline {6.19.3.1}format}{66}{subsubsection.6.19.3.1}%
-\contentsline {subsubsection}{\numberline {6.19.3.2}levels}{66}{subsubsection.6.19.3.2}%
-\contentsline {subsubsection}{\numberline {6.19.3.3}map}{66}{subsubsection.6.19.3.3}%
-\contentsline {subsubsection}{\numberline {6.19.3.4}trace}{66}{subsubsection.6.19.3.4}%
-\contentsline {section}{\numberline {6.20}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Multiline Class Reference}{66}{section.6.20}%
-\contentsline {subsection}{\numberline {6.20.1}Constructor \& Destructor Documentation}{67}{subsection.6.20.1}%
-\contentsline {subsubsection}{\numberline {6.20.1.1}Multiline()}{67}{subsubsection.6.20.1.1}%
-\contentsline {subsection}{\numberline {6.20.2}Member Function Documentation}{68}{subsection.6.20.2}%
-\contentsline {subsubsection}{\numberline {6.20.2.1}assign()}{68}{subsubsection.6.20.2.1}%
-\contentsline {subsubsection}{\numberline {6.20.2.2}buffer()}{68}{subsubsection.6.20.2.2}%
-\contentsline {subsubsection}{\numberline {6.20.2.3}count()}{68}{subsubsection.6.20.2.3}%
-\contentsline {subsubsection}{\numberline {6.20.2.4}create()}{68}{subsubsection.6.20.2.4}%
-\contentsline {subsubsection}{\numberline {6.20.2.5}down()}{68}{subsubsection.6.20.2.5}%
-\contentsline {subsubsection}{\numberline {6.20.2.6}line()}{68}{subsubsection.6.20.2.6}%
-\contentsline {subsubsection}{\numberline {6.20.2.7}lineHeight()}{68}{subsubsection.6.20.2.7}%
-\contentsline {subsubsection}{\numberline {6.20.2.8}offset()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{68}{subsubsection.6.20.2.8}%
-\contentsline {subsubsection}{\numberline {6.20.2.9}offset()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{68}{subsubsection.6.20.2.9}%
-\contentsline {subsubsection}{\numberline {6.20.2.10}page()}{69}{subsubsection.6.20.2.10}%
-\contentsline {subsubsection}{\numberline {6.20.2.11}rescale()}{69}{subsubsection.6.20.2.11}%
-\contentsline {subsubsection}{\numberline {6.20.2.12}text()}{69}{subsubsection.6.20.2.12}%
-\contentsline {subsubsection}{\numberline {6.20.2.13}up()}{69}{subsubsection.6.20.2.13}%
-\contentsline {subsubsection}{\numberline {6.20.2.14}update()}{69}{subsubsection.6.20.2.14}%
-\contentsline {subsection}{\numberline {6.20.3}Member Data Documentation}{69}{subsection.6.20.3}%
-\contentsline {subsubsection}{\numberline {6.20.3.1}buffer}{69}{subsubsection.6.20.3.1}%
-\contentsline {subsubsection}{\numberline {6.20.3.2}offset}{69}{subsubsection.6.20.3.2}%
-\contentsline {subsubsection}{\numberline {6.20.3.3}scroller}{69}{subsubsection.6.20.3.3}%
-\contentsline {section}{\numberline {6.21}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}port.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Port Interface Reference}{70}{section.6.21}%
-\contentsline {subsection}{\numberline {6.21.1}Member Function Documentation}{70}{subsection.6.21.1}%
-\contentsline {subsubsection}{\numberline {6.21.1.1}add()}{70}{subsubsection.6.21.1.1}%
-\contentsline {subsubsection}{\numberline {6.21.1.2}assign()}{70}{subsubsection.6.21.1.2}%
-\contentsline {subsubsection}{\numberline {6.21.1.3}create()}{70}{subsubsection.6.21.1.3}%
-\contentsline {subsubsection}{\numberline {6.21.1.4}fullscreen()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{71}{subsubsection.6.21.1.4}%
-\contentsline {subsubsection}{\numberline {6.21.1.5}fullscreen()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{71}{subsubsection.6.21.1.5}%
-\contentsline {subsubsection}{\numberline {6.21.1.6}height()}{71}{subsubsection.6.21.1.6}%
-\contentsline {subsubsection}{\numberline {6.21.1.7}maximized()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{71}{subsubsection.6.21.1.7}%
-\contentsline {subsubsection}{\numberline {6.21.1.8}maximized()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{71}{subsubsection.6.21.1.8}%
-\contentsline {subsubsection}{\numberline {6.21.1.9}render()}{71}{subsubsection.6.21.1.9}%
-\contentsline {subsubsection}{\numberline {6.21.1.10}size()}{71}{subsubsection.6.21.1.10}%
-\contentsline {subsubsection}{\numberline {6.21.1.11}title()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{72}{subsubsection.6.21.1.11}%
-\contentsline {subsubsection}{\numberline {6.21.1.12}title()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{72}{subsubsection.6.21.1.12}%
-\contentsline {subsubsection}{\numberline {6.21.1.13}visible()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{72}{subsubsection.6.21.1.13}%
-\contentsline {subsubsection}{\numberline {6.21.1.14}visible()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{72}{subsubsection.6.21.1.14}%
-\contentsline {subsubsection}{\numberline {6.21.1.15}width()}{72}{subsubsection.6.21.1.15}%
-\contentsline {section}{\numberline {6.22}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}port.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Renderable Interface Reference}{72}{section.6.22}%
-\contentsline {subsection}{\numberline {6.22.1}Member Function Documentation}{73}{subsection.6.22.1}%
-\contentsline {subsubsection}{\numberline {6.22.1.1}render()}{73}{subsubsection.6.22.1.1}%
-\contentsline {section}{\numberline {6.23}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Rendering Class Reference}{73}{section.6.23}%
-\contentsline {subsection}{\numberline {6.23.1}Constructor \& Destructor Documentation}{73}{subsection.6.23.1}%
-\contentsline {subsubsection}{\numberline {6.23.1.1}Rendering()}{73}{subsubsection.6.23.1.1}%
-\contentsline {subsection}{\numberline {6.23.2}Member Function Documentation}{74}{subsection.6.23.2}%
-\contentsline {subsubsection}{\numberline {6.23.2.1}render()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{74}{subsubsection.6.23.2.1}%
-\contentsline {subsubsection}{\numberline {6.23.2.2}render()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{74}{subsubsection.6.23.2.2}%
-\contentsline {subsubsection}{\numberline {6.23.2.3}renderChildren()}{74}{subsubsection.6.23.2.3}%
-\contentsline {subsubsection}{\numberline {6.23.2.4}renderWidget()}{74}{subsubsection.6.23.2.4}%
-\contentsline {subsection}{\numberline {6.23.3}Member Data Documentation}{74}{subsection.6.23.3}%
-\contentsline {subsubsection}{\numberline {6.23.3.1}widgets}{74}{subsubsection.6.23.3.1}%
-\contentsline {section}{\numberline {6.24}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}clock.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Task Interface Reference}{74}{section.6.24}%
-\contentsline {subsection}{\numberline {6.24.1}Member Function Documentation}{75}{subsection.6.24.1}%
-\contentsline {subsubsection}{\numberline {6.24.1.1}run()}{75}{subsubsection.6.24.1.1}%
-\contentsline {section}{\numberline {6.25}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}task.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Task Interface Reference}{75}{section.6.25}%
-\contentsline {subsection}{\numberline {6.25.1}Member Function Documentation}{75}{subsection.6.25.1}%
-\contentsline {subsubsection}{\numberline {6.25.1.1}perform()}{75}{subsubsection.6.25.1.1}%
-\contentsline {section}{\numberline {6.26}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}task.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tasks Class Reference}{75}{section.6.26}%
-\contentsline {subsection}{\numberline {6.26.1}Constructor \& Destructor Documentation}{76}{subsection.6.26.1}%
-\contentsline {subsubsection}{\numberline {6.26.1.1}Tasks()}{76}{subsubsection.6.26.1.1}%
-\contentsline {subsection}{\numberline {6.26.2}Member Function Documentation}{76}{subsection.6.26.2}%
-\contentsline {subsubsection}{\numberline {6.26.2.1}assign()\hspace {0.1cm}{\footnotesize \ttfamily [1/4]}}{76}{subsubsection.6.26.2.1}%
-\contentsline {subsubsection}{\numberline {6.26.2.2}assign()\hspace {0.1cm}{\footnotesize \ttfamily [2/4]}}{76}{subsubsection.6.26.2.2}%
-\contentsline {subsubsection}{\numberline {6.26.2.3}assign()\hspace {0.1cm}{\footnotesize \ttfamily [3/4]}}{76}{subsubsection.6.26.2.3}%
-\contentsline {subsubsection}{\numberline {6.26.2.4}assign()\hspace {0.1cm}{\footnotesize \ttfamily [4/4]}}{76}{subsubsection.6.26.2.4}%
-\contentsline {subsubsection}{\numberline {6.26.2.5}construct()}{76}{subsubsection.6.26.2.5}%
-\contentsline {subsubsection}{\numberline {6.26.2.6}handleEvent()}{76}{subsubsection.6.26.2.6}%
-\contentsline {subsubsection}{\numberline {6.26.2.7}perform()}{77}{subsubsection.6.26.2.7}%
-\contentsline {subsubsection}{\numberline {6.26.2.8}put()}{77}{subsubsection.6.26.2.8}%
-\contentsline {subsubsection}{\numberline {6.26.2.9}shutdown()}{77}{subsubsection.6.26.2.9}%
-\contentsline {subsubsection}{\numberline {6.26.2.10}toggleFullscreen()}{77}{subsubsection.6.26.2.10}%
-\contentsline {subsubsection}{\numberline {6.26.2.11}update()}{77}{subsubsection.6.26.2.11}%
-\contentsline {subsection}{\numberline {6.26.3}Member Data Documentation}{77}{subsection.6.26.3}%
-\contentsline {subsubsection}{\numberline {6.26.3.1}client}{77}{subsubsection.6.26.3.1}%
-\contentsline {subsubsection}{\numberline {6.26.3.2}inbox}{77}{subsubsection.6.26.3.2}%
-\contentsline {subsubsection}{\numberline {6.26.3.3}outbox}{77}{subsubsection.6.26.3.3}%
-\contentsline {subsubsection}{\numberline {6.26.3.4}port}{77}{subsubsection.6.26.3.4}%
-\contentsline {subsubsection}{\numberline {6.26.3.5}tasks}{78}{subsubsection.6.26.3.5}%
-\contentsline {section}{\numberline {6.27}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}event.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type Enum Reference}{78}{section.6.27}%
-\contentsline {subsection}{\numberline {6.27.1}Member Data Documentation}{78}{subsection.6.27.1}%
-\contentsline {subsubsection}{\numberline {6.27.1.1}KEY\_PRESSED}{78}{subsubsection.6.27.1.1}%
-\contentsline {subsubsection}{\numberline {6.27.1.2}KEY\_RELEASED}{78}{subsubsection.6.27.1.2}%
-\contentsline {subsubsection}{\numberline {6.27.1.3}KEY\_TYPED}{78}{subsubsection.6.27.1.3}%
-\contentsline {subsubsection}{\numberline {6.27.1.4}NONE}{78}{subsubsection.6.27.1.4}%
-\contentsline {subsubsection}{\numberline {6.27.1.5}POINTER\_CLICKED}{79}{subsubsection.6.27.1.5}%
-\contentsline {subsubsection}{\numberline {6.27.1.6}POINTER\_ENTERED}{79}{subsubsection.6.27.1.6}%
-\contentsline {subsubsection}{\numberline {6.27.1.7}POINTER\_EXITED}{79}{subsubsection.6.27.1.7}%
-\contentsline {subsubsection}{\numberline {6.27.1.8}POINTER\_MOVED}{79}{subsubsection.6.27.1.8}%
-\contentsline {subsubsection}{\numberline {6.27.1.9}POINTER\_PRESSED}{79}{subsubsection.6.27.1.9}%
-\contentsline {subsubsection}{\numberline {6.27.1.10}POINTER\_RELEASED}{79}{subsubsection.6.27.1.10}%
-\contentsline {subsubsection}{\numberline {6.27.1.11}SURFACE\_CLOSE\_REQUEST}{79}{subsubsection.6.27.1.11}%
-\contentsline {subsubsection}{\numberline {6.27.1.12}SURFACE\_RESIZED}{79}{subsubsection.6.27.1.12}%
-\contentsline {subsubsection}{\numberline {6.27.1.13}TASK\_COMMAND}{79}{subsubsection.6.27.1.13}%
-\contentsline {section}{\numberline {6.28}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Util Class Reference}{80}{section.6.28}%
-\contentsline {subsection}{\numberline {6.28.1}Member Function Documentation}{80}{subsection.6.28.1}%
-\contentsline {subsubsection}{\numberline {6.28.1.1}readFile()}{80}{subsubsection.6.28.1.1}%
-\contentsline {section}{\numberline {6.29}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}VScroller Class Reference}{80}{section.6.29}%
-\contentsline {subsection}{\numberline {6.29.1}Constructor \& Destructor Documentation}{81}{subsection.6.29.1}%
-\contentsline {subsubsection}{\numberline {6.29.1.1}VScroller()}{81}{subsubsection.6.29.1.1}%
-\contentsline {subsection}{\numberline {6.29.2}Member Function Documentation}{81}{subsection.6.29.2}%
-\contentsline {subsubsection}{\numberline {6.29.2.1}assign()}{81}{subsubsection.6.29.2.1}%
-\contentsline {subsubsection}{\numberline {6.29.2.2}create()}{82}{subsubsection.6.29.2.2}%
-\contentsline {subsubsection}{\numberline {6.29.2.3}handle()}{82}{subsubsection.6.29.2.3}%
-\contentsline {subsubsection}{\numberline {6.29.2.4}set()}{82}{subsubsection.6.29.2.4}%
-\contentsline {subsubsection}{\numberline {6.29.2.5}value()}{82}{subsubsection.6.29.2.5}%
-\contentsline {subsection}{\numberline {6.29.3}Member Data Documentation}{82}{subsection.6.29.3}%
-\contentsline {subsubsection}{\numberline {6.29.3.1}bar}{82}{subsubsection.6.29.3.1}%
-\contentsline {subsubsection}{\numberline {6.29.3.2}btnDn}{82}{subsubsection.6.29.3.2}%
-\contentsline {subsubsection}{\numberline {6.29.3.3}btnUp}{82}{subsubsection.6.29.3.3}%
-\contentsline {subsubsection}{\numberline {6.29.3.4}handle}{82}{subsubsection.6.29.3.4}%
-\contentsline {subsubsection}{\numberline {6.29.3.5}mark}{82}{subsubsection.6.29.3.5}%
-\contentsline {subsubsection}{\numberline {6.29.3.6}page}{83}{subsubsection.6.29.3.6}%
-\contentsline {subsubsection}{\numberline {6.29.3.7}size}{83}{subsubsection.6.29.3.7}%
-\contentsline {subsubsection}{\numberline {6.29.3.8}uuid}{83}{subsubsection.6.29.3.8}%
-\contentsline {section}{\numberline {6.30}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Widget Class Reference}{83}{section.6.30}%
-\contentsline {subsection}{\numberline {6.30.1}Constructor \& Destructor Documentation}{84}{subsection.6.30.1}%
-\contentsline {subsubsection}{\numberline {6.30.1.1}Widget()}{84}{subsubsection.6.30.1.1}%
-\contentsline {subsection}{\numberline {6.30.2}Member Function Documentation}{84}{subsection.6.30.2}%
-\contentsline {subsubsection}{\numberline {6.30.2.1}add()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{84}{subsubsection.6.30.2.1}%
-\contentsline {subsubsection}{\numberline {6.30.2.2}add()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{85}{subsubsection.6.30.2.2}%
-\contentsline {subsubsection}{\numberline {6.30.2.3}children()}{85}{subsubsection.6.30.2.3}%
-\contentsline {subsubsection}{\numberline {6.30.2.4}clear()}{85}{subsubsection.6.30.2.4}%
-\contentsline {subsubsection}{\numberline {6.30.2.5}command()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{85}{subsubsection.6.30.2.5}%
-\contentsline {subsubsection}{\numberline {6.30.2.6}command()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{85}{subsubsection.6.30.2.6}%
-\contentsline {subsubsection}{\numberline {6.30.2.7}dimension()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{85}{subsubsection.6.30.2.7}%
-\contentsline {subsubsection}{\numberline {6.30.2.8}dimension()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{85}{subsubsection.6.30.2.8}%
-\contentsline {subsubsection}{\numberline {6.30.2.9}dimension()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{85}{subsubsection.6.30.2.9}%
-\contentsline {subsubsection}{\numberline {6.30.2.10}dimensionAdd()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{85}{subsubsection.6.30.2.10}%
-\contentsline {subsubsection}{\numberline {6.30.2.11}dimensionAdd()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{86}{subsubsection.6.30.2.11}%
-\contentsline {subsubsection}{\numberline {6.30.2.12}dock()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{86}{subsubsection.6.30.2.12}%
-\contentsline {subsubsection}{\numberline {6.30.2.13}dock()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{86}{subsubsection.6.30.2.13}%
-\contentsline {subsubsection}{\numberline {6.30.2.14}dock()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{86}{subsubsection.6.30.2.14}%
-\contentsline {subsubsection}{\numberline {6.30.2.15}flag()}{86}{subsubsection.6.30.2.15}%
-\contentsline {subsubsection}{\numberline {6.30.2.16}flags()}{86}{subsubsection.6.30.2.16}%
-\contentsline {subsubsection}{\numberline {6.30.2.17}height()}{86}{subsubsection.6.30.2.17}%
-\contentsline {subsubsection}{\numberline {6.30.2.18}image()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{86}{subsubsection.6.30.2.18}%
-\contentsline {subsubsection}{\numberline {6.30.2.19}image()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{86}{subsubsection.6.30.2.19}%
-\contentsline {subsubsection}{\numberline {6.30.2.20}match()}{87}{subsubsection.6.30.2.20}%
-\contentsline {subsubsection}{\numberline {6.30.2.21}parent()}{87}{subsubsection.6.30.2.21}%
-\contentsline {subsubsection}{\numberline {6.30.2.22}parentResized()}{87}{subsubsection.6.30.2.22}%
-\contentsline {subsubsection}{\numberline {6.30.2.23}position()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{87}{subsubsection.6.30.2.23}%
-\contentsline {subsubsection}{\numberline {6.30.2.24}position()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{87}{subsubsection.6.30.2.24}%
-\contentsline {subsubsection}{\numberline {6.30.2.25}position()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{87}{subsubsection.6.30.2.25}%
-\contentsline {subsubsection}{\numberline {6.30.2.26}positionAdd()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{87}{subsubsection.6.30.2.26}%
-\contentsline {subsubsection}{\numberline {6.30.2.27}positionAdd()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{87}{subsubsection.6.30.2.27}%
-\contentsline {subsubsection}{\numberline {6.30.2.28}remove()}{87}{subsubsection.6.30.2.28}%
-\contentsline {subsubsection}{\numberline {6.30.2.29}resized()}{88}{subsubsection.6.30.2.29}%
-\contentsline {subsubsection}{\numberline {6.30.2.30}text()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{88}{subsubsection.6.30.2.30}%
-\contentsline {subsubsection}{\numberline {6.30.2.31}text()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{88}{subsubsection.6.30.2.31}%
-\contentsline {subsubsection}{\numberline {6.30.2.32}toFront()}{88}{subsubsection.6.30.2.32}%
-\contentsline {subsubsection}{\numberline {6.30.2.33}width()}{88}{subsubsection.6.30.2.33}%
-\contentsline {subsubsection}{\numberline {6.30.2.34}x()}{88}{subsubsection.6.30.2.34}%
-\contentsline {subsubsection}{\numberline {6.30.2.35}y()}{88}{subsubsection.6.30.2.35}%
-\contentsline {subsection}{\numberline {6.30.3}Member Data Documentation}{88}{subsection.6.30.3}%
-\contentsline {subsubsection}{\numberline {6.30.3.1}children}{88}{subsubsection.6.30.3.1}%
-\contentsline {subsubsection}{\numberline {6.30.3.2}children\_ro}{88}{subsubsection.6.30.3.2}%
-\contentsline {subsubsection}{\numberline {6.30.3.3}command}{89}{subsubsection.6.30.3.3}%
-\contentsline {subsubsection}{\numberline {6.30.3.4}dimension}{89}{subsubsection.6.30.3.4}%
-\contentsline {subsubsection}{\numberline {6.30.3.5}dock}{89}{subsubsection.6.30.3.5}%
-\contentsline {subsubsection}{\numberline {6.30.3.6}flags}{89}{subsubsection.6.30.3.6}%
-\contentsline {subsubsection}{\numberline {6.30.3.7}flags\_ro}{89}{subsubsection.6.30.3.7}%
-\contentsline {subsubsection}{\numberline {6.30.3.8}image}{89}{subsubsection.6.30.3.8}%
-\contentsline {subsubsection}{\numberline {6.30.3.9}parent}{89}{subsubsection.6.30.3.9}%
-\contentsline {subsubsection}{\numberline {6.30.3.10}position}{89}{subsubsection.6.30.3.10}%
-\contentsline {subsubsection}{\numberline {6.30.3.11}text}{89}{subsubsection.6.30.3.11}%
-\contentsline {section}{\numberline {6.31}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Widgets Class Reference}{90}{section.6.31}%
-\contentsline {subsection}{\numberline {6.31.1}Constructor \& Destructor Documentation}{90}{subsection.6.31.1}%
-\contentsline {subsubsection}{\numberline {6.31.1.1}Widgets()}{90}{subsubsection.6.31.1.1}%
-\contentsline {subsection}{\numberline {6.31.2}Member Function Documentation}{90}{subsection.6.31.2}%
-\contentsline {subsubsection}{\numberline {6.31.2.1}assign()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{90}{subsubsection.6.31.2.1}%
-\contentsline {subsubsection}{\numberline {6.31.2.2}assign()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{90}{subsubsection.6.31.2.2}%
-\contentsline {subsubsection}{\numberline {6.31.2.3}root()}{90}{subsubsection.6.31.2.3}%
-\contentsline {subsection}{\numberline {6.31.3}Member Data Documentation}{90}{subsection.6.31.3}%
-\contentsline {subsubsection}{\numberline {6.31.3.1}handling}{90}{subsubsection.6.31.3.1}%
-\contentsline {subsubsection}{\numberline {6.31.3.2}rendering}{91}{subsubsection.6.31.3.2}%
-\contentsline {subsubsection}{\numberline {6.31.3.3}root}{91}{subsubsection.6.31.3.3}%
-\contentsline {section}{\numberline {6.32}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{91}{section.6.32}%
-\contentsline {subsection}{\numberline {6.32.1}Constructor \& Destructor Documentation}{92}{subsection.6.32.1}%
-\contentsline {subsubsection}{\numberline {6.32.1.1}Window()}{92}{subsubsection.6.32.1.1}%
-\contentsline {subsection}{\numberline {6.32.2}Member Function Documentation}{92}{subsection.6.32.2}%
-\contentsline {subsubsection}{\numberline {6.32.2.1}construct()}{92}{subsubsection.6.32.2.1}%
-\contentsline {subsubsection}{\numberline {6.32.2.2}getPage()}{92}{subsubsection.6.32.2.2}%
-\contentsline {subsubsection}{\numberline {6.32.2.3}title()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{93}{subsubsection.6.32.2.3}%
-\contentsline {subsubsection}{\numberline {6.32.2.4}title()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{93}{subsubsection.6.32.2.4}%
-\contentsline {subsection}{\numberline {6.32.3}Member Data Documentation}{93}{subsection.6.32.3}%
-\contentsline {subsubsection}{\numberline {6.32.3.1}close}{93}{subsubsection.6.32.3.1}%
-\contentsline {subsubsection}{\numberline {6.32.3.2}page}{93}{subsubsection.6.32.3.2}%
-\contentsline {subsubsection}{\numberline {6.32.3.3}size}{93}{subsubsection.6.32.3.3}%
-\contentsline {subsubsection}{\numberline {6.32.3.4}title}{93}{subsubsection.6.32.3.4}%
-\contentsline {chapter}{\numberline {7}File Documentation}{95}{chapter.7}%
-\contentsline {section}{\numberline {7.1}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}AGEException.java File Reference}{95}{section.7.1}%
-\contentsline {section}{\numberline {7.2}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client.java File Reference}{95}{section.7.2}%
-\contentsline {section}{\numberline {7.3}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/clock/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alarm.java File Reference}{95}{section.7.3}%
-\contentsline {section}{\numberline {7.4}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/clock/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Clock.java File Reference}{96}{section.7.4}%
-\contentsline {section}{\numberline {7.5}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/clock/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Task.java File Reference}{96}{section.7.5}%
-\contentsline {section}{\numberline {7.6}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/task/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Task.java File Reference}{96}{section.7.6}%
-\contentsline {section}{\numberline {7.7}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/event/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Button.java File Reference}{96}{section.7.7}%
-\contentsline {section}{\numberline {7.8}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/event/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Event.java File Reference}{97}{section.7.8}%
-\contentsline {section}{\numberline {7.9}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/event/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Events.java File Reference}{97}{section.7.9}%
-\contentsline {section}{\numberline {7.10}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/event/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler.java File Reference}{97}{section.7.10}%
-\contentsline {section}{\numberline {7.11}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/event/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Key.java File Reference}{98}{section.7.11}%
-\contentsline {section}{\numberline {7.12}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/event/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type.java File Reference}{98}{section.7.12}%
-\contentsline {section}{\numberline {7.13}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/gui/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dock.java File Reference}{98}{section.7.13}%
-\contentsline {section}{\numberline {7.14}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/gui/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Flag.java File Reference}{98}{section.7.14}%
-\contentsline {section}{\numberline {7.15}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/gui/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handling.java File Reference}{99}{section.7.15}%
-\contentsline {section}{\numberline {7.16}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/gui/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Multiline.java File Reference}{99}{section.7.16}%
-\contentsline {section}{\numberline {7.17}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/gui/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Rendering.java File Reference}{99}{section.7.17}%
-\contentsline {section}{\numberline {7.18}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/gui/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}VScroller.java File Reference}{99}{section.7.18}%
-\contentsline {section}{\numberline {7.19}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/gui/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Widget.java File Reference}{100}{section.7.19}%
-\contentsline {section}{\numberline {7.20}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/gui/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Widgets.java File Reference}{100}{section.7.20}%
-\contentsline {section}{\numberline {7.21}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/gui/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window.java File Reference}{100}{section.7.21}%
-\contentsline {section}{\numberline {7.22}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/log/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Level.java File Reference}{101}{section.7.22}%
-\contentsline {section}{\numberline {7.23}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/log/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Log.java File Reference}{101}{section.7.23}%
-\contentsline {section}{\numberline {7.24}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/port/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Graphics.java File Reference}{101}{section.7.24}%
-\contentsline {section}{\numberline {7.25}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/port/jogl/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JOGLEvent\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Listener.java File Reference}{101}{section.7.25}%
-\contentsline {section}{\numberline {7.26}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/port/jogl/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JOGLGraphics.java File Reference}{102}{section.7.26}%
-\contentsline {section}{\numberline {7.27}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/port/jogl/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JOGLPort.java File Reference}{102}{section.7.27}%
-\contentsline {section}{\numberline {7.28}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/port/jogl/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JOGLRender\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Listener.java File Reference}{102}{section.7.28}%
-\contentsline {section}{\numberline {7.29}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/port/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Port.java File Reference}{103}{section.7.29}%
-\contentsline {section}{\numberline {7.30}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/port/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Renderable.java File Reference}{103}{section.7.30}%
-\contentsline {section}{\numberline {7.31}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/task/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tasks.java File Reference}{103}{section.7.31}%
-\contentsline {section}{\numberline {7.32}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Util.java File Reference}{104}{section.7.32}%
-\contentsline {chapter}{Index}{105}{section*.160}%
+\contentsline {section}{\numberline {5.7}Package age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}port.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}jogl}{11}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Package age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}task}{11}{section.5.8}%
+\contentsline {chapter}{\numberline {6}Class Documentation}{13}{chapter.6}%
+\contentsline {section}{\numberline {6.1}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}AGEException Class Reference}{13}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Detailed Description}{13}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Constructor \& Destructor Documentation}{14}{subsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.2.1}AGEException()\hspace {0.1cm}{\footnotesize \ttfamily [1/4]}}{14}{subsubsection.6.1.2.1}%
+\contentsline {subsubsection}{\numberline {6.1.2.2}AGEException()\hspace {0.1cm}{\footnotesize \ttfamily [2/4]}}{14}{subsubsection.6.1.2.2}%
+\contentsline {subsubsection}{\numberline {6.1.2.3}AGEException()\hspace {0.1cm}{\footnotesize \ttfamily [3/4]}}{14}{subsubsection.6.1.2.3}%
+\contentsline {subsubsection}{\numberline {6.1.2.4}AGEException()\hspace {0.1cm}{\footnotesize \ttfamily [4/4]}}{14}{subsubsection.6.1.2.4}%
+\contentsline {subsection}{\numberline {6.1.3}Member Data Documentation}{15}{subsection.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.3.1}serialVersionUID}{15}{subsubsection.6.1.3.1}%
+\contentsline {section}{\numberline {6.2}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}clock.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alarm Class Reference}{15}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Constructor \& Destructor Documentation}{15}{subsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.1.1}Alarm()}{15}{subsubsection.6.2.1.1}%
+\contentsline {subsection}{\numberline {6.2.2}Member Function Documentation}{15}{subsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.2.1}init()}{15}{subsubsection.6.2.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2.2}trigger()}{16}{subsubsection.6.2.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.2.3}update()}{16}{subsubsection.6.2.2.3}%
+\contentsline {subsection}{\numberline {6.2.3}Member Data Documentation}{16}{subsection.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.3.1}mark}{16}{subsubsection.6.2.3.1}%
+\contentsline {subsubsection}{\numberline {6.2.3.2}nanoperiod}{16}{subsubsection.6.2.3.2}%
+\contentsline {subsubsection}{\numberline {6.2.3.3}task}{16}{subsubsection.6.2.3.3}%
+\contentsline {section}{\numberline {6.3}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}event.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Button Enum Reference}{16}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Member Data Documentation}{17}{subsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.1.1}BTN1}{17}{subsubsection.6.3.1.1}%
+\contentsline {subsubsection}{\numberline {6.3.1.2}BTN2}{17}{subsubsection.6.3.1.2}%
+\contentsline {subsubsection}{\numberline {6.3.1.3}BTN3}{17}{subsubsection.6.3.1.3}%
+\contentsline {subsubsection}{\numberline {6.3.1.4}BTN4}{17}{subsubsection.6.3.1.4}%
+\contentsline {subsubsection}{\numberline {6.3.1.5}BTN5}{17}{subsubsection.6.3.1.5}%
+\contentsline {subsubsection}{\numberline {6.3.1.6}BTN6}{17}{subsubsection.6.3.1.6}%
+\contentsline {subsubsection}{\numberline {6.3.1.7}BTN7}{17}{subsubsection.6.3.1.7}%
+\contentsline {subsubsection}{\numberline {6.3.1.8}BTN8}{17}{subsubsection.6.3.1.8}%
+\contentsline {subsubsection}{\numberline {6.3.1.9}NONE}{17}{subsubsection.6.3.1.9}%
+\contentsline {section}{\numberline {6.4}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client Class Reference}{18}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Detailed Description}{19}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Member Function Documentation}{19}{subsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {6.4.2.1}loop()}{19}{subsubsection.6.4.2.1}%
+\contentsline {subsubsection}{\numberline {6.4.2.2}main()}{19}{subsubsection.6.4.2.2}%
+\contentsline {subsubsection}{\numberline {6.4.2.3}render()}{19}{subsubsection.6.4.2.3}%
+\contentsline {subsubsection}{\numberline {6.4.2.4}run()}{19}{subsubsection.6.4.2.4}%
+\contentsline {subsubsection}{\numberline {6.4.2.5}setup()}{20}{subsubsection.6.4.2.5}%
+\contentsline {subsubsection}{\numberline {6.4.2.6}setupGUI()}{20}{subsubsection.6.4.2.6}%
+\contentsline {subsubsection}{\numberline {6.4.2.7}shutdown()}{20}{subsubsection.6.4.2.7}%
+\contentsline {subsubsection}{\numberline {6.4.2.8}toggleDesktop()}{20}{subsubsection.6.4.2.8}%
+\contentsline {subsubsection}{\numberline {6.4.2.9}toggleSysmenu()}{20}{subsubsection.6.4.2.9}%
+\contentsline {subsubsection}{\numberline {6.4.2.10}update()}{20}{subsubsection.6.4.2.10}%
+\contentsline {subsection}{\numberline {6.4.3}Member Data Documentation}{21}{subsection.6.4.3}%
+\contentsline {subsubsection}{\numberline {6.4.3.1}clock}{21}{subsubsection.6.4.3.1}%
+\contentsline {subsubsection}{\numberline {6.4.3.2}events}{21}{subsubsection.6.4.3.2}%
+\contentsline {subsubsection}{\numberline {6.4.3.3}port}{21}{subsubsection.6.4.3.3}%
+\contentsline {subsubsection}{\numberline {6.4.3.4}running}{21}{subsubsection.6.4.3.4}%
+\contentsline {subsubsection}{\numberline {6.4.3.5}sysMenuFrame}{21}{subsubsection.6.4.3.5}%
+\contentsline {subsubsection}{\numberline {6.4.3.6}tasks}{21}{subsubsection.6.4.3.6}%
+\contentsline {subsubsection}{\numberline {6.4.3.7}widgets}{21}{subsubsection.6.4.3.7}%
+\contentsline {subsubsection}{\numberline {6.4.3.8}windowFrame}{22}{subsubsection.6.4.3.8}%
+\contentsline {section}{\numberline {6.5}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}clock.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Clock Class Reference}{22}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Member Function Documentation}{22}{subsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6.5.1.1}add()}{22}{subsubsection.6.5.1.1}%
+\contentsline {subsubsection}{\numberline {6.5.1.2}addFPS()}{22}{subsubsection.6.5.1.2}%
+\contentsline {subsubsection}{\numberline {6.5.1.3}init()}{22}{subsubsection.6.5.1.3}%
+\contentsline {subsubsection}{\numberline {6.5.1.4}update()}{22}{subsubsection.6.5.1.4}%
+\contentsline {subsection}{\numberline {6.5.2}Member Data Documentation}{23}{subsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.1}alarms}{23}{subsubsection.6.5.2.1}%
+\contentsline {section}{\numberline {6.6}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dock Class Reference}{23}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Member Function Documentation}{23}{subsection.6.6.1}%
+\contentsline {subsubsection}{\numberline {6.6.1.1}bottom()}{23}{subsubsection.6.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.6.1.2}left()}{23}{subsubsection.6.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.6.1.3}right()}{23}{subsubsection.6.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.6.1.4}set()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{23}{subsubsection.6.6.1.4}%
+\contentsline {subsubsection}{\numberline {6.6.1.5}set()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{24}{subsubsection.6.6.1.5}%
+\contentsline {subsubsection}{\numberline {6.6.1.6}top()}{24}{subsubsection.6.6.1.6}%
+\contentsline {subsection}{\numberline {6.6.2}Member Data Documentation}{24}{subsection.6.6.2}%
+\contentsline {subsubsection}{\numberline {6.6.2.1}bottom}{24}{subsubsection.6.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.6.2.2}left}{24}{subsubsection.6.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.6.2.3}right}{24}{subsubsection.6.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.6.2.4}top}{24}{subsubsection.6.6.2.4}%
+\contentsline {section}{\numberline {6.7}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}event.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Event Class Reference}{25}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Constructor \& Destructor Documentation}{26}{subsection.6.7.1}%
+\contentsline {subsubsection}{\numberline {6.7.1.1}Event()}{26}{subsubsection.6.7.1.1}%
+\contentsline {subsection}{\numberline {6.7.2}Member Function Documentation}{26}{subsection.6.7.2}%
+\contentsline {subsubsection}{\numberline {6.7.2.1}button()}{26}{subsubsection.6.7.2.1}%
+\contentsline {subsubsection}{\numberline {6.7.2.2}character()}{26}{subsubsection.6.7.2.2}%
+\contentsline {subsubsection}{\numberline {6.7.2.3}clear()}{26}{subsubsection.6.7.2.3}%
+\contentsline {subsubsection}{\numberline {6.7.2.4}command()}{26}{subsubsection.6.7.2.4}%
+\contentsline {subsubsection}{\numberline {6.7.2.5}count()}{26}{subsubsection.6.7.2.5}%
+\contentsline {subsubsection}{\numberline {6.7.2.6}dimension()}{26}{subsubsection.6.7.2.6}%
+\contentsline {subsubsection}{\numberline {6.7.2.7}height()}{26}{subsubsection.6.7.2.7}%
+\contentsline {subsubsection}{\numberline {6.7.2.8}key()}{26}{subsubsection.6.7.2.8}%
+\contentsline {subsubsection}{\numberline {6.7.2.9}keyEvent()}{27}{subsubsection.6.7.2.9}%
+\contentsline {subsubsection}{\numberline {6.7.2.10}keyPressed()}{27}{subsubsection.6.7.2.10}%
+\contentsline {subsubsection}{\numberline {6.7.2.11}keyReleased()}{27}{subsubsection.6.7.2.11}%
+\contentsline {subsubsection}{\numberline {6.7.2.12}keyTyped()}{27}{subsubsection.6.7.2.12}%
+\contentsline {subsubsection}{\numberline {6.7.2.13}pointerClicked()}{27}{subsubsection.6.7.2.13}%
+\contentsline {subsubsection}{\numberline {6.7.2.14}pointerEntered()}{27}{subsubsection.6.7.2.14}%
+\contentsline {subsubsection}{\numberline {6.7.2.15}pointerEvent()}{27}{subsubsection.6.7.2.15}%
+\contentsline {subsubsection}{\numberline {6.7.2.16}pointerExited()}{28}{subsubsection.6.7.2.16}%
+\contentsline {subsubsection}{\numberline {6.7.2.17}pointerMoved()}{28}{subsubsection.6.7.2.17}%
+\contentsline {subsubsection}{\numberline {6.7.2.18}pointerPressed()}{28}{subsubsection.6.7.2.18}%
+\contentsline {subsubsection}{\numberline {6.7.2.19}pointerReleased()}{28}{subsubsection.6.7.2.19}%
+\contentsline {subsubsection}{\numberline {6.7.2.20}position()}{28}{subsubsection.6.7.2.20}%
+\contentsline {subsubsection}{\numberline {6.7.2.21}surfaceCloseRequest()}{28}{subsubsection.6.7.2.21}%
+\contentsline {subsubsection}{\numberline {6.7.2.22}surfaceResized()}{28}{subsubsection.6.7.2.22}%
+\contentsline {subsubsection}{\numberline {6.7.2.23}taskCommand()}{28}{subsubsection.6.7.2.23}%
+\contentsline {subsubsection}{\numberline {6.7.2.24}type()}{29}{subsubsection.6.7.2.24}%
+\contentsline {subsubsection}{\numberline {6.7.2.25}width()}{29}{subsubsection.6.7.2.25}%
+\contentsline {subsubsection}{\numberline {6.7.2.26}x()}{29}{subsubsection.6.7.2.26}%
+\contentsline {subsubsection}{\numberline {6.7.2.27}y()}{29}{subsubsection.6.7.2.27}%
+\contentsline {subsection}{\numberline {6.7.3}Member Data Documentation}{29}{subsection.6.7.3}%
+\contentsline {subsubsection}{\numberline {6.7.3.1}button}{29}{subsubsection.6.7.3.1}%
+\contentsline {subsubsection}{\numberline {6.7.3.2}character}{29}{subsubsection.6.7.3.2}%
+\contentsline {subsubsection}{\numberline {6.7.3.3}command}{29}{subsubsection.6.7.3.3}%
+\contentsline {subsubsection}{\numberline {6.7.3.4}count}{29}{subsubsection.6.7.3.4}%
+\contentsline {subsubsection}{\numberline {6.7.3.5}dimension}{29}{subsubsection.6.7.3.5}%
+\contentsline {subsubsection}{\numberline {6.7.3.6}key}{29}{subsubsection.6.7.3.6}%
+\contentsline {subsubsection}{\numberline {6.7.3.7}position}{30}{subsubsection.6.7.3.7}%
+\contentsline {subsubsection}{\numberline {6.7.3.8}type}{30}{subsubsection.6.7.3.8}%
+\contentsline {section}{\numberline {6.8}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}event.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Events Class Reference}{30}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}Member Function Documentation}{31}{subsection.6.8.1}%
+\contentsline {subsubsection}{\numberline {6.8.1.1}alloc()}{31}{subsubsection.6.8.1.1}%
+\contentsline {subsubsection}{\numberline {6.8.1.2}assign()}{31}{subsubsection.6.8.1.2}%
+\contentsline {subsubsection}{\numberline {6.8.1.3}free()}{31}{subsubsection.6.8.1.3}%
+\contentsline {subsubsection}{\numberline {6.8.1.4}handle()}{31}{subsubsection.6.8.1.4}%
+\contentsline {subsubsection}{\numberline {6.8.1.5}post()}{31}{subsubsection.6.8.1.5}%
+\contentsline {subsubsection}{\numberline {6.8.1.6}postKeyPressed()}{31}{subsubsection.6.8.1.6}%
+\contentsline {subsubsection}{\numberline {6.8.1.7}postKeyReleased()}{31}{subsubsection.6.8.1.7}%
+\contentsline {subsubsection}{\numberline {6.8.1.8}postKeyTyped()}{31}{subsubsection.6.8.1.8}%
+\contentsline {subsubsection}{\numberline {6.8.1.9}postPointerClicked()}{32}{subsubsection.6.8.1.9}%
+\contentsline {subsubsection}{\numberline {6.8.1.10}postPointerEntered()}{32}{subsubsection.6.8.1.10}%
+\contentsline {subsubsection}{\numberline {6.8.1.11}postPointerExited()}{32}{subsubsection.6.8.1.11}%
+\contentsline {subsubsection}{\numberline {6.8.1.12}postPointerMoved()}{32}{subsubsection.6.8.1.12}%
+\contentsline {subsubsection}{\numberline {6.8.1.13}postPointerPressed()}{32}{subsubsection.6.8.1.13}%
+\contentsline {subsubsection}{\numberline {6.8.1.14}postPointerReleased()}{32}{subsubsection.6.8.1.14}%
+\contentsline {subsubsection}{\numberline {6.8.1.15}postSurfaceCloseRequest()}{32}{subsubsection.6.8.1.15}%
+\contentsline {subsubsection}{\numberline {6.8.1.16}postSurfaceResized()}{33}{subsubsection.6.8.1.16}%
+\contentsline {subsubsection}{\numberline {6.8.1.17}postTaskCommand()}{33}{subsubsection.6.8.1.17}%
+\contentsline {subsubsection}{\numberline {6.8.1.18}update()}{33}{subsubsection.6.8.1.18}%
+\contentsline {subsection}{\numberline {6.8.2}Member Data Documentation}{33}{subsection.6.8.2}%
+\contentsline {subsubsection}{\numberline {6.8.2.1}cache}{33}{subsubsection.6.8.2.1}%
+\contentsline {subsubsection}{\numberline {6.8.2.2}handlers}{33}{subsubsection.6.8.2.2}%
+\contentsline {subsubsection}{\numberline {6.8.2.3}inbox}{33}{subsubsection.6.8.2.3}%
+\contentsline {subsubsection}{\numberline {6.8.2.4}outbox}{33}{subsubsection.6.8.2.4}%
+\contentsline {section}{\numberline {6.9}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Flag Enum Reference}{34}{section.6.9}%
+\contentsline {subsection}{\numberline {6.9.1}Member Data Documentation}{34}{subsection.6.9.1}%
+\contentsline {subsubsection}{\numberline {6.9.1.1}BOX}{34}{subsubsection.6.9.1.1}%
+\contentsline {subsubsection}{\numberline {6.9.1.2}BUTTON}{34}{subsubsection.6.9.1.2}%
+\contentsline {subsubsection}{\numberline {6.9.1.3}CANVAS}{34}{subsubsection.6.9.1.3}%
+\contentsline {subsubsection}{\numberline {6.9.1.4}FRAME}{34}{subsubsection.6.9.1.4}%
+\contentsline {subsubsection}{\numberline {6.9.1.5}HANDLE}{34}{subsubsection.6.9.1.5}%
+\contentsline {subsubsection}{\numberline {6.9.1.6}HIDDEN}{34}{subsubsection.6.9.1.6}%
+\contentsline {subsubsection}{\numberline {6.9.1.7}HOVERED}{34}{subsubsection.6.9.1.7}%
+\contentsline {subsubsection}{\numberline {6.9.1.8}MULTILINE}{35}{subsubsection.6.9.1.8}%
+\contentsline {subsubsection}{\numberline {6.9.1.9}TITLE}{35}{subsubsection.6.9.1.9}%
+\contentsline {section}{\numberline {6.10}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}port.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Graphics Interface Reference}{35}{section.6.10}%
+\contentsline {subsection}{\numberline {6.10.1}Member Function Documentation}{35}{subsection.6.10.1}%
+\contentsline {subsubsection}{\numberline {6.10.1.1}calcMultitext()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{35}{subsubsection.6.10.1.1}%
+\contentsline {subsubsection}{\numberline {6.10.1.2}calcMultitext()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{36}{subsubsection.6.10.1.2}%
+\contentsline {subsubsection}{\numberline {6.10.1.3}color()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{36}{subsubsection.6.10.1.3}%
+\contentsline {subsubsection}{\numberline {6.10.1.4}color()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{36}{subsubsection.6.10.1.4}%
+\contentsline {subsubsection}{\numberline {6.10.1.5}color()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{36}{subsubsection.6.10.1.5}%
+\contentsline {subsubsection}{\numberline {6.10.1.6}mode2D()}{36}{subsubsection.6.10.1.6}%
+\contentsline {subsubsection}{\numberline {6.10.1.7}popTransformation()}{36}{subsubsection.6.10.1.7}%
+\contentsline {subsubsection}{\numberline {6.10.1.8}pushTransformation()}{37}{subsubsection.6.10.1.8}%
+\contentsline {subsubsection}{\numberline {6.10.1.9}rectangle()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{37}{subsubsection.6.10.1.9}%
+\contentsline {subsubsection}{\numberline {6.10.1.10}rectangle()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{37}{subsubsection.6.10.1.10}%
+\contentsline {subsubsection}{\numberline {6.10.1.11}rectangle()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{37}{subsubsection.6.10.1.11}%
+\contentsline {subsubsection}{\numberline {6.10.1.12}text()}{37}{subsubsection.6.10.1.12}%
+\contentsline {subsubsection}{\numberline {6.10.1.13}texture()}{37}{subsubsection.6.10.1.13}%
+\contentsline {subsubsection}{\numberline {6.10.1.14}translate()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{38}{subsubsection.6.10.1.14}%
+\contentsline {subsubsection}{\numberline {6.10.1.15}translate()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{38}{subsubsection.6.10.1.15}%
+\contentsline {section}{\numberline {6.11}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}event.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler Interface Reference}{38}{section.6.11}%
+\contentsline {subsection}{\numberline {6.11.1}Member Function Documentation}{38}{subsection.6.11.1}%
+\contentsline {subsubsection}{\numberline {6.11.1.1}handle()}{38}{subsubsection.6.11.1.1}%
+\contentsline {section}{\numberline {6.12}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handling Class Reference}{38}{section.6.12}%
+\contentsline {subsection}{\numberline {6.12.1}Constructor \& Destructor Documentation}{39}{subsection.6.12.1}%
+\contentsline {subsubsection}{\numberline {6.12.1.1}Handling()}{39}{subsubsection.6.12.1.1}%
+\contentsline {subsection}{\numberline {6.12.2}Member Function Documentation}{39}{subsection.6.12.2}%
+\contentsline {subsubsection}{\numberline {6.12.2.1}assign()}{39}{subsubsection.6.12.2.1}%
+\contentsline {subsubsection}{\numberline {6.12.2.2}buttonClickAction()}{39}{subsubsection.6.12.2.2}%
+\contentsline {subsubsection}{\numberline {6.12.2.3}handleKeyboard()}{39}{subsubsection.6.12.2.3}%
+\contentsline {subsubsection}{\numberline {6.12.2.4}handlePointer()}{40}{subsubsection.6.12.2.4}%
+\contentsline {subsubsection}{\numberline {6.12.2.5}handleSurface()}{40}{subsubsection.6.12.2.5}%
+\contentsline {subsubsection}{\numberline {6.12.2.6}hovered()}{40}{subsubsection.6.12.2.6}%
+\contentsline {subsubsection}{\numberline {6.12.2.7}pressedFrameToFront()}{40}{subsubsection.6.12.2.7}%
+\contentsline {subsubsection}{\numberline {6.12.2.8}startFrameDragAction()}{40}{subsubsection.6.12.2.8}%
+\contentsline {subsubsection}{\numberline {6.12.2.9}startFrameSizeAction()}{40}{subsubsection.6.12.2.9}%
+\contentsline {subsubsection}{\numberline {6.12.2.10}startScrollHandleAction()}{40}{subsubsection.6.12.2.10}%
+\contentsline {subsubsection}{\numberline {6.12.2.11}stopDragAction()}{40}{subsubsection.6.12.2.11}%
+\contentsline {subsubsection}{\numberline {6.12.2.12}updateActionState()}{41}{subsubsection.6.12.2.12}%
+\contentsline {subsubsection}{\numberline {6.12.2.13}updateDragAction()}{41}{subsubsection.6.12.2.13}%
+\contentsline {subsection}{\numberline {6.12.3}Member Data Documentation}{41}{subsection.6.12.3}%
+\contentsline {subsubsection}{\numberline {6.12.3.1}action}{41}{subsubsection.6.12.3.1}%
+\contentsline {subsubsection}{\numberline {6.12.3.2}dragged}{41}{subsubsection.6.12.3.2}%
+\contentsline {subsubsection}{\numberline {6.12.3.3}events}{41}{subsubsection.6.12.3.3}%
+\contentsline {subsubsection}{\numberline {6.12.3.4}hovered}{41}{subsubsection.6.12.3.4}%
+\contentsline {subsubsection}{\numberline {6.12.3.5}ref}{41}{subsubsection.6.12.3.5}%
+\contentsline {subsubsection}{\numberline {6.12.3.6}tmp}{41}{subsubsection.6.12.3.6}%
+\contentsline {subsubsection}{\numberline {6.12.3.7}widgets}{41}{subsubsection.6.12.3.7}%
+\contentsline {section}{\numberline {6.13}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}port.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}jogl.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JOGLEvent\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Listener Class Reference}{42}{section.6.13}%
+\contentsline {subsection}{\numberline {6.13.1}Member Function Documentation}{42}{subsection.6.13.1}%
+\contentsline {subsubsection}{\numberline {6.13.1.1}assign()}{42}{subsubsection.6.13.1.1}%
+\contentsline {subsubsection}{\numberline {6.13.1.2}handleSurfaceCloseRequest()}{43}{subsubsection.6.13.1.2}%
+\contentsline {subsubsection}{\numberline {6.13.1.3}keyPressed()}{43}{subsubsection.6.13.1.3}%
+\contentsline {subsubsection}{\numberline {6.13.1.4}keyReleased()}{43}{subsubsection.6.13.1.4}%
+\contentsline {subsubsection}{\numberline {6.13.1.5}mouseClicked()}{43}{subsubsection.6.13.1.5}%
+\contentsline {subsubsection}{\numberline {6.13.1.6}mouseDragged()}{43}{subsubsection.6.13.1.6}%
+\contentsline {subsubsection}{\numberline {6.13.1.7}mouseEntered()}{43}{subsubsection.6.13.1.7}%
+\contentsline {subsubsection}{\numberline {6.13.1.8}mouseExited()}{43}{subsubsection.6.13.1.8}%
+\contentsline {subsubsection}{\numberline {6.13.1.9}mouseMoved()}{43}{subsubsection.6.13.1.9}%
+\contentsline {subsubsection}{\numberline {6.13.1.10}mousePressed()}{43}{subsubsection.6.13.1.10}%
+\contentsline {subsubsection}{\numberline {6.13.1.11}mouseReleased()}{44}{subsubsection.6.13.1.11}%
+\contentsline {subsubsection}{\numberline {6.13.1.12}mouseWheelMoved()}{44}{subsubsection.6.13.1.12}%
+\contentsline {subsubsection}{\numberline {6.13.1.13}translateButton()}{44}{subsubsection.6.13.1.13}%
+\contentsline {subsubsection}{\numberline {6.13.1.14}translateKey()}{44}{subsubsection.6.13.1.14}%
+\contentsline {subsubsection}{\numberline {6.13.1.15}windowDestroyed()}{44}{subsubsection.6.13.1.15}%
+\contentsline {subsubsection}{\numberline {6.13.1.16}windowDestroyNotify()}{44}{subsubsection.6.13.1.16}%
+\contentsline {subsubsection}{\numberline {6.13.1.17}windowGainedFocus()}{44}{subsubsection.6.13.1.17}%
+\contentsline {subsubsection}{\numberline {6.13.1.18}windowLostFocus()}{44}{subsubsection.6.13.1.18}%
+\contentsline {subsubsection}{\numberline {6.13.1.19}windowMoved()}{44}{subsubsection.6.13.1.19}%
+\contentsline {subsubsection}{\numberline {6.13.1.20}windowRepaint()}{45}{subsubsection.6.13.1.20}%
+\contentsline {subsubsection}{\numberline {6.13.1.21}windowResized()}{45}{subsubsection.6.13.1.21}%
+\contentsline {subsection}{\numberline {6.13.2}Member Data Documentation}{45}{subsection.6.13.2}%
+\contentsline {subsubsection}{\numberline {6.13.2.1}events}{45}{subsubsection.6.13.2.1}%
+\contentsline {section}{\numberline {6.14}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}port.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}jogl.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JOGLGraphics Class Reference}{45}{section.6.14}%
+\contentsline {subsection}{\numberline {6.14.1}Member Function Documentation}{46}{subsection.6.14.1}%
+\contentsline {subsubsection}{\numberline {6.14.1.1}assign()}{46}{subsubsection.6.14.1.1}%
+\contentsline {subsubsection}{\numberline {6.14.1.2}calcMultitext()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{46}{subsubsection.6.14.1.2}%
+\contentsline {subsubsection}{\numberline {6.14.1.3}calcMultitext()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{46}{subsubsection.6.14.1.3}%
+\contentsline {subsubsection}{\numberline {6.14.1.4}clear()}{46}{subsubsection.6.14.1.4}%
+\contentsline {subsubsection}{\numberline {6.14.1.5}color()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{46}{subsubsection.6.14.1.5}%
+\contentsline {subsubsection}{\numberline {6.14.1.6}color()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{47}{subsubsection.6.14.1.6}%
+\contentsline {subsubsection}{\numberline {6.14.1.7}color()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{47}{subsubsection.6.14.1.7}%
+\contentsline {subsubsection}{\numberline {6.14.1.8}init()}{47}{subsubsection.6.14.1.8}%
+\contentsline {subsubsection}{\numberline {6.14.1.9}mode2D()}{47}{subsubsection.6.14.1.9}%
+\contentsline {subsubsection}{\numberline {6.14.1.10}mode3D()}{47}{subsubsection.6.14.1.10}%
+\contentsline {subsubsection}{\numberline {6.14.1.11}popTransformation()}{47}{subsubsection.6.14.1.11}%
+\contentsline {subsubsection}{\numberline {6.14.1.12}pushTransformation()}{47}{subsubsection.6.14.1.12}%
+\contentsline {subsubsection}{\numberline {6.14.1.13}rectangle()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{48}{subsubsection.6.14.1.13}%
+\contentsline {subsubsection}{\numberline {6.14.1.14}rectangle()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{48}{subsubsection.6.14.1.14}%
+\contentsline {subsubsection}{\numberline {6.14.1.15}rectangle()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{48}{subsubsection.6.14.1.15}%
+\contentsline {subsubsection}{\numberline {6.14.1.16}text()}{48}{subsubsection.6.14.1.16}%
+\contentsline {subsubsection}{\numberline {6.14.1.17}texture()}{48}{subsubsection.6.14.1.17}%
+\contentsline {subsubsection}{\numberline {6.14.1.18}translate()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{49}{subsubsection.6.14.1.18}%
+\contentsline {subsubsection}{\numberline {6.14.1.19}translate()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{49}{subsubsection.6.14.1.19}%
+\contentsline {subsection}{\numberline {6.14.2}Member Data Documentation}{49}{subsection.6.14.2}%
+\contentsline {subsubsection}{\numberline {6.14.2.1}drawable}{49}{subsubsection.6.14.2.1}%
+\contentsline {subsubsection}{\numberline {6.14.2.2}fonts}{49}{subsubsection.6.14.2.2}%
+\contentsline {subsubsection}{\numberline {6.14.2.3}gl}{49}{subsubsection.6.14.2.3}%
+\contentsline {subsubsection}{\numberline {6.14.2.4}glu}{49}{subsubsection.6.14.2.4}%
+\contentsline {subsubsection}{\numberline {6.14.2.5}textures}{49}{subsubsection.6.14.2.5}%
+\contentsline {section}{\numberline {6.15}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}port.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}jogl.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JOGLPort Class Reference}{50}{section.6.15}%
+\contentsline {subsection}{\numberline {6.15.1}Member Function Documentation}{50}{subsection.6.15.1}%
+\contentsline {subsubsection}{\numberline {6.15.1.1}add()}{50}{subsubsection.6.15.1.1}%
+\contentsline {subsubsection}{\numberline {6.15.1.2}assign()}{50}{subsubsection.6.15.1.2}%
+\contentsline {subsubsection}{\numberline {6.15.1.3}create()}{51}{subsubsection.6.15.1.3}%
+\contentsline {subsubsection}{\numberline {6.15.1.4}fullscreen()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{51}{subsubsection.6.15.1.4}%
+\contentsline {subsubsection}{\numberline {6.15.1.5}fullscreen()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{51}{subsubsection.6.15.1.5}%
+\contentsline {subsubsection}{\numberline {6.15.1.6}get()}{51}{subsubsection.6.15.1.6}%
+\contentsline {subsubsection}{\numberline {6.15.1.7}height()}{51}{subsubsection.6.15.1.7}%
+\contentsline {subsubsection}{\numberline {6.15.1.8}maximized()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{51}{subsubsection.6.15.1.8}%
+\contentsline {subsubsection}{\numberline {6.15.1.9}maximized()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{51}{subsubsection.6.15.1.9}%
+\contentsline {subsubsection}{\numberline {6.15.1.10}render()}{51}{subsubsection.6.15.1.10}%
+\contentsline {subsubsection}{\numberline {6.15.1.11}size()}{52}{subsubsection.6.15.1.11}%
+\contentsline {subsubsection}{\numberline {6.15.1.12}title()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{52}{subsubsection.6.15.1.12}%
+\contentsline {subsubsection}{\numberline {6.15.1.13}title()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{52}{subsubsection.6.15.1.13}%
+\contentsline {subsubsection}{\numberline {6.15.1.14}visible()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{52}{subsubsection.6.15.1.14}%
+\contentsline {subsubsection}{\numberline {6.15.1.15}visible()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{52}{subsubsection.6.15.1.15}%
+\contentsline {subsubsection}{\numberline {6.15.1.16}width()}{52}{subsubsection.6.15.1.16}%
+\contentsline {subsection}{\numberline {6.15.2}Member Data Documentation}{52}{subsection.6.15.2}%
+\contentsline {subsubsection}{\numberline {6.15.2.1}eventListener}{52}{subsubsection.6.15.2.1}%
+\contentsline {subsubsection}{\numberline {6.15.2.2}renderables}{53}{subsubsection.6.15.2.2}%
+\contentsline {subsubsection}{\numberline {6.15.2.3}renderables\_ro}{53}{subsubsection.6.15.2.3}%
+\contentsline {subsubsection}{\numberline {6.15.2.4}renderListener}{53}{subsubsection.6.15.2.4}%
+\contentsline {subsubsection}{\numberline {6.15.2.5}window}{53}{subsubsection.6.15.2.5}%
+\contentsline {section}{\numberline {6.16}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}port.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}jogl.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JOGLRender\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Listener Class Reference}{53}{section.6.16}%
+\contentsline {subsection}{\numberline {6.16.1}Constructor \& Destructor Documentation}{54}{subsection.6.16.1}%
+\contentsline {subsubsection}{\numberline {6.16.1.1}JOGLRenderListener()}{54}{subsubsection.6.16.1.1}%
+\contentsline {subsection}{\numberline {6.16.2}Member Function Documentation}{54}{subsection.6.16.2}%
+\contentsline {subsubsection}{\numberline {6.16.2.1}display()}{54}{subsubsection.6.16.2.1}%
+\contentsline {subsubsection}{\numberline {6.16.2.2}dispose()}{54}{subsubsection.6.16.2.2}%
+\contentsline {subsubsection}{\numberline {6.16.2.3}init()}{54}{subsubsection.6.16.2.3}%
+\contentsline {subsubsection}{\numberline {6.16.2.4}reshape()}{54}{subsubsection.6.16.2.4}%
+\contentsline {subsection}{\numberline {6.16.3}Member Data Documentation}{54}{subsection.6.16.3}%
+\contentsline {subsubsection}{\numberline {6.16.3.1}graphics}{54}{subsubsection.6.16.3.1}%
+\contentsline {subsubsection}{\numberline {6.16.3.2}port}{54}{subsubsection.6.16.3.2}%
+\contentsline {section}{\numberline {6.17}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}event.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Key Enum Reference}{55}{section.6.17}%
+\contentsline {subsection}{\numberline {6.17.1}Member Data Documentation}{56}{subsection.6.17.1}%
+\contentsline {subsubsection}{\numberline {6.17.1.1}\_0}{56}{subsubsection.6.17.1.1}%
+\contentsline {subsubsection}{\numberline {6.17.1.2}\_1}{56}{subsubsection.6.17.1.2}%
+\contentsline {subsubsection}{\numberline {6.17.1.3}\_2}{57}{subsubsection.6.17.1.3}%
+\contentsline {subsubsection}{\numberline {6.17.1.4}\_3}{57}{subsubsection.6.17.1.4}%
+\contentsline {subsubsection}{\numberline {6.17.1.5}\_4}{57}{subsubsection.6.17.1.5}%
+\contentsline {subsubsection}{\numberline {6.17.1.6}\_5}{57}{subsubsection.6.17.1.6}%
+\contentsline {subsubsection}{\numberline {6.17.1.7}\_6}{57}{subsubsection.6.17.1.7}%
+\contentsline {subsubsection}{\numberline {6.17.1.8}\_7}{57}{subsubsection.6.17.1.8}%
+\contentsline {subsubsection}{\numberline {6.17.1.9}\_8}{57}{subsubsection.6.17.1.9}%
+\contentsline {subsubsection}{\numberline {6.17.1.10}\_9}{57}{subsubsection.6.17.1.10}%
+\contentsline {subsubsection}{\numberline {6.17.1.11}A}{57}{subsubsection.6.17.1.11}%
+\contentsline {subsubsection}{\numberline {6.17.1.12}ADD}{57}{subsubsection.6.17.1.12}%
+\contentsline {subsubsection}{\numberline {6.17.1.13}ALT}{58}{subsubsection.6.17.1.13}%
+\contentsline {subsubsection}{\numberline {6.17.1.14}B}{58}{subsubsection.6.17.1.14}%
+\contentsline {subsubsection}{\numberline {6.17.1.15}BACK\_SPACE}{58}{subsubsection.6.17.1.15}%
+\contentsline {subsubsection}{\numberline {6.17.1.16}C}{58}{subsubsection.6.17.1.16}%
+\contentsline {subsubsection}{\numberline {6.17.1.17}CAPS\_LOCK}{58}{subsubsection.6.17.1.17}%
+\contentsline {subsubsection}{\numberline {6.17.1.18}CONTROL}{58}{subsubsection.6.17.1.18}%
+\contentsline {subsubsection}{\numberline {6.17.1.19}D}{58}{subsubsection.6.17.1.19}%
+\contentsline {subsubsection}{\numberline {6.17.1.20}DECIMAL}{58}{subsubsection.6.17.1.20}%
+\contentsline {subsubsection}{\numberline {6.17.1.21}DELETE}{58}{subsubsection.6.17.1.21}%
+\contentsline {subsubsection}{\numberline {6.17.1.22}DIVIDE}{58}{subsubsection.6.17.1.22}%
+\contentsline {subsubsection}{\numberline {6.17.1.23}DOWN}{59}{subsubsection.6.17.1.23}%
+\contentsline {subsubsection}{\numberline {6.17.1.24}E}{59}{subsubsection.6.17.1.24}%
+\contentsline {subsubsection}{\numberline {6.17.1.25}END}{59}{subsubsection.6.17.1.25}%
+\contentsline {subsubsection}{\numberline {6.17.1.26}ENTER}{59}{subsubsection.6.17.1.26}%
+\contentsline {subsubsection}{\numberline {6.17.1.27}ESCAPE}{59}{subsubsection.6.17.1.27}%
+\contentsline {subsubsection}{\numberline {6.17.1.28}F}{59}{subsubsection.6.17.1.28}%
+\contentsline {subsubsection}{\numberline {6.17.1.29}F1}{59}{subsubsection.6.17.1.29}%
+\contentsline {subsubsection}{\numberline {6.17.1.30}F10}{59}{subsubsection.6.17.1.30}%
+\contentsline {subsubsection}{\numberline {6.17.1.31}F11}{59}{subsubsection.6.17.1.31}%
+\contentsline {subsubsection}{\numberline {6.17.1.32}F12}{59}{subsubsection.6.17.1.32}%
+\contentsline {subsubsection}{\numberline {6.17.1.33}F2}{60}{subsubsection.6.17.1.33}%
+\contentsline {subsubsection}{\numberline {6.17.1.34}F3}{60}{subsubsection.6.17.1.34}%
+\contentsline {subsubsection}{\numberline {6.17.1.35}F4}{60}{subsubsection.6.17.1.35}%
+\contentsline {subsubsection}{\numberline {6.17.1.36}F5}{60}{subsubsection.6.17.1.36}%
+\contentsline {subsubsection}{\numberline {6.17.1.37}F6}{60}{subsubsection.6.17.1.37}%
+\contentsline {subsubsection}{\numberline {6.17.1.38}F7}{60}{subsubsection.6.17.1.38}%
+\contentsline {subsubsection}{\numberline {6.17.1.39}F8}{60}{subsubsection.6.17.1.39}%
+\contentsline {subsubsection}{\numberline {6.17.1.40}F9}{60}{subsubsection.6.17.1.40}%
+\contentsline {subsubsection}{\numberline {6.17.1.41}G}{60}{subsubsection.6.17.1.41}%
+\contentsline {subsubsection}{\numberline {6.17.1.42}H}{60}{subsubsection.6.17.1.42}%
+\contentsline {subsubsection}{\numberline {6.17.1.43}I}{61}{subsubsection.6.17.1.43}%
+\contentsline {subsubsection}{\numberline {6.17.1.44}INSERT}{61}{subsubsection.6.17.1.44}%
+\contentsline {subsubsection}{\numberline {6.17.1.45}J}{61}{subsubsection.6.17.1.45}%
+\contentsline {subsubsection}{\numberline {6.17.1.46}K}{61}{subsubsection.6.17.1.46}%
+\contentsline {subsubsection}{\numberline {6.17.1.47}L}{61}{subsubsection.6.17.1.47}%
+\contentsline {subsubsection}{\numberline {6.17.1.48}LEFT}{61}{subsubsection.6.17.1.48}%
+\contentsline {subsubsection}{\numberline {6.17.1.49}M}{61}{subsubsection.6.17.1.49}%
+\contentsline {subsubsection}{\numberline {6.17.1.50}MENU}{61}{subsubsection.6.17.1.50}%
+\contentsline {subsubsection}{\numberline {6.17.1.51}MINUS}{61}{subsubsection.6.17.1.51}%
+\contentsline {subsubsection}{\numberline {6.17.1.52}MULTIPLY}{61}{subsubsection.6.17.1.52}%
+\contentsline {subsubsection}{\numberline {6.17.1.53}N}{62}{subsubsection.6.17.1.53}%
+\contentsline {subsubsection}{\numberline {6.17.1.54}NONE}{62}{subsubsection.6.17.1.54}%
+\contentsline {subsubsection}{\numberline {6.17.1.55}NP\_0}{62}{subsubsection.6.17.1.55}%
+\contentsline {subsubsection}{\numberline {6.17.1.56}NP\_1}{62}{subsubsection.6.17.1.56}%
+\contentsline {subsubsection}{\numberline {6.17.1.57}NP\_2}{62}{subsubsection.6.17.1.57}%
+\contentsline {subsubsection}{\numberline {6.17.1.58}NP\_3}{62}{subsubsection.6.17.1.58}%
+\contentsline {subsubsection}{\numberline {6.17.1.59}NP\_4}{62}{subsubsection.6.17.1.59}%
+\contentsline {subsubsection}{\numberline {6.17.1.60}NP\_5}{62}{subsubsection.6.17.1.60}%
+\contentsline {subsubsection}{\numberline {6.17.1.61}NP\_6}{62}{subsubsection.6.17.1.61}%
+\contentsline {subsubsection}{\numberline {6.17.1.62}NP\_7}{62}{subsubsection.6.17.1.62}%
+\contentsline {subsubsection}{\numberline {6.17.1.63}NP\_8}{63}{subsubsection.6.17.1.63}%
+\contentsline {subsubsection}{\numberline {6.17.1.64}NP\_9}{63}{subsubsection.6.17.1.64}%
+\contentsline {subsubsection}{\numberline {6.17.1.65}NUM\_LOCK}{63}{subsubsection.6.17.1.65}%
+\contentsline {subsubsection}{\numberline {6.17.1.66}O}{63}{subsubsection.6.17.1.66}%
+\contentsline {subsubsection}{\numberline {6.17.1.67}P}{63}{subsubsection.6.17.1.67}%
+\contentsline {subsubsection}{\numberline {6.17.1.68}PAGE\_DOWN}{63}{subsubsection.6.17.1.68}%
+\contentsline {subsubsection}{\numberline {6.17.1.69}PAGE\_UP}{63}{subsubsection.6.17.1.69}%
+\contentsline {subsubsection}{\numberline {6.17.1.70}PAUSE}{63}{subsubsection.6.17.1.70}%
+\contentsline {subsubsection}{\numberline {6.17.1.71}PLUS}{63}{subsubsection.6.17.1.71}%
+\contentsline {subsubsection}{\numberline {6.17.1.72}POS1}{63}{subsubsection.6.17.1.72}%
+\contentsline {subsubsection}{\numberline {6.17.1.73}PRINT\_SCREEN}{64}{subsubsection.6.17.1.73}%
+\contentsline {subsubsection}{\numberline {6.17.1.74}Q}{64}{subsubsection.6.17.1.74}%
+\contentsline {subsubsection}{\numberline {6.17.1.75}R}{64}{subsubsection.6.17.1.75}%
+\contentsline {subsubsection}{\numberline {6.17.1.76}RIGHT}{64}{subsubsection.6.17.1.76}%
+\contentsline {subsubsection}{\numberline {6.17.1.77}S}{64}{subsubsection.6.17.1.77}%
+\contentsline {subsubsection}{\numberline {6.17.1.78}SCROLL\_LOCK}{64}{subsubsection.6.17.1.78}%
+\contentsline {subsubsection}{\numberline {6.17.1.79}SHIFT}{64}{subsubsection.6.17.1.79}%
+\contentsline {subsubsection}{\numberline {6.17.1.80}SPACE}{64}{subsubsection.6.17.1.80}%
+\contentsline {subsubsection}{\numberline {6.17.1.81}SUBTRACT}{64}{subsubsection.6.17.1.81}%
+\contentsline {subsubsection}{\numberline {6.17.1.82}SYSTEM}{64}{subsubsection.6.17.1.82}%
+\contentsline {subsubsection}{\numberline {6.17.1.83}T}{65}{subsubsection.6.17.1.83}%
+\contentsline {subsubsection}{\numberline {6.17.1.84}TAB}{65}{subsubsection.6.17.1.84}%
+\contentsline {subsubsection}{\numberline {6.17.1.85}U}{65}{subsubsection.6.17.1.85}%
+\contentsline {subsubsection}{\numberline {6.17.1.86}UP}{65}{subsubsection.6.17.1.86}%
+\contentsline {subsubsection}{\numberline {6.17.1.87}V}{65}{subsubsection.6.17.1.87}%
+\contentsline {subsubsection}{\numberline {6.17.1.88}W}{65}{subsubsection.6.17.1.88}%
+\contentsline {subsubsection}{\numberline {6.17.1.89}X}{65}{subsubsection.6.17.1.89}%
+\contentsline {subsubsection}{\numberline {6.17.1.90}Y}{65}{subsubsection.6.17.1.90}%
+\contentsline {subsubsection}{\numberline {6.17.1.91}Z}{65}{subsubsection.6.17.1.91}%
+\contentsline {section}{\numberline {6.18}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}log.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Level Enum Reference}{66}{section.6.18}%
+\contentsline {subsection}{\numberline {6.18.1}Member Data Documentation}{66}{subsection.6.18.1}%
+\contentsline {subsubsection}{\numberline {6.18.1.1}DEBUG}{66}{subsubsection.6.18.1.1}%
+\contentsline {subsubsection}{\numberline {6.18.1.2}ERROR}{66}{subsubsection.6.18.1.2}%
+\contentsline {subsubsection}{\numberline {6.18.1.3}INFO}{66}{subsubsection.6.18.1.3}%
+\contentsline {subsubsection}{\numberline {6.18.1.4}WARNING}{66}{subsubsection.6.18.1.4}%
+\contentsline {section}{\numberline {6.19}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}log.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Log Class Reference}{66}{section.6.19}%
+\contentsline {subsection}{\numberline {6.19.1}Constructor \& Destructor Documentation}{67}{subsection.6.19.1}%
+\contentsline {subsubsection}{\numberline {6.19.1.1}Log()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{67}{subsubsection.6.19.1.1}%
+\contentsline {subsubsection}{\numberline {6.19.1.2}Log()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{67}{subsubsection.6.19.1.2}%
+\contentsline {subsection}{\numberline {6.19.2}Member Function Documentation}{67}{subsection.6.19.2}%
+\contentsline {subsubsection}{\numberline {6.19.2.1}clear()}{67}{subsubsection.6.19.2.1}%
+\contentsline {subsubsection}{\numberline {6.19.2.2}configure()}{68}{subsubsection.6.19.2.2}%
+\contentsline {subsubsection}{\numberline {6.19.2.3}debug()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{68}{subsubsection.6.19.2.3}%
+\contentsline {subsubsection}{\numberline {6.19.2.4}debug()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{68}{subsubsection.6.19.2.4}%
+\contentsline {subsubsection}{\numberline {6.19.2.5}disable()}{68}{subsubsection.6.19.2.5}%
+\contentsline {subsubsection}{\numberline {6.19.2.6}enable()}{68}{subsubsection.6.19.2.6}%
+\contentsline {subsubsection}{\numberline {6.19.2.7}error()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{68}{subsubsection.6.19.2.7}%
+\contentsline {subsubsection}{\numberline {6.19.2.8}error()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{68}{subsubsection.6.19.2.8}%
+\contentsline {subsubsection}{\numberline {6.19.2.9}format()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{68}{subsubsection.6.19.2.9}%
+\contentsline {subsubsection}{\numberline {6.19.2.10}format()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{69}{subsubsection.6.19.2.10}%
+\contentsline {subsubsection}{\numberline {6.19.2.11}get()}{69}{subsubsection.6.19.2.11}%
+\contentsline {subsubsection}{\numberline {6.19.2.12}info()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{69}{subsubsection.6.19.2.12}%
+\contentsline {subsubsection}{\numberline {6.19.2.13}info()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{69}{subsubsection.6.19.2.13}%
+\contentsline {subsubsection}{\numberline {6.19.2.14}log()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{69}{subsubsection.6.19.2.14}%
+\contentsline {subsubsection}{\numberline {6.19.2.15}log()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{69}{subsubsection.6.19.2.15}%
+\contentsline {subsubsection}{\numberline {6.19.2.16}trace()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{69}{subsubsection.6.19.2.16}%
+\contentsline {subsubsection}{\numberline {6.19.2.17}trace()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{69}{subsubsection.6.19.2.17}%
+\contentsline {subsubsection}{\numberline {6.19.2.18}warn()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{70}{subsubsection.6.19.2.18}%
+\contentsline {subsubsection}{\numberline {6.19.2.19}warn()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{70}{subsubsection.6.19.2.19}%
+\contentsline {subsubsection}{\numberline {6.19.2.20}write()}{70}{subsubsection.6.19.2.20}%
+\contentsline {subsection}{\numberline {6.19.3}Member Data Documentation}{70}{subsection.6.19.3}%
+\contentsline {subsubsection}{\numberline {6.19.3.1}format}{70}{subsubsection.6.19.3.1}%
+\contentsline {subsubsection}{\numberline {6.19.3.2}levels}{70}{subsubsection.6.19.3.2}%
+\contentsline {subsubsection}{\numberline {6.19.3.3}map}{70}{subsubsection.6.19.3.3}%
+\contentsline {subsubsection}{\numberline {6.19.3.4}trace}{70}{subsubsection.6.19.3.4}%
+\contentsline {section}{\numberline {6.20}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Multiline Class Reference}{71}{section.6.20}%
+\contentsline {subsection}{\numberline {6.20.1}Constructor \& Destructor Documentation}{72}{subsection.6.20.1}%
+\contentsline {subsubsection}{\numberline {6.20.1.1}Multiline()}{72}{subsubsection.6.20.1.1}%
+\contentsline {subsection}{\numberline {6.20.2}Member Function Documentation}{72}{subsection.6.20.2}%
+\contentsline {subsubsection}{\numberline {6.20.2.1}assign()}{72}{subsubsection.6.20.2.1}%
+\contentsline {subsubsection}{\numberline {6.20.2.2}buffer()}{72}{subsubsection.6.20.2.2}%
+\contentsline {subsubsection}{\numberline {6.20.2.3}count()}{72}{subsubsection.6.20.2.3}%
+\contentsline {subsubsection}{\numberline {6.20.2.4}create()}{72}{subsubsection.6.20.2.4}%
+\contentsline {subsubsection}{\numberline {6.20.2.5}down()}{73}{subsubsection.6.20.2.5}%
+\contentsline {subsubsection}{\numberline {6.20.2.6}line()}{73}{subsubsection.6.20.2.6}%
+\contentsline {subsubsection}{\numberline {6.20.2.7}lineHeight()}{73}{subsubsection.6.20.2.7}%
+\contentsline {subsubsection}{\numberline {6.20.2.8}offset()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{73}{subsubsection.6.20.2.8}%
+\contentsline {subsubsection}{\numberline {6.20.2.9}offset()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{73}{subsubsection.6.20.2.9}%
+\contentsline {subsubsection}{\numberline {6.20.2.10}page()}{73}{subsubsection.6.20.2.10}%
+\contentsline {subsubsection}{\numberline {6.20.2.11}rescale()}{73}{subsubsection.6.20.2.11}%
+\contentsline {subsubsection}{\numberline {6.20.2.12}text()}{73}{subsubsection.6.20.2.12}%
+\contentsline {subsubsection}{\numberline {6.20.2.13}up()}{73}{subsubsection.6.20.2.13}%
+\contentsline {subsubsection}{\numberline {6.20.2.14}update()}{74}{subsubsection.6.20.2.14}%
+\contentsline {subsection}{\numberline {6.20.3}Member Data Documentation}{74}{subsection.6.20.3}%
+\contentsline {subsubsection}{\numberline {6.20.3.1}buffer}{74}{subsubsection.6.20.3.1}%
+\contentsline {subsubsection}{\numberline {6.20.3.2}offset}{74}{subsubsection.6.20.3.2}%
+\contentsline {subsubsection}{\numberline {6.20.3.3}scroller}{74}{subsubsection.6.20.3.3}%
+\contentsline {section}{\numberline {6.21}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}port.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Port Interface Reference}{74}{section.6.21}%
+\contentsline {subsection}{\numberline {6.21.1}Member Function Documentation}{75}{subsection.6.21.1}%
+\contentsline {subsubsection}{\numberline {6.21.1.1}add()}{75}{subsubsection.6.21.1.1}%
+\contentsline {subsubsection}{\numberline {6.21.1.2}assign()}{75}{subsubsection.6.21.1.2}%
+\contentsline {subsubsection}{\numberline {6.21.1.3}create()}{75}{subsubsection.6.21.1.3}%
+\contentsline {subsubsection}{\numberline {6.21.1.4}fullscreen()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{75}{subsubsection.6.21.1.4}%
+\contentsline {subsubsection}{\numberline {6.21.1.5}fullscreen()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{75}{subsubsection.6.21.1.5}%
+\contentsline {subsubsection}{\numberline {6.21.1.6}height()}{75}{subsubsection.6.21.1.6}%
+\contentsline {subsubsection}{\numberline {6.21.1.7}maximized()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{75}{subsubsection.6.21.1.7}%
+\contentsline {subsubsection}{\numberline {6.21.1.8}maximized()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{76}{subsubsection.6.21.1.8}%
+\contentsline {subsubsection}{\numberline {6.21.1.9}render()}{76}{subsubsection.6.21.1.9}%
+\contentsline {subsubsection}{\numberline {6.21.1.10}size()}{76}{subsubsection.6.21.1.10}%
+\contentsline {subsubsection}{\numberline {6.21.1.11}title()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{76}{subsubsection.6.21.1.11}%
+\contentsline {subsubsection}{\numberline {6.21.1.12}title()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{76}{subsubsection.6.21.1.12}%
+\contentsline {subsubsection}{\numberline {6.21.1.13}visible()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{76}{subsubsection.6.21.1.13}%
+\contentsline {subsubsection}{\numberline {6.21.1.14}visible()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{76}{subsubsection.6.21.1.14}%
+\contentsline {subsubsection}{\numberline {6.21.1.15}width()}{77}{subsubsection.6.21.1.15}%
+\contentsline {section}{\numberline {6.22}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}port.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Renderable Interface Reference}{77}{section.6.22}%
+\contentsline {subsection}{\numberline {6.22.1}Member Function Documentation}{77}{subsection.6.22.1}%
+\contentsline {subsubsection}{\numberline {6.22.1.1}render()}{77}{subsubsection.6.22.1.1}%
+\contentsline {section}{\numberline {6.23}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Rendering Class Reference}{77}{section.6.23}%
+\contentsline {subsection}{\numberline {6.23.1}Constructor \& Destructor Documentation}{78}{subsection.6.23.1}%
+\contentsline {subsubsection}{\numberline {6.23.1.1}Rendering()}{78}{subsubsection.6.23.1.1}%
+\contentsline {subsection}{\numberline {6.23.2}Member Function Documentation}{78}{subsection.6.23.2}%
+\contentsline {subsubsection}{\numberline {6.23.2.1}render()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{78}{subsubsection.6.23.2.1}%
+\contentsline {subsubsection}{\numberline {6.23.2.2}render()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{78}{subsubsection.6.23.2.2}%
+\contentsline {subsubsection}{\numberline {6.23.2.3}renderChildren()}{78}{subsubsection.6.23.2.3}%
+\contentsline {subsubsection}{\numberline {6.23.2.4}renderWidget()}{78}{subsubsection.6.23.2.4}%
+\contentsline {subsection}{\numberline {6.23.3}Member Data Documentation}{78}{subsection.6.23.3}%
+\contentsline {subsubsection}{\numberline {6.23.3.1}widgets}{78}{subsubsection.6.23.3.1}%
+\contentsline {section}{\numberline {6.24}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}clock.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Task Interface Reference}{79}{section.6.24}%
+\contentsline {subsection}{\numberline {6.24.1}Member Function Documentation}{79}{subsection.6.24.1}%
+\contentsline {subsubsection}{\numberline {6.24.1.1}run()}{79}{subsubsection.6.24.1.1}%
+\contentsline {section}{\numberline {6.25}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}task.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Task Interface Reference}{79}{section.6.25}%
+\contentsline {subsection}{\numberline {6.25.1}Member Function Documentation}{79}{subsection.6.25.1}%
+\contentsline {subsubsection}{\numberline {6.25.1.1}perform()}{79}{subsubsection.6.25.1.1}%
+\contentsline {section}{\numberline {6.26}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}task.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tasks Class Reference}{79}{section.6.26}%
+\contentsline {subsection}{\numberline {6.26.1}Constructor \& Destructor Documentation}{80}{subsection.6.26.1}%
+\contentsline {subsubsection}{\numberline {6.26.1.1}Tasks()}{80}{subsubsection.6.26.1.1}%
+\contentsline {subsection}{\numberline {6.26.2}Member Function Documentation}{80}{subsection.6.26.2}%
+\contentsline {subsubsection}{\numberline {6.26.2.1}assign()\hspace {0.1cm}{\footnotesize \ttfamily [1/4]}}{80}{subsubsection.6.26.2.1}%
+\contentsline {subsubsection}{\numberline {6.26.2.2}assign()\hspace {0.1cm}{\footnotesize \ttfamily [2/4]}}{80}{subsubsection.6.26.2.2}%
+\contentsline {subsubsection}{\numberline {6.26.2.3}assign()\hspace {0.1cm}{\footnotesize \ttfamily [3/4]}}{80}{subsubsection.6.26.2.3}%
+\contentsline {subsubsection}{\numberline {6.26.2.4}assign()\hspace {0.1cm}{\footnotesize \ttfamily [4/4]}}{80}{subsubsection.6.26.2.4}%
+\contentsline {subsubsection}{\numberline {6.26.2.5}construct()}{81}{subsubsection.6.26.2.5}%
+\contentsline {subsubsection}{\numberline {6.26.2.6}handleEvent()}{81}{subsubsection.6.26.2.6}%
+\contentsline {subsubsection}{\numberline {6.26.2.7}perform()}{81}{subsubsection.6.26.2.7}%
+\contentsline {subsubsection}{\numberline {6.26.2.8}put()}{81}{subsubsection.6.26.2.8}%
+\contentsline {subsubsection}{\numberline {6.26.2.9}shutdown()}{81}{subsubsection.6.26.2.9}%
+\contentsline {subsubsection}{\numberline {6.26.2.10}toggleFullscreen()}{81}{subsubsection.6.26.2.10}%
+\contentsline {subsubsection}{\numberline {6.26.2.11}update()}{81}{subsubsection.6.26.2.11}%
+\contentsline {subsection}{\numberline {6.26.3}Member Data Documentation}{81}{subsection.6.26.3}%
+\contentsline {subsubsection}{\numberline {6.26.3.1}client}{81}{subsubsection.6.26.3.1}%
+\contentsline {subsubsection}{\numberline {6.26.3.2}inbox}{81}{subsubsection.6.26.3.2}%
+\contentsline {subsubsection}{\numberline {6.26.3.3}outbox}{82}{subsubsection.6.26.3.3}%
+\contentsline {subsubsection}{\numberline {6.26.3.4}port}{82}{subsubsection.6.26.3.4}%
+\contentsline {subsubsection}{\numberline {6.26.3.5}tasks}{82}{subsubsection.6.26.3.5}%
+\contentsline {section}{\numberline {6.27}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}event.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type Enum Reference}{82}{section.6.27}%
+\contentsline {subsection}{\numberline {6.27.1}Member Data Documentation}{82}{subsection.6.27.1}%
+\contentsline {subsubsection}{\numberline {6.27.1.1}KEY\_PRESSED}{82}{subsubsection.6.27.1.1}%
+\contentsline {subsubsection}{\numberline {6.27.1.2}KEY\_RELEASED}{82}{subsubsection.6.27.1.2}%
+\contentsline {subsubsection}{\numberline {6.27.1.3}KEY\_TYPED}{83}{subsubsection.6.27.1.3}%
+\contentsline {subsubsection}{\numberline {6.27.1.4}NONE}{83}{subsubsection.6.27.1.4}%
+\contentsline {subsubsection}{\numberline {6.27.1.5}POINTER\_CLICKED}{83}{subsubsection.6.27.1.5}%
+\contentsline {subsubsection}{\numberline {6.27.1.6}POINTER\_ENTERED}{83}{subsubsection.6.27.1.6}%
+\contentsline {subsubsection}{\numberline {6.27.1.7}POINTER\_EXITED}{83}{subsubsection.6.27.1.7}%
+\contentsline {subsubsection}{\numberline {6.27.1.8}POINTER\_MOVED}{83}{subsubsection.6.27.1.8}%
+\contentsline {subsubsection}{\numberline {6.27.1.9}POINTER\_PRESSED}{83}{subsubsection.6.27.1.9}%
+\contentsline {subsubsection}{\numberline {6.27.1.10}POINTER\_RELEASED}{83}{subsubsection.6.27.1.10}%
+\contentsline {subsubsection}{\numberline {6.27.1.11}SURFACE\_CLOSE\_REQUEST}{83}{subsubsection.6.27.1.11}%
+\contentsline {subsubsection}{\numberline {6.27.1.12}SURFACE\_RESIZED}{83}{subsubsection.6.27.1.12}%
+\contentsline {subsubsection}{\numberline {6.27.1.13}TASK\_COMMAND}{84}{subsubsection.6.27.1.13}%
+\contentsline {section}{\numberline {6.28}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Util Class Reference}{84}{section.6.28}%
+\contentsline {subsection}{\numberline {6.28.1}Detailed Description}{84}{subsection.6.28.1}%
+\contentsline {subsection}{\numberline {6.28.2}Member Function Documentation}{84}{subsection.6.28.2}%
+\contentsline {subsubsection}{\numberline {6.28.2.1}readFile()}{84}{subsubsection.6.28.2.1}%
+\contentsline {section}{\numberline {6.29}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}VScroller Class Reference}{85}{section.6.29}%
+\contentsline {subsection}{\numberline {6.29.1}Constructor \& Destructor Documentation}{86}{subsection.6.29.1}%
+\contentsline {subsubsection}{\numberline {6.29.1.1}VScroller()}{86}{subsubsection.6.29.1.1}%
+\contentsline {subsection}{\numberline {6.29.2}Member Function Documentation}{86}{subsection.6.29.2}%
+\contentsline {subsubsection}{\numberline {6.29.2.1}assign()}{86}{subsubsection.6.29.2.1}%
+\contentsline {subsubsection}{\numberline {6.29.2.2}create()}{86}{subsubsection.6.29.2.2}%
+\contentsline {subsubsection}{\numberline {6.29.2.3}handle()}{86}{subsubsection.6.29.2.3}%
+\contentsline {subsubsection}{\numberline {6.29.2.4}set()}{86}{subsubsection.6.29.2.4}%
+\contentsline {subsubsection}{\numberline {6.29.2.5}value()}{87}{subsubsection.6.29.2.5}%
+\contentsline {subsection}{\numberline {6.29.3}Member Data Documentation}{87}{subsection.6.29.3}%
+\contentsline {subsubsection}{\numberline {6.29.3.1}bar}{87}{subsubsection.6.29.3.1}%
+\contentsline {subsubsection}{\numberline {6.29.3.2}btnDn}{87}{subsubsection.6.29.3.2}%
+\contentsline {subsubsection}{\numberline {6.29.3.3}btnUp}{87}{subsubsection.6.29.3.3}%
+\contentsline {subsubsection}{\numberline {6.29.3.4}handle}{87}{subsubsection.6.29.3.4}%
+\contentsline {subsubsection}{\numberline {6.29.3.5}mark}{87}{subsubsection.6.29.3.5}%
+\contentsline {subsubsection}{\numberline {6.29.3.6}page}{87}{subsubsection.6.29.3.6}%
+\contentsline {subsubsection}{\numberline {6.29.3.7}size}{87}{subsubsection.6.29.3.7}%
+\contentsline {subsubsection}{\numberline {6.29.3.8}uuid}{87}{subsubsection.6.29.3.8}%
+\contentsline {section}{\numberline {6.30}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Widget Class Reference}{88}{section.6.30}%
+\contentsline {subsection}{\numberline {6.30.1}Constructor \& Destructor Documentation}{89}{subsection.6.30.1}%
+\contentsline {subsubsection}{\numberline {6.30.1.1}Widget()}{89}{subsubsection.6.30.1.1}%
+\contentsline {subsection}{\numberline {6.30.2}Member Function Documentation}{89}{subsection.6.30.2}%
+\contentsline {subsubsection}{\numberline {6.30.2.1}add()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{89}{subsubsection.6.30.2.1}%
+\contentsline {subsubsection}{\numberline {6.30.2.2}add()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{89}{subsubsection.6.30.2.2}%
+\contentsline {subsubsection}{\numberline {6.30.2.3}children()}{89}{subsubsection.6.30.2.3}%
+\contentsline {subsubsection}{\numberline {6.30.2.4}clear()}{89}{subsubsection.6.30.2.4}%
+\contentsline {subsubsection}{\numberline {6.30.2.5}command()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{89}{subsubsection.6.30.2.5}%
+\contentsline {subsubsection}{\numberline {6.30.2.6}command()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{90}{subsubsection.6.30.2.6}%
+\contentsline {subsubsection}{\numberline {6.30.2.7}dimension()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{90}{subsubsection.6.30.2.7}%
+\contentsline {subsubsection}{\numberline {6.30.2.8}dimension()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{90}{subsubsection.6.30.2.8}%
+\contentsline {subsubsection}{\numberline {6.30.2.9}dimension()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{90}{subsubsection.6.30.2.9}%
+\contentsline {subsubsection}{\numberline {6.30.2.10}dimensionAdd()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{90}{subsubsection.6.30.2.10}%
+\contentsline {subsubsection}{\numberline {6.30.2.11}dimensionAdd()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{90}{subsubsection.6.30.2.11}%
+\contentsline {subsubsection}{\numberline {6.30.2.12}dock()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{90}{subsubsection.6.30.2.12}%
+\contentsline {subsubsection}{\numberline {6.30.2.13}dock()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{90}{subsubsection.6.30.2.13}%
+\contentsline {subsubsection}{\numberline {6.30.2.14}dock()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{91}{subsubsection.6.30.2.14}%
+\contentsline {subsubsection}{\numberline {6.30.2.15}flag()}{91}{subsubsection.6.30.2.15}%
+\contentsline {subsubsection}{\numberline {6.30.2.16}flags()}{91}{subsubsection.6.30.2.16}%
+\contentsline {subsubsection}{\numberline {6.30.2.17}height()}{91}{subsubsection.6.30.2.17}%
+\contentsline {subsubsection}{\numberline {6.30.2.18}image()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{91}{subsubsection.6.30.2.18}%
+\contentsline {subsubsection}{\numberline {6.30.2.19}image()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{91}{subsubsection.6.30.2.19}%
+\contentsline {subsubsection}{\numberline {6.30.2.20}match()}{91}{subsubsection.6.30.2.20}%
+\contentsline {subsubsection}{\numberline {6.30.2.21}parent()}{91}{subsubsection.6.30.2.21}%
+\contentsline {subsubsection}{\numberline {6.30.2.22}parentResized()}{91}{subsubsection.6.30.2.22}%
+\contentsline {subsubsection}{\numberline {6.30.2.23}position()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{92}{subsubsection.6.30.2.23}%
+\contentsline {subsubsection}{\numberline {6.30.2.24}position()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{92}{subsubsection.6.30.2.24}%
+\contentsline {subsubsection}{\numberline {6.30.2.25}position()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{92}{subsubsection.6.30.2.25}%
+\contentsline {subsubsection}{\numberline {6.30.2.26}positionAdd()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{92}{subsubsection.6.30.2.26}%
+\contentsline {subsubsection}{\numberline {6.30.2.27}positionAdd()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{92}{subsubsection.6.30.2.27}%
+\contentsline {subsubsection}{\numberline {6.30.2.28}remove()}{92}{subsubsection.6.30.2.28}%
+\contentsline {subsubsection}{\numberline {6.30.2.29}resized()}{92}{subsubsection.6.30.2.29}%
+\contentsline {subsubsection}{\numberline {6.30.2.30}text()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{92}{subsubsection.6.30.2.30}%
+\contentsline {subsubsection}{\numberline {6.30.2.31}text()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{92}{subsubsection.6.30.2.31}%
+\contentsline {subsubsection}{\numberline {6.30.2.32}toFront()}{93}{subsubsection.6.30.2.32}%
+\contentsline {subsubsection}{\numberline {6.30.2.33}width()}{93}{subsubsection.6.30.2.33}%
+\contentsline {subsubsection}{\numberline {6.30.2.34}x()}{93}{subsubsection.6.30.2.34}%
+\contentsline {subsubsection}{\numberline {6.30.2.35}y()}{93}{subsubsection.6.30.2.35}%
+\contentsline {subsection}{\numberline {6.30.3}Member Data Documentation}{93}{subsection.6.30.3}%
+\contentsline {subsubsection}{\numberline {6.30.3.1}children}{93}{subsubsection.6.30.3.1}%
+\contentsline {subsubsection}{\numberline {6.30.3.2}children\_ro}{93}{subsubsection.6.30.3.2}%
+\contentsline {subsubsection}{\numberline {6.30.3.3}command}{93}{subsubsection.6.30.3.3}%
+\contentsline {subsubsection}{\numberline {6.30.3.4}dimension}{93}{subsubsection.6.30.3.4}%
+\contentsline {subsubsection}{\numberline {6.30.3.5}dock}{93}{subsubsection.6.30.3.5}%
+\contentsline {subsubsection}{\numberline {6.30.3.6}flags}{93}{subsubsection.6.30.3.6}%
+\contentsline {subsubsection}{\numberline {6.30.3.7}flags\_ro}{94}{subsubsection.6.30.3.7}%
+\contentsline {subsubsection}{\numberline {6.30.3.8}image}{94}{subsubsection.6.30.3.8}%
+\contentsline {subsubsection}{\numberline {6.30.3.9}parent}{94}{subsubsection.6.30.3.9}%
+\contentsline {subsubsection}{\numberline {6.30.3.10}position}{94}{subsubsection.6.30.3.10}%
+\contentsline {subsubsection}{\numberline {6.30.3.11}text}{94}{subsubsection.6.30.3.11}%
+\contentsline {section}{\numberline {6.31}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Widgets Class Reference}{94}{section.6.31}%
+\contentsline {subsection}{\numberline {6.31.1}Constructor \& Destructor Documentation}{94}{subsection.6.31.1}%
+\contentsline {subsubsection}{\numberline {6.31.1.1}Widgets()}{94}{subsubsection.6.31.1.1}%
+\contentsline {subsection}{\numberline {6.31.2}Member Function Documentation}{95}{subsection.6.31.2}%
+\contentsline {subsubsection}{\numberline {6.31.2.1}assign()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{95}{subsubsection.6.31.2.1}%
+\contentsline {subsubsection}{\numberline {6.31.2.2}assign()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{95}{subsubsection.6.31.2.2}%
+\contentsline {subsubsection}{\numberline {6.31.2.3}root()}{95}{subsubsection.6.31.2.3}%
+\contentsline {subsection}{\numberline {6.31.3}Member Data Documentation}{95}{subsection.6.31.3}%
+\contentsline {subsubsection}{\numberline {6.31.3.1}handling}{95}{subsubsection.6.31.3.1}%
+\contentsline {subsubsection}{\numberline {6.31.3.2}rendering}{95}{subsubsection.6.31.3.2}%
+\contentsline {subsubsection}{\numberline {6.31.3.3}root}{95}{subsubsection.6.31.3.3}%
+\contentsline {section}{\numberline {6.32}age.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{95}{section.6.32}%
+\contentsline {subsection}{\numberline {6.32.1}Constructor \& Destructor Documentation}{97}{subsection.6.32.1}%
+\contentsline {subsubsection}{\numberline {6.32.1.1}Window()}{97}{subsubsection.6.32.1.1}%
+\contentsline {subsection}{\numberline {6.32.2}Member Function Documentation}{97}{subsection.6.32.2}%
+\contentsline {subsubsection}{\numberline {6.32.2.1}construct()}{97}{subsubsection.6.32.2.1}%
+\contentsline {subsubsection}{\numberline {6.32.2.2}getPage()}{97}{subsubsection.6.32.2.2}%
+\contentsline {subsubsection}{\numberline {6.32.2.3}title()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{97}{subsubsection.6.32.2.3}%
+\contentsline {subsubsection}{\numberline {6.32.2.4}title()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{97}{subsubsection.6.32.2.4}%
+\contentsline {subsection}{\numberline {6.32.3}Member Data Documentation}{97}{subsection.6.32.3}%
+\contentsline {subsubsection}{\numberline {6.32.3.1}close}{97}{subsubsection.6.32.3.1}%
+\contentsline {subsubsection}{\numberline {6.32.3.2}page}{97}{subsubsection.6.32.3.2}%
+\contentsline {subsubsection}{\numberline {6.32.3.3}size}{97}{subsubsection.6.32.3.3}%
+\contentsline {subsubsection}{\numberline {6.32.3.4}title}{97}{subsubsection.6.32.3.4}%
+\contentsline {chapter}{\numberline {7}File Documentation}{99}{chapter.7}%
+\contentsline {section}{\numberline {7.1}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}AGEException.java File Reference}{99}{section.7.1}%
+\contentsline {section}{\numberline {7.2}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client.java File Reference}{99}{section.7.2}%
+\contentsline {section}{\numberline {7.3}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/clock/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Alarm.java File Reference}{99}{section.7.3}%
+\contentsline {section}{\numberline {7.4}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/clock/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Clock.java File Reference}{100}{section.7.4}%
+\contentsline {section}{\numberline {7.5}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/clock/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Task.java File Reference}{100}{section.7.5}%
+\contentsline {section}{\numberline {7.6}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/task/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Task.java File Reference}{100}{section.7.6}%
+\contentsline {section}{\numberline {7.7}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/event/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Button.java File Reference}{100}{section.7.7}%
+\contentsline {section}{\numberline {7.8}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/event/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Event.java File Reference}{101}{section.7.8}%
+\contentsline {section}{\numberline {7.9}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/event/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Events.java File Reference}{101}{section.7.9}%
+\contentsline {section}{\numberline {7.10}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/event/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler.java File Reference}{101}{section.7.10}%
+\contentsline {section}{\numberline {7.11}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/event/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Key.java File Reference}{102}{section.7.11}%
+\contentsline {section}{\numberline {7.12}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/event/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type.java File Reference}{102}{section.7.12}%
+\contentsline {section}{\numberline {7.13}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/gui/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dock.java File Reference}{102}{section.7.13}%
+\contentsline {section}{\numberline {7.14}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/gui/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Flag.java File Reference}{102}{section.7.14}%
+\contentsline {section}{\numberline {7.15}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/gui/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handling.java File Reference}{103}{section.7.15}%
+\contentsline {section}{\numberline {7.16}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/gui/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Multiline.java File Reference}{103}{section.7.16}%
+\contentsline {section}{\numberline {7.17}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/gui/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Rendering.java File Reference}{103}{section.7.17}%
+\contentsline {section}{\numberline {7.18}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/gui/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}VScroller.java File Reference}{103}{section.7.18}%
+\contentsline {section}{\numberline {7.19}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/gui/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Widget.java File Reference}{104}{section.7.19}%
+\contentsline {section}{\numberline {7.20}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/gui/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Widgets.java File Reference}{104}{section.7.20}%
+\contentsline {section}{\numberline {7.21}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/gui/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window.java File Reference}{104}{section.7.21}%
+\contentsline {section}{\numberline {7.22}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/log/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Level.java File Reference}{105}{section.7.22}%
+\contentsline {section}{\numberline {7.23}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/log/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Log.java File Reference}{105}{section.7.23}%
+\contentsline {section}{\numberline {7.24}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/port/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Graphics.java File Reference}{105}{section.7.24}%
+\contentsline {section}{\numberline {7.25}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/port/jogl/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JOGLEvent\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Listener.java File Reference}{105}{section.7.25}%
+\contentsline {section}{\numberline {7.26}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/port/jogl/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JOGLGraphics.java File Reference}{106}{section.7.26}%
+\contentsline {section}{\numberline {7.27}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/port/jogl/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JOGLPort.java File Reference}{106}{section.7.27}%
+\contentsline {section}{\numberline {7.28}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/port/jogl/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JOGLRender\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Listener.java File Reference}{106}{section.7.28}%
+\contentsline {section}{\numberline {7.29}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/port/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Port.java File Reference}{107}{section.7.29}%
+\contentsline {section}{\numberline {7.30}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/port/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Renderable.java File Reference}{107}{section.7.30}%
+\contentsline {section}{\numberline {7.31}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/task/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tasks.java File Reference}{107}{section.7.31}%
+\contentsline {section}{\numberline {7.32}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GIT/repos/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ODE/age/age/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Util.java File Reference}{108}{section.7.32}%
+\contentsline {chapter}{Index}{109}{section*.160}%

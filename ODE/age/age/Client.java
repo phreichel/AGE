@@ -16,21 +16,49 @@ import age.log.Level;
 import age.log.Log;
 
 //*************************************************************************************************
+/**
+ * The AGE Application Client main class.
+ */
 public class Client {
 
 	//=============================================================================================
+	/**
+	 * The schedule clock.
+	 */
 	private Clock clock = new Clock();
+	
+	/**
+	 * The event system, handling and transforming input events.
+	 */
 	private Events events = new Events();
+	
+	/**
+	 * The widget system (the GUI)
+	 */
 	private Widgets widgets = new Widgets();
+	
+	/**
+	 * The task system. Launches named tasks, that can be posted and queued, on a specific run loop phase.
+	 */
 	private Tasks tasks = new Tasks();
+	
+	/**
+	 * The port system. Provides and encapsulates the low level machine dependent parts of the Client application.
+	 */
 	private Port port = new JOGLPort();
 	//=============================================================================================
 
 	//=============================================================================================
+	/**
+	 * The run loop running indicator
+	 */
 	private boolean running = false;  
 	//=============================================================================================
 	
 	//=============================================================================================
+	/**
+	 * Initializes and executes the Client run loop.
+	 */
 	public void run() {
 		setup();
 		loop();
@@ -38,6 +66,9 @@ public class Client {
 	//=============================================================================================
 
 	//=============================================================================================
+	/**
+	 * Initializes the client application and its parts.
+	 */
 	private void setup() {
 		Log.get("default").disable(Level.DEBUG);
 
@@ -63,6 +94,9 @@ public class Client {
 	//=============================================================================================
 	
 	//=============================================================================================
+	/**
+	 * Initializes and sets up the GUI elements.
+	 */
 	private void setupGUI() {
 
 		Widget root = widgets.root();
@@ -132,6 +166,9 @@ public class Client {
 	//=============================================================================================
 
 	//=============================================================================================
+	/**
+	 * Private action method to toggle the visibility of the System Menu
+	 */
 	private void toggleSysmenu() {
 		if (sysMenuFrame.match(Flag.HIDDEN))
 			sysMenuFrame.clear(Flag.HIDDEN);
@@ -141,6 +178,9 @@ public class Client {
 	//=============================================================================================
 
 	//=============================================================================================
+	/**
+	 * Private action method to toggle the visibility of the Desktop and its contents
+	 */
 	private void toggleDesktop() {
 		if (windowFrame.match(Flag.HIDDEN))
 			windowFrame.clear(Flag.HIDDEN);
@@ -150,6 +190,9 @@ public class Client {
 	//=============================================================================================
 	
 	//=============================================================================================
+	/**
+	 * The Client loop that maintains the program logic
+	 */
 	private void loop() {
 		running = true;
 		Log.debug("Start Client Loop");
@@ -163,18 +206,33 @@ public class Client {
 	//=============================================================================================
 
 	//=============================================================================================
+	/**
+	 * Sets the internal Client loop run state to false, and therefore stops the client run loop
+	 */
 	public void shutdown() {
 		running = false;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
+	/**
+	 * Private scheduler action to update the display contents and render the Client surface. 
+	 * @param count The number of (skipped) schedule frames since last call
+	 * @param nanoperiod The duration of a schedule frame in nano seconds
+	 * @param dT The time elapsed since last schedule call, in Seconds.
+	 */
 	private void render(int count, long nanoperiod, float dT) {
 		port.render();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
+	/**
+	 * Private scheduler action to update the logic of the Client application
+	 * @param count The number of (skipped) schedule frames since last call
+	 * @param nanoperiod The duration of a schedule frame in nano seconds
+	 * @param dT The time elapsed since last schedule call, in Seconds.
+	 */
 	private void update(int count, long nanoperiod, float dT) {
 		events.update();
 		tasks.update();
@@ -182,6 +240,10 @@ public class Client {
 	//=============================================================================================
 	
 	//=============================================================================================
+	/**
+	 * The static Client main method to create a client instance and launch the application. 
+	 * @param args Program arguments, unused atm.
+	 */
 	public static void main(String[] args) {
 		Log.info("Client Main Start");
 		Client client = new Client();

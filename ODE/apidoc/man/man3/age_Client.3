@@ -2,7 +2,8 @@
 .ad l
 .nh
 .SH NAME
-age.Client
+age.Client \- The AGE Application Client main class\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -12,9 +13,11 @@ age.Client
 .ti -1c
 .RI "void \fBrun\fP ()"
 .br
+.RI "Initializes and executes the Client run loop\&. "
 .ti -1c
 .RI "void \fBshutdown\fP ()"
 .br
+.RI "Sets the internal Client loop run state to false, and therefore stops the client run loop\&. "
 .in -1c
 .SS "Static Public Member Functions"
 
@@ -22,6 +25,7 @@ age.Client
 .ti -1c
 .RI "static void \fBmain\fP (String[] args)"
 .br
+.RI "The static Client main method to create a client instance and launch the application\&. "
 .in -1c
 .SS "Private Member Functions"
 
@@ -29,24 +33,31 @@ age.Client
 .ti -1c
 .RI "void \fBsetup\fP ()"
 .br
+.RI "Initializes the client application and its parts\&. "
 .ti -1c
 .RI "void \fBsetupGUI\fP ()"
 .br
+.RI "Initializes and sets up the GUI elements\&. "
 .ti -1c
 .RI "void \fBtoggleSysmenu\fP ()"
 .br
+.RI "Private action method to toggle the visibility of the System Menu\&. "
 .ti -1c
 .RI "void \fBtoggleDesktop\fP ()"
 .br
+.RI "Private action method to toggle the visibility of the Desktop and its contents\&. "
 .ti -1c
 .RI "void \fBloop\fP ()"
 .br
+.RI "The Client loop that maintains the program logic\&. "
 .ti -1c
 .RI "void \fBrender\fP (int count, long nanoperiod, float dT)"
 .br
+.RI "Private scheduler action to update the display contents and render the Client surface\&. "
 .ti -1c
 .RI "void \fBupdate\fP (int count, long nanoperiod, float dT)"
 .br
+.RI "Private scheduler action to update the logic of the Client application\&. "
 .in -1c
 .SS "Private Attributes"
 
@@ -54,21 +65,27 @@ age.Client
 .ti -1c
 .RI "Clock \fBclock\fP = new Clock()"
 .br
+.RI "The schedule clock\&. "
 .ti -1c
 .RI "Events \fBevents\fP = new Events()"
 .br
+.RI "The event system, handling and transforming input events\&. "
 .ti -1c
 .RI "Widgets \fBwidgets\fP = new Widgets()"
 .br
+.RI "The widget system (the GUI) "
 .ti -1c
 .RI "Tasks \fBtasks\fP = new Tasks()"
 .br
+.RI "The task system\&. "
 .ti -1c
 .RI "Port \fBport\fP = new JOGLPort()"
 .br
+.RI "The port system\&. "
 .ti -1c
 .RI "boolean \fBrunning\fP = false"
 .br
+.RI "The run loop running indicator\&. "
 .ti -1c
 .RI "Widget \fBsysMenuFrame\fP"
 .br
@@ -76,44 +93,108 @@ age.Client
 .RI "Widget \fBwindowFrame\fP"
 .br
 .in -1c
+.SH "Detailed Description"
+.PP 
+The AGE Application Client main class\&. 
 .SH "Member Function Documentation"
 .PP 
 .SS "void age\&.Client\&.loop ()\fC [private]\fP"
 
+.PP
+The Client loop that maintains the program logic\&. 
 .SS "static void age\&.Client\&.main (String[] args)\fC [static]\fP"
+
+.PP
+The static Client main method to create a client instance and launch the application\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIargs\fP Program arguments, unused atm\&. 
+.RE
+.PP
 
 .SS "void age\&.Client\&.render (int count, long nanoperiod, float dT)\fC [private]\fP"
 
+.PP
+Private scheduler action to update the display contents and render the Client surface\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcount\fP The number of (skipped) schedule frames since last call 
+.br
+\fInanoperiod\fP The duration of a schedule frame in nano seconds 
+.br
+\fIdT\fP The time elapsed since last schedule call, in Seconds\&. 
+.RE
+.PP
+
 .SS "void age\&.Client\&.run ()"
 
+.PP
+Initializes and executes the Client run loop\&. 
 .SS "void age\&.Client\&.setup ()\fC [private]\fP"
 
+.PP
+Initializes the client application and its parts\&. 
 .SS "void age\&.Client\&.setupGUI ()\fC [private]\fP"
 
+.PP
+Initializes and sets up the GUI elements\&. 
 .SS "void age\&.Client\&.shutdown ()"
 
+.PP
+Sets the internal Client loop run state to false, and therefore stops the client run loop\&. 
 .SS "void age\&.Client\&.toggleDesktop ()\fC [private]\fP"
 
+.PP
+Private action method to toggle the visibility of the Desktop and its contents\&. 
 .SS "void age\&.Client\&.toggleSysmenu ()\fC [private]\fP"
 
+.PP
+Private action method to toggle the visibility of the System Menu\&. 
 .SS "void age\&.Client\&.update (int count, long nanoperiod, float dT)\fC [private]\fP"
+
+.PP
+Private scheduler action to update the logic of the Client application\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcount\fP The number of (skipped) schedule frames since last call 
+.br
+\fInanoperiod\fP The duration of a schedule frame in nano seconds 
+.br
+\fIdT\fP The time elapsed since last schedule call, in Seconds\&. 
+.RE
+.PP
 
 .SH "Member Data Documentation"
 .PP 
 .SS "Clock age\&.Client\&.clock = new Clock()\fC [private]\fP"
 
+.PP
+The schedule clock\&. 
 .SS "Events age\&.Client\&.events = new Events()\fC [private]\fP"
 
+.PP
+The event system, handling and transforming input events\&. 
 .SS "Port age\&.Client\&.port = new JOGLPort()\fC [private]\fP"
 
+.PP
+The port system\&. Provides and encapsulates the low level machine dependent parts of the Client application\&. 
 .SS "boolean age\&.Client\&.running = false\fC [private]\fP"
 
+.PP
+The run loop running indicator\&. 
 .SS "Widget age\&.Client\&.sysMenuFrame\fC [private]\fP"
 
 .SS "Tasks age\&.Client\&.tasks = new Tasks()\fC [private]\fP"
 
+.PP
+The task system\&. Launches named tasks, that can be posted and queued, on a specific run loop phase\&. 
 .SS "Widgets age\&.Client\&.widgets = new Widgets()\fC [private]\fP"
 
+.PP
+The widget system (the GUI) 
 .SS "Widget age\&.Client\&.windowFrame\fC [private]\fP"
 
 

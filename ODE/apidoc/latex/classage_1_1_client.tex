@@ -1,54 +1,62 @@
 \doxysection{age.\+Client Class Reference}
 \hypertarget{classage_1_1_client}{}\label{classage_1_1_client}\index{age.Client@{age.Client}}
+
+
+The AGE Application Client main class.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classage_1_1_client_a023439dea78c658bcaeaae6892bb92b3}{run}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes and executes the Client run loop. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classage_1_1_client_aa3d70999bea29a591d2be32d22e451ca}{shutdown}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sets the internal Client loop run state to false, and therefore stops the client run loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static void \mbox{\hyperlink{classage_1_1_client_a6e1d4a4e7ba35d0093669ce85883e7f5}{main}} (String\mbox{[}$\,$\mbox{]} args)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The static Client main method to create a client instance and launch the application. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classage_1_1_client_a0db5c60227453971995a576c445a5a3f}{setup}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the client application and its parts. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classage_1_1_client_ae16cfa941683189d30cacdb0192f4cb3}{setup\+GUI}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes and sets up the GUI elements. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classage_1_1_client_ac0b3d463af7142f5b66db4b81084982c}{toggle\+Sysmenu}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Private action method to toggle the visibility of the System Menu. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classage_1_1_client_ab39e903e80a1124f61f822fd5fa3f9cc}{toggle\+Desktop}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Private action method to toggle the visibility of the Desktop and its contents. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classage_1_1_client_a85b29db66a0a45f1e3d85232b0dbb42a}{loop}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em The Client loop that maintains the program logic. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classage_1_1_client_a262cc274d1a72947a7ae85e9d37d45b1}{render}} (int count, long nanoperiod, float dT)
-\item 
+\begin{DoxyCompactList}\small\item\em Private scheduler action to update the display contents and render the Client surface. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classage_1_1_client_acf3073007d568913e9de853ed6ed71c5}{update}} (int count, long nanoperiod, float dT)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Private scheduler action to update the logic of the Client application. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 Clock \mbox{\hyperlink{classage_1_1_client_a8c0610502a16a2ce49c33088a8252906}{clock}} = new Clock()
-\item 
+\begin{DoxyCompactList}\small\item\em The schedule clock. \end{DoxyCompactList}\item 
 Events \mbox{\hyperlink{classage_1_1_client_a54f8e8d8678897a00caef041fd075a9c}{events}} = new Events()
-\item 
+\begin{DoxyCompactList}\small\item\em The event system, handling and transforming input events. \end{DoxyCompactList}\item 
 Widgets \mbox{\hyperlink{classage_1_1_client_ae40b26f92a722a72a7d01019ef93e62d}{widgets}} = new Widgets()
-\item 
+\begin{DoxyCompactList}\small\item\em The widget system (the GUI) \end{DoxyCompactList}\item 
 Tasks \mbox{\hyperlink{classage_1_1_client_a96afc357b587d2936315f4699dcbf89e}{tasks}} = new Tasks()
-\item 
+\begin{DoxyCompactList}\small\item\em The task system. \end{DoxyCompactList}\item 
 Port \mbox{\hyperlink{classage_1_1_client_a723a726cf731976e3d291a1dfbebd7c3}{port}} = new JOGLPort()
-\item 
+\begin{DoxyCompactList}\small\item\em The port system. \end{DoxyCompactList}\item 
 boolean \mbox{\hyperlink{classage_1_1_client_a78da685fcde97d6dc65d3b5aa1eff5fb}{running}} = false
-\item 
+\begin{DoxyCompactList}\small\item\em The run loop running indicator. \end{DoxyCompactList}\item 
 Widget \mbox{\hyperlink{classage_1_1_client_a8f55ec15c3c114c616438694718836c4}{sys\+Menu\+Frame}}
 \item 
 Widget \mbox{\hyperlink{classage_1_1_client_a5202a5a8cb08b1c1d5130a12bd9e2ba9}{window\+Frame}}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+The AGE Application Client main class. 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classage_1_1_client_a85b29db66a0a45f1e3d85232b0dbb42a}\label{classage_1_1_client_a85b29db66a0a45f1e3d85232b0dbb42a} 
@@ -57,23 +65,53 @@ Widget \mbox{\hyperlink{classage_1_1_client_a5202a5a8cb08b1c1d5130a12bd9e2ba9}{w
 \doxysubsubsection{\texorpdfstring{loop()}{loop()}}
 {\footnotesize\ttfamily void age.\+Client.\+loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+The Client loop that maintains the program logic. 
+
 \Hypertarget{classage_1_1_client_a6e1d4a4e7ba35d0093669ce85883e7f5}\label{classage_1_1_client_a6e1d4a4e7ba35d0093669ce85883e7f5} 
 \index{age.Client@{age.Client}!main@{main}}
 \index{main@{main}!age.Client@{age.Client}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily static void age.\+Client.\+main (\begin{DoxyParamCaption}\item[{String\mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+The static Client main method to create a client instance and launch the application. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Program arguments, unused atm. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classage_1_1_client_a262cc274d1a72947a7ae85e9d37d45b1}\label{classage_1_1_client_a262cc274d1a72947a7ae85e9d37d45b1} 
 \index{age.Client@{age.Client}!render@{render}}
 \index{render@{render}!age.Client@{age.Client}}
 \doxysubsubsection{\texorpdfstring{render()}{render()}}
 {\footnotesize\ttfamily void age.\+Client.\+render (\begin{DoxyParamCaption}\item[{int}]{count,  }\item[{long}]{nanoperiod,  }\item[{float}]{dT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Private scheduler action to update the display contents and render the Client surface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & The number of (skipped) schedule frames since last call \\
+\hline
+{\em nanoperiod} & The duration of a schedule frame in nano seconds \\
+\hline
+{\em dT} & The time elapsed since last schedule call, in Seconds. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classage_1_1_client_a023439dea78c658bcaeaae6892bb92b3}\label{classage_1_1_client_a023439dea78c658bcaeaae6892bb92b3} 
 \index{age.Client@{age.Client}!run@{run}}
 \index{run@{run}!age.Client@{age.Client}}
 \doxysubsubsection{\texorpdfstring{run()}{run()}}
 {\footnotesize\ttfamily void age.\+Client.\+run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes and executes the Client run loop. 
 
 \Hypertarget{classage_1_1_client_a0db5c60227453971995a576c445a5a3f}\label{classage_1_1_client_a0db5c60227453971995a576c445a5a3f} 
 \index{age.Client@{age.Client}!setup@{setup}}
@@ -81,11 +119,19 @@ Widget \mbox{\hyperlink{classage_1_1_client_a5202a5a8cb08b1c1d5130a12bd9e2ba9}{w
 \doxysubsubsection{\texorpdfstring{setup()}{setup()}}
 {\footnotesize\ttfamily void age.\+Client.\+setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Initializes the client application and its parts. 
+
 \Hypertarget{classage_1_1_client_ae16cfa941683189d30cacdb0192f4cb3}\label{classage_1_1_client_ae16cfa941683189d30cacdb0192f4cb3} 
 \index{age.Client@{age.Client}!setupGUI@{setupGUI}}
 \index{setupGUI@{setupGUI}!age.Client@{age.Client}}
 \doxysubsubsection{\texorpdfstring{setupGUI()}{setupGUI()}}
 {\footnotesize\ttfamily void age.\+Client.\+setup\+GUI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initializes and sets up the GUI elements. 
 
 \Hypertarget{classage_1_1_client_aa3d70999bea29a591d2be32d22e451ca}\label{classage_1_1_client_aa3d70999bea29a591d2be32d22e451ca} 
 \index{age.Client@{age.Client}!shutdown@{shutdown}}
@@ -93,17 +139,29 @@ Widget \mbox{\hyperlink{classage_1_1_client_a5202a5a8cb08b1c1d5130a12bd9e2ba9}{w
 \doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
 {\footnotesize\ttfamily void age.\+Client.\+shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Sets the internal Client loop run state to false, and therefore stops the client run loop. 
+
 \Hypertarget{classage_1_1_client_ab39e903e80a1124f61f822fd5fa3f9cc}\label{classage_1_1_client_ab39e903e80a1124f61f822fd5fa3f9cc} 
 \index{age.Client@{age.Client}!toggleDesktop@{toggleDesktop}}
 \index{toggleDesktop@{toggleDesktop}!age.Client@{age.Client}}
 \doxysubsubsection{\texorpdfstring{toggleDesktop()}{toggleDesktop()}}
 {\footnotesize\ttfamily void age.\+Client.\+toggle\+Desktop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Private action method to toggle the visibility of the Desktop and its contents. 
+
 \Hypertarget{classage_1_1_client_ac0b3d463af7142f5b66db4b81084982c}\label{classage_1_1_client_ac0b3d463af7142f5b66db4b81084982c} 
 \index{age.Client@{age.Client}!toggleSysmenu@{toggleSysmenu}}
 \index{toggleSysmenu@{toggleSysmenu}!age.Client@{age.Client}}
 \doxysubsubsection{\texorpdfstring{toggleSysmenu()}{toggleSysmenu()}}
 {\footnotesize\ttfamily void age.\+Client.\+toggle\+Sysmenu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Private action method to toggle the visibility of the System Menu. 
 
 \Hypertarget{classage_1_1_client_acf3073007d568913e9de853ed6ed71c5}\label{classage_1_1_client_acf3073007d568913e9de853ed6ed71c5} 
 \index{age.Client@{age.Client}!update@{update}}
@@ -113,6 +171,19 @@ Widget \mbox{\hyperlink{classage_1_1_client_a5202a5a8cb08b1c1d5130a12bd9e2ba9}{w
 
 
 
+Private scheduler action to update the logic of the Client application. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & The number of (skipped) schedule frames since last call \\
+\hline
+{\em nanoperiod} & The duration of a schedule frame in nano seconds \\
+\hline
+{\em dT} & The time elapsed since last schedule call, in Seconds. \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Data Documentation}
 \Hypertarget{classage_1_1_client_a8c0610502a16a2ce49c33088a8252906}\label{classage_1_1_client_a8c0610502a16a2ce49c33088a8252906} 
 \index{age.Client@{age.Client}!clock@{clock}}
@@ -120,11 +191,19 @@ Widget \mbox{\hyperlink{classage_1_1_client_a5202a5a8cb08b1c1d5130a12bd9e2ba9}{w
 \doxysubsubsection{\texorpdfstring{clock}{clock}}
 {\footnotesize\ttfamily Clock age.\+Client.\+clock = new Clock()\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+The schedule clock. 
+
 \Hypertarget{classage_1_1_client_a54f8e8d8678897a00caef041fd075a9c}\label{classage_1_1_client_a54f8e8d8678897a00caef041fd075a9c} 
 \index{age.Client@{age.Client}!events@{events}}
 \index{events@{events}!age.Client@{age.Client}}
 \doxysubsubsection{\texorpdfstring{events}{events}}
 {\footnotesize\ttfamily Events age.\+Client.\+events = new Events()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The event system, handling and transforming input events. 
 
 \Hypertarget{classage_1_1_client_a723a726cf731976e3d291a1dfbebd7c3}\label{classage_1_1_client_a723a726cf731976e3d291a1dfbebd7c3} 
 \index{age.Client@{age.Client}!port@{port}}
@@ -132,11 +211,19 @@ Widget \mbox{\hyperlink{classage_1_1_client_a5202a5a8cb08b1c1d5130a12bd9e2ba9}{w
 \doxysubsubsection{\texorpdfstring{port}{port}}
 {\footnotesize\ttfamily Port age.\+Client.\+port = new JOGLPort()\hspace{0.3cm}{\ttfamily [private]}}
 
-\Hypertarget{classage_1_1_client_a78da685fcde97d6dc65d3b5aa1eff5fb}\label{classage_1_1_client_a78da685fcde97d6dc65d3b5aa1eff5fb} 
+
+
+The port system. 
+
+Provides and encapsulates the low level machine dependent parts of the Client application. \Hypertarget{classage_1_1_client_a78da685fcde97d6dc65d3b5aa1eff5fb}\label{classage_1_1_client_a78da685fcde97d6dc65d3b5aa1eff5fb} 
 \index{age.Client@{age.Client}!running@{running}}
 \index{running@{running}!age.Client@{age.Client}}
 \doxysubsubsection{\texorpdfstring{running}{running}}
 {\footnotesize\ttfamily boolean age.\+Client.\+running = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The run loop running indicator. 
 
 \Hypertarget{classage_1_1_client_a8f55ec15c3c114c616438694718836c4}\label{classage_1_1_client_a8f55ec15c3c114c616438694718836c4} 
 \index{age.Client@{age.Client}!sysMenuFrame@{sysMenuFrame}}
@@ -150,11 +237,19 @@ Widget \mbox{\hyperlink{classage_1_1_client_a5202a5a8cb08b1c1d5130a12bd9e2ba9}{w
 \doxysubsubsection{\texorpdfstring{tasks}{tasks}}
 {\footnotesize\ttfamily Tasks age.\+Client.\+tasks = new Tasks()\hspace{0.3cm}{\ttfamily [private]}}
 
-\Hypertarget{classage_1_1_client_ae40b26f92a722a72a7d01019ef93e62d}\label{classage_1_1_client_ae40b26f92a722a72a7d01019ef93e62d} 
+
+
+The task system. 
+
+Launches named tasks, that can be posted and queued, on a specific run loop phase. \Hypertarget{classage_1_1_client_ae40b26f92a722a72a7d01019ef93e62d}\label{classage_1_1_client_ae40b26f92a722a72a7d01019ef93e62d} 
 \index{age.Client@{age.Client}!widgets@{widgets}}
 \index{widgets@{widgets}!age.Client@{age.Client}}
 \doxysubsubsection{\texorpdfstring{widgets}{widgets}}
 {\footnotesize\ttfamily Widgets age.\+Client.\+widgets = new Widgets()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The widget system (the GUI) 
 
 \Hypertarget{classage_1_1_client_a5202a5a8cb08b1c1d5130a12bd9e2ba9}\label{classage_1_1_client_a5202a5a8cb08b1c1d5130a12bd9e2ba9} 
 \index{age.Client@{age.Client}!windowFrame@{windowFrame}}

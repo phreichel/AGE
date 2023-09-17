@@ -6,6 +6,8 @@
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>class <link linkend="_classage_1_1_util">age.Util</link></para>
+
+<para>The AGE Utility class. </para>
 </listitem>
         </itemizedlist>
 </simplesect>

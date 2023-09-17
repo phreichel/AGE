@@ -2,7 +2,8 @@
 .ad l
 .nh
 .SH NAME
-age.AGEException
+age.AGEException \- Root Exception for AGE\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -14,15 +15,19 @@ Inherits RuntimeException\&.
 .ti -1c
 .RI "\fBAGEException\fP ()"
 .br
+.RI "Default Constructor\&. "
 .ti -1c
 .RI "\fBAGEException\fP (Throwable cause)"
 .br
+.RI "Constructor\&. "
 .ti -1c
 .RI "\fBAGEException\fP (String message)"
 .br
+.RI "Constructor\&. "
 .ti -1c
 .RI "\fBAGEException\fP (String message, Throwable cause)"
 .br
+.RI "Constructor\&. "
 .in -1c
 .SS "Static Private Attributes"
 
@@ -30,21 +35,64 @@ Inherits RuntimeException\&.
 .ti -1c
 .RI "static final long \fBserialVersionUID\fP = 1L"
 .br
+.RI "Default serial version number\&. "
 .in -1c
+.SH "Detailed Description"
+.PP 
+Root Exception for AGE\&. 
+
+The AGEException is derived from Runtime Exception which means that no throws declarations have to be added to surrounding methods\&.
+.PP
+Exceptions of local try/catch blocks commonly are re-thrown by that Exception in order to make throws statements unnecessary\&. 
+.br
+ 
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "age\&.AGEException\&.AGEException ()"
 
+.PP
+Default Constructor\&. 
 .SS "age\&.AGEException\&.AGEException (Throwable cause)"
+
+.PP
+Constructor\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcause\fP an Exception typically to be re-thrown\&. 
+.RE
+.PP
 
 .SS "age\&.AGEException\&.AGEException (String message)"
 
+.PP
+Constructor\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImessage\fP A text message that is printed on the stack trace in case the Exception is thrown on application level\&. 
+.RE
+.PP
+
 .SS "age\&.AGEException\&.AGEException (String message, Throwable cause)"
+
+.PP
+Constructor\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImessage\fP A text message that is printed on the stack trace in case the Exception is thrown on application level\&. 
+.br
+\fIcause\fP an Exception typically to be re-thrown\&. 
+.RE
+.PP
 
 .SH "Member Data Documentation"
 .PP 
 .SS "final long age\&.AGEException\&.serialVersionUID = 1L\fC [static]\fP, \fC [private]\fP"
 
+.PP
+Default serial version number\&. 
 
 .SH "Author"
 .PP 
