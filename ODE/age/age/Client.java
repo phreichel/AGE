@@ -8,7 +8,7 @@ import age.task.Tasks;
 import age.clock.Clock;
 import age.event.Events;
 import age.gui.Flag;
-import age.gui.MultilineWidget;
+import age.gui.Multiline;
 import age.gui.Widget;
 import age.gui.Widgets;
 import age.gui.Window;
@@ -80,7 +80,8 @@ public class Client {
 			window.position(50 + 15*i, 50 + 35*i);
 			windowFrame.add(window);
 			Widget page = window.getPage();
-			Widget textTest = new MultilineWidget();
+			Multiline textTest = new Multiline();
+			textTest.assign(tasks);
 			textTest.dimension(
 				page.width(),
 				page.height());

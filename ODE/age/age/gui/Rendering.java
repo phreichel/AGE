@@ -75,7 +75,7 @@ public class Rendering implements Renderable {
 			g.rectangle(widget.dimension(), true);
 			g.text(3, widget.dimension().y-3, widget.text(), "title");
 		} else if (widget.match(Flag.MULTILINE)) {
-			MultilineWidget ml = (MultilineWidget) widget;
+			Multiline ml = (Multiline) widget;
 			g.color(0f, 0f, .5f);
 			g.rectangle(
 				widget.dimension(),

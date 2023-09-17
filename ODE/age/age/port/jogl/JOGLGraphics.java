@@ -73,6 +73,12 @@ class JOGLGraphics implements Graphics {
 
 			texture = TextureIO.newTexture(new File("./assets/textures/gui/fullscreen_inv.png"), true);
 			textures.put("fullscreen", texture);
+
+			texture = TextureIO.newTexture(new File("./assets/textures/gui/arrowup_inv.png"), true);
+			textures.put("arrowup", texture);
+
+			texture = TextureIO.newTexture(new File("./assets/textures/gui/arrowdown_inv.png"), true);
+			textures.put("arrowdown", texture);
 			
 		} catch (Exception e) {
 			throw new AGEException(e);
