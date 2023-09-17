@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.13)  16 SEP 2023 23:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.13)  17 SEP 2023 16:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -888,11 +888,11 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 
 ]
 Chapter 2.
-(./hierarchy.tex) [3] [4
-
-]
+(./hierarchy.tex [3]) [4]
 Chapter 3.
-(./annotated.tex) [5] [6
+(./annotated.tex) [5
+
+] [6
 
 ]
 Chapter 4.
@@ -914,7 +914,7 @@ LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
 (./namespaceage_1_1task.tex) [10]
 Chapter 6.
 (./classage_1_1_a_g_e_exception.tex <./classage_1_1_a_g_e_exception.pdf>
-<classage_1_1_a_g_e_exception.pdf, id=3377, 501.875pt x 318.65047pt>
+<classage_1_1_a_g_e_exception.pdf, id=3519, 501.875pt x 318.65047pt>
 File: classage_1_1_a_g_e_exception.pdf Graphic file (type pdf)
 <use classage_1_1_a_g_e_exception.pdf>
 Package pdftex.def Info: classage_1_1_a_g_e_exception.pdf  used on input line 6
@@ -945,20 +945,20 @@ Overfull \hbox (15.3593pt too wide) in paragraph at lines 180--181
 L/cmm/m/it/8 <$$>$\T1/pcr/m/n/8 (Type.[]class) [private] 
  []
 
-) (./enumage_1_1gui_1_1_flag.tex [28]) (./interfaceage_1_1port_1_1_graphics.tex
- <./interfaceage_1_1port_1_1_graphics.pdf>
-<interfaceage_1_1port_1_1_graphics.pdf, id=3852, 501.875pt x 224.29799pt>
+) (./enumage_1_1gui_1_1_flag.tex [28] [29])
+(./interfaceage_1_1port_1_1_graphics.tex <./interfaceage_1_1port_1_1_graphics.p
+df>
+<interfaceage_1_1port_1_1_graphics.pdf, id=4008, 501.875pt x 224.29799pt>
 File: interfaceage_1_1port_1_1_graphics.pdf Graphic file (type pdf)
 <use interfaceage_1_1port_1_1_graphics.pdf>
 Package pdftex.def Info: interfaceage_1_1port_1_1_graphics.pdf  used on input l
 ine 6.
 (pdftex.def)             Requested size: 127.32167pt x 56.9055pt.
- [29] [30] [31])
-(./interfaceage_1_1event_1_1_handler.tex [32])
+ [30] [31] [32]) (./interfaceage_1_1event_1_1_handler.tex)
 (./classage_1_1gui_1_1_handling.tex [33] [34] [35])
 (./classage_1_1port_1_1jogl_1_1_j_o_g_l_event_listener.tex <./classage_1_1port_
 1_1jogl_1_1_j_o_g_l_event_listener.pdf>
-<classage_1_1port_1_1jogl_1_1_j_o_g_l_event_listener.pdf, id=4017, 501.875pt x 
+<classage_1_1port_1_1jogl_1_1_j_o_g_l_event_listener.pdf, id=4171, 501.875pt x 
 65.2839pt>
 File: classage_1_1port_1_1jogl_1_1_j_o_g_l_event_listener.pdf Graphic file (typ
 e pdf)
@@ -966,10 +966,10 @@ e pdf)
 Package pdftex.def Info: classage_1_1port_1_1jogl_1_1_j_o_g_l_event_listener.pd
 f  used on input line 6.
 (pdftex.def)             Requested size: 398.3531pt x 51.81635pt.
- [36] [37] [38])
+ [36] [37] [38] [39])
 (./classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics.tex <./classage_1_1port_1_1jog
 l_1_1_j_o_g_l_graphics.pdf>
-<classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics.pdf, id=4087, 501.875pt x 224.29
+<classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics.pdf, id=4245, 501.875pt x 224.29
 799pt>
 File: classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics.pdf Graphic file (type pdf)
 
@@ -977,17 +977,17 @@ File: classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics.pdf Graphic file (type pdf)
 Package pdftex.def Info: classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics.pdf  use
 d on input line 6.
 (pdftex.def)             Requested size: 127.32167pt x 56.9055pt.
- [39] [40] [41] [42] [43])
+ [40] [41] [42] [43] [44])
 (./classage_1_1port_1_1jogl_1_1_j_o_g_l_port.tex <./classage_1_1port_1_1jogl_1_
 1_j_o_g_l_port.pdf>
-<classage_1_1port_1_1jogl_1_1_j_o_g_l_port.pdf, id=4164, 501.875pt x 265.89337p
+<classage_1_1port_1_1jogl_1_1_j_o_g_l_port.pdf, id=4328, 501.875pt x 265.89337p
 t>
 File: classage_1_1port_1_1jogl_1_1_j_o_g_l_port.pdf Graphic file (type pdf)
 <use classage_1_1port_1_1jogl_1_1_j_o_g_l_port.pdf>
 Package pdftex.def Info: classage_1_1port_1_1jogl_1_1_j_o_g_l_port.pdf  used on
  input line 6.
 (pdftex.def)             Requested size: 107.40324pt x 56.9055pt.
- [44] [45] [46]
+ [45] [46] [47]
 Underfull \hbox (badness 10000) in paragraph at lines 235--236
 \T1/pcr/m/n/8 final List$\OML/cmm/m/it/8 <$[]$>$ \T1/pcr/m/n/8 age.[]port.[]jog
 l.[]JOGLPort.[]renderables[]_[]ro = Collections.[]unmodifiable[]
@@ -995,7 +995,7 @@ l.[]JOGLPort.[]renderables[]_[]ro = Collections.[]unmodifiable[]
 
 ) (./classage_1_1port_1_1jogl_1_1_j_o_g_l_render_listener.tex <./classage_1_1po
 rt_1_1jogl_1_1_j_o_g_l_render_listener.pdf>
-<classage_1_1port_1_1jogl_1_1_j_o_g_l_render_listener.pdf, id=4273, 501.875pt x
+<classage_1_1port_1_1jogl_1_1_j_o_g_l_render_listener.pdf, id=4436, 501.875pt x
  187.62094pt>
 File: classage_1_1port_1_1jogl_1_1_j_o_g_l_render_listener.pdf Graphic file (ty
 pe pdf)
@@ -1003,45 +1003,56 @@ pe pdf)
 Package pdftex.def Info: classage_1_1port_1_1jogl_1_1_j_o_g_l_render_listener.p
 df  used on input line 6.
 (pdftex.def)             Requested size: 152.21777pt x 56.9055pt.
- [47] [48])
-(./enumage_1_1event_1_1_key.tex [49] [50] [51] [52] [53] [54] [55] [56]
-[57] [58] [59]) (./enumage_1_1log_1_1_level.tex) (./classage_1_1log_1_1_log.tex
-[60] [61] [62] [63] [64]) (./interfaceage_1_1port_1_1_port.tex <./interfaceage_
-1_1port_1_1_port.pdf>
-<interfaceage_1_1port_1_1_port.pdf, id=4659, 501.875pt x 265.89337pt>
+ [48] [49])
+(./enumage_1_1event_1_1_key.tex [50] [51] [52] [53] [54] [55] [56] [57]
+[58] [59] [60]) (./enumage_1_1log_1_1_level.tex) (./classage_1_1log_1_1_log.tex
+[61] [62] [63] [64] [65]) (./classage_1_1gui_1_1_multiline_widget.tex <./classa
+ge_1_1gui_1_1_multiline_widget.pdf>
+<classage_1_1gui_1_1_multiline_widget.pdf, id=4823, 501.875pt x 265.89337pt>
+File: classage_1_1gui_1_1_multiline_widget.pdf Graphic file (type pdf)
+<use classage_1_1gui_1_1_multiline_widget.pdf>
+Package pdftex.def Info: classage_1_1gui_1_1_multiline_widget.pdf  used on inpu
+t line 6.
+(pdftex.def)             Requested size: 107.40324pt x 56.9055pt.
+ [66] [67])
+(./interfaceage_1_1port_1_1_port.tex <./interfaceage_1_1port_1_1_port.pdf>
+<interfaceage_1_1port_1_1_port.pdf, id=4960, 501.875pt x 265.89337pt>
 File: interfaceage_1_1port_1_1_port.pdf Graphic file (type pdf)
 <use interfaceage_1_1port_1_1_port.pdf>
 Package pdftex.def Info: interfaceage_1_1port_1_1_port.pdf  used on input line 
 6.
 (pdftex.def)             Requested size: 107.40324pt x 56.9055pt.
- [65] [66]) (./interfaceage_1_1port_1_1_renderable.tex
-[67]) (./classage_1_1gui_1_1_rendering.tex <./classage_1_1gui_1_1_rendering.pdf
->
-<classage_1_1gui_1_1_rendering.pdf, id=4720, 501.875pt x 323.78966pt>
+
+[68] [69] [70]) (./interfaceage_1_1port_1_1_renderable.tex)
+(./classage_1_1gui_1_1_rendering.tex <./classage_1_1gui_1_1_rendering.pdf>
+<classage_1_1gui_1_1_rendering.pdf, id=5021, 501.875pt x 323.78966pt>
 File: classage_1_1gui_1_1_rendering.pdf Graphic file (type pdf)
 <use classage_1_1gui_1_1_rendering.pdf>
 Package pdftex.def Info: classage_1_1gui_1_1_rendering.pdf  used on input line 
 6.
 (pdftex.def)             Requested size: 88.20468pt x 56.9055pt.
- [68]) (./interfaceage_1_1clock_1_1_task.tex [69])
-(./interfaceage_1_1task_1_1_task.tex) (./classage_1_1task_1_1_tasks.tex
-[70] [71] [72]) (./enumage_1_1event_1_1_type.tex [73])
-(./classage_1_1gui_1_1_widget.tex <./classage_1_1gui_1_1_widget.pdf>
-<classage_1_1gui_1_1_widget.pdf, id=4866, 501.875pt x 365.00366pt>
+
+[71] [72]) (./interfaceage_1_1clock_1_1_task.tex)
+(./interfaceage_1_1task_1_1_task.tex [73]) (./classage_1_1task_1_1_tasks.tex
+[74] [75]) (./enumage_1_1event_1_1_type.tex [76] [77]) (./classage_1_1_util.tex
+[78]) (./classage_1_1gui_1_1_widget.tex <./classage_1_1gui_1_1_widget.pdf>
+<classage_1_1gui_1_1_widget.pdf, id=5177, 501.875pt x 132.94669pt>
 File: classage_1_1gui_1_1_widget.pdf Graphic file (type pdf)
 <use classage_1_1gui_1_1_widget.pdf>
 Package pdftex.def Info: classage_1_1gui_1_1_widget.pdf  used on input line 6.
-(pdftex.def)             Requested size: 78.24164pt x 56.9055pt.
- [74]
-[75] [76] [77] [78] [79] [80]) (./classage_1_1gui_1_1_widgets.tex [81])
+(pdftex.def)             Requested size: 214.81415pt x 56.9055pt.
+
+[79] [80] [81] [82] [83] [84]) (./classage_1_1gui_1_1_widgets.tex [85])
 (./classage_1_1gui_1_1_window.tex <./classage_1_1gui_1_1_window.pdf>
-<classage_1_1gui_1_1_window.pdf, id=5092, 501.875pt x 365.00366pt>
+<classage_1_1gui_1_1_window.pdf, id=5357, 501.875pt x 365.00366pt>
 File: classage_1_1gui_1_1_window.pdf Graphic file (type pdf)
 <use classage_1_1gui_1_1_window.pdf>
 Package pdftex.def Info: classage_1_1gui_1_1_window.pdf  used on input line 6.
 (pdftex.def)             Requested size: 78.24164pt x 56.9055pt.
- [82]
-[83]) [84]
+ [86]
+[87] [88]) [89] [90
+
+]
 Chapter 7.
 (./_a_g_e_exception_8java.tex) (./_client_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
@@ -1053,31 +1064,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-[85
-
-]) (./clock_2_task_8java.tex) (./task_2_task_8java.tex) (./_button_8java.tex) (
-./_event_8java.tex
+[91]) (./clock_2_task_8java.tex) (./task_2_task_8java.tex) (./_button_8java.tex
+) (./_event_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-[86]) (./_events_8java.tex
+[92]) (./_events_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-) (./_handler_8java.tex) (./_key_8java.tex) (./_type_8java.tex [87])
+) (./_handler_8java.tex) (./_key_8java.tex) (./_type_8java.tex [93])
 (./_dock_8java.tex) (./_flag_8java.tex) (./_handling_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-) (./_rendering_8java.tex
+) (./_multiline_widget_8java.tex [94]) (./_rendering_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-[88]) (./_widget_8java.tex
+) (./_widget_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
@@ -1087,7 +1096,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-) (./_window_8java.tex [89]) (./_level_8java.tex) (./_log_8java.tex
+[95]) (./_window_8java.tex) (./_level_8java.tex) (./_log_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
@@ -1097,12 +1106,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-) (./_j_o_g_l_event_listener_8java.tex
+[96]) (./_j_o_g_l_event_listener_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-[90]) (./_j_o_g_l_graphics_8java.tex
+) (./_j_o_g_l_graphics_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
@@ -1112,58 +1121,61 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-) (./_j_o_g_l_render_listener_8java.tex
+[97]) (./_j_o_g_l_render_listener_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-[91]) (./_port_8java.tex
+) (./_port_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-) (./_renderable_8java.tex) (./_tasks_8java.tex
+) (./_renderable_8java.tex [98]) (./_tasks_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-[92]) [93] [94
+) (./_util_8java.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+) [99] [100
 
 ] (./refman.ind
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 22.39185pt on input line 1.
- [95
+ [101
 
 
-] [96] [97] [98] [99]
-Overfull \hbox (22.26266pt too wide) in paragraph at lines 586--588
+] [102] [103] [104] [105]
+Overfull \hbox (22.26266pt too wide) in paragraph at lines 609--611
 []\T1/phv/m/n/10 D:/GIT/repos/ODE/age/age/port/jogl/JOGLEventListener.java,
  []
 
 
-Overfull \hbox (28.9856pt too wide) in paragraph at lines 592--594
+Overfull \hbox (28.9856pt too wide) in paragraph at lines 615--617
 []\T1/phv/m/n/10 D:/GIT/repos/ODE/age/age/port/jogl/JOGLRenderListener.java,
  []
 
-[100] [101] [102] [103] [104] [105
-
-]) (./refman.aux)
+[106] [107] [108] [109] [110] [111]) (./refman.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 5C97B0BD23F56AD9EE4868DDC9EEADA2;115603.
+(rerunfilecheck)             Checksum: F1F377051531A2002743169B6F61E622;121048.
 
  ) 
 Here is how much of TeX's memory you used:
- 20768 strings out of 474933
- 388738 string characters out of 5761298
- 1944801 words of memory out of 5000000
- 40481 multiletter control sequences out of 15000+600000
+ 20910 strings out of 474933
+ 393721 string characters out of 5761298
+ 1946801 words of memory out of 5000000
+ 40554 multiletter control sequences out of 15000+600000
  601988 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 101i,16n,117p,725b,661s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,16n,117p,725b,686s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Apps/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c
 :/Apps/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/App
 s/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Apps/tex
@@ -1173,10 +1185,10 @@ dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/Apps/texlive/2023/texmf-dist/fonts/
 type1/urw/courier/ucrro8a.pfb><c:/Apps/texlive/2023/texmf-dist/fonts/type1/urw/
 helvetic/uhvb8a.pfb><c:/Apps/texlive/2023/texmf-dist/fonts/type1/urw/helvetic/u
 hvr8a.pfb>
-Output written on refman.pdf (123 pages, 417415 bytes).
+Output written on refman.pdf (129 pages, 438007 bytes).
 PDF statistics:
- 6657 PDF objects out of 7423 (max. 8388607)
- 6429 compressed objects within 65 object streams
- 1370 named destinations out of 1440 (max. 500000)
- 4811 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6995 PDF objects out of 7423 (max. 8388607)
+ 6756 compressed objects within 68 object streams
+ 1431 named destinations out of 1440 (max. 500000)
+ 5016 words of extra memory for PDF output out of 10000 (max. 10000000)
 

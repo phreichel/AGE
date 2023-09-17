@@ -8,6 +8,7 @@ import age.task.Tasks;
 import age.clock.Clock;
 import age.event.Events;
 import age.gui.Flag;
+import age.gui.MultilineWidget;
 import age.gui.Widget;
 import age.gui.Widgets;
 import age.gui.Window;
@@ -65,17 +66,30 @@ public class Client {
 
 		Widget root = widgets.root();
 
+		String text = Util.readFile("assets/sample.txt");
+
 		Widget windowFrame = new Widget();
 		windowFrame.position(root.position());
 		windowFrame.dimension(root.dimension());
 		windowFrame.dock(0, 1, 0, 1);
-		widgets.root().add(windowFrame);
-		for (int i=0; i<5; i++) {
+
+		root.add(windowFrame);
+		for (int i=0; i<1; i++) {
+			
 			Window window = new Window();
 			window.position(50 + 15*i, 50 + 35*i);
 			windowFrame.add(window);
+			Widget page = window.getPage();
+			Widget textTest = new MultilineWidget();
+			textTest.dimension(
+				page.width(),
+				page.height());
+			textTest.text(text);
+			textTest.dock(0, 1, 0, 1);
+			page.add(textTest);
+			
 		}
-		
+
 		sysMenuFrame = new Widget(Flag.CANVAS, Flag.HIDDEN);
 		sysMenuFrame.position(0, 30);
 		sysMenuFrame.dimension(30, 55);

@@ -5,6 +5,7 @@ package age.port.jogl;
 import com.jogamp.opengl.GL2;
 import static com.jogamp.opengl.GL2.*;
 import java.awt.Font;
+import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,11 +30,8 @@ class JOGLGraphics implements Graphics {
 	//=============================================================================================
 
 	//=============================================================================================
-	private TextRenderer titleText;
-	//=============================================================================================
-
-	//=============================================================================================
 	private Map<String, Texture> textures = new HashMap<>();
+	private Map<String, TextRenderer> fonts = new HashMap<>();
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -57,10 +55,6 @@ class JOGLGraphics implements Graphics {
 		gl.glEnable(GL_COLOR_MATERIAL);
 		gl.glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
 
-		titleText = new TextRenderer(Font.decode("Arial BOLD 16"), true);
-		titleText.setColor(1f, 0f, 0f, 1f);
-		titleText.setSmoothing(true);
-		
 		try {
 			
 			Texture texture = null;
@@ -83,7 +77,23 @@ class JOGLGraphics implements Graphics {
 		} catch (Exception e) {
 			throw new AGEException(e);
 		}
+
+		{
 		
+			TextRenderer font = null;
+		
+			font = new TextRenderer(Font.decode("Arial BOLD 16"), false);
+			font.setColor(1f, 0f, 0f, 1f);
+			font.setSmoothing(true);
+			fonts.put("title", font);
+
+			font = new TextRenderer(Font.decode("Monospaced PLAIN 14"), false);
+			font.setColor(1f, .9f, 0f, 1f);
+			font.setSmoothing(false);
+			fonts.put("text", font);
+			
+		}
+
 	}
 	//=============================================================================================
 	
@@ -196,11 +206,12 @@ class JOGLGraphics implements Graphics {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void text(float x, float y, String text) {
+	public void text(float x, float y, CharSequence text, String font) {
+		TextRenderer textRenderer = fonts.get(font);
 		gl.glScalef(1, -1, 1);
-		titleText.begin3DRendering();
-		titleText.draw3D(text, x, -y, 0f, 1f);
-		titleText.end3DRendering();
+		textRenderer.begin3DRendering();
+		textRenderer.draw3D(text, x, -y, 0f, 1f);
+		textRenderer.end3DRendering();
 		gl.glScalef(1, -1, 1);
 	}
 	//=============================================================================================
@@ -231,6 +242,62 @@ class JOGLGraphics implements Graphics {
 		
 		tex.disable(gl);
 		
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void calcMultitext(String text, Vector2f dimension, String font, int[] buffer) {
+		calcMultitext(
+			text,
+			dimension.x,
+			dimension.y,
+			font,
+			buffer);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void calcMultitext(String text, float width, float height, String font, int[] buffer) {
+		TextRenderer textRenderer = fonts.get(font);
+		Rectangle2D rect = textRenderer.getBounds("_");
+		double space = rect.getWidth();
+		int mark = 0;
+		int count = 3;
+		double lineHeight = 0;
+		for (int i=0; i<text.length(); i++) {
+
+			CharSequence seq = text.subSequence(mark, i);
+			rect = textRenderer.getBounds(seq);
+			double lineWidth = rect.getWidth();
+			lineHeight = Math.max(lineHeight, rect.getHeight());
+			
+			// fix that empty spaces at the start of line are not considered in getBounds
+			for (int j=0; j<seq.length(); j++) {
+				if (seq.charAt(j) != ' ') break;
+				lineWidth += space;
+			}
+
+			// failsafe in case buffer is too small
+			if ((buffer.length - count) < 4) break;
+			
+			double delta = width - lineWidth;
+			if (text.charAt(i) == '\n') {
+				buffer[count++] = mark;
+				buffer[count++] = i;
+				mark = i+1;
+			} else if (delta < space) {
+				buffer[count++] = mark;
+				buffer[count++] = i;
+				mark = i;
+			}
+		}
+		if (mark != text.length()) {
+			buffer[count++] = mark; 
+			buffer[count++] = text.length();
+		}
+		buffer[0] = (count / 2) - 1;
+		buffer[1] = (int) Math.floor(height / lineHeight);
+		buffer[2] = (int) Math.ceil(lineHeight);
 	}
 	//=============================================================================================
 	
