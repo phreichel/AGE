@@ -35,6 +35,7 @@
     <xi:include href="enumage_1_1event_1_1_key.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="enumage_1_1log_1_1_level.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classage_1_1log_1_1_log.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classage_1_1gui_1_1_multiline_widget.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="interfaceage_1_1port_1_1_port.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="interfaceage_1_1port_1_1_renderable.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classage_1_1gui_1_1_rendering.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -42,6 +43,7 @@
     <xi:include href="interfaceage_1_1task_1_1_task.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classage_1_1task_1_1_tasks.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="enumage_1_1event_1_1_type.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classage_1_1_util.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classage_1_1gui_1_1_widget.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classage_1_1gui_1_1_widgets.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classage_1_1gui_1_1_window.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -63,6 +65,7 @@
     <xi:include href="_dock_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_flag_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_handling_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_multiline_widget_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_rendering_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_widget_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_widgets_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -77,6 +80,7 @@
     <xi:include href="_port_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_renderable_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_tasks_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_util_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 </chapter>
 <index/>
 </book>

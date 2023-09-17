@@ -57,10 +57,16 @@ Inherits \fBage\&.port\&.Graphics\fP\&.
 .RI "void \fBrectangle\fP (float x, float y, float w, float h, boolean hollow)"
 .br
 .ti -1c
-.RI "void \fBtext\fP (float x, float y, String text)"
+.RI "void \fBtext\fP (float x, float y, CharSequence text, String font)"
 .br
 .ti -1c
 .RI "void \fBtexture\fP (float x, float y, float w, float h, String texture)"
+.br
+.ti -1c
+.RI "void \fBcalcMultitext\fP (String \fBtext\fP, Vector2f dimension, String font, int[] buffer)"
+.br
+.ti -1c
+.RI "void \fBcalcMultitext\fP (String \fBtext\fP, float width, float height, String font, int[] buffer)"
 .br
 .in -1c
 .SS "Private Attributes"
@@ -76,16 +82,24 @@ Inherits \fBage\&.port\&.Graphics\fP\&.
 .RI "GLU \fBglu\fP = null"
 .br
 .ti -1c
-.RI "TextRenderer \fBtitleText\fP"
+.RI "Map< String, Texture > \fBtextures\fP = new HashMap<>()"
 .br
 .ti -1c
-.RI "Map< String, Texture > \fBtextures\fP = new HashMap<>()"
+.RI "Map< String, TextRenderer > \fBfonts\fP = new HashMap<>()"
 .br
 .in -1c
 .SH "Member Function Documentation"
 .PP 
 .SS "void age\&.port\&.jogl\&.JOGLGraphics\&.assign (GLAutoDrawable drawable)"
 
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.calcMultitext (String text, float width, float height, String font, int[] buffer)"
+
+.PP
+Implements \fBage\&.port\&.Graphics\fP\&.
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.calcMultitext (String text, Vector2f dimension, String font, int[] buffer)"
+
+.PP
+Implements \fBage\&.port\&.Graphics\fP\&.
 .SS "void age\&.port\&.jogl\&.JOGLGraphics\&.clear ()"
 
 .SS "void age\&.port\&.jogl\&.JOGLGraphics\&.color (Color4f c)"
@@ -128,7 +142,7 @@ Implements \fBage\&.port\&.Graphics\fP\&.
 
 .PP
 Implements \fBage\&.port\&.Graphics\fP\&.
-.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.text (float x, float y, String text)"
+.SS "void age\&.port\&.jogl\&.JOGLGraphics\&.text (float x, float y, CharSequence text, String font)"
 
 .PP
 Implements \fBage\&.port\&.Graphics\fP\&.
@@ -148,13 +162,13 @@ Implements \fBage\&.port\&.Graphics\fP\&.
 .PP 
 .SS "GLAutoDrawable age\&.port\&.jogl\&.JOGLGraphics\&.drawable = null\fC [private]\fP"
 
+.SS "Map<String, TextRenderer> age\&.port\&.jogl\&.JOGLGraphics\&.fonts = new HashMap<>()\fC [private]\fP"
+
 .SS "GL2 age\&.port\&.jogl\&.JOGLGraphics\&.gl = null\fC [private]\fP"
 
 .SS "GLU age\&.port\&.jogl\&.JOGLGraphics\&.glu = null\fC [private]\fP"
 
 .SS "Map<String, Texture> age\&.port\&.jogl\&.JOGLGraphics\&.textures = new HashMap<>()\fC [private]\fP"
-
-.SS "TextRenderer age\&.port\&.jogl\&.JOGLGraphics\&.titleText\fC [private]\fP"
 
 
 .SH "Author"

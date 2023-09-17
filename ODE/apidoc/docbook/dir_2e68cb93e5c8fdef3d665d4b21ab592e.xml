@@ -11,6 +11,8 @@
 </listitem>
             <listitem><para>file <link linkend="__handling_8java">Handling.java</link></para>
 </listitem>
+            <listitem><para>file <link linkend="__multiline_widget_8java">MultilineWidget.java</link></para>
+</listitem>
             <listitem><para>file <link linkend="__rendering_8java">Rendering.java</link></para>
 </listitem>
             <listitem><para>file <link linkend="__widget_8java">Widget.java</link></para>

@@ -1,0 +1,183 @@
+.TH "age.gui.MultilineWidget" 3 "Version 1" "ODE Framework" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+age.gui.MultilineWidget
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBage\&.gui\&.Widget\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMultilineWidget\fP ()"
+.br
+.ti -1c
+.RI "void \fBtext\fP (String text)"
+.br
+.ti -1c
+.RI "int \fBoffset\fP ()"
+.br
+.ti -1c
+.RI "int \fBcount\fP ()"
+.br
+.ti -1c
+.RI "int \fBpage\fP ()"
+.br
+.ti -1c
+.RI "int \fBlineHeight\fP ()"
+.br
+.ti -1c
+.RI "CharSequence \fBline\fP (int idx)"
+.br
+.ti -1c
+.RI "int[] \fBbuffer\fP ()"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBage\&.gui\&.Widget\fP
+.in +1c
+.ti -1c
+.RI "\fBWidget\fP (\fBFlag\fP \&.\&.\&. \fBflags\fP)"
+.br
+.ti -1c
+.RI "float \fBx\fP ()"
+.br
+.ti -1c
+.RI "float \fBy\fP ()"
+.br
+.ti -1c
+.RI "float \fBwidth\fP ()"
+.br
+.ti -1c
+.RI "float \fBheight\fP ()"
+.br
+.ti -1c
+.RI "Vector2f \fBposition\fP ()"
+.br
+.ti -1c
+.RI "Vector2f \fBdimension\fP ()"
+.br
+.ti -1c
+.RI "\fBDock\fP \fBdock\fP ()"
+.br
+.ti -1c
+.RI "void \fBdock\fP (\fBDock\fP dock)"
+.br
+.ti -1c
+.RI "void \fBdock\fP (float top, float bottom, float left, float right)"
+.br
+.ti -1c
+.RI "void \fBposition\fP (Vector2f position)"
+.br
+.ti -1c
+.RI "void \fBposition\fP (float \fBx\fP, float \fBy\fP)"
+.br
+.ti -1c
+.RI "void \fBpositionAdd\fP (Vector2f \fBposition\fP)"
+.br
+.ti -1c
+.RI "void \fBpositionAdd\fP (float \fBx\fP, float \fBy\fP)"
+.br
+.ti -1c
+.RI "void \fBdimension\fP (Vector2f dimension)"
+.br
+.ti -1c
+.RI "void \fBdimension\fP (float \fBwidth\fP, float \fBheight\fP)"
+.br
+.ti -1c
+.RI "void \fBdimensionAdd\fP (Vector2f \fBdimension\fP)"
+.br
+.ti -1c
+.RI "void \fBdimensionAdd\fP (float \fBwidth\fP, float \fBheight\fP)"
+.br
+.ti -1c
+.RI "Set< \fBFlag\fP > \fBflags\fP ()"
+.br
+.ti -1c
+.RI "void \fBflag\fP (\fBFlag\fP \&.\&.\&. \fBflags\fP)"
+.br
+.ti -1c
+.RI "void \fBclear\fP (\fBFlag\fP \&.\&.\&. \fBflags\fP)"
+.br
+.ti -1c
+.RI "boolean \fBmatch\fP (\fBFlag\fP \&.\&.\&. \fBflags\fP)"
+.br
+.ti -1c
+.RI "\fBWidget\fP \fBparent\fP ()"
+.br
+.ti -1c
+.RI "List< \fBWidget\fP > \fBchildren\fP ()"
+.br
+.ti -1c
+.RI "void \fBadd\fP (\fBWidget\fP child)"
+.br
+.ti -1c
+.RI "void \fBadd\fP (int idx, \fBWidget\fP child)"
+.br
+.ti -1c
+.RI "void \fBremove\fP ()"
+.br
+.ti -1c
+.RI "void \fBtoFront\fP ()"
+.br
+.ti -1c
+.RI "String \fBtext\fP ()"
+.br
+.ti -1c
+.RI "String \fBimage\fP ()"
+.br
+.ti -1c
+.RI "void \fBimage\fP (String image)"
+.br
+.ti -1c
+.RI "String \fBcommand\fP ()"
+.br
+.ti -1c
+.RI "void \fBcommand\fP (String command)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBoffset\fP"
+.br
+.ti -1c
+.RI "int[] \fBbuffer\fP = new int[1024]"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "age\&.gui\&.MultilineWidget\&.MultilineWidget ()"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "int[] age\&.gui\&.MultilineWidget\&.buffer ()"
+
+.SS "int age\&.gui\&.MultilineWidget\&.count ()"
+
+.SS "CharSequence age\&.gui\&.MultilineWidget\&.line (int idx)"
+
+.SS "int age\&.gui\&.MultilineWidget\&.lineHeight ()"
+
+.SS "int age\&.gui\&.MultilineWidget\&.offset ()"
+
+.SS "int age\&.gui\&.MultilineWidget\&.page ()"
+
+.SS "void age\&.gui\&.MultilineWidget\&.text (String text)"
+
+.PP
+Reimplemented from \fBage\&.gui\&.Widget\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "int [] age\&.gui\&.MultilineWidget\&.buffer = new int[1024]\fC [private]\fP"
+
+.SS "int age\&.gui\&.MultilineWidget\&.offset\fC [private]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ODE Framework from the source code\&.

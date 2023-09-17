@@ -26,6 +26,8 @@
 </listitem>
             <listitem><para>file <link linkend="__client_8java">Client.java</link></para>
 </listitem>
+            <listitem><para>file <link linkend="__util_8java">Util.java</link></para>
+</listitem>
         </itemizedlist>
 </simplesect>
 </section>

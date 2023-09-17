@@ -15,6 +15,8 @@
 </listitem>
             <listitem><para><link linkend="_enumage_1_1gui_1_1_flag_1a92309c4784b372a86bc3606c90913989">TITLE</link></para>
 </listitem>
+            <listitem><para><link linkend="_enumage_1_1gui_1_1_flag_1ae88feb7fe58a96600b55703cc978acfa">MULTILINE</link></para>
+</listitem>
             <listitem><para><link linkend="_enumage_1_1gui_1_1_flag_1acf60e07e56e48c4a0dc01a265ab35bf1">HOVERED</link></para>
 </listitem>
             <listitem><para><link linkend="_enumage_1_1gui_1_1_flag_1ad0cdaa44442c8c09c55de8333a9b580c">HIDDEN</link></para>
@@ -53,6 +55,11 @@
 <indexterm><primary>HOVERED</primary><secondary>age.gui.Flag</secondary></indexterm>
 <indexterm><primary>age.gui.Flag</primary><secondary>HOVERED</secondary></indexterm>
 <para><computeroutput>age.gui.Flag.HOVERED</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1gui_1_1_flag_1ae88feb7fe58a96600b55703cc978acfa"/><section>
+    <title>MULTILINE</title>
+<indexterm><primary>MULTILINE</primary><secondary>age.gui.Flag</secondary></indexterm>
+<indexterm><primary>age.gui.Flag</primary><secondary>MULTILINE</secondary></indexterm>
+<para><computeroutput>age.gui.Flag.MULTILINE</computeroutput></para></section>
 <anchor xml:id="_enumage_1_1gui_1_1_flag_1a92309c4784b372a86bc3606c90913989"/><section>
     <title>TITLE</title>
 <indexterm><primary>TITLE</primary><secondary>age.gui.Flag</secondary></indexterm>

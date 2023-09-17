@@ -90,12 +90,106 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a40eda174a00c7dd183c0baf3c39c5a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82fba58248308b41a4375124d8693fee" id="r_a82fba58248308b41a4375124d8693fee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceage_1_1port_1_1_graphics.html#a82fba58248308b41a4375124d8693fee">rectangle</a> (float x, float y, float w, float h, boolean hollow)</td></tr>
 <tr class="separator:a82fba58248308b41a4375124d8693fee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab42a972bce7c45a47dd8cd7f620ea2c4" id="r_ab42a972bce7c45a47dd8cd7f620ea2c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceage_1_1port_1_1_graphics.html#ab42a972bce7c45a47dd8cd7f620ea2c4">text</a> (float x, float y, String text)</td></tr>
-<tr class="separator:ab42a972bce7c45a47dd8cd7f620ea2c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4c393dbbc539f76c998252b0831ae0e" id="r_ad4c393dbbc539f76c998252b0831ae0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceage_1_1port_1_1_graphics.html#ad4c393dbbc539f76c998252b0831ae0e">text</a> (float x, float y, CharSequence text, String font)</td></tr>
+<tr class="separator:ad4c393dbbc539f76c998252b0831ae0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bf21ef43ebdca04b6d5f90653aba471" id="r_a2bf21ef43ebdca04b6d5f90653aba471"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceage_1_1port_1_1_graphics.html#a2bf21ef43ebdca04b6d5f90653aba471">texture</a> (float x, float y, float w, float h, String texture)</td></tr>
 <tr class="separator:a2bf21ef43ebdca04b6d5f90653aba471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66d9ec9d9cb17cc0c8a8456369283b17" id="r_a66d9ec9d9cb17cc0c8a8456369283b17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceage_1_1port_1_1_graphics.html#a66d9ec9d9cb17cc0c8a8456369283b17">calcMultitext</a> (String <a class="el" href="interfaceage_1_1port_1_1_graphics.html#ad4c393dbbc539f76c998252b0831ae0e">text</a>, Vector2f dimension, String font, int[] buffer)</td></tr>
+<tr class="separator:a66d9ec9d9cb17cc0c8a8456369283b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae45dfe1b10299beafaada5dc60d697ad" id="r_ae45dfe1b10299beafaada5dc60d697ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceage_1_1port_1_1_graphics.html#ae45dfe1b10299beafaada5dc60d697ad">calcMultitext</a> (String <a class="el" href="interfaceage_1_1port_1_1_graphics.html#ad4c393dbbc539f76c998252b0831ae0e">text</a>, float width, float height, String font, int[] buffer)</td></tr>
+<tr class="separator:ae45dfe1b10299beafaada5dc60d697ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae45dfe1b10299beafaada5dc60d697ad" name="ae45dfe1b10299beafaada5dc60d697ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae45dfe1b10299beafaada5dc60d697ad">&#9670;&#160;</a></span>calcMultitext() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void age.port.Graphics.calcMultitext </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>font</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int[]&#160;</td>
+          <td class="paramname"><em>buffer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics.html#af26766f9d6695eefd1feeaa4ea710892">age.port.jogl.JOGLGraphics</a>.</p>
+
+</div>
+</div>
+<a id="a66d9ec9d9cb17cc0c8a8456369283b17" name="a66d9ec9d9cb17cc0c8a8456369283b17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66d9ec9d9cb17cc0c8a8456369283b17">&#9670;&#160;</a></span>calcMultitext() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void age.port.Graphics.calcMultitext </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector2f&#160;</td>
+          <td class="paramname"><em>dimension</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>font</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int[]&#160;</td>
+          <td class="paramname"><em>buffer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics.html#afe1b159d507133fd30bba1b6da499c11">age.port.jogl.JOGLGraphics</a>.</p>
+
+</div>
+</div>
 <a id="a3c8f3e1c8a2199466ab2923b6adc94b0" name="a3c8f3e1c8a2199466ab2923b6adc94b0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3c8f3e1c8a2199466ab2923b6adc94b0">&#9670;&#160;</a></span>color() <span class="overload">[1/3]</span></h2>
 
@@ -365,8 +459,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab42a972bce7c45a47dd8cd7f620ea2c4" name="ab42a972bce7c45a47dd8cd7f620ea2c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab42a972bce7c45a47dd8cd7f620ea2c4">&#9670;&#160;</a></span>text()</h2>
+<a id="ad4c393dbbc539f76c998252b0831ae0e" name="ad4c393dbbc539f76c998252b0831ae0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4c393dbbc539f76c998252b0831ae0e">&#9670;&#160;</a></span>text()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -386,8 +480,14 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">CharSequence&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>text</em>&#160;</td>
+          <td class="paramname"><em>font</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -397,7 +497,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics.html#ac84529b1def3c8df6e9877cfa54ed690">age.port.jogl.JOGLGraphics</a>.</p>
+<p>Implemented in <a class="el" href="classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics.html#a5c6f93090f530911315b193c7bba09bd">age.port.jogl.JOGLGraphics</a>.</p>
 
 </div>
 </div>

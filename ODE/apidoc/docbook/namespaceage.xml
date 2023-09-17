@@ -26,6 +26,8 @@
 </listitem>
             <listitem><para>class <link linkend="_classage_1_1_client">Client</link></para>
 </listitem>
+            <listitem><para>class <link linkend="_classage_1_1_util">Util</link></para>
+</listitem>
         </itemizedlist>
 </simplesect>
 </section>

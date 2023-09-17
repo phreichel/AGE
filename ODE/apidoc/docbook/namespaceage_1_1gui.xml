@@ -11,6 +11,8 @@
 </listitem>
             <listitem><para>class <link linkend="_classage_1_1gui_1_1_handling">Handling</link></para>
 </listitem>
+            <listitem><para>class <link linkend="_classage_1_1gui_1_1_multiline_widget">MultilineWidget</link></para>
+</listitem>
             <listitem><para>class <link linkend="_classage_1_1gui_1_1_rendering">Rendering</link></para>
 </listitem>
             <listitem><para>class <link linkend="_classage_1_1gui_1_1_widget">Widget</link></para>

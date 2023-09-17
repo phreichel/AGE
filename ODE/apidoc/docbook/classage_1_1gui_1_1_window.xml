@@ -19,6 +19,8 @@
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1gui_1_1_window_1ae6563cc6f3a5cb35ddb87b7887c3ebae">title</link> (String title)</para>
 </listitem>
+            <listitem><para><link linkend="_classage_1_1gui_1_1_widget">Widget</link> <link linkend="_classage_1_1gui_1_1_window_1a10cc6a7bc241a9f328cbb9ff8cb3ec5e">getPage</link> ()</para>
+</listitem>
         </itemizedlist>
 </simplesect>
 Public Member Functions inherited from <link linkend="_classage_1_1gui_1_1_widget">age.gui.Widget</link>        <itemizedlist>
@@ -126,6 +128,11 @@ Public Member Functions inherited from <link linkend="_classage_1_1gui_1_1_widge
 <indexterm><primary>construct</primary><secondary>age.gui.Window</secondary></indexterm>
 <indexterm><primary>age.gui.Window</primary><secondary>construct</secondary></indexterm>
 <para><computeroutput>void age.gui.Window.construct ( )<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_window_1a10cc6a7bc241a9f328cbb9ff8cb3ec5e"/><section>
+    <title>getPage()</title>
+<indexterm><primary>getPage</primary><secondary>age.gui.Window</secondary></indexterm>
+<indexterm><primary>age.gui.Window</primary><secondary>getPage</secondary></indexterm>
+<para><computeroutput><link linkend="_classage_1_1gui_1_1_widget">Widget</link> age.gui.Window.getPage ( )</computeroutput></para></section>
 <anchor xml:id="_classage_1_1gui_1_1_window_1a82b463eae80b0c7acb59a5cf79243729"/><section>
     <title>title()<computeroutput>[1/2]</computeroutput></title>
 <indexterm><primary>title</primary><secondary>age.gui.Window</secondary></indexterm>
