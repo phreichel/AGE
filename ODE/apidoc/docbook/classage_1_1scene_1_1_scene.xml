@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classage_1_1scene_1_1_scene" xml:lang="en-US">
+<title>age.scene.Scene Class Reference</title>
+<indexterm><primary>age.scene.Scene</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classage_1_1scene_1_1_node">Node</link> <link linkend="_classage_1_1scene_1_1_scene_1af21b0325875054194f5099e29dddb1a0">root</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classage_1_1scene_1_1_node">Node</link> <link linkend="_classage_1_1scene_1_1_scene_1affaebce61fbeeff7428cde5dfc705188">root</link> = new <link linkend="_classage_1_1scene_1_1_node">Node</link>()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classage_1_1scene_1_1_scene_1af21b0325875054194f5099e29dddb1a0"/><section>
+    <title>root()</title>
+<indexterm><primary>root</primary><secondary>age.scene.Scene</secondary></indexterm>
+<indexterm><primary>age.scene.Scene</primary><secondary>root</secondary></indexterm>
+<para><computeroutput><link linkend="_classage_1_1scene_1_1_node">Node</link> age.scene.Scene.root ( )</computeroutput></para></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classage_1_1scene_1_1_scene_1affaebce61fbeeff7428cde5dfc705188"/><section>
+    <title>root</title>
+<indexterm><primary>root</primary><secondary>age.scene.Scene</secondary></indexterm>
+<indexterm><primary>age.scene.Scene</primary><secondary>root</secondary></indexterm>
+<para><computeroutput><link linkend="_classage_1_1scene_1_1_node">Node</link> age.scene.Scene.root = new <link linkend="_classage_1_1scene_1_1_node">Node</link>()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following file:</para>
+D:/GIT/repos/ODE/age/age/scene/<link linkend="__scene_8java">Scene.java</link></section>
+</section>

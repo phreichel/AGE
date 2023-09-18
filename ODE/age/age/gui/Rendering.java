@@ -41,15 +41,46 @@ public class Rendering implements Renderable {
 
 	//=============================================================================================
 	private void renderWidget(Graphics g, Widget widget) {
+		if      (renderBox(g, widget));
+		else if (renderFrame(g, widget));
+		else if (renderButton(g, widget));
+		else if (renderCanvas(g, widget));
+		else if (renderTitle(g, widget));
+		else if (renderHandle(g, widget));
+		else if (renderMultiline(g, widget));
+		else {
+			// do nothing;
+		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private boolean renderBox(Graphics g, Widget widget) {
 		if (widget.match(Flag.BOX)) {
 			g.color(.4f, 0f, 0f);
 			g.rectangle(widget.dimension(), true);
-		} else if (widget.match(Flag.FRAME)) {
+			return true;
+		}
+		return false;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private boolean renderFrame(Graphics g, Widget widget) {
+		if (widget.match(Flag.FRAME)) {
 			g.color(.2f, 0f, 0f);
 			g.rectangle(widget.dimension(), false);
 			g.color(1f, 0, 0);
 			g.rectangle(widget.dimension(), true);
-		} else if (widget.match(Flag.BUTTON)) {
+			return true;
+		}
+		return false;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private boolean renderButton(Graphics g, Widget widget) {
+		if (widget.match(Flag.BUTTON)) {
 			if (!widget.match(Flag.HOVERED))
 				g.color(.8f, 0f, 0f);
 			else
@@ -60,12 +91,28 @@ public class Rendering implements Renderable {
 			} else {
 				g.rectangle(widget.dimension(), false);
 			}
-		} else if (widget.match(Flag.CANVAS)) {
+			return true;
+		}
+		return false;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private boolean renderCanvas(Graphics g, Widget widget) {
+		if (widget.match(Flag.CANVAS)) {
 			g.color(0f, 0f, .2f);
 			g.rectangle(widget.dimension(), false);
 			g.color(1f, 0f, 0f);
 			g.rectangle(widget.dimension(), true);
-		} else if (widget.match(Flag.TITLE)) {
+			return true;
+		}
+		return false;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private boolean renderTitle(Graphics g, Widget widget) {
+		if (widget.match(Flag.TITLE)) {
 			if (!widget.match(Flag.HOVERED))
 				g.color(.2f, 0f, 0f);
 			else
@@ -74,10 +121,26 @@ public class Rendering implements Renderable {
 			g.color(.4f, 0f, 0f);
 			g.rectangle(widget.dimension(), true);
 			g.text(3, widget.dimension().y-3, widget.text(), "title");
-		} else if (widget.match(Flag.HANDLE)) {
+			return true;
+		}
+		return false;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private boolean renderHandle(Graphics g, Widget widget) {
+		if (widget.match(Flag.HANDLE)) {
 			g.color(1f, 0f, 0f);
 			g.rectangle(widget.dimension(), false);
-		} else if (widget.match(Flag.MULTILINE)) {
+			return true;
+		}
+		return false;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private boolean renderMultiline(Graphics g, Widget widget) {
+		if (widget.match(Flag.MULTILINE)) {
 			Multiline ml = (Multiline) widget;
 			g.color(0f, 0f, .5f);
 			g.rectangle(
@@ -100,7 +163,9 @@ public class Rendering implements Renderable {
 				CharSequence seq = ml.line(idx);
 				g.text(3, 3 + (1+i)*ml.lineHeight(), seq, "text");
 			}
+			return true;
 		}
+		return false;
 	}
 	//=============================================================================================
 	

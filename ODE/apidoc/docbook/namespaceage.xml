@@ -15,6 +15,8 @@
 </listitem>
             <listitem><para>package <link linkend="_namespaceage_1_1port">port</link></para>
 </listitem>
+            <listitem><para>package <link linkend="_namespaceage_1_1scene">scene</link></para>
+</listitem>
             <listitem><para>package <link linkend="_namespaceage_1_1task">task</link></para>
 </listitem>
         </itemizedlist>

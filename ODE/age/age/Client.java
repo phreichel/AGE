@@ -67,7 +67,7 @@ public class Client {
 
 	//=============================================================================================
 	/**
-	 * Initializes the client application and its parts.
+	 * Initializes the Client application and its parts.
 	 */
 	private void setup() {
 		Log.get("default").disable(Level.DEBUG);
@@ -101,7 +101,7 @@ public class Client {
 
 		Widget root = widgets.root();
 
-		String text = Util.readFile("assets/sample.txt");
+		String text = Util.readTextFile("assets/sample.txt");
 
 		windowFrame = new Widget();
 		windowFrame.position(root.position());

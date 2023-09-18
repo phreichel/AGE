@@ -10,9 +10,18 @@
 <simplesect>
     <title>Static Public Member Functions    </title>
         <itemizedlist>
-            <listitem><para>static final String <link linkend="_classage_1_1_util_1a5b8e354449679322235638e70f703a80">readFile</link> (String path)</para>
+            <listitem><para>static final String <link linkend="_classage_1_1_util_1aa78888e6cadb7e7dd6aec0b7254508b2">readTextFile</link> (String path)</para>
 
 <para>Static utility method to load and return text read from a file located by path. </para>
+</listitem>
+            <listitem><para>static final&lt; C &gt; C <link linkend="_classage_1_1_util_1aa4649426ef20c08e6dc3fa76a46d31e1">readJSonFile</link> (String path, Class&lt; C &gt; cls)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static final ObjectMapper <link linkend="_classage_1_1_util_1a1daf211ffe10adf840e367a83ef75709">objectMapper</link> = new ObjectMapper()</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -23,11 +32,16 @@
 </section>
 <section>
 <title>Member Function Documentation</title>
-<anchor xml:id="_classage_1_1_util_1a5b8e354449679322235638e70f703a80"/><section>
-    <title>readFile()</title>
-<indexterm><primary>readFile</primary><secondary>age.Util</secondary></indexterm>
-<indexterm><primary>age.Util</primary><secondary>readFile</secondary></indexterm>
-<para><computeroutput>static final String age.Util.readFile (String path)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+<anchor xml:id="_classage_1_1_util_1aa4649426ef20c08e6dc3fa76a46d31e1"/><section>
+    <title>readJSonFile()</title>
+<indexterm><primary>readJSonFile</primary><secondary>age.Util</secondary></indexterm>
+<indexterm><primary>age.Util</primary><secondary>readJSonFile</secondary></indexterm>
+<para><computeroutput>static final&lt; C &gt; C age.Util.readJSonFile (String path, Class&lt; C &gt; cls)<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1_util_1aa78888e6cadb7e7dd6aec0b7254508b2"/><section>
+    <title>readTextFile()</title>
+<indexterm><primary>readTextFile</primary><secondary>age.Util</secondary></indexterm>
+<indexterm><primary>age.Util</primary><secondary>readTextFile</secondary></indexterm>
+<para><computeroutput>static final String age.Util.readTextFile (String path)<computeroutput>[static]</computeroutput></computeroutput></para><para>
 
 <para>Static utility method to load and return text read from a file located by path. </para>
 </para>
@@ -58,6 +72,14 @@ Parameters</title>
 </formalpara>
 </para>
 </section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classage_1_1_util_1a1daf211ffe10adf840e367a83ef75709"/><section>
+    <title>objectMapper</title>
+<indexterm><primary>objectMapper</primary><secondary>age.Util</secondary></indexterm>
+<indexterm><primary>age.Util</primary><secondary>objectMapper</secondary></indexterm>
+<para><computeroutput>final ObjectMapper age.Util.objectMapper = new ObjectMapper()<computeroutput>[static]</computeroutput>, <computeroutput>[private]</computeroutput></computeroutput></para></section>
 <para>
 The documentation for this class was generated from the following file:</para>
 D:/GIT/repos/ODE/age/age/<link linkend="__util_8java">Util.java</link></section>

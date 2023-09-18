@@ -34,7 +34,7 @@
         <itemizedlist>
             <listitem><para>void <link linkend="_classage_1_1_client_1a0db5c60227453971995a576c445a5a3f">setup</link> ()</para>
 
-<para>Initializes the client application and its parts. </para>
+<para>Initializes the Client application and its parts. </para>
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1_client_1ae16cfa941683189d30cacdb0192f4cb3">setupGUI</link> ()</para>
 
@@ -198,7 +198,7 @@ Parameters</title>
 <indexterm><primary>age.Client</primary><secondary>setup</secondary></indexterm>
 <para><computeroutput>void age.Client.setup ( )<computeroutput>[private]</computeroutput></computeroutput></para><para>
 
-<para>Initializes the client application and its parts. </para>
+<para>Initializes the Client application and its parts. </para>
 </para>
 </section>
 <anchor xml:id="_classage_1_1_client_1ae16cfa941683189d30cacdb0192f4cb3"/><section>

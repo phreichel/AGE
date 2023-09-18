@@ -26,6 +26,20 @@
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1gui_1_1_rendering_1a29837f8e4cc2b8eceb6e5f832ed93dd2">renderWidget</link> (Graphics g, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> widget)</para>
 </listitem>
+            <listitem><para>boolean <link linkend="_classage_1_1gui_1_1_rendering_1a95c1a38e53aa3943c7e9b439f455915f">renderBox</link> (Graphics g, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> widget)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classage_1_1gui_1_1_rendering_1a65e25eb2ef7cd7bc30a3b3600d94871d">renderFrame</link> (Graphics g, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> widget)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classage_1_1gui_1_1_rendering_1a0577e2ebf62c67193576ddb32ecf2f14">renderButton</link> (Graphics g, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> widget)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classage_1_1gui_1_1_rendering_1a94c04c6691b29145b0788fd7f634ce4f">renderCanvas</link> (Graphics g, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> widget)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classage_1_1gui_1_1_rendering_1a025a515cc78a41c3533801b2fd89b9ec">renderTitle</link> (Graphics g, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> widget)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classage_1_1gui_1_1_rendering_1a2fd0082e680700d1cc48b0e991e19fc3">renderHandle</link> (Graphics g, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> widget)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classage_1_1gui_1_1_rendering_1a5c929a027ebd7a1d9faa6f816f11fca7">renderMultiline</link> (Graphics g, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> widget)</para>
+</listitem>
             <listitem><para>void <link linkend="_classage_1_1gui_1_1_rendering_1a418196e7e0451047050b364c8ebf2ba3">renderChildren</link> (Graphics g, List&lt; <link linkend="_classage_1_1gui_1_1_widget">Widget</link> &gt; children)</para>
 </listitem>
         </itemizedlist>
@@ -57,11 +71,46 @@
 <indexterm><primary>render</primary><secondary>age.gui.Rendering</secondary></indexterm>
 <indexterm><primary>age.gui.Rendering</primary><secondary>render</secondary></indexterm>
 <para><computeroutput>void age.gui.Rendering.render (Graphics g, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> widget)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_rendering_1a95c1a38e53aa3943c7e9b439f455915f"/><section>
+    <title>renderBox()</title>
+<indexterm><primary>renderBox</primary><secondary>age.gui.Rendering</secondary></indexterm>
+<indexterm><primary>age.gui.Rendering</primary><secondary>renderBox</secondary></indexterm>
+<para><computeroutput>boolean age.gui.Rendering.renderBox (Graphics g, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> widget)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_rendering_1a0577e2ebf62c67193576ddb32ecf2f14"/><section>
+    <title>renderButton()</title>
+<indexterm><primary>renderButton</primary><secondary>age.gui.Rendering</secondary></indexterm>
+<indexterm><primary>age.gui.Rendering</primary><secondary>renderButton</secondary></indexterm>
+<para><computeroutput>boolean age.gui.Rendering.renderButton (Graphics g, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> widget)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_rendering_1a94c04c6691b29145b0788fd7f634ce4f"/><section>
+    <title>renderCanvas()</title>
+<indexterm><primary>renderCanvas</primary><secondary>age.gui.Rendering</secondary></indexterm>
+<indexterm><primary>age.gui.Rendering</primary><secondary>renderCanvas</secondary></indexterm>
+<para><computeroutput>boolean age.gui.Rendering.renderCanvas (Graphics g, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> widget)<computeroutput>[private]</computeroutput></computeroutput></para></section>
 <anchor xml:id="_classage_1_1gui_1_1_rendering_1a418196e7e0451047050b364c8ebf2ba3"/><section>
     <title>renderChildren()</title>
 <indexterm><primary>renderChildren</primary><secondary>age.gui.Rendering</secondary></indexterm>
 <indexterm><primary>age.gui.Rendering</primary><secondary>renderChildren</secondary></indexterm>
 <para><computeroutput>void age.gui.Rendering.renderChildren (Graphics g, List&lt; <link linkend="_classage_1_1gui_1_1_widget">Widget</link> &gt; children)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_rendering_1a65e25eb2ef7cd7bc30a3b3600d94871d"/><section>
+    <title>renderFrame()</title>
+<indexterm><primary>renderFrame</primary><secondary>age.gui.Rendering</secondary></indexterm>
+<indexterm><primary>age.gui.Rendering</primary><secondary>renderFrame</secondary></indexterm>
+<para><computeroutput>boolean age.gui.Rendering.renderFrame (Graphics g, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> widget)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_rendering_1a2fd0082e680700d1cc48b0e991e19fc3"/><section>
+    <title>renderHandle()</title>
+<indexterm><primary>renderHandle</primary><secondary>age.gui.Rendering</secondary></indexterm>
+<indexterm><primary>age.gui.Rendering</primary><secondary>renderHandle</secondary></indexterm>
+<para><computeroutput>boolean age.gui.Rendering.renderHandle (Graphics g, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> widget)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_rendering_1a5c929a027ebd7a1d9faa6f816f11fca7"/><section>
+    <title>renderMultiline()</title>
+<indexterm><primary>renderMultiline</primary><secondary>age.gui.Rendering</secondary></indexterm>
+<indexterm><primary>age.gui.Rendering</primary><secondary>renderMultiline</secondary></indexterm>
+<para><computeroutput>boolean age.gui.Rendering.renderMultiline (Graphics g, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> widget)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classage_1_1gui_1_1_rendering_1a025a515cc78a41c3533801b2fd89b9ec"/><section>
+    <title>renderTitle()</title>
+<indexterm><primary>renderTitle</primary><secondary>age.gui.Rendering</secondary></indexterm>
+<indexterm><primary>age.gui.Rendering</primary><secondary>renderTitle</secondary></indexterm>
+<para><computeroutput>boolean age.gui.Rendering.renderTitle (Graphics g, <link linkend="_classage_1_1gui_1_1_widget">Widget</link> widget)<computeroutput>[private]</computeroutput></computeroutput></para></section>
 <anchor xml:id="_classage_1_1gui_1_1_rendering_1a29837f8e4cc2b8eceb6e5f832ed93dd2"/><section>
     <title>renderWidget()</title>
 <indexterm><primary>renderWidget</primary><secondary>age.gui.Rendering</secondary></indexterm>

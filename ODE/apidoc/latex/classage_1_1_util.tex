@@ -8,19 +8,32 @@ The AGE Utility class.
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static final String \mbox{\hyperlink{classage_1_1_util_a5b8e354449679322235638e70f703a80}{read\+File}} (String path)
-\begin{DoxyCompactList}\small\item\em Static utility method to load and return text read from a file located by path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+static final String \mbox{\hyperlink{classage_1_1_util_aa78888e6cadb7e7dd6aec0b7254508b2}{read\+Text\+File}} (String path)
+\begin{DoxyCompactList}\small\item\em Static utility method to load and return text read from a file located by path. \end{DoxyCompactList}\item 
+static final$<$ C $>$ C \mbox{\hyperlink{classage_1_1_util_aa4649426ef20c08e6dc3fa76a46d31e1}{read\+JSon\+File}} (String path, Class$<$ C $>$ cls)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final Object\+Mapper \mbox{\hyperlink{classage_1_1_util_a1daf211ffe10adf840e367a83ef75709}{object\+Mapper}} = new Object\+Mapper()
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 The AGE Utility class. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classage_1_1_util_a5b8e354449679322235638e70f703a80}\label{classage_1_1_util_a5b8e354449679322235638e70f703a80} 
-\index{age.Util@{age.Util}!readFile@{readFile}}
-\index{readFile@{readFile}!age.Util@{age.Util}}
-\doxysubsubsection{\texorpdfstring{readFile()}{readFile()}}
-{\footnotesize\ttfamily static final String age.\+Util.\+read\+File (\begin{DoxyParamCaption}\item[{String}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\Hypertarget{classage_1_1_util_aa4649426ef20c08e6dc3fa76a46d31e1}\label{classage_1_1_util_aa4649426ef20c08e6dc3fa76a46d31e1} 
+\index{age.Util@{age.Util}!readJSonFile@{readJSonFile}}
+\index{readJSonFile@{readJSonFile}!age.Util@{age.Util}}
+\doxysubsubsection{\texorpdfstring{readJSonFile()}{readJSonFile()}}
+{\footnotesize\ttfamily static final$<$ C $>$ C age.\+Util.\+read\+JSon\+File (\begin{DoxyParamCaption}\item[{String}]{path,  }\item[{Class$<$ C $>$}]{cls }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classage_1_1_util_aa78888e6cadb7e7dd6aec0b7254508b2}\label{classage_1_1_util_aa78888e6cadb7e7dd6aec0b7254508b2} 
+\index{age.Util@{age.Util}!readTextFile@{readTextFile}}
+\index{readTextFile@{readTextFile}!age.Util@{age.Util}}
+\doxysubsubsection{\texorpdfstring{readTextFile()}{readTextFile()}}
+{\footnotesize\ttfamily static final String age.\+Util.\+read\+Text\+File (\begin{DoxyParamCaption}\item[{String}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -34,6 +47,15 @@ Static utility method to load and return text read from a file located by path.
 \begin{DoxyReturn}{Returns}
 The file contents as a text String 
 \end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classage_1_1_util_a1daf211ffe10adf840e367a83ef75709}\label{classage_1_1_util_a1daf211ffe10adf840e367a83ef75709} 
+\index{age.Util@{age.Util}!objectMapper@{objectMapper}}
+\index{objectMapper@{objectMapper}!age.Util@{age.Util}}
+\doxysubsubsection{\texorpdfstring{objectMapper}{objectMapper}}
+{\footnotesize\ttfamily final Object\+Mapper age.\+Util.\+object\+Mapper = new Object\+Mapper()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

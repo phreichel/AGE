@@ -1,0 +1,64 @@
+.TH "age.scene.Node" 3 "Version 1" "ODE Framework" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+age.scene.Node
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBNode\fP \fBparent\fP ()"
+.br
+.ti -1c
+.RI "List< \fBNode\fP > \fBchildren\fP ()"
+.br
+.ti -1c
+.RI "void \fBattach\fP (\fBNode\fP node)"
+.br
+.ti -1c
+.RI "void \fBattach\fP (int idx, \fBNode\fP node)"
+.br
+.ti -1c
+.RI "void \fBdetach\fP ()"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBNode\fP \fBparent\fP"
+.br
+.ti -1c
+.RI "final List< \fBNode\fP > \fBchildren\fP = new ArrayList<>(5)"
+.br
+.ti -1c
+.RI "final List< \fBNode\fP > \fBchildren_ro\fP = Collections\&.unmodifiableList(\fBchildren\fP)"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "void age\&.scene\&.Node\&.attach (int idx, \fBNode\fP node)"
+
+.SS "void age\&.scene\&.Node\&.attach (\fBNode\fP node)"
+
+.SS "List< \fBNode\fP > age\&.scene\&.Node\&.children ()"
+
+.SS "void age\&.scene\&.Node\&.detach ()"
+
+.SS "\fBNode\fP age\&.scene\&.Node\&.parent ()"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final List<\fBNode\fP> age\&.scene\&.Node\&.children = new ArrayList<>(5)\fC [private]\fP"
+
+.SS "final List<\fBNode\fP> age\&.scene\&.Node\&.children_ro = Collections\&.unmodifiableList(\fBchildren\fP)\fC [private]\fP"
+
+.SS "\fBNode\fP age\&.scene\&.Node\&.parent\fC [private]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ODE Framework from the source code\&.

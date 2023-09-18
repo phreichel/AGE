@@ -11,16 +11,28 @@ age.Util \- The AGE Utility class\&.
 
 .in +1c
 .ti -1c
-.RI "static final String \fBreadFile\fP (String path)"
+.RI "static final String \fBreadTextFile\fP (String path)"
 .br
 .RI "Static utility method to load and return text read from a file located by path\&. "
+.ti -1c
+.RI "static final< C > C \fBreadJSonFile\fP (String path, Class< C > cls)"
+.br
+.in -1c
+.SS "Static Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final ObjectMapper \fBobjectMapper\fP = new ObjectMapper()"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
 The AGE Utility class\&. 
 .SH "Member Function Documentation"
 .PP 
-.SS "static final String age\&.Util\&.readFile (String path)\fC [static]\fP"
+.SS "static final< C > C age\&.Util\&.readJSonFile (String path, Class< C > cls)\fC [static]\fP"
+
+.SS "static final String age\&.Util\&.readTextFile (String path)\fC [static]\fP"
 
 .PP
 Static utility method to load and return text read from a file located by path\&. 
@@ -35,6 +47,10 @@ Static utility method to load and return text read from a file located by path\&
 The file contents as a text String 
 .RE
 .PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final ObjectMapper age\&.Util\&.objectMapper = new ObjectMapper()\fC [static]\fP, \fC [private]\fP"
 
 
 .SH "Author"

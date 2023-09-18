@@ -15,6 +15,15 @@
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency org="org.projectlombok" name="lombok" rev="1.18.28"/>
 
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+		<dependency org="com.fasterxml.jackson.core" name="jackson-core" rev="2.15.2"/>
+
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+		<dependency org="com.fasterxml.jackson.core" name="jackson-annotations" rev="2.15.2"/>
+
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency org="com.fasterxml.jackson.core" name="jackson-databind" rev="2.15.2"/>
+
 		<!-- https://mvnrepository.com/artifact/javax.vecmath/vecmath -->
 		<dependency org="javax.vecmath" name="vecmath" rev="1.5.2"/>
 
