@@ -125,7 +125,7 @@ public class Client {
 		Matrix4f camTransform = new Matrix4f();
 		Camera camData = new Camera(35f, .4f, 1000f);
 		camTransform.setIdentity();
-		camTransform.setRotation(new AxisAngle4f(1, 0, 0, (float) Math.toRadians(10)));
+		camTransform.setRotation(new AxisAngle4f(.8f, .2f, 0, (float) Math.toRadians(10)));
 		camTransform.setTranslation(new Vector3f(0, 10, 30));
 		camNode.component(Part.TRANSFORM, camTransform);
 		camNode.component(Part.CAMERA, camData);
