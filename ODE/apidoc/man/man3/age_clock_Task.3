@@ -2,7 +2,10 @@
 .ad l
 .nh
 .SH NAME
-age.clock.Task
+age.clock.Task \- The Task interface that defines the call parameters for a Task reference method 
+.br
+  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -12,10 +15,31 @@ age.clock.Task
 .ti -1c
 .RI "void \fBrun\fP (int count, long nanoperiod, float dT)"
 .br
+.RI "The definition of the Task reference method\&. "
 .in -1c
+.SH "Detailed Description"
+.PP 
+The Task interface that defines the call parameters for a Task reference method 
+.br
+ 
 .SH "Member Function Documentation"
 .PP 
 .SS "void age\&.clock\&.Task\&.run (int count, long nanoperiod, float dT)"
+
+.PP
+The definition of the Task reference method\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcount\fP number of full nanoperiods that have elapsed since last call\&. Normally 1 
+.br
+\fInanoperiod\fP the time period in nano seconds after which the Task normally is triggered 
+.br
+\fIdT\fP the time in seconds that did elapse since last call\&. 
+.br
+ 
+.RE
+.PP
 
 
 .SH "Author"

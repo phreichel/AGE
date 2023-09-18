@@ -6,10 +6,16 @@
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>class <link linkend="_classage_1_1clock_1_1_alarm">Alarm</link></para>
+
+<para>This package visible class represents a single alarm schedule that periodically triggers a Task after a preset time period <?linebreak?> </para>
 </listitem>
             <listitem><para>class <link linkend="_classage_1_1clock_1_1_clock">Clock</link></para>
+
+<para>The system Clock. </para>
 </listitem>
             <listitem><para>interface <link linkend="_interfaceage_1_1clock_1_1_task">Task</link></para>
+
+<para>The Task interface that defines the call parameters for a Task reference method <?linebreak?> </para>
 </listitem>
         </itemizedlist>
 </simplesect>

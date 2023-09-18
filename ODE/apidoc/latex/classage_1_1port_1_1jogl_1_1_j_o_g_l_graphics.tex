@@ -15,13 +15,15 @@ void \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_aa9f74711c93
 \item 
 void \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a2e9451ff8f896f4abd1bd00a37caa6af}{clear}} ()
 \item 
-void \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_af117796628930666e6313da1202d3550}{mode2D}} ()
-\item 
 void \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a4beee80bf90b7750a0f092508d3d88b6}{mode3D}} (float fovy, float near, float far)
+\item 
+void \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_af117796628930666e6313da1202d3550}{mode2D}} ()
 \item 
 void \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a0a89f5922b0ac8b494f0510c6e5f43fe}{push\+Transformation}} ()
 \item 
 void \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_afce755fda1a4664abb8b251112bd077e}{pop\+Transformation}} ()
+\item 
+void \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_aa6bc2facdc81fc4396c4d956285fcd8c}{apply\+Transformation}} (Matrix4f matrix)
 \item 
 void \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a5a80e4eba9a1752b3de91ce6a9168fd7}{translate}} (Vector2f t)
 \item 
@@ -43,9 +45,11 @@ void \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a5c6f93090f5
 \item 
 void \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a675de560cbff3985fdf6b97463d2828a}{texture}} (float x, float y, float w, float h, String texture)
 \item 
-void \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_afe1b159d507133fd30bba1b6da499c11}{calc\+Multitext}} (String \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a5c6f93090f530911315b193c7bba09bd}{text}}, Vector2f dimension, String font, int\mbox{[}$\,$\mbox{]} buffer)
+void \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_afe1b159d507133fd30bba1b6da499c11}{calc\+Multitext}} (String \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a5c6f93090f530911315b193c7bba09bd}{text}}, Vector2f dimension, String font, int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a17e119831cf77b033fbd74b7bdd74aa9}{buffer}})
 \item 
-void \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_af26766f9d6695eefd1feeaa4ea710892}{calc\+Multitext}} (String \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a5c6f93090f530911315b193c7bba09bd}{text}}, float width, float height, String font, int\mbox{[}$\,$\mbox{]} buffer)
+void \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_af26766f9d6695eefd1feeaa4ea710892}{calc\+Multitext}} (String \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a5c6f93090f530911315b193c7bba09bd}{text}}, float width, float height, String font, int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a17e119831cf77b033fbd74b7bdd74aa9}{buffer}})
+\item 
+void \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a4ed43e32b3aad5dc9abf8a8ce4c783fb}{draw\+Box}} (float sx, float sy, float sz)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -59,10 +63,22 @@ GLU \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_ad7718ce4902c
 Map$<$ String, Texture $>$ \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_aa9258b8cfa335e812659fffd1de64a7d}{textures}} = new Hash\+Map$<$$>$()
 \item 
 Map$<$ String, Text\+Renderer $>$ \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_aa1f02adf7c34034dae90b17e35ec2bc4}{fonts}} = new Hash\+Map$<$$>$()
+\item 
+float\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a17e119831cf77b033fbd74b7bdd74aa9}{buffer}} = new float\mbox{[}16\mbox{]}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_aa6bc2facdc81fc4396c4d956285fcd8c}\label{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_aa6bc2facdc81fc4396c4d956285fcd8c} 
+\index{age.port.jogl.JOGLGraphics@{age.port.jogl.JOGLGraphics}!applyTransformation@{applyTransformation}}
+\index{applyTransformation@{applyTransformation}!age.port.jogl.JOGLGraphics@{age.port.jogl.JOGLGraphics}}
+\doxysubsubsection{\texorpdfstring{applyTransformation()}{applyTransformation()}}
+{\footnotesize\ttfamily void age.\+port.\+jogl.\+JOGLGraphics.\+apply\+Transformation (\begin{DoxyParamCaption}\item[{Matrix4f}]{matrix }\end{DoxyParamCaption})}
+
+
+
+Implements \mbox{\hyperlink{interfaceage_1_1port_1_1_graphics_a6046bfc80e56038b9009599b95702c52}{age.\+port.\+Graphics}}.
+
 \Hypertarget{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a3dbee6197bd0bb515d03d1c27fd5475d}\label{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a3dbee6197bd0bb515d03d1c27fd5475d} 
 \index{age.port.jogl.JOGLGraphics@{age.port.jogl.JOGLGraphics}!assign@{assign}}
 \index{assign@{assign}!age.port.jogl.JOGLGraphics@{age.port.jogl.JOGLGraphics}}
@@ -125,6 +141,16 @@ Implements \mbox{\hyperlink{interfaceage_1_1port_1_1_graphics_a50eb4f2dccd10db3a
 
 Implements \mbox{\hyperlink{interfaceage_1_1port_1_1_graphics_a4a0622e4580b4997bfceac506af20286}{age.\+port.\+Graphics}}.
 
+\Hypertarget{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a4ed43e32b3aad5dc9abf8a8ce4c783fb}\label{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a4ed43e32b3aad5dc9abf8a8ce4c783fb} 
+\index{age.port.jogl.JOGLGraphics@{age.port.jogl.JOGLGraphics}!drawBox@{drawBox}}
+\index{drawBox@{drawBox}!age.port.jogl.JOGLGraphics@{age.port.jogl.JOGLGraphics}}
+\doxysubsubsection{\texorpdfstring{drawBox()}{drawBox()}}
+{\footnotesize\ttfamily void age.\+port.\+jogl.\+JOGLGraphics.\+draw\+Box (\begin{DoxyParamCaption}\item[{float}]{sx,  }\item[{float}]{sy,  }\item[{float}]{sz }\end{DoxyParamCaption})}
+
+
+
+Implements \mbox{\hyperlink{interfaceage_1_1port_1_1_graphics_af3be8264aed3caea8f5a8e99741d750e}{age.\+port.\+Graphics}}.
+
 \Hypertarget{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_aa9f74711c933622d14939e695bf99ea5}\label{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_aa9f74711c933622d14939e695bf99ea5} 
 \index{age.port.jogl.JOGLGraphics@{age.port.jogl.JOGLGraphics}!init@{init}}
 \index{init@{init}!age.port.jogl.JOGLGraphics@{age.port.jogl.JOGLGraphics}}
@@ -146,6 +172,10 @@ Implements \mbox{\hyperlink{interfaceage_1_1port_1_1_graphics_a0ead0ae673b550114
 \index{mode3D@{mode3D}!age.port.jogl.JOGLGraphics@{age.port.jogl.JOGLGraphics}}
 \doxysubsubsection{\texorpdfstring{mode3D()}{mode3D()}}
 {\footnotesize\ttfamily void age.\+port.\+jogl.\+JOGLGraphics.\+mode3D (\begin{DoxyParamCaption}\item[{float}]{fovy,  }\item[{float}]{near,  }\item[{float}]{far }\end{DoxyParamCaption})}
+
+
+
+Implements \mbox{\hyperlink{interfaceage_1_1port_1_1_graphics_a346999de125869c9d8e64c8f67b657d4}{age.\+port.\+Graphics}}.
 
 \Hypertarget{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_afce755fda1a4664abb8b251112bd077e}\label{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_afce755fda1a4664abb8b251112bd077e} 
 \index{age.port.jogl.JOGLGraphics@{age.port.jogl.JOGLGraphics}!popTransformation@{popTransformation}}
@@ -240,6 +270,12 @@ Implements \mbox{\hyperlink{interfaceage_1_1port_1_1_graphics_af7e47f4a0ce013cb7
 
 
 \doxysubsection{Member Data Documentation}
+\Hypertarget{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a17e119831cf77b033fbd74b7bdd74aa9}\label{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_a17e119831cf77b033fbd74b7bdd74aa9} 
+\index{age.port.jogl.JOGLGraphics@{age.port.jogl.JOGLGraphics}!buffer@{buffer}}
+\index{buffer@{buffer}!age.port.jogl.JOGLGraphics@{age.port.jogl.JOGLGraphics}}
+\doxysubsubsection{\texorpdfstring{buffer}{buffer}}
+{\footnotesize\ttfamily float \mbox{[}$\,$\mbox{]} age.\+port.\+jogl.\+JOGLGraphics.\+buffer = new float\mbox{[}16\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
 \Hypertarget{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_ad27447de16c4344ee1e40b5a53dbfc7c}\label{classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_ad27447de16c4344ee1e40b5a53dbfc7c} 
 \index{age.port.jogl.JOGLGraphics@{age.port.jogl.JOGLGraphics}!drawable@{drawable}}
 \index{drawable@{drawable}!age.port.jogl.JOGLGraphics@{age.port.jogl.JOGLGraphics}}

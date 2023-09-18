@@ -17,6 +17,19 @@ age.Util \- The AGE Utility class\&.
 .ti -1c
 .RI "static final< C > C \fBreadJSonFile\fP (String path, Class< C > cls)"
 .br
+.RI "Utility method to read JSON files\&. "
+.ti -1c
+.RI "static float[] \fBtoGLMatrix\fP (Matrix4f m, float[] buffer)"
+.br
+.RI "Utility method to transform a vecmath matrix into an Open GL matrix array\&. "
+.ti -1c
+.RI "static Matrix4f \fBfromGLMatrix\fP (Matrix4f m, float[] buffer)"
+.br
+.RI "Utility method to transform an Open GL matrix array into a vecmath matrix\&. "
+.ti -1c
+.RI "static Matrix4f \fBcamReverse\fP (Matrix4f src, Matrix4f dst)"
+.br
+.RI "Utility method to convert a world transformation matrix into an inverted camera centric matrix\&. "
 .in -1c
 .SS "Static Private Attributes"
 
@@ -24,13 +37,68 @@ age.Util \- The AGE Utility class\&.
 .ti -1c
 .RI "static final ObjectMapper \fBobjectMapper\fP = new ObjectMapper()"
 .br
+.RI "Internally used JSON mapper\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
 The AGE Utility class\&. 
 .SH "Member Function Documentation"
 .PP 
+.SS "static Matrix4f age\&.Util\&.camReverse (Matrix4f src, Matrix4f dst)\fC [static]\fP"
+
+.PP
+Utility method to convert a world transformation matrix into an inverted camera centric matrix\&. 
+.br
+ 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsrc\fP the world transformation matrix of the camera 
+.br
+\fIdst\fP the inverted transformation matrix to transform world transformations into camera relative transformations 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the filled in transformation matrix 
+.RE
+.PP
+
+.SS "static Matrix4f age\&.Util\&.fromGLMatrix (Matrix4f m, float[] buffer)\fC [static]\fP"
+
+.PP
+Utility method to transform an Open GL matrix array into a vecmath matrix\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIm\fP the target vecmath matrix 
+.br
+\fIbuffer\fP the source Open GL matrix array 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the filled target vecmath matrix 
+.RE
+.PP
+
 .SS "static final< C > C age\&.Util\&.readJSonFile (String path, Class< C > cls)\fC [static]\fP"
+
+.PP
+Utility method to read JSON files\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpath\fP The file path of the JSON file 
+.br
+\fIcls\fP the Class type the JSON file will be transformed to 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the typed object the JSON file is transformed to 
+.RE
+.PP
 
 .SS "static final String age\&.Util\&.readTextFile (String path)\fC [static]\fP"
 
@@ -48,10 +116,30 @@ The file contents as a text String
 .RE
 .PP
 
+.SS "static float[] age\&.Util\&.toGLMatrix (Matrix4f m, float[] buffer)\fC [static]\fP"
+
+.PP
+Utility method to transform a vecmath matrix into an Open GL matrix array\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIm\fP the vecmath source matrix 
+.br
+\fIbuffer\fP the Open GL matrix target buffer 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the filled Open GL matrix target buffer 
+.RE
+.PP
+
 .SH "Member Data Documentation"
 .PP 
 .SS "final ObjectMapper age\&.Util\&.objectMapper = new ObjectMapper()\fC [static]\fP, \fC [private]\fP"
 
+.PP
+Internally used JSON mapper\&. 
 
 .SH "Author"
 .PP 

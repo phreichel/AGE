@@ -24,6 +24,34 @@ age.scene.Node
 .ti -1c
 .RI "void \fBdetach\fP ()"
 .br
+.ti -1c
+.RI "Set< \fBFlag\fP > \fBflags\fP ()"
+.br
+.ti -1c
+.RI "void \fBflag\fP (\fBFlag\fP \&.\&.\&. \fBflags\fP)"
+.br
+.ti -1c
+.RI "void \fBclear\fP (\fBFlag\fP \&.\&.\&. \fBflags\fP)"
+.br
+.ti -1c
+.RI "boolean \fBmatch\fP (\fBFlag\fP \&.\&.\&. \fBflags\fP)"
+.br
+.ti -1c
+.RI "Object \fBcomponent\fP (\fBPart\fP part)"
+.br
+.ti -1c
+.RI "void \fBcomponent\fP (\fBPart\fP part, Object component)"
+.br
+.ti -1c
+.RI "Map< \fBPart\fP, Object > \fBcomponents\fP ()"
+.br
+.in -1c
+.SS "Package Functions"
+
+.in +1c
+.ti -1c
+.RI "public< C > C \fBcomponent\fP (\fBPart\fP part, Class< C > cls)"
+.br
 .in -1c
 .SS "Private Attributes"
 
@@ -37,6 +65,18 @@ age.scene.Node
 .ti -1c
 .RI "final List< \fBNode\fP > \fBchildren_ro\fP = Collections\&.unmodifiableList(\fBchildren\fP)"
 .br
+.ti -1c
+.RI "Set< \fBFlag\fP > \fBflags\fP = EnumSet\&.noneOf(Flag\&.class)"
+.br
+.ti -1c
+.RI "Set< \fBFlag\fP > \fBflags_ro\fP = Collections\&.unmodifiableSet(\fBflags\fP)"
+.br
+.ti -1c
+.RI "final Map< \fBPart\fP, Object > \fBcomponents\fP = new EnumMap<>(Part\&.class)"
+.br
+.ti -1c
+.RI "final Map< \fBPart\fP, Object > \fBcomponents_ro\fP = Collections\&.unmodifiableMap(\fBcomponents\fP)"
+.br
 .in -1c
 .SH "Member Function Documentation"
 .PP 
@@ -46,7 +86,23 @@ age.scene.Node
 
 .SS "List< \fBNode\fP > age\&.scene\&.Node\&.children ()"
 
+.SS "void age\&.scene\&.Node\&.clear (\fBFlag\fP \&.\&.\&. flags)"
+
+.SS "Object age\&.scene\&.Node\&.component (\fBPart\fP part)"
+
+.SS "public< C > C age\&.scene\&.Node\&.component (\fBPart\fP part, Class< C > cls)\fC [package]\fP"
+
+.SS "void age\&.scene\&.Node\&.component (\fBPart\fP part, Object component)"
+
+.SS "Map< \fBPart\fP, Object > age\&.scene\&.Node\&.components ()"
+
 .SS "void age\&.scene\&.Node\&.detach ()"
+
+.SS "void age\&.scene\&.Node\&.flag (\fBFlag\fP \&.\&.\&. flags)"
+
+.SS "Set< \fBFlag\fP > age\&.scene\&.Node\&.flags ()"
+
+.SS "boolean age\&.scene\&.Node\&.match (\fBFlag\fP \&.\&.\&. flags)"
 
 .SS "\fBNode\fP age\&.scene\&.Node\&.parent ()"
 
@@ -55,6 +111,14 @@ age.scene.Node
 .SS "final List<\fBNode\fP> age\&.scene\&.Node\&.children = new ArrayList<>(5)\fC [private]\fP"
 
 .SS "final List<\fBNode\fP> age\&.scene\&.Node\&.children_ro = Collections\&.unmodifiableList(\fBchildren\fP)\fC [private]\fP"
+
+.SS "final Map<\fBPart\fP, Object> age\&.scene\&.Node\&.components = new EnumMap<>(Part\&.class)\fC [private]\fP"
+
+.SS "final Map<\fBPart\fP, Object> age\&.scene\&.Node\&.components_ro = Collections\&.unmodifiableMap(\fBcomponents\fP)\fC [private]\fP"
+
+.SS "Set<\fBFlag\fP> age\&.scene\&.Node\&.flags = EnumSet\&.noneOf(Flag\&.class)\fC [private]\fP"
+
+.SS "Set<\fBFlag\fP> age\&.scene\&.Node\&.flags_ro = Collections\&.unmodifiableSet(\fBflags\fP)\fC [private]\fP"
 
 .SS "\fBNode\fP age\&.scene\&.Node\&.parent\fC [private]\fP"
 

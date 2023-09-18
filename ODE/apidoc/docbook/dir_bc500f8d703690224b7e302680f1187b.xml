@@ -5,7 +5,15 @@
 <simplesect>
     <title>Files    </title>
         <itemizedlist>
+            <listitem><para>file <link linkend="__camera_8java">Camera.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_scene_2_flag_8java">Flag.java</link></para>
+</listitem>
             <listitem><para>file <link linkend="__node_8java">Node.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__part_8java">Part.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_scene_2_rendering_8java">Rendering.java</link></para>
 </listitem>
             <listitem><para>file <link linkend="__scene_8java">Scene.java</link></para>
 </listitem>

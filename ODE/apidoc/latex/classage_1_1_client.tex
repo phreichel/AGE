@@ -22,8 +22,10 @@ static void \mbox{\hyperlink{classage_1_1_client_a6e1d4a4e7ba35d0093669ce85883e7
 \item 
 void \mbox{\hyperlink{classage_1_1_client_a0db5c60227453971995a576c445a5a3f}{setup}} ()
 \begin{DoxyCompactList}\small\item\em Initializes the Client application and its parts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classage_1_1_client_a4153e7fca46783cc2fe509d654a43a79}{setup\+Scene}} ()
+\begin{DoxyCompactList}\small\item\em Sets up the initial 3D Scene. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classage_1_1_client_ae16cfa941683189d30cacdb0192f4cb3}{setup\+GUI}} ()
-\begin{DoxyCompactList}\small\item\em Initializes and sets up the GUI elements. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sets up the initial GUI elements. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classage_1_1_client_ac0b3d463af7142f5b66db4b81084982c}{toggle\+Sysmenu}} ()
 \begin{DoxyCompactList}\small\item\em Private action method to toggle the visibility of the System Menu. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classage_1_1_client_ab39e903e80a1124f61f822fd5fa3f9cc}{toggle\+Desktop}} ()
@@ -41,6 +43,8 @@ Clock \mbox{\hyperlink{classage_1_1_client_a8c0610502a16a2ce49c33088a8252906}{cl
 \begin{DoxyCompactList}\small\item\em The schedule clock. \end{DoxyCompactList}\item 
 Events \mbox{\hyperlink{classage_1_1_client_a54f8e8d8678897a00caef041fd075a9c}{events}} = new Events()
 \begin{DoxyCompactList}\small\item\em The event system, handling and transforming input events. \end{DoxyCompactList}\item 
+Scene \mbox{\hyperlink{classage_1_1_client_a4b689b20de8babcede28ffc873fe2996}{scene}} = new Scene()
+\begin{DoxyCompactList}\small\item\em The 3D scene system. \end{DoxyCompactList}\item 
 Widgets \mbox{\hyperlink{classage_1_1_client_ae40b26f92a722a72a7d01019ef93e62d}{widgets}} = new Widgets()
 \begin{DoxyCompactList}\small\item\em The widget system (the GUI) \end{DoxyCompactList}\item 
 Tasks \mbox{\hyperlink{classage_1_1_client_a96afc357b587d2936315f4699dcbf89e}{tasks}} = new Tasks()
@@ -50,9 +54,9 @@ Port \mbox{\hyperlink{classage_1_1_client_a723a726cf731976e3d291a1dfbebd7c3}{por
 boolean \mbox{\hyperlink{classage_1_1_client_a78da685fcde97d6dc65d3b5aa1eff5fb}{running}} = false
 \begin{DoxyCompactList}\small\item\em The run loop running indicator. \end{DoxyCompactList}\item 
 Widget \mbox{\hyperlink{classage_1_1_client_a8f55ec15c3c114c616438694718836c4}{sys\+Menu\+Frame}}
-\item 
+\begin{DoxyCompactList}\small\item\em Special internally used GUI Frame (The single System menu Button) \end{DoxyCompactList}\item 
 Widget \mbox{\hyperlink{classage_1_1_client_a5202a5a8cb08b1c1d5130a12bd9e2ba9}{window\+Frame}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Special internally used GUI Frame (The invisible frame that serves as canvas for all GUI windows) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -131,7 +135,17 @@ Initializes the Client application and its parts.
 
 
 
-Initializes and sets up the GUI elements. 
+Sets up the initial GUI elements. 
+
+\Hypertarget{classage_1_1_client_a4153e7fca46783cc2fe509d654a43a79}\label{classage_1_1_client_a4153e7fca46783cc2fe509d654a43a79} 
+\index{age.Client@{age.Client}!setupScene@{setupScene}}
+\index{setupScene@{setupScene}!age.Client@{age.Client}}
+\doxysubsubsection{\texorpdfstring{setupScene()}{setupScene()}}
+{\footnotesize\ttfamily void age.\+Client.\+setup\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets up the initial 3D Scene. 
 
 \Hypertarget{classage_1_1_client_aa3d70999bea29a591d2be32d22e451ca}\label{classage_1_1_client_aa3d70999bea29a591d2be32d22e451ca} 
 \index{age.Client@{age.Client}!shutdown@{shutdown}}
@@ -225,11 +239,25 @@ Provides and encapsulates the low level machine dependent parts of the Client ap
 
 The run loop running indicator. 
 
+\Hypertarget{classage_1_1_client_a4b689b20de8babcede28ffc873fe2996}\label{classage_1_1_client_a4b689b20de8babcede28ffc873fe2996} 
+\index{age.Client@{age.Client}!scene@{scene}}
+\index{scene@{scene}!age.Client@{age.Client}}
+\doxysubsubsection{\texorpdfstring{scene}{scene}}
+{\footnotesize\ttfamily Scene age.\+Client.\+scene = new Scene()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The 3D scene system. 
+
 \Hypertarget{classage_1_1_client_a8f55ec15c3c114c616438694718836c4}\label{classage_1_1_client_a8f55ec15c3c114c616438694718836c4} 
 \index{age.Client@{age.Client}!sysMenuFrame@{sysMenuFrame}}
 \index{sysMenuFrame@{sysMenuFrame}!age.Client@{age.Client}}
 \doxysubsubsection{\texorpdfstring{sysMenuFrame}{sysMenuFrame}}
 {\footnotesize\ttfamily Widget age.\+Client.\+sys\+Menu\+Frame\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Special internally used GUI Frame (The single System menu Button) 
 
 \Hypertarget{classage_1_1_client_a96afc357b587d2936315f4699dcbf89e}\label{classage_1_1_client_a96afc357b587d2936315f4699dcbf89e} 
 \index{age.Client@{age.Client}!tasks@{tasks}}
@@ -256,6 +284,10 @@ The widget system (the GUI)
 \index{windowFrame@{windowFrame}!age.Client@{age.Client}}
 \doxysubsubsection{\texorpdfstring{windowFrame}{windowFrame}}
 {\footnotesize\ttfamily Widget age.\+Client.\+window\+Frame\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Special internally used GUI Frame (The invisible frame that serves as canvas for all GUI windows) 
 
 
 

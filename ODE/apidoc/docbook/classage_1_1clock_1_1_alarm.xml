@@ -2,12 +2,21 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classage_1_1clock_1_1_alarm" xml:lang="en-US">
 <title>age.clock.Alarm Class Reference</title>
 <indexterm><primary>age.clock.Alarm</primary></indexterm>
+<para>
+
+<para>This package visible class represents a single alarm schedule that periodically triggers a Task after a preset time period <?linebreak?> </para>
+ 
+</para>
 <simplesect>
     <title>Public Member Functions    </title>
         <itemizedlist>
             <listitem><para>void <link linkend="_classage_1_1clock_1_1_alarm_1a2d0ff2184fa41e0f47817224290fdb44">init</link> (long nanotime)</para>
+
+<para>Initializes the time measurement for this Alarm object. </para>
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1clock_1_1_alarm_1a808d3cf830447b57fcfe60547929a46d">update</link> (long nanotime)</para>
+
+<para>Updates the time measurement for this Alarm object and periodically triggers the Task after the time period has elapsed. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -15,6 +24,8 @@
     <title>Package Functions    </title>
         <itemizedlist>
             <listitem><para><link linkend="_classage_1_1clock_1_1_alarm_1ac025fba9c450971103ff04baa259d5ca">Alarm</link> (long <link linkend="_classage_1_1clock_1_1_alarm_1a6244c2ed75feda03f196defa3d697ef3">nanoperiod</link>, <link linkend="_interfaceage_1_1clock_1_1_task">Task</link> <link linkend="_classage_1_1clock_1_1_alarm_1af7537fd56660e507824884f14fc67009">task</link>)</para>
+
+<para>Package visible constructor. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -22,6 +33,8 @@
     <title>Private Member Functions    </title>
         <itemizedlist>
             <listitem><para>void <link linkend="_classage_1_1clock_1_1_alarm_1ab206cd8177710e09865733c7ad1fee01">trigger</link> (int count, float dT)</para>
+
+<para>Internal method that is called when the time period has elapsed and the task is to be triggered by this method. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -29,20 +42,62 @@
     <title>Private Attributes    </title>
         <itemizedlist>
             <listitem><para>long <link linkend="_classage_1_1clock_1_1_alarm_1a6244c2ed75feda03f196defa3d697ef3">nanoperiod</link></para>
+
+<para>The time period between triggers in nano seconds. </para>
 </listitem>
             <listitem><para><link linkend="_interfaceage_1_1clock_1_1_task">Task</link> <link linkend="_classage_1_1clock_1_1_alarm_1af7537fd56660e507824884f14fc67009">task</link></para>
+
+<para>The task that is triggered periodically after each nanoperiod. </para>
 </listitem>
             <listitem><para>long <link linkend="_classage_1_1clock_1_1_alarm_1a637135f72702c7aa8ca32c7b19dee0b2">mark</link></para>
+
+<para>The time mark in nanoseconds to measure when a period elapses <?linebreak?> </para>
 </listitem>
         </itemizedlist>
 </simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This package visible class represents a single alarm schedule that periodically triggers a Task after a preset time period <?linebreak?> </para>
+</section>
 <section>
 <title>Constructor &amp; Destructor Documentation</title>
 <anchor xml:id="_classage_1_1clock_1_1_alarm_1ac025fba9c450971103ff04baa259d5ca"/><section>
     <title>Alarm()</title>
 <indexterm><primary>Alarm</primary><secondary>age.clock.Alarm</secondary></indexterm>
 <indexterm><primary>age.clock.Alarm</primary><secondary>Alarm</secondary></indexterm>
-<para><computeroutput>age.clock.Alarm.Alarm (long nanoperiod, <link linkend="_interfaceage_1_1clock_1_1_task">Task</link> task)<computeroutput>[package]</computeroutput></computeroutput></para></section>
+<para><computeroutput>age.clock.Alarm.Alarm (long nanoperiod, <link linkend="_interfaceage_1_1clock_1_1_task">Task</link> task)<computeroutput>[package]</computeroutput></computeroutput></para><para>
+
+<para>Package visible constructor. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>nanoperiod</entry><entry>
+<para>the time period in nano seconds after which periodically the task is triggered </para>
+</entry>
+                            </row>
+                            <row>
+<entry>task</entry><entry>
+<para>the task that is triggered periodically each time the nanoperiod time has elapsed </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 </section>
 <section>
 <title>Member Function Documentation</title>
@@ -50,17 +105,100 @@
     <title>init()</title>
 <indexterm><primary>init</primary><secondary>age.clock.Alarm</secondary></indexterm>
 <indexterm><primary>age.clock.Alarm</primary><secondary>init</secondary></indexterm>
-<para><computeroutput>void age.clock.Alarm.init (long nanotime)</computeroutput></para></section>
+<para><computeroutput>void age.clock.Alarm.init (long nanotime)</computeroutput></para><para>
+
+<para>Initializes the time measurement for this Alarm object. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>nanotime</entry><entry>
+<para>the current system time stamp in nano precision </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1clock_1_1_alarm_1ab206cd8177710e09865733c7ad1fee01"/><section>
     <title>trigger()</title>
 <indexterm><primary>trigger</primary><secondary>age.clock.Alarm</secondary></indexterm>
 <indexterm><primary>age.clock.Alarm</primary><secondary>trigger</secondary></indexterm>
-<para><computeroutput>void age.clock.Alarm.trigger (int count, float dT)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput>void age.clock.Alarm.trigger (int count, float dT)<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>Internal method that is called when the time period has elapsed and the task is to be triggered by this method. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>count</entry><entry>
+<para>the count of full time periods that did elapse since the last time the Task has been triggered. Normally the count is 1. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>dT</entry><entry>
+<para>the time in seconds since the last time the Task has been triggered. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1clock_1_1_alarm_1a808d3cf830447b57fcfe60547929a46d"/><section>
     <title>update()</title>
 <indexterm><primary>update</primary><secondary>age.clock.Alarm</secondary></indexterm>
 <indexterm><primary>age.clock.Alarm</primary><secondary>update</secondary></indexterm>
-<para><computeroutput>void age.clock.Alarm.update (long nanotime)</computeroutput></para></section>
+<para><computeroutput>void age.clock.Alarm.update (long nanotime)</computeroutput></para><para>
+
+<para>Updates the time measurement for this Alarm object and periodically triggers the Task after the time period has elapsed. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>nanotime</entry><entry>
+<para>the current system time stamp in nano precision </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 </section>
 <section>
 <title>Member Data Documentation</title>
@@ -68,17 +206,29 @@
     <title>mark</title>
 <indexterm><primary>mark</primary><secondary>age.clock.Alarm</secondary></indexterm>
 <indexterm><primary>age.clock.Alarm</primary><secondary>mark</secondary></indexterm>
-<para><computeroutput>long age.clock.Alarm.mark<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput>long age.clock.Alarm.mark<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>The time mark in nanoseconds to measure when a period elapses <?linebreak?> </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1clock_1_1_alarm_1a6244c2ed75feda03f196defa3d697ef3"/><section>
     <title>nanoperiod</title>
 <indexterm><primary>nanoperiod</primary><secondary>age.clock.Alarm</secondary></indexterm>
 <indexterm><primary>age.clock.Alarm</primary><secondary>nanoperiod</secondary></indexterm>
-<para><computeroutput>long age.clock.Alarm.nanoperiod<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput>long age.clock.Alarm.nanoperiod<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>The time period between triggers in nano seconds. </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1clock_1_1_alarm_1af7537fd56660e507824884f14fc67009"/><section>
     <title>task</title>
 <indexterm><primary>task</primary><secondary>age.clock.Alarm</secondary></indexterm>
 <indexterm><primary>age.clock.Alarm</primary><secondary>task</secondary></indexterm>
-<para><computeroutput><link linkend="_interfaceage_1_1clock_1_1_task">Task</link> age.clock.Alarm.task<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput><link linkend="_interfaceage_1_1clock_1_1_task">Task</link> age.clock.Alarm.task<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>The task that is triggered periodically after each nanoperiod. </para>
+</para>
+</section>
 <para>
 The documentation for this class was generated from the following file:</para>
 D:/GIT/repos/ODE/age/age/clock/<link linkend="__alarm_8java">Alarm.java</link></section>

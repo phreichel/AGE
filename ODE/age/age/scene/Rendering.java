@@ -2,13 +2,7 @@
 package age.scene;
 //*************************************************************************************************
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.vecmath.Color3f;
 import javax.vecmath.Matrix4f;
-import javax.vecmath.Vector3f;
-
 import age.Util;
 import age.port.Graphics;
 import age.port.Renderable;

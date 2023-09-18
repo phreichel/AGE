@@ -6,6 +6,8 @@
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>class <link linkend="_classage_1_1clock_1_1_clock">age.clock.Clock</link></para>
+
+<para>The system Clock. </para>
 </listitem>
         </itemizedlist>
 </simplesect>

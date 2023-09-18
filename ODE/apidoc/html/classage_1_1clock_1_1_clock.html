@@ -57,24 +57,36 @@
   <div class="headertitle"><div class="title">age.clock.Clock Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>The system Clock.  
+ <a href="classage_1_1clock_1_1_clock.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5d9f77f549e6ef50612a87bb248d609a" id="r_a5d9f77f549e6ef50612a87bb248d609a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classage_1_1clock_1_1_clock.html#a5d9f77f549e6ef50612a87bb248d609a">add</a> (long nanoperiod, <a class="el" href="interfaceage_1_1clock_1_1_task.html">Task</a> task)</td></tr>
+<tr class="memdesc:a5d9f77f549e6ef50612a87bb248d609a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to add a Task to be periodically triggered after a given time period has elapsed.  <br /></td></tr>
 <tr class="separator:a5d9f77f549e6ef50612a87bb248d609a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f85869b9cc8d1aabc5e4734336f9c24" id="r_a1f85869b9cc8d1aabc5e4734336f9c24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classage_1_1clock_1_1_clock.html#a1f85869b9cc8d1aabc5e4734336f9c24">addFPS</a> (int fps, <a class="el" href="interfaceage_1_1clock_1_1_task.html">Task</a> task)</td></tr>
+<tr class="memdesc:a1f85869b9cc8d1aabc5e4734336f9c24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to add a Task to be periodically triggered after a given time period has elapsed.  <br /></td></tr>
 <tr class="separator:a1f85869b9cc8d1aabc5e4734336f9c24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ca4fa42889d699356e1b241d9bc5e0e" id="r_a4ca4fa42889d699356e1b241d9bc5e0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classage_1_1clock_1_1_clock.html#a4ca4fa42889d699356e1b241d9bc5e0e">init</a> ()</td></tr>
+<tr class="memdesc:a4ca4fa42889d699356e1b241d9bc5e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes time measurement for all Alarm objects added to the Clock.  <br /></td></tr>
 <tr class="separator:a4ca4fa42889d699356e1b241d9bc5e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71574bb8e21a1aefa9d7d2e57904c1d6" id="r_a71574bb8e21a1aefa9d7d2e57904c1d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classage_1_1clock_1_1_clock.html#a71574bb8e21a1aefa9d7d2e57904c1d6">update</a> ()</td></tr>
+<tr class="memdesc:a71574bb8e21a1aefa9d7d2e57904c1d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">update time measurement for all Alarm objects added to the Clock, and indirectly triggers and executes Tasks when their Alarm period has elapsed.  <br /></td></tr>
 <tr class="separator:a71574bb8e21a1aefa9d7d2e57904c1d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a3332b12f3f334bf914a8c459e2c5ccfb" id="r_a3332b12f3f334bf914a8c459e2c5ccfb"><td class="memItemLeft" align="right" valign="top">final List&lt; <a class="el" href="classage_1_1clock_1_1_alarm.html">Alarm</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classage_1_1clock_1_1_clock.html#a3332b12f3f334bf914a8c459e2c5ccfb">alarms</a> = new ArrayList&lt;&gt;()</td></tr>
+<tr class="memdesc:a3332b12f3f334bf914a8c459e2c5ccfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The internal list to manage Alarm objects.  <br /></td></tr>
 <tr class="separator:a3332b12f3f334bf914a8c459e2c5ccfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The system Clock. </p>
+<p>Normally only one instance of that clock is created per application. It manages and synchronizes multiple Alarm objects that each are responsible to manage the time periodic triggering of a specific Task <br  />
+ </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5d9f77f549e6ef50612a87bb248d609a" name="a5d9f77f549e6ef50612a87bb248d609a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5d9f77f549e6ef50612a87bb248d609a">&#9670;&#160;</a></span>add()</h2>
 
@@ -100,6 +112,15 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Method to add a Task to be periodically triggered after a given time period has elapsed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nanoperiod</td><td>the time period in nano seconds after which the Task is triggered. </td></tr>
+    <tr><td class="paramname">task</td><td>the Task to be triggered and executed. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -129,6 +150,15 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Method to add a Task to be periodically triggered after a given time period has elapsed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fps</td><td>the trigger frames per second (i. e. how often the Task is triggered per second) </td></tr>
+    <tr><td class="paramname">task</td><td>the Task to be triggered and executed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a4ca4fa42889d699356e1b241d9bc5e0e" name="a4ca4fa42889d699356e1b241d9bc5e0e"></a>
@@ -146,6 +176,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initializes time measurement for all Alarm objects added to the Clock. </p>
+
 </div>
 </div>
 <a id="a71574bb8e21a1aefa9d7d2e57904c1d6" name="a71574bb8e21a1aefa9d7d2e57904c1d6"></a>
@@ -162,6 +194,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>update time measurement for all Alarm objects added to the Clock, and indirectly triggers and executes Tasks when their Alarm period has elapsed. </p>
 
 </div>
 </div>
@@ -185,6 +219,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>The internal list to manage Alarm objects. </p>
 
 </div>
 </div>

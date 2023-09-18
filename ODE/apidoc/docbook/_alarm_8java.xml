@@ -6,6 +6,8 @@
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>class <link linkend="_classage_1_1clock_1_1_alarm">age.clock.Alarm</link></para>
+
+<para>This package visible class represents a single alarm schedule that periodically triggers a Task after a preset time period <?linebreak?> </para>
 </listitem>
         </itemizedlist>
 </simplesect>

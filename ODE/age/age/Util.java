@@ -13,18 +13,17 @@ import javax.vecmath.Vector3f;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-//*************************************************************************************************
-/**
+/**************************************************************************************************
  * The AGE Utility class.
  */
 public class Util {
 
-	//=============================================================================================
+	/**********************************************************************************************
+	 * Internally used JSON mapper 
+	 */
 	private static final ObjectMapper objectMapper = new ObjectMapper();
-	//=============================================================================================
 	
-	//=============================================================================================
-	/**
+	/**********************************************************************************************
 	 * Static utility method to load and return text read from a file located by path
 	 * @param path The file path String of the file to be read
 	 * @return The file contents as a text String
@@ -45,9 +44,13 @@ public class Util {
 			throw new AGEException(e);
 		}
 	}
-	//=============================================================================================
 
-	//=============================================================================================
+	/**********************************************************************************************
+	 * Utility method to read JSON files 
+	 * @param path The file path of the JSON file
+	 * @param cls the Class type the JSON file will be transformed to 
+	 * @return the typed object the JSON file is transformed to
+	 */
 	public static final <C> C readJSonFile(String path, Class<C> cls) {
 		try {
 			File file = new File(path);
@@ -57,9 +60,13 @@ public class Util {
 			throw new AGEException(e);
 		}
 	}
-	//=============================================================================================
 
-	//=============================================================================================
+	/**********************************************************************************************
+	 * Utility method to transform a vecmath matrix into an Open GL matrix array
+	 * @param m the vecmath source matrix
+	 * @param buffer the Open GL matrix target buffer
+	 * @return the filled Open GL matrix target buffer
+	 */
 	public static float[] toGLMatrix(Matrix4f m, float[] buffer) {
 		buffer[ 0] = m.m00;
 		buffer[ 1] = m.m10;
@@ -79,9 +86,13 @@ public class Util {
 		buffer[15] = m.m33;
 		return buffer;
 	}
-	//=============================================================================================
 
-	//=============================================================================================
+	/**********************************************************************************************
+	 * Utility method to transform an Open GL matrix array into a vecmath matrix 
+	 * @param m the target vecmath matrix
+	 * @param buffer the source Open GL matrix array
+	 * @return the filled target vecmath matrix
+	 */
 	public static Matrix4f fromGLMatrix(Matrix4f m, float[] buffer) {
 		m.m00 = buffer[ 0];
 		m.m10 = buffer[ 1];
@@ -101,9 +112,13 @@ public class Util {
 		m.m33 = buffer[15];
 		return m;
 	}
-	//=============================================================================================
 
-	//=============================================================================================
+	/**********************************************************************************************
+	 * Utility method to convert a world transformation matrix into an inverted camera centric matrix.  
+	 * @param src the world transformation matrix of the camera
+	 * @param dst the inverted transformation matrix to transform world transformations into camera relative transformations
+	 * @return the filled in transformation matrix
+	 */
 	public static Matrix4f camReverse(Matrix4f src, Matrix4f dst) {
 		Matrix3f R = new Matrix3f();
 		Vector3f r = new Vector3f();
@@ -116,7 +131,6 @@ public class Util {
 		dst.setTranslation(r);
 		return dst;
 	}
-	//=============================================================================================
 	
 }
 //*************************************************************************************************

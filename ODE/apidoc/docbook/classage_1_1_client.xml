@@ -36,9 +36,13 @@
 
 <para>Initializes the Client application and its parts. </para>
 </listitem>
+            <listitem><para>void <link linkend="_classage_1_1_client_1a4153e7fca46783cc2fe509d654a43a79">setupScene</link> ()</para>
+
+<para>Sets up the initial 3D Scene. </para>
+</listitem>
             <listitem><para>void <link linkend="_classage_1_1_client_1ae16cfa941683189d30cacdb0192f4cb3">setupGUI</link> ()</para>
 
-<para>Initializes and sets up the GUI elements. </para>
+<para>Sets up the initial GUI elements. </para>
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1_client_1ac0b3d463af7142f5b66db4b81084982c">toggleSysmenu</link> ()</para>
 
@@ -73,6 +77,10 @@
 
 <para>The event system, handling and transforming input events. </para>
 </listitem>
+            <listitem><para>Scene <link linkend="_classage_1_1_client_1a4b689b20de8babcede28ffc873fe2996">scene</link> = new Scene()</para>
+
+<para>The 3D scene system. </para>
+</listitem>
             <listitem><para>Widgets <link linkend="_classage_1_1_client_1ae40b26f92a722a72a7d01019ef93e62d">widgets</link> = new Widgets()</para>
 
 <para>The widget system (the GUI) </para>
@@ -90,8 +98,12 @@
 <para>The run loop running indicator. </para>
 </listitem>
             <listitem><para>Widget <link linkend="_classage_1_1_client_1a8f55ec15c3c114c616438694718836c4">sysMenuFrame</link></para>
+
+<para>Special internally used GUI Frame (The single System menu Button) </para>
 </listitem>
             <listitem><para>Widget <link linkend="_classage_1_1_client_1a5202a5a8cb08b1c1d5130a12bd9e2ba9">windowFrame</link></para>
+
+<para>Special internally used GUI Frame (The invisible frame that serves as canvas for all GUI windows) </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -207,7 +219,16 @@ Parameters</title>
 <indexterm><primary>age.Client</primary><secondary>setupGUI</secondary></indexterm>
 <para><computeroutput>void age.Client.setupGUI ( )<computeroutput>[private]</computeroutput></computeroutput></para><para>
 
-<para>Initializes and sets up the GUI elements. </para>
+<para>Sets up the initial GUI elements. </para>
+</para>
+</section>
+<anchor xml:id="_classage_1_1_client_1a4153e7fca46783cc2fe509d654a43a79"/><section>
+    <title>setupScene()</title>
+<indexterm><primary>setupScene</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>setupScene</secondary></indexterm>
+<para><computeroutput>void age.Client.setupScene ( )<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>Sets up the initial 3D Scene. </para>
 </para>
 </section>
 <anchor xml:id="_classage_1_1_client_1aa3d70999bea29a591d2be32d22e451ca"/><section>
@@ -319,11 +340,24 @@ Parameters</title>
 <para>The run loop running indicator. </para>
 </para>
 </section>
+<anchor xml:id="_classage_1_1_client_1a4b689b20de8babcede28ffc873fe2996"/><section>
+    <title>scene</title>
+<indexterm><primary>scene</primary><secondary>age.Client</secondary></indexterm>
+<indexterm><primary>age.Client</primary><secondary>scene</secondary></indexterm>
+<para><computeroutput>Scene age.Client.scene = new Scene()<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>The 3D scene system. </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1_client_1a8f55ec15c3c114c616438694718836c4"/><section>
     <title>sysMenuFrame</title>
 <indexterm><primary>sysMenuFrame</primary><secondary>age.Client</secondary></indexterm>
 <indexterm><primary>age.Client</primary><secondary>sysMenuFrame</secondary></indexterm>
-<para><computeroutput>Widget age.Client.sysMenuFrame<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput>Widget age.Client.sysMenuFrame<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>Special internally used GUI Frame (The single System menu Button) </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1_client_1a96afc357b587d2936315f4699dcbf89e"/><section>
     <title>tasks</title>
 <indexterm><primary>tasks</primary><secondary>age.Client</secondary></indexterm>
@@ -348,7 +382,11 @@ Parameters</title>
     <title>windowFrame</title>
 <indexterm><primary>windowFrame</primary><secondary>age.Client</secondary></indexterm>
 <indexterm><primary>age.Client</primary><secondary>windowFrame</secondary></indexterm>
-<para><computeroutput>Widget age.Client.windowFrame<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput>Widget age.Client.windowFrame<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>Special internally used GUI Frame (The invisible frame that serves as canvas for all GUI windows) </para>
+</para>
+</section>
 <para>
 The documentation for this class was generated from the following file:</para>
 D:/GIT/repos/ODE/age/age/<link linkend="__client_8java">Client.java</link></section>

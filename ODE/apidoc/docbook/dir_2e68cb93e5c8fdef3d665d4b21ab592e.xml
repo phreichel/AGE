@@ -7,13 +7,13 @@
         <itemizedlist>
             <listitem><para>file <link linkend="__dock_8java">Dock.java</link></para>
 </listitem>
-            <listitem><para>file <link linkend="__flag_8java">Flag.java</link></para>
+            <listitem><para>file <link linkend="_gui_2_flag_8java">Flag.java</link></para>
 </listitem>
             <listitem><para>file <link linkend="__handling_8java">Handling.java</link></para>
 </listitem>
             <listitem><para>file <link linkend="__multiline_8java">Multiline.java</link></para>
 </listitem>
-            <listitem><para>file <link linkend="__rendering_8java">Rendering.java</link></para>
+            <listitem><para>file <link linkend="_gui_2_rendering_8java">Rendering.java</link></para>
 </listitem>
             <listitem><para>file <link linkend="__v_scroller_8java">VScroller.java</link></para>
 </listitem>

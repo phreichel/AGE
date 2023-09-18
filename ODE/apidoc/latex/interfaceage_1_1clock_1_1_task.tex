@@ -1,11 +1,21 @@
 \doxysection{age.\+clock.\+Task Interface Reference}
 \hypertarget{interfaceage_1_1clock_1_1_task}{}\label{interfaceage_1_1clock_1_1_task}\index{age.clock.Task@{age.clock.Task}}
+
+
+The Task interface that defines the call parameters for a Task reference method ~\newline
+  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{interfaceage_1_1clock_1_1_task_a7cc692c047ef94b010ba8d5172e6a6be}{run}} (int count, long nanoperiod, float dT)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The definition of the Task reference method. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+The Task interface that defines the call parameters for a Task reference method ~\newline
+ 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{interfaceage_1_1clock_1_1_task_a7cc692c047ef94b010ba8d5172e6a6be}\label{interfaceage_1_1clock_1_1_task_a7cc692c047ef94b010ba8d5172e6a6be} 
@@ -14,6 +24,20 @@ void \mbox{\hyperlink{interfaceage_1_1clock_1_1_task_a7cc692c047ef94b010ba8d5172
 \doxysubsubsection{\texorpdfstring{run()}{run()}}
 {\footnotesize\ttfamily void age.\+clock.\+Task.\+run (\begin{DoxyParamCaption}\item[{int}]{count,  }\item[{long}]{nanoperiod,  }\item[{float}]{dT }\end{DoxyParamCaption})}
 
+
+
+The definition of the Task reference method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & number of full nanoperiods that have elapsed since last call. Normally 1 \\
+\hline
+{\em nanoperiod} & the time period in nano seconds after which the Task normally is triggered \\
+\hline
+{\em dT} & the time in seconds that did elapse since last call. ~\newline
+ \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}

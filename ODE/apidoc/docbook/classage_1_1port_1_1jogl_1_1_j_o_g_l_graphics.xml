@@ -19,13 +19,15 @@
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1a2e9451ff8f896f4abd1bd00a37caa6af">clear</link> ()</para>
 </listitem>
-            <listitem><para>void <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1af117796628930666e6313da1202d3550">mode2D</link> ()</para>
-</listitem>
             <listitem><para>void <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1a4beee80bf90b7750a0f092508d3d88b6">mode3D</link> (float fovy, float near, float far)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1af117796628930666e6313da1202d3550">mode2D</link> ()</para>
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1a0a89f5922b0ac8b494f0510c6e5f43fe">pushTransformation</link> ()</para>
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1afce755fda1a4664abb8b251112bd077e">popTransformation</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1aa6bc2facdc81fc4396c4d956285fcd8c">applyTransformation</link> (Matrix4f matrix)</para>
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1a5a80e4eba9a1752b3de91ce6a9168fd7">translate</link> (Vector2f t)</para>
 </listitem>
@@ -47,9 +49,11 @@
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1a675de560cbff3985fdf6b97463d2828a">texture</link> (float x, float y, float w, float h, String texture)</para>
 </listitem>
-            <listitem><para>void <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1afe1b159d507133fd30bba1b6da499c11">calcMultitext</link> (String <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1a5c6f93090f530911315b193c7bba09bd">text</link>, Vector2f dimension, String font, int[] buffer)</para>
+            <listitem><para>void <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1afe1b159d507133fd30bba1b6da499c11">calcMultitext</link> (String <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1a5c6f93090f530911315b193c7bba09bd">text</link>, Vector2f dimension, String font, int[] <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1a17e119831cf77b033fbd74b7bdd74aa9">buffer</link>)</para>
 </listitem>
-            <listitem><para>void <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1af26766f9d6695eefd1feeaa4ea710892">calcMultitext</link> (String <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1a5c6f93090f530911315b193c7bba09bd">text</link>, float width, float height, String font, int[] buffer)</para>
+            <listitem><para>void <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1af26766f9d6695eefd1feeaa4ea710892">calcMultitext</link> (String <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1a5c6f93090f530911315b193c7bba09bd">text</link>, float width, float height, String font, int[] <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1a17e119831cf77b033fbd74b7bdd74aa9">buffer</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1a4ed43e32b3aad5dc9abf8a8ce4c783fb">drawBox</link> (float sx, float sy, float sz)</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -66,10 +70,19 @@
 </listitem>
             <listitem><para>Map&lt; String, TextRenderer &gt; <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1aa1f02adf7c34034dae90b17e35ec2bc4">fonts</link> = new HashMap&lt;&gt;()</para>
 </listitem>
+            <listitem><para>float[] <link linkend="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1a17e119831cf77b033fbd74b7bdd74aa9">buffer</link> = new float[16]</para>
+</listitem>
         </itemizedlist>
 </simplesect>
 <section>
 <title>Member Function Documentation</title>
+<anchor xml:id="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1aa6bc2facdc81fc4396c4d956285fcd8c"/><section>
+    <title>applyTransformation()</title>
+<indexterm><primary>applyTransformation</primary><secondary>age.port.jogl.JOGLGraphics</secondary></indexterm>
+<indexterm><primary>age.port.jogl.JOGLGraphics</primary><secondary>applyTransformation</secondary></indexterm>
+<para><computeroutput>void age.port.jogl.JOGLGraphics.applyTransformation (Matrix4f matrix)</computeroutput></para><para>
+Implements <link linkend="_interfaceage_1_1port_1_1_graphics_1a6046bfc80e56038b9009599b95702c52">age.port.Graphics</link>.</para>
+</section>
 <anchor xml:id="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1a3dbee6197bd0bb515d03d1c27fd5475d"/><section>
     <title>assign()</title>
 <indexterm><primary>assign</primary><secondary>age.port.jogl.JOGLGraphics</secondary></indexterm>
@@ -115,6 +128,13 @@ Implements <link linkend="_interfaceage_1_1port_1_1_graphics_1a50eb4f2dccd10db3a
 <para><computeroutput>void age.port.jogl.JOGLGraphics.color (float r, float g, float b, float a)</computeroutput></para><para>
 Implements <link linkend="_interfaceage_1_1port_1_1_graphics_1a4a0622e4580b4997bfceac506af20286">age.port.Graphics</link>.</para>
 </section>
+<anchor xml:id="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1a4ed43e32b3aad5dc9abf8a8ce4c783fb"/><section>
+    <title>drawBox()</title>
+<indexterm><primary>drawBox</primary><secondary>age.port.jogl.JOGLGraphics</secondary></indexterm>
+<indexterm><primary>age.port.jogl.JOGLGraphics</primary><secondary>drawBox</secondary></indexterm>
+<para><computeroutput>void age.port.jogl.JOGLGraphics.drawBox (float sx, float sy, float sz)</computeroutput></para><para>
+Implements <link linkend="_interfaceage_1_1port_1_1_graphics_1af3be8264aed3caea8f5a8e99741d750e">age.port.Graphics</link>.</para>
+</section>
 <anchor xml:id="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1aa9f74711c933622d14939e695bf99ea5"/><section>
     <title>init()</title>
 <indexterm><primary>init</primary><secondary>age.port.jogl.JOGLGraphics</secondary></indexterm>
@@ -131,7 +151,9 @@ Implements <link linkend="_interfaceage_1_1port_1_1_graphics_1a0ead0ae673b550114
     <title>mode3D()</title>
 <indexterm><primary>mode3D</primary><secondary>age.port.jogl.JOGLGraphics</secondary></indexterm>
 <indexterm><primary>age.port.jogl.JOGLGraphics</primary><secondary>mode3D</secondary></indexterm>
-<para><computeroutput>void age.port.jogl.JOGLGraphics.mode3D (float fovy, float near, float far)</computeroutput></para></section>
+<para><computeroutput>void age.port.jogl.JOGLGraphics.mode3D (float fovy, float near, float far)</computeroutput></para><para>
+Implements <link linkend="_interfaceage_1_1port_1_1_graphics_1a346999de125869c9d8e64c8f67b657d4">age.port.Graphics</link>.</para>
+</section>
 <anchor xml:id="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1afce755fda1a4664abb8b251112bd077e"/><section>
     <title>popTransformation()</title>
 <indexterm><primary>popTransformation</primary><secondary>age.port.jogl.JOGLGraphics</secondary></indexterm>
@@ -198,6 +220,11 @@ Implements <link linkend="_interfaceage_1_1port_1_1_graphics_1af7e47f4a0ce013cb7
 </section>
 <section>
 <title>Member Data Documentation</title>
+<anchor xml:id="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1a17e119831cf77b033fbd74b7bdd74aa9"/><section>
+    <title>buffer</title>
+<indexterm><primary>buffer</primary><secondary>age.port.jogl.JOGLGraphics</secondary></indexterm>
+<indexterm><primary>age.port.jogl.JOGLGraphics</primary><secondary>buffer</secondary></indexterm>
+<para><computeroutput>float [] age.port.jogl.JOGLGraphics.buffer = new float[16]<computeroutput>[private]</computeroutput></computeroutput></para></section>
 <anchor xml:id="_classage_1_1port_1_1jogl_1_1_j_o_g_l_graphics_1ad27447de16c4344ee1e40b5a53dbfc7c"/><section>
     <title>drawable</title>
 <indexterm><primary>drawable</primary><secondary>age.port.jogl.JOGLGraphics</secondary></indexterm>

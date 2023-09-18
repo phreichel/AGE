@@ -20,12 +20,14 @@
     <xi:include href="classage_1_1_a_g_e_exception.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classage_1_1clock_1_1_alarm.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="enumage_1_1event_1_1_button.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classage_1_1scene_1_1_camera.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classage_1_1_client.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classage_1_1clock_1_1_clock.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classage_1_1gui_1_1_dock.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classage_1_1event_1_1_event.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classage_1_1event_1_1_events.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="enumage_1_1gui_1_1_flag.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="enumage_1_1scene_1_1_flag.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="interfaceage_1_1port_1_1_graphics.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="interfaceage_1_1event_1_1_handler.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classage_1_1gui_1_1_handling.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -38,9 +40,11 @@
     <xi:include href="classage_1_1log_1_1_log.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classage_1_1gui_1_1_multiline.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classage_1_1scene_1_1_node.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="enumage_1_1scene_1_1_part.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="interfaceage_1_1port_1_1_port.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="interfaceage_1_1port_1_1_renderable.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classage_1_1gui_1_1_rendering.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classage_1_1scene_1_1_rendering.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classage_1_1scene_1_1_scene.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="interfaceage_1_1clock_1_1_task.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="interfaceage_1_1task_1_1_task.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -67,10 +71,12 @@
     <xi:include href="_key_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_type_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_dock_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="_flag_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="gui_2_flag_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="scene_2_flag_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_handling_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_multiline_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="_rendering_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="gui_2_rendering_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="scene_2_rendering_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_v_scroller_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_widget_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_widgets_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -84,7 +90,9 @@
     <xi:include href="_j_o_g_l_render_listener_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_port_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_renderable_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_camera_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_node_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_part_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_scene_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_tasks_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_util_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>

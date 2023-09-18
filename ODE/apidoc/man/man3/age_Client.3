@@ -35,9 +35,13 @@ age.Client \- The AGE Application Client main class\&.
 .br
 .RI "Initializes the Client application and its parts\&. "
 .ti -1c
+.RI "void \fBsetupScene\fP ()"
+.br
+.RI "Sets up the initial 3D Scene\&. "
+.ti -1c
 .RI "void \fBsetupGUI\fP ()"
 .br
-.RI "Initializes and sets up the GUI elements\&. "
+.RI "Sets up the initial GUI elements\&. "
 .ti -1c
 .RI "void \fBtoggleSysmenu\fP ()"
 .br
@@ -71,6 +75,10 @@ age.Client \- The AGE Application Client main class\&.
 .br
 .RI "The event system, handling and transforming input events\&. "
 .ti -1c
+.RI "Scene \fBscene\fP = new Scene()"
+.br
+.RI "The 3D scene system\&. "
+.ti -1c
 .RI "Widgets \fBwidgets\fP = new Widgets()"
 .br
 .RI "The widget system (the GUI) "
@@ -89,9 +97,11 @@ age.Client \- The AGE Application Client main class\&.
 .ti -1c
 .RI "Widget \fBsysMenuFrame\fP"
 .br
+.RI "Special internally used GUI Frame (The single System menu Button) "
 .ti -1c
 .RI "Widget \fBwindowFrame\fP"
 .br
+.RI "Special internally used GUI Frame (The invisible frame that serves as canvas for all GUI windows) "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -139,7 +149,11 @@ Initializes the Client application and its parts\&.
 .SS "void age\&.Client\&.setupGUI ()\fC [private]\fP"
 
 .PP
-Initializes and sets up the GUI elements\&. 
+Sets up the initial GUI elements\&. 
+.SS "void age\&.Client\&.setupScene ()\fC [private]\fP"
+
+.PP
+Sets up the initial 3D Scene\&. 
 .SS "void age\&.Client\&.shutdown ()"
 
 .PP
@@ -185,8 +199,14 @@ The port system\&. Provides and encapsulates the low level machine dependent par
 
 .PP
 The run loop running indicator\&. 
+.SS "Scene age\&.Client\&.scene = new Scene()\fC [private]\fP"
+
+.PP
+The 3D scene system\&. 
 .SS "Widget age\&.Client\&.sysMenuFrame\fC [private]\fP"
 
+.PP
+Special internally used GUI Frame (The single System menu Button) 
 .SS "Tasks age\&.Client\&.tasks = new Tasks()\fC [private]\fP"
 
 .PP
@@ -197,6 +217,8 @@ The task system\&. Launches named tasks, that can be posted and queued, on a spe
 The widget system (the GUI) 
 .SS "Widget age\&.Client\&.windowFrame\fC [private]\fP"
 
+.PP
+Special internally used GUI Frame (The invisible frame that serves as canvas for all GUI windows) 
 
 .SH "Author"
 .PP 

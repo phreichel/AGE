@@ -5,7 +5,15 @@
 <simplesect>
     <title>Classes    </title>
         <itemizedlist>
+            <listitem><para>class <link linkend="_classage_1_1scene_1_1_camera">Camera</link></para>
+</listitem>
+            <listitem><para>enum <link linkend="_enumage_1_1scene_1_1_flag">Flag</link></para>
+</listitem>
             <listitem><para>class <link linkend="_classage_1_1scene_1_1_node">Node</link></para>
+</listitem>
+            <listitem><para>enum <link linkend="_enumage_1_1scene_1_1_part">Part</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_classage_1_1scene_1_1_rendering">Rendering</link></para>
 </listitem>
             <listitem><para>class <link linkend="_classage_1_1scene_1_1_scene">Scene</link></para>
 </listitem>

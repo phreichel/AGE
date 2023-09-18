@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumage_1_1scene_1_1_part" xml:lang="en-US">
+<title>age.scene.Part Enum Reference</title>
+<indexterm><primary>age.scene.Part</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_enumage_1_1scene_1_1_part_1a63b7916c47a783a27b64a8cf7b236ccc">check</link> (Object object)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumage_1_1scene_1_1_part_1a843f6a1b187ce92cbc95a6df47d13444">TRANSFORM</link> =(Matrix4f.class)</para>
+</listitem>
+            <listitem><para><link linkend="_enumage_1_1scene_1_1_part_1a5268437ddf4e94c788937a97245f5415">CAMERA</link> =(Camera.class)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumage_1_1scene_1_1_part_1ad18da8755a123517d2779d6a6107b05c">Part</link> (Class&lt;?&gt; <link linkend="_enumage_1_1scene_1_1_part_1a753e9420c8f2e79529f6e9fb42930c05">cls</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para>Class&lt;?&gt; <link linkend="_enumage_1_1scene_1_1_part_1a753e9420c8f2e79529f6e9fb42930c05">cls</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_enumage_1_1scene_1_1_part_1ad18da8755a123517d2779d6a6107b05c"/><section>
+    <title>Part()</title>
+<indexterm><primary>Part</primary><secondary>age.scene.Part</secondary></indexterm>
+<indexterm><primary>age.scene.Part</primary><secondary>Part</secondary></indexterm>
+<para><computeroutput>age.scene.Part.Part (Class&lt;?&gt; cls)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_enumage_1_1scene_1_1_part_1a63b7916c47a783a27b64a8cf7b236ccc"/><section>
+    <title>check()</title>
+<indexterm><primary>check</primary><secondary>age.scene.Part</secondary></indexterm>
+<indexterm><primary>age.scene.Part</primary><secondary>check</secondary></indexterm>
+<para><computeroutput>void age.scene.Part.check (Object object)</computeroutput></para></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enumage_1_1scene_1_1_part_1a5268437ddf4e94c788937a97245f5415"/><section>
+    <title>CAMERA</title>
+<indexterm><primary>CAMERA</primary><secondary>age.scene.Part</secondary></indexterm>
+<indexterm><primary>age.scene.Part</primary><secondary>CAMERA</secondary></indexterm>
+<para><computeroutput>age.scene.Part.CAMERA =(Camera.class)</computeroutput></para></section>
+<anchor xml:id="_enumage_1_1scene_1_1_part_1a753e9420c8f2e79529f6e9fb42930c05"/><section>
+    <title>cls</title>
+<indexterm><primary>cls</primary><secondary>age.scene.Part</secondary></indexterm>
+<indexterm><primary>age.scene.Part</primary><secondary>cls</secondary></indexterm>
+<para><computeroutput>Class&lt;?&gt; age.scene.Part.cls<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_enumage_1_1scene_1_1_part_1a843f6a1b187ce92cbc95a6df47d13444"/><section>
+    <title>TRANSFORM</title>
+<indexterm><primary>TRANSFORM</primary><secondary>age.scene.Part</secondary></indexterm>
+<indexterm><primary>age.scene.Part</primary><secondary>TRANSFORM</secondary></indexterm>
+<para><computeroutput>age.scene.Part.TRANSFORM =(Matrix4f.class)</computeroutput></para></section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+D:/GIT/repos/ODE/age/age/scene/<link linkend="__part_8java">Part.java</link></section>
+</section>

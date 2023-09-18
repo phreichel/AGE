@@ -2,16 +2,29 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classage_1_1clock_1_1_clock" xml:lang="en-US">
 <title>age.clock.Clock Class Reference</title>
 <indexterm><primary>age.clock.Clock</primary></indexterm>
+<para>
+
+<para>The system Clock. </para>
+ 
+</para>
 <simplesect>
     <title>Public Member Functions    </title>
         <itemizedlist>
             <listitem><para>void <link linkend="_classage_1_1clock_1_1_clock_1a5d9f77f549e6ef50612a87bb248d609a">add</link> (long nanoperiod, <link linkend="_interfaceage_1_1clock_1_1_task">Task</link> task)</para>
+
+<para>Method to add a Task to be periodically triggered after a given time period has elapsed. </para>
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1clock_1_1_clock_1a1f85869b9cc8d1aabc5e4734336f9c24">addFPS</link> (int fps, <link linkend="_interfaceage_1_1clock_1_1_task">Task</link> task)</para>
+
+<para>Method to add a Task to be periodically triggered after a given time period has elapsed. </para>
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1clock_1_1_clock_1a4ca4fa42889d699356e1b241d9bc5e0e">init</link> ()</para>
+
+<para>Initializes time measurement for all Alarm objects added to the Clock. </para>
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1clock_1_1_clock_1a71574bb8e21a1aefa9d7d2e57904c1d6">update</link> ()</para>
+
+<para>update time measurement for all Alarm objects added to the Clock, and indirectly triggers and executes Tasks when their Alarm period has elapsed. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -19,31 +32,112 @@
     <title>Private Attributes    </title>
         <itemizedlist>
             <listitem><para>final List&lt; <link linkend="_classage_1_1clock_1_1_alarm">Alarm</link> &gt; <link linkend="_classage_1_1clock_1_1_clock_1a3332b12f3f334bf914a8c459e2c5ccfb">alarms</link> = new ArrayList&lt;&gt;()</para>
+
+<para>The internal list to manage Alarm objects. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The system Clock. </para>
+
+
+
+<para>Normally only one instance of that clock is created per application. It manages and synchronizes multiple Alarm objects that each are responsible to manage the time periodic triggering of a specific Task <?linebreak?> </para>
+</section>
 <section>
 <title>Member Function Documentation</title>
 <anchor xml:id="_classage_1_1clock_1_1_clock_1a5d9f77f549e6ef50612a87bb248d609a"/><section>
     <title>add()</title>
 <indexterm><primary>add</primary><secondary>age.clock.Clock</secondary></indexterm>
 <indexterm><primary>age.clock.Clock</primary><secondary>add</secondary></indexterm>
-<para><computeroutput>void age.clock.Clock.add (long nanoperiod, <link linkend="_interfaceage_1_1clock_1_1_task">Task</link> task)</computeroutput></para></section>
+<para><computeroutput>void age.clock.Clock.add (long nanoperiod, <link linkend="_interfaceage_1_1clock_1_1_task">Task</link> task)</computeroutput></para><para>
+
+<para>Method to add a Task to be periodically triggered after a given time period has elapsed. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>nanoperiod</entry><entry>
+<para>the time period in nano seconds after which the Task is triggered. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>task</entry><entry>
+<para>the Task to be triggered and executed. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1clock_1_1_clock_1a1f85869b9cc8d1aabc5e4734336f9c24"/><section>
     <title>addFPS()</title>
 <indexterm><primary>addFPS</primary><secondary>age.clock.Clock</secondary></indexterm>
 <indexterm><primary>age.clock.Clock</primary><secondary>addFPS</secondary></indexterm>
-<para><computeroutput>void age.clock.Clock.addFPS (int fps, <link linkend="_interfaceage_1_1clock_1_1_task">Task</link> task)</computeroutput></para></section>
+<para><computeroutput>void age.clock.Clock.addFPS (int fps, <link linkend="_interfaceage_1_1clock_1_1_task">Task</link> task)</computeroutput></para><para>
+
+<para>Method to add a Task to be periodically triggered after a given time period has elapsed. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>fps</entry><entry>
+<para>the trigger frames per second (i. e. how often the Task is triggered per second) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>task</entry><entry>
+<para>the Task to be triggered and executed. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1clock_1_1_clock_1a4ca4fa42889d699356e1b241d9bc5e0e"/><section>
     <title>init()</title>
 <indexterm><primary>init</primary><secondary>age.clock.Clock</secondary></indexterm>
 <indexterm><primary>age.clock.Clock</primary><secondary>init</secondary></indexterm>
-<para><computeroutput>void age.clock.Clock.init ( )</computeroutput></para></section>
+<para><computeroutput>void age.clock.Clock.init ( )</computeroutput></para><para>
+
+<para>Initializes time measurement for all Alarm objects added to the Clock. </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1clock_1_1_clock_1a71574bb8e21a1aefa9d7d2e57904c1d6"/><section>
     <title>update()</title>
 <indexterm><primary>update</primary><secondary>age.clock.Clock</secondary></indexterm>
 <indexterm><primary>age.clock.Clock</primary><secondary>update</secondary></indexterm>
-<para><computeroutput>void age.clock.Clock.update ( )</computeroutput></para></section>
+<para><computeroutput>void age.clock.Clock.update ( )</computeroutput></para><para>
+
+<para>update time measurement for all Alarm objects added to the Clock, and indirectly triggers and executes Tasks when their Alarm period has elapsed. </para>
+</para>
+</section>
 </section>
 <section>
 <title>Member Data Documentation</title>
@@ -51,7 +145,11 @@
     <title>alarms</title>
 <indexterm><primary>alarms</primary><secondary>age.clock.Clock</secondary></indexterm>
 <indexterm><primary>age.clock.Clock</primary><secondary>alarms</secondary></indexterm>
-<para><computeroutput>final List&lt;<link linkend="_classage_1_1clock_1_1_alarm">Alarm</link>&gt; age.clock.Clock.alarms = new ArrayList&lt;&gt;()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput>final List&lt;<link linkend="_classage_1_1clock_1_1_alarm">Alarm</link>&gt; age.clock.Clock.alarms = new ArrayList&lt;&gt;()<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>The internal list to manage Alarm objects. </para>
+</para>
+</section>
 <para>
 The documentation for this class was generated from the following file:</para>
 D:/GIT/repos/ODE/age/age/clock/<link linkend="__clock_8java">Clock.java</link></section>

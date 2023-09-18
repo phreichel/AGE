@@ -6,6 +6,8 @@
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>interface <link linkend="_interfaceage_1_1clock_1_1_task">age.clock.Task</link></para>
+
+<para>The Task interface that defines the call parameters for a Task reference method <?linebreak?> </para>
 </listitem>
         </itemizedlist>
 </simplesect>

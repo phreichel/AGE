@@ -12,6 +12,9 @@ Inherited by \fBage\&.port\&.jogl\&.JOGLGraphics\fP\&.
 
 .in +1c
 .ti -1c
+.RI "void \fBmode3D\fP (float fovy, float near, float far)"
+.br
+.ti -1c
 .RI "void \fBmode2D\fP ()"
 .br
 .ti -1c
@@ -21,6 +24,15 @@ Inherited by \fBage\&.port\&.jogl\&.JOGLGraphics\fP\&.
 .RI "void \fBpopTransformation\fP ()"
 .br
 .ti -1c
+.RI "void \fBapplyTransformation\fP (Matrix4f matrix)"
+.br
+.ti -1c
+.RI "void \fBtranslate\fP (Vector2f pos)"
+.br
+.ti -1c
+.RI "void \fBtranslate\fP (float x, float y)"
+.br
+.ti -1c
 .RI "void \fBcolor\fP (Color4f c)"
 .br
 .ti -1c
@@ -28,12 +40,6 @@ Inherited by \fBage\&.port\&.jogl\&.JOGLGraphics\fP\&.
 .br
 .ti -1c
 .RI "void \fBcolor\fP (float r, float g, float b, float a)"
-.br
-.ti -1c
-.RI "void \fBtranslate\fP (Vector2f pos)"
-.br
-.ti -1c
-.RI "void \fBtranslate\fP (float x, float y)"
 .br
 .ti -1c
 .RI "void \fBrectangle\fP (Vector2f dim, boolean hollow)"
@@ -56,9 +62,16 @@ Inherited by \fBage\&.port\&.jogl\&.JOGLGraphics\fP\&.
 .ti -1c
 .RI "void \fBcalcMultitext\fP (String \fBtext\fP, float width, float height, String font, int[] buffer)"
 .br
+.ti -1c
+.RI "void \fBdrawBox\fP (float sx, float sy, float sz)"
+.br
 .in -1c
 .SH "Member Function Documentation"
 .PP 
+.SS "void age\&.port\&.Graphics\&.applyTransformation (Matrix4f matrix)"
+
+.PP
+Implemented in \fBage\&.port\&.jogl\&.JOGLGraphics\fP\&.
 .SS "void age\&.port\&.Graphics\&.calcMultitext (String text, float width, float height, String font, int[] buffer)"
 
 .PP
@@ -79,7 +92,15 @@ Implemented in \fBage\&.port\&.jogl\&.JOGLGraphics\fP\&.
 
 .PP
 Implemented in \fBage\&.port\&.jogl\&.JOGLGraphics\fP\&.
+.SS "void age\&.port\&.Graphics\&.drawBox (float sx, float sy, float sz)"
+
+.PP
+Implemented in \fBage\&.port\&.jogl\&.JOGLGraphics\fP\&.
 .SS "void age\&.port\&.Graphics\&.mode2D ()"
+
+.PP
+Implemented in \fBage\&.port\&.jogl\&.JOGLGraphics\fP\&.
+.SS "void age\&.port\&.Graphics\&.mode3D (float fovy, float near, float far)"
 
 .PP
 Implemented in \fBage\&.port\&.jogl\&.JOGLGraphics\fP\&.

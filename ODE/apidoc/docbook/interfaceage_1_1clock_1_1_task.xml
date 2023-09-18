@@ -2,20 +2,68 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interfaceage_1_1clock_1_1_task" xml:lang="en-US">
 <title>age.clock.Task Interface Reference</title>
 <indexterm><primary>age.clock.Task</primary></indexterm>
+<para>
+
+<para>The Task interface that defines the call parameters for a Task reference method <?linebreak?> </para>
+ 
+</para>
 <simplesect>
     <title>Public Member Functions    </title>
         <itemizedlist>
             <listitem><para>void <link linkend="_interfaceage_1_1clock_1_1_task_1a7cc692c047ef94b010ba8d5172e6a6be">run</link> (int count, long nanoperiod, float dT)</para>
+
+<para>The definition of the Task reference method. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The Task interface that defines the call parameters for a Task reference method <?linebreak?> </para>
+</section>
 <section>
 <title>Member Function Documentation</title>
 <anchor xml:id="_interfaceage_1_1clock_1_1_task_1a7cc692c047ef94b010ba8d5172e6a6be"/><section>
     <title>run()</title>
 <indexterm><primary>run</primary><secondary>age.clock.Task</secondary></indexterm>
 <indexterm><primary>age.clock.Task</primary><secondary>run</secondary></indexterm>
-<para><computeroutput>void age.clock.Task.run (int count, long nanoperiod, float dT)</computeroutput></para></section>
+<para><computeroutput>void age.clock.Task.run (int count, long nanoperiod, float dT)</computeroutput></para><para>
+
+<para>The definition of the Task reference method. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>count</entry><entry>
+<para>number of full nanoperiods that have elapsed since last call. Normally 1 </para>
+</entry>
+                            </row>
+                            <row>
+<entry>nanoperiod</entry><entry>
+<para>the time period in nano seconds after which the Task normally is triggered </para>
+</entry>
+                            </row>
+                            <row>
+<entry>dT</entry><entry>
+<para>the time in seconds that did elapse since last call. <?linebreak?> </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <para>
 The documentation for this interface was generated from the following file:</para>
 D:/GIT/repos/ODE/age/age/clock/<link linkend="_clock_2_task_8java">Task.java</link></section>

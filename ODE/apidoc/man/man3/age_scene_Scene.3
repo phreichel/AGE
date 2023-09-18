@@ -10,7 +10,16 @@ age.scene.Scene
 
 .in +1c
 .ti -1c
+.RI "void \fBassign\fP (Port port)"
+.br
+.ti -1c
 .RI "\fBNode\fP \fBroot\fP ()"
+.br
+.ti -1c
+.RI "\fBNode\fP \fBcamera\fP ()"
+.br
+.ti -1c
+.RI "void \fBcamera\fP (\fBNode\fP camera)"
 .br
 .in -1c
 .SS "Private Attributes"
@@ -19,13 +28,29 @@ age.scene.Scene
 .ti -1c
 .RI "\fBNode\fP \fBroot\fP = new \fBNode\fP()"
 .br
+.ti -1c
+.RI "\fBNode\fP \fBcamera\fP = null"
+.br
+.ti -1c
+.RI "\fBRendering\fP \fBrendering\fP = new \fBRendering\fP(this)"
+.br
 .in -1c
 .SH "Member Function Documentation"
 .PP 
+.SS "void age\&.scene\&.Scene\&.assign (Port port)"
+
+.SS "\fBNode\fP age\&.scene\&.Scene\&.camera ()"
+
+.SS "void age\&.scene\&.Scene\&.camera (\fBNode\fP camera)"
+
 .SS "\fBNode\fP age\&.scene\&.Scene\&.root ()"
 
 .SH "Member Data Documentation"
 .PP 
+.SS "\fBNode\fP age\&.scene\&.Scene\&.camera = null\fC [private]\fP"
+
+.SS "\fBRendering\fP age\&.scene\&.Scene\&.rendering = new \fBRendering\fP(this)\fC [private]\fP"
+
 .SS "\fBNode\fP age\&.scene\&.Scene\&.root = new \fBNode\fP()\fC [private]\fP"
 
 
