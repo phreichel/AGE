@@ -10,6 +10,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import javax.vecmath.Color4f;
+import javax.vecmath.Matrix4f;
 import javax.vecmath.Vector2f;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.glu.GLU;
@@ -18,6 +19,7 @@ import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureCoords;
 import com.jogamp.opengl.util.texture.TextureIO;
 import age.AGEException;
+import age.Util;
 import age.port.Graphics;
 
 //*************************************************************************************************
@@ -111,6 +113,24 @@ class JOGLGraphics implements Graphics {
 		gl.glClear(GL_COLOR_BUFFER_BIT);
 	}
 	//=============================================================================================
+
+	//=============================================================================================
+	public void mode3D(float fovy, float near, float far) {
+		float w = drawable.getSurfaceWidth();
+		float h = drawable.getSurfaceHeight();
+		float aspect = w / h;
+		gl.glMatrixMode(GL_PROJECTION);
+		gl.glLoadIdentity();
+		glu.gluPerspective(fovy, aspect, near, far);
+		gl.glMatrixMode(GL_MODELVIEW);
+		gl.glLoadIdentity();
+		gl.glEnable(GL_LIGHTING);
+		gl.glEnable(GL_LIGHT0);
+		gl.glEnable(GL_CULL_FACE);
+		gl.glEnable(GL_DEPTH_TEST);
+		gl.glClear(GL_DEPTH_BUFFER_BIT);
+	}
+	//=============================================================================================	
 	
 	//=============================================================================================
 	public void mode2D() {
@@ -124,24 +144,6 @@ class JOGLGraphics implements Graphics {
 		gl.glDisable(GL_LIGHTING);
 		gl.glDisable(GL_CULL_FACE);
 		gl.glDisable(GL_DEPTH_TEST);
-		gl.glClear(GL_DEPTH_BUFFER_BIT);
-	}
-	//=============================================================================================	
-
-	//=============================================================================================
-	public void mode3D(float fovy, float near, float far) {
-		float w = drawable.getSurfaceWidth();
-		float h = drawable.getSurfaceHeight();
-		float aspect = w / h;
-		gl.glMatrixMode(GL_PROJECTION);
-		gl.glLoadIdentity();
-		glu.gluPerspective(fovy, aspect, near, far);
-		gl.glMatrixMode(GL_MODELVIEW);
-		gl.glLoadIdentity();
-		gl.glEnable(GL_LIGHTING);
-		gl.glEnable(GL_CULL_FACE);
-		gl.glEnable(GL_DEPTH_TEST);
-		gl.glClear(GL_DEPTH_BUFFER_BIT);
 	}
 	//=============================================================================================	
 	
@@ -154,6 +156,18 @@ class JOGLGraphics implements Graphics {
 	//=============================================================================================
 	public void popTransformation() {
 		gl.glPopMatrix();
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private float[] buffer = new float[16];
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void applyTransformation(Matrix4f matrix) {
+		buffer = Util.toGLMatrix(matrix, buffer);
+		gl.glMultMatrixf(buffer, 0);
+		//gl.glMatrixMultfEXT(GL_MODELVIEW, buffer, 0);
 	}
 	//=============================================================================================
 	
@@ -307,6 +321,43 @@ class JOGLGraphics implements Graphics {
 		buffer[0] = (count / 2) - 1;
 		buffer[1] = (int) Math.floor(height / lineHeight);
 		buffer[2] = (int) Math.ceil(lineHeight);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void drawBox(float sx, float sy, float sz) {
+		gl.glBegin(GL_QUADS);
+		gl.glNormal3f(0, 0, 1);
+		gl.glVertex3f(-sx,-sy, sz);
+		gl.glVertex3f( sx,-sy, sz);
+		gl.glVertex3f( sx, sy, sz);
+		gl.glVertex3f(-sx, sy, sz);
+		gl.glNormal3f(0, 0,-1);
+		gl.glVertex3f( sx,-sy,-sz);
+		gl.glVertex3f(-sx,-sy,-sz);
+		gl.glVertex3f(-sx, sy,-sz);
+		gl.glVertex3f( sx, sy,-sz);
+		gl.glNormal3f(0, 1, 0);
+		gl.glVertex3f(-sx, sy, sz);
+		gl.glVertex3f( sx, sy, sz);
+		gl.glVertex3f( sx, sy,-sz);
+		gl.glVertex3f(-sx, sy,-sz);
+		gl.glNormal3f(0,-1, 0);
+		gl.glVertex3f(-sx,-sy,-sz);
+		gl.glVertex3f( sx,-sy,-sz);
+		gl.glVertex3f( sx,-sy, sz);
+		gl.glVertex3f(-sx,-sy, sz);
+		gl.glNormal3f( 1, 0, 0);
+		gl.glVertex3f( sx,-sy, sz);
+		gl.glVertex3f( sx,-sy,-sz);
+		gl.glVertex3f( sx, sy,-sz);
+		gl.glVertex3f( sx, sy, sz);
+		gl.glNormal3f(-1, 0, 0);
+		gl.glVertex3f(-sx,-sy,-sz);
+		gl.glVertex3f(-sx,-sy, sz);
+		gl.glVertex3f(-sx, sy, sz);
+		gl.glVertex3f(-sx, sy,-sz);
+		gl.glEnd();
 	}
 	//=============================================================================================
 	

@@ -4,7 +4,16 @@ package age;
 
 import age.port.Port;
 import age.port.jogl.JOGLPort;
+import age.scene.Camera;
+import age.scene.Node;
+import age.scene.Part;
+import age.scene.Scene;
 import age.task.Tasks;
+
+import javax.vecmath.AxisAngle4f;
+import javax.vecmath.Matrix4f;
+import javax.vecmath.Vector3f;
+
 import age.clock.Clock;
 import age.event.Events;
 import age.gui.Flag;
@@ -31,6 +40,11 @@ public class Client {
 	 * The event system, handling and transforming input events.
 	 */
 	private Events events = new Events();
+	
+	/**
+	 * The 3D scene system.
+	 */
+	private Scene scene = new Scene();
 	
 	/**
 	 * The widget system (the GUI)
@@ -74,12 +88,14 @@ public class Client {
 
 		port.create();
 		port.assign(events);
+		scene.assign(port);
 		widgets.assign(port);
 		widgets.assign(events);
 		tasks.assign(this);
 		tasks.assign(port);
 		tasks.assign(events);
 
+		setupScene();
 		setupGUI();
 		
 		clock.addFPS(60, this::render);
@@ -88,6 +104,37 @@ public class Client {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	private void setupScene() {
+
+		for (int i=0; i<5; i++) {
+			for (int j=0; j<5; j++) {
+				for (int k=0; k<5; k++) {
+					Node n = new Node();
+					n.flag(age.scene.Flag.BOX);
+					Matrix4f m = new Matrix4f();
+					m.setIdentity();
+					m.set(new Vector3f((i-2) * 2.5f, (j-2) * 2.5f, (k-2) * 2.5f));
+					n.component(Part.TRANSFORM, m);
+					scene.root().attach(n);
+				}
+			}
+		}
+		
+		Node camNode = new Node();
+		Matrix4f camTransform = new Matrix4f();
+		Camera camData = new Camera(35f, .4f, 1000f);
+		camTransform.setIdentity();
+		camTransform.setRotation(new AxisAngle4f(1, 0, 0, (float) Math.toRadians(15)));
+		camTransform.setTranslation(new Vector3f(0, 10, 30));
+		camNode.component(Part.TRANSFORM, camTransform);
+		camNode.component(Part.CAMERA, camData);
+		scene.root().attach(camNode);	
+		scene.camera(camNode);
+		
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	private Widget sysMenuFrame;
 	private Widget windowFrame;
