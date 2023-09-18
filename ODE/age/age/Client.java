@@ -98,14 +98,14 @@ public class Client {
 	 */
 	private void setupScene() {
 
-		for (int i=0; i<5; i++) {
-			for (int j=0; j<5; j++) {
-				for (int k=0; k<5; k++) {
+		for (int i=0; i<7; i++) {
+			for (int j=0; j<1; j++) {
+				for (int k=0; k<7; k++) {
 					Node n = new Node();
 					n.flag(age.scene.Flag.BOX);
 					Matrix4f m = new Matrix4f();
 					m.setIdentity();
-					m.set(new Vector3f((i-2) * 2.5f, (j-2) * 2.5f, (k-2) * 2.5f));
+					m.set(new Vector3f((i-3) * 2.5f, (j) * 2.5f, (k-3) * 2.5f));
 					n.component(Part.TRANSFORM, m);
 					scene.root().attach(n);
 				}
@@ -116,8 +116,10 @@ public class Client {
 		Matrix4f camTransform = new Matrix4f();
 		Camera camData = new Camera(35f, .4f, 1000f);
 		camTransform.setIdentity();
-		camTransform.setRotation(new AxisAngle4f(.8f, .2f, 0, (float) Math.toRadians(10)));
-		camTransform.setTranslation(new Vector3f(0, 10, 30));
+		float a = (float) Math.toRadians(-49);
+		AxisAngle4f rot = new AxisAngle4f(1, 0, 0, a);
+		camTransform.setRotation(rot);
+		camTransform.setTranslation(new Vector3f(-2, 15, 15));
 		camNode.component(Part.TRANSFORM, camTransform);
 		camNode.component(Part.CAMERA, camData);
 		scene.root().attach(camNode);	

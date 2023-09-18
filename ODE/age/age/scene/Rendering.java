@@ -72,7 +72,7 @@ public class Rendering implements Renderable {
 	private void renderNode(Graphics g, Node node) {
 		if (node.match(Flag.BOX)) {
 			g.color(0f, .5f, 1f, 1f);
-			g.drawBox(1, 1, 1);
+			g.drawBox(1, .1f, 1);
 		}
 	}
 	//=============================================================================================

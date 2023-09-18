@@ -124,9 +124,9 @@ public class Util {
 		Vector3f r = new Vector3f();
 		src.get(R);
 		src.get(r);
-		r.scale(-1);
-		R.transform(r);
+		r.scale(-1);		
 		R.transpose();
+		R.transform(r);
 		dst.setRotation(R);
 		dst.setTranslation(r);
 		return dst;
