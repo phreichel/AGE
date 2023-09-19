@@ -6,6 +6,8 @@
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>class <link linkend="_classage_1_1log_1_1_log">age.log.Log</link></para>
+
+<para>Class that provides configurable Logging capabilities. </para>
 </listitem>
         </itemizedlist>
 </simplesect>

@@ -2,22 +2,41 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classage_1_1log_1_1_log" xml:lang="en-US">
 <title>age.log.Log Class Reference</title>
 <indexterm><primary>age.log.Log</primary></indexterm>
+<para>
+
+<para>Class that provides configurable Logging capabilities. </para>
+ 
+</para>
 <simplesect>
     <title>Public Member Functions    </title>
         <itemizedlist>
             <listitem><para>void <link linkend="_classage_1_1log_1_1_log_1a83385a931d6297af627b99cd27058e09">clear</link> ()</para>
+
+<para>method to clear all set log levels </para>
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1log_1_1_log_1af802f6d30f9aaf40974af55fae60bd1f">enable</link> (<link linkend="_enumage_1_1log_1_1_level">Level</link> ... <link linkend="_classage_1_1log_1_1_log_1a54927b4f7cb1517b2fc741cb6820d03d">levels</link>)</para>
+
+<para>method to enable all log levels passed in </para>
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1log_1_1_log_1ac9cae23ecd1eb1b308c5b7989bc6435e">disable</link> (<link linkend="_enumage_1_1log_1_1_level">Level</link> ... <link linkend="_classage_1_1log_1_1_log_1a54927b4f7cb1517b2fc741cb6820d03d">levels</link>)</para>
+
+<para>method to disable all log levels passed in </para>
 </listitem>
             <listitem><para>boolean <link linkend="_classage_1_1log_1_1_log_1a23772c6924a0fcf35d36ee03e4f8577b">trace</link> ()</para>
+
+<para>property method to return the current state of the trace flag </para>
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1log_1_1_log_1ae60f2d19f8b928ab9655f602302cd620">trace</link> (boolean trace)</para>
+
+<para>property method to set the current state of the trace flag </para>
 </listitem>
             <listitem><para>String <link linkend="_classage_1_1log_1_1_log_1a87fcf1bc97ece331e1d07714909bd715">format</link> ()</para>
+
+<para>property method to return the current format String for log entries </para>
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1log_1_1_log_1a8eb49a05d3798ce5d345a7094df83ba0">format</link> (String format)</para>
+
+<para>property method to set the current format String for log entries </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -25,28 +44,52 @@
     <title>Static Public Member Functions    </title>
         <itemizedlist>
             <listitem><para>static void <link linkend="_classage_1_1log_1_1_log_1a7b75db5628d94a42654dbed84fa49afa">configure</link> (String path)</para>
+
+<para>This method reads a configuration file to preconfigure the logging system. </para>
 </listitem>
             <listitem><para>static <link linkend="_classage_1_1log_1_1_log">Log</link> <link linkend="_classage_1_1log_1_1_log_1a20be7735d5182af073b90a9c711f55ef">get</link> (String instance)</para>
+
+<para>This method returns a named log instance and creates one if not existing already. </para>
 </listitem>
             <listitem><para>static void <link linkend="_classage_1_1log_1_1_log_1aaa003eaf8cd33807e94fe81fae1383e4">log</link> (<link linkend="_enumage_1_1log_1_1_level">Level</link> level, String message, Object ... params)</para>
+
+<para>This method allows to write a log message for the &quot;default&quot; Log instance. </para>
 </listitem>
             <listitem><para>static void <link linkend="_classage_1_1log_1_1_log_1ab51ac0e63309bb2418fd7bb9c3d01d38">info</link> (String message, Object ... params)</para>
+
+<para>This method allows to write an info message for the &quot;default&quot; Log instance. </para>
 </listitem>
             <listitem><para>static void <link linkend="_classage_1_1log_1_1_log_1a0476c88c594750b1efbb5936dfcf54a4">warn</link> (String message, Object ... params)</para>
+
+<para>This method allows to write a warning message for the &quot;default&quot; Log instance. </para>
 </listitem>
             <listitem><para>static void <link linkend="_classage_1_1log_1_1_log_1a5ec2b0d109684e58ba061a2bd13ed8d0">error</link> (String message, Object ... params)</para>
+
+<para>This method allows to write an error message for the &quot;default&quot; Log instance. </para>
 </listitem>
             <listitem><para>static void <link linkend="_classage_1_1log_1_1_log_1a897998f3d6c5a7e1595ae77c8d578c6e">debug</link> (String message, Object ... params)</para>
+
+<para>This method allows to write a debug message for the &quot;default&quot; Log instance. </para>
 </listitem>
             <listitem><para>static void <link linkend="_classage_1_1log_1_1_log_1a1d58782062656b62eb49bfee0338cf2a">log</link> (String instance, <link linkend="_enumage_1_1log_1_1_level">Level</link> level, String message, Object ... params)</para>
+
+<para>This method allows to write a log message for a named Log instance. </para>
 </listitem>
             <listitem><para>static void <link linkend="_classage_1_1log_1_1_log_1a12aa1afceba1da44c62a66a21c2b5040">info</link> (String instance, String message, Object ... params)</para>
+
+<para>This method allows to write an info message for a named Log instance. </para>
 </listitem>
             <listitem><para>static void <link linkend="_classage_1_1log_1_1_log_1a06e5cb665b3236603a9208b718de6f39">warn</link> (String instance, String message, Object ... params)</para>
+
+<para>This method allows to write a warning message for a named Log instance. </para>
 </listitem>
             <listitem><para>static void <link linkend="_classage_1_1log_1_1_log_1a333e9ca8fa3dd75e0669fa0a78d72414">error</link> (String instance, String message, Object ... params)</para>
+
+<para>This method allows to write an error message for a named Log instance. </para>
 </listitem>
             <listitem><para>static void <link linkend="_classage_1_1log_1_1_log_1ae6b863bd76bf69f36a4456033b768144">debug</link> (String instance, String message, Object ... params)</para>
+
+<para>This method allows to write a debug message for a named Log instance. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -54,10 +97,16 @@
     <title>Private Member Functions    </title>
         <itemizedlist>
             <listitem><para><link linkend="_classage_1_1log_1_1_log_1a5159eaf179f879f27809e47d55a94573">Log</link> ()</para>
+
+<para>Constructor that sets all configurable Log settings to default. </para>
 </listitem>
             <listitem><para><link linkend="_classage_1_1log_1_1_log_1a3ab72819c28e733c675d193ef9bfa668">Log</link> (<link linkend="_classage_1_1log_1_1_log">Log</link> parent)</para>
+
+<para>Class internal private copy constructor. </para>
 </listitem>
             <listitem><para>void <link linkend="_classage_1_1log_1_1_log_1ab92b9cd2b6292eb281bafd966b4c121a">write</link> (<link linkend="_enumage_1_1log_1_1_level">Level</link> level, String message, Object ... params)</para>
+
+<para>internal method to write a log message considering all configuration settings </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -65,10 +114,16 @@
     <title>Private Attributes    </title>
         <itemizedlist>
             <listitem><para>boolean <link linkend="_classage_1_1log_1_1_log_1a69f3e81f678610114d3e5bf4c383e6e0">trace</link> = false</para>
+
+<para>flag if stack trace output is enabled or not for this Log instance </para>
 </listitem>
             <listitem><para>Set&lt; <link linkend="_enumage_1_1log_1_1_level">Level</link> &gt; <link linkend="_classage_1_1log_1_1_log_1a54927b4f7cb1517b2fc741cb6820d03d">levels</link> = null</para>
+
+<para>a set of Level literals that are enabled to print out log messages </para>
 </listitem>
             <listitem><para>String <link linkend="_classage_1_1log_1_1_log_1a281e2a3398ae1f16a14c1e838da5cfdd">format</link> = null</para>
+
+<para>the overall log entry format String </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -76,21 +131,58 @@
     <title>Static Private Attributes    </title>
         <itemizedlist>
             <listitem><para>static final Map&lt; String, <link linkend="_classage_1_1log_1_1_log">Log</link> &gt; <link linkend="_classage_1_1log_1_1_log_1ab1cba1418cbba0750a8f545451d83e2a">map</link> = new HashMap&lt;&gt;()</para>
+
+<para>Map that contains named log instances that can be configured independently. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Class that provides configurable Logging capabilities. </para>
+</section>
 <section>
 <title>Constructor &amp; Destructor Documentation</title>
 <anchor xml:id="_classage_1_1log_1_1_log_1a5159eaf179f879f27809e47d55a94573"/><section>
     <title>Log()<computeroutput>[1/2]</computeroutput></title>
 <indexterm><primary>Log</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>Log</secondary></indexterm>
-<para><computeroutput>age.log.Log.Log ( )<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput>age.log.Log.Log ( )<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>Constructor that sets all configurable Log settings to default. </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1a3ab72819c28e733c675d193ef9bfa668"/><section>
     <title>Log()<computeroutput>[2/2]</computeroutput></title>
 <indexterm><primary>Log</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>Log</secondary></indexterm>
-<para><computeroutput>age.log.Log.Log (<link linkend="_classage_1_1log_1_1_log">Log</link> parent)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput>age.log.Log.Log (<link linkend="_classage_1_1log_1_1_log">Log</link> parent)<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>Class internal private copy constructor. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>parent</entry><entry>
+<para>the parent Log from which the settings will be copied </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 </section>
 <section>
 <title>Member Function Documentation</title>
@@ -98,102 +190,667 @@
     <title>clear()</title>
 <indexterm><primary>clear</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>clear</secondary></indexterm>
-<para><computeroutput>void age.log.Log.clear ( )</computeroutput></para></section>
+<para><computeroutput>void age.log.Log.clear ( )</computeroutput></para><para>
+
+<para>method to clear all set log levels </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1a7b75db5628d94a42654dbed84fa49afa"/><section>
     <title>configure()</title>
 <indexterm><primary>configure</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>configure</secondary></indexterm>
-<para><computeroutput>static void age.log.Log.configure (String path)<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<para><computeroutput>static void age.log.Log.configure (String path)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>This method reads a configuration file to preconfigure the logging system. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>path</entry><entry>
+<para>The file path to the configuration file </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1ae6b863bd76bf69f36a4456033b768144"/><section>
     <title>debug()<computeroutput>[1/2]</computeroutput></title>
 <indexterm><primary>debug</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>debug</secondary></indexterm>
-<para><computeroutput>static void age.log.Log.debug (String instance, String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<para><computeroutput>static void age.log.Log.debug (String instance, String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>This method allows to write a debug message for a named Log instance. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>instance</entry><entry>
+<para>the name of the log instance </para>
+</entry>
+                            </row>
+                            <row>
+<entry>message</entry><entry>
+<para>the log message which may contain String formats </para>
+</entry>
+                            </row>
+                            <row>
+<entry>params</entry><entry>
+<para>the format parameters for the message String </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1a897998f3d6c5a7e1595ae77c8d578c6e"/><section>
     <title>debug()<computeroutput>[2/2]</computeroutput></title>
 <indexterm><primary>debug</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>debug</secondary></indexterm>
-<para><computeroutput>static void age.log.Log.debug (String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<para><computeroutput>static void age.log.Log.debug (String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>This method allows to write a debug message for the &quot;default&quot; Log instance. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message</entry><entry>
+<para>the log message which may contain String formats </para>
+</entry>
+                            </row>
+                            <row>
+<entry>params</entry><entry>
+<para>the format parameters for the message String </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1ac9cae23ecd1eb1b308c5b7989bc6435e"/><section>
     <title>disable()</title>
 <indexterm><primary>disable</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>disable</secondary></indexterm>
-<para><computeroutput>void age.log.Log.disable (<link linkend="_enumage_1_1log_1_1_level">Level</link> ... levels)</computeroutput></para></section>
+<para><computeroutput>void age.log.Log.disable (<link linkend="_enumage_1_1log_1_1_level">Level</link> ... levels)</computeroutput></para><para>
+
+<para>method to disable all log levels passed in </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>levels</entry><entry>
+<para>the log levels passed in </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1af802f6d30f9aaf40974af55fae60bd1f"/><section>
     <title>enable()</title>
 <indexterm><primary>enable</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>enable</secondary></indexterm>
-<para><computeroutput>void age.log.Log.enable (<link linkend="_enumage_1_1log_1_1_level">Level</link> ... levels)</computeroutput></para></section>
+<para><computeroutput>void age.log.Log.enable (<link linkend="_enumage_1_1log_1_1_level">Level</link> ... levels)</computeroutput></para><para>
+
+<para>method to enable all log levels passed in </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>levels</entry><entry>
+<para>the log levels passed in </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1a333e9ca8fa3dd75e0669fa0a78d72414"/><section>
     <title>error()<computeroutput>[1/2]</computeroutput></title>
 <indexterm><primary>error</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>error</secondary></indexterm>
-<para><computeroutput>static void age.log.Log.error (String instance, String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<para><computeroutput>static void age.log.Log.error (String instance, String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>This method allows to write an error message for a named Log instance. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>instance</entry><entry>
+<para>the name of the log instance </para>
+</entry>
+                            </row>
+                            <row>
+<entry>message</entry><entry>
+<para>the log message which may contain String formats </para>
+</entry>
+                            </row>
+                            <row>
+<entry>params</entry><entry>
+<para>the format parameters for the message String </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1a5ec2b0d109684e58ba061a2bd13ed8d0"/><section>
     <title>error()<computeroutput>[2/2]</computeroutput></title>
 <indexterm><primary>error</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>error</secondary></indexterm>
-<para><computeroutput>static void age.log.Log.error (String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<para><computeroutput>static void age.log.Log.error (String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>This method allows to write an error message for the &quot;default&quot; Log instance. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message</entry><entry>
+<para>the log message which may contain String formats </para>
+</entry>
+                            </row>
+                            <row>
+<entry>params</entry><entry>
+<para>the format parameters for the message String </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1a87fcf1bc97ece331e1d07714909bd715"/><section>
     <title>format()<computeroutput>[1/2]</computeroutput></title>
 <indexterm><primary>format</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>format</secondary></indexterm>
-<para><computeroutput>String age.log.Log.format ( )</computeroutput></para></section>
+<para><computeroutput>String age.log.Log.format ( )</computeroutput></para><para>
+
+<para>property method to return the current format String for log entries </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the current format String </para>
+</formalpara>
+</para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1a8eb49a05d3798ce5d345a7094df83ba0"/><section>
     <title>format()<computeroutput>[2/2]</computeroutput></title>
 <indexterm><primary>format</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>format</secondary></indexterm>
-<para><computeroutput>void age.log.Log.format (String format)</computeroutput></para></section>
+<para><computeroutput>void age.log.Log.format (String format)</computeroutput></para><para>
+
+<para>property method to set the current format String for log entries </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>format</entry><entry>
+<para>the future format String </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1a20be7735d5182af073b90a9c711f55ef"/><section>
     <title>get()</title>
 <indexterm><primary>get</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>get</secondary></indexterm>
-<para><computeroutput>static <link linkend="_classage_1_1log_1_1_log">Log</link> age.log.Log.get (String instance)<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<para><computeroutput>static <link linkend="_classage_1_1log_1_1_log">Log</link> age.log.Log.get (String instance)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>This method returns a named log instance and creates one if not existing already. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>instance</entry><entry>
+<para>the name of the log instance to return/create. a null String returns an instance named &quot;default&quot; </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The Log instance </para>
+</formalpara>
+</para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1a12aa1afceba1da44c62a66a21c2b5040"/><section>
     <title>info()<computeroutput>[1/2]</computeroutput></title>
 <indexterm><primary>info</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>info</secondary></indexterm>
-<para><computeroutput>static void age.log.Log.info (String instance, String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<para><computeroutput>static void age.log.Log.info (String instance, String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>This method allows to write an info message for a named Log instance. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>instance</entry><entry>
+<para>the name of the log instance </para>
+</entry>
+                            </row>
+                            <row>
+<entry>message</entry><entry>
+<para>the log message which may contain String formats </para>
+</entry>
+                            </row>
+                            <row>
+<entry>params</entry><entry>
+<para>the format parameters for the message String </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1ab51ac0e63309bb2418fd7bb9c3d01d38"/><section>
     <title>info()<computeroutput>[2/2]</computeroutput></title>
 <indexterm><primary>info</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>info</secondary></indexterm>
-<para><computeroutput>static void age.log.Log.info (String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<para><computeroutput>static void age.log.Log.info (String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>This method allows to write an info message for the &quot;default&quot; Log instance. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message</entry><entry>
+<para>the log message which may contain String formats </para>
+</entry>
+                            </row>
+                            <row>
+<entry>params</entry><entry>
+<para>the format parameters for the message String </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1aaa003eaf8cd33807e94fe81fae1383e4"/><section>
     <title>log()<computeroutput>[1/2]</computeroutput></title>
 <indexterm><primary>log</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>log</secondary></indexterm>
-<para><computeroutput>static void age.log.Log.log (<link linkend="_enumage_1_1log_1_1_level">Level</link> level, String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<para><computeroutput>static void age.log.Log.log (<link linkend="_enumage_1_1log_1_1_level">Level</link> level, String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>This method allows to write a log message for the &quot;default&quot; Log instance. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>level</entry><entry>
+<para>the log level to log to </para>
+</entry>
+                            </row>
+                            <row>
+<entry>message</entry><entry>
+<para>the log message which may contain String formats </para>
+</entry>
+                            </row>
+                            <row>
+<entry>params</entry><entry>
+<para>the format parameters for the message String </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1a1d58782062656b62eb49bfee0338cf2a"/><section>
     <title>log()<computeroutput>[2/2]</computeroutput></title>
 <indexterm><primary>log</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>log</secondary></indexterm>
-<para><computeroutput>static void age.log.Log.log (String instance, <link linkend="_enumage_1_1log_1_1_level">Level</link> level, String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<para><computeroutput>static void age.log.Log.log (String instance, <link linkend="_enumage_1_1log_1_1_level">Level</link> level, String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>This method allows to write a log message for a named Log instance. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>instance</entry><entry>
+<para>the name of the log instance </para>
+</entry>
+                            </row>
+                            <row>
+<entry>level</entry><entry>
+<para>the log level to log to </para>
+</entry>
+                            </row>
+                            <row>
+<entry>message</entry><entry>
+<para>the log message which may contain String formats </para>
+</entry>
+                            </row>
+                            <row>
+<entry>params</entry><entry>
+<para>the format parameters for the message String </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1a23772c6924a0fcf35d36ee03e4f8577b"/><section>
     <title>trace()<computeroutput>[1/2]</computeroutput></title>
 <indexterm><primary>trace</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>trace</secondary></indexterm>
-<para><computeroutput>boolean age.log.Log.trace ( )</computeroutput></para></section>
+<para><computeroutput>boolean age.log.Log.trace ( )</computeroutput></para><para>
+
+<para>property method to return the current state of the trace flag </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the current state of the trace flag </para>
+</formalpara>
+</para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1ae60f2d19f8b928ab9655f602302cd620"/><section>
     <title>trace()<computeroutput>[2/2]</computeroutput></title>
 <indexterm><primary>trace</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>trace</secondary></indexterm>
-<para><computeroutput>void age.log.Log.trace (boolean trace)</computeroutput></para></section>
+<para><computeroutput>void age.log.Log.trace (boolean trace)</computeroutput></para><para>
+
+<para>property method to set the current state of the trace flag </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>trace</entry><entry>
+<para>the state to set </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1a06e5cb665b3236603a9208b718de6f39"/><section>
     <title>warn()<computeroutput>[1/2]</computeroutput></title>
 <indexterm><primary>warn</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>warn</secondary></indexterm>
-<para><computeroutput>static void age.log.Log.warn (String instance, String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<para><computeroutput>static void age.log.Log.warn (String instance, String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>This method allows to write a warning message for a named Log instance. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>instance</entry><entry>
+<para>the name of the log instance </para>
+</entry>
+                            </row>
+                            <row>
+<entry>message</entry><entry>
+<para>the log message which may contain String formats </para>
+</entry>
+                            </row>
+                            <row>
+<entry>params</entry><entry>
+<para>the format parameters for the message String </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1a0476c88c594750b1efbb5936dfcf54a4"/><section>
     <title>warn()<computeroutput>[2/2]</computeroutput></title>
 <indexterm><primary>warn</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>warn</secondary></indexterm>
-<para><computeroutput>static void age.log.Log.warn (String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<para><computeroutput>static void age.log.Log.warn (String message, Object ... params)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>This method allows to write a warning message for the &quot;default&quot; Log instance. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message</entry><entry>
+<para>the log message which may contain String formats </para>
+</entry>
+                            </row>
+                            <row>
+<entry>params</entry><entry>
+<para>the format parameters for the message String </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1ab92b9cd2b6292eb281bafd966b4c121a"/><section>
     <title>write()</title>
 <indexterm><primary>write</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>write</secondary></indexterm>
-<para><computeroutput>void age.log.Log.write (<link linkend="_enumage_1_1log_1_1_level">Level</link> level, String message, Object ... params)<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput>void age.log.Log.write (<link linkend="_enumage_1_1log_1_1_level">Level</link> level, String message, Object ... params)<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>internal method to write a log message considering all configuration settings </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>level</entry><entry>
+<para>the log level </para>
+</entry>
+                            </row>
+                            <row>
+<entry>message</entry><entry>
+<para>the log message with possible format entries </para>
+</entry>
+                            </row>
+                            <row>
+<entry>params</entry><entry>
+<para>the parameters for the formatted message String </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 </section>
 <section>
 <title>Member Data Documentation</title>
@@ -201,22 +858,38 @@
     <title>format</title>
 <indexterm><primary>format</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>format</secondary></indexterm>
-<para><computeroutput>String age.log.Log.format = null<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput>String age.log.Log.format = null<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>the overall log entry format String </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1a54927b4f7cb1517b2fc741cb6820d03d"/><section>
     <title>levels</title>
 <indexterm><primary>levels</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>levels</secondary></indexterm>
-<para><computeroutput>Set&lt;<link linkend="_enumage_1_1log_1_1_level">Level</link>&gt; age.log.Log.levels = null<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput>Set&lt;<link linkend="_enumage_1_1log_1_1_level">Level</link>&gt; age.log.Log.levels = null<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>a set of Level literals that are enabled to print out log messages </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1ab1cba1418cbba0750a8f545451d83e2a"/><section>
     <title>map</title>
 <indexterm><primary>map</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>map</secondary></indexterm>
-<para><computeroutput>final Map&lt;String, <link linkend="_classage_1_1log_1_1_log">Log</link>&gt; age.log.Log.map = new HashMap&lt;&gt;()<computeroutput>[static]</computeroutput>, <computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput>final Map&lt;String, <link linkend="_classage_1_1log_1_1_log">Log</link>&gt; age.log.Log.map = new HashMap&lt;&gt;()<computeroutput>[static]</computeroutput>, <computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>Map that contains named log instances that can be configured independently. </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1log_1_1_log_1a69f3e81f678610114d3e5bf4c383e6e0"/><section>
     <title>trace</title>
 <indexterm><primary>trace</primary><secondary>age.log.Log</secondary></indexterm>
 <indexterm><primary>age.log.Log</primary><secondary>trace</secondary></indexterm>
-<para><computeroutput>boolean age.log.Log.trace = false<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput>boolean age.log.Log.trace = false<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>flag if stack trace output is enabled or not for this Log instance </para>
+</para>
+</section>
 <para>
 The documentation for this class was generated from the following file:</para>
 D:/GIT/repos/ODE/age/age/log/<link linkend="__log_8java">Log.java</link></section>

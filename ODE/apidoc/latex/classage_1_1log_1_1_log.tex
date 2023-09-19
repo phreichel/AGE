@@ -1,73 +1,81 @@
 \doxysection{age.\+log.\+Log Class Reference}
 \hypertarget{classage_1_1log_1_1_log}{}\label{classage_1_1log_1_1_log}\index{age.log.Log@{age.log.Log}}
+
+
+Class that provides configurable Logging capabilities.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classage_1_1log_1_1_log_a83385a931d6297af627b99cd27058e09}{clear}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em method to clear all set log levels \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classage_1_1log_1_1_log_af802f6d30f9aaf40974af55fae60bd1f}{enable}} (\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}} ... \mbox{\hyperlink{classage_1_1log_1_1_log_a54927b4f7cb1517b2fc741cb6820d03d}{levels}})
-\item 
+\begin{DoxyCompactList}\small\item\em method to enable all log levels passed in \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classage_1_1log_1_1_log_ac9cae23ecd1eb1b308c5b7989bc6435e}{disable}} (\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}} ... \mbox{\hyperlink{classage_1_1log_1_1_log_a54927b4f7cb1517b2fc741cb6820d03d}{levels}})
-\item 
+\begin{DoxyCompactList}\small\item\em method to disable all log levels passed in \end{DoxyCompactList}\item 
 boolean \mbox{\hyperlink{classage_1_1log_1_1_log_a23772c6924a0fcf35d36ee03e4f8577b}{trace}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em property method to return the current state of the trace flag \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classage_1_1log_1_1_log_ae60f2d19f8b928ab9655f602302cd620}{trace}} (boolean trace)
-\item 
+\begin{DoxyCompactList}\small\item\em property method to set the current state of the trace flag \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{classage_1_1log_1_1_log_a87fcf1bc97ece331e1d07714909bd715}{format}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em property method to return the current format String for log entries \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classage_1_1log_1_1_log_a8eb49a05d3798ce5d345a7094df83ba0}{format}} (String format)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em property method to set the current format String for log entries \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static void \mbox{\hyperlink{classage_1_1log_1_1_log_a7b75db5628d94a42654dbed84fa49afa}{configure}} (String path)
-\item 
+\begin{DoxyCompactList}\small\item\em This method reads a configuration file to preconfigure the logging system. \end{DoxyCompactList}\item 
 static \mbox{\hyperlink{classage_1_1log_1_1_log}{Log}} \mbox{\hyperlink{classage_1_1log_1_1_log_a20be7735d5182af073b90a9c711f55ef}{get}} (String instance)
-\item 
+\begin{DoxyCompactList}\small\item\em This method returns a named log instance and creates one if not existing already. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classage_1_1log_1_1_log_aaa003eaf8cd33807e94fe81fae1383e4}{log}} (\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}} level, String message, Object ... params)
-\item 
+\begin{DoxyCompactList}\small\item\em This method allows to write a log message for the "{}default"{} Log instance. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classage_1_1log_1_1_log_ab51ac0e63309bb2418fd7bb9c3d01d38}{info}} (String message, Object ... params)
-\item 
+\begin{DoxyCompactList}\small\item\em This method allows to write an info message for the "{}default"{} Log instance. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classage_1_1log_1_1_log_a0476c88c594750b1efbb5936dfcf54a4}{warn}} (String message, Object ... params)
-\item 
+\begin{DoxyCompactList}\small\item\em This method allows to write a warning message for the "{}default"{} Log instance. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classage_1_1log_1_1_log_a5ec2b0d109684e58ba061a2bd13ed8d0}{error}} (String message, Object ... params)
-\item 
+\begin{DoxyCompactList}\small\item\em This method allows to write an error message for the "{}default"{} Log instance. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classage_1_1log_1_1_log_a897998f3d6c5a7e1595ae77c8d578c6e}{debug}} (String message, Object ... params)
-\item 
+\begin{DoxyCompactList}\small\item\em This method allows to write a debug message for the "{}default"{} Log instance. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classage_1_1log_1_1_log_a1d58782062656b62eb49bfee0338cf2a}{log}} (String instance, \mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}} level, String message, Object ... params)
-\item 
+\begin{DoxyCompactList}\small\item\em This method allows to write a log message for a named Log instance. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classage_1_1log_1_1_log_a12aa1afceba1da44c62a66a21c2b5040}{info}} (String instance, String message, Object ... params)
-\item 
+\begin{DoxyCompactList}\small\item\em This method allows to write an info message for a named Log instance. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classage_1_1log_1_1_log_a06e5cb665b3236603a9208b718de6f39}{warn}} (String instance, String message, Object ... params)
-\item 
+\begin{DoxyCompactList}\small\item\em This method allows to write a warning message for a named Log instance. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classage_1_1log_1_1_log_a333e9ca8fa3dd75e0669fa0a78d72414}{error}} (String instance, String message, Object ... params)
-\item 
+\begin{DoxyCompactList}\small\item\em This method allows to write an error message for a named Log instance. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classage_1_1log_1_1_log_ae6b863bd76bf69f36a4456033b768144}{debug}} (String instance, String message, Object ... params)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This method allows to write a debug message for a named Log instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classage_1_1log_1_1_log_a5159eaf179f879f27809e47d55a94573}{Log}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor that sets all configurable Log settings to default. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classage_1_1log_1_1_log_a3ab72819c28e733c675d193ef9bfa668}{Log}} (\mbox{\hyperlink{classage_1_1log_1_1_log}{Log}} parent)
-\item 
+\begin{DoxyCompactList}\small\item\em Class internal private copy constructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classage_1_1log_1_1_log_ab92b9cd2b6292eb281bafd966b4c121a}{write}} (\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}} level, String message, Object ... params)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em internal method to write a log message considering all configuration settings \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 boolean \mbox{\hyperlink{classage_1_1log_1_1_log_a69f3e81f678610114d3e5bf4c383e6e0}{trace}} = false
-\item 
+\begin{DoxyCompactList}\small\item\em flag if stack trace output is enabled or not for this Log instance \end{DoxyCompactList}\item 
 Set$<$ \mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}} $>$ \mbox{\hyperlink{classage_1_1log_1_1_log_a54927b4f7cb1517b2fc741cb6820d03d}{levels}} = null
-\item 
+\begin{DoxyCompactList}\small\item\em a set of Level literals that are enabled to print out log messages \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{classage_1_1log_1_1_log_a281e2a3398ae1f16a14c1e838da5cfdd}{format}} = null
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em the overall log entry format String \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 static final Map$<$ String, \mbox{\hyperlink{classage_1_1log_1_1_log}{Log}} $>$ \mbox{\hyperlink{classage_1_1log_1_1_log_ab1cba1418cbba0750a8f545451d83e2a}{map}} = new Hash\+Map$<$$>$()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Map that contains named log instances that can be configured independently. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Class that provides configurable Logging capabilities. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classage_1_1log_1_1_log_a5159eaf179f879f27809e47d55a94573}\label{classage_1_1log_1_1_log_a5159eaf179f879f27809e47d55a94573} 
@@ -75,6 +83,10 @@ static final Map$<$ String, \mbox{\hyperlink{classage_1_1log_1_1_log}{Log}} $>$ 
 \index{Log@{Log}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{Log()}{Log()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily age.\+log.\+Log.\+Log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Constructor that sets all configurable Log settings to default. 
 
 \Hypertarget{classage_1_1log_1_1_log_a3ab72819c28e733c675d193ef9bfa668}\label{classage_1_1log_1_1_log_a3ab72819c28e733c675d193ef9bfa668} 
 \index{age.log.Log@{age.log.Log}!Log@{Log}}
@@ -84,6 +96,15 @@ static final Map$<$ String, \mbox{\hyperlink{classage_1_1log_1_1_log}{Log}} $>$ 
 
 
 
+Class internal private copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & the parent Log from which the settings will be copied \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classage_1_1log_1_1_log_a83385a931d6297af627b99cd27058e09}\label{classage_1_1log_1_1_log_a83385a931d6297af627b99cd27058e09} 
 \index{age.log.Log@{age.log.Log}!clear@{clear}}
@@ -91,120 +112,332 @@ static final Map$<$ String, \mbox{\hyperlink{classage_1_1log_1_1_log}{Log}} $>$ 
 \doxysubsubsection{\texorpdfstring{clear()}{clear()}}
 {\footnotesize\ttfamily void age.\+log.\+Log.\+clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+method to clear all set log levels 
+
 \Hypertarget{classage_1_1log_1_1_log_a7b75db5628d94a42654dbed84fa49afa}\label{classage_1_1log_1_1_log_a7b75db5628d94a42654dbed84fa49afa} 
 \index{age.log.Log@{age.log.Log}!configure@{configure}}
 \index{configure@{configure}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{configure()}{configure()}}
 {\footnotesize\ttfamily static void age.\+log.\+Log.\+configure (\begin{DoxyParamCaption}\item[{String}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+This method reads a configuration file to preconfigure the logging system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The file path to the configuration file \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classage_1_1log_1_1_log_ae6b863bd76bf69f36a4456033b768144}\label{classage_1_1log_1_1_log_ae6b863bd76bf69f36a4456033b768144} 
 \index{age.log.Log@{age.log.Log}!debug@{debug}}
 \index{debug@{debug}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{debug()}{debug()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily static void age.\+log.\+Log.\+debug (\begin{DoxyParamCaption}\item[{String}]{instance,  }\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+This method allows to write a debug message for a named Log instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instance} & the name of the log instance \\
+\hline
+{\em message} & the log message which may contain String formats \\
+\hline
+{\em params} & the format parameters for the message String \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classage_1_1log_1_1_log_a897998f3d6c5a7e1595ae77c8d578c6e}\label{classage_1_1log_1_1_log_a897998f3d6c5a7e1595ae77c8d578c6e} 
 \index{age.log.Log@{age.log.Log}!debug@{debug}}
 \index{debug@{debug}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{debug()}{debug()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily static void age.\+log.\+Log.\+debug (\begin{DoxyParamCaption}\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+This method allows to write a debug message for the "{}default"{} Log instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & the log message which may contain String formats \\
+\hline
+{\em params} & the format parameters for the message String \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classage_1_1log_1_1_log_ac9cae23ecd1eb1b308c5b7989bc6435e}\label{classage_1_1log_1_1_log_ac9cae23ecd1eb1b308c5b7989bc6435e} 
 \index{age.log.Log@{age.log.Log}!disable@{disable}}
 \index{disable@{disable}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{disable()}{disable()}}
 {\footnotesize\ttfamily void age.\+log.\+Log.\+disable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}} ...}]{levels }\end{DoxyParamCaption})}
 
+
+
+method to disable all log levels passed in 
+
+
+\begin{DoxyParams}{Parameters}
+{\em levels} & the log levels passed in \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classage_1_1log_1_1_log_af802f6d30f9aaf40974af55fae60bd1f}\label{classage_1_1log_1_1_log_af802f6d30f9aaf40974af55fae60bd1f} 
 \index{age.log.Log@{age.log.Log}!enable@{enable}}
 \index{enable@{enable}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{enable()}{enable()}}
 {\footnotesize\ttfamily void age.\+log.\+Log.\+enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}} ...}]{levels }\end{DoxyParamCaption})}
 
+
+
+method to enable all log levels passed in 
+
+
+\begin{DoxyParams}{Parameters}
+{\em levels} & the log levels passed in \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classage_1_1log_1_1_log_a333e9ca8fa3dd75e0669fa0a78d72414}\label{classage_1_1log_1_1_log_a333e9ca8fa3dd75e0669fa0a78d72414} 
 \index{age.log.Log@{age.log.Log}!error@{error}}
 \index{error@{error}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{error()}{error()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily static void age.\+log.\+Log.\+error (\begin{DoxyParamCaption}\item[{String}]{instance,  }\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+This method allows to write an error message for a named Log instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instance} & the name of the log instance \\
+\hline
+{\em message} & the log message which may contain String formats \\
+\hline
+{\em params} & the format parameters for the message String \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classage_1_1log_1_1_log_a5ec2b0d109684e58ba061a2bd13ed8d0}\label{classage_1_1log_1_1_log_a5ec2b0d109684e58ba061a2bd13ed8d0} 
 \index{age.log.Log@{age.log.Log}!error@{error}}
 \index{error@{error}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{error()}{error()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily static void age.\+log.\+Log.\+error (\begin{DoxyParamCaption}\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+This method allows to write an error message for the "{}default"{} Log instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & the log message which may contain String formats \\
+\hline
+{\em params} & the format parameters for the message String \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classage_1_1log_1_1_log_a87fcf1bc97ece331e1d07714909bd715}\label{classage_1_1log_1_1_log_a87fcf1bc97ece331e1d07714909bd715} 
 \index{age.log.Log@{age.log.Log}!format@{format}}
 \index{format@{format}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{format()}{format()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily String age.\+log.\+Log.\+format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+property method to return the current format String for log entries 
+
+\begin{DoxyReturn}{Returns}
+the current format String 
+\end{DoxyReturn}
 \Hypertarget{classage_1_1log_1_1_log_a8eb49a05d3798ce5d345a7094df83ba0}\label{classage_1_1log_1_1_log_a8eb49a05d3798ce5d345a7094df83ba0} 
 \index{age.log.Log@{age.log.Log}!format@{format}}
 \index{format@{format}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{format()}{format()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void age.\+log.\+Log.\+format (\begin{DoxyParamCaption}\item[{String}]{format }\end{DoxyParamCaption})}
 
+
+
+property method to set the current format String for log entries 
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & the future format String \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classage_1_1log_1_1_log_a20be7735d5182af073b90a9c711f55ef}\label{classage_1_1log_1_1_log_a20be7735d5182af073b90a9c711f55ef} 
 \index{age.log.Log@{age.log.Log}!get@{get}}
 \index{get@{get}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{get()}{get()}}
 {\footnotesize\ttfamily static \mbox{\hyperlink{classage_1_1log_1_1_log}{Log}} age.\+log.\+Log.\+get (\begin{DoxyParamCaption}\item[{String}]{instance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+This method returns a named log instance and creates one if not existing already. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instance} & the name of the log instance to return/create. a null String returns an instance named "{}default"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Log instance 
+\end{DoxyReturn}
 \Hypertarget{classage_1_1log_1_1_log_a12aa1afceba1da44c62a66a21c2b5040}\label{classage_1_1log_1_1_log_a12aa1afceba1da44c62a66a21c2b5040} 
 \index{age.log.Log@{age.log.Log}!info@{info}}
 \index{info@{info}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{info()}{info()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily static void age.\+log.\+Log.\+info (\begin{DoxyParamCaption}\item[{String}]{instance,  }\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+This method allows to write an info message for a named Log instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instance} & the name of the log instance \\
+\hline
+{\em message} & the log message which may contain String formats \\
+\hline
+{\em params} & the format parameters for the message String \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classage_1_1log_1_1_log_ab51ac0e63309bb2418fd7bb9c3d01d38}\label{classage_1_1log_1_1_log_ab51ac0e63309bb2418fd7bb9c3d01d38} 
 \index{age.log.Log@{age.log.Log}!info@{info}}
 \index{info@{info}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{info()}{info()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily static void age.\+log.\+Log.\+info (\begin{DoxyParamCaption}\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+This method allows to write an info message for the "{}default"{} Log instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & the log message which may contain String formats \\
+\hline
+{\em params} & the format parameters for the message String \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classage_1_1log_1_1_log_aaa003eaf8cd33807e94fe81fae1383e4}\label{classage_1_1log_1_1_log_aaa003eaf8cd33807e94fe81fae1383e4} 
 \index{age.log.Log@{age.log.Log}!log@{log}}
 \index{log@{log}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{log()}{log()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily static void age.\+log.\+Log.\+log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}}}]{level,  }\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+This method allows to write a log message for the "{}default"{} Log instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & the log level to log to \\
+\hline
+{\em message} & the log message which may contain String formats \\
+\hline
+{\em params} & the format parameters for the message String \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classage_1_1log_1_1_log_a1d58782062656b62eb49bfee0338cf2a}\label{classage_1_1log_1_1_log_a1d58782062656b62eb49bfee0338cf2a} 
 \index{age.log.Log@{age.log.Log}!log@{log}}
 \index{log@{log}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{log()}{log()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily static void age.\+log.\+Log.\+log (\begin{DoxyParamCaption}\item[{String}]{instance,  }\item[{\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}}}]{level,  }\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+This method allows to write a log message for a named Log instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instance} & the name of the log instance \\
+\hline
+{\em level} & the log level to log to \\
+\hline
+{\em message} & the log message which may contain String formats \\
+\hline
+{\em params} & the format parameters for the message String \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classage_1_1log_1_1_log_a23772c6924a0fcf35d36ee03e4f8577b}\label{classage_1_1log_1_1_log_a23772c6924a0fcf35d36ee03e4f8577b} 
 \index{age.log.Log@{age.log.Log}!trace@{trace}}
 \index{trace@{trace}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{trace()}{trace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily boolean age.\+log.\+Log.\+trace (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+property method to return the current state of the trace flag 
+
+\begin{DoxyReturn}{Returns}
+the current state of the trace flag 
+\end{DoxyReturn}
 \Hypertarget{classage_1_1log_1_1_log_ae60f2d19f8b928ab9655f602302cd620}\label{classage_1_1log_1_1_log_ae60f2d19f8b928ab9655f602302cd620} 
 \index{age.log.Log@{age.log.Log}!trace@{trace}}
 \index{trace@{trace}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{trace()}{trace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void age.\+log.\+Log.\+trace (\begin{DoxyParamCaption}\item[{boolean}]{trace }\end{DoxyParamCaption})}
 
+
+
+property method to set the current state of the trace flag 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trace} & the state to set \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classage_1_1log_1_1_log_a06e5cb665b3236603a9208b718de6f39}\label{classage_1_1log_1_1_log_a06e5cb665b3236603a9208b718de6f39} 
 \index{age.log.Log@{age.log.Log}!warn@{warn}}
 \index{warn@{warn}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{warn()}{warn()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily static void age.\+log.\+Log.\+warn (\begin{DoxyParamCaption}\item[{String}]{instance,  }\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+This method allows to write a warning message for a named Log instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instance} & the name of the log instance \\
+\hline
+{\em message} & the log message which may contain String formats \\
+\hline
+{\em params} & the format parameters for the message String \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classage_1_1log_1_1_log_a0476c88c594750b1efbb5936dfcf54a4}\label{classage_1_1log_1_1_log_a0476c88c594750b1efbb5936dfcf54a4} 
 \index{age.log.Log@{age.log.Log}!warn@{warn}}
 \index{warn@{warn}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{warn()}{warn()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily static void age.\+log.\+Log.\+warn (\begin{DoxyParamCaption}\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+This method allows to write a warning message for the "{}default"{} Log instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & the log message which may contain String formats \\
+\hline
+{\em params} & the format parameters for the message String \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classage_1_1log_1_1_log_ab92b9cd2b6292eb281bafd966b4c121a}\label{classage_1_1log_1_1_log_ab92b9cd2b6292eb281bafd966b4c121a} 
 \index{age.log.Log@{age.log.Log}!write@{write}}
 \index{write@{write}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{write()}{write()}}
 {\footnotesize\ttfamily void age.\+log.\+Log.\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}}}]{level,  }\item[{String}]{message,  }\item[{Object ...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+internal method to write a log message considering all configuration settings 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & the log level \\
+\hline
+{\em message} & the log message with possible format entries \\
+\hline
+{\em params} & the parameters for the formatted message String \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Data Documentation}
@@ -214,11 +447,19 @@ static final Map$<$ String, \mbox{\hyperlink{classage_1_1log_1_1_log}{Log}} $>$ 
 \doxysubsubsection{\texorpdfstring{format}{format}}
 {\footnotesize\ttfamily String age.\+log.\+Log.\+format = null\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+the overall log entry format String 
+
 \Hypertarget{classage_1_1log_1_1_log_a54927b4f7cb1517b2fc741cb6820d03d}\label{classage_1_1log_1_1_log_a54927b4f7cb1517b2fc741cb6820d03d} 
 \index{age.log.Log@{age.log.Log}!levels@{levels}}
 \index{levels@{levels}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{levels}{levels}}
 {\footnotesize\ttfamily Set$<$\mbox{\hyperlink{enumage_1_1log_1_1_level}{Level}}$>$ age.\+log.\+Log.\+levels = null\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+a set of Level literals that are enabled to print out log messages 
 
 \Hypertarget{classage_1_1log_1_1_log_ab1cba1418cbba0750a8f545451d83e2a}\label{classage_1_1log_1_1_log_ab1cba1418cbba0750a8f545451d83e2a} 
 \index{age.log.Log@{age.log.Log}!map@{map}}
@@ -226,11 +467,19 @@ static final Map$<$ String, \mbox{\hyperlink{classage_1_1log_1_1_log}{Log}} $>$ 
 \doxysubsubsection{\texorpdfstring{map}{map}}
 {\footnotesize\ttfamily final Map$<$String, \mbox{\hyperlink{classage_1_1log_1_1_log}{Log}}$>$ age.\+log.\+Log.\+map = new Hash\+Map$<$$>$()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
+
+
+Map that contains named log instances that can be configured independently. 
+
 \Hypertarget{classage_1_1log_1_1_log_a69f3e81f678610114d3e5bf4c383e6e0}\label{classage_1_1log_1_1_log_a69f3e81f678610114d3e5bf4c383e6e0} 
 \index{age.log.Log@{age.log.Log}!trace@{trace}}
 \index{trace@{trace}!age.log.Log@{age.log.Log}}
 \doxysubsubsection{\texorpdfstring{trace}{trace}}
 {\footnotesize\ttfamily boolean age.\+log.\+Log.\+trace = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+flag if stack trace output is enabled or not for this Log instance 
 
 
 

@@ -3,7 +3,8 @@ package age.clock;
 //*************************************************************************************************
 
 /**************************************************************************************************
- * This package visible class represents a single alarm schedule that periodically triggers a Task after a preset time period  
+ * This package visible class represents a single alarm schedule that periodically triggers a Task
+ * after a preset time period  
  */
 class Alarm {
 
@@ -41,7 +42,8 @@ class Alarm {
 	}
 	
 	/**********************************************************************************************
-	 * Updates the time measurement for this Alarm object and periodically triggers the Task after the time period has elapsed 
+	 * Updates the time measurement for this Alarm object and periodically triggers the Task
+	 * after the time period has elapsed 
 	 * @param nanotime the current system time stamp in nano precision
 	 */
 	public void update(long nanotime) {
@@ -57,7 +59,8 @@ class Alarm {
 	}
 
 	/**********************************************************************************************
-	 * Internal method that is called when the time period has elapsed and the task is to be triggered by this method 
+	 * Internal method that is called when the time period has elapsed
+	 * and the task is to be triggered by this method 
 	 * @param count the count of full time periods that did elapse since the last time the Task has been triggered. Normally the count is 1.
 	 * @param dT the time in seconds since the last time the Task has been triggered. 
 	 */

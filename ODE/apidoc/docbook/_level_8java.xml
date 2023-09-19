@@ -6,6 +6,8 @@
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>enum <link linkend="_enumage_1_1log_1_1_level">age.log.Level</link></para>
+
+<para>Enumeration of Log Levels one can choose from that can be enabled/disabled separately. </para>
 </listitem>
         </itemizedlist>
 </simplesect>

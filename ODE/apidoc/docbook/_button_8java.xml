@@ -6,6 +6,8 @@
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>enum <link linkend="_enumage_1_1event_1_1_button">age.event.Button</link></para>
+
+<para>Enumeration of Pointer Buttons. </para>
 </listitem>
         </itemizedlist>
 </simplesect>

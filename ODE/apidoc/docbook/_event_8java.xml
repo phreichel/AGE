@@ -6,6 +6,8 @@
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>class <link linkend="_classage_1_1event_1_1_event">age.event.Event</link></para>
+
+<para>This class defines an Event along with its descriptive data. </para>
 </listitem>
         </itemizedlist>
 </simplesect>

@@ -1,12 +1,17 @@
 \doxysection{age.\+event.\+Event Class Reference}
 \hypertarget{classage_1_1event_1_1_event}{}\label{classage_1_1event_1_1_event}\index{age.event.Event@{age.event.Event}}
+
+
+This class defines an Event along with its descriptive data.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classage_1_1event_1_1_event_ad60211c79dbbffc85408cb0d4aebbcfb}{clear}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Method to clear all event data values to default values. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{enumage_1_1event_1_1_type}{Type}} \mbox{\hyperlink{classage_1_1event_1_1_event_a08e94a0c776171f06ff81a1f57039b4a}{type}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Method to clear all event data values to default values. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{enumage_1_1event_1_1_key}{Key}} \mbox{\hyperlink{classage_1_1event_1_1_event_aa22a34c8ea57b9184f4a878ff90df99a}{key}} ()
 \item 
 char \mbox{\hyperlink{classage_1_1event_1_1_event_a3fb014ade4addb34755b524c91e528f5}{character}} ()
@@ -57,7 +62,7 @@ void \mbox{\hyperlink{classage_1_1event_1_1_event_a9abc22a9b871d6907da0f76d482fa
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classage_1_1event_1_1_event_ab85cbe8e943fdd72ca10df6aed7e58dc}{Event}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Package visible constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -69,22 +74,25 @@ void \mbox{\hyperlink{classage_1_1event_1_1_event_a801bfbeccc05ee9c21ab307bdeff4
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{enumage_1_1event_1_1_type}{Type}} \mbox{\hyperlink{classage_1_1event_1_1_event_a8d2f4c36a1d38918cf0d3fe68dde9ded}{type}} = \mbox{\hyperlink{enumage_1_1event_1_1_type_a18e0413044f2f33c86234ec9f4d557b2}{Type.\+NONE}}
-\item 
+\begin{DoxyCompactList}\small\item\em The event type. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{enumage_1_1event_1_1_key}{Key}} \mbox{\hyperlink{classage_1_1event_1_1_event_a2c61680aad4c85b4355635418ec1bff5}{key}} = \mbox{\hyperlink{enumage_1_1event_1_1_key_ab4c55985ae60f6e544903265f9ce79e3}{Key.\+NONE}}
-\item 
+\begin{DoxyCompactList}\small\item\em The key for key event types. \end{DoxyCompactList}\item 
 char \mbox{\hyperlink{classage_1_1event_1_1_event_a630467255ee3d815c648d94e66beaf5b}{character}} = \textquotesingle{}\textbackslash{}0\textquotesingle{}
-\item 
+\begin{DoxyCompactList}\small\item\em The character typed for key event types. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{enumage_1_1event_1_1_button}{Button}} \mbox{\hyperlink{classage_1_1event_1_1_event_a3ff2a7a1a397e69cb5a7691f85207331}{button}} = \mbox{\hyperlink{enumage_1_1event_1_1_button_ad622801bcfc4d8695ed110601123419e}{Button.\+NONE}}
-\item 
+\begin{DoxyCompactList}\small\item\em The button for pointer event types. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classage_1_1event_1_1_event_a2902997966378cb2c90c9743418eb357}{count}} = -\/1
-\item 
+\begin{DoxyCompactList}\small\item\em The click count for pointer event types. \end{DoxyCompactList}\item 
 Vector2f \mbox{\hyperlink{classage_1_1event_1_1_event_aa9fb3bc830d1b9e64758148f5c5d5f9a}{position}} = new Vector2f()
-\item 
+\begin{DoxyCompactList}\small\item\em The pointer position for pointer event types. \end{DoxyCompactList}\item 
 Vector2f \mbox{\hyperlink{classage_1_1event_1_1_event_ab4bc7a0c08b42dff5dfde6621a449dc3}{dimension}} = new Vector2f()
-\item 
+\begin{DoxyCompactList}\small\item\em The window dimension for the window resize event type. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{classage_1_1event_1_1_event_a14ae75375d68b69854a4c6c0d8233f7c}{command}} = null
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The command detail name for the command event type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+This class defines an Event along with its descriptive data. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classage_1_1event_1_1_event_ab85cbe8e943fdd72ca10df6aed7e58dc}\label{classage_1_1event_1_1_event_ab85cbe8e943fdd72ca10df6aed7e58dc} 
@@ -92,6 +100,10 @@ String \mbox{\hyperlink{classage_1_1event_1_1_event_a14ae75375d68b69854a4c6c0d82
 \index{Event@{Event}!age.event.Event@{age.event.Event}}
 \doxysubsubsection{\texorpdfstring{Event()}{Event()}}
 {\footnotesize\ttfamily age.\+event.\+Event.\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [package]}}
+
+
+
+Package visible constructor. 
 
 
 
@@ -113,6 +125,10 @@ String \mbox{\hyperlink{classage_1_1event_1_1_event_a14ae75375d68b69854a4c6c0d82
 \index{clear@{clear}!age.event.Event@{age.event.Event}}
 \doxysubsubsection{\texorpdfstring{clear()}{clear()}}
 {\footnotesize\ttfamily void age.\+event.\+Event.\+clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Method to clear all event data values to default values. 
 
 \Hypertarget{classage_1_1event_1_1_event_ae4e803eebd5868105e289d49f2f0fd57}\label{classage_1_1event_1_1_event_ae4e803eebd5868105e289d49f2f0fd57} 
 \index{age.event.Event@{age.event.Event}!command@{command}}
@@ -240,6 +256,10 @@ String \mbox{\hyperlink{classage_1_1event_1_1_event_a14ae75375d68b69854a4c6c0d82
 \doxysubsubsection{\texorpdfstring{type()}{type()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{enumage_1_1event_1_1_type}{Type}} age.\+event.\+Event.\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Method to clear all event data values to default values. 
+
 \Hypertarget{classage_1_1event_1_1_event_a5387afd9bff5d6f17236c5dc6bbb0270}\label{classage_1_1event_1_1_event_a5387afd9bff5d6f17236c5dc6bbb0270} 
 \index{age.event.Event@{age.event.Event}!width@{width}}
 \index{width@{width}!age.event.Event@{age.event.Event}}
@@ -267,11 +287,19 @@ String \mbox{\hyperlink{classage_1_1event_1_1_event_a14ae75375d68b69854a4c6c0d82
 \doxysubsubsection{\texorpdfstring{button}{button}}
 {\footnotesize\ttfamily \mbox{\hyperlink{enumage_1_1event_1_1_button}{Button}} age.\+event.\+Event.\+button = \mbox{\hyperlink{enumage_1_1event_1_1_button_ad622801bcfc4d8695ed110601123419e}{Button.\+NONE}}\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+The button for pointer event types. 
+
 \Hypertarget{classage_1_1event_1_1_event_a630467255ee3d815c648d94e66beaf5b}\label{classage_1_1event_1_1_event_a630467255ee3d815c648d94e66beaf5b} 
 \index{age.event.Event@{age.event.Event}!character@{character}}
 \index{character@{character}!age.event.Event@{age.event.Event}}
 \doxysubsubsection{\texorpdfstring{character}{character}}
 {\footnotesize\ttfamily char age.\+event.\+Event.\+character = \textquotesingle{}\textbackslash{}0\textquotesingle{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The character typed for key event types. 
 
 \Hypertarget{classage_1_1event_1_1_event_a14ae75375d68b69854a4c6c0d8233f7c}\label{classage_1_1event_1_1_event_a14ae75375d68b69854a4c6c0d8233f7c} 
 \index{age.event.Event@{age.event.Event}!command@{command}}
@@ -279,11 +307,19 @@ String \mbox{\hyperlink{classage_1_1event_1_1_event_a14ae75375d68b69854a4c6c0d82
 \doxysubsubsection{\texorpdfstring{command}{command}}
 {\footnotesize\ttfamily String age.\+event.\+Event.\+command = null\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+The command detail name for the command event type. 
+
 \Hypertarget{classage_1_1event_1_1_event_a2902997966378cb2c90c9743418eb357}\label{classage_1_1event_1_1_event_a2902997966378cb2c90c9743418eb357} 
 \index{age.event.Event@{age.event.Event}!count@{count}}
 \index{count@{count}!age.event.Event@{age.event.Event}}
 \doxysubsubsection{\texorpdfstring{count}{count}}
 {\footnotesize\ttfamily int age.\+event.\+Event.\+count = -\/1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The click count for pointer event types. 
 
 \Hypertarget{classage_1_1event_1_1_event_ab4bc7a0c08b42dff5dfde6621a449dc3}\label{classage_1_1event_1_1_event_ab4bc7a0c08b42dff5dfde6621a449dc3} 
 \index{age.event.Event@{age.event.Event}!dimension@{dimension}}
@@ -291,11 +327,19 @@ String \mbox{\hyperlink{classage_1_1event_1_1_event_a14ae75375d68b69854a4c6c0d82
 \doxysubsubsection{\texorpdfstring{dimension}{dimension}}
 {\footnotesize\ttfamily Vector2f age.\+event.\+Event.\+dimension = new Vector2f()\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+The window dimension for the window resize event type. 
+
 \Hypertarget{classage_1_1event_1_1_event_a2c61680aad4c85b4355635418ec1bff5}\label{classage_1_1event_1_1_event_a2c61680aad4c85b4355635418ec1bff5} 
 \index{age.event.Event@{age.event.Event}!key@{key}}
 \index{key@{key}!age.event.Event@{age.event.Event}}
 \doxysubsubsection{\texorpdfstring{key}{key}}
 {\footnotesize\ttfamily \mbox{\hyperlink{enumage_1_1event_1_1_key}{Key}} age.\+event.\+Event.\+key = \mbox{\hyperlink{enumage_1_1event_1_1_key_ab4c55985ae60f6e544903265f9ce79e3}{Key.\+NONE}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The key for key event types. 
 
 \Hypertarget{classage_1_1event_1_1_event_aa9fb3bc830d1b9e64758148f5c5d5f9a}\label{classage_1_1event_1_1_event_aa9fb3bc830d1b9e64758148f5c5d5f9a} 
 \index{age.event.Event@{age.event.Event}!position@{position}}
@@ -303,11 +347,19 @@ String \mbox{\hyperlink{classage_1_1event_1_1_event_a14ae75375d68b69854a4c6c0d82
 \doxysubsubsection{\texorpdfstring{position}{position}}
 {\footnotesize\ttfamily Vector2f age.\+event.\+Event.\+position = new Vector2f()\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+The pointer position for pointer event types. 
+
 \Hypertarget{classage_1_1event_1_1_event_a8d2f4c36a1d38918cf0d3fe68dde9ded}\label{classage_1_1event_1_1_event_a8d2f4c36a1d38918cf0d3fe68dde9ded} 
 \index{age.event.Event@{age.event.Event}!type@{type}}
 \index{type@{type}!age.event.Event@{age.event.Event}}
 \doxysubsubsection{\texorpdfstring{type}{type}}
 {\footnotesize\ttfamily \mbox{\hyperlink{enumage_1_1event_1_1_type}{Type}} age.\+event.\+Event.\+type = \mbox{\hyperlink{enumage_1_1event_1_1_type_a18e0413044f2f33c86234ec9f4d557b2}{Type.\+NONE}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The event type. 
 
 
 

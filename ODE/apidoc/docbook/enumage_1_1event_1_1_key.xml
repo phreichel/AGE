@@ -2,10 +2,17 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumage_1_1event_1_1_key" xml:lang="en-US">
 <title>age.event.Key Enum Reference</title>
 <indexterm><primary>age.event.Key</primary></indexterm>
+<para>
+
+<para>Enumeration of Keyboard Keys. </para>
+ 
+</para>
 <simplesect>
     <title>Public Attributes    </title>
         <itemizedlist>
             <listitem><para><link linkend="_enumage_1_1event_1_1_key_1ab4c55985ae60f6e544903265f9ce79e3">NONE</link></para>
+
+<para>Literal representing &quot;No Key&quot;. </para>
 </listitem>
             <listitem><para><link linkend="_enumage_1_1event_1_1_key_1adc2fbeb531581902d4b8718dc089fcfd">ESCAPE</link></para>
 </listitem>
@@ -189,6 +196,11 @@
 </listitem>
         </itemizedlist>
 </simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Enumeration of Keyboard Keys. </para>
+</section>
 <section>
 <title>Member Data Documentation</title>
 <anchor xml:id="_enumage_1_1event_1_1_key_1afc7eb22fbc8c476182f7c392f4aabdaa"/><section>
@@ -460,7 +472,11 @@
     <title>NONE</title>
 <indexterm><primary>NONE</primary><secondary>age.event.Key</secondary></indexterm>
 <indexterm><primary>age.event.Key</primary><secondary>NONE</secondary></indexterm>
-<para><computeroutput>age.event.Key.NONE</computeroutput></para></section>
+<para><computeroutput>age.event.Key.NONE</computeroutput></para><para>
+
+<para>Literal representing &quot;No Key&quot;. </para>
+</para>
+</section>
 <anchor xml:id="_enumage_1_1event_1_1_key_1adacc27d7d2f9e1aad9b1bda43702bad8"/><section>
     <title>NP_0</title>
 <indexterm><primary>NP_0</primary><secondary>age.event.Key</secondary></indexterm>

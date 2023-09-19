@@ -2,12 +2,21 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classage_1_1event_1_1_event" xml:lang="en-US">
 <title>age.event.Event Class Reference</title>
 <indexterm><primary>age.event.Event</primary></indexterm>
+<para>
+
+<para>This class defines an Event along with its descriptive data. </para>
+ 
+</para>
 <simplesect>
     <title>Public Member Functions    </title>
         <itemizedlist>
             <listitem><para>void <link linkend="_classage_1_1event_1_1_event_1ad60211c79dbbffc85408cb0d4aebbcfb">clear</link> ()</para>
+
+<para>Method to clear all event data values to default values. </para>
 </listitem>
             <listitem><para><link linkend="_enumage_1_1event_1_1_type">Type</link> <link linkend="_classage_1_1event_1_1_event_1a08e94a0c776171f06ff81a1f57039b4a">type</link> ()</para>
+
+<para>Method to clear all event data values to default values. </para>
 </listitem>
             <listitem><para><link linkend="_enumage_1_1event_1_1_key">Key</link> <link linkend="_classage_1_1event_1_1_event_1aa22a34c8ea57b9184f4a878ff90df99a">key</link> ()</para>
 </listitem>
@@ -61,6 +70,8 @@
     <title>Package Functions    </title>
         <itemizedlist>
             <listitem><para><link linkend="_classage_1_1event_1_1_event_1ab85cbe8e943fdd72ca10df6aed7e58dc">Event</link> ()</para>
+
+<para>Package visible constructor. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -77,30 +88,55 @@
     <title>Private Attributes    </title>
         <itemizedlist>
             <listitem><para><link linkend="_enumage_1_1event_1_1_type">Type</link> <link linkend="_classage_1_1event_1_1_event_1a8d2f4c36a1d38918cf0d3fe68dde9ded">type</link> = <link linkend="_enumage_1_1event_1_1_type_1a18e0413044f2f33c86234ec9f4d557b2">Type.NONE</link></para>
+
+<para>The event type. </para>
 </listitem>
             <listitem><para><link linkend="_enumage_1_1event_1_1_key">Key</link> <link linkend="_classage_1_1event_1_1_event_1a2c61680aad4c85b4355635418ec1bff5">key</link> = <link linkend="_enumage_1_1event_1_1_key_1ab4c55985ae60f6e544903265f9ce79e3">Key.NONE</link></para>
+
+<para>The key for key event types. </para>
 </listitem>
             <listitem><para>char <link linkend="_classage_1_1event_1_1_event_1a630467255ee3d815c648d94e66beaf5b">character</link> = &apos;\0&apos;</para>
+
+<para>The character typed for key event types. </para>
 </listitem>
             <listitem><para><link linkend="_enumage_1_1event_1_1_button">Button</link> <link linkend="_classage_1_1event_1_1_event_1a3ff2a7a1a397e69cb5a7691f85207331">button</link> = <link linkend="_enumage_1_1event_1_1_button_1ad622801bcfc4d8695ed110601123419e">Button.NONE</link></para>
+
+<para>The button for pointer event types. </para>
 </listitem>
             <listitem><para>int <link linkend="_classage_1_1event_1_1_event_1a2902997966378cb2c90c9743418eb357">count</link> = -1</para>
+
+<para>The click count for pointer event types. </para>
 </listitem>
             <listitem><para>Vector2f <link linkend="_classage_1_1event_1_1_event_1aa9fb3bc830d1b9e64758148f5c5d5f9a">position</link> = new Vector2f()</para>
+
+<para>The pointer position for pointer event types. </para>
 </listitem>
             <listitem><para>Vector2f <link linkend="_classage_1_1event_1_1_event_1ab4bc7a0c08b42dff5dfde6621a449dc3">dimension</link> = new Vector2f()</para>
+
+<para>The window dimension for the window resize event type. </para>
 </listitem>
             <listitem><para>String <link linkend="_classage_1_1event_1_1_event_1a14ae75375d68b69854a4c6c0d8233f7c">command</link> = null</para>
+
+<para>The command detail name for the command event type. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This class defines an Event along with its descriptive data. </para>
+</section>
 <section>
 <title>Constructor &amp; Destructor Documentation</title>
 <anchor xml:id="_classage_1_1event_1_1_event_1ab85cbe8e943fdd72ca10df6aed7e58dc"/><section>
     <title>Event()</title>
 <indexterm><primary>Event</primary><secondary>age.event.Event</secondary></indexterm>
 <indexterm><primary>age.event.Event</primary><secondary>Event</secondary></indexterm>
-<para><computeroutput>age.event.Event.Event ( )<computeroutput>[package]</computeroutput></computeroutput></para></section>
+<para><computeroutput>age.event.Event.Event ( )<computeroutput>[package]</computeroutput></computeroutput></para><para>
+
+<para>Package visible constructor. </para>
+</para>
+</section>
 </section>
 <section>
 <title>Member Function Documentation</title>
@@ -118,7 +154,11 @@
     <title>clear()</title>
 <indexterm><primary>clear</primary><secondary>age.event.Event</secondary></indexterm>
 <indexterm><primary>age.event.Event</primary><secondary>clear</secondary></indexterm>
-<para><computeroutput>void age.event.Event.clear ( )</computeroutput></para></section>
+<para><computeroutput>void age.event.Event.clear ( )</computeroutput></para><para>
+
+<para>Method to clear all event data values to default values. </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1event_1_1_event_1ae4e803eebd5868105e289d49f2f0fd57"/><section>
     <title>command()</title>
 <indexterm><primary>command</primary><secondary>age.event.Event</secondary></indexterm>
@@ -223,7 +263,11 @@
     <title>type()</title>
 <indexterm><primary>type</primary><secondary>age.event.Event</secondary></indexterm>
 <indexterm><primary>age.event.Event</primary><secondary>type</secondary></indexterm>
-<para><computeroutput><link linkend="_enumage_1_1event_1_1_type">Type</link> age.event.Event.type ( )</computeroutput></para></section>
+<para><computeroutput><link linkend="_enumage_1_1event_1_1_type">Type</link> age.event.Event.type ( )</computeroutput></para><para>
+
+<para>Method to clear all event data values to default values. </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1event_1_1_event_1a5387afd9bff5d6f17236c5dc6bbb0270"/><section>
     <title>width()</title>
 <indexterm><primary>width</primary><secondary>age.event.Event</secondary></indexterm>
@@ -246,42 +290,74 @@
     <title>button</title>
 <indexterm><primary>button</primary><secondary>age.event.Event</secondary></indexterm>
 <indexterm><primary>age.event.Event</primary><secondary>button</secondary></indexterm>
-<para><computeroutput><link linkend="_enumage_1_1event_1_1_button">Button</link> age.event.Event.button = <link linkend="_enumage_1_1event_1_1_button_1ad622801bcfc4d8695ed110601123419e">Button.NONE</link><computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput><link linkend="_enumage_1_1event_1_1_button">Button</link> age.event.Event.button = <link linkend="_enumage_1_1event_1_1_button_1ad622801bcfc4d8695ed110601123419e">Button.NONE</link><computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>The button for pointer event types. </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1event_1_1_event_1a630467255ee3d815c648d94e66beaf5b"/><section>
     <title>character</title>
 <indexterm><primary>character</primary><secondary>age.event.Event</secondary></indexterm>
 <indexterm><primary>age.event.Event</primary><secondary>character</secondary></indexterm>
-<para><computeroutput>char age.event.Event.character = &apos;\0&apos;<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput>char age.event.Event.character = &apos;\0&apos;<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>The character typed for key event types. </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1event_1_1_event_1a14ae75375d68b69854a4c6c0d8233f7c"/><section>
     <title>command</title>
 <indexterm><primary>command</primary><secondary>age.event.Event</secondary></indexterm>
 <indexterm><primary>age.event.Event</primary><secondary>command</secondary></indexterm>
-<para><computeroutput>String age.event.Event.command = null<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput>String age.event.Event.command = null<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>The command detail name for the command event type. </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1event_1_1_event_1a2902997966378cb2c90c9743418eb357"/><section>
     <title>count</title>
 <indexterm><primary>count</primary><secondary>age.event.Event</secondary></indexterm>
 <indexterm><primary>age.event.Event</primary><secondary>count</secondary></indexterm>
-<para><computeroutput>int age.event.Event.count = -1<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput>int age.event.Event.count = -1<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>The click count for pointer event types. </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1event_1_1_event_1ab4bc7a0c08b42dff5dfde6621a449dc3"/><section>
     <title>dimension</title>
 <indexterm><primary>dimension</primary><secondary>age.event.Event</secondary></indexterm>
 <indexterm><primary>age.event.Event</primary><secondary>dimension</secondary></indexterm>
-<para><computeroutput>Vector2f age.event.Event.dimension = new Vector2f()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput>Vector2f age.event.Event.dimension = new Vector2f()<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>The window dimension for the window resize event type. </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1event_1_1_event_1a2c61680aad4c85b4355635418ec1bff5"/><section>
     <title>key</title>
 <indexterm><primary>key</primary><secondary>age.event.Event</secondary></indexterm>
 <indexterm><primary>age.event.Event</primary><secondary>key</secondary></indexterm>
-<para><computeroutput><link linkend="_enumage_1_1event_1_1_key">Key</link> age.event.Event.key = <link linkend="_enumage_1_1event_1_1_key_1ab4c55985ae60f6e544903265f9ce79e3">Key.NONE</link><computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput><link linkend="_enumage_1_1event_1_1_key">Key</link> age.event.Event.key = <link linkend="_enumage_1_1event_1_1_key_1ab4c55985ae60f6e544903265f9ce79e3">Key.NONE</link><computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>The key for key event types. </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1event_1_1_event_1aa9fb3bc830d1b9e64758148f5c5d5f9a"/><section>
     <title>position</title>
 <indexterm><primary>position</primary><secondary>age.event.Event</secondary></indexterm>
 <indexterm><primary>age.event.Event</primary><secondary>position</secondary></indexterm>
-<para><computeroutput>Vector2f age.event.Event.position = new Vector2f()<computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput>Vector2f age.event.Event.position = new Vector2f()<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>The pointer position for pointer event types. </para>
+</para>
+</section>
 <anchor xml:id="_classage_1_1event_1_1_event_1a8d2f4c36a1d38918cf0d3fe68dde9ded"/><section>
     <title>type</title>
 <indexterm><primary>type</primary><secondary>age.event.Event</secondary></indexterm>
 <indexterm><primary>age.event.Event</primary><secondary>type</secondary></indexterm>
-<para><computeroutput><link linkend="_enumage_1_1event_1_1_type">Type</link> age.event.Event.type = <link linkend="_enumage_1_1event_1_1_type_1a18e0413044f2f33c86234ec9f4d557b2">Type.NONE</link><computeroutput>[private]</computeroutput></computeroutput></para></section>
+<para><computeroutput><link linkend="_enumage_1_1event_1_1_type">Type</link> age.event.Event.type = <link linkend="_enumage_1_1event_1_1_type_1a18e0413044f2f33c86234ec9f4d557b2">Type.NONE</link><computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>The event type. </para>
+</para>
+</section>
 <para>
 The documentation for this class was generated from the following file:</para>
 D:/GIT/repos/ODE/age/age/event/<link linkend="__event_8java">Event.java</link></section>

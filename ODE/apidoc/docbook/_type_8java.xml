@@ -6,6 +6,8 @@
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>enum <link linkend="_enumage_1_1event_1_1_type">age.event.Type</link></para>
+
+<para>Enumeration of Event Types to register to. </para>
 </listitem>
         </itemizedlist>
 </simplesect>

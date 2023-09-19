@@ -2,20 +2,58 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interfaceage_1_1event_1_1_handler" xml:lang="en-US">
 <title>age.event.Handler Interface Reference</title>
 <indexterm><primary>age.event.Handler</primary></indexterm>
+<para>
+
+<para>Interface to define an event handler method reference. </para>
+ 
+</para>
 <simplesect>
     <title>Public Member Functions    </title>
         <itemizedlist>
             <listitem><para>void <link linkend="_interfaceage_1_1event_1_1_handler_1ad8e33eeae0fffeb26c6e67d50f82dd42">handle</link> (<link linkend="_classage_1_1event_1_1_event">Event</link> event)</para>
+
+<para>The event handler method reference definition. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Interface to define an event handler method reference. </para>
+</section>
 <section>
 <title>Member Function Documentation</title>
 <anchor xml:id="_interfaceage_1_1event_1_1_handler_1ad8e33eeae0fffeb26c6e67d50f82dd42"/><section>
     <title>handle()</title>
 <indexterm><primary>handle</primary><secondary>age.event.Handler</secondary></indexterm>
 <indexterm><primary>age.event.Handler</primary><secondary>handle</secondary></indexterm>
-<para><computeroutput>void age.event.Handler.handle (<link linkend="_classage_1_1event_1_1_event">Event</link> event)</computeroutput></para></section>
+<para><computeroutput>void age.event.Handler.handle (<link linkend="_classage_1_1event_1_1_event">Event</link> event)</computeroutput></para><para>
+
+<para>The event handler method reference definition. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>event</entry><entry>
+<para>The event object to describe the event </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
 <para>
 The documentation for this interface was generated from the following file:</para>
 D:/GIT/repos/ODE/age/age/event/<link linkend="__handler_8java">Handler.java</link></section>

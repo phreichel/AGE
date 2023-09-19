@@ -2,7 +2,8 @@
 .ad l
 .nh
 .SH NAME
-age.event.Event
+age.event.Event \- This class defines an Event along with its descriptive data\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -12,9 +13,11 @@ age.event.Event
 .ti -1c
 .RI "void \fBclear\fP ()"
 .br
+.RI "Method to clear all event data values to default values\&. "
 .ti -1c
 .RI "\fBType\fP \fBtype\fP ()"
 .br
+.RI "Method to clear all event data values to default values\&. "
 .ti -1c
 .RI "\fBKey\fP \fBkey\fP ()"
 .br
@@ -91,6 +94,7 @@ age.event.Event
 .ti -1c
 .RI "\fBEvent\fP ()"
 .br
+.RI "Package visible constructor\&. "
 .in -1c
 .SS "Private Member Functions"
 
@@ -108,32 +112,45 @@ age.event.Event
 .ti -1c
 .RI "\fBType\fP \fBtype\fP = \fBType\&.NONE\fP"
 .br
+.RI "The event type\&. "
 .ti -1c
 .RI "\fBKey\fP \fBkey\fP = \fBKey\&.NONE\fP"
 .br
+.RI "The key for key event types\&. "
 .ti -1c
 .RI "char \fBcharacter\fP = '\\0'"
 .br
+.RI "The character typed for key event types\&. "
 .ti -1c
 .RI "\fBButton\fP \fBbutton\fP = \fBButton\&.NONE\fP"
 .br
+.RI "The button for pointer event types\&. "
 .ti -1c
 .RI "int \fBcount\fP = \-1"
 .br
+.RI "The click count for pointer event types\&. "
 .ti -1c
 .RI "Vector2f \fBposition\fP = new Vector2f()"
 .br
+.RI "The pointer position for pointer event types\&. "
 .ti -1c
 .RI "Vector2f \fBdimension\fP = new Vector2f()"
 .br
+.RI "The window dimension for the window resize event type\&. "
 .ti -1c
 .RI "String \fBcommand\fP = null"
 .br
+.RI "The command detail name for the command event type\&. "
 .in -1c
+.SH "Detailed Description"
+.PP 
+This class defines an Event along with its descriptive data\&. 
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "age\&.event\&.Event\&.Event ()\fC [package]\fP"
 
+.PP
+Package visible constructor\&. 
 .SH "Member Function Documentation"
 .PP 
 .SS "\fBButton\fP age\&.event\&.Event\&.button ()"
@@ -142,6 +159,8 @@ age.event.Event
 
 .SS "void age\&.event\&.Event\&.clear ()"
 
+.PP
+Method to clear all event data values to default values\&. 
 .SS "String age\&.event\&.Event\&.command ()"
 
 .SS "int age\&.event\&.Event\&.count ()"
@@ -184,6 +203,8 @@ age.event.Event
 
 .SS "\fBType\fP age\&.event\&.Event\&.type ()"
 
+.PP
+Method to clear all event data values to default values\&. 
 .SS "float age\&.event\&.Event\&.width ()"
 
 .SS "float age\&.event\&.Event\&.x ()"
@@ -194,20 +215,36 @@ age.event.Event
 .PP 
 .SS "\fBButton\fP age\&.event\&.Event\&.button = \fBButton\&.NONE\fP\fC [private]\fP"
 
+.PP
+The button for pointer event types\&. 
 .SS "char age\&.event\&.Event\&.character = '\\0'\fC [private]\fP"
 
+.PP
+The character typed for key event types\&. 
 .SS "String age\&.event\&.Event\&.command = null\fC [private]\fP"
 
+.PP
+The command detail name for the command event type\&. 
 .SS "int age\&.event\&.Event\&.count = \-1\fC [private]\fP"
 
+.PP
+The click count for pointer event types\&. 
 .SS "Vector2f age\&.event\&.Event\&.dimension = new Vector2f()\fC [private]\fP"
 
+.PP
+The window dimension for the window resize event type\&. 
 .SS "\fBKey\fP age\&.event\&.Event\&.key = \fBKey\&.NONE\fP\fC [private]\fP"
 
+.PP
+The key for key event types\&. 
 .SS "Vector2f age\&.event\&.Event\&.position = new Vector2f()\fC [private]\fP"
 
+.PP
+The pointer position for pointer event types\&. 
 .SS "\fBType\fP age\&.event\&.Event\&.type = \fBType\&.NONE\fP\fC [private]\fP"
 
+.PP
+The event type\&. 
 
 .SH "Author"
 .PP 

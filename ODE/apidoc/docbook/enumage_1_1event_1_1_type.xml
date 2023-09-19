@@ -2,10 +2,17 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumage_1_1event_1_1_type" xml:lang="en-US">
 <title>age.event.Type Enum Reference</title>
 <indexterm><primary>age.event.Type</primary></indexterm>
+<para>
+
+<para>Enumeration of Event Types to register to. </para>
+ 
+</para>
 <simplesect>
     <title>Public Attributes    </title>
         <itemizedlist>
             <listitem><para><link linkend="_enumage_1_1event_1_1_type_1a18e0413044f2f33c86234ec9f4d557b2">NONE</link></para>
+
+<para>Literal representing &quot;No Event&quot;. </para>
 </listitem>
             <listitem><para><link linkend="_enumage_1_1event_1_1_type_1a97bc6557d63b437ffcd481538282bf90">KEY_PRESSED</link></para>
 </listitem>
@@ -34,6 +41,11 @@
         </itemizedlist>
 </simplesect>
 <section>
+<title>Detailed Description</title>
+
+<para>Enumeration of Event Types to register to. </para>
+</section>
+<section>
 <title>Member Data Documentation</title>
 <anchor xml:id="_enumage_1_1event_1_1_type_1a97bc6557d63b437ffcd481538282bf90"/><section>
     <title>KEY_PRESSED</title>
@@ -54,7 +66,11 @@
     <title>NONE</title>
 <indexterm><primary>NONE</primary><secondary>age.event.Type</secondary></indexterm>
 <indexterm><primary>age.event.Type</primary><secondary>NONE</secondary></indexterm>
-<para><computeroutput>age.event.Type.NONE</computeroutput></para></section>
+<para><computeroutput>age.event.Type.NONE</computeroutput></para><para>
+
+<para>Literal representing &quot;No Event&quot;. </para>
+</para>
+</section>
 <anchor xml:id="_enumage_1_1event_1_1_type_1a8b79402257bffa6037b5a78adecbe6b1"/><section>
     <title>POINTER_CLICKED</title>
 <indexterm><primary>POINTER_CLICKED</primary><secondary>age.event.Type</secondary></indexterm>

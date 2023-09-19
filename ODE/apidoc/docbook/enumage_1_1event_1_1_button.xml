@@ -2,76 +2,140 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumage_1_1event_1_1_button" xml:lang="en-US">
 <title>age.event.Button Enum Reference</title>
 <indexterm><primary>age.event.Button</primary></indexterm>
+<para>
+
+<para>Enumeration of Pointer Buttons. </para>
+ 
+</para>
 <simplesect>
     <title>Public Attributes    </title>
         <itemizedlist>
             <listitem><para><link linkend="_enumage_1_1event_1_1_button_1ad622801bcfc4d8695ed110601123419e">NONE</link></para>
+
+<para>Literal representing &quot;No Button&quot;. </para>
 </listitem>
             <listitem><para><link linkend="_enumage_1_1event_1_1_button_1ad3fa00ce32ade5273c1df8f951f99584">BTN1</link></para>
+
+<para>Literal representing &quot;Pointer Button 1&quot;. </para>
 </listitem>
             <listitem><para><link linkend="_enumage_1_1event_1_1_button_1ab4aebbe7db655cf8ac07794d8bffd0d8">BTN2</link></para>
+
+<para>Literal representing &quot;Pointer Button 2&quot;. </para>
 </listitem>
             <listitem><para><link linkend="_enumage_1_1event_1_1_button_1ac8422a474d032769bd95809273d48ff8">BTN3</link></para>
+
+<para>Literal representing &quot;Pointer Button 3&quot;. </para>
 </listitem>
             <listitem><para><link linkend="_enumage_1_1event_1_1_button_1ab1eee8688fc0cc43efe1bd3c034d5592">BTN4</link></para>
+
+<para>Literal representing &quot;Pointer Button 4&quot;. </para>
 </listitem>
             <listitem><para><link linkend="_enumage_1_1event_1_1_button_1a1295e8859a6dc447fde1370d8d59d8d0">BTN5</link></para>
+
+<para>Literal representing &quot;Pointer Button 5&quot;. </para>
 </listitem>
             <listitem><para><link linkend="_enumage_1_1event_1_1_button_1af3389d501c2c482423a4fdc2872f846b">BTN6</link></para>
+
+<para>Literal representing &quot;Pointer Button 6&quot;. </para>
 </listitem>
             <listitem><para><link linkend="_enumage_1_1event_1_1_button_1a1b8948b4ad5942e568794ed87b4f963a">BTN7</link></para>
+
+<para>Literal representing &quot;Pointer Button 7&quot;. </para>
 </listitem>
             <listitem><para><link linkend="_enumage_1_1event_1_1_button_1ae8e73d4f50a60247978c96e166962e5c">BTN8</link></para>
+
+<para>Literal representing &quot;Pointer Button 8&quot;. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Enumeration of Pointer Buttons. </para>
+</section>
 <section>
 <title>Member Data Documentation</title>
 <anchor xml:id="_enumage_1_1event_1_1_button_1ad3fa00ce32ade5273c1df8f951f99584"/><section>
     <title>BTN1</title>
 <indexterm><primary>BTN1</primary><secondary>age.event.Button</secondary></indexterm>
 <indexterm><primary>age.event.Button</primary><secondary>BTN1</secondary></indexterm>
-<para><computeroutput>age.event.Button.BTN1</computeroutput></para></section>
+<para><computeroutput>age.event.Button.BTN1</computeroutput></para><para>
+
+<para>Literal representing &quot;Pointer Button 1&quot;. </para>
+</para>
+</section>
 <anchor xml:id="_enumage_1_1event_1_1_button_1ab4aebbe7db655cf8ac07794d8bffd0d8"/><section>
     <title>BTN2</title>
 <indexterm><primary>BTN2</primary><secondary>age.event.Button</secondary></indexterm>
 <indexterm><primary>age.event.Button</primary><secondary>BTN2</secondary></indexterm>
-<para><computeroutput>age.event.Button.BTN2</computeroutput></para></section>
+<para><computeroutput>age.event.Button.BTN2</computeroutput></para><para>
+
+<para>Literal representing &quot;Pointer Button 2&quot;. </para>
+</para>
+</section>
 <anchor xml:id="_enumage_1_1event_1_1_button_1ac8422a474d032769bd95809273d48ff8"/><section>
     <title>BTN3</title>
 <indexterm><primary>BTN3</primary><secondary>age.event.Button</secondary></indexterm>
 <indexterm><primary>age.event.Button</primary><secondary>BTN3</secondary></indexterm>
-<para><computeroutput>age.event.Button.BTN3</computeroutput></para></section>
+<para><computeroutput>age.event.Button.BTN3</computeroutput></para><para>
+
+<para>Literal representing &quot;Pointer Button 3&quot;. </para>
+</para>
+</section>
 <anchor xml:id="_enumage_1_1event_1_1_button_1ab1eee8688fc0cc43efe1bd3c034d5592"/><section>
     <title>BTN4</title>
 <indexterm><primary>BTN4</primary><secondary>age.event.Button</secondary></indexterm>
 <indexterm><primary>age.event.Button</primary><secondary>BTN4</secondary></indexterm>
-<para><computeroutput>age.event.Button.BTN4</computeroutput></para></section>
+<para><computeroutput>age.event.Button.BTN4</computeroutput></para><para>
+
+<para>Literal representing &quot;Pointer Button 4&quot;. </para>
+</para>
+</section>
 <anchor xml:id="_enumage_1_1event_1_1_button_1a1295e8859a6dc447fde1370d8d59d8d0"/><section>
     <title>BTN5</title>
 <indexterm><primary>BTN5</primary><secondary>age.event.Button</secondary></indexterm>
 <indexterm><primary>age.event.Button</primary><secondary>BTN5</secondary></indexterm>
-<para><computeroutput>age.event.Button.BTN5</computeroutput></para></section>
+<para><computeroutput>age.event.Button.BTN5</computeroutput></para><para>
+
+<para>Literal representing &quot;Pointer Button 5&quot;. </para>
+</para>
+</section>
 <anchor xml:id="_enumage_1_1event_1_1_button_1af3389d501c2c482423a4fdc2872f846b"/><section>
     <title>BTN6</title>
 <indexterm><primary>BTN6</primary><secondary>age.event.Button</secondary></indexterm>
 <indexterm><primary>age.event.Button</primary><secondary>BTN6</secondary></indexterm>
-<para><computeroutput>age.event.Button.BTN6</computeroutput></para></section>
+<para><computeroutput>age.event.Button.BTN6</computeroutput></para><para>
+
+<para>Literal representing &quot;Pointer Button 6&quot;. </para>
+</para>
+</section>
 <anchor xml:id="_enumage_1_1event_1_1_button_1a1b8948b4ad5942e568794ed87b4f963a"/><section>
     <title>BTN7</title>
 <indexterm><primary>BTN7</primary><secondary>age.event.Button</secondary></indexterm>
 <indexterm><primary>age.event.Button</primary><secondary>BTN7</secondary></indexterm>
-<para><computeroutput>age.event.Button.BTN7</computeroutput></para></section>
+<para><computeroutput>age.event.Button.BTN7</computeroutput></para><para>
+
+<para>Literal representing &quot;Pointer Button 7&quot;. </para>
+</para>
+</section>
 <anchor xml:id="_enumage_1_1event_1_1_button_1ae8e73d4f50a60247978c96e166962e5c"/><section>
     <title>BTN8</title>
 <indexterm><primary>BTN8</primary><secondary>age.event.Button</secondary></indexterm>
 <indexterm><primary>age.event.Button</primary><secondary>BTN8</secondary></indexterm>
-<para><computeroutput>age.event.Button.BTN8</computeroutput></para></section>
+<para><computeroutput>age.event.Button.BTN8</computeroutput></para><para>
+
+<para>Literal representing &quot;Pointer Button 8&quot;. </para>
+</para>
+</section>
 <anchor xml:id="_enumage_1_1event_1_1_button_1ad622801bcfc4d8695ed110601123419e"/><section>
     <title>NONE</title>
 <indexterm><primary>NONE</primary><secondary>age.event.Button</secondary></indexterm>
 <indexterm><primary>age.event.Button</primary><secondary>NONE</secondary></indexterm>
-<para><computeroutput>age.event.Button.NONE</computeroutput></para></section>
+<para><computeroutput>age.event.Button.NONE</computeroutput></para><para>
+
+<para>Literal representing &quot;No Button&quot;. </para>
+</para>
+</section>
 <para>
 The documentation for this enum was generated from the following file:</para>
 D:/GIT/repos/ODE/age/age/event/<link linkend="__button_8java">Button.java</link></section>

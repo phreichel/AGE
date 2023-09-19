@@ -6,6 +6,8 @@
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>interface <link linkend="_interfaceage_1_1event_1_1_handler">age.event.Handler</link></para>
+
+<para>Interface to define an event handler method reference. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
