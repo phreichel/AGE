@@ -17,6 +17,7 @@ import age.event.Key;
 import age.event.Type;
 
 //*************************************************************************************************
+//TODO:add javadoc comments
 class JOGLEventListener implements KeyListener, MouseListener, WindowListener {
 
 	//=============================================================================================
