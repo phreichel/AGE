@@ -7,7 +7,7 @@ import javax.vecmath.Vector2f;
 /**************************************************************************************************
  * This class defines an Event along with its descriptive data.
  */
-public final class Event {
+public class Event {
 
 	/**********************************************************************************************
 	 * The event type 
@@ -52,7 +52,7 @@ public final class Event {
 	/**********************************************************************************************
 	 * Package visible constructor 
 	 */
-	Event() {
+	public Event() {
 		clear();
 	}
 	
@@ -70,6 +70,21 @@ public final class Event {
 		command = null;
 	}
 
+	/**********************************************************************************************
+	 * Method to set all event data values to the values in Event e
+	 * e the event to copy from.
+	 */
+	public void set(Event e) {
+		type      = e.type;
+		key       = e.key;
+		character = e.character;
+		button    = e.button;
+		count     = e.count;
+		position.set(e.position);
+		dimension.set(e.dimension);
+		command = e.command;
+	}
+	
 	/**********************************************************************************************
 	 * Method to clear all event data values to default values 
 	 */

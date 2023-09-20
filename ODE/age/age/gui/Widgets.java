@@ -14,7 +14,7 @@ public class Widgets {
 	//=============================================================================================
 
 	//=============================================================================================
-	private Handling handling = new Handling(this);
+	private EventHandling handling = new EventHandling(this);
 	private Rendering rendering = new Rendering(this);
 	//=============================================================================================
 	
