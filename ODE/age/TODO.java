@@ -24,3 +24,4 @@ class TODO {}
 //TODO: implement animation system
 //TODO: implement ragdoll system
 //TODO: implement physics system
+//TODO: Switch to new Java Features
