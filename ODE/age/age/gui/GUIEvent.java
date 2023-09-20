@@ -2,12 +2,12 @@
 package age.gui;
 //*************************************************************************************************
 
-import age.event.Event;
+import age.input.InputEvent;
 
 /**************************************************************************************************
  * 
  */
-public class GUIEvent extends Event {
+public class GUIEvent extends InputEvent {
 
 	/**********************************************************************************************
 	 * 
@@ -19,7 +19,7 @@ public class GUIEvent extends Event {
 	 * @param source
 	 * @param event
 	 */
-	private GUIEvent(Widget source, Event event) {
+	private GUIEvent(Widget source, InputEvent event) {
 		this.source = source;
 		set(event);
 	}

@@ -6,17 +6,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.vecmath.Vector2f;
-import age.event.Button;
-import age.event.Event;
-import age.event.Events;
-import age.event.Type;
+
+import age.input.Button;
+import age.input.InputEvent;
+import age.input.InputEvents;
+import age.input.InputType;
 
 //*************************************************************************************************
 //TODO:add javadoc comments
-class EventHandling {
+class InputEventHandling {
 
 	//=============================================================================================
-	private Events events;
+	private InputEvents events;
 	private final Widgets widgets;
 	//=============================================================================================
 
@@ -29,32 +30,32 @@ class EventHandling {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public EventHandling(Widgets widgets) {
+	public InputEventHandling(Widgets widgets) {
 		this.widgets = widgets;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void assign(Events events) {
+	public void assign(InputEvents events) {
 		this.events = events;
-		events.assign(Type.KEY_PRESSED, this::handleKeyboard);
-		events.assign(Type.KEY_RELEASED, this::handleKeyboard);
-		events.assign(Type.KEY_TYPED, this::handleKeyboard);
-		events.assign(Type.POINTER_PRESSED, this::handlePointer);
-		events.assign(Type.POINTER_RELEASED, this::handlePointer);
-		events.assign(Type.POINTER_CLICKED, this::handlePointer);
-		events.assign(Type.POINTER_MOVED, this::handlePointer);
-		events.assign(Type.SURFACE_RESIZED, this::handleSurface);
+		events.assign(InputType.KEY_PRESSED, this::handleKeyboard);
+		events.assign(InputType.KEY_RELEASED, this::handleKeyboard);
+		events.assign(InputType.KEY_TYPED, this::handleKeyboard);
+		events.assign(InputType.POINTER_PRESSED, this::handlePointer);
+		events.assign(InputType.POINTER_RELEASED, this::handlePointer);
+		events.assign(InputType.POINTER_CLICKED, this::handlePointer);
+		events.assign(InputType.POINTER_MOVED, this::handlePointer);
+		events.assign(InputType.SURFACE_RESIZED, this::handleSurface);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void handleKeyboard(Event e) {
+	public void handleKeyboard(InputEvent e) {
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void handlePointer(Event e) {
+	public void handlePointer(InputEvent e) {
 		
 		tmp.set(e.position());
 
@@ -77,9 +78,9 @@ class EventHandling {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void pressedFrameToFront(Event e) {
+	private void pressedFrameToFront(InputEvent e) {
 		Widget front = hovered;
-		if (e.type().equals(Type.POINTER_PRESSED)) {
+		if (e.type().equals(InputType.POINTER_PRESSED)) {
 			while (front != null) {
 				if (front.match(Flag.FRAME)) {
 					front.toFront();
@@ -91,12 +92,12 @@ class EventHandling {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void buttonClickAction(Event e) {
+	private void buttonClickAction(InputEvent e) {
 		if (
 			hovered != null &&
 			hovered.match(Flag.BUTTON) &&
 			hovered.command() != null &&
-			e.type().equals(Type.POINTER_RELEASED) &&
+			e.type().equals(InputType.POINTER_RELEASED) &&
 			e.button().equals(Button.BTN1)
 		) {
 			events.postTaskCommand(hovered.command());
@@ -105,12 +106,12 @@ class EventHandling {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void startFrameSizeAction(Event e) {
+	private void startFrameSizeAction(InputEvent e) {
 		if (
 			dragged == null &&
 			hovered != null &&
 			hovered.match(Flag.BUTTON) &&
-			e.type().equals(Type.POINTER_PRESSED) &&
+			e.type().equals(InputType.POINTER_PRESSED) &&
 			e.button().equals(Button.BTN1) &&
 			hovered.image().equals("size")
 		) {
@@ -120,12 +121,12 @@ class EventHandling {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void startFrameDragAction(Event e) {
+	private void startFrameDragAction(InputEvent e) {
 		if (
 			dragged == null &&
 			hovered != null &&
 			hovered.match(Flag.TITLE) &&
-			e.type().equals(Type.POINTER_PRESSED) &&
+			e.type().equals(InputType.POINTER_PRESSED) &&
 			e.button().equals(Button.BTN1)
 		) {
 			updateActionState(e, "move");
@@ -134,12 +135,12 @@ class EventHandling {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void startScrollHandleAction(Event e) {
+	private void startScrollHandleAction(InputEvent e) {
 		if (
 			dragged == null &&
 			hovered != null &&
 			hovered.match(Flag.HANDLE) &&
-			e.type().equals(Type.POINTER_PRESSED) &&
+			e.type().equals(InputType.POINTER_PRESSED) &&
 			e.button().equals(Button.BTN1)
 		) {
 			updateActionState(e, "handle");
@@ -148,7 +149,7 @@ class EventHandling {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void updateActionState(Event e, String action) {
+	private void updateActionState(InputEvent e, String action) {
 		Widget frame = hovered;
 		Flag flag = Flag.FRAME;
 		if (action.equals("handle")) {
@@ -169,10 +170,10 @@ class EventHandling {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void updateDragAction(Event e) {
+	private void updateDragAction(InputEvent e) {
 		if (
 			dragged != null &&
-			e.type().equals(Type.POINTER_MOVED)
+			e.type().equals(InputType.POINTER_MOVED)
 		) {
 			ref.sub(e.position(), ref);
 			if (action.equals("move")) {
@@ -190,10 +191,10 @@ class EventHandling {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void stopDragAction(Event e) {
+	private void stopDragAction(InputEvent e) {
 		if (
 			dragged != null &&
-			e.type().equals(Type.POINTER_RELEASED)
+			e.type().equals(InputType.POINTER_RELEASED)
 		) {
 			dragged = null;
 		}
@@ -229,7 +230,7 @@ class EventHandling {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void handleSurface(Event e) {
+	public void handleSurface(InputEvent e) {
 		widgets
 			.root()
 			.dimension(e.dimension());

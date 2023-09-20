@@ -10,24 +10,25 @@ import com.jogamp.newt.event.MouseListener;
 import com.jogamp.newt.event.WindowEvent;
 import com.jogamp.newt.event.WindowListener;
 import com.jogamp.newt.event.WindowUpdateEvent;
-import age.event.Button;
-import age.event.Event;
-import age.event.Events;
-import age.event.Key;
-import age.event.Type;
+
+import age.input.Button;
+import age.input.InputEvent;
+import age.input.InputEvents;
+import age.input.InputType;
+import age.input.Key;
 
 //*************************************************************************************************
 //TODO:add javadoc comments
 class JOGLEventListener implements KeyListener, MouseListener, WindowListener {
 
 	//=============================================================================================
-	private Events events = null;
+	private InputEvents events = null;
 	//=============================================================================================
 
 	//=============================================================================================
-	public void assign(Events events) {
+	public void assign(InputEvents events) {
 		this.events = events;
-		events.assign(Type.SURFACE_CLOSE_REQUEST, this::handleSurfaceCloseRequest);
+		events.assign(InputType.SURFACE_CLOSE_REQUEST, this::handleSurfaceCloseRequest);
 	}
 	//=============================================================================================
 	
@@ -163,7 +164,7 @@ class JOGLEventListener implements KeyListener, MouseListener, WindowListener {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void handleSurfaceCloseRequest(Event e) {
+	private void handleSurfaceCloseRequest(InputEvent e) {
 		events.postTaskCommand("shutdown");
 	}
 	//=============================================================================================

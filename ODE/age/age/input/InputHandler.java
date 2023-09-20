@@ -1,17 +1,17 @@
 //*************************************************************************************************
-package age.event;
+package age.input;
 //*************************************************************************************************
 
 /**************************************************************************************************
  * Interface to define an event handler method reference 
  */
-public interface Handler {
+public interface InputHandler {
 
 	/**********************************************************************************************
 	 * The event handler method reference definition
 	 * @param event The event object to describe the event
 	 */
-	public void handle(Event event);
+	public void handle(InputEvent event);
 
 }
 //*************************************************************************************************

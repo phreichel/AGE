@@ -1,5 +1,5 @@
 //*************************************************************************************************
-package age.event;
+package age.input;
 //*************************************************************************************************
 
 import java.util.ArrayList;
@@ -12,18 +12,18 @@ import age.log.Log;
 
 //*************************************************************************************************
 //TODO: add javadoc comments
-public class Events {
+public class InputEvents {
 
 	//=============================================================================================
-	private final Queue<Event> cache  = new LinkedList<>();
-	private final List<Event>  inbox  = new ArrayList<>();
-	private final List<Event>  outbox = new ArrayList<>();
-	private final Map<Type, List<Handler>> handlers = new EnumMap<>(Type.class);
+	private final Queue<InputEvent> cache  = new LinkedList<>();
+	private final List<InputEvent>  inbox  = new ArrayList<>();
+	private final List<InputEvent>  outbox = new ArrayList<>();
+	private final Map<InputType, List<InputHandler>> handlers = new EnumMap<>(InputType.class);
 	//=============================================================================================
 
 	//=============================================================================================
-	public void assign(Type type, Handler handler) {
-		List<Handler> list = handlers.get(type);
+	public void assign(InputType type, InputHandler handler) {
+		List<InputHandler> list = handlers.get(type);
 		if (list == null) {
 			list = new ArrayList<>(10);
 			handlers.put(type, list);
@@ -34,7 +34,7 @@ public class Events {
 	
 	//=============================================================================================
 	public void postKeyPressed(Key key, char character) {
-		Event event = alloc();
+		InputEvent event = alloc();
 		event.keyPressed(key, character);
 		post(event);
 	}
@@ -42,7 +42,7 @@ public class Events {
 
 	//=============================================================================================
 	public void postKeyReleased(Key key, char character) {
-		Event event = alloc();
+		InputEvent event = alloc();
 		event.keyReleased(key, character);
 		post(event);
 	}
@@ -50,7 +50,7 @@ public class Events {
 
 	//=============================================================================================
 	public void postKeyTyped(Key key, char character) {
-		Event event = alloc();
+		InputEvent event = alloc();
 		event.keyTyped(key, character);
 		post(event);
 	}
@@ -58,7 +58,7 @@ public class Events {
 
 	//=============================================================================================
 	public void postPointerEntered(float x, float y) {
-		Event event = alloc();
+		InputEvent event = alloc();
 		event.pointerEntered(x, y);
 		post(event);
 	}
@@ -66,7 +66,7 @@ public class Events {
 
 	//=============================================================================================
 	public void postPointerExited(float x, float y) {
-		Event event = alloc();
+		InputEvent event = alloc();
 		event.pointerExited(x, y);
 		post(event);
 	}
@@ -74,7 +74,7 @@ public class Events {
 
 	//=============================================================================================
 	public void postPointerMoved(float x, float y) {
-		Event event = alloc();
+		InputEvent event = alloc();
 		event.pointerMoved(x, y);
 		post(event);
 	}
@@ -82,7 +82,7 @@ public class Events {
 
 	//=============================================================================================
 	public void postPointerPressed(Button button, int count, float x, float y) {
-		Event event = alloc();
+		InputEvent event = alloc();
 		event.pointerPressed(button, count, x, y);
 		post(event);
 	}
@@ -90,7 +90,7 @@ public class Events {
 
 	//=============================================================================================
 	public void postPointerReleased(Button button, int count, float x, float y) {
-		Event event = alloc();
+		InputEvent event = alloc();
 		event.pointerReleased(button, count, x, y);
 		post(event);
 	}
@@ -98,7 +98,7 @@ public class Events {
 
 	//=============================================================================================
 	public void postPointerClicked(Button button, int count, float x, float y) {
-		Event event = alloc();
+		InputEvent event = alloc();
 		event.pointerClicked(button, count, x, y);
 		post(event);
 	}
@@ -106,7 +106,7 @@ public class Events {
 
 	//=============================================================================================
 	public void postSurfaceResized(float w, float h) {
-		Event event = alloc();
+		InputEvent event = alloc();
 		event.surfaceResized(w, h);
 		post(event);
 	}
@@ -114,7 +114,7 @@ public class Events {
 
 	//=============================================================================================
 	public void postSurfaceCloseRequest() {
-		Event event = alloc();
+		InputEvent event = alloc();
 		event.surfaceCloseRequest();
 		post(event);
 	}
@@ -122,7 +122,7 @@ public class Events {
 
 	//=============================================================================================
 	public void postTaskCommand(String command) {
-		Event event = alloc();
+		InputEvent event = alloc();
 		event.taskCommand(command);
 		post(event);
 	}
@@ -134,7 +134,7 @@ public class Events {
 			outbox.addAll(inbox);
 			inbox.clear();
 		}
-		for (Event event : outbox) {
+		for (InputEvent event : outbox) {
 			handle(event);
 		}
 		outbox.clear();
@@ -142,8 +142,8 @@ public class Events {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void handle(Event event) {
-		Type type = event.type();
+	private void handle(InputEvent event) {
+		InputType type = event.type();
 		Log.debug(
 			"Handle Event %s, {%s:%s} {%s,%s,%s,%s} {%s:%s}",
 			type,
@@ -155,9 +155,9 @@ public class Events {
 			event.count(),
 			event.width(),
 			event.height());
-		List<Handler> list = handlers.get(type);
+		List<InputHandler> list = handlers.get(type);
 		if (list != null) {
-			for (Handler handler : list) {
+			for (InputHandler handler : list) {
 				handler.handle(event);
 			}
 		}
@@ -166,7 +166,7 @@ public class Events {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void post(Event event) {
+	private void post(InputEvent event) {
 		synchronized (inbox) {
 			inbox.add(event);
 		}
@@ -174,17 +174,17 @@ public class Events {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private Event alloc() {
-		Event event = cache.poll();
+	private InputEvent alloc() {
+		InputEvent event = cache.poll();
 		if (event == null) {
-			event = new Event();
+			event = new InputEvent();
 		}
 		return event;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private void free(Event event) {
+	private void free(InputEvent event) {
 		event.clear();
 		cache.offer(event);
 	}

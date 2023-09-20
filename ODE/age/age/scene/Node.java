@@ -48,13 +48,13 @@ public class Node {
 	/**********************************************************************************************
 	 * The (modifiable) map of Part access keys and Node components.
 	 */
-	private final Map<Part, Object> components = new EnumMap<>(Part.class);
+	private final Map<NodeFlag, Object> components = new EnumMap<>(NodeFlag.class);
 
 	/**********************************************************************************************
 	 * The (unmodifiable) map of Part access keys and Node components.
 	 * It wraps the components map and provides a read only representation for clas external use
 	 */
-	private final Map<Part, Object> components_ro = Collections.unmodifiableMap(components);
+	private final Map<NodeFlag, Object> components_ro = Collections.unmodifiableMap(components);
 	
 	/**********************************************************************************************
 	 * The parent property getter
@@ -124,27 +124,27 @@ public class Node {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Object component(Part part) {
+	public Object component(NodeFlag part) {
 		return components.get(part);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	@SuppressWarnings("unchecked")
-	public <C> C component(Part part, Class<C> cls) {
+	public <C> C component(NodeFlag part, Class<C> cls) {
 		return (C) component(part);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void component(Part part, Object component) {
+	public void component(NodeFlag part, Object component) {
 		part.check(component);
 		components.put(part, component);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Map<Part, Object> components() {
+	public Map<NodeFlag, Object> components() {
 		return components_ro;
 	}
 	//=============================================================================================

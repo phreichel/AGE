@@ -6,19 +6,19 @@ import age.port.Port;
 import age.port.jogl.JOGLPort;
 import age.scene.Camera;
 import age.scene.Node;
-import age.scene.Part;
+import age.scene.NodeFlag;
 import age.scene.Scene;
 import age.task.Tasks;
 import javax.vecmath.AxisAngle4f;
 import javax.vecmath.Matrix4f;
 import javax.vecmath.Vector3f;
 import age.clock.Clock;
-import age.event.Events;
 import age.gui.Flag;
 import age.gui.Multiline;
 import age.gui.Widget;
 import age.gui.Widgets;
 import age.gui.Window;
+import age.input.InputEvents;
 import age.log.Level;
 import age.log.Log;
 
@@ -35,7 +35,7 @@ public class Client {
 	/**********************************************************************************************
 	 * The event system, handling and transforming input events.
 	 */
-	private Events events = new Events();
+	private InputEvents events = new InputEvents();
 	
 	/**********************************************************************************************
 	 * The 3D scene system.
@@ -106,7 +106,7 @@ public class Client {
 					Matrix4f m = new Matrix4f();
 					m.setIdentity();
 					m.set(new Vector3f((i-3) * 2.5f, (j) * 2.5f, (k-3) * 2.5f));
-					n.component(Part.TRANSFORM, m);
+					n.component(NodeFlag.TRANSFORM, m);
 					scene.root().attach(n);
 				}
 			}
@@ -120,8 +120,8 @@ public class Client {
 		AxisAngle4f rot = new AxisAngle4f(1, 0, 0, a);
 		camTransform.setRotation(rot);
 		camTransform.setTranslation(new Vector3f(-2, 15, 15));
-		camNode.component(Part.TRANSFORM, camTransform);
-		camNode.component(Part.CAMERA, camData);
+		camNode.component(NodeFlag.TRANSFORM, camTransform);
+		camNode.component(NodeFlag.CAMERA, camData);
 		scene.root().attach(camNode);	
 		scene.camera(camNode);
 		

@@ -1,5 +1,5 @@
 //*************************************************************************************************
-package age.event;
+package age.input;
 //*************************************************************************************************
 
 import javax.vecmath.Vector2f;
@@ -7,12 +7,12 @@ import javax.vecmath.Vector2f;
 /**************************************************************************************************
  * This class defines an Event along with its descriptive data.
  */
-public class Event {
+public class InputEvent {
 
 	/**********************************************************************************************
 	 * The event type 
 	 */
-	private Type type = Type.NONE;
+	private InputType type = InputType.NONE;
 
 	/**********************************************************************************************
 	 * The key for key event types 
@@ -52,7 +52,7 @@ public class Event {
 	/**********************************************************************************************
 	 * Package visible constructor 
 	 */
-	public Event() {
+	public InputEvent() {
 		clear();
 	}
 	
@@ -60,7 +60,7 @@ public class Event {
 	 * Method to clear all event data values to default values 
 	 */
 	public void clear() {
-		type      = Type.NONE;
+		type      = InputType.NONE;
 		key       = Key.NONE;
 		character = '\0';
 		button    = Button.NONE;
@@ -74,7 +74,7 @@ public class Event {
 	 * Method to set all event data values to the values in Event e
 	 * e the event to copy from.
 	 */
-	public void set(Event e) {
+	public void set(InputEvent e) {
 		type      = e.type;
 		key       = e.key;
 		character = e.character;
@@ -88,7 +88,7 @@ public class Event {
 	/**********************************************************************************************
 	 * Method to clear all event data values to default values 
 	 */
-	public Type type() {
+	public InputType type() {
 		return type;
 	}
 
@@ -160,62 +160,62 @@ public class Event {
 	
 	//=============================================================================================
 	public void keyPressed(Key key, char character) {
-		keyEvent(Type.KEY_PRESSED, key, character);
+		keyEvent(InputType.KEY_PRESSED, key, character);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void keyReleased(Key key, char character) {
-		keyEvent(Type.KEY_RELEASED, key, character);
+		keyEvent(InputType.KEY_RELEASED, key, character);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void keyTyped(Key key, char character) {
-		keyEvent(Type.KEY_TYPED, key, character);
+		keyEvent(InputType.KEY_TYPED, key, character);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void pointerEntered(float x, float y) {
-		pointerEvent(Type.POINTER_ENTERED, Button.NONE, -1, x, y);
+		pointerEvent(InputType.POINTER_ENTERED, Button.NONE, -1, x, y);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void pointerExited(float x, float y) {
-		pointerEvent(Type.POINTER_EXITED, Button.NONE, -1, x, y);
+		pointerEvent(InputType.POINTER_EXITED, Button.NONE, -1, x, y);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void pointerMoved(float x, float y) {
-		pointerEvent(Type.POINTER_MOVED, Button.NONE, -1, x, y);
+		pointerEvent(InputType.POINTER_MOVED, Button.NONE, -1, x, y);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	public void pointerPressed(Button button, int count, float x, float y) {
-		pointerEvent(Type.POINTER_PRESSED, button, count, x, y);
+		pointerEvent(InputType.POINTER_PRESSED, button, count, x, y);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void pointerClicked(Button button, int count, float x, float y) {
-		pointerEvent(Type.POINTER_CLICKED, button, count, x, y);
+		pointerEvent(InputType.POINTER_CLICKED, button, count, x, y);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void pointerReleased(Button button, int count, float x, float y) {
-		pointerEvent(Type.POINTER_RELEASED, button, count, x, y);
+		pointerEvent(InputType.POINTER_RELEASED, button, count, x, y);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void surfaceResized(float w, float h) {
 		clear();
-		type = Type.SURFACE_RESIZED;
+		type = InputType.SURFACE_RESIZED;
 		dimension.set(w, h);
 	}
 	//=============================================================================================
@@ -223,20 +223,20 @@ public class Event {
 	//=============================================================================================
 	public void surfaceCloseRequest() {
 		clear();
-		type = Type.SURFACE_CLOSE_REQUEST;
+		type = InputType.SURFACE_CLOSE_REQUEST;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void taskCommand(String command) {
 		clear();
-		type = Type.TASK_COMMAND;
+		type = InputType.TASK_COMMAND;
 		this.command = command;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void keyEvent(Type type, Key key, char character) {
+	private void keyEvent(InputType type, Key key, char character) {
 		this.type = type;
 		this.key = key;
 		this.character = character;
@@ -248,7 +248,7 @@ public class Event {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void pointerEvent(Type type, Button button, int count, float x, float y) {
+	private void pointerEvent(InputType type, Button button, int count, float x, float y) {
 		this.type = type;
 		this.button = button;
 		this.count = count;
