@@ -4,7 +4,10 @@ package age.log;
 
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.OutputStreamWriter;
 import java.io.Reader;
+import java.io.Writer;
 import java.util.Calendar;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -155,13 +158,15 @@ public class Log {
 	private boolean trace = false;
 	private Set<Level> levels = null;
 	private String format = null;
+	private Writer writer = null;
 	//=============================================================================================
 
 	//=============================================================================================
 	private Log() {
 		this.trace = false;
 		this.levels = EnumSet.allOf(Level.class);
-		this.format = "%1$td.%1$tm.%1$ty %1$tH:%1$tM:%1$tS.%1$tN - %2$s: %3$s";
+		this.format = "%1$td.%1$tm.%1$ty %1$tH:%1$tM:%1$tS.%1$tN - %2$s: %3$s%n";
+		this.writer = new OutputStreamWriter(System.out);
 	}
 	//=============================================================================================
 
@@ -170,26 +175,32 @@ public class Log {
 		this.trace = parent.trace;
 		this.format = parent.format;
 		this.levels = EnumSet.copyOf(parent.levels);
+		this.writer = parent.writer;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	private void write(Level level, String message, Object ... params) {
-		if (!levels.contains(level)) return;
-		Calendar now = Calendar.getInstance();
-		String output = String.format(message, params);
-		if (trace) {
-			StackTraceElement e = Thread.currentThread().getStackTrace()[4];
-			String location = String.format(
-				"%s (%s): %s.%s%n	",
-				e.getFileName(),
-				e.getLineNumber(),
-				e.getClassName(),
-				e.getMethodName());
-			output = location + output;
+		try {
+			if (!levels.contains(level)) return;
+			Calendar now = Calendar.getInstance();
+			String output = String.format(message, params);
+			if (trace) {
+				StackTraceElement e = Thread.currentThread().getStackTrace()[4];
+				String location = String.format(
+					"%s (%s): %s.%s%n	",
+					e.getFileName(),
+					e.getLineNumber(),
+					e.getClassName(),
+					e.getMethodName());
+				output = location + output;
+			}
+			String tagged = String.format(format, now, level, output);
+			writer.append(tagged);
+			writer.flush();
+		} catch (Exception e) {
+			throw new X(e);
 		}
-		String tagged = String.format(format, now, level, output);
-		System.out.println(tagged);
 	}
 	//=============================================================================================
 
@@ -232,6 +243,17 @@ public class Log {
 	//=============================================================================================
 	public void format(String format) {
 		this.format = format;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void output(String path) {
+		try {
+			File file  = new File(path);
+			this.writer = new FileWriter(file, true);
+		} catch (Exception e) {
+			throw new X(e);
+		}
 	}
 	//=============================================================================================
 	
