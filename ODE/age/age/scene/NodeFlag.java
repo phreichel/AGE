@@ -3,7 +3,7 @@ package age.scene;
 //*************************************************************************************************
 
 import javax.vecmath.Matrix4f;
-import age.AGEException;
+import age.X;
 
 //*************************************************************************************************
 //TODO:add javadoc comments
@@ -27,7 +27,7 @@ public enum NodeFlag {
 	//=============================================================================================
 	public void check(Object object) {
 		if (!cls.isInstance(object)) {
-			throw new AGEException(this.toString() + ": " + cls.getName() + " expected.");
+			throw new X(this.toString() + ": " + cls.getName() + " expected.");
 		}
 	}
 	//=============================================================================================

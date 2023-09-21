@@ -41,7 +41,7 @@ public class Util {
 			reader.close();
 			return buffer.toString();
 		} catch (Exception e) {
-			throw new AGEException(e);
+			throw new X(e);
 		}
 	}
 
@@ -57,7 +57,7 @@ public class Util {
 			C object = objectMapper.readValue(file, cls);
 			return object;
 		} catch (Exception e) {
-			throw new AGEException(e);
+			throw new X(e);
 		}
 	}
 

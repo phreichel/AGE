@@ -12,7 +12,7 @@ package age;
  * re-thrown by that Exception in order to make throws
  * statements unnecessary.  
  */
-public class AGEException extends RuntimeException {
+public class X extends RuntimeException {
 
 	/**********************************************************************************************
 	 * Default serial version number.
@@ -22,7 +22,7 @@ public class AGEException extends RuntimeException {
 	/**********************************************************************************************
 	 * Default Constructor
 	 */
-	public AGEException() {
+	public X() {
 		super();
 	}
 
@@ -30,7 +30,7 @@ public class AGEException extends RuntimeException {
 	 * Constructor
 	 * @param cause an Exception typically to be re-thrown.
 	 */
-	public AGEException(Throwable cause) {
+	public X(Throwable cause) {
 		super(cause);
 	}
 
@@ -38,7 +38,7 @@ public class AGEException extends RuntimeException {
 	 * Constructor
 	 * @param message A text message that is printed on the stack trace in case the Exception is thrown on application level.
 	 */
-	public AGEException(String message) {
+	public X(String message) {
 		super(message);
 	}
 
@@ -47,7 +47,7 @@ public class AGEException extends RuntimeException {
 	 * @param message A text message that is printed on the stack trace in case the Exception is thrown on application level.
 	 * @param cause an Exception typically to be re-thrown.
 	 */
-	public AGEException(String message, Throwable cause) {
+	public X(String message, Throwable cause) {
 		super(message, cause);
 	}
 

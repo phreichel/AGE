@@ -18,7 +18,7 @@ import com.jogamp.opengl.util.awt.TextRenderer;
 import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureCoords;
 import com.jogamp.opengl.util.texture.TextureIO;
-import age.AGEException;
+import age.X;
 import age.Util;
 import age.port.Graphics;
 
@@ -87,7 +87,7 @@ class JOGLGraphics implements Graphics {
 			textures.put("desk", texture);
 			
 		} catch (Exception e) {
-			throw new AGEException(e);
+			throw new X(e);
 		}
 
 		{

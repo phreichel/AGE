@@ -8,7 +8,7 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Set;
 import javax.vecmath.Vector2f;
-import age.AGEException;
+import age.X;
 
 //*************************************************************************************************
 //TODO: add javadoc comments
@@ -218,7 +218,7 @@ public class Widget {
 
 	//=============================================================================================
 	public void add(Widget child) {
-		if (child.parent != null) throw new AGEException("Parent not NULL");
+		if (child.parent != null) throw new X("Parent not NULL");
 		children.add(child);
 		child.parent = this;
 	}
@@ -226,7 +226,7 @@ public class Widget {
 
 	//=============================================================================================
 	public void add(int idx, Widget child) {
-		if (child.parent != null) throw new AGEException("Parent not NULL");
+		if (child.parent != null) throw new X("Parent not NULL");
 		children.add(idx, child);
 		child.parent = this;
 	}
@@ -234,7 +234,7 @@ public class Widget {
 
 	//=============================================================================================
 	public void remove() {
-		if (parent == null) throw new AGEException("Parent is NULL");
+		if (parent == null) throw new X("Parent is NULL");
 		parent.children.remove(this);
 		parent = null;
 	}

@@ -9,7 +9,7 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import age.AGEException;
+import age.X;
 
 /**************************************************************************************************
  * The Scene Node container class.
@@ -86,14 +86,14 @@ public class Node {
 	 * @param node The node to attach
 	 */
 	public void attach(int idx, Node node) {
-		if (node.parent != null) throw new AGEException("Node already attached");
+		if (node.parent != null) throw new X("Node already attached");
 		node.parent = this;
 		children.add(idx, node);
 	}
 
 	//=============================================================================================
 	public void detach() {
-		if (parent == null) throw new AGEException("Node not attached");
+		if (parent == null) throw new X("Node not attached");
 		parent.children.remove(this);
 		parent = null;
 	}
