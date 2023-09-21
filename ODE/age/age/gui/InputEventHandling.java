@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.vecmath.Vector2f;
-
 import age.input.Button;
 import age.input.InputEvent;
 import age.input.InputEvents;
