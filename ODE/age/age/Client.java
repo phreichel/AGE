@@ -16,7 +16,7 @@ import age.clock.Clock;
 import age.gui.Flag;
 import age.gui.Multiline;
 import age.gui.Widget;
-import age.gui.Widgets;
+import age.gui.GUI;
 import age.gui.Window;
 import age.input.InputEvents;
 import age.log.Level;
@@ -45,7 +45,7 @@ public class Client {
 	/**********************************************************************************************
 	 * The widget system (the GUI)
 	 */
-	private Widgets widgets = new Widgets();
+	private GUI gui = new GUI();
 	
 	/**********************************************************************************************
 	 * The task system. Launches named tasks, that can be posted and queued, on a specific run loop phase.
@@ -79,8 +79,8 @@ public class Client {
 		port.create();
 		port.assign(events);
 		scene.assign(port);
-		widgets.assign(port);
-		widgets.assign(events);
+		gui.assign(port);
+		gui.assign(events);
 		tasks.assign(this);
 		tasks.assign(port);
 		tasks.assign(events);
@@ -142,7 +142,7 @@ public class Client {
 	 */
 	private void setupGUI() {
 
-		Widget root = widgets.root();
+		Widget root = gui.root();
 
 		String text = Util.readTextFile("assets/sample.txt");
 

@@ -4,10 +4,12 @@ package age.input;
 
 import java.util.ArrayList;
 import java.util.EnumMap;
+import java.util.EnumSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Set;
 import age.log.Log;
 
 //*************************************************************************************************
@@ -18,6 +20,7 @@ public class InputEvents {
 	private final Queue<InputEvent> cache  = new LinkedList<>();
 	private final List<InputEvent>  inbox  = new ArrayList<>();
 	private final List<InputEvent>  outbox = new ArrayList<>();
+	private final Set<Key>          keyset = EnumSet.noneOf(Key.class);
 	private final Map<InputType, List<InputHandler>> handlers = new EnumMap<>(InputType.class);
 	//=============================================================================================
 
@@ -35,7 +38,8 @@ public class InputEvents {
 	//=============================================================================================
 	public void postKeyPressed(Key key, char character) {
 		InputEvent event = alloc();
-		event.keyPressed(key, character);
+		keyset.add(key);
+		event.keyPressed(key, character, keyset);
 		post(event);
 	}
 	//=============================================================================================
@@ -43,7 +47,8 @@ public class InputEvents {
 	//=============================================================================================
 	public void postKeyReleased(Key key, char character) {
 		InputEvent event = alloc();
-		event.keyReleased(key, character);
+		keyset.remove(key);
+		event.keyReleased(key, character, keyset);
 		post(event);
 	}
 	//=============================================================================================
@@ -51,7 +56,7 @@ public class InputEvents {
 	//=============================================================================================
 	public void postKeyTyped(Key key, char character) {
 		InputEvent event = alloc();
-		event.keyTyped(key, character);
+		event.keyTyped(key, character, keyset);
 		post(event);
 	}
 	//=============================================================================================
@@ -59,7 +64,7 @@ public class InputEvents {
 	//=============================================================================================
 	public void postPointerEntered(float x, float y) {
 		InputEvent event = alloc();
-		event.pointerEntered(x, y);
+		event.pointerEntered(x, y, keyset);
 		post(event);
 	}
 	//=============================================================================================
@@ -67,7 +72,7 @@ public class InputEvents {
 	//=============================================================================================
 	public void postPointerExited(float x, float y) {
 		InputEvent event = alloc();
-		event.pointerExited(x, y);
+		event.pointerExited(x, y, keyset);
 		post(event);
 	}
 	//=============================================================================================
@@ -75,7 +80,7 @@ public class InputEvents {
 	//=============================================================================================
 	public void postPointerMoved(float x, float y) {
 		InputEvent event = alloc();
-		event.pointerMoved(x, y);
+		event.pointerMoved(x, y, keyset);
 		post(event);
 	}
 	//=============================================================================================
@@ -83,7 +88,7 @@ public class InputEvents {
 	//=============================================================================================
 	public void postPointerPressed(Button button, int count, float x, float y) {
 		InputEvent event = alloc();
-		event.pointerPressed(button, count, x, y);
+		event.pointerPressed(button, count, x, y, keyset);
 		post(event);
 	}
 	//=============================================================================================
@@ -91,7 +96,7 @@ public class InputEvents {
 	//=============================================================================================
 	public void postPointerReleased(Button button, int count, float x, float y) {
 		InputEvent event = alloc();
-		event.pointerReleased(button, count, x, y);
+		event.pointerReleased(button, count, x, y, keyset);
 		post(event);
 	}
 	//=============================================================================================
@@ -99,7 +104,7 @@ public class InputEvents {
 	//=============================================================================================
 	public void postPointerClicked(Button button, int count, float x, float y) {
 		InputEvent event = alloc();
-		event.pointerClicked(button, count, x, y);
+		event.pointerClicked(button, count, x, y, keyset);
 		post(event);
 	}
 	//=============================================================================================
@@ -107,7 +112,7 @@ public class InputEvents {
 	//=============================================================================================
 	public void postSurfaceResized(float w, float h) {
 		InputEvent event = alloc();
-		event.surfaceResized(w, h);
+		event.surfaceResized(w, h, keyset);
 		post(event);
 	}
 	//=============================================================================================
@@ -123,7 +128,7 @@ public class InputEvents {
 	//=============================================================================================
 	public void postTaskCommand(String command) {
 		InputEvent event = alloc();
-		event.taskCommand(command);
+		event.taskCommand(command, keyset);
 		post(event);
 	}
 	//=============================================================================================
