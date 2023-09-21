@@ -11,85 +11,44 @@ import java.util.Map;
 import java.util.Set;
 import age.X;
 
-/**************************************************************************************************
- * The Scene Node container class.
- * Its main purpose is like an Entity in an ECS to contain and combine components.
- * Unlike a typical ECS a hierarchical Node structure is built in.
- */
+//*************************************************************************************************
 public class Node {
 
-	/**********************************************************************************************
-	 * The parent Node for the hierarchical structure
-	 */
+	//=============================================================================================
 	private Node parent;
-
-	/**********************************************************************************************
-	 * The (modifiable) list of child Nodes for the hierarchical structure
-	 */
 	private final List<Node> children = new ArrayList<>(5);
-
-	/**********************************************************************************************
-	 * The (unmodifiable) list wrapper of child Nodes for the hierarchical structure.
-	 * It wraps the children list and provides a read only representation for class external use.
-	 */
 	private final List<Node> children_ro = Collections.unmodifiableList(children);
-
-	/**********************************************************************************************
-	 * The (modifiable) set of state flags
-	 */
 	private Set<Flag> flags = EnumSet.noneOf(Flag.class);
-
-	/**********************************************************************************************
-	 * The (unmodifiable) set of state flags
-	 * It wraps the flags set and provides a read only representation for class external use
-	 */
 	private Set<Flag> flags_ro = Collections.unmodifiableSet(flags);
-	
-	/**********************************************************************************************
-	 * The (modifiable) map of Part access keys and Node components.
-	 */
 	private final Map<NodeFlag, Object> components = new EnumMap<>(NodeFlag.class);
-
-	/**********************************************************************************************
-	 * The (unmodifiable) map of Part access keys and Node components.
-	 * It wraps the components map and provides a read only representation for clas external use
-	 */
 	private final Map<NodeFlag, Object> components_ro = Collections.unmodifiableMap(components);
+	//=============================================================================================
 	
-	/**********************************************************************************************
-	 * The parent property getter
-	 * @return the parent Node or null if there is none
-	 */
+	//=============================================================================================
 	public Node parent() {
 		return this.parent;
 	}
+	//=============================================================================================
 
-	/**********************************************************************************************
-	 * The children list property getter
-	 * @return the unmodifiable children list 
-	 */
+	//=============================================================================================
 	public List<Node> children() {
 		return this.children_ro;
 	}
+	//=============================================================================================
 
-	/**********************************************************************************************
-	 * Method to attach a Node as child at the end of the children list
-	 * @param node The node to attach
-	 */
+	//=============================================================================================
 	public void attach(Node node) {
 		attach(children.size(), node);
 	}
+	//=============================================================================================
 
-	/**********************************************************************************************
-	 * Method to attach a Node as child at a specific index of the children list
-	 * @param idx The index of the node location in the children list
-	 * @param node The node to attach
-	 */
+	//=============================================================================================
 	public void attach(int idx, Node node) {
 		if (node.parent != null) throw new X("Node already attached");
 		node.parent = this;
 		children.add(idx, node);
 	}
+	//=============================================================================================
 
 	//=============================================================================================
 	public void detach() {

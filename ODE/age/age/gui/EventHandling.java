@@ -11,42 +11,26 @@ import age.input.InputEvent;
 import age.input.InputEvents;
 import age.input.InputType;
 
-/**************************************************************************************************
- * ECS based EventHandler
- */
+//*************************************************************************************************
 class EventHandling {
 
-	/**********************************************************************************************
-	 * Injected Input Event System reference
-	 */
-	private InputEvents events;
-
-	/**********************************************************************************************
-	 * Injected GUI System reference
-	 */
-	private final GUI gui;
-
 	//=============================================================================================
+	private InputEvents events;
+	private final GUI gui;
 	private Widget hovered = null;
 	private Widget dragged = null;
 	private String action = null;
-	//=============================================================================================
 	private final Vector2f ref = new Vector2f();
 	private final Vector2f tmp = new Vector2f();
 	//=============================================================================================
 	
-	/**********************************************************************************************
-	 * Constructor
-	 * @param gui the GUI system to be injected
-	 */
+	//=============================================================================================
 	public EventHandling(GUI gui) {
 		this.gui = gui;
 	}
+	//=============================================================================================
 	
-	/**********************************************************************************************
-	 * Injection assign method
-	 * @param events the InputEvent system to be injected
-	 */
+	//=============================================================================================
 	public void assign(InputEvents events) {
 		this.events = events;
 		events.assign(InputType.KEY_PRESSED, this::handleKeyboard);

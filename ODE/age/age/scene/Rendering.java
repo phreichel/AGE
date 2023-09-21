@@ -8,7 +8,6 @@ import age.port.Graphics;
 import age.port.Renderable;
 
 //*************************************************************************************************
-//TODO:add javadoc comments
 public class Rendering implements Renderable {
 
 	//=============================================================================================

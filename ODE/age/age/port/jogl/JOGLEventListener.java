@@ -10,7 +10,6 @@ import com.jogamp.newt.event.MouseListener;
 import com.jogamp.newt.event.WindowEvent;
 import com.jogamp.newt.event.WindowListener;
 import com.jogamp.newt.event.WindowUpdateEvent;
-
 import age.input.Button;
 import age.input.InputEvent;
 import age.input.InputEvents;
@@ -18,7 +17,6 @@ import age.input.InputType;
 import age.input.Key;
 
 //*************************************************************************************************
-//TODO:add javadoc comments
 class JOGLEventListener implements KeyListener, MouseListener, WindowListener {
 
 	//=============================================================================================

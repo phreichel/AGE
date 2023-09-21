@@ -16,7 +16,6 @@ import age.port.Port;
 import age.port.Renderable;
 
 //*************************************************************************************************
-//TODO:add javadoc comments
 public class JOGLPort implements Port {
 
 	//=============================================================================================

@@ -22,57 +22,32 @@ import age.input.InputEvents;
 import age.log.Level;
 import age.log.Log;
 
-/**************************************************************************************************
- * The AGE Application Client main class.
- */
+//*************************************************************************************************
 public class Client {
 
-	/**********************************************************************************************
-	 * The schedule clock.
-	 */
+	//=============================================================================================
 	private Clock clock = new Clock();
-	
-	/**********************************************************************************************
-	 * The event system, handling and transforming input events.
-	 */
 	private InputEvents events = new InputEvents();
-	
-	/**********************************************************************************************
-	 * The 3D scene system.
-	 */
 	private Scene scene = new Scene();
-	
-	/**********************************************************************************************
-	 * The widget system (the GUI)
-	 */
 	private GUI gui = new GUI();
-	
-	/**********************************************************************************************
-	 * The task system. Launches named tasks, that can be posted and queued, on a specific run loop phase.
-	 */
 	private Tasks tasks = new Tasks();
-	
-	/**********************************************************************************************
-	 * The port system. Provides and encapsulates the low level machine dependent parts of the Client application.
-	 */
 	private Port port = new JOGLPort();
-
-	/**********************************************************************************************
-	 * The run loop running indicator
-	 */
 	private boolean running = false;  
+	//=============================================================================================
+
+	//=============================================================================================
+	private Widget sysMenuFrame;
+	private Widget windowFrame;
+	//=============================================================================================
 	
-	/**********************************************************************************************
-	 * Initializes and executes the Client run loop.
-	 */
+	//=============================================================================================
 	public void run() {
 		setup();
 		loop();
 	}
+	//=============================================================================================
 
-	/**********************************************************************************************
-	 * Initializes the Client application and its parts.
-	 */
+	//=============================================================================================
 	private void setup() {
 		Log.get("default").disable(Level.DEBUG);
 
@@ -93,9 +68,7 @@ public class Client {
 
 	}
 
-	/**********************************************************************************************
-	 * Sets up the initial 3D Scene 
-	 */
+	//=============================================================================================
 	private void setupScene() {
 
 		for (int i=0; i<7; i++) {
@@ -126,20 +99,9 @@ public class Client {
 		scene.camera(camNode);
 		
 	}
+	//=============================================================================================
 	
-	/**********************************************************************************************
-	 * Special internally used GUI Frame (The single System menu Button)
-	 */
-	private Widget sysMenuFrame;
-
-	/**********************************************************************************************
-	 * Special internally used GUI Frame (The invisible frame that serves as canvas for all GUI windows) 
-	 */
-	private Widget windowFrame;
-	
-	/**********************************************************************************************
-	 * Sets up the initial GUI elements.
-	 */
+	//=============================================================================================
 	private void setupGUI() {
 
 		Widget root = gui.root();
@@ -206,20 +168,18 @@ public class Client {
 		tasks.assign("desk", this::toggleDesktop);
 		
 	}
+	//=============================================================================================
 
-	/**********************************************************************************************
-	 * Private action method to toggle the visibility of the System Menu
-	 */
+	//=============================================================================================
 	private void toggleSysmenu() {
 		if (sysMenuFrame.match(Flag.HIDDEN))
 			sysMenuFrame.clear(Flag.HIDDEN);
 		else 
 			sysMenuFrame.flag(Flag.HIDDEN);
 	}
+	//=============================================================================================
 
-	/**********************************************************************************************
-	 * Private action method to toggle the visibility of the Desktop and its contents
-	 */
+	//=============================================================================================
 	private void toggleDesktop() {
 		if (windowFrame.match(Flag.HIDDEN))
 			windowFrame.clear(Flag.HIDDEN);
@@ -227,9 +187,7 @@ public class Client {
 			windowFrame.flag(Flag.HIDDEN);
 	}
 	
-	/**********************************************************************************************
-	 * The Client loop that maintains the program logic
-	 */
+	//=============================================================================================
 	private void loop() {
 		running = true;
 		Log.debug("Start Client Loop");
@@ -240,45 +198,35 @@ public class Client {
 		}
 		port.visible(false);
 	}
+	//=============================================================================================
 
-	/**********************************************************************************************
-	 * Sets the internal Client loop run state to false, and therefore stops the client run loop
-	 */
+	//=============================================================================================
 	public void shutdown() {
 		running = false;
 	}
+	//=============================================================================================
 	
-	/**********************************************************************************************
-	 * Private scheduler action to update the display contents and render the Client surface. 
-	 * @param count The number of (skipped) schedule frames since last call
-	 * @param nanoperiod The duration of a schedule frame in nano seconds
-	 * @param dT The time elapsed since last schedule call, in Seconds.
-	 */
+	//=============================================================================================
 	private void render(int count, long nanoperiod, float dT) {
 		port.render();
 	}
+	//=============================================================================================
 
-	/**********************************************************************************************
-	 * Private scheduler action to update the logic of the Client application
-	 * @param count The number of (skipped) schedule frames since last call
-	 * @param nanoperiod The duration of a schedule frame in nano seconds
-	 * @param dT The time elapsed since last schedule call, in Seconds.
-	 */
+	//=============================================================================================
 	private void update(int count, long nanoperiod, float dT) {
 		events.update();
 		tasks.update();
 	}
+	//=============================================================================================
 	
-	/**********************************************************************************************
-	 * The static Client main method to create a client instance and launch the application. 
-	 * @param args Program arguments, unused atm.
-	 */
+	//=============================================================================================
 	public static void main(String[] args) {
 		Log.info("Client Main Start");
 		Client client = new Client();
 		client.run();
 		Log.info("Client Main Stop");
 	}
+	//=============================================================================================
 	
 }
 //*************************************************************************************************

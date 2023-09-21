@@ -4,11 +4,9 @@ package age.port.jogl;
 
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
-
 import age.port.Renderable;
 
 //*************************************************************************************************
-//TODO:add javadoc comments
 class JOGLRenderListener implements GLEventListener {
 
 	//=============================================================================================
