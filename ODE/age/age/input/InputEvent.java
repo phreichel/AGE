@@ -2,6 +2,9 @@
 package age.input;
 //*************************************************************************************************
 
+import java.util.EnumSet;
+import java.util.Set;
+
 import javax.vecmath.Vector2f;
 
 /**************************************************************************************************
@@ -24,6 +27,11 @@ public class InputEvent {
 	 */
 	private char character = '\0';
 
+	/**********************************************************************************************
+	 * The set of pressed keys 
+	 */
+	private final Set<Key> keyset = EnumSet.noneOf(Key.class);
+	
 	/**********************************************************************************************
 	 * The button for pointer event types 
 	 */
@@ -63,6 +71,7 @@ public class InputEvent {
 		type      = InputType.NONE;
 		key       = Key.NONE;
 		character = '\0';
+		keyset.clear();
 		button    = Button.NONE;
 		count     = -1;
 		position.set(-1, -1);
@@ -78,6 +87,8 @@ public class InputEvent {
 		type      = e.type;
 		key       = e.key;
 		character = e.character;
+		keyset.clear();
+		keyset.addAll(e.keyset);
 		button    = e.button;
 		count     = e.count;
 		position.set(e.position);
@@ -104,6 +115,12 @@ public class InputEvent {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	public Set<Key> keyset() {
+		return keyset;
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public Button button() {
 		return button;
@@ -159,61 +176,61 @@ public class InputEvent {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void keyPressed(Key key, char character) {
-		keyEvent(InputType.KEY_PRESSED, key, character);
+	public void keyPressed(Key key, char character, Set<Key> keyset) {
+		keyEvent(InputType.KEY_PRESSED, key, character, keyset);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void keyReleased(Key key, char character) {
-		keyEvent(InputType.KEY_RELEASED, key, character);
+	public void keyReleased(Key key, char character, Set<Key> keyset) {
+		keyEvent(InputType.KEY_RELEASED, key, character, keyset);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void keyTyped(Key key, char character) {
-		keyEvent(InputType.KEY_TYPED, key, character);
+	public void keyTyped(Key key, char character, Set<Key> keyset) {
+		keyEvent(InputType.KEY_TYPED, key, character, keyset);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void pointerEntered(float x, float y) {
-		pointerEvent(InputType.POINTER_ENTERED, Button.NONE, -1, x, y);
+	public void pointerEntered(float x, float y, Set<Key> keyset) {
+		pointerEvent(InputType.POINTER_ENTERED, Button.NONE, -1, x, y, keyset);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void pointerExited(float x, float y) {
-		pointerEvent(InputType.POINTER_EXITED, Button.NONE, -1, x, y);
+	public void pointerExited(float x, float y, Set<Key> keyset) {
+		pointerEvent(InputType.POINTER_EXITED, Button.NONE, -1, x, y, keyset);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void pointerMoved(float x, float y) {
-		pointerEvent(InputType.POINTER_MOVED, Button.NONE, -1, x, y);
+	public void pointerMoved(float x, float y, Set<Key> keyset) {
+		pointerEvent(InputType.POINTER_MOVED, Button.NONE, -1, x, y, keyset);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void pointerPressed(Button button, int count, float x, float y) {
-		pointerEvent(InputType.POINTER_PRESSED, button, count, x, y);
+	public void pointerPressed(Button button, int count, float x, float y, Set<Key> keyset) {
+		pointerEvent(InputType.POINTER_PRESSED, button, count, x, y, keyset);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void pointerClicked(Button button, int count, float x, float y) {
-		pointerEvent(InputType.POINTER_CLICKED, button, count, x, y);
+	public void pointerClicked(Button button, int count, float x, float y, Set<Key> keyset) {
+		pointerEvent(InputType.POINTER_CLICKED, button, count, x, y, keyset);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void pointerReleased(Button button, int count, float x, float y) {
-		pointerEvent(InputType.POINTER_RELEASED, button, count, x, y);
+	public void pointerReleased(Button button, int count, float x, float y, Set<Key> keyset) {
+		pointerEvent(InputType.POINTER_RELEASED, button, count, x, y, keyset);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void surfaceResized(float w, float h) {
+	public void surfaceResized(float w, float h, Set<Key> keyset) {
 		clear();
 		type = InputType.SURFACE_RESIZED;
 		dimension.set(w, h);
@@ -228,18 +245,21 @@ public class InputEvent {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void taskCommand(String command) {
+	public void taskCommand(String command, Set<Key> keyset) {
 		clear();
+		this.keyset.addAll(keyset);
 		type = InputType.TASK_COMMAND;
 		this.command = command;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void keyEvent(InputType type, Key key, char character) {
+	private void keyEvent(InputType type, Key key, char character, Set<Key> keyset) {
 		this.type = type;
 		this.key = key;
 		this.character = character;
+		this.keyset.clear();
+		this.keyset.addAll(keyset);
 		this.button    = Button.NONE;
 		this.count = -1;
 		this.position.set(-1, -1);
@@ -248,8 +268,10 @@ public class InputEvent {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void pointerEvent(InputType type, Button button, int count, float x, float y) {
+	private void pointerEvent(InputType type, Button button, int count, float x, float y, Set<Key> keyset) {
 		this.type = type;
+		this.keyset.clear();
+		this.keyset.addAll(keyset);
 		this.button = button;
 		this.count = count;
 		this.position.set(x, y);

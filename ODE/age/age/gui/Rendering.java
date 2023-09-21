@@ -11,18 +11,18 @@ import age.port.Renderable;
 public class Rendering implements Renderable {
 
 	//=============================================================================================
-	private final Widgets widgets;
+	private final GUI gui;
 	//=============================================================================================
 
 	//=============================================================================================
-	public Rendering(Widgets widgets) {
-		this.widgets = widgets;
+	public Rendering(GUI gui) {
+		this.gui = gui;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void render(Graphics g) {
-		Widget root = widgets.root();
+		Widget root = gui.root();
 		g.mode2D();
 		render(g, root);
 	}

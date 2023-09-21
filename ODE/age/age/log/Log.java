@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 import java.util.Set;
-import age.AGEException;
+import age.X;
 
 /**************************************************************************************************
  * Class that provides configurable Logging capabilities
@@ -56,7 +56,7 @@ public class Log {
 			}
 			fileReader.close();
 		} catch (Exception e) {
-			throw new AGEException(e);
+			throw new X(e);
 		}
 	}
 	//=============================================================================================

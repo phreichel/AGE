@@ -11,39 +11,51 @@ import age.input.InputEvent;
 import age.input.InputEvents;
 import age.input.InputType;
 
-//*************************************************************************************************
-//TODO:add javadoc comments
-class InputEventHandling {
+/**************************************************************************************************
+ * ECS based EventHandler
+ */
+class EventHandling {
 
-	//=============================================================================================
+	/**********************************************************************************************
+	 * Injected Input Event System reference
+	 */
 	private InputEvents events;
-	private final Widgets widgets;
-	//=============================================================================================
+
+	/**********************************************************************************************
+	 * Injected GUI System reference
+	 */
+	private final GUI gui;
 
 	//=============================================================================================
 	private Widget hovered = null;
 	private Widget dragged = null;
 	private String action = null;
+	//=============================================================================================
 	private final Vector2f ref = new Vector2f();
 	private final Vector2f tmp = new Vector2f();
 	//=============================================================================================
 	
-	//=============================================================================================
-	public InputEventHandling(Widgets widgets) {
-		this.widgets = widgets;
+	/**********************************************************************************************
+	 * Constructor
+	 * @param gui the GUI system to be injected
+	 */
+	public EventHandling(GUI gui) {
+		this.gui = gui;
 	}
-	//=============================================================================================
 	
-	//=============================================================================================
+	/**********************************************************************************************
+	 * Injection assign method
+	 * @param events the InputEvent system to be injected
+	 */
 	public void assign(InputEvents events) {
 		this.events = events;
 		events.assign(InputType.KEY_PRESSED, this::handleKeyboard);
 		events.assign(InputType.KEY_RELEASED, this::handleKeyboard);
 		events.assign(InputType.KEY_TYPED, this::handleKeyboard);
+		events.assign(InputType.POINTER_MOVED, this::handlePointer);
 		events.assign(InputType.POINTER_PRESSED, this::handlePointer);
 		events.assign(InputType.POINTER_RELEASED, this::handlePointer);
 		events.assign(InputType.POINTER_CLICKED, this::handlePointer);
-		events.assign(InputType.POINTER_MOVED, this::handlePointer);
 		events.assign(InputType.SURFACE_RESIZED, this::handleSurface);
 	}
 	//=============================================================================================
@@ -60,7 +72,7 @@ class InputEventHandling {
 
 		// hover
 		if (hovered != null) hovered.clear(Flag.HOVERED);
-		hovered = hovered(tmp, widgets.root());
+		hovered = hovered(tmp, gui.root());
 		if (hovered != null) hovered.flag(Flag.HOVERED);
 
 		pressedFrameToFront(e);
@@ -230,7 +242,7 @@ class InputEventHandling {
 	
 	//=============================================================================================
 	public void handleSurface(InputEvent e) {
-		widgets
+		gui
 			.root()
 			.dimension(e.dimension());
 	}
