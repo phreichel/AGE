@@ -3,10 +3,9 @@ package age.scene;
 //*************************************************************************************************
 
 import javax.vecmath.Matrix4f;
-
 import age.port.Graphics;
 import age.port.Renderable;
-import age.util.Util;
+import age.util.XMath;
 
 //*************************************************************************************************
 public class Rendering implements Renderable {
@@ -43,8 +42,7 @@ public class Rendering implements Renderable {
 		}
 		Matrix4f dst = new Matrix4f();
 		dst.setIdentity();
-		//dst= Util.camReverse(src, dst);
-		dst= age.util.XMath.cameraMatrix(src, dst);
+		dst= XMath.cameraMatrix(src, dst);
 		g.mode3D(data.fovy, data.near, data.far);
 		g.applyTransformation(dst);
 	}
