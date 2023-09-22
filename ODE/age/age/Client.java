@@ -50,23 +50,19 @@ public class Client {
 
 	//=============================================================================================
 	private void setup() {
-		Log.get("default").disable(Level.DEBUG);
-
+		
 		port.create();
-		port.assign(events);
-		scene.assign(port);
-		gui.assign(port);
-		gui.assign(events);
-		tasks.assign(this);
-		tasks.assign(port);
-		tasks.assign(events);
+
+		dependencyInjections();
 
 		setupScene();
 		setupGUI();
 		
+		Log.info("Adjusting Port Window");
 		port.position(1920-1400, 0);
 		port.size(1400, 1080);
 		
+		Log.info("Setting Clock Tasks");
 		clock.addFPS(60, this::render);
 		clock.addFPS(120, this::update);
 
@@ -74,8 +70,23 @@ public class Client {
 	//=============================================================================================
 
 	//=============================================================================================
+	private void dependencyInjections() {
+		Log.info("Dependency Injections");
+		port.assign(events);
+		scene.assign(port);
+		gui.assign(port);
+		gui.assign(events);
+		tasks.assign(this);
+		tasks.assign(port);
+		tasks.assign(events);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	private void setupScene() {
 
+		Log.info("Scene Setup");
+		
 		for (int i=0; i<7; i++) {
 			for (int j=0; j<1; j++) {
 				for (int k=0; k<7; k++) {
@@ -109,6 +120,8 @@ public class Client {
 	//=============================================================================================
 	private void setupGUI() {
 
+		Log.info("GUI Setup");
+		
 		Widget root = gui.root();
 
 		String text = Util.readTextFile("assets/sample.txt");
@@ -195,14 +208,14 @@ public class Client {
 	//=============================================================================================
 	private void loop() {
 		running = true;
-		Log.debug("Entering Client Loop");
+		Log.info("Entering Client Loop");
 		port.visible(true);
 		while (running) {
 			clock.update();
 			Thread.yield();
 		}
 		port.visible(false);
-		Log.debug("Leaving Client Loop");
+		Log.info("Leaving Client Loop");
 	}
 	//=============================================================================================
 
@@ -233,10 +246,12 @@ public class Client {
 	
 	//=============================================================================================
 	public static void main(String[] args) {
-		Log.info("Client Main Start");
-		Client client = new Client();
+		Log.get("default").disable(Level.DEBUG);
+		Log.info("Client Start");
+		Client client;
+		client = new Client();
 		client.run();
-		Log.info("Client Main Stop");
+		Log.info("Client Stop");
 	}
 	//=============================================================================================
 	

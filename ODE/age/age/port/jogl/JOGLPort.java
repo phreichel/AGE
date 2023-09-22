@@ -10,6 +10,7 @@ import com.jogamp.newt.opengl.GLWindow;
 import com.jogamp.opengl.GLCapabilities;
 import com.jogamp.opengl.GLProfile;
 import age.input.Events;
+import age.log.Log;
 import age.port.Port;
 import age.port.Renderable;
 
@@ -35,6 +36,7 @@ public class JOGLPort implements Port {
 
 	//=============================================================================================
 	public void create() {
+		Log.info("Creating JOGL Port");
 		GLProfile glProfile = GLProfile.getDefault();
 		GLCapabilities glCapabilities = new GLCapabilities(glProfile);
 		window = GLWindow.create(glCapabilities);
