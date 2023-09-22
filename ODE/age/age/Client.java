@@ -65,6 +65,9 @@ public class Client {
 		setupScene();
 		setupGUI();
 		
+		port.position(1920-1200, 0);
+		port.size(1200, 1080);
+		
 		clock.addFPS(60, this::render);
 		clock.addFPS(120, this::update);
 
@@ -193,13 +196,14 @@ public class Client {
 	//=============================================================================================
 	private void loop() {
 		running = true;
-		Log.debug("Start Client Loop");
+		Log.debug("Entering Client Loop");
 		port.visible(true);
 		while (running) {
 			clock.update();
 			Thread.yield();
 		}
 		port.visible(false);
+		Log.debug("Leaving Client Loop");
 	}
 	//=============================================================================================
 
@@ -210,13 +214,19 @@ public class Client {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void render(int count, long nanoperiod, float dT) {
+	private void render(
+			int count,
+			long nanoperiod,
+			float dT) {
 		port.render();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private void update(int count, long nanoperiod, float dT) {
+	private void update(
+			int count,
+			long nanoperiod,
+			float dT) {
 		events.update();
 		tasks.update();
 	}
