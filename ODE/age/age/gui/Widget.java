@@ -8,7 +8,8 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Set;
 import javax.vecmath.Vector2f;
-import age.X;
+
+import age.util.X;
 
 //*************************************************************************************************
 public class Widget {

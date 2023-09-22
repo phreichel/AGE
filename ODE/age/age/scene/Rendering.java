@@ -3,9 +3,10 @@ package age.scene;
 //*************************************************************************************************
 
 import javax.vecmath.Matrix4f;
-import age.Util;
+
 import age.port.Graphics;
 import age.port.Renderable;
+import age.util.Util;
 
 //*************************************************************************************************
 public class Rendering implements Renderable {

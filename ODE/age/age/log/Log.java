@@ -16,7 +16,8 @@ import java.util.Map;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 import java.util.Set;
-import age.X;
+
+import age.util.X;
 
 //*************************************************************************************************
 public class Log {

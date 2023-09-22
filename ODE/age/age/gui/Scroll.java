@@ -1,111 +1,91 @@
 //*************************************************************************************************
-package age.scene;
+package age.gui;
 //*************************************************************************************************
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.EnumMap;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import age.util.X;
-
 //*************************************************************************************************
-public class Node {
+public class Scroll {
 
 	//=============================================================================================
-	private Node parent;
-	private final List<Node> children = new ArrayList<>(5);
-	private final List<Node> children_ro = Collections.unmodifiableList(children);
-	private Set<Flag> flags = EnumSet.noneOf(Flag.class);
-	private Set<Flag> flags_ro = Collections.unmodifiableSet(flags);
-	private final Map<NodeFlag, Object> components = new EnumMap<>(NodeFlag.class);
-	private final Map<NodeFlag, Object> components_ro = Collections.unmodifiableMap(components);
-	//=============================================================================================
-	
-	//=============================================================================================
-	public Node parent() {
-		return this.parent;
-	}
+	private float fullSize;
+	private float pageSize;
+	private float scrollRange;
+	private float pageFactor;
+	private float scrollFactor;
+	private float scrollValue;
 	//=============================================================================================
 
 	//=============================================================================================
-	public List<Node> children() {
-		return this.children_ro;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public void attach(Node node) {
-		attach(children.size(), node);
+	public void set(
+			float fullSize,
+			float pageSize) {
+		this.fullSize = fullSize;
+		this.pageSize = pageSize;
+		this.scrollRange = this.fullSize - this.pageSize;
+		this.pageFactor  = this.pageSize / this.fullSize;
+		this.scrollValue = this.scrollRange * this.scrollFactor;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void attach(int idx, Node node) {
-		if (node.parent != null) throw new X("Node already attached");
-		node.parent = this;
-		children.add(idx, node);
+	public float fullSize() {
+		return this.fullSize;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void detach() {
-		if (parent == null) throw new X("Node not attached");
-		parent.children.remove(this);
-		parent = null;
+	public float pageSize() {
+		return this.pageSize;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public Set<Flag> flags() {
-		return flags_ro;
+	public float scrollRange() {
+		return this.scrollRange;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void flag(Flag ... flags) {
-		this.flags.addAll(List.of(flags));
+	public float pageFactor() {
+		return this.pageFactor;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void clear(Flag ... flags) {
-		this.flags.removeAll(List.of(flags));
+	public float scrollFactor() {
+		return this.scrollFactor;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public boolean match(Flag ... flags) {
-		return this.flags.containsAll(List.of(flags));
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public Object component(NodeFlag part) {
-		return components.get(part);
+	public void scrollFactor(float s) {
+		s = Math.max(0f, s);
+		s = Math.min(1f, s);
+		this.scrollFactor = s;
+		this.scrollValue = this.scrollRange * this.scrollFactor;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	@SuppressWarnings("unchecked")
-	public <C> C component(NodeFlag part, Class<C> cls) {
-		return (C) component(part);
+	public float scrollValue() {
+		return this.scrollValue;
 	}
 	//=============================================================================================
-	
+
 	//=============================================================================================
-	public void component(NodeFlag part, Object component) {
-		part.check(component);
-		components.put(part, component);
+	public void scrollValue(float v) {
+		this.scrollFactor(v / this.scrollRange);
 	}
 	//=============================================================================================
-	
+
 	//=============================================================================================
-	public Map<NodeFlag, Object> components() {
-		return components_ro;
+	public float mapFactorToValue(float fullTargetSize, float factor) {
+		return fullTargetSize * this.pageFactor * factor;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public float mapValueToFactor(float fullTargetSize, float value) {
+		return value / (fullTargetSize * this.pageFactor);
 	}
 	//=============================================================================================
 	

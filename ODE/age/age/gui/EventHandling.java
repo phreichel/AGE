@@ -33,9 +33,9 @@ class EventHandling {
 	//=============================================================================================
 	public void assign(InputEvents events) {
 		this.events = events;
+		events.assign(InputType.KEY_TYPED, this::handleKeyboard);
 		events.assign(InputType.KEY_PRESSED, this::handleKeyboard);
 		events.assign(InputType.KEY_RELEASED, this::handleKeyboard);
-		events.assign(InputType.KEY_TYPED, this::handleKeyboard);
 		events.assign(InputType.POINTER_MOVED, this::handlePointer);
 		events.assign(InputType.POINTER_PRESSED, this::handlePointer);
 		events.assign(InputType.POINTER_RELEASED, this::handlePointer);
@@ -51,9 +51,13 @@ class EventHandling {
 
 	//=============================================================================================
 	public void handlePointer(InputEvent e) {
+
+		tmp.set(e.position());
+		Widget widget = traverse(gui.root(), tmp);
+		handlePointer(widget, e, tmp);
 		
 		tmp.set(e.position());
-
+		
 		// hover
 		if (hovered != null) hovered.clear(Flag.HOVERED);
 		hovered = hovered(tmp, gui.root());
@@ -72,6 +76,45 @@ class EventHandling {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	private void handlePointer(
+		Widget widget,
+		InputEvent e,
+		Vector2f localPos) {
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private Widget traverse(Widget widget, Vector2f pos) {
+		if (!widget.match(Flag.HIDDEN)) {
+			pos.sub(widget.position());
+			if (contains(widget.dimension(), pos)) {
+				List<Widget> list = widget.children();
+				for (int i=list.size()-1; i>= 0; i--) {
+					Widget child = list.get(i);
+					Widget result = traverse(child, pos);
+					if (result != null) {
+						return result;
+					}
+				}
+				return widget;
+			}
+			pos.add(widget.position());
+		}
+		return null;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private boolean contains(Vector2f dimension, Vector2f pos) {
+		return
+			(pos.x >= 0f) &&
+			(pos.x <= dimension.x) &&
+			(pos.y >= 0f) &&
+			(pos.y <= dimension.y);
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	private void pressedFrameToFront(InputEvent e) {
 		Widget front = hovered;
