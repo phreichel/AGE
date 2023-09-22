@@ -11,8 +11,8 @@ import com.jogamp.newt.event.WindowEvent;
 import com.jogamp.newt.event.WindowListener;
 import com.jogamp.newt.event.WindowUpdateEvent;
 import age.input.Button;
-import age.input.InputEvent;
-import age.input.InputEvents;
+import age.input.Event;
+import age.input.Events;
 import age.input.InputType;
 import age.input.Key;
 
@@ -20,11 +20,11 @@ import age.input.Key;
 class JOGLEventListener implements KeyListener, MouseListener, WindowListener {
 
 	//=============================================================================================
-	private InputEvents events = null;
+	private Events events = null;
 	//=============================================================================================
 
 	//=============================================================================================
-	public void assign(InputEvents events) {
+	public void assign(Events events) {
 		this.events = events;
 		events.assign(InputType.SURFACE_CLOSE_REQUEST, this::handleSurfaceCloseRequest);
 	}
@@ -162,7 +162,7 @@ class JOGLEventListener implements KeyListener, MouseListener, WindowListener {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void handleSurfaceCloseRequest(InputEvent e) {
+	private void handleSurfaceCloseRequest(Event e) {
 		events.postTaskCommand("shutdown");
 	}
 	//=============================================================================================

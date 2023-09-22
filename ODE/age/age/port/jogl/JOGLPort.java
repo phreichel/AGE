@@ -9,7 +9,7 @@ import com.jogamp.nativewindow.WindowClosingProtocol.WindowClosingMode;
 import com.jogamp.newt.opengl.GLWindow;
 import com.jogamp.opengl.GLCapabilities;
 import com.jogamp.opengl.GLProfile;
-import age.input.InputEvents;
+import age.input.Events;
 import age.port.Port;
 import age.port.Renderable;
 
@@ -28,7 +28,7 @@ public class JOGLPort implements Port {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void assign(InputEvents events) {
+	public void assign(Events events) {
 		eventListener.assign(events);
 	}
 	//=============================================================================================

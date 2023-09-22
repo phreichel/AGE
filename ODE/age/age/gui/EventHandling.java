@@ -7,15 +7,15 @@ import java.util.Collections;
 import java.util.List;
 import javax.vecmath.Vector2f;
 import age.input.Button;
-import age.input.InputEvent;
-import age.input.InputEvents;
+import age.input.Event;
+import age.input.Events;
 import age.input.InputType;
 
 //*************************************************************************************************
 class EventHandling {
 
 	//=============================================================================================
-	private InputEvents events;
+	private Events events;
 	private final GUI gui;
 	private Widget hovered = null;
 	private Widget dragged = null;
@@ -31,7 +31,7 @@ class EventHandling {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void assign(InputEvents events) {
+	public void assign(Events events) {
 		this.events = events;
 		events.assign(InputType.KEY_TYPED, this::handleKeyboard);
 		events.assign(InputType.KEY_PRESSED, this::handleKeyboard);
@@ -45,12 +45,12 @@ class EventHandling {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void handleKeyboard(InputEvent e) {
+	public void handleKeyboard(Event e) {
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void handlePointer(InputEvent e) {
+	public void handlePointer(Event e) {
 
 		tmp.set(e.position());
 		Widget widget = traverse(gui.root(), tmp);
@@ -79,7 +79,7 @@ class EventHandling {
 	//=============================================================================================
 	private void handlePointer(
 		Widget widget,
-		InputEvent e,
+		Event e,
 		Vector2f localPos) {
 	}
 	//=============================================================================================
@@ -116,7 +116,7 @@ class EventHandling {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void pressedFrameToFront(InputEvent e) {
+	private void pressedFrameToFront(Event e) {
 		Widget front = hovered;
 		if (e.type().equals(InputType.POINTER_PRESSED)) {
 			while (front != null) {
@@ -130,7 +130,7 @@ class EventHandling {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void buttonClickAction(InputEvent e) {
+	private void buttonClickAction(Event e) {
 		if (
 			hovered != null &&
 			hovered.match(Flag.BUTTON) &&
@@ -144,7 +144,7 @@ class EventHandling {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void startFrameSizeAction(InputEvent e) {
+	private void startFrameSizeAction(Event e) {
 		if (
 			dragged == null &&
 			hovered != null &&
@@ -159,7 +159,7 @@ class EventHandling {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void startFrameDragAction(InputEvent e) {
+	private void startFrameDragAction(Event e) {
 		if (
 			dragged == null &&
 			hovered != null &&
@@ -173,7 +173,7 @@ class EventHandling {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void startScrollHandleAction(InputEvent e) {
+	private void startScrollHandleAction(Event e) {
 		if (
 			dragged == null &&
 			hovered != null &&
@@ -187,7 +187,7 @@ class EventHandling {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void updateActionState(InputEvent e, String action) {
+	private void updateActionState(Event e, String action) {
 		Widget frame = hovered;
 		Flag flag = Flag.FRAME;
 		if (action.equals("handle")) {
@@ -208,7 +208,7 @@ class EventHandling {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void updateDragAction(InputEvent e) {
+	private void updateDragAction(Event e) {
 		if (
 			dragged != null &&
 			e.type().equals(InputType.POINTER_MOVED)
@@ -229,7 +229,7 @@ class EventHandling {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void stopDragAction(InputEvent e) {
+	private void stopDragAction(Event e) {
 		if (
 			dragged != null &&
 			e.type().equals(InputType.POINTER_RELEASED)
@@ -268,7 +268,7 @@ class EventHandling {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void handleSurface(InputEvent e) {
+	public void handleSurface(Event e) {
 		gui
 			.root()
 			.dimension(e.dimension());

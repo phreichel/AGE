@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import age.Client;
-import age.input.InputEvent;
-import age.input.InputEvents;
+import age.input.Event;
+import age.input.Events;
 import age.input.InputType;
 import age.port.Port;
 
@@ -39,13 +39,13 @@ public class Tasks {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void assign(InputEvents events) {
+	public void assign(Events events) {
 		events.assign(InputType.TASK_COMMAND, this::handleEvent);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private void handleEvent(InputEvent e) {
+	private void handleEvent(Event e) {
 		put(e.command());
 	}
 	//=============================================================================================

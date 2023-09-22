@@ -19,7 +19,7 @@ import age.gui.Multiline;
 import age.gui.Widget;
 import age.gui.GUI;
 import age.gui.Window;
-import age.input.InputEvents;
+import age.input.Events;
 import age.log.Level;
 import age.log.Log;
 
@@ -28,7 +28,7 @@ public class Client {
 
 	//=============================================================================================
 	private Clock clock = new Clock();
-	private InputEvents events = new InputEvents();
+	private Events events = new Events();
 	private Scene scene = new Scene();
 	private GUI gui = new GUI();
 	private Tasks tasks = new Tasks();
