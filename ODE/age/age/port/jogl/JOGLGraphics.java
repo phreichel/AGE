@@ -18,10 +18,9 @@ import com.jogamp.opengl.util.awt.TextRenderer;
 import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureCoords;
 import com.jogamp.opengl.util.texture.TextureIO;
-
 import age.port.Graphics;
-import age.util.Util;
 import age.util.X;
+import age.util.XMath;
 
 //*************************************************************************************************
 class JOGLGraphics implements Graphics {
@@ -166,7 +165,7 @@ class JOGLGraphics implements Graphics {
 	
 	//=============================================================================================
 	public void applyTransformation(Matrix4f matrix) {
-		buffer = Util.toGLMatrix(matrix, buffer);
+		buffer = XMath.toGLMatrix(matrix, buffer);
 		gl.glMultMatrixf(buffer, 0);
 		//gl.glMatrixMultfEXT(GL_MODELVIEW, buffer, 0);
 	}
