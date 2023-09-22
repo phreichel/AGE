@@ -15,19 +15,19 @@ public final class Math {
 
 		dst.set(src);
 		
-		float r0 = dst.m03; 
-		float r1 = dst.m13; 
-		float r2 = dst.m23; 
+		float r0 = -dst.m03;
+		float r1 = -dst.m13;
+		float r2 = -dst.m23;
 
-		dst.m03 = 0f; 
-		dst.m13 = 0f; 
-		dst.m23 = 0f; 
-		
+		dst.m03 = 0f;
+		dst.m13 = 0f;
+		dst.m23 = 0f;
+
 		dst.transpose();
-
-		dst.m03 = r0 * dst.m00 + r1 * dst.m10 + r2 * dst.m20; 
-		dst.m13 = r0 * dst.m01 + r1 * dst.m11 + r2 * dst.m21; 
-		dst.m23 = r0 * dst.m02 + r1 * dst.m12 + r2 * dst.m22; 
+		
+		dst.m03 = r0 * dst.m00 + r1 * dst.m01 + r2 * dst.m02;
+		dst.m13 = r0 * dst.m10 + r1 * dst.m11 + r2 * dst.m12;
+		dst.m23 = r0 * dst.m20 + r1 * dst.m21 + r2 * dst.m22;
 
 		return dst;
 

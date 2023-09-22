@@ -10,7 +10,6 @@ import age.scene.NodeFlag;
 import age.scene.Scene;
 import age.task.Tasks;
 import age.util.Util;
-
 import javax.vecmath.AxisAngle4f;
 import javax.vecmath.Matrix4f;
 import javax.vecmath.Vector3f;
@@ -65,8 +64,8 @@ public class Client {
 		setupScene();
 		setupGUI();
 		
-		port.position(1920-1200, 0);
-		port.size(1200, 1080);
+		port.position(1920-1400, 0);
+		port.size(1400, 1080);
 		
 		clock.addFPS(60, this::render);
 		clock.addFPS(120, this::update);

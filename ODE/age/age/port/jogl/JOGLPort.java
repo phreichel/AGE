@@ -105,6 +105,12 @@ public class JOGLPort implements Port {
 	//=============================================================================================
 	public void visible(boolean visible) {
 		window.setVisible(visible);
+		// adjustment hack
+		if (!window.isFullscreen()) {
+			int x = window.getX();
+			int y = window.getY();
+			window.setTopLevelPosition(x, y);
+		}
 	}
 	//=============================================================================================
 

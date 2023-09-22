@@ -94,7 +94,7 @@ public class Util {
 	//=============================================================================================
 
 	//=============================================================================================
-	public static Matrix4f camReverse(Matrix4f src, Matrix4f dst) {
+	public static Matrix4f acamReverse(Matrix4f src, Matrix4f dst) {
 		Matrix3f R = new Matrix3f();
 		Vector3f r = new Vector3f();
 		src.get(R);

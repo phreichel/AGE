@@ -43,7 +43,8 @@ public class Rendering implements Renderable {
 		}
 		Matrix4f dst = new Matrix4f();
 		dst.setIdentity();
-		dst= Util.camReverse(src, dst);
+		//dst= Util.camReverse(src, dst);
+		dst= age.util.Math.cameraMatrix(src, dst);
 		g.mode3D(data.fovy, data.near, data.far);
 		g.applyTransformation(dst);
 	}
