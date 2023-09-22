@@ -14,6 +14,7 @@ import javax.vecmath.AxisAngle4f;
 import javax.vecmath.Matrix4f;
 import javax.vecmath.Vector3f;
 import age.clock.Clock;
+import age.gui.Factory;
 import age.gui.Flag;
 import age.gui.Multiline;
 import age.gui.Widget;
@@ -122,6 +123,7 @@ public class Client {
 
 		Log.info("GUI Setup");
 		
+		Factory factory = gui.factory(); 
 		Widget root = gui.root();
 
 		String text = Util.readTextFile("assets/sample.txt");
@@ -154,32 +156,21 @@ public class Client {
 		sysMenuFrame.dimension(30, 80);
 		root.add(sysMenuFrame);
 		
-		Widget fsButton = new Widget(Flag.BUTTON);
+		
+		Widget fsButton = factory.createButton("fullscreen", "fullscreen");
 		fsButton.position(5, 5);
-		fsButton.dimension(20, 20);
-		fsButton.image("fullscreen");
-		fsButton.command("fullscreen");
 		sysMenuFrame.add(fsButton);
 
-		Widget dtButton = new Widget(Flag.BUTTON);
+		Widget dtButton = factory.createButton("desk", "desk");
 		dtButton.position(5, 30);
-		dtButton.dimension(20, 20);
-		dtButton.image("desk");
-		dtButton.command("desk");
 		sysMenuFrame.add(dtButton);
 		
-		Widget sdButtton = new Widget(Flag.BUTTON);
-		sdButtton.position(5, 55);
-		sdButtton.dimension(20, 20);
-		sdButtton.image("shutdown");
-		sdButtton.command("shutdown");
-		sysMenuFrame.add(sdButtton);
+		Widget sdButton = factory.createButton("shutdown", "shutdown");
+		sdButton.position(5, 55);
+		sysMenuFrame.add(sdButton);
 
-		Widget sysButton = new Widget(Flag.BUTTON);
+		Widget sysButton = factory.createButton("plus", "sysmenu");
 		sysButton.position(5, 5);
-		sysButton.dimension(20, 20);
-		sysButton.image("plus");
-		sysButton.command("sysmenu");
 		root.add(sysButton);
 
 		tasks.assign("sysmenu", this::toggleSysmenu);

@@ -6,7 +6,7 @@ import javax.vecmath.Matrix4f;
 import javax.vecmath.Vector3f;
 
 //*************************************************************************************************
-public final class XMath {
+public final class MathUtil {
 
 	//=============================================================================================
 	public static final Matrix4f cameraMatrix(
