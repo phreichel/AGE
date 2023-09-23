@@ -164,13 +164,16 @@ public class Renderer implements Renderable {
 			widget.dimension(),
 			true);
 		
-		g.calcMultitext(
-			text,
-			widget.dimension().x-6,
-			widget.dimension().y-6,
-			"text",
-			scstate,
-			mlstate);
+		if (widget.match(Flag.DIRTY)) {
+			widget.clear(Flag.DIRTY);
+			g.calcMultitext(
+				text,
+				widget.dimension().x-6,
+				widget.dimension().y-6,
+				"text",
+				scstate,
+				mlstate);
+		}
 		
 		for (int i=0; i<scstate.page; i++) {
 			int idx = scstate.mark + i;

@@ -157,6 +157,7 @@ public class Widget {
 
 	//=============================================================================================
 	private void resized(float dx, float dy) {
+		flag(Flag.DIRTY);
 		if (dx != 0f || dy != 0f) {
 			for (Widget child : children) {
 				child.parentResized(dx, dy);
