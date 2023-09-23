@@ -6,7 +6,7 @@ import age.port.Port;
 import age.port.jogl.JOGLPort;
 import age.scene.Camera;
 import age.scene.Node;
-import age.scene.NodeFlag;
+import age.scene.NodeComponent;
 import age.scene.Scene;
 import age.task.Tasks;
 import age.util.Util;
@@ -19,7 +19,6 @@ import age.gui.Flag;
 import age.gui.Multiline;
 import age.gui.Widget;
 import age.gui.GUI;
-import age.gui.Window;
 import age.input.Events;
 import age.log.Level;
 import age.log.Log;
@@ -96,7 +95,7 @@ public class Client {
 					Matrix4f m = new Matrix4f();
 					m.setIdentity();
 					m.set(new Vector3f((i-3) * 2.5f, (j) * 2.5f, (k-3) * 2.5f));
-					n.component(NodeFlag.TRANSFORM, m);
+					n.component(NodeComponent.TRANSFORM, m);
 					scene.root().attach(n);
 				}
 			}
@@ -110,8 +109,8 @@ public class Client {
 		AxisAngle4f rot = new AxisAngle4f(1, 0, 0, a);
 		camTransform.setRotation(rot);
 		camTransform.setTranslation(new Vector3f(-2, 15, 15));
-		camNode.component(NodeFlag.TRANSFORM, camTransform);
-		camNode.component(NodeFlag.CAMERA, camData);
+		camNode.component(NodeComponent.TRANSFORM, camTransform);
+		camNode.component(NodeComponent.CAMERA, camData);
 		scene.root().attach(camNode);	
 		scene.camera(camNode);
 		
@@ -136,10 +135,10 @@ public class Client {
 		
 		for (int i=0; i<5; i++) {
 			
-			Window window = new Window();
+			Widget window = factory.createWindow(800, 600, "Window");
 			window.position(50 + 15*i, 50 + 35*i);
 			windowFrame.add(window);
-			Widget page = window.getPage();
+			Widget page = window.children().get(2);
 			Multiline textTest = new Multiline();
 			textTest.assign(tasks);
 			textTest.dimension(
@@ -157,19 +156,19 @@ public class Client {
 		root.add(sysMenuFrame);
 		
 		
-		Widget fsButton = factory.createButton("fullscreen", "fullscreen");
+		Widget fsButton = factory.createIconButton("fullscreen", "fullscreen");
 		fsButton.position(5, 5);
 		sysMenuFrame.add(fsButton);
 
-		Widget dtButton = factory.createButton("desk", "desk");
+		Widget dtButton = factory.createIconButton("desk", "desk");
 		dtButton.position(5, 30);
 		sysMenuFrame.add(dtButton);
 		
-		Widget sdButton = factory.createButton("shutdown", "shutdown");
+		Widget sdButton = factory.createIconButton("shutdown", "shutdown");
 		sdButton.position(5, 55);
 		sysMenuFrame.add(sdButton);
 
-		Widget sysButton = factory.createButton("plus", "sysmenu");
+		Widget sysButton = factory.createIconButton("plus", "sysmenu");
 		sysButton.position(5, 5);
 		root.add(sysButton);
 

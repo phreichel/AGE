@@ -98,8 +98,8 @@ public class VScroller extends Widget {
 		btnUp = new Widget(Flag.BUTTON);
 		btnUp.position(0, 0);
 		btnUp.dimension(11, 10);
-		btnUp.image("arrowup");
-		btnUp.command(cmdUp);
+		btnUp.component(WidgetComponent.IMAGE_NAME, "arrowup");
+		btnUp.component(WidgetComponent.COMMAND, cmdUp);
 		btnUp.dock(0, 1, 0, 0);
 		add(btnUp);
 
@@ -118,8 +118,8 @@ public class VScroller extends Widget {
 		btnDn.position(0, 60);
 		btnDn.dimension(11, 10);
 		btnDn.dock(0, 1, 1, 1);
-		btnDn.image("arrowdown");
-		btnDn.command(cmdDn);
+		btnUp.component(WidgetComponent.IMAGE_NAME, "arrowdown");
+		btnUp.component(WidgetComponent.COMMAND, cmdDn);
 		add(btnDn);
 		
 	}

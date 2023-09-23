@@ -10,9 +10,10 @@ import age.input.Button;
 import age.input.Event;
 import age.input.Events;
 import age.input.InputType;
+import age.util.X;
 
 //*************************************************************************************************
-class EventHandling {
+class Handler {
 
 	//=============================================================================================
 	private Events events;
@@ -25,7 +26,7 @@ class EventHandling {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public EventHandling(GUI gui) {
+	public Handler(GUI gui) {
 		this.gui = gui;
 	}
 	//=============================================================================================
@@ -64,11 +65,8 @@ class EventHandling {
 		if (hovered != null) hovered.flag(Flag.HOVERED);
 
 		pressedFrameToFront(e);
-		buttonClickAction(e);
 		
 		// frame actions
-		startFrameSizeAction(e);
-		startFrameDragAction(e);
 		startScrollHandleAction(e);
 		updateDragAction(e);
 		stopDragAction(e);
@@ -81,6 +79,182 @@ class EventHandling {
 		Widget widget,
 		Event e,
 		Vector2f localPos) {
+		if (activeWidget != null) {
+			widget = activeWidget;
+		}
+		for (Flag flag : widget.flags()) {
+			switch (flag) {
+				case  CONTEXT_MENU -> handleContextMenu(widget, e, localPos);
+				case  DRAG_HANDLE -> handleDrag(widget, e, localPos);
+				case  RESIZE_HANDLE -> handleResize(widget, e, localPos);
+				case  CLOSE_HANDLE -> handleClose(widget, e, localPos);
+				case  SCROLL_UP_HANDLE -> handleScrollUp(widget, e, localPos);
+				case  SCROLL_DOWN_HANDLE -> handleScrollDown(widget, e, localPos);
+				case  SCROLL_BAR_HANDLE -> handleScrollBar(widget, e, localPos);
+				case  COMMAND_HANDLE -> handleCommand(widget, e, localPos);
+				default -> {}
+			}
+		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void handleContextMenu(
+		Widget widget,
+		Event e,
+		Vector2f localPos) {
+		throw new X("not yet implemented");
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private Widget activeWidget = null;
+	private final Vector2f lastPointerPosition = new Vector2f();
+	//=============================================================================================
+	
+	//=============================================================================================
+	// TODO: Drag Logic is flawed
+	private void handleDrag(
+		Widget widget,
+		Event e,
+		Vector2f localPos) {
+		if (
+			e.type().equals(InputType.POINTER_PRESSED) &&
+			e.button().equals(Button.BTN1) &&
+			activeWidget == null
+		) {
+			activeWidget = widget;
+			lastPointerPosition.set(e.position());
+		} else if (
+			e.type().equals(InputType.POINTER_RELEASED) &&
+			e.button().equals(Button.BTN1) &&
+			activeWidget != null
+		) {
+			lastPointerPosition.sub(e.position());
+			lastPointerPosition.negate();
+			Widget dragged = activeWidget.component(WidgetComponent.DRAGGED_WIDGET, Widget.class);
+			dragged.positionAdd(lastPointerPosition);
+			lastPointerPosition.set(0, 0);
+			activeWidget = null;
+		} else if (
+			e.type().equals(InputType.POINTER_MOVED) &&
+			activeWidget != null
+		) {
+			lastPointerPosition.sub(e.position());
+			lastPointerPosition.negate();
+			Widget dragged = activeWidget.component(WidgetComponent.DRAGGED_WIDGET, Widget.class);
+			dragged.positionAdd(lastPointerPosition);
+			lastPointerPosition.set(e.position());
+		}
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void handleResize(
+		Widget widget,
+		Event e,
+		Vector2f localPos) {
+		if (
+			e.type().equals(InputType.POINTER_PRESSED) &&
+			e.button().equals(Button.BTN1) &&
+			activeWidget == null
+		) {
+			activeWidget = widget;
+			lastPointerPosition.set(e.position());
+		} else if (
+			e.type().equals(InputType.POINTER_RELEASED) &&
+			e.button().equals(Button.BTN1) &&
+			activeWidget != null
+		) {
+			lastPointerPosition.sub(e.position());
+			lastPointerPosition.negate();
+			Widget resized = activeWidget.component(WidgetComponent.RESIZED_WIDGET, Widget.class);
+			resized.dimensionAdd(lastPointerPosition);
+			lastPointerPosition.set(0, 0);
+			activeWidget = null;
+		} else if (
+			e.type().equals(InputType.POINTER_MOVED) &&
+			activeWidget != null
+		) {
+			lastPointerPosition.sub(e.position());
+			lastPointerPosition.negate();
+			Widget resized = activeWidget.component(WidgetComponent.RESIZED_WIDGET, Widget.class);
+			resized.dimensionAdd(lastPointerPosition);
+			lastPointerPosition.set(e.position());
+		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void handleClose(
+		Widget widget,
+		Event e,
+		Vector2f localPos) {
+		if (
+			e.type().equals(InputType.POINTER_PRESSED) &&
+			e.button().equals(Button.BTN1) &&
+			activeWidget == null) {
+			activeWidget = widget;
+			lastPointerPosition.set(e.position());
+		} else if (
+			e.type().equals(InputType.POINTER_RELEASED) &&
+			e.button().equals(Button.BTN1) &&
+			activeWidget != null)
+		{
+			if (contains(widget.dimension(), localPos)) {
+				Widget closed = widget.component(WidgetComponent.CLOSED_WIDGET, Widget.class);
+				closed.flag(Flag.HIDDEN);
+			}
+			activeWidget = null;
+		}
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void handleScrollUp(
+		Widget widget,
+		Event e,
+		Vector2f localPos) {
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void handleScrollDown(
+		Widget widget,
+		Event e,
+		Vector2f localPos) {
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void handleScrollBar(
+		Widget widget,
+		Event e,
+		Vector2f localPos) {
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void handleCommand(
+		Widget widget,
+		Event e,
+		Vector2f localPos) {
+		if (
+			e.type().equals(InputType.POINTER_PRESSED) &&
+			e.button().equals(Button.BTN1) &&
+			activeWidget == null) {
+			activeWidget = widget;
+		} else if (
+			e.type().equals(InputType.POINTER_RELEASED) &&
+			e.button().equals(Button.BTN1) &&
+			activeWidget != null)
+		{
+			if (contains(widget.dimension(), localPos)) {
+				String command = widget.component(WidgetComponent.COMMAND, String.class);
+				events.postTaskCommand(command);
+			}
+			activeWidget = null;
+		}
 	}
 	//=============================================================================================
 	
@@ -125,49 +299,6 @@ class EventHandling {
 				}
 				front = front.parent();
 			}
-		}
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private void buttonClickAction(Event e) {
-		if (
-			hovered != null &&
-			hovered.match(Flag.BUTTON) &&
-			hovered.command() != null &&
-			e.type().equals(InputType.POINTER_RELEASED) &&
-			e.button().equals(Button.BTN1)
-		) {
-			events.postTaskCommand(hovered.command());
-		}
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private void startFrameSizeAction(Event e) {
-		if (
-			dragged == null &&
-			hovered != null &&
-			hovered.match(Flag.BUTTON) &&
-			e.type().equals(InputType.POINTER_PRESSED) &&
-			e.button().equals(Button.BTN1) &&
-			hovered.image().equals("size")
-		) {
-			updateActionState(e, "size");
-		}
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private void startFrameDragAction(Event e) {
-		if (
-			dragged == null &&
-			hovered != null &&
-			hovered.match(Flag.TITLE) &&
-			e.type().equals(InputType.POINTER_PRESSED) &&
-			e.button().equals(Button.BTN1)
-		) {
-			updateActionState(e, "move");
 		}
 	}
 	//=============================================================================================

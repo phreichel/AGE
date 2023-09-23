@@ -21,8 +21,8 @@ public class Node {
 	private final List<Node> children_ro = Collections.unmodifiableList(children);
 	private Set<Flag> flags = EnumSet.noneOf(Flag.class);
 	private Set<Flag> flags_ro = Collections.unmodifiableSet(flags);
-	private final Map<NodeFlag, Object> components = new EnumMap<>(NodeFlag.class);
-	private final Map<NodeFlag, Object> components_ro = Collections.unmodifiableMap(components);
+	private final Map<NodeComponent, Object> components = new EnumMap<>(NodeComponent.class);
+	private final Map<NodeComponent, Object> components_ro = Collections.unmodifiableMap(components);
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -84,27 +84,27 @@ public class Node {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Object component(NodeFlag part) {
+	public Object component(NodeComponent part) {
 		return components.get(part);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	@SuppressWarnings("unchecked")
-	public <C> C component(NodeFlag part, Class<C> cls) {
+	public <C> C component(NodeComponent part, Class<C> cls) {
 		return (C) component(part);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void component(NodeFlag part, Object component) {
+	public void component(NodeComponent part, Object component) {
 		part.check(component);
 		components.put(part, component);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Map<NodeFlag, Object> components() {
+	public Map<NodeComponent, Object> components() {
 		return components_ro;
 	}
 	//=============================================================================================

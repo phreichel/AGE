@@ -7,14 +7,14 @@ import age.port.Graphics;
 import age.port.Renderable;
 
 //*************************************************************************************************
-public class Rendering implements Renderable {
+public class Renderer implements Renderable {
 
 	//=============================================================================================
 	private final GUI gui;
 	//=============================================================================================
 
 	//=============================================================================================
-	public Rendering(GUI gui) {
+	public Renderer(GUI gui) {
 		this.gui = gui;
 	}
 	//=============================================================================================
@@ -41,131 +41,107 @@ public class Rendering implements Renderable {
 
 	//=============================================================================================
 	private void renderWidget(Graphics g, Widget widget) {
-		if      (renderBox(g, widget));
-		else if (renderFrame(g, widget));
-		else if (renderButton(g, widget));
-		else if (renderCanvas(g, widget));
-		else if (renderTitle(g, widget));
-		else if (renderHandle(g, widget));
-		else if (renderMultiline(g, widget));
-		else {
-			// do nothing;
+		for (Flag flag :widget.flags()) {
+			switch (flag) {
+				case BOX -> renderBox(g, widget);
+				case FRAME -> renderFrame(g, widget);
+				case BUTTON -> renderButton(g, widget);
+				case CANVAS -> renderCanvas(g, widget);
+				case TITLE -> renderTitle(g, widget);
+				case HANDLE -> renderHandle(g, widget);
+				case MULTILINE -> renderMultiline(g, widget);
+				default -> {}
+			}
 		}
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private boolean renderBox(Graphics g, Widget widget) {
-		if (widget.match(Flag.BOX)) {
-			g.color(.4f, 0f, 0f);
-			g.rectangle(widget.dimension(), true);
-			return true;
-		}
-		return false;
+	private void renderBox(Graphics g, Widget widget) {
+		g.color(.4f, 0f, 0f);
+		g.rectangle(widget.dimension(), true);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private boolean renderFrame(Graphics g, Widget widget) {
-		if (widget.match(Flag.FRAME)) {
+	private void renderFrame(Graphics g, Widget widget) {
+		g.color(.2f, 0f, 0f);
+		g.rectangle(widget.dimension(), false);
+		g.color(1f, 0, 0);
+		g.rectangle(widget.dimension(), true);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void renderButton(Graphics g, Widget widget) {
+		if (!widget.match(Flag.HOVERED))
+			g.color(.8f, 0f, 0f);
+		else
+			g.color(1f, .3f, .3f);
+		String image = widget.component(WidgetComponent.IMAGE_NAME, String.class);
+		if (image != null) {
+			g.texture(0, 0, widget.dimension().x, widget.dimension().y, image);
+		} else {
+			g.rectangle(widget.dimension(), false);
+		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void renderCanvas(Graphics g, Widget widget) {
+		g.color(0f, 0f, .2f);
+		g.rectangle(widget.dimension(), false);
+		g.color(1f, 0f, 0f);
+		g.rectangle(widget.dimension(), true);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void renderTitle(Graphics g, Widget widget) {
+		if (!widget.match(Flag.HOVERED))
 			g.color(.2f, 0f, 0f);
-			g.rectangle(widget.dimension(), false);
-			g.color(1f, 0, 0);
-			g.rectangle(widget.dimension(), true);
-			return true;
-		}
-		return false;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private boolean renderButton(Graphics g, Widget widget) {
-		if (widget.match(Flag.BUTTON)) {
-			if (!widget.match(Flag.HOVERED))
-				g.color(.8f, 0f, 0f);
-			else
-				g.color(1f, .3f, .3f);
-			String image = widget.image();
-			if (image != null) {
-				g.texture(0, 0, widget.dimension().x, widget.dimension().y, image);
-			} else {
-				g.rectangle(widget.dimension(), false);
-			}
-			return true;
-		}
-		return false;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private boolean renderCanvas(Graphics g, Widget widget) {
-		if (widget.match(Flag.CANVAS)) {
-			g.color(0f, 0f, .2f);
-			g.rectangle(widget.dimension(), false);
-			g.color(1f, 0f, 0f);
-			g.rectangle(widget.dimension(), true);
-			return true;
-		}
-		return false;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private boolean renderTitle(Graphics g, Widget widget) {
-		if (widget.match(Flag.TITLE)) {
-			if (!widget.match(Flag.HOVERED))
-				g.color(.2f, 0f, 0f);
-			else
-				g.color(.4f, 0f, 0f);
-			g.rectangle(widget.dimension(), false);
+		else
 			g.color(.4f, 0f, 0f);
-			g.rectangle(widget.dimension(), true);
-			g.text(3, widget.dimension().y-3, widget.text(), "title");
-			return true;
-		}
-		return false;
+		g.rectangle(widget.dimension(), false);
+		g.color(.4f, 0f, 0f);
+		g.rectangle(widget.dimension(), true);
+		String text = widget.component(WidgetComponent.TEXT, String.class);
+		g.text(3, widget.dimension().y-3, text, "title");
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private boolean renderHandle(Graphics g, Widget widget) {
-		if (widget.match(Flag.HANDLE)) {
-			g.color(1f, 0f, 0f);
-			g.rectangle(widget.dimension(), false);
-			return true;
-		}
-		return false;
+	private void renderHandle(Graphics g, Widget widget) {
+		g.color(1f, 0f, 0f);
+		g.rectangle(widget.dimension(), false);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private boolean renderMultiline(Graphics g, Widget widget) {
-		if (widget.match(Flag.MULTILINE)) {
-			Multiline ml = (Multiline) widget;
-			g.color(0f, 0f, .5f);
-			g.rectangle(
-				widget.dimension(),
-				false);
-			g.color(1f, 0f, 0f);
-			g.rectangle(
-				widget.dimension(),
-				true);
-			g.calcMultitext(
-				ml.text(),
-				ml.dimension().x-6,
-				ml.dimension().y-6,
-				"text",
-				ml.buffer());
-			ml.update();
-			for (int i=0; i<ml.page(); i++) {
-				int idx = ml.offset() + i;
-				if (idx >= ml.count()) break;
-				CharSequence seq = ml.line(idx);
-				g.text(3, 3 + (1+i)*ml.lineHeight(), seq, "text");
-			}
-			return true;
+	private void renderMultiline(Graphics g, Widget widget) {
+		Multiline ml = (Multiline) widget;
+		String text = ml.component(WidgetComponent.TEXT, String.class);
+		g.color(0f, 0f, .5f);
+		g.rectangle(
+			widget.dimension(),
+			false);
+		g.color(1f, 0f, 0f);
+		g.rectangle(
+			widget.dimension(),
+			true);
+		g.calcMultitext(
+			text,
+			ml.dimension().x-6,
+			ml.dimension().y-6,
+			"text",
+			ml.buffer());
+		ml.update();
+		for (int i=0; i<ml.page(); i++) {
+			int idx = ml.offset() + i;
+			if (idx >= ml.count()) break;
+			CharSequence seq = ml.line(idx);
+			g.text(3, 3 + (1+i)*ml.lineHeight(), seq, "text");
 		}
-		return false;
 	}
 	//=============================================================================================
 	

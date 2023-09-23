@@ -47,7 +47,7 @@ public class Multiline extends Widget {
 	public void text(String text) {
 		text = text.replace("\r", "");
 		text = text.replace("\t", "  ");
-		super.text(text);
+		this.component(WidgetComponent.TEXT, text);
 	}
 	//=============================================================================================
 	
@@ -100,7 +100,8 @@ public class Multiline extends Widget {
 	public CharSequence line(int idx) {
 		int start = buffer[3+2*idx];
 		int end = buffer[3+2*idx+1];
-		return text().subSequence(start, end);
+		String text = component(WidgetComponent.TEXT, String.class);
+		return text.subSequence(start, end);
 	}
 	//=============================================================================================
 	

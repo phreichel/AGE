@@ -31,12 +31,12 @@ public class Rendering implements Renderable {
 
 	//=============================================================================================
 	private void renderCamera(Graphics g, Node node) {
-		Camera data = node.component(NodeFlag.CAMERA, Camera.class);
+		Camera data = node.component(NodeComponent.CAMERA, Camera.class);
 		Matrix4f src = new Matrix4f();
 		src.setIdentity();
 		Node n = node;
 		while (n != null) {
-			Matrix4f m = n.component(NodeFlag.TRANSFORM, Matrix4f.class);
+			Matrix4f m = n.component(NodeComponent.TRANSFORM, Matrix4f.class);
 			if (m != null) src.mul(m, src);
 			n = n.parent();
 		}
@@ -50,7 +50,7 @@ public class Rendering implements Renderable {
 	
 	//=============================================================================================
 	private void render(Graphics g, Node node) {
-		Matrix4f m = node.component(NodeFlag.TRANSFORM, Matrix4f.class);
+		Matrix4f m = node.component(NodeComponent.TRANSFORM, Matrix4f.class);
 		if (m != null) {
 			g.pushTransformation();
 			g.applyTransformation(m);
