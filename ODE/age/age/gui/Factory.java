@@ -127,8 +127,11 @@ public class Factory {
 	//=============================================================================================
 
 	//=============================================================================================
-	public Widget createMultiLine(boolean verticalScroll) {
+	public Widget createMultiLine(String text) {
 
+		Widget spacer = new Widget();
+		spacer.dimension(600, 800);
+		
 		ScrollableState state = new ScrollableState();
 		MultilineState  multi = new MultilineState();
 		
@@ -137,16 +140,17 @@ public class Factory {
 		multiline.flag(Flag.POINTER_SCROLL);
 		multiline.component(WidgetComponent.SCROLLABLE_VERTICAL, state);
 		multiline.component(WidgetComponent.MULTILINE_STATE, multi);
-		multiline.dimension(600, 800);
+		multiline.component(WidgetComponent.TEXT, text);
+		multiline.dimension(580, 800);
+		multiline.dock(0, 1, 0, 1);
+		spacer.add(multiline);
 		
-		if (verticalScroll) {
-			Widget scroller = createVerticalScrollBar(multiline);
-			scroller.position(600-15, 5);
-			scroller.dimension(10, 770);
-			multiline.add(scroller);
-		}
+		Widget scroller = createVerticalScrollBar(multiline);
+		scroller.position(600-15, 5);
+		scroller.dimension(10, 770);
+		spacer.add(scroller);
 		
-		return multiline;
+		return spacer;
 
 	}
 	//=============================================================================================

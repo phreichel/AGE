@@ -17,7 +17,6 @@ import age.clock.Clock;
 import age.gui.Factory;
 import age.gui.Flag;
 import age.gui.Widget;
-import age.gui.WidgetComponent;
 import age.gui.GUI;
 import age.input.Events;
 import age.log.Level;
@@ -140,11 +139,10 @@ public class Client {
 			windowFrame.add(window);
 			Widget page = window.children().get(2);
 			
-			Widget textTest = factory.createMultiLine(true);
+			Widget textTest = factory.createMultiLine(text);
 			textTest.dimension(
 				page.width(),
 				page.height());
-			textTest.component(WidgetComponent.TEXT, text);
 			textTest.dock(0, 1, 0, 1);
 			page.add(textTest);
 			
