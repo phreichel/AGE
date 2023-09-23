@@ -13,7 +13,11 @@ public enum WidgetComponent {
 	IMAGE_NAME(String.class),
 	DRAGGED_WIDGET(Widget.class),
 	RESIZED_WIDGET(Widget.class),
-	CLOSED_WIDGET(Widget.class);
+	CLOSED_WIDGET(Widget.class),
+	SCROLLABLE_HORIZONTAL(ScrollableState.class),
+	SCROLLABLE_VERTICAL(ScrollableState.class),
+	SCROLL_WIDGET(Widget.class),
+	MULTILINE_STATE(MultilineState.class);
 	//=============================================================================================
 
 	//=============================================================================================

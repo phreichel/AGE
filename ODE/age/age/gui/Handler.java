@@ -16,6 +16,12 @@ import age.util.X;
 class Handler {
 
 	//=============================================================================================
+	private interface PointerPressHandle {
+		public void handle(Widget widget, Event e, Vector2f localPos);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	private Events events;
 	private final GUI gui;
 	private Widget hovered = null;
@@ -87,11 +93,11 @@ class Handler {
 				case  CONTEXT_MENU -> handleContextMenu(widget, e, localPos);
 				case  DRAG_HANDLE -> handleDrag(widget, e, localPos);
 				case  RESIZE_HANDLE -> handleResize(widget, e, localPos);
-				case  CLOSE_HANDLE -> handleClose(widget, e, localPos);
-				case  SCROLL_UP_HANDLE -> handleScrollUp(widget, e, localPos);
-				case  SCROLL_DOWN_HANDLE -> handleScrollDown(widget, e, localPos);
-				case  SCROLL_BAR_HANDLE -> handleScrollBar(widget, e, localPos);
-				case  COMMAND_HANDLE -> handleCommand(widget, e, localPos);
+				case  CLOSE_HANDLE -> handlePointerPress(widget, e, localPos, this::handleClose);
+				case  SCROLL_START -> handlePointerPress(widget, e, localPos, this::handleScrollStart);
+				case  SCROLL_END -> handlePointerPress(widget, e, localPos, this::handleScrollEnd);
+				case  SCROLLBAR_HANDLE -> handleScrollBar(widget, e, localPos);
+				case  COMMAND_HANDLE -> handlePointerPress(widget, e, localPos, this::handleCommand);
 				default -> {}
 			}
 		}
@@ -113,7 +119,6 @@ class Handler {
 	//=============================================================================================
 	
 	//=============================================================================================
-	// TODO: Drag Logic is flawed
 	private void handleDrag(
 		Widget widget,
 		Event e,
@@ -186,59 +191,87 @@ class Handler {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void handleClose(
+	private void handleScrollBar(
 		Widget widget,
 		Event e,
 		Vector2f localPos) {
+		
 		if (
 			e.type().equals(InputType.POINTER_PRESSED) &&
 			e.button().equals(Button.BTN1) &&
-			activeWidget == null) {
+			activeWidget == null
+		) {
 			activeWidget = widget;
 			lastPointerPosition.set(e.position());
 		} else if (
 			e.type().equals(InputType.POINTER_RELEASED) &&
 			e.button().equals(Button.BTN1) &&
-			activeWidget != null)
-		{
-			if (contains(widget.dimension(), localPos)) {
-				Widget closed = widget.component(WidgetComponent.CLOSED_WIDGET, Widget.class);
-				closed.flag(Flag.HIDDEN);
+			activeWidget != null
+		) {
+			
+			lastPointerPosition.sub(e.position());
+			lastPointerPosition.negate();
+
+			Widget scrollbar = widget.component(WidgetComponent.SCROLL_WIDGET, Widget.class);
+			
+			boolean vertical = true;
+			ScrollableState scstate = scrollbar.component(WidgetComponent.SCROLLABLE_VERTICAL, ScrollableState.class);
+			if (scstate == null) {
+				scstate = scrollbar.component(WidgetComponent.SCROLLABLE_HORIZONTAL, ScrollableState.class);
+				vertical = false;
 			}
+
+			Widget slider = scrollbar.children().get(0);
+			float pageScale = (float) (scstate.page) / (float) (scstate.size + scstate.page - 1);
+			float sliderRange = vertical ? slider.dimension().y : slider.dimension().x; 
+			float handleRange = sliderRange * pageScale; 
+			float indexRange  = scstate.size - 1;
+			float indexStep = (sliderRange - handleRange) / indexRange;
+			float delta = vertical ? lastPointerPosition.y : lastPointerPosition.x;
+			int mark = scstate.mark + (int) Math.rint(delta / indexStep);
+			scstate.mark(mark);
+			
+			lastPointerPosition.set(0, 0);
 			activeWidget = null;
+		
+		} else if (
+			e.type().equals(InputType.POINTER_MOVED) &&
+			activeWidget != null
+		) {
+			lastPointerPosition.sub(e.position());
+			lastPointerPosition.negate();
+
+			Widget scrollbar = widget.component(WidgetComponent.SCROLL_WIDGET, Widget.class);
+			
+			boolean vertical = true;
+			ScrollableState scstate = scrollbar.component(WidgetComponent.SCROLLABLE_VERTICAL, ScrollableState.class);
+			if (scstate == null) {
+				scstate = scrollbar.component(WidgetComponent.SCROLLABLE_HORIZONTAL, ScrollableState.class);
+				vertical = false;
+			}
+
+			Widget slider = scrollbar.children().get(0);
+			float pageScale = (float) (scstate.page) / (float) (scstate.size + scstate.page - 1);
+			float sliderRange = vertical ? slider.dimension().y : slider.dimension().x; 
+			float handleRange = sliderRange * pageScale; 
+			float indexRange  = scstate.size - 1;
+			float indexStep = (sliderRange - handleRange) / indexRange;
+			float delta = vertical ? lastPointerPosition.y : lastPointerPosition.x;
+			int mark = scstate.mark + (int) Math.rint(delta / indexStep);
+			scstate.mark(mark);
+
+			lastPointerPosition.set(e.position());
+
 		}
 	}
 	//=============================================================================================
-	
-	//=============================================================================================
-	private void handleScrollUp(
-		Widget widget,
-		Event e,
-		Vector2f localPos) {
-	}
-	//=============================================================================================
 
 	//=============================================================================================
-	private void handleScrollDown(
-		Widget widget,
-		Event e,
-		Vector2f localPos) {
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private void handleScrollBar(
-		Widget widget,
-		Event e,
-		Vector2f localPos) {
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private void handleCommand(
-		Widget widget,
-		Event e,
-		Vector2f localPos) {
+	private void handlePointerPress(
+			Widget widget,
+			Event e,
+			Vector2f localPos,
+			PointerPressHandle handle) {
 		if (
 			e.type().equals(InputType.POINTER_PRESSED) &&
 			e.button().equals(Button.BTN1) &&
@@ -250,11 +283,58 @@ class Handler {
 			activeWidget != null)
 		{
 			if (contains(widget.dimension(), localPos)) {
-				String command = widget.component(WidgetComponent.COMMAND, String.class);
-				events.postTaskCommand(command);
+				handle.handle(widget, e, localPos);
+				activeWidget = null;
 			}
-			activeWidget = null;
 		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void handleClose(
+		Widget widget,
+		Event e,
+		Vector2f localPos) {
+		Widget closed = widget.component(WidgetComponent.CLOSED_WIDGET, Widget.class);
+		closed.flag(Flag.HIDDEN);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void handleCommand(
+		Widget widget,
+		Event e,
+		Vector2f localPos) {
+		String command = widget.component(WidgetComponent.COMMAND, String.class);
+		events.postTaskCommand(command);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void handleScrollStart(
+		Widget widget,
+		Event e,
+		Vector2f localPos) {
+		Widget scrollbar = widget.component(WidgetComponent.SCROLL_WIDGET, Widget.class);
+		ScrollableState scstate = scrollbar.component(WidgetComponent.SCROLLABLE_VERTICAL, ScrollableState.class);
+		if (scstate == null) {
+			scstate = scrollbar.component(WidgetComponent.SCROLLABLE_HORIZONTAL, ScrollableState.class);
+		}
+		scstate.scrollOneToStart();
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void handleScrollEnd(
+		Widget widget,
+		Event e,
+		Vector2f localPos) {
+		Widget scrollbar = widget.component(WidgetComponent.SCROLL_WIDGET, Widget.class);
+		ScrollableState scstate = scrollbar.component(WidgetComponent.SCROLLABLE_VERTICAL, ScrollableState.class);
+		if (scstate == null) {
+			scstate = scrollbar.component(WidgetComponent.SCROLLABLE_HORIZONTAL, ScrollableState.class);
+		}
+		scstate.scrollOneToEnd();
 	}
 	//=============================================================================================
 	
@@ -349,8 +429,8 @@ class Handler {
 				dragged.positionAdd(ref);
 			} else if (action.equals("handle")) {
 				// TODO: THIS IS A HACK!!! and has to be refactored for framework quality.
-				Multiline ml = (Multiline) dragged.parent().parent().parent();
-				ml.rescale(ref.y);
+				//Multiline ml = (Multiline) dragged.parent().parent().parent();
+				//ml.rescale(ref.y);
 			} else if (action.equals("size")) {
 				dragged.dimensionAdd(ref.x, ref.y);
 			}

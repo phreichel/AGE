@@ -14,6 +14,7 @@ public enum Flag {
 	CANVAS,
 	TITLE,
 	MULTILINE,
+	SCROLLBAR,
 	HANDLE,
 	//=============================================================================================
 
@@ -24,9 +25,9 @@ public enum Flag {
 	DRAG_HANDLE,
 	RESIZE_HANDLE,
 	CLOSE_HANDLE,
-	SCROLL_UP_HANDLE,
-	SCROLL_DOWN_HANDLE,
-	SCROLL_BAR_HANDLE,
+	SCROLL_START,
+	SCROLL_END,
+	SCROLLBAR_HANDLE,
 	COMMAND_HANDLE,
 	
 	//=============================================================================================

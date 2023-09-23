@@ -3,89 +3,63 @@ package age.gui;
 //*************************************************************************************************
 
 //*************************************************************************************************
-public class Scroll {
+public class ScrollableState {
 
 	//=============================================================================================
-	private float fullSize;
-	private float pageSize;
-	private float scrollRange;
-	private float pageFactor;
-	private float scrollFactor;
-	private float scrollValue;
+	public int size;
+	public int page;
+	public int mark;
 	//=============================================================================================
 
 	//=============================================================================================
-	public void set(
-			float fullSize,
-			float pageSize) {
-		this.fullSize = fullSize;
-		this.pageSize = pageSize;
-		this.scrollRange = this.fullSize - this.pageSize;
-		this.pageFactor  = this.pageSize / this.fullSize;
-		this.scrollValue = this.scrollRange * this.scrollFactor;
+	public void set(int size, int page, int mark) {
+		this.size = size;
+		this.page = page;
+		this.mark(mark);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public float fullSize() {
-		return this.fullSize;
+	public void mark(int mark) {
+		this.mark = mark;
+		this.mark = Math.max(0, this.mark);
+		this.mark = Math.min(this.size - 1, this.mark);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public float pageSize() {
-		return this.pageSize;
+	public void scrollToStart() {
+		this.mark(0);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public float scrollRange() {
-		return this.scrollRange;
+	public void scrollToEnd() {
+		this.mark(this.size + this.page - 1);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void scrollOneToStart() {
+		this.mark(this.mark-1);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public float pageFactor() {
-		return this.pageFactor;
+	public void scrollOneToEnd() {
+		this.mark(this.mark+1);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public float scrollFactor() {
-		return this.scrollFactor;
+	public void scrollPageToStart() {
+		this.mark(this.mark-this.page);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void scrollFactor(float s) {
-		s = Math.max(0f, s);
-		s = Math.min(1f, s);
-		this.scrollFactor = s;
-		this.scrollValue = this.scrollRange * this.scrollFactor;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public float scrollValue() {
-		return this.scrollValue;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public void scrollValue(float v) {
-		this.scrollFactor(v / this.scrollRange);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public float mapFactorToValue(float fullTargetSize, float factor) {
-		return fullTargetSize * this.pageFactor * factor;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public float mapValueToFactor(float fullTargetSize, float value) {
-		return value / (fullTargetSize * this.pageFactor);
+	public void scrollPageToEnd() {
+		this.mark(this.mark+this.page);
 	}
 	//=============================================================================================
 	

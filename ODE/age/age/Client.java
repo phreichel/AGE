@@ -16,8 +16,8 @@ import javax.vecmath.Vector3f;
 import age.clock.Clock;
 import age.gui.Factory;
 import age.gui.Flag;
-import age.gui.Multiline;
 import age.gui.Widget;
+import age.gui.WidgetComponent;
 import age.gui.GUI;
 import age.input.Events;
 import age.log.Level;
@@ -126,6 +126,8 @@ public class Client {
 		Widget root = gui.root();
 
 		String text = Util.readTextFile("assets/sample.txt");
+		text = text.replace("\r", "");
+		text = text.replace("\t", "    ");
 
 		windowFrame = new Widget();
 		windowFrame.position(root.position());
@@ -139,12 +141,15 @@ public class Client {
 			window.position(50 + 15*i, 50 + 35*i);
 			windowFrame.add(window);
 			Widget page = window.children().get(2);
-			Multiline textTest = new Multiline();
-			textTest.assign(tasks);
+			
+			Widget textTest = factory.createMultiLine(true);
+			//Multiline textTest = new Multiline();
+			//textTest.assign(tasks);
 			textTest.dimension(
 				page.width(),
 				page.height());
-			textTest.text(text);
+			//textTest.text(text);
+			textTest.component(WidgetComponent.TEXT, text);
 			textTest.dock(0, 1, 0, 1);
 			page.add(textTest);
 			

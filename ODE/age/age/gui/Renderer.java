@@ -48,6 +48,7 @@ public class Renderer implements Renderable {
 				case BUTTON -> renderButton(g, widget);
 				case CANVAS -> renderCanvas(g, widget);
 				case TITLE -> renderTitle(g, widget);
+				case SCROLLBAR -> renderScrollbar(g, widget);
 				case HANDLE -> renderHandle(g, widget);
 				case MULTILINE -> renderMultiline(g, widget);
 				default -> {}
@@ -111,6 +112,34 @@ public class Renderer implements Renderable {
 	//=============================================================================================
 
 	//=============================================================================================
+	// TODO: should be relocated to a layouting system instead of a render system if such exists in the future
+	private void renderScrollbar(Graphics g, Widget widget) {
+		boolean vertical = true;
+		ScrollableState scstate = widget.component(WidgetComponent.SCROLLABLE_VERTICAL, ScrollableState.class);
+		if (scstate == null) {
+			scstate = widget.component(WidgetComponent.SCROLLABLE_HORIZONTAL, ScrollableState.class);
+			vertical = false;
+		}
+		if (scstate != null) {
+			Widget slider = widget.children().get(0);
+			Widget handle = slider.children().get(0);
+			float pageScale = (float) (scstate.page) / (float) (scstate.size + scstate.page - 1);
+			float sliderRange = vertical ? slider.dimension().y : slider.dimension().x; 
+			float handleRange = sliderRange * pageScale; 
+			float indexRange  = scstate.size - 1;
+			float indexStep = (sliderRange - handleRange) / indexRange;
+			if (vertical) {
+				handle.position().y = indexStep * scstate.mark;
+				handle.dimension().y = handleRange;
+			} else {
+				handle.position().x = indexStep * scstate.mark;
+				handle.dimension().x = handleRange;
+			}
+		}
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	private void renderHandle(Graphics g, Widget widget) {
 		g.color(1f, 0f, 0f);
 		g.rectangle(widget.dimension(), false);
@@ -119,28 +148,38 @@ public class Renderer implements Renderable {
 
 	//=============================================================================================
 	private void renderMultiline(Graphics g, Widget widget) {
-		Multiline ml = (Multiline) widget;
-		String text = ml.component(WidgetComponent.TEXT, String.class);
+		
+		String text = widget.component(WidgetComponent.TEXT, String.class);
+		
+		ScrollableState scstate = widget.component(WidgetComponent.SCROLLABLE_VERTICAL, ScrollableState.class);
+		MultilineState  mlstate = widget.component(WidgetComponent.MULTILINE_STATE, MultilineState.class);
+
 		g.color(0f, 0f, .5f);
 		g.rectangle(
 			widget.dimension(),
 			false);
+
 		g.color(1f, 0f, 0f);
 		g.rectangle(
 			widget.dimension(),
 			true);
+		
 		g.calcMultitext(
 			text,
-			ml.dimension().x-6,
-			ml.dimension().y-6,
+			widget.dimension().x-6,
+			widget.dimension().y-6,
 			"text",
-			ml.buffer());
-		ml.update();
-		for (int i=0; i<ml.page(); i++) {
-			int idx = ml.offset() + i;
-			if (idx >= ml.count()) break;
-			CharSequence seq = ml.line(idx);
-			g.text(3, 3 + (1+i)*ml.lineHeight(), seq, "text");
+			scstate,
+			mlstate);
+		
+		for (int i=0; i<scstate.page; i++) {
+			int idx = scstate.mark + i;
+			if (idx >= scstate.size) break;
+			CharSequence seq = text.subSequence(
+				mlstate.indices.get(idx+0),
+				mlstate.indices.get(idx+1)
+			);
+			g.text(3, 3 + (1+i) * mlstate.height, seq, "text");
 		}
 	}
 	//=============================================================================================

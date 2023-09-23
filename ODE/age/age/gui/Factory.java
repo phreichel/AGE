@@ -72,6 +72,82 @@ public class Factory {
 	
 	}
 	//=============================================================================================
+
+	//=============================================================================================
+	public Widget createVerticalScrollBar(Widget target) {
+
+		ScrollableState scstate = target.component(WidgetComponent.SCROLLABLE_VERTICAL, ScrollableState.class);
+		
+		Widget scrollbar = new Widget();
+		scrollbar.flag(Flag.SCROLLBAR);
+		scrollbar.component(WidgetComponent.SCROLLABLE_VERTICAL, scstate);
+		scrollbar.dimension(10, 70);
+		scrollbar.dock(1, 1, 0, 1);
+
+		Widget slidebar = new Widget();
+		slidebar.flag(Flag.BOX);
+		slidebar.position(0, 12);
+		slidebar.dimension(10, 46);
+		slidebar.dock(0, 1, 0, 1);
+		
+		Widget handle = new Widget();
+		handle.flag(Flag.HANDLE);
+		handle.flag(Flag.SCROLLBAR_HANDLE);
+		handle.component(WidgetComponent.SCROLL_WIDGET, scrollbar);
+		handle.position(0, 0);
+		handle.dimension(10, 20);
+		
+		Widget btnStart = new Widget();
+		btnStart.flag(Flag.BUTTON);
+		btnStart.flag(Flag.SCROLL_START);
+		btnStart.component(WidgetComponent.SCROLL_WIDGET, scrollbar);
+		btnStart.position(0, 0);
+		btnStart.dimension(11, 10);
+		btnStart.component(WidgetComponent.IMAGE_NAME, "arrowup");
+		
+		Widget btnEnd = new Widget();
+		btnEnd.flag(Flag.BUTTON);
+		btnEnd.flag(Flag.SCROLL_END);
+		btnEnd.component(WidgetComponent.SCROLL_WIDGET, scrollbar);
+		btnEnd.position(0, 60);
+		btnEnd.dimension(11, 10);
+		btnEnd.dock(0, 1, 1, 1);
+		btnEnd.component(WidgetComponent.IMAGE_NAME, "arrowdown");
+		
+		slidebar.add(handle);
+		scrollbar.add(slidebar);
+		scrollbar.add(btnStart);
+		scrollbar.add(btnEnd);
+
+		return scrollbar;
+
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public Widget createMultiLine(boolean verticalScroll) {
+
+		ScrollableState state = new ScrollableState();
+		MultilineState  multi = new MultilineState();
+		
+		Widget multiline = new Widget();
+		multiline.flag(Flag.MULTILINE);
+		multiline.component(WidgetComponent.SCROLLABLE_VERTICAL, state);
+		multiline.component(WidgetComponent.MULTILINE_STATE, multi);
+		multiline.dimension(600, 800);
+		
+		if (verticalScroll) {
+			Widget scroller = createVerticalScrollBar(multiline);
+			scroller.position(600-15, 5);
+			scroller.dimension(10, 770);
+			multiline.add(scroller);
+		}
+		
+		return multiline;
+
+	}
+	//=============================================================================================
 	
 }
 //*************************************************************************************************
+

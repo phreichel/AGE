@@ -18,6 +18,9 @@ import com.jogamp.opengl.util.awt.TextRenderer;
 import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureCoords;
 import com.jogamp.opengl.util.texture.TextureIO;
+
+import age.gui.MultilineState;
+import age.gui.ScrollableState;
 import age.port.Graphics;
 import age.util.X;
 import age.util.MathUtil;
@@ -269,23 +272,12 @@ class JOGLGraphics implements Graphics {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void calcMultitext(String text, Vector2f dimension, String font, int[] buffer) {
-		calcMultitext(
-			text,
-			dimension.x,
-			dimension.y,
-			font,
-			buffer);
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public void calcMultitext(String text, float width, float height, String font, int[] buffer) {
+	public void calcMultitext(String text, float width, float height, String font, ScrollableState scstate, MultilineState mlstate) {
+		mlstate.indices.clear();
 		TextRenderer textRenderer = fonts.get(font);
 		Rectangle2D rect = textRenderer.getBounds("_");
 		double space = rect.getWidth();
 		int mark = 0;
-		int count = 3;
 		double lineHeight = 0;
 		for (int i=0; i<text.length(); i++) {
 
@@ -300,30 +292,27 @@ class JOGLGraphics implements Graphics {
 				lineWidth += space;
 			}
 
-			// failsafe in case buffer is too small
-			if ((buffer.length - count) < 4) break;
-			
 			double delta = width - lineWidth;
 			if (text.charAt(i) == '\n') {
-				buffer[count++] = mark;
-				buffer[count++] = i;
+				mlstate.indices.add(mark);
+				mlstate.indices.add(i);
 				mark = i+1;
 			} else if (delta < space) {
-				buffer[count++] = mark;
-				buffer[count++] = i;
+				mlstate.indices.add(mark);
+				mlstate.indices.add(i);
 				mark = i;
 			}
 		}
 		if (mark != text.length()) {
-			buffer[count++] = mark; 
-			buffer[count++] = text.length();
+			mlstate.indices.add(mark);
+			mlstate.indices.add(text.length());
 		}
-		buffer[0] = (count / 2) - 1;
-		buffer[1] = (int) Math.floor(height / lineHeight);
-		buffer[2] = (int) Math.ceil(lineHeight);
+		scstate.size = mlstate.indices.size() / 2;
+		scstate.page = (int) Math.floor(height / lineHeight);
+		mlstate.height = (int) Math.ceil(lineHeight);
 	}
 	//=============================================================================================
-
+	
 	//=============================================================================================
 	public void drawBox(float sx, float sy, float sz) {
 		gl.glBegin(GL_QUADS);
