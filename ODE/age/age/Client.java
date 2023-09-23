@@ -76,8 +76,6 @@ public class Client {
 		scene.assign(port);
 		gui.assign(port);
 		gui.assign(events);
-		tasks.assign(this);
-		tasks.assign(port);
 		tasks.assign(events);
 	}
 	//=============================================================================================
@@ -143,12 +141,9 @@ public class Client {
 			Widget page = window.children().get(2);
 			
 			Widget textTest = factory.createMultiLine(true);
-			//Multiline textTest = new Multiline();
-			//textTest.assign(tasks);
 			textTest.dimension(
 				page.width(),
 				page.height());
-			//textTest.text(text);
 			textTest.component(WidgetComponent.TEXT, text);
 			textTest.dock(0, 1, 0, 1);
 			page.add(textTest);
@@ -177,8 +172,10 @@ public class Client {
 		sysButton.position(5, 5);
 		root.add(sysButton);
 
-		tasks.assign("sysmenu", this::toggleSysmenu);
+		tasks.assign("fullscreen", this::toggleFullscreen);
 		tasks.assign("desk", this::toggleDesktop);
+		tasks.assign("shutdown", this::shutdown);
+		tasks.assign("sysmenu", this::toggleSysmenu);
 		
 	}
 	//=============================================================================================
@@ -199,7 +196,15 @@ public class Client {
 		else 
 			windowFrame.flag(Flag.HIDDEN);
 	}
-	
+	//=============================================================================================
+
+	//=============================================================================================
+	private void toggleFullscreen() {
+		boolean toggle = !port.fullscreen();
+		port.fullscreen(toggle);
+	}
+	//=============================================================================================
+
 	//=============================================================================================
 	private void loop() {
 		running = true;
