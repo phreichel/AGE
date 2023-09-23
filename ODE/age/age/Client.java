@@ -59,8 +59,8 @@ public class Client {
 		setupGUI();
 		
 		Log.info("Adjusting Port Window");
-		port.position(1920-1400, 0);
-		port.size(1400, 1080);
+		port.position(150, 150);
+		port.size(800, 600);
 		
 		Log.info("Setting Clock Tasks");
 		clock.addFPS(60, this::render);

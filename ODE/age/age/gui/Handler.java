@@ -62,7 +62,7 @@ class Handler {
 		Widget widget = traverse(gui.root(), tmp);
 		
 		if (last != null) { last.clear(Flag.HOVERED); }
-		widget.flag(Flag.HOVERED);
+		if (widget != null) widget.flag(Flag.HOVERED);
 		
 		handlePointerFocusing(widget, e);
 		handlePointer(widget, e, tmp);
@@ -94,19 +94,21 @@ class Handler {
 		if (activeWidget != null) {
 			widget = activeWidget;
 		}
-		for (Flag flag : widget.flags()) {
-			switch (flag) {
-				case  CONTEXT_MENU -> handleContextMenu(widget, e, localPos);
-				case  DRAG_HANDLE -> handleDrag(widget, e, localPos);
-				case  RESIZE_HANDLE -> handleResize(widget, e, localPos);
-				case  CLOSE_HANDLE -> handlePointerPress(widget, e, localPos, this::handleClose);
-				case  SCROLL_START -> handlePointerPress(widget, e, localPos, this::handleScrollStart);
-				case  SCROLL_END -> handlePointerPress(widget, e, localPos, this::handleScrollEnd);
-				case  SCROLLBAR_SLIDER -> handlePointerPress(widget, e, localPos, this::handleScrollSlider);
-				case  SCROLLBAR_HANDLE -> handleScrollBar(widget, e, localPos);
-				case  COMMAND_HANDLE -> handlePointerPress(widget, e, localPos, this::handleCommand);
-				case  POINTER_SCROLL -> handlePointerScroll(widget, e, localPos);
-				default -> {}
+		if (widget != null) {
+			for (Flag flag : widget.flags()) {
+				switch (flag) {
+					case  CONTEXT_MENU -> handleContextMenu(widget, e, localPos);
+					case  DRAG_HANDLE -> handleDrag(widget, e, localPos);
+					case  RESIZE_HANDLE -> handleResize(widget, e, localPos);
+					case  CLOSE_HANDLE -> handlePointerPress(widget, e, localPos, this::handleClose);
+					case  SCROLL_START -> handlePointerPress(widget, e, localPos, this::handleScrollStart);
+					case  SCROLL_END -> handlePointerPress(widget, e, localPos, this::handleScrollEnd);
+					case  SCROLLBAR_SLIDER -> handlePointerPress(widget, e, localPos, this::handleScrollSlider);
+					case  SCROLLBAR_HANDLE -> handleScrollBar(widget, e, localPos);
+					case  COMMAND_HANDLE -> handlePointerPress(widget, e, localPos, this::handleCommand);
+					case  POINTER_SCROLL -> handlePointerScroll(widget, e, localPos);
+					default -> {}
+				}
 			}
 		}
 	}
