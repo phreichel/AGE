@@ -25,7 +25,7 @@ class Alarm {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void update(long nanotime) {
+	public long update(long nanotime) {
 		long delta = nanotime-mark;
 		if (delta >= nanoperiod) {
 			long count = delta / nanoperiod;
@@ -35,6 +35,7 @@ class Alarm {
 				(int) count,
 				(float) frames / 1000000000L);
 		}
+		return nanoperiod - (delta % nanoperiod);
 	}
 	//=============================================================================================
 
