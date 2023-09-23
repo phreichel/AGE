@@ -86,6 +86,8 @@ public class Factory {
 
 		Widget slidebar = new Widget();
 		slidebar.flag(Flag.BOX);
+		slidebar.flag(Flag.SCROLLBAR_SLIDER);
+		slidebar.component(WidgetComponent.SCROLL_WIDGET, scrollbar);
 		slidebar.position(0, 12);
 		slidebar.dimension(10, 46);
 		slidebar.dock(0, 1, 0, 1);
@@ -132,6 +134,7 @@ public class Factory {
 		
 		Widget multiline = new Widget();
 		multiline.flag(Flag.MULTILINE);
+		multiline.flag(Flag.POINTER_SCROLL);
 		multiline.component(WidgetComponent.SCROLLABLE_VERTICAL, state);
 		multiline.component(WidgetComponent.MULTILINE_STATE, multi);
 		multiline.dimension(600, 800);

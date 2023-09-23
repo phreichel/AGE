@@ -2,6 +2,8 @@
 package age.port.jogl;
 //*************************************************************************************************
 
+import javax.vecmath.Vector3f;
+
 import com.jogamp.newt.Window;
 import com.jogamp.newt.event.KeyEvent;
 import com.jogamp.newt.event.KeyListener;
@@ -93,7 +95,17 @@ class JOGLEventListener implements KeyListener, MouseListener, WindowListener {
 	//=============================================================================================
 
 	//=============================================================================================
+	private final Vector3f tmp = new Vector3f();
+	//=============================================================================================
+	
+	//=============================================================================================
 	public void mouseWheelMoved(MouseEvent e) {
+		float[] r = e.getRotation();		
+		tmp.set(r);
+		events.postPointerWheel(
+				e.getX(),
+				e.getY(),
+				tmp);
 	}
 	//=============================================================================================
 

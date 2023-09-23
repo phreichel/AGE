@@ -176,8 +176,8 @@ public class Renderer implements Renderable {
 			int idx = scstate.mark + i;
 			if (idx >= scstate.size) break;
 			CharSequence seq = text.subSequence(
-				mlstate.indices.get(idx+0),
-				mlstate.indices.get(idx+1)
+				mlstate.indices.get(idx*2+0),
+				mlstate.indices.get(idx*2+1)
 			);
 			g.text(3, 3 + (1+i) * mlstate.height, seq, "text");
 		}

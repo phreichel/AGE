@@ -2,8 +2,6 @@
 package age.gui;
 //*************************************************************************************************
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import javax.vecmath.Vector2f;
 import age.input.Button;
@@ -24,10 +22,6 @@ class Handler {
 	//=============================================================================================
 	private Events events;
 	private final GUI gui;
-	private Widget hovered = null;
-	private Widget dragged = null;
-	private String action = null;
-	private final Vector2f ref = new Vector2f();
 	private final Vector2f tmp = new Vector2f();
 	//=============================================================================================
 	
@@ -47,6 +41,7 @@ class Handler {
 		events.assign(InputType.POINTER_PRESSED, this::handlePointer);
 		events.assign(InputType.POINTER_RELEASED, this::handlePointer);
 		events.assign(InputType.POINTER_CLICKED, this::handlePointer);
+		events.assign(InputType.POINTER_WHEEL, this::handlePointer);
 		events.assign(InputType.SURFACE_RESIZED, this::handleSurface);
 	}
 	//=============================================================================================
@@ -57,29 +52,40 @@ class Handler {
 	//=============================================================================================
 
 	//=============================================================================================
+	private Widget last = null;
+	//=============================================================================================
+	
+	//=============================================================================================
 	public void handlePointer(Event e) {
 
 		tmp.set(e.position());
 		Widget widget = traverse(gui.root(), tmp);
+		
+		if (last != null) { last.clear(Flag.HOVERED); }
+		widget.flag(Flag.HOVERED);
+		
+		handlePointerFocusing(widget, e);
 		handlePointer(widget, e, tmp);
 		
-		tmp.set(e.position());
-		
-		// hover
-		if (hovered != null) hovered.clear(Flag.HOVERED);
-		hovered = hovered(tmp, gui.root());
-		if (hovered != null) hovered.flag(Flag.HOVERED);
-
-		pressedFrameToFront(e);
-		
-		// frame actions
-		startScrollHandleAction(e);
-		updateDragAction(e);
-		stopDragAction(e);
+		last = widget;
 		
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	private void handlePointerFocusing(Widget widget, Event e) {
+		if (e.type().equals(InputType.POINTER_PRESSED)) {
+			Widget front = widget;
+			while (front != null) {
+				if (front.match(Flag.FRAME)) {
+					front.toFront();
+				}
+				front = front.parent();
+			}
+		}
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	private void handlePointer(
 		Widget widget,
@@ -96,8 +102,10 @@ class Handler {
 				case  CLOSE_HANDLE -> handlePointerPress(widget, e, localPos, this::handleClose);
 				case  SCROLL_START -> handlePointerPress(widget, e, localPos, this::handleScrollStart);
 				case  SCROLL_END -> handlePointerPress(widget, e, localPos, this::handleScrollEnd);
+				case  SCROLLBAR_SLIDER -> handlePointerPress(widget, e, localPos, this::handleScrollSlider);
 				case  SCROLLBAR_HANDLE -> handleScrollBar(widget, e, localPos);
 				case  COMMAND_HANDLE -> handlePointerPress(widget, e, localPos, this::handleCommand);
+				case  POINTER_SCROLL -> handlePointerScroll(widget, e, localPos);
 				default -> {}
 			}
 		}
@@ -267,6 +275,18 @@ class Handler {
 	//=============================================================================================
 
 	//=============================================================================================
+	private void handlePointerScroll(
+		Widget widget,
+		Event e,
+		Vector2f localPos) {
+		ScrollableState scstate = widget.component(WidgetComponent.SCROLLABLE_VERTICAL, ScrollableState.class);
+		float value = e.wheelY();
+		int delta = (int) Math.rint(-value);
+		scstate.scrollBy(delta);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	private void handlePointerPress(
 			Widget widget,
 			Event e,
@@ -339,6 +359,32 @@ class Handler {
 	//=============================================================================================
 	
 	//=============================================================================================
+	private void handleScrollSlider(
+		Widget widget,
+		Event e,
+		Vector2f localPos) {
+
+		Widget scrollbar = widget.component(WidgetComponent.SCROLL_WIDGET, Widget.class);
+		Widget handle = widget.children().get(0);
+		
+		boolean vertical = true;
+		ScrollableState scstate = scrollbar.component(WidgetComponent.SCROLLABLE_VERTICAL, ScrollableState.class);
+		if (scstate == null) {
+			scstate = scrollbar.component(WidgetComponent.SCROLLABLE_HORIZONTAL, ScrollableState.class);
+			vertical = false;
+		}
+
+		float pos = vertical ? localPos.y : localPos.x;
+		float cmp = vertical ? handle.position().y : handle.position().y;
+		if (pos < cmp) {
+			scstate.scrollPageToStart();
+		} else {
+			scstate.scrollPageToEnd();
+		}
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	private Widget traverse(Widget widget, Vector2f pos) {
 		if (!widget.match(Flag.HIDDEN)) {
 			pos.sub(widget.position());
@@ -366,115 +412,6 @@ class Handler {
 			(pos.x <= dimension.x) &&
 			(pos.y >= 0f) &&
 			(pos.y <= dimension.y);
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private void pressedFrameToFront(Event e) {
-		Widget front = hovered;
-		if (e.type().equals(InputType.POINTER_PRESSED)) {
-			while (front != null) {
-				if (front.match(Flag.FRAME)) {
-					front.toFront();
-				}
-				front = front.parent();
-			}
-		}
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private void startScrollHandleAction(Event e) {
-		if (
-			dragged == null &&
-			hovered != null &&
-			hovered.match(Flag.HANDLE) &&
-			e.type().equals(InputType.POINTER_PRESSED) &&
-			e.button().equals(Button.BTN1)
-		) {
-			updateActionState(e, "handle");
-		}
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private void updateActionState(Event e, String action) {
-		Widget frame = hovered;
-		Flag flag = Flag.FRAME;
-		if (action.equals("handle")) {
-			flag = Flag.HANDLE;
-		}
-		while (frame != null) {
-			if (frame.match(flag)) {
-				break;
-			}
-			frame = frame.parent();
-		}
-		if (frame != null) {
-			dragged = frame;
-			ref.set(e.position());
-			this.action = action;
-		}
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private void updateDragAction(Event e) {
-		if (
-			dragged != null &&
-			e.type().equals(InputType.POINTER_MOVED)
-		) {
-			ref.sub(e.position(), ref);
-			if (action.equals("move")) {
-				dragged.positionAdd(ref);
-			} else if (action.equals("handle")) {
-				// TODO: THIS IS A HACK!!! and has to be refactored for framework quality.
-				//Multiline ml = (Multiline) dragged.parent().parent().parent();
-				//ml.rescale(ref.y);
-			} else if (action.equals("size")) {
-				dragged.dimensionAdd(ref.x, ref.y);
-			}
-			ref.set(e.position());
-		}
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private void stopDragAction(Event e) {
-		if (
-			dragged != null &&
-			e.type().equals(InputType.POINTER_RELEASED)
-		) {
-			dragged = null;
-		}
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private Widget hovered(Vector2f pos, Widget widget) {
-		Widget result = null;
-		if (!widget.match(Flag.HIDDEN)) {
-			pos.sub(widget.position());
-			Vector2f dim = widget.dimension();
-			if (
-				(pos.x >= 0f) &&
-				(pos.y >= 0f) &&
-				(pos.x <= dim.x) &&
-				(pos.y <= dim.y)
-			) {
-				List<Widget> rev = new ArrayList<>(widget.children());
-				Collections.reverse(rev);
-				for (Widget child : rev) {
-					result = hovered(pos, child);
-					if (result != null) break;
-				}
-				if (result == null) {
-					result = widget;
-				}
-			}
-			pos.add(widget.position());
-		}
-		return result;
 	}
 	//=============================================================================================
 	

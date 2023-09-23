@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
-import age.log.Log;
+import javax.vecmath.Vector3f;
 
 //*************************************************************************************************
 public class Events {
@@ -85,6 +85,14 @@ public class Events {
 	//=============================================================================================
 
 	//=============================================================================================
+	public void postPointerWheel(float x, float y, Vector3f wheels) {
+		Event event = alloc();
+		event.pointerWheel(x, y, keyset, wheels);
+		post(event);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	public void postPointerPressed(Button button, int count, float x, float y) {
 		Event event = alloc();
 		event.pointerPressed(button, count, x, y, keyset);
@@ -148,17 +156,6 @@ public class Events {
 	//=============================================================================================
 	private void handle(Event event) {
 		InputType type = event.type();
-		Log.debug(
-			"Handle Event %s, {%s:%s} {%s,%s,%s,%s} {%s:%s}",
-			type,
-			event.key(),
-			event.character(),
-			event.x(),
-			event.y(),
-			event.button(),
-			event.count(),
-			event.width(),
-			event.height());
 		List<Handler> list = handlers.get(type);
 		if (list != null) {
 			for (Handler handler : list) {

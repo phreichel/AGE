@@ -27,7 +27,9 @@ public enum Flag {
 	CLOSE_HANDLE,
 	SCROLL_START,
 	SCROLL_END,
+	SCROLLBAR_SLIDER,
 	SCROLLBAR_HANDLE,
+	POINTER_SCROLL,
 	COMMAND_HANDLE,
 	
 	//=============================================================================================

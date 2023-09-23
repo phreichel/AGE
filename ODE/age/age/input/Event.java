@@ -5,6 +5,7 @@ package age.input;
 import java.util.EnumSet;
 import java.util.Set;
 import javax.vecmath.Vector2f;
+import javax.vecmath.Vector3f;
 
 //*************************************************************************************************
 public class Event {
@@ -16,8 +17,9 @@ public class Event {
 	private final Set<Key> keyset = EnumSet.noneOf(Key.class);
 	private Button button = Button.NONE;
 	private int count = -1;
-	private Vector2f position = new Vector2f();
-	private Vector2f dimension  = new Vector2f();
+	private final Vector2f position = new Vector2f();
+	private final Vector3f wheels = new Vector3f();
+	private final Vector2f dimension = new Vector2f();
 	private String command = null;
 	//=============================================================================================
 	
@@ -29,28 +31,30 @@ public class Event {
 	
 	//=============================================================================================
 	public void clear() {
-		type      = InputType.NONE;
-		key       = Key.NONE;
+		type = InputType.NONE;
+		key = Key.NONE;
 		character = '\0';
 		keyset.clear();
-		button    = Button.NONE;
-		count     = -1;
-		position.set(-1, -1);
-		dimension.set(-1, -1);
+		button = Button.NONE;
+		count = 0;
+		position.set(0, 0);
+		wheels.set(0, 0, 0);
+		dimension.set(0, 0);
 		command = null;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void set(Event e) {
-		type      = e.type;
-		key       = e.key;
+		type = e.type;
+		key = e.key;
 		character = e.character;
 		keyset.clear();
 		keyset.addAll(e.keyset);
-		button    = e.button;
-		count     = e.count;
+		button = e.button;
+		count = e.count;
 		position.set(e.position);
+		wheels.set(e.wheels);
 		dimension.set(e.dimension);
 		command = e.command;
 	}
@@ -111,6 +115,30 @@ public class Event {
 	//=============================================================================================
 
 	//=============================================================================================
+	public float wheelX() {
+		return wheels.x;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public float wheelY() {
+		return wheels.y;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public float wheelZ() {
+		return wheels.z;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public Vector3f wheels() {
+		return wheels;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	public float width() {
 		return dimension.x;
 	}
@@ -169,7 +197,7 @@ public class Event {
 		pointerEvent(InputType.POINTER_MOVED, Button.NONE, -1, x, y, keyset);
 	}
 	//=============================================================================================
-	
+
 	//=============================================================================================
 	public void pointerPressed(Button button, int count, float x, float y, Set<Key> keyset) {
 		pointerEvent(InputType.POINTER_PRESSED, button, count, x, y, keyset);
@@ -213,28 +241,64 @@ public class Event {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void keyEvent(InputType type, Key key, char character, Set<Key> keyset) {
+	private void keyEvent(
+			InputType type,
+			Key key,
+			char character,
+			Set<Key> keyset) {
 		this.type = type;
 		this.key = key;
 		this.character = character;
 		this.keyset.clear();
 		this.keyset.addAll(keyset);
-		this.button    = Button.NONE;
-		this.count = -1;
-		this.position.set(-1, -1);
-		this.dimension.set(-1, -1);
+		this.button = Button.NONE;
+		this.count = 0;
+		this.position.set(0, 0);
+		this.wheels.set(0, 0, 0);
+		this.dimension.set(0, 0);
+		this.command = null;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private void pointerEvent(InputType type, Button button, int count, float x, float y, Set<Key> keyset) {
+	private void pointerEvent(
+			InputType type,
+			Button button,
+			int count,
+			float x,
+			float y,
+			Set<Key> keyset) {
+		this.key = Key.NONE;
+		this.character = '\0';
 		this.type = type;
 		this.keyset.clear();
 		this.keyset.addAll(keyset);
 		this.button = button;
 		this.count = count;
 		this.position.set(x, y);
-		this.dimension.set(-1, -1);
+		this.wheels.set(0, 0, 0);
+		this.dimension.set(0, 0);
+		this.command = null;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void pointerWheel(
+			float x,
+			float y,
+			Set<Key> keyset,
+			Vector3f wheels) {
+		this.key = Key.NONE;
+		this.character = '\0';
+		this.type = InputType.POINTER_WHEEL;
+		this.keyset.clear();
+		this.keyset.addAll(keyset);
+		this.button = Button.NONE;
+		this.count = 0;
+		this.position.set(x, y);
+		this.wheels.set(wheels);
+		this.dimension.set(0, 0);
+		this.command = null;
 	}
 	//=============================================================================================
 	
