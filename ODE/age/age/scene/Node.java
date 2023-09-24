@@ -9,7 +9,6 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import age.util.X;
 
 //*************************************************************************************************
@@ -19,10 +18,16 @@ public class Node {
 	private Node parent;
 	private final List<Node> children = new ArrayList<>(5);
 	private final List<Node> children_ro = Collections.unmodifiableList(children);
-	private Set<Flag> flags = EnumSet.noneOf(Flag.class);
-	private Set<Flag> flags_ro = Collections.unmodifiableSet(flags);
-	private final Map<NodeComponent, Object> components = new EnumMap<>(NodeComponent.class);
-	private final Map<NodeComponent, Object> components_ro = Collections.unmodifiableMap(components);
+	private Set<NFlag> nFlags = EnumSet.noneOf(NFlag.class);
+	private Set<NFlag> flags_ro = Collections.unmodifiableSet(nFlags);
+	private final Map<NItem, Object> components = new EnumMap<>(NItem.class);
+	private final Map<NItem, Object> components_ro = Collections.unmodifiableMap(components);
+	//=============================================================================================
+
+	//=============================================================================================
+	public Node(NFlag ... flags) {
+		flag(flags);
+	}
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -60,51 +65,51 @@ public class Node {
 	//=============================================================================================
 
 	//=============================================================================================
-	public Set<Flag> flags() {
+	public Set<NFlag> nFlags() {
 		return flags_ro;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void flag(Flag ... flags) {
-		this.flags.addAll(List.of(flags));
+	public void flag(NFlag ... flags) {
+		this.nFlags.addAll(List.of(flags));
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void clear(Flag ... flags) {
-		this.flags.removeAll(List.of(flags));
+	public void clear(NFlag ... flags) {
+		this.nFlags.removeAll(List.of(flags));
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public boolean match(Flag ... flags) {
-		return this.flags.containsAll(List.of(flags));
+	public boolean match(NFlag ... flags) {
+		return this.nFlags.containsAll(List.of(flags));
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Object component(NodeComponent part) {
+	public Object component(NItem part) {
 		return components.get(part);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	@SuppressWarnings("unchecked")
-	public <C> C component(NodeComponent part, Class<C> cls) {
+	public <C> C component(NItem part, Class<C> cls) {
 		return (C) component(part);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void component(NodeComponent part, Object component) {
+	public void component(NItem part, Object component) {
 		part.check(component);
 		components.put(part, component);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Map<NodeComponent, Object> components() {
+	public Map<NItem, Object> components() {
 		return components_ro;
 	}
 	//=============================================================================================

@@ -34,6 +34,7 @@ public class Clock {
 	//=============================================================================================
 
 	//=============================================================================================
+	// TODO: revisit the thread sleep mechanism (it is not implemented correctly)
 	public void update() {
 		long allNext = Long.MAX_VALUE;
 		long nanotime = System.nanoTime();

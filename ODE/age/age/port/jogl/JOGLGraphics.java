@@ -18,9 +18,11 @@ import com.jogamp.opengl.util.awt.TextRenderer;
 import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureCoords;
 import com.jogamp.opengl.util.texture.TextureIO;
-
-import age.gui.MultilineState;
-import age.gui.ScrollableState;
+import age.gui.dat.Multiline;
+import age.gui.dat.Scrollable;
+import age.mesh.Mesh;
+import age.mesh.Element;
+import age.mesh.ElementType;
 import age.port.Graphics;
 import age.util.X;
 import age.util.MathUtil;
@@ -272,7 +274,7 @@ class JOGLGraphics implements Graphics {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void calcMultitext(String text, float width, float height, String font, ScrollableState scstate, MultilineState mlstate) {
+	public void calcMultitext(String text, float width, float height, String font, Scrollable scstate, Multiline mlstate) {
 		mlstate.indices.clear();
 		TextRenderer textRenderer = fonts.get(font);
 		Rectangle2D rect = textRenderer.getBounds("_");
@@ -347,6 +349,187 @@ class JOGLGraphics implements Graphics {
 		gl.glVertex3f(-sx, sy, sz);
 		gl.glVertex3f(-sx, sy,-sz);
 		gl.glEnd();
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void drawMesh(Mesh mesh) {
+		for (var i = 0; i < mesh.size(); i++) {
+			var element = mesh.get(i);
+			drawElement(element);
+		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void drawElement(Element element) {
+		var mode = glMode(element.type());
+		gl.glBegin(mode);
+		
+		var mask = 0;
+		mask |= element.hasNormals() ? 1 : 0;
+		mask |= element.hasColors() ? 2 : 0;
+		mask |= element.hasTextures() ? 4 : 0;
+		
+		switch (mask) {
+		case 0 -> drawElementV(element);
+		case 1 -> drawElementNV(element);
+		case 2 -> drawElementCV(element);
+		case 3 -> drawElementCNV(element);
+		case 4 -> drawElementTV(element);
+		case 5 -> drawElementTNV(element);
+		case 6 -> drawElementTCV(element);
+		case 7 -> drawElementTCNV(element);
+		default -> throw new X("unsupported vertex type");
+		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void drawElementV(Element element) {
+		int[] indices = element.indices();
+		float[] vertices = element.vertices();
+		for (var i=0; i<indices.length; i++) {
+			var idx = indices[i];
+			var idx3 = idx * 3;
+			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
+		}
+		gl.glEnd();
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void drawElementNV(Element element) {
+		int[] indices = element.indices();
+		float[] normals = element.normals();
+		float[] vertices = element.vertices();
+		for (var i=0; i<indices.length; i++) {
+			var idx = indices[i];
+			var idx3 = idx * 3;
+			gl.glNormal3f(normals[idx3+0], normals[idx3+1], normals[idx3+2]);
+			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
+		}
+		gl.glEnd();
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void drawElementCV(Element element) {
+		int[] indices = element.indices();
+		float[] colors = element.colors();
+		float[] vertices = element.vertices();
+		for (var i=0; i<indices.length; i++) {
+			var idx = indices[i];
+			var idx3 = idx * 3;
+			gl.glColor3f(colors[idx3+0], colors[idx3+1], colors[idx3+2]);
+			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
+		}
+		gl.glEnd();
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void drawElementCNV(Element element) {
+		int[] indices = element.indices();
+		float[] colors = element.colors();
+		float[] normals = element.normals();
+		float[] vertices = element.vertices();
+		for (var i=0; i<indices.length; i++) {
+			var idx = indices[i];
+			var idx3 = idx * 3;
+			gl.glColor3f(colors[idx3+0], colors[idx3+1], colors[idx3+2]);
+			gl.glNormal3f(normals[idx3+0], normals[idx3+1], normals[idx3+2]);
+			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
+		}
+		gl.glEnd();
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void drawElementTV(Element element) {
+		int[] indices = element.indices();
+		float[] textures = element.textures();
+		float[] vertices = element.vertices();
+		for (var i=0; i<indices.length; i++) {
+			var idx = indices[i];
+			var idx2 = idx * 2;
+			var idx3 = idx * 3;
+			gl.glTexCoord2f(textures[idx2+0], textures[idx2+1]);
+			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
+		}
+		gl.glEnd();
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void drawElementTNV(Element element) {
+		int[] indices = element.indices();
+		float[] normals = element.normals();
+		float[] textures = element.textures();
+		float[] vertices = element.vertices();
+		for (var i=0; i<indices.length; i++) {
+			var idx = indices[i];
+			var idx2 = idx * 2;
+			var idx3 = idx * 3;
+			gl.glNormal3f(normals[idx3+0], normals[idx3+1], normals[idx3+2]);
+			gl.glTexCoord2f(textures[idx2+0], textures[idx2+1]);
+			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
+		}
+		gl.glEnd();
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void drawElementTCV(Element element) {
+		int[] indices = element.indices();
+		float[] colors = element.colors();
+		float[] textures = element.textures();
+		float[] vertices = element.vertices();
+		for (var i=0; i<indices.length; i++) {
+			var idx = indices[i];
+			var idx2 = idx * 2;
+			var idx3 = idx * 3;
+			gl.glColor3f(colors[idx3+0], colors[idx3+1], colors[idx3+2]);
+			gl.glTexCoord2f(textures[idx2+0], textures[idx2+1]);
+			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
+		}
+		gl.glEnd();
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void drawElementTCNV(Element element) {
+		int[] indices = element.indices();
+		float[] colors = element.colors();
+		float[] normals = element.normals();
+		float[] textures = element.textures();
+		float[] vertices = element.vertices();
+		for (var i=0; i<indices.length; i++) {
+			var idx = indices[i];
+			var idx2 = idx * 2;
+			var idx3 = idx * 3;
+			gl.glColor3f(colors[idx3+0], colors[idx3+1], colors[idx3+2]);
+			gl.glNormal3f(normals[idx3+0], normals[idx3+1], normals[idx3+2]);
+			gl.glTexCoord2f(textures[idx2+0], textures[idx2+1]);
+			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
+		}
+		gl.glEnd();
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private int glMode(ElementType type) {
+		return switch(type) {
+			case POINTS -> GL2.GL_POINTS;
+			case LINES -> GL2.GL_LINES;
+			case LINE_STRIP -> GL2.GL_LINE_STRIP;
+			case LINE_LOOP -> GL2.GL_LINE_LOOP;
+			case TRIANGLES -> GL2.GL_TRIANGLES;
+			case TRIANGLE_STRIP -> GL2.GL_TRIANGLE_STRIP;
+			case TRIANGLE_FAN -> GL2.GL_TRIANGLE_FAN;
+			case QUADS -> GL2.GL_QUADS;
+			case QUAD_STRIP -> GL2.GL_QUAD_STRIP;
+		};
 	}
 	//=============================================================================================
 	

@@ -1,44 +1,43 @@
 //*************************************************************************************************
-package age.gui;
+package age.gui.dat;
 //*************************************************************************************************
 
+import age.gui.Widget;
+import age.util.X;
+
 //*************************************************************************************************
-public enum Flag {
+public enum WItem {
 
 	//=============================================================================================
-	// Render Types
-	//=============================================================================================
-	BOX,
-	FRAME,
-	BUTTON,
-	CANVAS,
-	TITLE,
-	MULTILINE,
-	SCROLLBAR,
-	HANDLE,
+	TEXT(String.class),
+	COMMAND(String.class),
+	IMAGE_NAME(String.class),
+	DRAGGED_WIDGET(Widget.class),
+	RESIZED_WIDGET(Widget.class),
+	CLOSED_WIDGET(Widget.class),
+	SCROLLABLE_HORIZONTAL(Scrollable.class),
+	SCROLLABLE_VERTICAL(Scrollable.class),
+	SCROLL_WIDGET(Widget.class),
+	MULTILINE_STATE(Multiline.class);
 	//=============================================================================================
 
 	//=============================================================================================
-	// Behaviour Types
+	private Class<?> cls;
 	//=============================================================================================
-	CONTEXT_MENU,
-	DRAG_HANDLE,
-	RESIZE_HANDLE,
-	CLOSE_HANDLE,
-	SCROLL_START,
-	SCROLL_END,
-	SCROLLBAR_SLIDER,
-	SCROLLBAR_HANDLE,
-	POINTER_SCROLL,
-	COMMAND_HANDLE,
 	
 	//=============================================================================================
-	// Transient States
-	//=============================================================================================
-	HIDDEN,
-	HOVERED,
-	DIRTY,
+	private WItem(Class<?> cls) {
+		this.cls = cls;
+	}
 	//=============================================================================================
 
+	//=============================================================================================
+	public void check(Object object) {
+		if (!cls.isInstance(object)) {
+			throw new X(this.toString() + ": " + cls.getName() + " expected.");
+		}
+	}
+	//=============================================================================================
+	
 }
 //*************************************************************************************************

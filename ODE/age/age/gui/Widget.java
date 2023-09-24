@@ -10,14 +10,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.vecmath.Vector2f;
+
+import age.gui.dat.WItem;
 import age.util.X;
 
 //*************************************************************************************************
 public class Widget {
 
 	//=============================================================================================
-	private final Set<Flag> flags = EnumSet.noneOf(Flag.class);
-	private final Set<Flag> flags_ro = Collections.unmodifiableSet(flags);
+	private final Set<WFlag> wFlags = EnumSet.noneOf(WFlag.class);
+	private final Set<WFlag> flags_ro = Collections.unmodifiableSet(wFlags);
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -33,13 +35,13 @@ public class Widget {
 	//=============================================================================================
 
 	//=============================================================================================
-	private final Map<WidgetComponent, Object> components = new EnumMap<>(WidgetComponent.class);
-	private final Map<WidgetComponent, Object> components_ro = Collections.unmodifiableMap(components);
+	private final Map<WItem, Object> components = new EnumMap<>(WItem.class);
+	private final Map<WItem, Object> components_ro = Collections.unmodifiableMap(components);
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Widget(Flag ... flags) {
-		this.flags.addAll(List.of(flags));
+	public Widget(WFlag ... flags) {
+		this.wFlags.addAll(List.of(flags));
 	}
 	//=============================================================================================
 	
@@ -157,7 +159,7 @@ public class Widget {
 
 	//=============================================================================================
 	private void resized(float dx, float dy) {
-		flag(Flag.DIRTY);
+		clear(WFlag.CLEAN);
 		if (dx != 0f || dy != 0f) {
 			for (Widget child : children) {
 				child.parentResized(dx, dy);
@@ -182,26 +184,26 @@ public class Widget {
 	//=============================================================================================
 
 	//=============================================================================================
-	public Set<Flag> flags() {
+	public Set<WFlag> wFlags() {
 		return flags_ro;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void flag(Flag ... flags) {
-		this.flags.addAll(List.of(flags));
+	public void flag(WFlag ... flags) {
+		this.wFlags.addAll(List.of(flags));
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void clear(Flag ... flags) {
-		this.flags.removeAll(List.of(flags));
+	public void clear(WFlag ... flags) {
+		this.wFlags.removeAll(List.of(flags));
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public boolean match(Flag ... flags) {
-		return this.flags.containsAll(List.of(flags));
+	public boolean match(WFlag ... flags) {
+		return this.wFlags.containsAll(List.of(flags));
 	}
 	//=============================================================================================
 
@@ -222,6 +224,7 @@ public class Widget {
 		if (child.parent != null) throw new X("Parent not NULL");
 		children.add(child);
 		child.parent = this;
+		clear(WFlag.CLEAN);
 	}
 	//=============================================================================================
 
@@ -230,6 +233,7 @@ public class Widget {
 		if (child.parent != null) throw new X("Parent not NULL");
 		children.add(idx, child);
 		child.parent = this;
+		clear(WFlag.CLEAN);
 	}
 	//=============================================================================================
 
@@ -238,6 +242,7 @@ public class Widget {
 		if (parent == null) throw new X("Parent is NULL");
 		parent.children.remove(this);
 		parent = null;
+		clear(WFlag.CLEAN);
 	}
 	//=============================================================================================
 
@@ -251,27 +256,27 @@ public class Widget {
 	//=============================================================================================
 
 	//=============================================================================================
-	public Object component(WidgetComponent c) {
+	public Object component(WItem c) {
 		return components.get(c);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	@SuppressWarnings("unchecked")
-	public <C> C component(WidgetComponent c, Class<C> cls) {
+	public <C> C component(WItem c, Class<C> cls) {
 		return (C) component(c);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void component(WidgetComponent c, Object component) {
+	public void component(WItem c, Object component) {
 		c.check(component);
 		components.put(c, component);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Map<WidgetComponent, Object> components() {
+	public Map<WItem, Object> components() {
 		return components_ro;
 	}
 	//=============================================================================================

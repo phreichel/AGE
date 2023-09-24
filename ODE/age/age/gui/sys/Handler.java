@@ -1,9 +1,15 @@
 //*************************************************************************************************
-package age.gui;
+package age.gui.sys;
 //*************************************************************************************************
 
 import java.util.List;
 import javax.vecmath.Vector2f;
+
+import age.gui.WFlag;
+import age.gui.GUI;
+import age.gui.Widget;
+import age.gui.dat.Scrollable;
+import age.gui.dat.WItem;
 import age.input.Button;
 import age.input.Event;
 import age.input.Events;
@@ -11,7 +17,7 @@ import age.input.InputType;
 import age.util.X;
 
 //*************************************************************************************************
-class Handler {
+public class Handler {
 
 	//=============================================================================================
 	private interface PointerPressHandle {
@@ -61,8 +67,8 @@ class Handler {
 		tmp.set(e.position());
 		Widget widget = traverse(gui.root(), tmp);
 		
-		if (last != null) { last.clear(Flag.HOVERED); }
-		if (widget != null) widget.flag(Flag.HOVERED);
+		if (last != null) { last.clear(WFlag.HOVERED); }
+		if (widget != null) widget.flag(WFlag.HOVERED);
 		
 		handlePointerFocusing(widget, e);
 		handlePointer(widget, e, tmp);
@@ -77,7 +83,7 @@ class Handler {
 		if (e.type().equals(InputType.POINTER_PRESSED)) {
 			Widget front = widget;
 			while (front != null) {
-				if (front.match(Flag.FRAME)) {
+				if (front.match(WFlag.FRAME)) {
 					front.toFront();
 				}
 				front = front.parent();
@@ -95,8 +101,8 @@ class Handler {
 			widget = activeWidget;
 		}
 		if (widget != null) {
-			for (Flag flag : widget.flags()) {
-				switch (flag) {
+			for (WFlag wFlag : widget.wFlags()) {
+				switch (wFlag) {
 					case  CONTEXT_MENU -> handleContextMenu(widget, e, localPos);
 					case  DRAG_HANDLE -> handleDrag(widget, e, localPos);
 					case  RESIZE_HANDLE -> handleResize(widget, e, localPos);
@@ -147,7 +153,7 @@ class Handler {
 		) {
 			lastPointerPosition.sub(e.position());
 			lastPointerPosition.negate();
-			Widget dragged = activeWidget.component(WidgetComponent.DRAGGED_WIDGET, Widget.class);
+			Widget dragged = activeWidget.component(WItem.DRAGGED_WIDGET, Widget.class);
 			dragged.positionAdd(lastPointerPosition);
 			lastPointerPosition.set(0, 0);
 			activeWidget = null;
@@ -157,7 +163,7 @@ class Handler {
 		) {
 			lastPointerPosition.sub(e.position());
 			lastPointerPosition.negate();
-			Widget dragged = activeWidget.component(WidgetComponent.DRAGGED_WIDGET, Widget.class);
+			Widget dragged = activeWidget.component(WItem.DRAGGED_WIDGET, Widget.class);
 			dragged.positionAdd(lastPointerPosition);
 			lastPointerPosition.set(e.position());
 		}
@@ -183,7 +189,7 @@ class Handler {
 		) {
 			lastPointerPosition.sub(e.position());
 			lastPointerPosition.negate();
-			Widget resized = activeWidget.component(WidgetComponent.RESIZED_WIDGET, Widget.class);
+			Widget resized = activeWidget.component(WItem.RESIZED_WIDGET, Widget.class);
 			resized.dimensionAdd(lastPointerPosition);
 			lastPointerPosition.set(0, 0);
 			activeWidget = null;
@@ -193,7 +199,7 @@ class Handler {
 		) {
 			lastPointerPosition.sub(e.position());
 			lastPointerPosition.negate();
-			Widget resized = activeWidget.component(WidgetComponent.RESIZED_WIDGET, Widget.class);
+			Widget resized = activeWidget.component(WItem.RESIZED_WIDGET, Widget.class);
 			resized.dimensionAdd(lastPointerPosition);
 			lastPointerPosition.set(e.position());
 		}
@@ -222,12 +228,12 @@ class Handler {
 			lastPointerPosition.sub(e.position());
 			lastPointerPosition.negate();
 
-			Widget scrollbar = widget.component(WidgetComponent.SCROLL_WIDGET, Widget.class);
+			Widget scrollbar = widget.component(WItem.SCROLL_WIDGET, Widget.class);
 			
 			boolean vertical = true;
-			ScrollableState scstate = scrollbar.component(WidgetComponent.SCROLLABLE_VERTICAL, ScrollableState.class);
+			Scrollable scstate = scrollbar.component(WItem.SCROLLABLE_VERTICAL, Scrollable.class);
 			if (scstate == null) {
-				scstate = scrollbar.component(WidgetComponent.SCROLLABLE_HORIZONTAL, ScrollableState.class);
+				scstate = scrollbar.component(WItem.SCROLLABLE_HORIZONTAL, Scrollable.class);
 				vertical = false;
 			}
 
@@ -251,12 +257,12 @@ class Handler {
 			lastPointerPosition.sub(e.position());
 			lastPointerPosition.negate();
 
-			Widget scrollbar = widget.component(WidgetComponent.SCROLL_WIDGET, Widget.class);
+			Widget scrollbar = widget.component(WItem.SCROLL_WIDGET, Widget.class);
 			
 			boolean vertical = true;
-			ScrollableState scstate = scrollbar.component(WidgetComponent.SCROLLABLE_VERTICAL, ScrollableState.class);
+			Scrollable scstate = scrollbar.component(WItem.SCROLLABLE_VERTICAL, Scrollable.class);
 			if (scstate == null) {
-				scstate = scrollbar.component(WidgetComponent.SCROLLABLE_HORIZONTAL, ScrollableState.class);
+				scstate = scrollbar.component(WItem.SCROLLABLE_HORIZONTAL, Scrollable.class);
 				vertical = false;
 			}
 
@@ -281,7 +287,7 @@ class Handler {
 		Widget widget,
 		Event e,
 		Vector2f localPos) {
-		ScrollableState scstate = widget.component(WidgetComponent.SCROLLABLE_VERTICAL, ScrollableState.class);
+		Scrollable scstate = widget.component(WItem.SCROLLABLE_VERTICAL, Scrollable.class);
 		float value = e.wheelY();
 		int delta = (int) Math.rint(-value);
 		scstate.scrollBy(delta);
@@ -317,8 +323,8 @@ class Handler {
 		Widget widget,
 		Event e,
 		Vector2f localPos) {
-		Widget closed = widget.component(WidgetComponent.CLOSED_WIDGET, Widget.class);
-		closed.flag(Flag.HIDDEN);
+		Widget closed = widget.component(WItem.CLOSED_WIDGET, Widget.class);
+		closed.flag(WFlag.HIDDEN);
 	}
 	//=============================================================================================
 	
@@ -327,7 +333,7 @@ class Handler {
 		Widget widget,
 		Event e,
 		Vector2f localPos) {
-		String command = widget.component(WidgetComponent.COMMAND, String.class);
+		String command = widget.component(WItem.COMMAND, String.class);
 		events.postTaskCommand(command);
 	}
 	//=============================================================================================
@@ -337,10 +343,10 @@ class Handler {
 		Widget widget,
 		Event e,
 		Vector2f localPos) {
-		Widget scrollbar = widget.component(WidgetComponent.SCROLL_WIDGET, Widget.class);
-		ScrollableState scstate = scrollbar.component(WidgetComponent.SCROLLABLE_VERTICAL, ScrollableState.class);
+		Widget scrollbar = widget.component(WItem.SCROLL_WIDGET, Widget.class);
+		Scrollable scstate = scrollbar.component(WItem.SCROLLABLE_VERTICAL, Scrollable.class);
 		if (scstate == null) {
-			scstate = scrollbar.component(WidgetComponent.SCROLLABLE_HORIZONTAL, ScrollableState.class);
+			scstate = scrollbar.component(WItem.SCROLLABLE_HORIZONTAL, Scrollable.class);
 		}
 		scstate.scrollOneToStart();
 	}
@@ -351,10 +357,10 @@ class Handler {
 		Widget widget,
 		Event e,
 		Vector2f localPos) {
-		Widget scrollbar = widget.component(WidgetComponent.SCROLL_WIDGET, Widget.class);
-		ScrollableState scstate = scrollbar.component(WidgetComponent.SCROLLABLE_VERTICAL, ScrollableState.class);
+		Widget scrollbar = widget.component(WItem.SCROLL_WIDGET, Widget.class);
+		Scrollable scstate = scrollbar.component(WItem.SCROLLABLE_VERTICAL, Scrollable.class);
 		if (scstate == null) {
-			scstate = scrollbar.component(WidgetComponent.SCROLLABLE_HORIZONTAL, ScrollableState.class);
+			scstate = scrollbar.component(WItem.SCROLLABLE_HORIZONTAL, Scrollable.class);
 		}
 		scstate.scrollOneToEnd();
 	}
@@ -366,13 +372,13 @@ class Handler {
 		Event e,
 		Vector2f localPos) {
 
-		Widget scrollbar = widget.component(WidgetComponent.SCROLL_WIDGET, Widget.class);
+		Widget scrollbar = widget.component(WItem.SCROLL_WIDGET, Widget.class);
 		Widget handle = widget.children().get(0);
 		
 		boolean vertical = true;
-		ScrollableState scstate = scrollbar.component(WidgetComponent.SCROLLABLE_VERTICAL, ScrollableState.class);
+		Scrollable scstate = scrollbar.component(WItem.SCROLLABLE_VERTICAL, Scrollable.class);
 		if (scstate == null) {
-			scstate = scrollbar.component(WidgetComponent.SCROLLABLE_HORIZONTAL, ScrollableState.class);
+			scstate = scrollbar.component(WItem.SCROLLABLE_HORIZONTAL, Scrollable.class);
 			vertical = false;
 		}
 
@@ -388,7 +394,7 @@ class Handler {
 	
 	//=============================================================================================
 	private Widget traverse(Widget widget, Vector2f pos) {
-		if (!widget.match(Flag.HIDDEN)) {
+		if (!widget.match(WFlag.HIDDEN)) {
 			pos.sub(widget.position());
 			if (contains(widget.dimension(), pos)) {
 				List<Widget> list = widget.children();

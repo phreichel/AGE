@@ -1,8 +1,15 @@
 //*************************************************************************************************
-package age.gui;
+package age.gui.sys;
 //*************************************************************************************************
 
 import java.util.List;
+
+import age.gui.WFlag;
+import age.gui.GUI;
+import age.gui.Widget;
+import age.gui.dat.Multiline;
+import age.gui.dat.Scrollable;
+import age.gui.dat.WItem;
 import age.port.Graphics;
 import age.port.Renderable;
 
@@ -29,7 +36,7 @@ public class Renderer implements Renderable {
 
 	//=============================================================================================
 	private void render(Graphics g, Widget widget) {
-		if (!widget.match(Flag.HIDDEN)) {
+		if (!widget.match(WFlag.HIDDEN)) {
 			g.pushTransformation();
 			g.translate(widget.position());
 			renderWidget(g, widget);
@@ -41,14 +48,13 @@ public class Renderer implements Renderable {
 
 	//=============================================================================================
 	private void renderWidget(Graphics g, Widget widget) {
-		for (Flag flag :widget.flags()) {
-			switch (flag) {
+		for (WFlag wFlag :widget.wFlags()) {
+			switch (wFlag) {
 				case BOX -> renderBox(g, widget);
 				case FRAME -> renderFrame(g, widget);
 				case BUTTON -> renderButton(g, widget);
 				case CANVAS -> renderCanvas(g, widget);
 				case TITLE -> renderTitle(g, widget);
-				case SCROLLBAR -> renderScrollbar(g, widget);
 				case HANDLE -> renderHandle(g, widget);
 				case MULTILINE -> renderMultiline(g, widget);
 				default -> {}
@@ -75,11 +81,11 @@ public class Renderer implements Renderable {
 
 	//=============================================================================================
 	private void renderButton(Graphics g, Widget widget) {
-		if (!widget.match(Flag.HOVERED))
+		if (!widget.match(WFlag.HOVERED))
 			g.color(.8f, 0f, 0f);
 		else
 			g.color(1f, .3f, .3f);
-		String image = widget.component(WidgetComponent.IMAGE_NAME, String.class);
+		String image = widget.component(WItem.IMAGE_NAME, String.class);
 		if (image != null) {
 			g.texture(0, 0, widget.dimension().x, widget.dimension().y, image);
 		} else {
@@ -99,46 +105,18 @@ public class Renderer implements Renderable {
 
 	//=============================================================================================
 	private void renderTitle(Graphics g, Widget widget) {
-		if (!widget.match(Flag.HOVERED))
+		if (!widget.match(WFlag.HOVERED))
 			g.color(.2f, 0f, 0f);
 		else
 			g.color(.4f, 0f, 0f);
 		g.rectangle(widget.dimension(), false);
 		g.color(.4f, 0f, 0f);
 		g.rectangle(widget.dimension(), true);
-		String text = widget.component(WidgetComponent.TEXT, String.class);
+		String text = widget.component(WItem.TEXT, String.class);
 		g.text(3, widget.dimension().y-3, text, "title");
 	}
 	//=============================================================================================
 
-	//=============================================================================================
-	// TODO: should be relocated to a layouting system instead of a render system if such exists in the future
-	private void renderScrollbar(Graphics g, Widget widget) {
-		boolean vertical = true;
-		ScrollableState scstate = widget.component(WidgetComponent.SCROLLABLE_VERTICAL, ScrollableState.class);
-		if (scstate == null) {
-			scstate = widget.component(WidgetComponent.SCROLLABLE_HORIZONTAL, ScrollableState.class);
-			vertical = false;
-		}
-		if (scstate != null) {
-			Widget slider = widget.children().get(0);
-			Widget handle = slider.children().get(0);
-			float pageScale = (float) (scstate.page) / (float) (scstate.size + scstate.page - 1);
-			float sliderRange = vertical ? slider.dimension().y : slider.dimension().x; 
-			float handleRange = sliderRange * pageScale; 
-			float indexRange  = scstate.size - 1;
-			float indexStep = (sliderRange - handleRange) / indexRange;
-			if (vertical) {
-				handle.position().y = indexStep * scstate.mark;
-				handle.dimension().y = handleRange;
-			} else {
-				handle.position().x = indexStep * scstate.mark;
-				handle.dimension().x = handleRange;
-			}
-		}
-	}
-	//=============================================================================================
-	
 	//=============================================================================================
 	private void renderHandle(Graphics g, Widget widget) {
 		g.color(1f, 0f, 0f);
@@ -149,10 +127,10 @@ public class Renderer implements Renderable {
 	//=============================================================================================
 	private void renderMultiline(Graphics g, Widget widget) {
 		
-		String text = widget.component(WidgetComponent.TEXT, String.class);
+		String text = widget.component(WItem.TEXT, String.class);
 		
-		ScrollableState scstate = widget.component(WidgetComponent.SCROLLABLE_VERTICAL, ScrollableState.class);
-		MultilineState  mlstate = widget.component(WidgetComponent.MULTILINE_STATE, MultilineState.class);
+		Scrollable scstate = widget.component(WItem.SCROLLABLE_VERTICAL, Scrollable.class);
+		Multiline  mlstate = widget.component(WItem.MULTILINE_STATE, Multiline.class);
 
 		g.color(0f, 0f, .5f);
 		g.rectangle(
@@ -164,8 +142,7 @@ public class Renderer implements Renderable {
 			widget.dimension(),
 			true);
 		
-		if (widget.match(Flag.DIRTY)) {
-			widget.clear(Flag.DIRTY);
+		if (!widget.match(WFlag.CLEAN)) {
 			g.calcMultitext(
 				text,
 				widget.dimension().x-6,
@@ -173,6 +150,7 @@ public class Renderer implements Renderable {
 				"text",
 				scstate,
 				mlstate);
+			widget.flag(WFlag.CLEAN);
 		}
 		
 		for (int i=0; i<scstate.page; i++) {

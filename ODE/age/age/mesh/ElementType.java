@@ -1,16 +1,20 @@
 //*************************************************************************************************
-package age.gui;
+package age.mesh;
 //*************************************************************************************************
 
-import java.util.ArrayList;
-import java.util.List;
-
 //*************************************************************************************************
-public class MultilineState {
+public enum ElementType {
 
 	//=============================================================================================
-	public int height;
-	public final List<Integer> indices = new ArrayList<>();
+	POINTS,
+	LINES,
+	LINE_STRIP,
+	LINE_LOOP,
+	TRIANGLES,
+	TRIANGLE_STRIP,
+	TRIANGLE_FAN,
+	QUADS,
+	QUAD_STRIP
 	//=============================================================================================
 
 }

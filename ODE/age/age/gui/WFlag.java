@@ -2,41 +2,48 @@
 package age.gui;
 //*************************************************************************************************
 
-import age.util.X;
-
 //*************************************************************************************************
-public enum WidgetComponent {
+public enum WFlag {
 
 	//=============================================================================================
-	TEXT(String.class),
-	COMMAND(String.class),
-	IMAGE_NAME(String.class),
-	DRAGGED_WIDGET(Widget.class),
-	RESIZED_WIDGET(Widget.class),
-	CLOSED_WIDGET(Widget.class),
-	SCROLLABLE_HORIZONTAL(ScrollableState.class),
-	SCROLLABLE_VERTICAL(ScrollableState.class),
-	SCROLL_WIDGET(Widget.class),
-	MULTILINE_STATE(MultilineState.class);
+	// Render Types
+	//=============================================================================================
+	BOX,
+	FRAME,
+	BUTTON,
+	CANVAS,
+	TITLE,
+	MULTILINE,
+	SCROLLBAR,
+	HANDLE,
 	//=============================================================================================
 
 	//=============================================================================================
-	private Class<?> cls;
+	// Behaviour Types
 	//=============================================================================================
+	CONTEXT_MENU,
+	DRAG_HANDLE,
+	RESIZE_HANDLE,
+	CLOSE_HANDLE,
+	SCROLL_START,
+	SCROLL_END,
+	SCROLLBAR_SLIDER,
+	SCROLLBAR_HANDLE,
+	POINTER_SCROLL,
+	COMMAND_HANDLE,
+
+	//=============================================================================================
+	// Layout Types
+	//=============================================================================================
+	VSTACK,
 	
 	//=============================================================================================
-	private WidgetComponent(Class<?> cls) {
-		this.cls = cls;
-	}
+	// Transient States
+	//=============================================================================================
+	HIDDEN,
+	HOVERED,
+	CLEAN,
 	//=============================================================================================
 
-	//=============================================================================================
-	public void check(Object object) {
-		if (!cls.isInstance(object)) {
-			throw new X(this.toString() + ": " + cls.getName() + " expected.");
-		}
-	}
-	//=============================================================================================
-	
 }
 //*************************************************************************************************

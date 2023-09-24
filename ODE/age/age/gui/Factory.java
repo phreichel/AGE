@@ -2,18 +2,39 @@
 package age.gui;
 //*************************************************************************************************
 
+import age.gui.dat.Multiline;
+import age.gui.dat.Scrollable;
+import age.gui.dat.WItem;
+
 //*************************************************************************************************
 public class Factory {
 
 	//=============================================================================================
+	private final GUI gui;
+	//=============================================================================================
+
+	//=============================================================================================
+	private static final float G =  5f; 
+	private static final float T =  2f; 
+	private static final float B = 20f; 
+	private static final float S = 10f; 
+	//=============================================================================================
+	
+	//=============================================================================================
+	public Factory(GUI gui) {
+		this.gui = gui;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	public Widget createIconButton(
 			String image,
 			String command) {
-		Widget button = new Widget(Flag.BUTTON);
+		Widget button = new Widget(WFlag.BUTTON);
 		button.dimension(20, 20);
-		button.flag(Flag.COMMAND_HANDLE);
-		button.component(WidgetComponent.COMMAND, command);
-		button.component(WidgetComponent.IMAGE_NAME, image);
+		button.flag(WFlag.COMMAND_HANDLE);
+		button.component(WItem.COMMAND, command);
+		button.component(WItem.IMAGE_NAME, image);
 		return button;
 	}
 	//=============================================================================================
@@ -23,45 +44,43 @@ public class Factory {
 		
 		final float W = w;
 		final float H = h;
-		final float V = 20;
-		final float G = 5;
 
 		Widget window = new Widget();
-		window.flag(Flag.FRAME);
+		window.flag(WFlag.FRAME);
 		window.dimension(W, H);
 		
 		Widget title = new Widget();
-		title.flag(Flag.TITLE);
-		title.flag(Flag.DRAG_HANDLE);
-		title.component(WidgetComponent.DRAGGED_WIDGET, window);
+		title.flag(WFlag.TITLE);
+		title.flag(WFlag.DRAG_HANDLE);
+		title.component(WItem.DRAGGED_WIDGET, window);
 		title.position(G, G);
-		title.dimension(W-V-3*G, V);
+		title.dimension(W-B-3*G, B);
 		title.dock(0, 1, 0, 0);
-		title.component(WidgetComponent.TEXT, caption);
+		title.component(WItem.TEXT, caption);
 		
 		Widget close = new Widget();
-		close.flag(Flag.BUTTON);
-		close.flag(Flag.CLOSE_HANDLE);
-		close.component(WidgetComponent.CLOSED_WIDGET, window);
-		close.position(W-V-G, G);
-		close.dimension(V, V);
+		close.flag(WFlag.BUTTON);
+		close.flag(WFlag.CLOSE_HANDLE);
+		close.component(WItem.CLOSED_WIDGET, window);
+		close.position(W-B-G, G);
+		close.dimension(B, B);
 		close.dock(1, 1, 0, 0);
-		close.component(WidgetComponent.IMAGE_NAME, "close");
+		close.component(WItem.IMAGE_NAME, "close");
 		
 		Widget page = new Widget();
-		page.flag(Flag.CANVAS);
-		page.position(G, V+2*G);
-		page.dimension(W-2*G, H-V-3*G);
+		page.flag(WFlag.CANVAS);
+		page.position(G, B + 2*G);
+		page.dimension(W - 2*G, H - B - 3*G);
 		page.dock(0, 1, 0, 1);
 
 		Widget size = new Widget();
-		size.flag(Flag.BUTTON);
-		size.flag(Flag.RESIZE_HANDLE);
-		size.component(WidgetComponent.RESIZED_WIDGET, window);
-		size.position(W-V-G, H-V-G);
-		size.dimension(V, V);
+		size.flag(WFlag.BUTTON);
+		size.flag(WFlag.RESIZE_HANDLE);
+		size.component(WItem.RESIZED_WIDGET, window);
+		size.position(W-B-G, H-B-G);
+		size.dimension(B, B);
 		size.dock(1, 1, 1, 1);
-		size.component(WidgetComponent.IMAGE_NAME, "size");
+		size.component(WItem.IMAGE_NAME, "size");
 		
 		window.add(title);
 		window.add(close);
@@ -76,45 +95,48 @@ public class Factory {
 	//=============================================================================================
 	public Widget createVerticalScrollBar(Widget target) {
 
-		ScrollableState scstate = target.component(WidgetComponent.SCROLLABLE_VERTICAL, ScrollableState.class);
+		final float Y = 100f;
+		
+		Scrollable scstate = target.component(WItem.SCROLLABLE_VERTICAL, Scrollable.class);
 		
 		Widget scrollbar = new Widget();
-		scrollbar.flag(Flag.SCROLLBAR);
-		scrollbar.component(WidgetComponent.SCROLLABLE_VERTICAL, scstate);
-		scrollbar.dimension(10, 70);
+		scrollbar.flag(WFlag.SCROLLBAR);
+		gui.layouter().add(WFlag.SCROLLBAR, scrollbar);
+		scrollbar.component(WItem.SCROLLABLE_VERTICAL, scstate);
+		scrollbar.dimension(S, Y);
 		scrollbar.dock(1, 1, 0, 1);
 
 		Widget slidebar = new Widget();
-		slidebar.flag(Flag.BOX);
-		slidebar.flag(Flag.SCROLLBAR_SLIDER);
-		slidebar.component(WidgetComponent.SCROLL_WIDGET, scrollbar);
-		slidebar.position(0, 12);
-		slidebar.dimension(10, 46);
+		slidebar.flag(WFlag.BOX);
+		slidebar.flag(WFlag.SCROLLBAR_SLIDER);
+		slidebar.component(WItem.SCROLL_WIDGET, scrollbar);
+		slidebar.position(0, S+T);
+		slidebar.dimension(S, Y - 2*(S+T));
 		slidebar.dock(0, 1, 0, 1);
 		
 		Widget handle = new Widget();
-		handle.flag(Flag.HANDLE);
-		handle.flag(Flag.SCROLLBAR_HANDLE);
-		handle.component(WidgetComponent.SCROLL_WIDGET, scrollbar);
+		handle.flag(WFlag.HANDLE);
+		handle.flag(WFlag.SCROLLBAR_HANDLE);
+		handle.component(WItem.SCROLL_WIDGET, scrollbar);
 		handle.position(0, 0);
-		handle.dimension(10, 20);
+		handle.dimension(S, 3*S);
 		
 		Widget btnStart = new Widget();
-		btnStart.flag(Flag.BUTTON);
-		btnStart.flag(Flag.SCROLL_START);
-		btnStart.component(WidgetComponent.SCROLL_WIDGET, scrollbar);
+		btnStart.flag(WFlag.BUTTON);
+		btnStart.flag(WFlag.SCROLL_START);
+		btnStart.component(WItem.SCROLL_WIDGET, scrollbar);
 		btnStart.position(0, 0);
-		btnStart.dimension(11, 10);
-		btnStart.component(WidgetComponent.IMAGE_NAME, "arrowup");
+		btnStart.dimension(S, S);
+		btnStart.component(WItem.IMAGE_NAME, "arrowup");
 		
 		Widget btnEnd = new Widget();
-		btnEnd.flag(Flag.BUTTON);
-		btnEnd.flag(Flag.SCROLL_END);
-		btnEnd.component(WidgetComponent.SCROLL_WIDGET, scrollbar);
-		btnEnd.position(0, 60);
-		btnEnd.dimension(11, 10);
+		btnEnd.flag(WFlag.BUTTON);
+		btnEnd.flag(WFlag.SCROLL_END);
+		btnEnd.component(WItem.SCROLL_WIDGET, scrollbar);
+		btnEnd.position(0, Y-S);
+		btnEnd.dimension(S, S);
 		btnEnd.dock(0, 1, 1, 1);
-		btnEnd.component(WidgetComponent.IMAGE_NAME, "arrowdown");
+		btnEnd.component(WItem.IMAGE_NAME, "arrowdown");
 		
 		slidebar.add(handle);
 		scrollbar.add(slidebar);
@@ -132,15 +154,15 @@ public class Factory {
 		Widget spacer = new Widget();
 		spacer.dimension(600, 800);
 		
-		ScrollableState state = new ScrollableState();
-		MultilineState  multi = new MultilineState();
+		Scrollable state = new Scrollable();
+		Multiline  multi = new Multiline();
 		
 		Widget multiline = new Widget();
-		multiline.flag(Flag.MULTILINE);
-		multiline.flag(Flag.POINTER_SCROLL);
-		multiline.component(WidgetComponent.SCROLLABLE_VERTICAL, state);
-		multiline.component(WidgetComponent.MULTILINE_STATE, multi);
-		multiline.component(WidgetComponent.TEXT, text);
+		multiline.flag(WFlag.MULTILINE);
+		multiline.flag(WFlag.POINTER_SCROLL);
+		multiline.component(WItem.SCROLLABLE_VERTICAL, state);
+		multiline.component(WItem.MULTILINE_STATE, multi);
+		multiline.component(WItem.TEXT, text);
 		multiline.dimension(580, 800);
 		multiline.dock(0, 1, 0, 1);
 		spacer.add(multiline);
