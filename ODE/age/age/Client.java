@@ -10,6 +10,8 @@ import age.scene.Node;
 import age.scene.NItem;
 import age.scene.Scene;
 import age.task.Tasks;
+import age.util.MathUtil;
+
 import javax.vecmath.AxisAngle4f;
 import javax.vecmath.Matrix4f;
 import javax.vecmath.Vector3f;
@@ -62,8 +64,10 @@ public class Client {
 		port.size(800, 600);
 		
 		Log.info("Setting Clock Tasks");
-		clock.addFPS(60, this::render);
+		
 		clock.addFPS(120, this::update);
+		clock.addFPS(60, this::render);
+		clock.addFPS(60, this::render);
 
 	}
 	//=============================================================================================
@@ -87,7 +91,10 @@ public class Client {
 		Mesh mesh = Mesh.factory().siglet(6,  6);
 		Node node = new Node(NFlag.MESH);
 		node.component(NItem.MESH, mesh);
+		node.component(NItem.TRANSFORM, MathUtil.identityMatrix());
+		node.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY( (float) Math.toRadians(10f)));
 		scene.root().attach(node);
+		scene.animations().add(NFlag.TRANSFORM, node);
 		
 		Node camNode = new Node();
 		Matrix4f camTransform = new Matrix4f();
@@ -172,6 +179,7 @@ public class Client {
 			int count,
 			long nanoperiod,
 			float dT) {
+		scene.update(dT);
 		port.render();
 	}
 	//=============================================================================================

@@ -363,9 +363,6 @@ class JOGLGraphics implements Graphics {
 
 	//=============================================================================================
 	public void drawElement(Element element) {
-		var mode = glMode(element.type());
-		gl.glBegin(mode);
-		
 		var mask = 0;
 		mask |= element.hasNormals() ? 1 : 0;
 		mask |= element.hasColors() ? 2 : 0;
@@ -389,12 +386,17 @@ class JOGLGraphics implements Graphics {
 	private void drawElementV(Element element) {
 		int[] indices = element.indices();
 		float[] vertices = element.vertices();
+		gl.glPushAttrib(GL2.GL_ENABLE_BIT);
+		gl.glDisable(GL2.GL_LIGHTING);
+		var mode = glMode(element.type());
+		gl.glBegin(mode);
 		for (var i=0; i<indices.length; i++) {
 			var idx = indices[i];
 			var idx3 = idx * 3;
 			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
 		}
 		gl.glEnd();
+		gl.glPopAttrib();
 	}
 	//=============================================================================================
 	
@@ -403,6 +405,8 @@ class JOGLGraphics implements Graphics {
 		int[] indices = element.indices();
 		float[] normals = element.normals();
 		float[] vertices = element.vertices();
+		var mode = glMode(element.type());
+		gl.glBegin(mode);
 		for (var i=0; i<indices.length; i++) {
 			var idx = indices[i];
 			var idx3 = idx * 3;
@@ -418,6 +422,10 @@ class JOGLGraphics implements Graphics {
 		int[] indices = element.indices();
 		float[] colors = element.colors();
 		float[] vertices = element.vertices();
+		gl.glPushAttrib(GL2.GL_ENABLE_BIT);
+		gl.glDisable(GL2.GL_LIGHTING);
+		var mode = glMode(element.type());
+		gl.glBegin(mode);
 		for (var i=0; i<indices.length; i++) {
 			var idx = indices[i];
 			var idx3 = idx * 3;
@@ -425,6 +433,7 @@ class JOGLGraphics implements Graphics {
 			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
 		}
 		gl.glEnd();
+		gl.glPopAttrib();
 	}
 	//=============================================================================================
 	
@@ -434,6 +443,8 @@ class JOGLGraphics implements Graphics {
 		float[] colors = element.colors();
 		float[] normals = element.normals();
 		float[] vertices = element.vertices();
+		var mode = glMode(element.type());
+		gl.glBegin(mode);
 		for (var i=0; i<indices.length; i++) {
 			var idx = indices[i];
 			var idx3 = idx * 3;
@@ -450,6 +461,10 @@ class JOGLGraphics implements Graphics {
 		int[] indices = element.indices();
 		float[] textures = element.textures();
 		float[] vertices = element.vertices();
+		gl.glPushAttrib(GL2.GL_ENABLE_BIT);
+		gl.glDisable(GL2.GL_LIGHTING);
+		var mode = glMode(element.type());
+		gl.glBegin(mode);
 		for (var i=0; i<indices.length; i++) {
 			var idx = indices[i];
 			var idx2 = idx * 2;
@@ -458,6 +473,7 @@ class JOGLGraphics implements Graphics {
 			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
 		}
 		gl.glEnd();
+		gl.glPopAttrib();
 	}
 	//=============================================================================================
 	
@@ -467,6 +483,8 @@ class JOGLGraphics implements Graphics {
 		float[] normals = element.normals();
 		float[] textures = element.textures();
 		float[] vertices = element.vertices();
+		var mode = glMode(element.type());
+		gl.glBegin(mode);
 		for (var i=0; i<indices.length; i++) {
 			var idx = indices[i];
 			var idx2 = idx * 2;
@@ -485,6 +503,10 @@ class JOGLGraphics implements Graphics {
 		float[] colors = element.colors();
 		float[] textures = element.textures();
 		float[] vertices = element.vertices();
+		gl.glPushAttrib(GL2.GL_ENABLE_BIT);
+		gl.glDisable(GL2.GL_LIGHTING);
+		var mode = glMode(element.type());
+		gl.glBegin(mode);
 		for (var i=0; i<indices.length; i++) {
 			var idx = indices[i];
 			var idx2 = idx * 2;
@@ -494,6 +516,7 @@ class JOGLGraphics implements Graphics {
 			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
 		}
 		gl.glEnd();
+		gl.glPopAttrib();
 	}
 	//=============================================================================================
 	
@@ -504,6 +527,8 @@ class JOGLGraphics implements Graphics {
 		float[] normals = element.normals();
 		float[] textures = element.textures();
 		float[] vertices = element.vertices();
+		var mode = glMode(element.type());
+		gl.glBegin(mode);
 		for (var i=0; i<indices.length; i++) {
 			var idx = indices[i];
 			var idx2 = idx * 2;

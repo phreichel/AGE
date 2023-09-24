@@ -3,7 +3,6 @@ package age.scene;
 //*************************************************************************************************
 
 import javax.vecmath.Matrix4f;
-
 import age.mesh.Mesh;
 import age.port.Graphics;
 import age.port.Renderable;
@@ -74,8 +73,8 @@ public class Rendering implements Renderable {
 	private void renderNode(Graphics g, Node node) {
 		for (var flag : node.nFlags()) {
 			switch (flag) {
-			case BOX -> renderBox(g, node);
-			case MESH -> renderMesh(g, node);
+				case BOX -> renderBox(g, node);
+				case MESH -> renderMesh(g, node);
 			}
 		}
 	}

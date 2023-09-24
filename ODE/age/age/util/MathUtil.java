@@ -9,6 +9,22 @@ import javax.vecmath.Vector3f;
 public final class MathUtil {
 
 	//=============================================================================================
+	public static final Matrix4f identityMatrix() {
+		Matrix4f m = new Matrix4f();
+		m.setIdentity();
+		return m;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public static final Matrix4f rotY(float a) {
+		Matrix4f m = new Matrix4f();
+		m.rotY(a);
+		return m;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	public static final Matrix4f cameraMatrix(
 			Matrix4f src,
 			Matrix4f dst) {
