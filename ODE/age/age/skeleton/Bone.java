@@ -8,6 +8,8 @@ import java.util.List;
 import javax.vecmath.Quat4f;
 import javax.vecmath.Vector3f;
 
+import age.log.Log;
+
 //*************************************************************************************************
 public class Bone {
 
@@ -76,6 +78,12 @@ public class Bone {
 		translation.set(t);
 	}
 	//=============================================================================================
+
+	//=============================================================================================
+	public void translation(float x, float y, float z) {
+		translation.set(x, y, z);
+	}
+	//=============================================================================================
 	
 	//=============================================================================================
 	public Quat4f orientation() {
@@ -112,19 +120,20 @@ public class Bone {
 		var idx = findIndex(time);
 
 		if ((idx < 0) || (idx >= keyframes.size()-1)) {
-
 			r.set(this.translation);
 			o.set(this.orientation);
 			
 		} else {
-
+			
 			var k1 = keyframes.get(idx+0);
 			var k2 = keyframes.get(idx+1);
 
 			var prt = time - k1.time();
-			var net = (k2.time() - k1.time());
+			var net = k2.time() - k1.time();
 			var s = prt / net;
 
+			Log.info("$s", );
+			
 			r.interpolate(k1.translation(), k2.translation(), s);
 			o.interpolate(k1.orientation(), k2.orientation(), s);
 

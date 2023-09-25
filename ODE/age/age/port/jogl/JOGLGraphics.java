@@ -8,10 +8,14 @@ import java.awt.Font;
 import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import javax.vecmath.Color4f;
 import javax.vecmath.Matrix4f;
+import javax.vecmath.Quat4f;
 import javax.vecmath.Vector2f;
+import javax.vecmath.Vector3f;
+
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.util.awt.TextRenderer;
@@ -20,12 +24,16 @@ import com.jogamp.opengl.util.texture.TextureCoords;
 import com.jogamp.opengl.util.texture.TextureIO;
 import age.gui.dat.Multiline;
 import age.gui.dat.Scrollable;
+import age.log.Log;
 import age.mesh.Mesh;
 import age.mesh.Element;
 import age.mesh.ElementType;
 import age.port.Graphics;
+import age.skeleton.Bone;
+import age.skeleton.Skeleton;
 import age.util.X;
 import age.util.MathUtil;
+import age.util.Util;
 
 //*************************************************************************************************
 class JOGLGraphics implements Graphics {
@@ -555,6 +563,53 @@ class JOGLGraphics implements Graphics {
 			case QUADS -> GL2.GL_QUADS;
 			case QUAD_STRIP -> GL2.GL_QUAD_STRIP;
 		};
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void drawSkeleton(Skeleton s, float t) {
+		gl.glPushAttrib(GL2.GL_ENABLE_BIT);
+		gl.glDisable(GL2.GL_LIGHTING);
+		drawBones(s.bones(), t);
+		gl.glPopAttrib();
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void drawBones(List<Bone> bones, float t) {
+		for (var bone : bones) {
+			drawBone(bone, t);
+		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private Vector3f r1 = new Vector3f();
+	private Vector3f r2 = new Vector3f();
+	private Quat4f   o1 = new Quat4f();
+	private Quat4f   o2 = new Quat4f();
+	private Matrix4f mx = new Matrix4f();
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void drawBone(Bone bone, float t) {
+		bone.interpolate(r1, o1, t);
+		mx.setIdentity();
+		mx.setRotation(o1);
+		mx.setTranslation(r1);
+		Log.info("%n%s", mx);
+		buffer = MathUtil.toGLMatrix(mx, buffer);
+		gl.glPushMatrix();
+		gl.glMultMatrixf(buffer, 0);
+		for (var child : bone.children()) {
+			child.interpolate(r2, o2, t);
+			gl.glBegin(GL_LINES);
+			gl.glVertex3f(0, 0, 0);
+			gl.glVertex3f(r2.x, r2.y, r2.z);
+			gl.glEnd();
+		}
+		drawBones(bone.children(), t);
+		gl.glPopMatrix();
 	}
 	//=============================================================================================
 	

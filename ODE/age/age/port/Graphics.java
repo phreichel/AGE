@@ -10,6 +10,7 @@ import age.gui.dat.Multiline;
 import age.gui.dat.Scrollable;
 import age.mesh.Element;
 import age.mesh.Mesh;
+import age.skeleton.Skeleton;
 
 //*************************************************************************************************
 public interface Graphics {
@@ -54,6 +55,7 @@ public interface Graphics {
 	public void drawBox(float sx, float sy, float sz);
 	public void drawMesh(Mesh mesh);
 	public void drawElement(Element element);
+	public void drawSkeleton(Skeleton s, float t);
 	//=============================================================================================
 	
 }

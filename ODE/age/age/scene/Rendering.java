@@ -6,6 +6,7 @@ import javax.vecmath.Matrix4f;
 import age.mesh.Mesh;
 import age.port.Graphics;
 import age.port.Renderable;
+import age.skeleton.Skeleton;
 import age.util.MathUtil;
 
 //*************************************************************************************************
@@ -75,6 +76,7 @@ public class Rendering implements Renderable {
 			switch (flag) {
 				case BOX -> renderBox(g, node);
 				case MESH -> renderMesh(g, node);
+				case SKELETON -> renderSkeleton(g, node);
 			}
 		}
 	}
@@ -92,6 +94,14 @@ public class Rendering implements Renderable {
 		g.color(.2f, .5f, 0f, 1f);
 		Mesh mesh = node.component(NItem.MESH, Mesh.class);
 		g.drawMesh(mesh);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void renderSkeleton(Graphics g, Node node) {
+		g.color(.6f, .6f, 1f, 1f);
+		Skeleton skeleton = node.component(NItem.SKELETON, Skeleton.class);
+		g.drawSkeleton(skeleton, 4f);
 	}
 	//=============================================================================================
 	

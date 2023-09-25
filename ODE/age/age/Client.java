@@ -9,6 +9,7 @@ import age.scene.NFlag;
 import age.scene.Node;
 import age.scene.NItem;
 import age.scene.Scene;
+import age.skeleton.Skeleton;
 import age.task.Tasks;
 import age.util.MathUtil;
 
@@ -89,12 +90,17 @@ public class Client {
 		Log.info("Scene Setup");
 		
 		Mesh mesh = Mesh.factory().siglet(15,  6);
-		Node node = new Node(NFlag.MESH);
-		node.component(NItem.MESH, mesh);
-		node.component(NItem.TRANSFORM, MathUtil.identityMatrix());
-		node.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY( (float) Math.toRadians(2f)));
-		scene.root().attach(node);
-		scene.animations().add(NFlag.TRANSFORM, node);
+		Node meshNode = new Node(NFlag.MESH);
+		meshNode.component(NItem.MESH, mesh);
+		meshNode.component(NItem.TRANSFORM, MathUtil.identityMatrix());
+		meshNode.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY( (float) Math.toRadians(2f)));
+		scene.root().attach(meshNode);
+		scene.animations().add(NFlag.TRANSFORM, meshNode);
+		
+		Skeleton skeleton = age.skeleton.Factory.create();
+		Node skelNode = new Node(NFlag.SKELETON);
+		skelNode.component(NItem.SKELETON, skeleton);
+		meshNode.attach(skelNode);
 		
 		Node camNode = new Node();
 		Matrix4f camTransform = new Matrix4f();
