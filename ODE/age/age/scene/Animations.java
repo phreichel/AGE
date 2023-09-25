@@ -12,6 +12,7 @@ import javax.vecmath.Matrix4f;
 import javax.vecmath.Quat4f;
 import javax.vecmath.Vector3f;
 
+import age.skeleton.Skeleton;
 import age.util.MathUtil;
 import age.util.X;
 
@@ -49,6 +50,7 @@ public class Animations {
 			for (var node : list) {
 				switch (flag) {
 					case TRANSFORM -> animateTransform(node, dT); 
+					case SKELETON -> animateSkeleton(node, dT); 
 					default -> throw new X("Unsupported Animation Flag: %s", flag);
 				}
 			}
@@ -76,6 +78,13 @@ public class Animations {
 		rd.setTranslation(rt);
 		
 		tx.mul(rd, tx);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void animateSkeleton(Node node, float dT) {
+		Skeleton s = node.component(NItem.SKELETON, Skeleton.class);
+		s.addMark(dT);
 	}
 	//=============================================================================================
 	

@@ -101,7 +101,7 @@ public class Rendering implements Renderable {
 	private void renderSkeleton(Graphics g, Node node) {
 		g.color(.6f, .6f, 1f, 1f);
 		Skeleton skeleton = node.component(NItem.SKELETON, Skeleton.class);
-		g.drawSkeleton(skeleton, 4f);
+		g.drawSkeleton(skeleton);
 	}
 	//=============================================================================================
 	

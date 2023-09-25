@@ -36,17 +36,10 @@ public class Clock {
 	//=============================================================================================
 	// TODO: revisit the thread sleep mechanism (it is not implemented correctly)
 	public void update() {
-		long allNext = Long.MAX_VALUE;
 		long nanotime = System.nanoTime();
 		for (Alarm alarm : alarms) {
-			long next = alarm.update(nanotime);
-			allNext = Math.min(allNext, next);
+			alarm.update(nanotime);
 		}
-		try {
-			long ms = allNext / 1000000L;
-			long ns = allNext % 1000000L;
-			Thread.sleep(ms, (int) ns);
-		} catch (Exception e) {}
 	}
 	//=============================================================================================
 	

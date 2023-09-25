@@ -42,6 +42,16 @@ public final class MathUtil {
 	//=============================================================================================
 
 	//=============================================================================================
+	public static final Matrix4f translateMatrix(float x, float y, float z) {
+		Vector3f v = new Vector3f(x, y, z);
+		Matrix4f m = new Matrix4f();
+		m.setIdentity();
+		m.setTranslation(v);
+		return m;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	public static final Matrix4f rotY(float a) {
 		Matrix4f m = new Matrix4f();
 		m.rotY(a);

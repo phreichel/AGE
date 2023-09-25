@@ -15,7 +15,6 @@ import javax.vecmath.Matrix4f;
 import javax.vecmath.Quat4f;
 import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
-
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.util.awt.TextRenderer;
@@ -24,7 +23,6 @@ import com.jogamp.opengl.util.texture.TextureCoords;
 import com.jogamp.opengl.util.texture.TextureIO;
 import age.gui.dat.Multiline;
 import age.gui.dat.Scrollable;
-import age.log.Log;
 import age.mesh.Mesh;
 import age.mesh.Element;
 import age.mesh.ElementType;
@@ -33,7 +31,6 @@ import age.skeleton.Bone;
 import age.skeleton.Skeleton;
 import age.util.X;
 import age.util.MathUtil;
-import age.util.Util;
 
 //*************************************************************************************************
 class JOGLGraphics implements Graphics {
@@ -567,9 +564,10 @@ class JOGLGraphics implements Graphics {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void drawSkeleton(Skeleton s, float t) {
+	public void drawSkeleton(Skeleton s) {
 		gl.glPushAttrib(GL2.GL_ENABLE_BIT);
-		gl.glDisable(GL2.GL_LIGHTING);
+		gl.glDisable(GL2.GL_LIGHTING);		
+		float t = (s.mark() * s.speed()) % s.time(); 
 		drawBones(s.bones(), t);
 		gl.glPopAttrib();
 	}
@@ -597,7 +595,6 @@ class JOGLGraphics implements Graphics {
 		mx.setIdentity();
 		mx.setRotation(o1);
 		mx.setTranslation(r1);
-		Log.info("%n%s", mx);
 		buffer = MathUtil.toGLMatrix(mx, buffer);
 		gl.glPushMatrix();
 		gl.glMultMatrixf(buffer, 0);

@@ -8,8 +8,6 @@ import java.util.List;
 import javax.vecmath.Quat4f;
 import javax.vecmath.Vector3f;
 
-import age.log.Log;
-
 //*************************************************************************************************
 public class Bone {
 
@@ -28,7 +26,7 @@ public class Bone {
 	
 	//=============================================================================================
 	private Vector3f translation = new Vector3f();
-	private Quat4f orientation = new Quat4f();
+	private Quat4f orientation = new Quat4f(0, 0, 0, 1);
 	//=============================================================================================
 
 	//=============================================================================================
@@ -54,6 +52,15 @@ public class Bone {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	public Bone child(String name) {
+		Bone bone = new Bone();
+		bone.name(name);
+		children.add(bone);
+		return bone;
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public void child(Bone bone) {
 		bone.parent = this;
@@ -96,6 +103,17 @@ public class Bone {
 		orientation.set(o);
 	}
 	//=============================================================================================
+
+	//=============================================================================================
+	public Keyframe keyframe(float time) {
+		Keyframe k = new Keyframe();
+		k.time(time);
+		k.translation(this.translation);
+		k.orientation(this.orientation);
+		keyframe(k);
+		return k;
+	}
+	//=============================================================================================
 	
 	//=============================================================================================
 	public void keyframe(Keyframe keyframe) {
@@ -132,8 +150,6 @@ public class Bone {
 			var net = k2.time() - k1.time();
 			var s = prt / net;
 
-			Log.info("$s", );
-			
 			r.interpolate(k1.translation(), k2.translation(), s);
 			o.interpolate(k1.orientation(), k2.orientation(), s);
 

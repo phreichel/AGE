@@ -55,7 +55,7 @@ public interface Graphics {
 	public void drawBox(float sx, float sy, float sz);
 	public void drawMesh(Mesh mesh);
 	public void drawElement(Element element);
-	public void drawSkeleton(Skeleton s, float t);
+	public void drawSkeleton(Skeleton s);
 	//=============================================================================================
 	
 }

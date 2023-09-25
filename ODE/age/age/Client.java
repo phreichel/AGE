@@ -66,8 +66,7 @@ public class Client {
 		
 		Log.info("Setting Clock Tasks");
 		
-		clock.addFPS(120, this::update);
-		clock.addFPS(60, this::render);
+		clock.addFPS(60, this::update);
 		clock.addFPS(60, this::render);
 
 	}
@@ -83,33 +82,43 @@ public class Client {
 		tasks.assign(events);
 	}
 	//=============================================================================================
+
+	//=============================================================================================
+	private Skeleton skeleton = null; 
+	private Node skelNode = null; 
+	//=============================================================================================
 	
 	//=============================================================================================
 	private void setupScene() {
 
 		Log.info("Scene Setup");
 		
-		Mesh mesh = Mesh.factory().siglet(15,  6);
+		Mesh mesh = Mesh.factory().siglet(30,  3);
 		Node meshNode = new Node(NFlag.MESH);
 		meshNode.component(NItem.MESH, mesh);
-		meshNode.component(NItem.TRANSFORM, MathUtil.identityMatrix());
-		meshNode.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY( (float) Math.toRadians(2f)));
+		meshNode.component(NItem.TRANSFORM, MathUtil.rotY((float) Math.toRadians(90f)));
+		meshNode.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY( (float) Math.toRadians(1f)));
 		scene.root().attach(meshNode);
 		scene.animations().add(NFlag.TRANSFORM, meshNode);
 		
-		Skeleton skeleton = age.skeleton.Factory.create();
-		Node skelNode = new Node(NFlag.SKELETON);
+		skeleton = age.skeleton.Factory.create();
+		skeleton.speed(.3f);
+		skelNode = new Node(NFlag.SKELETON);
 		skelNode.component(NItem.SKELETON, skeleton);
+		skelNode.component(NItem.TRANSFORM, MathUtil.identityMatrix());
+		skelNode.component(NItem.TRANSFORM_ANIMATION, MathUtil.translateMatrix(0, 0, .005f));
 		meshNode.attach(skelNode);
+		scene.animations().add(NFlag.SKELETON, skelNode);
+		scene.animations().add(NFlag.TRANSFORM, skelNode);
 		
 		Node camNode = new Node();
 		Matrix4f camTransform = new Matrix4f();
-		Camera camData = new Camera(35f, .4f, 1000f);
+		Camera camData = new Camera(45f, .4f, 1000f);
 		camTransform.setIdentity();
-		float a = (float) Math.toRadians(-10);
+		float a = (float) Math.toRadians(-7f);
 		AxisAngle4f rot = new AxisAngle4f(1, 0, 0, a);
 		camTransform.setRotation(rot);
-		camTransform.setTranslation(new Vector3f(0, 4, 15));
+		camTransform.setTranslation(new Vector3f(0, 1.5f, 6));
 		camNode.component(NItem.TRANSFORM, camTransform);
 		camNode.component(NItem.CAMERA, camData);
 		scene.root().attach(camNode);	
@@ -133,6 +142,7 @@ public class Client {
 		sysMenuFrame = new Widget(WFlag.CANVAS, WFlag.VSTACK, WFlag.HIDDEN);
 		gui.layouter().add(WFlag.VSTACK, sysMenuFrame);
 		sysMenuFrame.position(0, 30);
+		sysMenuFrame.add(factory.createIconButton("desk", "reset"));
 		sysMenuFrame.add(factory.createIconButton("fullscreen", "fullscreen"));
 		sysMenuFrame.add(factory.createIconButton("shutdown", "shutdown"));
 		root.add(sysMenuFrame);
@@ -140,6 +150,7 @@ public class Client {
 		tasks.assign("fullscreen", this::toggleFullscreen);
 		tasks.assign("shutdown", this::shutdown);
 		tasks.assign("sysmenu", this::toggleSysmenu);
+		tasks.assign("reset", this::resetWalker);
 		
 	}
 	//=============================================================================================
@@ -161,13 +172,20 @@ public class Client {
 	//=============================================================================================
 
 	//=============================================================================================
+	private void resetWalker() {
+		skeleton.mark(0f);
+		Matrix4f m = skelNode.component(NItem.TRANSFORM, Matrix4f.class);
+		m.setIdentity();
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	private void loop() {
 		running = true;
 		Log.info("Entering Client Loop");
 		port.visible(true);
 		while (running) {
 			clock.update();
-			Thread.yield();
 		}
 		port.visible(false);
 		Log.info("Leaving Client Loop");
