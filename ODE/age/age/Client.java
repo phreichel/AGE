@@ -88,11 +88,11 @@ public class Client {
 
 		Log.info("Scene Setup");
 		
-		Mesh mesh = Mesh.factory().siglet(6,  6);
+		Mesh mesh = Mesh.factory().siglet(15,  6);
 		Node node = new Node(NFlag.MESH);
 		node.component(NItem.MESH, mesh);
 		node.component(NItem.TRANSFORM, MathUtil.identityMatrix());
-		node.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY( (float) Math.toRadians(10f)));
+		node.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY( (float) Math.toRadians(2f)));
 		scene.root().attach(node);
 		scene.animations().add(NFlag.TRANSFORM, node);
 		
@@ -100,10 +100,10 @@ public class Client {
 		Matrix4f camTransform = new Matrix4f();
 		Camera camData = new Camera(35f, .4f, 1000f);
 		camTransform.setIdentity();
-		float a = (float) Math.toRadians(-40);
+		float a = (float) Math.toRadians(-10);
 		AxisAngle4f rot = new AxisAngle4f(1, 0, 0, a);
 		camTransform.setRotation(rot);
-		camTransform.setTranslation(new Vector3f(0, 12, 15));
+		camTransform.setTranslation(new Vector3f(0, 4, 15));
 		camNode.component(NItem.TRANSFORM, camTransform);
 		camNode.component(NItem.CAMERA, camData);
 		scene.root().attach(camNode);	
