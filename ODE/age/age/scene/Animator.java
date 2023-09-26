@@ -17,7 +17,7 @@ import age.util.MathUtil;
 import age.util.X;
 
 //*************************************************************************************************
-public class Animations {
+public class Animator {
 
 	//=============================================================================================
 	private Map<NFlag, List<Node>> register = new HashMap<>();

@@ -76,9 +76,10 @@ public class Client {
 	private void dependencyInjections() {
 		Log.info("Dependency Injections");
 		port.assign(events);
+		scene.assign(events);
 		scene.assign(port);
-		gui.assign(port);
 		gui.assign(events);
+		gui.assign(port);
 		tasks.assign(events);
 	}
 	//=============================================================================================
@@ -108,7 +109,7 @@ public class Client {
 			.root()
 			.attach(meshNode);
 		scene
-			.animations()
+			.animator()
 			.add(NFlag.TRANSFORM, meshNode);
 		
 		skeleton = age
@@ -123,7 +124,7 @@ public class Client {
 			skelNode1.component(
 				NItem.TRANSFORM_ANIMATION,
 				MathUtil.rotY(-30f));
-			scene.animations().add(
+			scene.animator().add(
 					NFlag.TRANSFORM,
 					skelNode1);
 			Node skelNode2 = new Node(NFlag.SKELETON);
@@ -139,7 +140,7 @@ public class Client {
 			skelNode1.attach(skelNode2);
 			meshNode.attach(skelNode1);
 		}
-		scene.animations().add(NFlag.SKELETON, skelNodes.get(0));
+		scene.animator().add(NFlag.SKELETON, skelNodes.get(0));
 		
 		Node camNode = new Node();
 		Camera camData = new Camera(45f, .4f, 1000f);
