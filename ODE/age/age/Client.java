@@ -17,6 +17,9 @@ import java.util.List;
 import javax.vecmath.AxisAngle4f;
 import javax.vecmath.Matrix4f;
 import javax.vecmath.Vector3f;
+
+import org.hipparchus.linear.MatrixUtils;
+
 import age.clock.Clock;
 import age.gui.Factory;
 import age.gui.WFlag;
@@ -143,18 +146,15 @@ public class Client {
 		scene.animations().add(NFlag.SKELETON, skelNodes.get(0));
 		
 		Node camNode = new Node();
-		Matrix4f camTransform = new Matrix4f();
 		Camera camData = new Camera(45f, .4f, 1000f);
-		camTransform.setIdentity();
-		float a = (float) Math.toRadians(-7f);
-		AxisAngle4f rot = new AxisAngle4f(1, 0, 0, a);
-		camTransform.setRotation(rot);
-		camTransform.setTranslation(new Vector3f(0, 2f, 12));
-		camNode.component(NItem.TRANSFORM, camTransform);
 		camNode.component(NItem.CAMERA, camData);
-		scene.root().attach(camNode);	
 		scene.camera(camNode);
-		
+		skelNodes.get(0).attach(camNode);
+		Matrix4f cm = MathUtil.rotY(120f);
+		cm.setTranslation(new Vector3f(0, 2.5f, 0));
+		camNode.component(NItem.TRANSFORM, cm);
+		//scene.root().attach(camNode);
+				
 	}
 	//=============================================================================================
 	
