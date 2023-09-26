@@ -16,7 +16,11 @@ public final class MathUtil {
 	//=============================================================================================	
 
 	//=============================================================================================
-	public static Quat4f lerpQuaternion(Quat4f a, Quat4f b, float s, Quat4f dst) {
+	public static Quat4f lerpQuaternion(
+			Quat4f a,
+			Quat4f b,
+			float s,
+			Quat4f dst) {
 		dst.x = (1.0f - s) * a.x + s * b.x;
 		dst.y = (1.0f - s) * a.y + s * b.y;
 		dst.z = (1.0f - s) * a.z + s * b.z;
@@ -26,7 +30,11 @@ public final class MathUtil {
 	//=============================================================================================	
 	
 	//=============================================================================================
-	public static Quat4f slerpQuaternion(Quat4f a, Quat4f b, float s, Quat4f dst) {
+	public static Quat4f slerpQuaternion(
+			Quat4f a,
+			Quat4f b,
+			float s,
+			Quat4f dst) {
 		dst.set(a);
 		dst.interpolate(b, s);
 		return dst;
@@ -54,6 +62,7 @@ public final class MathUtil {
 	//=============================================================================================
 	public static final Matrix4f rotY(float a) {
 		Matrix4f m = new Matrix4f();
+		a = (float) Math.toRadians(a);
 		m.rotY(a);
 		return m;
 	}
@@ -106,7 +115,9 @@ public final class MathUtil {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public static float[] toGLMatrix(Matrix4f m, float[] buffer) {
+	public static float[] toGLMatrix(
+			Matrix4f m,
+			float[] buffer) {
 		buffer[ 0] = m.m00;
 		buffer[ 1] = m.m10;
 		buffer[ 2] = m.m20;
@@ -128,7 +139,9 @@ public final class MathUtil {
 	//=============================================================================================
 
 	//=============================================================================================
-	public static Matrix4f fromGLMatrix(Matrix4f m, float[] buffer) {
+	public static Matrix4f fromGLMatrix(
+			Matrix4f m,
+			float[] buffer) {
 		m.m00 = buffer[ 0];
 		m.m10 = buffer[ 1];
 		m.m20 = buffer[ 2];

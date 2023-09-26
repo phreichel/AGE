@@ -12,7 +12,8 @@ import age.scene.Scene;
 import age.skeleton.Skeleton;
 import age.task.Tasks;
 import age.util.MathUtil;
-
+import java.util.ArrayList;
+import java.util.List;
 import javax.vecmath.AxisAngle4f;
 import javax.vecmath.Matrix4f;
 import javax.vecmath.Vector3f;
@@ -85,7 +86,7 @@ public class Client {
 
 	//=============================================================================================
 	private Skeleton skeleton = null; 
-	private Node skelNode = null; 
+	private List<Node> skelNodes = new ArrayList<>(); 
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -93,23 +94,53 @@ public class Client {
 
 		Log.info("Scene Setup");
 		
-		Mesh mesh = Mesh.factory().siglet(30,  3);
+		Mesh mesh = Mesh.factory().siglet(30,  10);
 		Node meshNode = new Node(NFlag.MESH);
-		meshNode.component(NItem.MESH, mesh);
-		meshNode.component(NItem.TRANSFORM, MathUtil.rotY((float) Math.toRadians(90f)));
-		meshNode.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY( (float) Math.toRadians(1f)));
-		scene.root().attach(meshNode);
-		scene.animations().add(NFlag.TRANSFORM, meshNode);
+		meshNode.component(
+			NItem.MESH,
+			mesh);
+		meshNode.component(
+			NItem.TRANSFORM,
+			MathUtil.identityMatrix());
+		meshNode.component(
+			NItem.TRANSFORM_ANIMATION,
+			MathUtil.rotY(5f));
+		scene
+			.root()
+			.attach(meshNode);
+		scene
+			.animations()
+			.add(NFlag.TRANSFORM, meshNode);
 		
-		skeleton = age.skeleton.Factory.create();
-		skeleton.speed(.3f);
-		skelNode = new Node(NFlag.SKELETON);
-		skelNode.component(NItem.SKELETON, skeleton);
-		skelNode.component(NItem.TRANSFORM, MathUtil.identityMatrix());
-		skelNode.component(NItem.TRANSFORM_ANIMATION, MathUtil.translateMatrix(0, 0, .005f));
-		meshNode.attach(skelNode);
-		scene.animations().add(NFlag.SKELETON, skelNode);
-		scene.animations().add(NFlag.TRANSFORM, skelNode);
+		skeleton = age
+			.skeleton.Factory
+			.create();
+		skeleton.speed(4f);
+		for (int i=0; i<10; i++) {
+			Node skelNode1 = new Node();
+			skelNode1.component(
+				NItem.TRANSFORM,
+				MathUtil.rotY(i * 36f));
+			skelNode1.component(
+				NItem.TRANSFORM_ANIMATION,
+				MathUtil.rotY(-30f));
+			scene.animations().add(
+					NFlag.TRANSFORM,
+					skelNode1);
+			Node skelNode2 = new Node(NFlag.SKELETON);
+			skelNode2.component(
+				NItem.SKELETON,
+				skeleton);
+			Matrix4f m = MathUtil.rotY(90f);
+			m.setTranslation(new Vector3f(0, 0, -5));
+			skelNode2.component(
+				NItem.TRANSFORM,
+				m);
+			skelNodes.add(skelNode2);
+			skelNode1.attach(skelNode2);
+			meshNode.attach(skelNode1);
+		}
+		scene.animations().add(NFlag.SKELETON, skelNodes.get(0));
 		
 		Node camNode = new Node();
 		Matrix4f camTransform = new Matrix4f();
@@ -118,7 +149,7 @@ public class Client {
 		float a = (float) Math.toRadians(-7f);
 		AxisAngle4f rot = new AxisAngle4f(1, 0, 0, a);
 		camTransform.setRotation(rot);
-		camTransform.setTranslation(new Vector3f(0, 1.5f, 6));
+		camTransform.setTranslation(new Vector3f(0, 2f, 12));
 		camNode.component(NItem.TRANSFORM, camTransform);
 		camNode.component(NItem.CAMERA, camData);
 		scene.root().attach(camNode);	
@@ -142,7 +173,6 @@ public class Client {
 		sysMenuFrame = new Widget(WFlag.CANVAS, WFlag.VSTACK, WFlag.HIDDEN);
 		gui.layouter().add(WFlag.VSTACK, sysMenuFrame);
 		sysMenuFrame.position(0, 30);
-		sysMenuFrame.add(factory.createIconButton("desk", "reset"));
 		sysMenuFrame.add(factory.createIconButton("fullscreen", "fullscreen"));
 		sysMenuFrame.add(factory.createIconButton("shutdown", "shutdown"));
 		root.add(sysMenuFrame);
@@ -150,7 +180,6 @@ public class Client {
 		tasks.assign("fullscreen", this::toggleFullscreen);
 		tasks.assign("shutdown", this::shutdown);
 		tasks.assign("sysmenu", this::toggleSysmenu);
-		tasks.assign("reset", this::resetWalker);
 		
 	}
 	//=============================================================================================
@@ -171,14 +200,6 @@ public class Client {
 	}
 	//=============================================================================================
 
-	//=============================================================================================
-	private void resetWalker() {
-		skeleton.mark(0f);
-		Matrix4f m = skelNode.component(NItem.TRANSFORM, Matrix4f.class);
-		m.setIdentity();
-	}
-	//=============================================================================================
-	
 	//=============================================================================================
 	private void loop() {
 		running = true;

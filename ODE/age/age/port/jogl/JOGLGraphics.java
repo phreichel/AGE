@@ -566,9 +566,10 @@ class JOGLGraphics implements Graphics {
 	//=============================================================================================
 	public void drawSkeleton(Skeleton s) {
 		gl.glPushAttrib(GL2.GL_ENABLE_BIT);
-		gl.glDisable(GL2.GL_LIGHTING);		
-		float t = (s.mark() * s.speed()) % s.time(); 
-		drawBones(s.bones(), t);
+		gl.glDisable(GL2.GL_LIGHTING);
+		float a = (s.mark() * s.speed()) % s.time();
+		a = a < 0f ? a + s.time() : a;
+		drawBones(s.bones(), a);
 		gl.glPopAttrib();
 	}
 	//=============================================================================================
