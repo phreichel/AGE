@@ -1,15 +1,10 @@
 //*************************************************************************************************
-package age.gui.sys;
+package age.gui;
 //*************************************************************************************************
 
 import java.util.List;
 import javax.vecmath.Vector2f;
 
-import age.gui.WFlag;
-import age.gui.GUI;
-import age.gui.Widget;
-import age.gui.dat.Scrollable;
-import age.gui.dat.WItem;
 import age.input.Button;
 import age.input.Event;
 import age.input.Events;

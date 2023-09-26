@@ -14,12 +14,8 @@ import age.task.Tasks;
 import age.util.MathUtil;
 import java.util.ArrayList;
 import java.util.List;
-import javax.vecmath.AxisAngle4f;
 import javax.vecmath.Matrix4f;
 import javax.vecmath.Vector3f;
-
-import org.hipparchus.linear.MatrixUtils;
-
 import age.clock.Clock;
 import age.gui.Factory;
 import age.gui.WFlag;
@@ -150,7 +146,10 @@ public class Client {
 		camNode.component(NItem.CAMERA, camData);
 		scene.camera(camNode);
 		skelNodes.get(0).attach(camNode);
-		Matrix4f cm = MathUtil.rotY(120f);
+		Matrix4f cm = MathUtil.rotY(150f);
+		Matrix4f hn = new Matrix4f();
+		hn.rotX( (float) Math.toRadians(-25f) );
+		cm.mul(cm, hn);
 		cm.setTranslation(new Vector3f(0, 2.5f, 0));
 		camNode.component(NItem.TRANSFORM, cm);
 		//scene.root().attach(camNode);

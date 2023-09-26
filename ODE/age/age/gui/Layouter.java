@@ -1,15 +1,12 @@
 //*************************************************************************************************
-package age.gui.sys;
+package age.gui;
 //*************************************************************************************************
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import age.gui.WFlag;
-import age.gui.Widget;
-import age.gui.dat.Scrollable;
-import age.gui.dat.WItem;
+
 import age.util.X;
 
 //*************************************************************************************************

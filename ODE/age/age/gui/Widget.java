@@ -11,7 +11,6 @@ import java.util.Map;
 import java.util.Set;
 import javax.vecmath.Vector2f;
 
-import age.gui.dat.WItem;
 import age.util.X;
 
 //*************************************************************************************************

@@ -1,15 +1,9 @@
 //*************************************************************************************************
-package age.gui.sys;
+package age.gui;
 //*************************************************************************************************
 
 import java.util.List;
 
-import age.gui.WFlag;
-import age.gui.GUI;
-import age.gui.Widget;
-import age.gui.dat.Multiline;
-import age.gui.dat.Scrollable;
-import age.gui.dat.WItem;
 import age.port.Graphics;
 import age.port.Renderable;
 

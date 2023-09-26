@@ -2,10 +2,6 @@
 package age.gui;
 //*************************************************************************************************
 
-import age.gui.dat.Multiline;
-import age.gui.dat.Scrollable;
-import age.gui.dat.WItem;
-
 //*************************************************************************************************
 public class Factory {
 

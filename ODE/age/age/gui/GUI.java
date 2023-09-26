@@ -2,9 +2,6 @@
 package age.gui;
 //*************************************************************************************************
 
-import age.gui.sys.Handler;
-import age.gui.sys.Layouter;
-import age.gui.sys.Renderer;
 import age.input.Events;
 import age.port.Port;
 
