@@ -10,9 +10,7 @@ import javax.vecmath.AxisAngle4f;
 import javax.vecmath.Matrix4f;
 import javax.vecmath.Quat4f;
 import javax.vecmath.Vector3f;
-
 import age.rig.Rig;
-import age.rig.Skeleton;
 import age.util.MathUtil;
 import age.util.X;
 

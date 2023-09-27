@@ -5,13 +5,11 @@ package age.port;
 import javax.vecmath.Color4f;
 import javax.vecmath.Matrix4f;
 import javax.vecmath.Vector2f;
-
 import age.gui.Multiline;
 import age.gui.Scrollable;
 import age.mesh.Element;
 import age.mesh.Mesh;
 import age.rig.Rig;
-import age.rig.Skeleton;
 
 //*************************************************************************************************
 public interface Graphics {

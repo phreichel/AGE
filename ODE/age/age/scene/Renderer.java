@@ -7,7 +7,6 @@ import age.mesh.Mesh;
 import age.port.Graphics;
 import age.port.Renderable;
 import age.rig.Rig;
-import age.rig.Skeleton;
 import age.util.MathUtil;
 
 //*************************************************************************************************

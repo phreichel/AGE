@@ -21,7 +21,6 @@ import com.jogamp.opengl.util.awt.TextRenderer;
 import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureCoords;
 import com.jogamp.opengl.util.texture.TextureIO;
-
 import age.mesh.Mesh;
 import age.gui.Multiline;
 import age.gui.Scrollable;
@@ -30,7 +29,6 @@ import age.mesh.ElementType;
 import age.port.Graphics;
 import age.rig.Bone;
 import age.rig.Rig;
-import age.rig.Skeleton;
 import age.util.X;
 import age.util.MathUtil;
 

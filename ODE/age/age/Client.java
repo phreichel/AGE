@@ -13,8 +13,6 @@ import age.scene.NItem;
 import age.scene.Scene;
 import age.task.Tasks;
 import age.util.MathUtil;
-import java.util.ArrayList;
-import java.util.List;
 import javax.vecmath.Matrix4f;
 import javax.vecmath.Vector3f;
 import age.clock.Clock;
