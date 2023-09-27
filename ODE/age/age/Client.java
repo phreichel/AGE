@@ -86,31 +86,25 @@ public class Client {
 	//=============================================================================================
 
 	//=============================================================================================
-	private List<Node> skelNodes = new ArrayList<>(); 
-	//=============================================================================================
-	
-	//=============================================================================================
 	private void setupScene() {
 
 		Log.info("Scene Setup");
-		
+
+		Node camNode = new Node();
+		Camera camData = new Camera(45f, .4f, 1000f);
+		camNode.component(NItem.CAMERA, camData);
+		camNode.component(NItem.TRANSFORM, MathUtil.translateMatrix(0, 2, 0));
+		scene.freeCamController().add(camNode);
+		//scene.root().attach(camNode);
+		scene.camera(camNode);
+	
 		Mesh mesh = Mesh.factory().siglet(30,  10);
 		Node meshNode = new Node(NFlag.MESH);
-		meshNode.component(
-			NItem.MESH,
-			mesh);
-		meshNode.component(
-			NItem.TRANSFORM,
-			MathUtil.identityMatrix());
-		meshNode.component(
-			NItem.TRANSFORM_ANIMATION,
-			MathUtil.rotY(5f));
-		scene
-			.root()
-			.attach(meshNode);
-		scene
-			.animator()
-			.add(NFlag.TRANSFORM, meshNode);
+		meshNode.component(NItem.MESH, mesh);
+		meshNode.component(NItem.TRANSFORM, MathUtil.identityMatrix());
+		meshNode.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY(5f));
+		scene.root().attach(meshNode);
+		scene.animator().add(NFlag.TRANSFORM, meshNode);
 		
 		Skeleton skeleton = age.rig.Factory.create();
 		for (int i=0; i<10; i++) {
@@ -132,18 +126,13 @@ public class Client {
 			skelNode2.component(
 				NItem.TRANSFORM,
 				m);
-			skelNodes.add(skelNode2);
 			skelNode1.attach(skelNode2);
 			meshNode.attach(skelNode1);
+			if (i==0) {
+				skelNode1.attach(camNode);
+			}
 		}
 		
-		Node camNode = new Node();
-		Camera camData = new Camera(45f, .4f, 1000f);
-		camNode.component(NItem.CAMERA, camData);
-		camNode.component(NItem.TRANSFORM, MathUtil.translateMatrix(0, 2, 0));
-		scene.freeCamController().add(camNode);
-		scene.root().attach(camNode);
-		scene.camera(camNode);
 	}
 	//=============================================================================================
 	
