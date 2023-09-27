@@ -28,8 +28,9 @@ import age.gui.Scrollable;
 import age.mesh.Element;
 import age.mesh.ElementType;
 import age.port.Graphics;
-import age.skeleton.Bone;
-import age.skeleton.Skeleton;
+import age.rig.Bone;
+import age.rig.Rig;
+import age.rig.Skeleton;
 import age.util.X;
 import age.util.MathUtil;
 
@@ -565,12 +566,10 @@ class JOGLGraphics implements Graphics {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void drawSkeleton(Skeleton s) {
+	public void drawRig(Rig rig) {
 		gl.glPushAttrib(GL2.GL_ENABLE_BIT);
 		gl.glDisable(GL2.GL_LIGHTING);
-		float a = (s.mark() * s.speed()) % s.time();
-		a = a < 0f ? a + s.time() : a;
-		drawBones(s.bones(), a);
+		drawBones(rig.skeleton().bones(), rig.time());
 		gl.glPopAttrib();
 	}
 	//=============================================================================================

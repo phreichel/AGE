@@ -4,12 +4,13 @@ package age;
 
 import age.port.Port;
 import age.port.jogl.JOGLPort;
+import age.rig.Rig;
+import age.rig.Skeleton;
 import age.scene.Camera;
 import age.scene.NFlag;
 import age.scene.Node;
 import age.scene.NItem;
 import age.scene.Scene;
-import age.skeleton.Skeleton;
 import age.task.Tasks;
 import age.util.MathUtil;
 import java.util.ArrayList;
@@ -85,7 +86,6 @@ public class Client {
 	//=============================================================================================
 
 	//=============================================================================================
-	private Skeleton skeleton = null; 
 	private List<Node> skelNodes = new ArrayList<>(); 
 	//=============================================================================================
 	
@@ -112,10 +112,7 @@ public class Client {
 			.animator()
 			.add(NFlag.TRANSFORM, meshNode);
 		
-		skeleton = age
-			.skeleton.Factory
-			.create();
-		skeleton.speed(4f);
+		Skeleton skeleton = age.rig.Factory.create();
 		for (int i=0; i<10; i++) {
 			Node skelNode1 = new Node();
 			skelNode1.component(
@@ -124,13 +121,12 @@ public class Client {
 			skelNode1.component(
 				NItem.TRANSFORM_ANIMATION,
 				MathUtil.rotY(-30f));
-			scene.animator().add(
-					NFlag.TRANSFORM,
-					skelNode1);
-			Node skelNode2 = new Node(NFlag.SKELETON);
-			skelNode2.component(
-				NItem.SKELETON,
-				skeleton);
+			scene.animator().add(NFlag.TRANSFORM, skelNode1);
+			Node skelNode2 = new Node(NFlag.RIG);
+			Rig rig = new Rig(skeleton);
+			rig.scale(1f + (float) Math.random());
+			skelNode2.component(NItem.RIG, rig);
+			scene.animator().add(NFlag.RIG, skelNode2);
 			Matrix4f m = MathUtil.rotY(90f);
 			m.setTranslation(new Vector3f(0, 0, -5));
 			skelNode2.component(
@@ -140,21 +136,14 @@ public class Client {
 			skelNode1.attach(skelNode2);
 			meshNode.attach(skelNode1);
 		}
-		scene.animator().add(NFlag.SKELETON, skelNodes.get(0));
 		
 		Node camNode = new Node();
 		Camera camData = new Camera(45f, .4f, 1000f);
 		camNode.component(NItem.CAMERA, camData);
+		camNode.component(NItem.TRANSFORM, MathUtil.translateMatrix(0, 2, 0));
+		scene.freeCamController().add(camNode);
+		scene.root().attach(camNode);
 		scene.camera(camNode);
-		skelNodes.get(0).attach(camNode);
-		Matrix4f cm = MathUtil.rotY(150f);
-		Matrix4f hn = new Matrix4f();
-		hn.rotX( (float) Math.toRadians(-25f) );
-		cm.mul(cm, hn);
-		cm.setTranslation(new Vector3f(0, 2.5f, 0));
-		camNode.component(NItem.TRANSFORM, cm);
-		//scene.root().attach(camNode);
-				
 	}
 	//=============================================================================================
 	

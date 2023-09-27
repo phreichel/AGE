@@ -4,7 +4,7 @@ package age.scene;
 
 import javax.vecmath.Matrix4f;
 import age.mesh.Mesh;
-import age.skeleton.Skeleton;
+import age.rig.Rig;
 import age.util.X;
 
 //*************************************************************************************************
@@ -15,7 +15,7 @@ public enum NItem {
 	TRANSFORM_ANIMATION(Matrix4f.class),
 	CAMERA(Camera.class),
 	MESH(Mesh.class),
-	SKELETON(Skeleton.class);
+	RIG(Rig.class);
 	//=============================================================================================
 
 	//=============================================================================================
