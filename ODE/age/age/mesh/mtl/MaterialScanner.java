@@ -1,162 +1,232 @@
 //*************************************************************************************************
-package age.mesh.obj;
-
-import age.log.Log;
-
+package age.mesh.mtl;
 //*************************************************************************************************
 
+import java.io.Reader;
+import age.util.X;
+import static age.util.TextUtil.*;
+
 //*************************************************************************************************
-public class MockupBuilder implements Builder {
+class MaterialScanner {
 
 	//=============================================================================================
-	public void startFile() {
-		Log.info("START Parsing Object File");
+	private Reader reader = null;
+	private char   look   = '\0';
+	//=============================================================================================
+
+	//=============================================================================================
+	private int line;
+	private int column;
+	//=============================================================================================
+	
+	//=============================================================================================
+	private MaterialSymbol materialSymbol;
+	private String token;
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void init(Reader reader) {
+		this.reader = reader;
+		line = 1;
+		column = 0;
+		next();
+		scan();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void endFile() {
-		Log.info("END Parsing Object File");
+	public void scan() {
+		reset();
+		if      (scanWhitespace());
+		else if (scanLinebreak());
+		else if (scanComment());
+		else if (scanName());
+		else if (scanNumber());
+		else if (scanEndOfStream());
+		else if (scanSymbol());
+		else scanError();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void startGroup() {
-		Log.info("START Parsing Group");
+	public String token() {
+		return this.token;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void endGroup() {
-		Log.info("END Parsing Group");
+	public MaterialSymbol symbol() {
+		return this.materialSymbol;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void nameGroup(String name) {
-		Log.info("Naming Group: %s", name);
+	public int line() {
+		return line;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void startVertex() {
-		Log.info("START Parsing Vertex");
+	public int column() {
+		return column;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private char next() {
+		try {
+			int res = reader.read();
+			look = (res == -1) ? '\0' : (char) res;
+			if (!charMatch(look, '\0')) {
+				if (charMatch(look, '\n')) {
+					line++;
+					column = 0;
+				} else {
+					column++;
+				}
+			}
+			return look;
+		} catch (Exception e) {
+			throw new X(e);
+		}
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private boolean scanWhitespace() {
+		if (isWhitespace(look)) {
+			materialSymbol = MaterialSymbol.WHITESPACE;
+			while (isWhitespace(look)) {
+				token += look;
+				next();
+			}
+			return true;
+		}
+		return false;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void endVertex() {
-		Log.info("END Parsing Vertex");
+	private boolean scanLinebreak() {
+		if (isLinebreak(look)) {
+			materialSymbol = MaterialSymbol.LINEBREAK;
+			while (isLinebreak(look)) {
+				token += look;
+				next();
+			}
+			return true;
+		}
+		return false;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void writeVertexCoord(float coord) {
-		Log.info("  Coord: %s", coord);
+	private boolean scanComment() {
+		if (charMatch(look, '#')) {
+			materialSymbol = MaterialSymbol.COMMENT;
+			token += look;
+			next();
+			while (!isLinebreak(look) | charMatch(look, '\0')) {
+				token += look;
+				next();
+			}
+			return true;
+		}
+		return false;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void startNormal() {
-		Log.info("START Parsing Normal");
+	private boolean scanName() {
+		if (isAlphaExt(look)) {
+			materialSymbol = MaterialSymbol.NAME;
+			while (isAlphaExt(look) | isDecimal(look)) {
+				token += look;
+				next();
+			}
+			if (isKeyword(token)) {
+				materialSymbol = MaterialSymbol.KEYWORD;
+			}
+			return true;
+		}
+		return false;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void endNormal() {
-		Log.info("END Parsing Normal");
+	private boolean scanNumber() {
+		if (isDecimal(look)) {
+			materialSymbol = MaterialSymbol.NUMBER;
+			while (isDecimal(look)) {
+				token += look;
+				next();
+			}
+			return true;
+		}
+		return false;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private boolean scanEndOfStream() {
+		if (charMatch(look, '\0')) {
+			materialSymbol = MaterialSymbol.ENDOFSTREAM;
+			token += look;
+			return true;
+		}
+		return false;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void writeNormalCoord(float coord) {
-		Log.info("  Coord: %s", coord);
+	// Matches anything that was not covered as 1 character symbol
+	// and therefore should be placed last in any scan action.
+	private boolean scanSymbol() {
+		materialSymbol = isSpecialSymbol(look) ? MaterialSymbol.SPECIAL : MaterialSymbol.SYMBOL;
+		token += look;
+		next();
+		return true;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void startTexture() {
-		Log.info("START Parsing Texture");
+	private boolean isSpecialSymbol(char c) {
+		return
+			(c == '.') ||
+			(c == '/');
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private boolean isKeyword(String s) {
+		return
+			s.equals("v") ||
+			s.equals("vt") ||
+			s.equals("vn") ||
+			s.equals("vp") ||
+			s.equals("f") ||
+			s.equals("l") ||
+			s.equals("o") ||
+			s.equals("g") ||
+			s.equals("s") ||
+			s.equals("off") ||
+			s.equals("mtllib") ||
+			s.equals("usemtl");
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void endTexture() {
-		Log.info("END Parsing Texture");
+	private void reset() {
+		materialSymbol = MaterialSymbol.UNDEFINED;
+		token = "";
 	}
 	//=============================================================================================
-
+	
 	//=============================================================================================
-	public void writeTextureCoord(float coord) {
-		Log.info("  Coord: %s", coord);
+	private void scanError() {
+		throw new X("Unexpected Scanner Error");
 	}
 	//=============================================================================================
-
-	//=============================================================================================
-	public void startParam() {
-		Log.info("START Parsing Param");
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public void endParam() {
-		Log.info("END Parsing Param");
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public void writeParamCoord(float coord) {
-		Log.info("  Coord: %s", coord);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public void startFace() {
-		Log.info("START Parsing Face");
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public void endFace() {
-		Log.info("END Parsing Face");
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public void startFaceIndex() {
-		Log.info(" START Parsing Index");
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public void endFaceIndex() {
-		Log.info(" END Parsing Index");
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public void writeFaceIndex(int idx) {
-		Log.info("    Index: %s", idx);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public void startLine() {
-		Log.info("START Parsing Line");
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public void endLine() {
-		Log.info("END Parsing Line");
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public void writeLineIndex(int idx) {
-		Log.info("  Index: %s", idx);
-	}
-	//=============================================================================================
-
+	
 }
 //*************************************************************************************************

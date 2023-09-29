@@ -91,10 +91,12 @@ public class Client {
 		Node camNode = new Node();
 		Camera camData = new Camera(45f, .4f, 1000f);
 		camNode.component(NItem.CAMERA, camData);
-		camNode.component(NItem.TRANSFORM, MathUtil.translateMatrix(0, 2, 0));
+		Matrix4f cm = MathUtil.rotY(150f);
+		cm.setTranslation(new Vector3f(0, 2, 0));
+		camNode.component(NItem.TRANSFORM, cm);
 		scene.freeCamController().add(camNode);
-		//scene.root().attach(camNode);
 		scene.camera(camNode);
+		//scene.root().attach(camNode);
 
 		Mesh xmesh = Mesh.factory().model("assets/example.obj");
 		Node xNode = new Node(NFlag.MESH);
@@ -132,7 +134,7 @@ public class Client {
 			skelNode1.attach(skelNode2);
 			meshNode.attach(skelNode1);
 			if (i==0) {
-				skelNode1.attach(camNode);
+				skelNode2.attach(camNode);
 			}
 		}
 		

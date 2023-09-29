@@ -7,7 +7,7 @@ import age.util.X;
 import static age.util.TextUtil.*;
 
 //*************************************************************************************************
-class Scanner {
+class ObjectScanner {
 
 	//=============================================================================================
 	private Reader reader = null;
@@ -20,7 +20,7 @@ class Scanner {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private Symbol symbol;
+	private ObjectSymbol objectSymbol;
 	private String token;
 	//=============================================================================================
 	
@@ -55,8 +55,8 @@ class Scanner {
 	//=============================================================================================
 
 	//=============================================================================================
-	public Symbol symbol() {
-		return this.symbol;
+	public ObjectSymbol objectSymbol() {
+		return this.objectSymbol;
 	}
 	//=============================================================================================
 
@@ -95,7 +95,7 @@ class Scanner {
 	//=============================================================================================
 	private boolean scanWhitespace() {
 		if (isWhitespace(look)) {
-			symbol = Symbol.WHITESPACE;
+			objectSymbol = ObjectSymbol.WHITESPACE;
 			while (isWhitespace(look)) {
 				token += look;
 				next();
@@ -109,7 +109,7 @@ class Scanner {
 	//=============================================================================================
 	private boolean scanLinebreak() {
 		if (isLinebreak(look)) {
-			symbol = Symbol.LINEBREAK;
+			objectSymbol = ObjectSymbol.LINEBREAK;
 			while (isLinebreak(look)) {
 				token += look;
 				next();
@@ -123,7 +123,7 @@ class Scanner {
 	//=============================================================================================
 	private boolean scanComment() {
 		if (charMatch(look, '#')) {
-			symbol = Symbol.COMMENT;
+			objectSymbol = ObjectSymbol.COMMENT;
 			token += look;
 			next();
 			while (!isLinebreak(look) | charMatch(look, '\0')) {
@@ -139,13 +139,13 @@ class Scanner {
 	//=============================================================================================
 	private boolean scanName() {
 		if (isAlphaExt(look)) {
-			symbol = Symbol.NAME;
+			objectSymbol = ObjectSymbol.NAME;
 			while (isAlphaExt(look) | isDecimal(look)) {
 				token += look;
 				next();
 			}
 			if (isKeyword(token)) {
-				symbol = Symbol.KEYWORD;
+				objectSymbol = ObjectSymbol.KEYWORD;
 			}
 			return true;
 		}
@@ -156,7 +156,7 @@ class Scanner {
 	//=============================================================================================
 	private boolean scanNumber() {
 		if (isDecimal(look)) {
-			symbol = Symbol.NUMBER;
+			objectSymbol = ObjectSymbol.NUMBER;
 			while (isDecimal(look)) {
 				token += look;
 				next();
@@ -170,7 +170,7 @@ class Scanner {
 	//=============================================================================================
 	private boolean scanEndOfStream() {
 		if (charMatch(look, '\0')) {
-			symbol = Symbol.ENDOFSTREAM;
+			objectSymbol = ObjectSymbol.ENDOFSTREAM;
 			token += look;
 			return true;
 		}
@@ -182,7 +182,7 @@ class Scanner {
 	// Matches anything that was not covered as 1 character symbol
 	// and therefore should be placed last in any scan action.
 	private boolean scanSymbol() {
-		symbol = isSpecialSymbol(look) ? Symbol.SPECIAL : Symbol.SYMBOL;
+		objectSymbol = isSpecialSymbol(look) ? ObjectSymbol.SPECIAL : ObjectSymbol.SYMBOL;
 		token += look;
 		next();
 		return true;
@@ -217,7 +217,7 @@ class Scanner {
 
 	//=============================================================================================
 	private void reset() {
-		symbol = Symbol.UNDEFINED;
+		objectSymbol = ObjectSymbol.UNDEFINED;
 		token = "";
 	}
 	//=============================================================================================

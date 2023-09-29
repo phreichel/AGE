@@ -1,28 +1,27 @@
 //*************************************************************************************************
 package age.mesh;
+//*************************************************************************************************
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.Reader;
-import age.mesh.obj.MeshBuilder;
-import age.mesh.obj.Parser;
+import age.mesh.obj.MeshObjectBuilder;
+import age.mesh.obj.ObjectParser;
 import age.util.X;
-
-//*************************************************************************************************
 
 //*************************************************************************************************
 public class Factory {
 
 	//=============================================================================================
-	private final MeshBuilder meshBuilder;
-	private final Parser meshParser;
+	private final MeshObjectBuilder meshObjectBuilder;
+	private final ObjectParser objectParser;
 	//=============================================================================================
 
 	//=============================================================================================
 	public Factory() {
-		meshBuilder = new MeshBuilder();
-		meshParser = new Parser();
-		meshParser.assign(meshBuilder);
+		meshObjectBuilder = new MeshObjectBuilder();
+		objectParser = new ObjectParser();
+		objectParser.assign(meshObjectBuilder);
 	}
 	//=============================================================================================
 	
@@ -31,9 +30,9 @@ public class Factory {
 		try {
 			File file = new File(path);
 			Reader reader = new FileReader(file);
-			meshParser.init(reader);
-			meshParser.parse();
-			Mesh mesh = meshBuilder.build();
+			objectParser.init(reader);
+			objectParser.parse();
+			Mesh mesh = meshObjectBuilder.build();
 			return mesh;
 		} catch (Exception e) {
 			throw new X(e);

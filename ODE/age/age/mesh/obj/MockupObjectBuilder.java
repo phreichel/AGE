@@ -2,246 +2,159 @@
 package age.mesh.obj;
 //*************************************************************************************************
 
-import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Set;
-
-import javax.vecmath.Vector2f;
-import javax.vecmath.Vector3f;
-import javax.vecmath.Vector4f;
-import age.mesh.ElementType;
-import age.mesh.Mesh;
-import age.mesh.MeshLayer;
-import age.util.X;
+import age.log.Log;
 
 //*************************************************************************************************
-public class MeshBuilder implements Builder {
+public class MockupObjectBuilder implements ObjectBuilder {
 
-	//=============================================================================================
-	private int tmpidx  = 0;
-	private int faceofs = 0;
-	private int faceidx = 0;
-	private int elemidx = 0;
-	//=============================================================================================
-
-	//=============================================================================================
-	private Vector4f tmp     = new Vector4f();
-	private int[][]  facetmp = new int[4][3];
-	//=============================================================================================
-
-	//=============================================================================================
-	private final List<Vector3f> vs = new ArrayList<>();
-	private final List<Vector3f> ns = new ArrayList<>();
-	private final List<Vector2f> ts = new ArrayList<>();
-	//=============================================================================================
-
-	//=============================================================================================
-	private Set<MeshLayer> layers = EnumSet.noneOf(MeshLayer.class);
-	private age.mesh.Builder mb = null; 
-	//=============================================================================================
-
-	//=============================================================================================
-	public Mesh build() {
-		Mesh mesh = null;
-		if (mb != null) mesh = mb.build();
-		mb = null;
-		layers.clear();
-		return mesh;
-	}
-	//=============================================================================================
-	
 	//=============================================================================================
 	public void startFile() {
-		vs.clear();
-		ns.clear();
-		ts.clear();
-		faceofs = 0;
+		Log.info("START Parsing Object File");
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void endFile() {}
+	public void endFile() {
+		Log.info("END Parsing Object File");
+	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void startGroup() {}
+	public void startGroup() {
+		Log.info("START Parsing Group");
+	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void endGroup() {}
+	public void endGroup() {
+		Log.info("END Parsing Group");
+	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void nameGroup(String name) {}
+	public void nameGroup(String name) {
+		Log.info("Naming Group: %s", name);
+	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void startVertex() {		
-		tmpidx = 0;
-		tmp.set(0, 0, 0, 0);
+	public void startVertex() {
+		Log.info("START Parsing Vertex");
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void endVertex() {
-		vs.add(new Vector3f(tmp.x, tmp.y, tmp.z));
+		Log.info("END Parsing Vertex");
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void writeVertexCoord(float coord) {
-		switch (tmpidx) {
-		case 0 -> tmp.x = coord;
-		case 1 -> tmp.y = coord;
-		case 2 -> tmp.z = coord;
-		case 3 -> tmp.w = coord;
-		}
-		tmpidx++;
+		Log.info("  Coord: %s", coord);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void startNormal() {
-		layers.add(MeshLayer.NORMALS);
-		tmpidx = 0;
-		tmp.set(0, 0, 0, 0);
+		Log.info("START Parsing Normal");
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void endNormal() {
-		ns.add(new Vector3f(tmp.x, tmp.y, tmp.z));
+		Log.info("END Parsing Normal");
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void writeNormalCoord(float coord) {
-		switch (tmpidx) {
-		case 0 -> tmp.x = coord;
-		case 1 -> tmp.y = coord;
-		case 2 -> tmp.z = coord;
-		case 3 -> tmp.w = coord;
-		}
-		tmpidx++;
+		Log.info("  Coord: %s", coord);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void startTexture() {
-		layers.add(MeshLayer.TEXTURES);
-		tmpidx = 0;
-		tmp.set(0, 0, 0, 0);
+		Log.info("START Parsing Texture");
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void endTexture() {
-		ts.add(new Vector2f(tmp.x, tmp.y));
+		Log.info("END Parsing Texture");
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void writeTextureCoord(float coord) {
-		switch (tmpidx) {
-			case 0 -> tmp.x = coord;
-			case 1 -> tmp.y = coord;
-			case 2 -> tmp.z = coord;
-			case 3 -> tmp.w = coord;
-		}
-		tmpidx++;
+		Log.info("  Coord: %s", coord);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void startParam() {}
+	public void startParam() {
+		Log.info("START Parsing Param");
+	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void endParam() {}
+	public void endParam() {
+		Log.info("END Parsing Param");
+	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void writeParamCoord(float coord) {}
+	public void writeParamCoord(float coord) {
+		Log.info("  Coord: %s", coord);
+	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void startFace() {
-		if (mb == null) {
-			mb = Mesh.builder(layers.toArray(new MeshLayer[] {}));
-		}
-		faceidx = 0;
-		for (int i=0; i<4; i++) {
-			for (int j=0; j<3; j++) {
-				facetmp[i][j] = 0;
-			}
-		}
+		Log.info("START Parsing Face");
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void endFace() {
-		for (int i=0; i<faceidx; i++) {
-
-			int idx = facetmp[i][0];
-			idx = (idx == 0) ? 0 : (idx > 0) ? idx : vs.size() + (idx+1);
-			Vector3f v = vs.get(idx-1);
-			mb.vertex(v.x, v.y, v.z);
-			
-			idx = facetmp[i][1];
-			idx = (idx == 0) ? 0 : (idx > 0) ? idx : ts.size() + (idx+1);
-			if (idx != 0) {
-				Vector2f t = ts.get(idx-1);
-				mb.texture(t.x, t.y);
-			}
-			
-			idx = facetmp[i][2];
-			idx = (idx == 0) ? 0 : (idx > 0) ? idx : ns.size() + (idx+1);
-			if (idx != 0) {
-				Vector3f n = ns.get(idx-1);
-				mb.normal(-n.x, -n.y, -n.z);
-			}
-			mb.next();
-			
-		}
-		switch (faceidx) {
-			case 3 -> mb.element(ElementType.TRIANGLES, faceofs+0, faceofs+1, faceofs+2);
-			case 4 -> mb.element(ElementType.QUADS, faceofs+0, faceofs+1, faceofs+2, faceofs+3);
-			default -> throw new X("Unsupported Face Length: %s", faceidx);
-		}
-		faceofs += faceidx;
+		Log.info("END Parsing Face");
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void startFaceIndex() {
-		elemidx = 0;
+		Log.info(" START Parsing Index");
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void endFaceIndex() {
-		faceidx++;
+		Log.info(" END Parsing Index");
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void writeFaceIndex(int idx) {
-		facetmp[faceidx][elemidx] = idx;
-		elemidx++;
+		Log.info("    Index: %s", idx);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void startLine() {}
+	public void startLine() {
+		Log.info("START Parsing Line");
+	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void endLine() {}
+	public void endLine() {
+		Log.info("END Parsing Line");
+	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void writeLineIndex(int idx) {}
+	public void writeLineIndex(int idx) {
+		Log.info("  Index: %s", idx);
+	}
 	//=============================================================================================
 
 }
