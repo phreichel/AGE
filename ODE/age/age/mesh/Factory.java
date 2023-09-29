@@ -1,10 +1,46 @@
 //*************************************************************************************************
 package age.mesh;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.Reader;
+import age.mesh.obj.MeshBuilder;
+import age.mesh.obj.Parser;
+import age.util.X;
+
 //*************************************************************************************************
 
 //*************************************************************************************************
 public class Factory {
 
+	//=============================================================================================
+	private final MeshBuilder meshBuilder;
+	private final Parser meshParser;
+	//=============================================================================================
+
+	//=============================================================================================
+	public Factory() {
+		meshBuilder = new MeshBuilder();
+		meshParser = new Parser();
+		meshParser.assign(meshBuilder);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public Mesh model(String path) {
+		try {
+			File file = new File(path);
+			Reader reader = new FileReader(file);
+			meshParser.init(reader);
+			meshParser.parse();
+			Mesh mesh = meshBuilder.build();
+			return mesh;
+		} catch (Exception e) {
+			throw new X(e);
+		}
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public Mesh siglet(int edges, int rows) {
 		Builder b = Mesh.builder();

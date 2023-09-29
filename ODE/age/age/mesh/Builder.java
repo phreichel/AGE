@@ -97,9 +97,9 @@ public class Builder {
 	//=============================================================================================
 	public Builder next() {
 		int idx = vertices.size();
-		if (layers.contains(MeshLayer.TEXTURES) && idx != textures.size()) throw new X("out of sync"); 
-		if (layers.contains(MeshLayer.COLORS) && idx != colors.size()) throw new X("out of sync"); 
-		if (layers.contains(MeshLayer.NORMALS) && idx != normals.size()) throw new X("out of sync"); 
+		if (layers.contains(MeshLayer.TEXTURES) && idx != textures.size()) throw new X("out of sync");
+		if (layers.contains(MeshLayer.COLORS)   && idx != colors.size()) throw new X("out of sync"); 
+		if (layers.contains(MeshLayer.NORMALS)  && idx != normals.size()) throw new X("out of sync"); 
 		return this;
 	}
 	//=============================================================================================

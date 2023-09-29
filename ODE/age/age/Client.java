@@ -95,8 +95,13 @@ public class Client {
 		scene.freeCamController().add(camNode);
 		//scene.root().attach(camNode);
 		scene.camera(camNode);
-	
-		Mesh mesh = Mesh.factory().siglet(30,  10);
+
+		Mesh xmesh = Mesh.factory().model("assets/example.obj");
+		Node xNode = new Node(NFlag.MESH);
+		xNode.component(NItem.MESH, xmesh);
+		scene.root().attach(xNode);
+		
+		Mesh mesh = Mesh.factory().siglet(30, 6);
 		Node meshNode = new Node(NFlag.MESH);
 		meshNode.component(NItem.MESH, mesh);
 		meshNode.component(NItem.TRANSFORM, MathUtil.identityMatrix());

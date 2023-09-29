@@ -359,10 +359,13 @@ class JOGLGraphics implements Graphics {
 	
 	//=============================================================================================
 	public void drawMesh(Mesh mesh) {
+		gl.glPushAttrib(GL_POLYGON_BIT);
+		gl.glCullFace(GL_FRONT);
 		for (var i = 0; i < mesh.size(); i++) {
 			var element = mesh.get(i);
 			drawElement(element);
 		}
+		gl.glPopAttrib();
 	}
 	//=============================================================================================
 
