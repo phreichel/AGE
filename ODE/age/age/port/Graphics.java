@@ -8,6 +8,7 @@ import javax.vecmath.Vector2f;
 import age.gui.Multiline;
 import age.gui.Scrollable;
 import age.mesh.Element;
+import age.mesh.Material;
 import age.mesh.Mesh;
 import age.rig.Rig;
 
@@ -48,6 +49,10 @@ public interface Graphics {
 
 	//=============================================================================================
 	public void texture(float x, float y, float w, float h, String texture);
+	//=============================================================================================
+
+	//=============================================================================================
+	public void applyMaterial(Material m);
 	//=============================================================================================
 	
 	//=============================================================================================

@@ -26,6 +26,7 @@ import age.gui.Multiline;
 import age.gui.Scrollable;
 import age.mesh.Element;
 import age.mesh.ElementType;
+import age.mesh.Material;
 import age.port.Graphics;
 import age.rig.Bone;
 import age.rig.Rig;
@@ -319,7 +320,7 @@ class JOGLGraphics implements Graphics {
 		mlstate.height = (int) Math.ceil(lineHeight);
 	}
 	//=============================================================================================
-	
+
 	//=============================================================================================
 	public void drawBox(float sx, float sy, float sz) {
 		gl.glBegin(GL_QUADS);
@@ -359,10 +360,15 @@ class JOGLGraphics implements Graphics {
 	
 	//=============================================================================================
 	public void drawMesh(Mesh mesh) {
-		gl.glPushAttrib(GL_POLYGON_BIT);
-		gl.glCullFace(GL_FRONT);
+		gl.glPushAttrib(GL2.GL_ENABLE_BIT);
+		gl.glDisable(GL_COLOR_MATERIAL);
+		gl.glColor3f(1f, 1f, 1f);
 		for (var i = 0; i < mesh.size(); i++) {
 			var element = mesh.get(i);
+			var material = mesh.getMaterial(i);
+			if (material != null) {
+				applyMaterial(material);
+			}
 			drawElement(element);
 		}
 		gl.glPopAttrib();
@@ -375,17 +381,16 @@ class JOGLGraphics implements Graphics {
 		mask |= element.hasNormals() ? 1 : 0;
 		mask |= element.hasColors() ? 2 : 0;
 		mask |= element.hasTextures() ? 4 : 0;
-		
 		switch (mask) {
-		case 0 -> drawElementV(element);
-		case 1 -> drawElementNV(element);
-		case 2 -> drawElementCV(element);
-		case 3 -> drawElementCNV(element);
-		case 4 -> drawElementTV(element);
-		case 5 -> drawElementTNV(element);
-		case 6 -> drawElementTCV(element);
-		case 7 -> drawElementTCNV(element);
-		default -> throw new X("unsupported vertex type");
+			case 0 -> drawElementV(element);
+			case 1 -> drawElementNV(element);
+			case 2 -> drawElementCV(element);
+			case 3 -> drawElementCNV(element);
+			case 4 -> drawElementTV(element);
+			case 5 -> drawElementTNV(element);
+			case 6 -> drawElementTCV(element);
+			case 7 -> drawElementTCNV(element);
+			default -> throw new X("unsupported vertex type");
 		}
 	}
 	//=============================================================================================
@@ -609,6 +614,30 @@ class JOGLGraphics implements Graphics {
 		}
 		drawBones(bone.children(), t);
 		gl.glPopMatrix();
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public void applyMaterial(Material m) {
+		float[] buffer = new float[] {0f, 0f, 0f, 1f};
+		buffer[0] = m.ambience.x;
+		buffer[1] = m.ambience.y;
+		buffer[2] = m.ambience.z;
+		gl.glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, buffer, 0);
+		buffer[0] = m.diffuse.x;
+		buffer[1] = m.diffuse.y;
+		buffer[2] = m.diffuse.z;
+		gl.glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, buffer, 0);
+		buffer[0] = m.specular.x;
+		buffer[1] = m.specular.y;
+		buffer[2] = m.specular.z;
+		gl.glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, buffer, 0);
+		buffer[0] = m.emission.x;
+		buffer[1] = m.emission.y;
+		buffer[2] = m.emission.z;
+		gl.glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, buffer, 0);
+		gl.glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, m.shininess);
+		gl.glColor3f(m.diffuse.x, m.diffuse.y, m.diffuse.z);
 	}
 	//=============================================================================================
 	

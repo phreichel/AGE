@@ -2,22 +2,29 @@
 package age.mesh.obj;
 //*************************************************************************************************
 
+import java.io.File;
 import java.io.Reader;
-
-import age.mesh.mtl.MaterialParser;
+import age.util.Scanner;
+import age.util.Symbol;
 import age.util.X;
+
+import static age.util.Symbol.*;
 
 //*************************************************************************************************
 public class ObjectParser {
 
 	//=============================================================================================
-	private final ObjectScanner  objectScanner = new ObjectScanner();
+	private final Scanner scanner = new ObjectScanner();
 	//=============================================================================================
 
 	//=============================================================================================
-	private ObjectBuilder objectBuilder = new MockupObjectBuilder();
+	private ObjectBuilder objectBuilder = new MockBuilder();
 	//=============================================================================================
 
+	//=============================================================================================
+	private File base = null;
+	//=============================================================================================
+	
 	//=============================================================================================
 	public void assign(ObjectBuilder objectBuilder) {
 		this.objectBuilder = objectBuilder;
@@ -25,15 +32,16 @@ public class ObjectParser {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void init(Reader reader) {
-		objectScanner.init(reader);		
+	public void init(File base, Reader reader) {
+		this.base = base;
+		scanner.init(reader);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	public void parse() {
 		objectBuilder.startFile();
-		while (!objectScanner.objectSymbol().equals(ObjectSymbol.ENDOFSTREAM)) {
+		while (!scanner.symbol().equals(ENDOFSTREAM)) {
 			parseLine();
 		}
 		objectBuilder.endFile();
@@ -52,6 +60,7 @@ public class ObjectParser {
 		else if (parseMtllib());
 		else if (parseUsemtl());
 		else if (parseVertexgroup());
+		else if (parseVertexobject());
 		else parseEmptyLine();
 	}
 	//=============================================================================================
@@ -59,7 +68,7 @@ public class ObjectParser {
 	//=============================================================================================
 	private boolean parseVertexgroup() {
 		if (parseGroup()) {
-			while (!objectScanner.objectSymbol().equals(ObjectSymbol.ENDOFSTREAM)) {
+			while (!scanner.symbol().equals(ENDOFSTREAM)) {
 				if (parseGroupEnd()) break;
 				else if (parseVertex());
 				else if (parseTexture());
@@ -78,29 +87,48 @@ public class ObjectParser {
 	//=============================================================================================
 
 	//=============================================================================================
+	private boolean parseVertexobject() {
+		if (parseObject()) {
+			while (!scanner.symbol().equals(ENDOFSTREAM)) {
+				if (parseObjectEnd()) break;
+				else if (parseVertex());
+				else if (parseTexture());
+				else if (parseNormal());
+				else if (parseParameter());
+				else if (parseSmoothing());
+				else if (parseFace());
+				else if (parsePolyline());
+				else if (parseUsemtl());
+				else parseEmptyLine();
+			}
+			return true;
+		}
+		return false;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	private boolean parseGroup() {
-		if (tokenMatch(ObjectSymbol.KEYWORD, "g")) {
-			objectScanner.scan();
+		if (tokenMatch(KEYWORD, "g")) {
+			scanner.scan();
 
-			objectBuilder.startGroup();
-			
-			if (!tokenMatch(ObjectSymbol.WHITESPACE)) parseError("Whitespace expected");
-			objectScanner.scan();
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
 
-			if (!tokenMatch(ObjectSymbol.NAME)) parseError("Name expected");
-			String name = objectScanner.token();
-			objectScanner.scan();
+			if (!tokenMatch(NAME)) parseError("Name expected");
+			String name = scanner.token();
+			scanner.scan();
 			while (
-				!tokenMatch(ObjectSymbol.WHITESPACE) &&
-				!tokenMatch(ObjectSymbol.COMMENT) &&
-				!tokenMatch(ObjectSymbol.LINEBREAK) &&
-				!tokenMatch(ObjectSymbol.ENDOFSTREAM)
+				!tokenMatch(WHITESPACE) &&
+				!tokenMatch(COMMENT) &&
+				!tokenMatch(LINEBREAK) &&
+				!tokenMatch(ENDOFSTREAM)
 			) {
-				name += objectScanner.token();
-				objectScanner.scan();
+				name += scanner.token();
+				scanner.scan();
 			}
 
-			objectBuilder.nameGroup(name);
+			objectBuilder.startGroup(name);
 			
 			parseEmptyLine();
 			
@@ -112,16 +140,72 @@ public class ObjectParser {
 
 	//=============================================================================================
 	private boolean parseGroupEnd() {
-		if (tokenMatch(ObjectSymbol.KEYWORD, "g")) {
-			objectScanner.scan();
+		if (tokenMatch(KEYWORD, "g")) {
+			scanner.scan();
 
-			if (!tokenMatch(ObjectSymbol.WHITESPACE)) parseError("Whitespace expected");
-			objectScanner.scan();
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
 
-			if (!tokenMatch(ObjectSymbol.KEYWORD, "off")) parseError("Group End expected");
-			objectScanner.scan();
-			
-			objectBuilder.endGroup();
+			if (tokenMatch(NAME)) {
+				String name = scanner.token();
+				scanner.scan();
+				while (
+					!tokenMatch(WHITESPACE) &&
+					!tokenMatch(COMMENT) &&
+					!tokenMatch(LINEBREAK) &&
+					!tokenMatch(ENDOFSTREAM)
+				) {
+					name += scanner.token();
+					scanner.scan();
+				}
+				
+				objectBuilder.endGroup();
+				objectBuilder.startGroup(name);
+				
+				parseEmptyLine();
+				
+				return false;
+				
+			} else if (tokenMatch(KEYWORD, "off")) {
+				scanner.scan();
+
+				objectBuilder.endGroup();
+				parseEmptyLine();
+				
+				return true;
+				
+			}
+
+			parseError("Name or 'off' expected");
+			return true;
+
+		}
+		return false;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private boolean parseObject() {
+		if (tokenMatch(KEYWORD, "o")) {
+			scanner.scan();
+
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
+
+			if (!tokenMatch(NAME)) parseError("Name expected");
+			String name = scanner.token();
+			scanner.scan();
+			while (
+				!tokenMatch(WHITESPACE) &&
+				!tokenMatch(COMMENT) &&
+				!tokenMatch(LINEBREAK) &&
+				!tokenMatch(ENDOFSTREAM)
+			) {
+				name += scanner.token();
+				scanner.scan();
+			}
+
+			objectBuilder.startObject(name);
 			
 			parseEmptyLine();
 			
@@ -130,46 +214,87 @@ public class ObjectParser {
 		return false;
 	}
 	//=============================================================================================
+
+	//=============================================================================================
+	private boolean parseObjectEnd() {
+		if (tokenMatch(KEYWORD, "o")) {
+			scanner.scan();
+
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
+
+			if (tokenMatch(NAME)) {
+				String name = scanner.token();
+				scanner.scan();
+				while (
+					!tokenMatch(WHITESPACE) &&
+					!tokenMatch(COMMENT) &&
+					!tokenMatch(LINEBREAK) &&
+					!tokenMatch(ENDOFSTREAM)
+				) {
+					name += scanner.token();
+					scanner.scan();
+				}
+				
+				objectBuilder.endObject();
+				objectBuilder.startObject(name);
+				
+				parseEmptyLine();
+				
+				return false;
+				
+			} else if (tokenMatch(KEYWORD, "off")) {
+				scanner.scan();
+
+				objectBuilder.endObject();
+				parseEmptyLine();
+				
+				return true;
+				
+			}
+
+			parseError("Name or 'off' expected");
+			return true;
+			
+		}
+		return false;
+	}
+	//=============================================================================================
 	
 	//=============================================================================================
 	private boolean parseVertex() {
-		if (tokenMatch(ObjectSymbol.KEYWORD, "v")) {
-			objectScanner.scan();
+		if (tokenMatch(KEYWORD, "v")) {
+			scanner.scan();
 			
 			float vx = 0f;
 			float vy = 0f;
 			float vz = 0f;
 			float vw = 0f;
 			
-			if (!tokenMatch(ObjectSymbol.WHITESPACE)) parseError("Whitespace expected");
-			objectScanner.scan();
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
 			vx = parseDecimalNumber();
 
-			if (!tokenMatch(ObjectSymbol.WHITESPACE)) parseError("Whitespace expected");
-			objectScanner.scan();
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
 			vy = parseDecimalNumber();
 
-			if (!tokenMatch(ObjectSymbol.WHITESPACE)) parseError("Whitespace expected");
-			objectScanner.scan();
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
 			vz = parseDecimalNumber();
 
-			if (tokenMatch(ObjectSymbol.WHITESPACE)) {
-				objectScanner.scan();
+			if (tokenMatch(WHITESPACE)) {
+				scanner.scan();
 				if (
-					!tokenMatch(ObjectSymbol.COMMENT) &&
-					!tokenMatch(ObjectSymbol.LINEBREAK) &&
-					!tokenMatch(ObjectSymbol.ENDOFSTREAM)
+					!tokenMatch(COMMENT) &&
+					!tokenMatch(LINEBREAK) &&
+					!tokenMatch(ENDOFSTREAM)
 				) {
 					vw = parseDecimalNumber();
 				}
 			}
 
-			objectBuilder.startVertex();
-			objectBuilder.writeVertexCoord(vx);
-			objectBuilder.writeVertexCoord(vy);
-			objectBuilder.writeVertexCoord(vz);
-			objectBuilder.writeVertexCoord(vw);
-			objectBuilder.endVertex();
+			objectBuilder.writeVertex(vx, vy, vz, vw);
 			
 			parseEmptyLine();
 			
@@ -181,45 +306,41 @@ public class ObjectParser {
 
 	//=============================================================================================
 	private boolean parseTexture() {
-		if (tokenMatch(ObjectSymbol.KEYWORD, "vt")) {
-			objectScanner.scan();
+		if (tokenMatch(KEYWORD, "vt")) {
+			scanner.scan();
 
 			float tu = 0f;
 			float tv = 0f;
 			float tw = 0f;
 			
-			if (!tokenMatch(ObjectSymbol.WHITESPACE)) parseError("Whitespace expected");
-			objectScanner.scan();
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
 
 			tu = parseDecimalNumber();
 
-			if (tokenMatch(ObjectSymbol.WHITESPACE)) {
-				objectScanner.scan();
+			if (tokenMatch(WHITESPACE)) {
+				scanner.scan();
 				if (
-					!tokenMatch(ObjectSymbol.COMMENT) &&
-					!tokenMatch(ObjectSymbol.LINEBREAK) &&
-					!tokenMatch(ObjectSymbol.ENDOFSTREAM)
+					!tokenMatch(COMMENT) &&
+					!tokenMatch(LINEBREAK) &&
+					!tokenMatch(ENDOFSTREAM)
 				) {
 					tv = parseDecimalNumber();
 				}
 			}
 
-			if (tokenMatch(ObjectSymbol.WHITESPACE)) {
-				objectScanner.scan();
+			if (tokenMatch(WHITESPACE)) {
+				scanner.scan();
 				if (
-					!tokenMatch(ObjectSymbol.COMMENT) &&
-					!tokenMatch(ObjectSymbol.LINEBREAK) &&
-					!tokenMatch(ObjectSymbol.ENDOFSTREAM)
+					!tokenMatch(COMMENT) &&
+					!tokenMatch(LINEBREAK) &&
+					!tokenMatch(ENDOFSTREAM)
 				) {
 					tw = parseDecimalNumber();
 				}
 			}
 
-			objectBuilder.startTexture();
-			objectBuilder.writeTextureCoord(tu);
-			objectBuilder.writeTextureCoord(tv);
-			objectBuilder.writeTextureCoord(tw);
-			objectBuilder.endTexture();
+			objectBuilder.writeTexture(tu, tv, tw);
 			
 			parseEmptyLine();
 			
@@ -231,31 +352,27 @@ public class ObjectParser {
 
 	//=============================================================================================
 	private boolean parseNormal() {
-		if (tokenMatch(ObjectSymbol.KEYWORD, "vn")) {
-			objectScanner.scan();
+		if (tokenMatch(KEYWORD, "vn")) {
+			scanner.scan();
 
 			float nx = 0f;
 			float ny = 0f;
 			float nz = 0f;
 			
 			
-			if (!tokenMatch(ObjectSymbol.WHITESPACE)) parseError("Whitespace expected");
-			objectScanner.scan();
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
 			nx = parseDecimalNumber();
 
-			if (!tokenMatch(ObjectSymbol.WHITESPACE)) parseError("Whitespace expected");
-			objectScanner.scan();
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
 			ny = parseDecimalNumber();
 
-			if (!tokenMatch(ObjectSymbol.WHITESPACE)) parseError("Whitespace expected");
-			objectScanner.scan();
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
 			nz =parseDecimalNumber();
 
-			objectBuilder.startNormal();
-			objectBuilder.writeNormalCoord(nx);
-			objectBuilder.writeNormalCoord(ny);
-			objectBuilder.writeNormalCoord(nz);
-			objectBuilder.endNormal();
+			objectBuilder.writeNormal(nx, ny, nz);
 			
 			parseEmptyLine();
 			
@@ -267,44 +384,40 @@ public class ObjectParser {
 
 	//=============================================================================================
 	private boolean parseParameter() {
-		if (tokenMatch(ObjectSymbol.KEYWORD, "vp")) {
-			objectScanner.scan();
+		if (tokenMatch(KEYWORD, "vp")) {
+			scanner.scan();
 
 			float pu = 0f;
 			float pv = 0f;
 			float pw = 0f;
 			
-			if (!tokenMatch(ObjectSymbol.WHITESPACE)) parseError("Whitespace expected");
-			objectScanner.scan();
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
 			pu = parseDecimalNumber();
 
-			if (tokenMatch(ObjectSymbol.WHITESPACE)) {
-				objectScanner.scan();
+			if (tokenMatch(WHITESPACE)) {
+				scanner.scan();
 				if (
-					!tokenMatch(ObjectSymbol.COMMENT) &&
-					!tokenMatch(ObjectSymbol.LINEBREAK) &&
-					!tokenMatch(ObjectSymbol.ENDOFSTREAM)
+					!tokenMatch(COMMENT) &&
+					!tokenMatch(LINEBREAK) &&
+					!tokenMatch(ENDOFSTREAM)
 				) {
 					pv = parseDecimalNumber();
 				}
 			}
 
-			if (tokenMatch(ObjectSymbol.WHITESPACE)) {
-				objectScanner.scan();
+			if (tokenMatch(WHITESPACE)) {
+				scanner.scan();
 				if (
-					!tokenMatch(ObjectSymbol.COMMENT) &&
-					!tokenMatch(ObjectSymbol.LINEBREAK) &&
-					!tokenMatch(ObjectSymbol.ENDOFSTREAM)
+					!tokenMatch(COMMENT) &&
+					!tokenMatch(LINEBREAK) &&
+					!tokenMatch(ENDOFSTREAM)
 				) {
 					pw = parseDecimalNumber();
 				}
 			}
 
-			objectBuilder.startParam();
-			objectBuilder.writeParamCoord(pu);
-			objectBuilder.writeParamCoord(pv);
-			objectBuilder.writeParamCoord(pw);
-			objectBuilder.endParam();
+			objectBuilder.writeParameter(pu, pv, pw);
 			
 			parseEmptyLine();
 			
@@ -316,14 +429,14 @@ public class ObjectParser {
 	
 	//=============================================================================================
 	private boolean parseSmoothing() {
-		if (tokenMatch(ObjectSymbol.KEYWORD, "s")) {
-			objectScanner.scan();
+		if (tokenMatch(KEYWORD, "s")) {
+			scanner.scan();
 
-			if (!tokenMatch(ObjectSymbol.WHITESPACE)) parseError("Whitespace expected");
-			objectScanner.scan();
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
 
-			if (tokenMatch(ObjectSymbol.KEYWORD, "off") || tokenMatch(ObjectSymbol.NUMBER, "0") || tokenMatch(ObjectSymbol.NUMBER, "1")) {
-				objectScanner.scan();
+			if (tokenMatch(KEYWORD, "off") || tokenMatch(NUMBER, "0") || tokenMatch(NUMBER, "1")) {
+				scanner.scan();
 			} else {
 				parseError("Smoothing Parameter expected (0, 1, off)");
 			}
@@ -338,32 +451,32 @@ public class ObjectParser {
 	
 	//=============================================================================================
 	private boolean parseFace() {
-		if (tokenMatch(ObjectSymbol.KEYWORD, "f")) {
-			objectScanner.scan();
+		if (tokenMatch(KEYWORD, "f")) {
+			scanner.scan();
 			
 			objectBuilder.startFace();
 
-			if (!tokenMatch(ObjectSymbol.WHITESPACE)) parseError("Whitespace expected");
-			objectScanner.scan();
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
 
 			parseFaceIndex();
 
-			if (!tokenMatch(ObjectSymbol.WHITESPACE)) parseError("Whitespace expected");
-			objectScanner.scan();
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
 
 			parseFaceIndex();
 
-			if (!tokenMatch(ObjectSymbol.WHITESPACE)) parseError("Whitespace expected");
-			objectScanner.scan();
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
 
 			parseFaceIndex();
 
-			if (tokenMatch(ObjectSymbol.WHITESPACE)) {
-				objectScanner.scan();
+			if (tokenMatch(WHITESPACE)) {
+				scanner.scan();
 				if (
-					!tokenMatch(ObjectSymbol.COMMENT) &&
-					!tokenMatch(ObjectSymbol.LINEBREAK) &&
-					!tokenMatch(ObjectSymbol.ENDOFSTREAM)
+					!tokenMatch(COMMENT) &&
+					!tokenMatch(LINEBREAK) &&
+					!tokenMatch(ENDOFSTREAM)
 				) {
 					parseFaceIndex();
 				}
@@ -382,27 +495,27 @@ public class ObjectParser {
 	//=============================================================================================
 	private void parseFaceIndex() {
 		
-		int idx1 = 0;
-		int idx2 = 0;
-		int idx3 = 0;
+		int iv = 0;
+		int it = 0;
+		int in = 0;		
 		
-		if (!tokenMatch(ObjectSymbol.NUMBER)) parseError("Number expected");
-		idx1 = Integer.parseInt(objectScanner.token());
-		objectScanner.scan();
+		if (!tokenMatch(NUMBER)) parseError("Number expected");
+		iv = Integer.parseInt(scanner.token());
+		scanner.scan();
 		
-		if (tokenMatch(ObjectSymbol.SPECIAL, "/")) {
-			objectScanner.scan();
+		if (tokenMatch(SYMBOL, "/")) {
+			scanner.scan();
 			int anyOption = 0;
-			if (tokenMatch(ObjectSymbol.NUMBER)) {
-				idx2 = Integer.parseInt(objectScanner.token());
-				objectScanner.scan();
+			if (tokenMatch(NUMBER)) {
+				it = Integer.parseInt(scanner.token());
+				scanner.scan();
 				anyOption++;
 			} 
-			if (tokenMatch(ObjectSymbol.SPECIAL, "/")) {
-				objectScanner.scan();
-				if (!tokenMatch(ObjectSymbol.NUMBER)) parseError("Number expected");
-				idx3 = Integer.parseInt(objectScanner.token());
-				objectScanner.scan();
+			if (tokenMatch(SYMBOL, "/")) {
+				scanner.scan();
+				if (!tokenMatch(NUMBER)) parseError("Number expected");
+				in = Integer.parseInt(scanner.token());
+				scanner.scan();
 				anyOption++;
 			}
 			if (anyOption == 0) {
@@ -410,27 +523,24 @@ public class ObjectParser {
 			}
 		}
 
-		objectBuilder.startFaceIndex();
-		objectBuilder.writeFaceIndex(idx1);
-		objectBuilder.writeFaceIndex(idx2);
-		objectBuilder.writeFaceIndex(idx3);
-		objectBuilder.endFaceIndex();
+		objectBuilder.writeFaceIndex(iv, it, in);
 		
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
 	private boolean parsePolyline() {
-		if (tokenMatch(ObjectSymbol.KEYWORD, "l")) {
+		if (tokenMatch(KEYWORD, "l")) {
+			scanner.scan();
 
-			if (!tokenMatch(ObjectSymbol.WHITESPACE)) parseError("Whitespace expected");
-			objectScanner.scan();
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
 
-			if (!tokenMatch(ObjectSymbol.NUMBER)) parseError("Number expected");
-			while (tokenMatch(ObjectSymbol.NUMBER)) {
-				objectScanner.scan();
-				if (tokenMatch(ObjectSymbol.WHITESPACE)) {
-					objectScanner.scan();
+			if (!tokenMatch(NUMBER)) parseError("Number expected");
+			while (tokenMatch(NUMBER)) {
+				scanner.scan();
+				if (tokenMatch(WHITESPACE)) {
+					scanner.scan();
 				}
 			}
 			
@@ -444,22 +554,29 @@ public class ObjectParser {
 
 	//=============================================================================================
 	private boolean parseMtllib() {
-		if (tokenMatch(ObjectSymbol.KEYWORD, "mtllib")) {
-			objectScanner.scan();
+		if (tokenMatch(KEYWORD, "mtllib")) {
+			scanner.scan();
 
-			if (!tokenMatch(ObjectSymbol.WHITESPACE)) parseError("Whitespace expected");
-			objectScanner.scan();
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
 
-			if (!tokenMatch(ObjectSymbol.NAME)) parseError("Name expected");
-			objectScanner.scan();
+			String relpath = "";
+			if (!tokenMatch(NAME)) parseError("Name expected");
+			relpath += scanner.token();
+			scanner.scan();
 			while (
-				!tokenMatch(ObjectSymbol.WHITESPACE) &&
-				!tokenMatch(ObjectSymbol.COMMENT) &&
-				!tokenMatch(ObjectSymbol.LINEBREAK) &&
-				!tokenMatch(ObjectSymbol.ENDOFSTREAM)
+				!tokenMatch(WHITESPACE) &&
+				!tokenMatch(COMMENT) &&
+				!tokenMatch(LINEBREAK) &&
+				!tokenMatch(ENDOFSTREAM)
 			) {
-				objectScanner.scan();
+				relpath += scanner.token();
+				scanner.scan();
 			}
+			
+			File file = new File(base, relpath);
+			String path = file.getAbsolutePath();
+			objectBuilder.materialLib(path);
 			
 			parseEmptyLine();
 			
@@ -471,22 +588,27 @@ public class ObjectParser {
 
 	//=============================================================================================
 	private boolean parseUsemtl() {
-		if (tokenMatch(ObjectSymbol.KEYWORD, "usemtl")) {
-			objectScanner.scan();
+		if (tokenMatch(KEYWORD, "usemtl")) {
+			scanner.scan();
 
-			if (!tokenMatch(ObjectSymbol.WHITESPACE)) parseError("Whitespace expected");
-			objectScanner.scan();
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
 
-			if (!tokenMatch(ObjectSymbol.NAME)) parseError("Name expected");
-			objectScanner.scan();
+			String mtlname = "";
+			if (!tokenMatch(NAME)) parseError("Name expected");
+			mtlname += scanner.token();
+			scanner.scan();
 			while (
-				!tokenMatch(ObjectSymbol.WHITESPACE) &&
-				!tokenMatch(ObjectSymbol.COMMENT) &&
-				!tokenMatch(ObjectSymbol.LINEBREAK) &&
-				!tokenMatch(ObjectSymbol.ENDOFSTREAM)
+				!tokenMatch(WHITESPACE) &&
+				!tokenMatch(COMMENT) &&
+				!tokenMatch(LINEBREAK) &&
+				!tokenMatch(ENDOFSTREAM)
 			) {
-				objectScanner.scan();
+				mtlname += scanner.token();
+				scanner.scan();
 			}
+			
+			objectBuilder.materialUse(mtlname);
 			
 			parseEmptyLine();
 			
@@ -500,23 +622,23 @@ public class ObjectParser {
 	private float parseDecimalNumber() {
 		String sNumber = "";
 		int anyNumber = 0;
-		if (tokenMatch(ObjectSymbol.SYMBOL, "-") || tokenMatch(ObjectSymbol.SYMBOL, "+")) {
-			sNumber += objectScanner.token();
-			objectScanner.scan();
+		if (tokenMatch(SYMBOL, "-") || tokenMatch(SYMBOL, "+")) {
+			sNumber += scanner.token();
+			scanner.scan();
 		}
-		if (tokenMatch(ObjectSymbol.NUMBER)) {
+		if (tokenMatch(NUMBER)) {
 			anyNumber++;
-			sNumber += objectScanner.token();
-			objectScanner.scan();
+			sNumber += scanner.token();
+			scanner.scan();
 		}
-		if (tokenMatch(ObjectSymbol.SPECIAL, ".")) {
-			sNumber += objectScanner.token();
-			objectScanner.scan();
+		if (tokenMatch(SYMBOL, ".")) {
+			sNumber += scanner.token();
+			scanner.scan();
 		}
-		if (tokenMatch(ObjectSymbol.NUMBER)) {
+		if (tokenMatch(NUMBER)) {
 			anyNumber++;
-			sNumber += objectScanner.token();
-			objectScanner.scan();
+			sNumber += scanner.token();
+			scanner.scan();
 		}
 		if (anyNumber == 0) {
 			 parseError("Decimal Number expected");
@@ -528,10 +650,10 @@ public class ObjectParser {
 	//=============================================================================================
 	private void parseEmptyLine() {
 		while (
-			tokenMatch(ObjectSymbol.COMMENT) ||
-			tokenMatch(ObjectSymbol.WHITESPACE)
+			tokenMatch(COMMENT) ||
+			tokenMatch(WHITESPACE)
 		) {
-			objectScanner.scan();
+			scanner.scan();
 		}
 		parseLinebreak();
 	}
@@ -540,11 +662,11 @@ public class ObjectParser {
 	//=============================================================================================
 	private void parseLinebreak() {
 		if (
-			tokenMatch(ObjectSymbol.LINEBREAK) ||
-			tokenMatch(ObjectSymbol.ENDOFSTREAM)
+			tokenMatch(LINEBREAK) ||
+			tokenMatch(ENDOFSTREAM)
 		) {
-			if (tokenMatch(ObjectSymbol.LINEBREAK)) {
-				objectScanner.scan();
+			if (tokenMatch(LINEBREAK)) {
+				scanner.scan();
 			}
 		} else {
 			parseError("Linebreak or End of Strem expected");
@@ -553,17 +675,17 @@ public class ObjectParser {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private boolean tokenMatch(ObjectSymbol objectSymbol) {
+	private boolean tokenMatch(Symbol symbol) {
 		return
-			objectScanner.objectSymbol().equals(objectSymbol);
+			scanner.symbol().equals(symbol);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	private boolean tokenMatch(ObjectSymbol objectSymbol, String token) {
+	private boolean tokenMatch(Symbol symbol, String token) {
 		return
-			objectScanner.objectSymbol().equals(objectSymbol) &&
-			objectScanner.token().equals(token);
+			scanner.symbol().equals(symbol) &&
+			scanner.token().equals(token);
 	}
 	//=============================================================================================
 	
@@ -571,9 +693,9 @@ public class ObjectParser {
 	private void parseError(String error) {
 		throw new X(
 			"Parse Error at:(%s:%s), token:'%s': %s",
-			objectScanner.column(),
-			objectScanner.line(),
-			objectScanner.token(),
+			scanner.column(),
+			scanner.line(),
+			scanner.token(),
 			error);
 	}
 	//=============================================================================================

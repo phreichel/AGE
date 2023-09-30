@@ -11,48 +11,17 @@ public interface MaterialBuilder {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void startGroup();
-	public void endGroup();
-	public void nameGroup(String name);
+	public void startNewMaterial(String name);
+	public void writeIllum(int illum);
+	public void writeNs(float Ns);
+	public void writeNi(float Ni);
+	public void writeD(float d);
+	public void writeTr(float Tr);
+	public void writeKa(float r, float g, float b);
+	public void writeKd(float r, float g, float b);
+	public void writeKs(float r, float g, float b);
+	public void writeKe(float r, float g, float b);
 	//=============================================================================================
 
-	//=============================================================================================
-	public void startVertex();
-	public void endVertex();
-	public void writeVertexCoord(float coord);
-	//=============================================================================================
-
-	//=============================================================================================
-	public void startNormal();
-	public void endNormal();
-	public void writeNormalCoord(float coord);
-	//=============================================================================================
-
-	//=============================================================================================
-	public void startTexture();
-	public void endTexture();
-	public void writeTextureCoord(float coord);
-	//=============================================================================================
-
-	//=============================================================================================
-	public void startParam();
-	public void endParam();
-	public void writeParamCoord(float coord);
-	//=============================================================================================
-
-	//=============================================================================================
-	public void startFace();
-	public void endFace();
-	public void startFaceIndex();
-	public void endFaceIndex();
-	public void writeFaceIndex(int idx);
-	//=============================================================================================
-
-	//=============================================================================================
-	public void startLine();
-	public void endLine();
-	public void writeLineIndex(int idx);
-	//=============================================================================================
-	
 }
 //*************************************************************************************************

@@ -2,229 +2,27 @@
 package age.mesh.mtl;
 //*************************************************************************************************
 
-import java.io.Reader;
-import age.util.X;
-import static age.util.TextUtil.*;
+import age.util.Scanner;
 
 //*************************************************************************************************
-class MaterialScanner {
+public class MaterialScanner extends Scanner {
 
 	//=============================================================================================
-	private Reader reader = null;
-	private char   look   = '\0';
-	//=============================================================================================
-
-	//=============================================================================================
-	private int line;
-	private int column;
-	//=============================================================================================
-	
-	//=============================================================================================
-	private MaterialSymbol materialSymbol;
-	private String token;
-	//=============================================================================================
-	
-	//=============================================================================================
-	public void init(Reader reader) {
-		this.reader = reader;
-		line = 1;
-		column = 0;
-		next();
-		scan();
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public void scan() {
-		reset();
-		if      (scanWhitespace());
-		else if (scanLinebreak());
-		else if (scanComment());
-		else if (scanName());
-		else if (scanNumber());
-		else if (scanEndOfStream());
-		else if (scanSymbol());
-		else scanError();
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public String token() {
-		return this.token;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public MaterialSymbol symbol() {
-		return this.materialSymbol;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public int line() {
-		return line;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public int column() {
-		return column;
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private char next() {
-		try {
-			int res = reader.read();
-			look = (res == -1) ? '\0' : (char) res;
-			if (!charMatch(look, '\0')) {
-				if (charMatch(look, '\n')) {
-					line++;
-					column = 0;
-				} else {
-					column++;
-				}
-			}
-			return look;
-		} catch (Exception e) {
-			throw new X(e);
-		}
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private boolean scanWhitespace() {
-		if (isWhitespace(look)) {
-			materialSymbol = MaterialSymbol.WHITESPACE;
-			while (isWhitespace(look)) {
-				token += look;
-				next();
-			}
-			return true;
-		}
-		return false;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private boolean scanLinebreak() {
-		if (isLinebreak(look)) {
-			materialSymbol = MaterialSymbol.LINEBREAK;
-			while (isLinebreak(look)) {
-				token += look;
-				next();
-			}
-			return true;
-		}
-		return false;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private boolean scanComment() {
-		if (charMatch(look, '#')) {
-			materialSymbol = MaterialSymbol.COMMENT;
-			token += look;
-			next();
-			while (!isLinebreak(look) | charMatch(look, '\0')) {
-				token += look;
-				next();
-			}
-			return true;
-		}
-		return false;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private boolean scanName() {
-		if (isAlphaExt(look)) {
-			materialSymbol = MaterialSymbol.NAME;
-			while (isAlphaExt(look) | isDecimal(look)) {
-				token += look;
-				next();
-			}
-			if (isKeyword(token)) {
-				materialSymbol = MaterialSymbol.KEYWORD;
-			}
-			return true;
-		}
-		return false;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private boolean scanNumber() {
-		if (isDecimal(look)) {
-			materialSymbol = MaterialSymbol.NUMBER;
-			while (isDecimal(look)) {
-				token += look;
-				next();
-			}
-			return true;
-		}
-		return false;
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private boolean scanEndOfStream() {
-		if (charMatch(look, '\0')) {
-			materialSymbol = MaterialSymbol.ENDOFSTREAM;
-			token += look;
-			return true;
-		}
-		return false;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	// Matches anything that was not covered as 1 character symbol
-	// and therefore should be placed last in any scan action.
-	private boolean scanSymbol() {
-		materialSymbol = isSpecialSymbol(look) ? MaterialSymbol.SPECIAL : MaterialSymbol.SYMBOL;
-		token += look;
-		next();
-		return true;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private boolean isSpecialSymbol(char c) {
+	protected boolean isKeyword(String s) {
 		return
-			(c == '.') ||
-			(c == '/');
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private boolean isKeyword(String s) {
-		return
-			s.equals("v") ||
-			s.equals("vt") ||
-			s.equals("vn") ||
-			s.equals("vp") ||
-			s.equals("f") ||
-			s.equals("l") ||
-			s.equals("o") ||
-			s.equals("g") ||
-			s.equals("s") ||
-			s.equals("off") ||
-			s.equals("mtllib") ||
-			s.equals("usemtl");
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private void reset() {
-		materialSymbol = MaterialSymbol.UNDEFINED;
-		token = "";
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private void scanError() {
-		throw new X("Unexpected Scanner Error");
+			s.equals("Ns") ||
+			s.equals("Ni") ||
+			s.equals("d")  ||
+			s.equals("Tr") ||
+			s.equals("Ka") ||
+			s.equals("Kd") ||
+			s.equals("Ks") ||
+			s.equals("Ke") ||
+			s.equals("illum") ||
+			s.equals("map_Ns") ||
+			s.equals("map_Kd") ||
+			s.equals("map_Bump") ||
+			s.equals("newmtl");
 	}
 	//=============================================================================================
 	

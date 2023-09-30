@@ -92,7 +92,6 @@ public class Renderer implements Renderable {
 
 	//=============================================================================================
 	private void renderMesh(Graphics g, Node node) {
-		g.color(.2f, .5f, 0f, 1f);
 		Mesh mesh = node.component(NItem.MESH, Mesh.class);
 		g.drawMesh(mesh);
 	}

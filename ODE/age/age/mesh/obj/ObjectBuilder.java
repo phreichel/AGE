@@ -11,47 +11,37 @@ public interface ObjectBuilder {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void startGroup();
+	public void startGroup(String name);
 	public void endGroup();
-	public void nameGroup(String name);
 	//=============================================================================================
 
 	//=============================================================================================
-	public void startVertex();
-	public void endVertex();
-	public void writeVertexCoord(float coord);
+	public void startObject(String name);
+	public void endObject();
 	//=============================================================================================
-
+	
 	//=============================================================================================
-	public void startNormal();
-	public void endNormal();
-	public void writeNormalCoord(float coord);
-	//=============================================================================================
-
-	//=============================================================================================
-	public void startTexture();
-	public void endTexture();
-	public void writeTextureCoord(float coord);
-	//=============================================================================================
-
-	//=============================================================================================
-	public void startParam();
-	public void endParam();
-	public void writeParamCoord(float coord);
+	public void writeVertex(float vx, float vy, float vz, float vw);
+	public void writeNormal(float nx, float ny, float nz);
+	public void writeTexture(float tu, float tv, float tw);
+	public void writeParameter(float pu, float pv, float pw);
 	//=============================================================================================
 
 	//=============================================================================================
 	public void startFace();
 	public void endFace();
-	public void startFaceIndex();
-	public void endFaceIndex();
-	public void writeFaceIndex(int idx);
+	public void writeFaceIndex(int iv, int it, int in);
 	//=============================================================================================
 
 	//=============================================================================================
 	public void startLine();
 	public void endLine();
 	public void writeLineIndex(int idx);
+	//=============================================================================================
+
+	//=============================================================================================
+	public void materialLib(String path);
+	public void materialUse(String name);
 	//=============================================================================================
 	
 }

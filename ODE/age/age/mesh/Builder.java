@@ -4,7 +4,9 @@ package age.mesh;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import javax.vecmath.Color3f;
 import javax.vecmath.Vector2f;
@@ -28,6 +30,12 @@ public class Builder {
 	//=============================================================================================
 	private final List<ElementType> types = new ArrayList<>();
 	private final List<int[]> indices = new ArrayList<>();
+	//=============================================================================================
+
+	//=============================================================================================
+	private final Map<String, Material> materials = new HashMap<>();
+	private final List<Integer> materialIndices = new ArrayList<>();
+	private final List<String> materialNames = new ArrayList<>();
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -111,6 +119,36 @@ public class Builder {
 		return this;
 	}
 	//=============================================================================================
+
+	//=============================================================================================
+	public Builder material(String name, Material material) {
+		materials.put(name, material);
+		return this;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public Builder material(Map<String, Material> materialmap) {
+		materials.putAll(materialmap);
+		return this;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public Builder materialUse(int idx, String name) {
+		materialIndices.add(idx);
+		materialNames.add(name);
+		return this;
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	public Builder materialUse(List<Integer> indices, List<String> names) {
+		materialIndices.addAll(indices);
+		materialNames.addAll(names);
+		return this;
+	}
+	//=============================================================================================
 	
 	//=============================================================================================
 	public Mesh build() {
@@ -122,6 +160,10 @@ public class Builder {
 		mesh.textures = new float[size * 2];
 		mesh.normals = new float[size * 3];
 		mesh.vertices = new float[size * 3];
+		mesh.materials.putAll(materials);
+		for (int i=0; i<materialIndices.size(); i++) {
+			mesh.materialMap.put(materialIndices.get(i), materialNames.get(i));
+		}
 		for (int i=0; i<size; i++) {
 			if (layers.contains(MeshLayer.TEXTURES)) copyTextures(textures, mesh.textures, i);
 			if (layers.contains(MeshLayer.COLORS)) copyColors(colors, mesh.colors, i);
@@ -169,7 +211,7 @@ public class Builder {
 		normals.clear();
 		vertices.clear();
 		types.clear();
-		indices.clear();
+		indices.clear();		
 	}
 	//=============================================================================================
 	

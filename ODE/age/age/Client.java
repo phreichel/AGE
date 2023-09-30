@@ -96,13 +96,8 @@ public class Client {
 		camNode.component(NItem.TRANSFORM, cm);
 		scene.freeCamController().add(camNode);
 		scene.camera(camNode);
-		//scene.root().attach(camNode);
+		scene.root().attach(camNode);
 
-		Mesh xmesh = Mesh.factory().model("assets/example.obj");
-		Node xNode = new Node(NFlag.MESH);
-		xNode.component(NItem.MESH, xmesh);
-		scene.root().attach(xNode);
-		
 		Mesh mesh = Mesh.factory().siglet(30, 6);
 		Node meshNode = new Node(NFlag.MESH);
 		meshNode.component(NItem.MESH, mesh);
@@ -110,6 +105,11 @@ public class Client {
 		meshNode.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY(5f));
 		scene.root().attach(meshNode);
 		scene.animator().add(NFlag.TRANSFORM, meshNode);
+
+		Mesh bmesh = Mesh.factory().model("assets/stone/Stone.obj");
+		Node bNode = new Node(NFlag.MESH);
+		bNode.component(NItem.MESH, bmesh);
+		meshNode.attach(bNode);
 		
 		Skeleton skeleton = age.rig.Factory.create();
 		for (int i=0; i<10; i++) {
@@ -133,9 +133,6 @@ public class Client {
 				m);
 			skelNode1.attach(skelNode2);
 			meshNode.attach(skelNode1);
-			if (i==0) {
-				skelNode2.attach(camNode);
-			}
 		}
 		
 	}
