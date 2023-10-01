@@ -2,89 +2,62 @@
 package age.mesh;
 //*************************************************************************************************
 
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.nio.FloatBuffer;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import javax.vecmath.Vector2f;
+import javax.vecmath.Vector3f;
 
 //*************************************************************************************************
 public class Mesh {
 
 	//=============================================================================================
-	private static final Builder builder = new Builder();
 	private static final Factory factory = new Factory();
 	//=============================================================================================
-	
-	//=============================================================================================
-	public static Builder builder(MeshLayer ... layers) {
-		return builder.begin(layers);
-	}
-	//=============================================================================================
 
 	//=============================================================================================
-	public static Factory factory() {
-		return factory; 
+	public static final Factory factory() {
+		return factory;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	final Set<MeshLayer> layers = EnumSet.noneOf(MeshLayer.class);
-	//=============================================================================================
-
-	//=============================================================================================
-	ElementType types[];
-	int[][] indices;
-	float[] colors;
-	float[] normals;
-	float[] textures;
-	float[] vertices;
-	//=============================================================================================
-
-	//=============================================================================================
-	final Map<String, Material>  materials = new HashMap<>();
-	final Map<Integer, String> materialMap = new HashMap<>();
-	//=============================================================================================
-
-	//=============================================================================================
-	private Element element = new Element(this);
+	public final UUID uuid = UUID.randomUUID();
 	//=============================================================================================
 	
 	//=============================================================================================
-	public int size() {
-		return types.length;
+	public final FloatBuffer   positions;
+	public final FloatBuffer   textures;
+	public final FloatBuffer   normals;
+	public final List<Submesh> submeshes = new ArrayList<>();
+	//=============================================================================================
+
+	//=============================================================================================
+	public Mesh(int count) {
+		positions = FloatBuffer.allocate(count * 3);
+		textures  = FloatBuffer.allocate(count * 2);
+		normals   = FloatBuffer.allocate(count * 3);
+		positions.rewind();
+		textures.rewind();
+		normals.rewind();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public Material getMaterial(int idx) {
-		String name = materialMap.get(idx);
-		if (name == null) return null;
-		Material material = materials.get(name);
-		return material;
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public Element get(int idx) {
-		return element.set(idx);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public boolean hasColors() {
-		return layers.contains(MeshLayer.COLORS);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public boolean hasNormals() {
-		return layers.contains(MeshLayer.NORMALS);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public boolean hasTextures() {
-		return layers.contains(MeshLayer.TEXTURES);
+	public void vertex(
+		Vector3f pos,
+		Vector2f tex,
+		Vector3f nrm
+	) {
+		positions.put(pos.x);
+		positions.put(pos.y);
+		positions.put(pos.z);
+		textures.put(tex.x);
+		textures.put(tex.y);
+		normals.put(nrm.x);
+		normals.put(nrm.y);
+		normals.put(nrm.z);
 	}
 	//=============================================================================================
 	

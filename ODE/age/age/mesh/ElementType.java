@@ -6,15 +6,8 @@ package age.mesh;
 public enum ElementType {
 
 	//=============================================================================================
-	POINTS,
-	LINES,
-	LINE_STRIP,
-	LINE_LOOP,
 	TRIANGLES,
-	TRIANGLE_STRIP,
-	TRIANGLE_FAN,
-	QUADS,
-	QUAD_STRIP
+	LINES;
 	//=============================================================================================
 
 }

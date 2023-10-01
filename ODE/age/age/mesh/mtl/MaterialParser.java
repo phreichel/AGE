@@ -2,6 +2,7 @@
 package age.mesh.mtl;
 //*************************************************************************************************
 
+import java.io.File;
 import java.io.Reader;
 import age.util.Scanner;
 import age.util.Symbol;
@@ -21,13 +22,18 @@ public class MaterialParser {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void assign(MaterialBuilder materialBuilder) {
+	public MaterialParser(MaterialBuilder materialBuilder) {
 		this.materialBuilder = materialBuilder;
 	}
 	//=============================================================================================
+
+	//=============================================================================================
+	private File base = null;
+	//=============================================================================================
 	
 	//=============================================================================================
-	public void init(Reader reader) {
+	public void init(File base, Reader reader) {
+		this.base = base;
 		scanner.init(reader);		
 	}
 	//=============================================================================================
@@ -334,6 +340,8 @@ public class MaterialParser {
 				name += scanner.token();
 				scanner.scan();
 			}
+			
+			materialBuilder.writeSpecularMap(name);
 
 			parseEmptyLine();
 			
@@ -364,6 +372,8 @@ public class MaterialParser {
 				scanner.scan();
 			}
 
+			materialBuilder.writeDiffuseMap(name);
+			
 			parseEmptyLine();
 			
 			return true;
@@ -393,6 +403,8 @@ public class MaterialParser {
 				scanner.scan();
 			}
 
+			materialBuilder.writeBumpMap(name);
+			
 			parseEmptyLine();
 			
 			return true;

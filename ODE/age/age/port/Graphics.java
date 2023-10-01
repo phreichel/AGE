@@ -7,7 +7,6 @@ import javax.vecmath.Matrix4f;
 import javax.vecmath.Vector2f;
 import age.gui.Multiline;
 import age.gui.Scrollable;
-import age.mesh.Element;
 import age.mesh.Material;
 import age.mesh.Mesh;
 import age.rig.Rig;
@@ -58,7 +57,6 @@ public interface Graphics {
 	//=============================================================================================
 	public void drawBox(float sx, float sy, float sz);
 	public void drawMesh(Mesh mesh);
-	public void drawElement(Element element);
 	public void drawRig(Rig rig);
 	//=============================================================================================
 	

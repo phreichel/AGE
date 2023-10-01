@@ -3,7 +3,13 @@ package age.mesh.obj;
 //*************************************************************************************************
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.Reader;
+import java.util.HashMap;
+import java.util.Map;
+import age.mesh.Material;
+import age.mesh.mtl.MaterialMapBuilder;
+import age.mesh.mtl.MaterialParser;
 import age.util.Scanner;
 import age.util.Symbol;
 import age.util.X;
@@ -14,21 +20,24 @@ import static age.util.Symbol.*;
 public class ObjectParser {
 
 	//=============================================================================================
-	private final Scanner scanner = new ObjectScanner();
-	//=============================================================================================
-
-	//=============================================================================================
-	private ObjectBuilder objectBuilder = new MockBuilder();
-	//=============================================================================================
-
-	//=============================================================================================
-	private File base = null;
+	private final MaterialMapBuilder materialBuilder = new MaterialMapBuilder();
+	private final MaterialParser  materialParser  = new MaterialParser(materialBuilder);
+	private final Map<String, Material> materialLibrary = new HashMap<>();
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void assign(ObjectBuilder objectBuilder) {
+	private final Scanner scanner = new ObjectScanner();
+	private final ObjectBuilder objectBuilder;
+	//=============================================================================================
+
+	//=============================================================================================
+	public ObjectParser(ObjectBuilder objectBuilder) {
 		this.objectBuilder = objectBuilder;
 	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private File base = null;
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -560,9 +569,9 @@ public class ObjectParser {
 			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
 			scanner.scan();
 
-			String relpath = "";
+			String path = "";
 			if (!tokenMatch(NAME)) parseError("Name expected");
-			relpath += scanner.token();
+			path += scanner.token();
 			scanner.scan();
 			while (
 				!tokenMatch(WHITESPACE) &&
@@ -570,13 +579,22 @@ public class ObjectParser {
 				!tokenMatch(LINEBREAK) &&
 				!tokenMatch(ENDOFSTREAM)
 			) {
-				relpath += scanner.token();
+				path += scanner.token();
 				scanner.scan();
 			}
 			
-			File file = new File(base, relpath);
-			String path = file.getAbsolutePath();
-			objectBuilder.materialLib(path);
+			try {
+				File mtlFile = new File(base, path);
+				Reader reader = new FileReader(mtlFile);
+				materialParser.init(mtlFile.getParentFile(), reader);
+				materialParser.parse();
+				materialBuilder.build(materialLibrary);
+				reader.close();
+				objectBuilder.materialLib(path, materialLibrary);
+				materialLibrary.clear();
+			} catch (Exception e) {
+				throw new X(e);
+			}
 			
 			parseEmptyLine();
 			

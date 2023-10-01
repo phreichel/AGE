@@ -98,17 +98,17 @@ public class Client {
 		scene.camera(camNode);
 		scene.root().attach(camNode);
 
-		Mesh mesh = Mesh.factory().siglet(30, 6);
-		Node meshNode = new Node(NFlag.MESH);
-		meshNode.component(NItem.MESH, mesh);
+		Mesh mesh = Mesh.factory().siglet2(30, 6);
+		Node meshNode = new Node(NFlag.MESH2);
+		meshNode.component(NItem.MESH2, mesh);
 		meshNode.component(NItem.TRANSFORM, MathUtil.identityMatrix());
 		meshNode.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY(5f));
 		scene.root().attach(meshNode);
 		scene.animator().add(NFlag.TRANSFORM, meshNode);
 
-		Mesh bmesh = Mesh.factory().model("assets/stone/Stone.obj");
-		Node bNode = new Node(NFlag.MESH);
-		bNode.component(NItem.MESH, bmesh);
+		Mesh bmesh = Mesh.factory().model2("assets/stone/Stone.obj");
+		Node bNode = new Node(NFlag.MESH2);
+		bNode.component(NItem.MESH2, bmesh);
 		meshNode.attach(bNode);
 		
 		Skeleton skeleton = age.rig.Factory.create();

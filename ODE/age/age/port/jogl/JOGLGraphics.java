@@ -8,8 +8,11 @@ import java.awt.Font;
 import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
 import javax.vecmath.Color4f;
 import javax.vecmath.Matrix4f;
 import javax.vecmath.Quat4f;
@@ -22,10 +25,9 @@ import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureCoords;
 import com.jogamp.opengl.util.texture.TextureIO;
 import age.mesh.Mesh;
+import age.mesh.Submesh;
 import age.gui.Multiline;
 import age.gui.Scrollable;
-import age.mesh.Element;
-import age.mesh.ElementType;
 import age.mesh.Material;
 import age.port.Graphics;
 import age.rig.Bone;
@@ -95,6 +97,12 @@ class JOGLGraphics implements Graphics {
 
 			texture = TextureIO.newTexture(new File("./assets/textures/gui/desk.png"), true);
 			textures.put("desk", texture);
+
+			texture = TextureIO.newTexture(new File("./assets/stone/diffuso.tif"), true);
+			textures.put("diffuso.tif", texture);
+
+			texture = TextureIO.newTexture(new File("./assets/stone/normal.png"), true);
+			textures.put("normal.png", texture);
 			
 		} catch (Exception e) {
 			throw new X(e);
@@ -135,11 +143,16 @@ class JOGLGraphics implements Graphics {
 		glu.gluPerspective(fovy, aspect, near, far);
 		gl.glMatrixMode(GL_MODELVIEW);
 		gl.glLoadIdentity();
-		gl.glEnable(GL_LIGHTING);
-		gl.glEnable(GL_LIGHT0);
 		gl.glEnable(GL_CULL_FACE);
 		gl.glEnable(GL_DEPTH_TEST);
 		gl.glClear(GL_DEPTH_BUFFER_BIT);
+		
+	    // Apply lighting
+		gl.glEnable(GL_LIGHTING);
+		gl.glEnable(GL_LIGHT0);
+	    float[] lightPos = {0.0f, 0.0f, 1.0f, 0.0f};
+	    gl.glLightfv(GL_LIGHT0, GL_POSITION, lightPos, 0);
+	    
 	}
 	//=============================================================================================	
 	
@@ -178,7 +191,6 @@ class JOGLGraphics implements Graphics {
 	public void applyTransformation(Matrix4f matrix) {
 		buffer = MathUtil.toGLMatrix(matrix, buffer);
 		gl.glMultMatrixf(buffer, 0);
-		//gl.glMatrixMultfEXT(GL_MODELVIEW, buffer, 0);
 	}
 	//=============================================================================================
 	
@@ -357,220 +369,109 @@ class JOGLGraphics implements Graphics {
 		gl.glEnd();
 	}
 	//=============================================================================================
+
+	//=============================================================================================
+	private Set<UUID> meshes = new HashSet<>();
+	private Map<UUID, Integer> positionVBOs = new HashMap<>();
+	private Map<UUID, Integer> textureVBOs = new HashMap<>();
+	private Map<UUID, Integer> normalVBOs = new HashMap<>();
+	private Map<UUID, Integer> indexVBOs = new HashMap<>();
+	private Map<UUID, Integer> indexVBOTypes = new HashMap<>();
+	private Map<UUID, Integer> indexVBOLengths = new HashMap<>();
+	//=============================================================================================
 	
 	//=============================================================================================
 	public void drawMesh(Mesh mesh) {
-		gl.glPushAttrib(GL2.GL_ENABLE_BIT);
-		gl.glDisable(GL_COLOR_MATERIAL);
-		gl.glColor3f(1f, 1f, 1f);
-		for (var i = 0; i < mesh.size(); i++) {
-			var element = mesh.get(i);
-			var material = mesh.getMaterial(i);
-			if (material != null) {
-				applyMaterial(material);
-			}
-			drawElement(element);
+		
+		initMesh(mesh);
+		
+		gl.glEnableClientState(GL_VERTEX_ARRAY);
+		gl.glEnableClientState(GL_NORMAL_ARRAY);
+		gl.glEnableClientState(GL_TEXTURE_COORD_ARRAY);		
+		
+		for (int i=0; i<mesh.submeshes.size(); i++) {
+			
+			Submesh submesh = mesh.submeshes.get(i);
+
+			Material material = submesh.material;
+			this.applyMaterial(material);
+
+			// Set up vertex arrays
+			gl.glBindBuffer(GL_ARRAY_BUFFER, positionVBOs.get(mesh.uuid));
+			gl.glVertexPointer(3, GL_FLOAT, 0, 0);
+
+			gl.glBindBuffer(GL_ARRAY_BUFFER, textureVBOs.get(mesh.uuid));
+			gl.glTexCoordPointer(2, GL_FLOAT, 0, 0);
+
+			gl.glBindBuffer(GL_ARRAY_BUFFER, normalVBOs.get(mesh.uuid));
+			gl.glNormalPointer(GL_FLOAT, 0, 0);
+			
+			// Render using indexed drawing
+			gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexVBOs.get(submesh.uuid));
+			gl.glDrawElements(indexVBOTypes.get(submesh.uuid), indexVBOLengths.get(submesh.uuid), GL_UNSIGNED_INT, 0);
+			
 		}
-		gl.glPopAttrib();
+		
+		// Unbind buffers
+        gl.glBindBuffer(GL_ARRAY_BUFFER, 0);
+        gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+        
+		gl.glDisableClientState(GL_VERTEX_ARRAY);
+		gl.glDisableClientState(GL_NORMAL_ARRAY);
+		gl.glDisableClientState(GL_TEXTURE_COORD_ARRAY);		
+        
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void drawElement(Element element) {
-		var mask = 0;
-		mask |= element.hasNormals() ? 1 : 0;
-		mask |= element.hasColors() ? 2 : 0;
-		mask |= element.hasTextures() ? 4 : 0;
-		switch (mask) {
-			case 0 -> drawElementV(element);
-			case 1 -> drawElementNV(element);
-			case 2 -> drawElementCV(element);
-			case 3 -> drawElementCNV(element);
-			case 4 -> drawElementTV(element);
-			case 5 -> drawElementTNV(element);
-			case 6 -> drawElementTCV(element);
-			case 7 -> drawElementTCNV(element);
-			default -> throw new X("unsupported vertex type");
-		}
-	}
-	//=============================================================================================
+	private void initMesh(Mesh mesh) {
+		
+		if (meshes.contains(mesh.uuid)) return;  
+		meshes.add(mesh.uuid);
+		
+		int vboIds[] = new int[3 + mesh.submeshes.size()];
+		gl.glGenBuffers(3 + mesh.submeshes.size(), vboIds, 0);
+		
+		// Vertex positions
+		positionVBOs.put(mesh.uuid, vboIds[0]);
+		mesh.positions.rewind();
+		gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[0]);
+		gl.glBufferData(GL_ARRAY_BUFFER, mesh.positions.limit() * Float.BYTES, mesh.positions, GL_STATIC_DRAW);
 
-	//=============================================================================================
-	private void drawElementV(Element element) {
-		int[] indices = element.indices();
-		float[] vertices = element.vertices();
-		gl.glPushAttrib(GL2.GL_ENABLE_BIT);
-		gl.glDisable(GL2.GL_LIGHTING);
-		var mode = glMode(element.type());
-		gl.glBegin(mode);
-		for (var i=0; i<indices.length; i++) {
-			var idx = indices[i];
-			var idx3 = idx * 3;
-			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
-		}
-		gl.glEnd();
-		gl.glPopAttrib();
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private void drawElementNV(Element element) {
-		int[] indices = element.indices();
-		float[] normals = element.normals();
-		float[] vertices = element.vertices();
-		var mode = glMode(element.type());
-		gl.glBegin(mode);
-		for (var i=0; i<indices.length; i++) {
-			var idx = indices[i];
-			var idx3 = idx * 3;
-			gl.glNormal3f(normals[idx3+0], normals[idx3+1], normals[idx3+2]);
-			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
-		}
-		gl.glEnd();
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private void drawElementCV(Element element) {
-		int[] indices = element.indices();
-		float[] colors = element.colors();
-		float[] vertices = element.vertices();
-		gl.glPushAttrib(GL2.GL_ENABLE_BIT);
-		gl.glDisable(GL2.GL_LIGHTING);
-		var mode = glMode(element.type());
-		gl.glBegin(mode);
-		for (var i=0; i<indices.length; i++) {
-			var idx = indices[i];
-			var idx3 = idx * 3;
-			gl.glColor3f(colors[idx3+0], colors[idx3+1], colors[idx3+2]);
-			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
-		}
-		gl.glEnd();
-		gl.glPopAttrib();
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private void drawElementCNV(Element element) {
-		int[] indices = element.indices();
-		float[] colors = element.colors();
-		float[] normals = element.normals();
-		float[] vertices = element.vertices();
-		var mode = glMode(element.type());
-		gl.glBegin(mode);
-		for (var i=0; i<indices.length; i++) {
-			var idx = indices[i];
-			var idx3 = idx * 3;
-			gl.glColor3f(colors[idx3+0], colors[idx3+1], colors[idx3+2]);
-			gl.glNormal3f(normals[idx3+0], normals[idx3+1], normals[idx3+2]);
-			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
-		}
-		gl.glEnd();
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private void drawElementTV(Element element) {
-		int[] indices = element.indices();
-		float[] textures = element.textures();
-		float[] vertices = element.vertices();
-		gl.glPushAttrib(GL2.GL_ENABLE_BIT);
-		gl.glDisable(GL2.GL_LIGHTING);
-		var mode = glMode(element.type());
-		gl.glBegin(mode);
-		for (var i=0; i<indices.length; i++) {
-			var idx = indices[i];
-			var idx2 = idx * 2;
-			var idx3 = idx * 3;
-			gl.glTexCoord2f(textures[idx2+0], textures[idx2+1]);
-			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
-		}
-		gl.glEnd();
-		gl.glPopAttrib();
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private void drawElementTNV(Element element) {
-		int[] indices = element.indices();
-		float[] normals = element.normals();
-		float[] textures = element.textures();
-		float[] vertices = element.vertices();
-		var mode = glMode(element.type());
-		gl.glBegin(mode);
-		for (var i=0; i<indices.length; i++) {
-			var idx = indices[i];
-			var idx2 = idx * 2;
-			var idx3 = idx * 3;
-			gl.glNormal3f(normals[idx3+0], normals[idx3+1], normals[idx3+2]);
-			gl.glTexCoord2f(textures[idx2+0], textures[idx2+1]);
-			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
-		}
-		gl.glEnd();
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private void drawElementTCV(Element element) {
-		int[] indices = element.indices();
-		float[] colors = element.colors();
-		float[] textures = element.textures();
-		float[] vertices = element.vertices();
-		gl.glPushAttrib(GL2.GL_ENABLE_BIT);
-		gl.glDisable(GL2.GL_LIGHTING);
-		var mode = glMode(element.type());
-		gl.glBegin(mode);
-		for (var i=0; i<indices.length; i++) {
-			var idx = indices[i];
-			var idx2 = idx * 2;
-			var idx3 = idx * 3;
-			gl.glColor3f(colors[idx3+0], colors[idx3+1], colors[idx3+2]);
-			gl.glTexCoord2f(textures[idx2+0], textures[idx2+1]);
-			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
-		}
-		gl.glEnd();
-		gl.glPopAttrib();
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private void drawElementTCNV(Element element) {
-		int[] indices = element.indices();
-		float[] colors = element.colors();
-		float[] normals = element.normals();
-		float[] textures = element.textures();
-		float[] vertices = element.vertices();
-		var mode = glMode(element.type());
-		gl.glBegin(mode);
-		for (var i=0; i<indices.length; i++) {
-			var idx = indices[i];
-			var idx2 = idx * 2;
-			var idx3 = idx * 3;
-			gl.glColor3f(colors[idx3+0], colors[idx3+1], colors[idx3+2]);
-			gl.glNormal3f(normals[idx3+0], normals[idx3+1], normals[idx3+2]);
-			gl.glTexCoord2f(textures[idx2+0], textures[idx2+1]);
-			gl.glVertex3f(vertices[idx3+0], vertices[idx3+1], vertices[idx3+2]);
-		}
-		gl.glEnd();
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private int glMode(ElementType type) {
-		return switch(type) {
-			case POINTS -> GL2.GL_POINTS;
-			case LINES -> GL2.GL_LINES;
-			case LINE_STRIP -> GL2.GL_LINE_STRIP;
-			case LINE_LOOP -> GL2.GL_LINE_LOOP;
-			case TRIANGLES -> GL2.GL_TRIANGLES;
-			case TRIANGLE_STRIP -> GL2.GL_TRIANGLE_STRIP;
-			case TRIANGLE_FAN -> GL2.GL_TRIANGLE_FAN;
-			case QUADS -> GL2.GL_QUADS;
-			case QUAD_STRIP -> GL2.GL_QUAD_STRIP;
-		};
-	}
-	//=============================================================================================
+		// Texture coordinates
+		textureVBOs.put(mesh.uuid, vboIds[1]);
+		mesh.textures.rewind();
+		gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[1]);
+		gl.glBufferData(GL_ARRAY_BUFFER, mesh.textures.limit() * Float.BYTES, mesh.textures, GL_STATIC_DRAW);
 
+		// Normals
+		normalVBOs.put(mesh.uuid, vboIds[2]);
+		mesh.normals.rewind();
+		gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[2]);
+		gl.glBufferData(GL_ARRAY_BUFFER, mesh.normals.limit() * Float.BYTES, mesh.normals, GL_STATIC_DRAW);
+		
+		for (int i=0; i<mesh.submeshes.size(); i++) {
+			Submesh submesh = mesh.submeshes.get(i);
+			indexVBOs.put(submesh.uuid, vboIds[3+i]);
+			indexVBOLengths.put(submesh.uuid, submesh.indices.limit());
+			int type = switch (submesh.type) {
+				case TRIANGLES -> GL_TRIANGLES;
+				case LINES -> GL_LINES;
+				default -> throw new X("Unsupported Type: %s", submesh.type);
+			};
+			indexVBOTypes.put(submesh.uuid, type);
+			submesh.indices.rewind();
+			gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboIds[3+i]);
+			gl.glBufferData(GL_ELEMENT_ARRAY_BUFFER, submesh.indices.limit() * Integer.BYTES, submesh.indices, GL_STATIC_DRAW);
+		}
+
+		// Unbind buffers
+        gl.glBindBuffer(GL_ARRAY_BUFFER, 0);
+        gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+		
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	public void drawRig(Rig rig) {
 		gl.glPushAttrib(GL2.GL_ENABLE_BIT);
@@ -619,6 +520,7 @@ class JOGLGraphics implements Graphics {
 
 	//=============================================================================================
 	public void applyMaterial(Material m) {
+
 		float[] buffer = new float[] {0f, 0f, 0f, 1f};
 		buffer[0] = m.ambience.x;
 		buffer[1] = m.ambience.y;
@@ -637,7 +539,38 @@ class JOGLGraphics implements Graphics {
 		buffer[2] = m.emission.z;
 		gl.glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, buffer, 0);
 		gl.glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, m.shininess);
+		
 		gl.glColor3f(m.diffuse.x, m.diffuse.y, m.diffuse.z);
+		
+		if (m.diffuse_map != null) {
+			Texture tex = textures.get(m.diffuse_map);
+			tex.enable(gl);
+			tex.bind(gl);
+		}
+
+		/*
+		if (m.bump_map != null) {
+
+			Texture tex = textures.get(m.bump_map);
+			tex.enable(gl);
+			tex.bind(gl);
+			
+	        // Enable automatic generation of texture coordinates
+	        gl.glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP);
+	        gl.glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP);
+	        gl.glEnable(GL_TEXTURE_GEN_S);
+	        gl.glEnable(GL_TEXTURE_GEN_T);		    
+
+			// Combine the two textures during lighting calculations
+		    gl.glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_COMBINE);
+		    gl.glTexEnvi(GL_TEXTURE_ENV, GL_COMBINE_RGB, GL_DOT3_RGB);
+		    gl.glTexEnvi(GL_TEXTURE_ENV, GL_SOURCE0_RGB, GL_TEXTURE);
+		    gl.glTexEnvi(GL_TEXTURE_ENV, GL_SOURCE1_RGB, GL_PREVIOUS);
+		    gl.glTexEnvi(GL_TEXTURE_ENV, GL_OPERAND0_RGB, GL_SRC_COLOR);
+		    gl.glTexEnvi(GL_TEXTURE_ENV, GL_OPERAND1_RGB, GL_SRC_COLOR);
+		}
+		*/
+		
 	}
 	//=============================================================================================
 	

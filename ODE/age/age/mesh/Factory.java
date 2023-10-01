@@ -5,6 +5,7 @@ package age.mesh;
 import java.io.File;
 import java.io.FileReader;
 import java.io.Reader;
+import java.nio.IntBuffer;
 import java.util.Map;
 import age.mesh.mtl.MaterialMapBuilder;
 import age.mesh.mtl.MaterialParser;
@@ -21,23 +22,21 @@ public class Factory {
 	//=============================================================================================
 
 	//=============================================================================================
-	private final MeshBuilder  objectBuilder;
+	private final MeshBuilder objectBuilder;
 	private final ObjectParser objectParser;
 	//=============================================================================================
 	
 	//=============================================================================================
 	public Factory() {
 		materialBuilder = new MaterialMapBuilder();
-		materialParser = new MaterialParser();
-		materialParser.assign(materialBuilder);
-		objectBuilder = new MeshBuilder();
-		objectParser = new ObjectParser();
-		objectParser.assign(objectBuilder);
+		materialParser  = new MaterialParser(materialBuilder);
+		objectBuilder   = new MeshBuilder();
+		objectParser    = new ObjectParser(objectBuilder);
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Mesh model(String path) {
+	public Mesh model2(String path) {
 		try {
 			File file = new File(path);
 			File base = file.getAbsoluteFile().getParentFile();
@@ -51,13 +50,13 @@ public class Factory {
 		}
 	}
 	//=============================================================================================
-
+	
 	//=============================================================================================
 	public void material(String path, Map<String, Material> materials) {
 		try {
 			File file = new File(path);
 			Reader reader = new FileReader(file);
-			materialParser.init(reader);
+			materialParser.init(file.getParentFile(), reader);
 			materialParser.parse();
 			materialBuilder.build(materials);
 		} catch (Exception e) {
@@ -67,7 +66,7 @@ public class Factory {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Mesh siglet(int edges, int rows) {
+	public Mesh siglet2(int edges, int rows) {
 		
 		Material mat = new Material();
 		mat.refraction = 1f;
@@ -79,9 +78,15 @@ public class Factory {
 		mat.illumination = 2;
 		mat.dissolve = 1f;
 
-		Builder b = Mesh.builder();
-		b.material("default", mat);
-		b.materialUse(0, "default");
+		int vsize = edges * rows;
+		int isize = 2 * edges * rows + 2 * edges * (rows-1);
+		
+		Mesh mesh = new Mesh(vsize);
+		Submesh submesh = new Submesh();
+		submesh.type = ElementType.LINES;
+		submesh.material = mat;
+		submesh.indices = IntBuffer.allocate(isize);
+		mesh.submeshes.add(submesh);
 		
 		double d = (Math.PI * 2) / edges;
 		for (int i=0; i<edges; i++) {
@@ -91,27 +96,34 @@ public class Factory {
 			for (int j=0; j<rows; j++) {
 				float x = (float) s * (1+j);
 				float z = (float) c * (1+j);
-				b.vertex(x, 0f, z);
-				b.next();
+				mesh.positions.put(x);
+				mesh.positions.put(0f);
+				mesh.positions.put(z);
+				mesh.textures.put(0f);
+				mesh.textures.put(0f);
+				mesh.normals.put(0f);
+				mesh.normals.put(1f);
+				mesh.normals.put(0f);
 			}
 		}
+
 		for (int i=0; i<edges; i++) {
-			int idx[] = new int[rows];
 			for (int j=0; j<rows; j++) {
-				idx[j] = i * rows + j;
+				submesh.indices.put((i*rows+j) % vsize);
+				submesh.indices.put(((i+1)*rows+j) % vsize);
 			}
-			b.element(ElementType.LINE_STRIP, idx);
 		}
-		for (int j=0; j<rows; j++) {
-			int idx[] = new int[edges];
+		
+		for (int j=0; j<rows-1; j++) {
 			for (int i=0; i<edges; i++) {
-				idx[i] = i * rows + j;
+				submesh.indices.put((i*rows+j) % vsize);
+				submesh.indices.put((i*rows+j+1) % vsize);
 			}
-			b.element(ElementType.LINE_LOOP, idx);
 		}
-		return b.build();
+		
+		return mesh;
 	}
 	//=============================================================================================
-
+	
 }
 //*************************************************************************************************
