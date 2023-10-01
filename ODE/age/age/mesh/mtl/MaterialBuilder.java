@@ -25,6 +25,7 @@ public interface MaterialBuilder {
 
 	//=============================================================================================
 	public void writeSpecularMap(String name);
+	public void writeAmbientMap(String name);
 	public void writeDiffuseMap(String name);
 	public void writeBumpMap(String name);
 	//=============================================================================================

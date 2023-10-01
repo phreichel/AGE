@@ -14,12 +14,14 @@ public class MaterialScanner extends Scanner {
 			s.equals("Ni") ||
 			s.equals("d")  ||
 			s.equals("Tr") ||
+			s.equals("Tf") ||
 			s.equals("Ka") ||
 			s.equals("Kd") ||
 			s.equals("Ks") ||
 			s.equals("Ke") ||
 			s.equals("illum") ||
 			s.equals("map_Ns") ||
+			s.equals("map_Ka") ||
 			s.equals("map_Kd") ||
 			s.equals("map_Bump") ||
 			s.equals("newmtl");

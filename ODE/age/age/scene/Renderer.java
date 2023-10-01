@@ -75,7 +75,7 @@ public class Renderer implements Renderable {
 		for (var flag : node.nFlags()) {
 			switch (flag) {
 				case BOX -> renderBox(g, node);
-				case MESH2 -> renderMesh2(g, node);
+				case MESH -> renderMesh2(g, node);
 				case RIG -> renderSkeleton(g, node);
 				default -> {}
 			}
@@ -92,7 +92,7 @@ public class Renderer implements Renderable {
 
 	//=============================================================================================
 	private void renderMesh2(Graphics g, Node node) {
-		Mesh mesh = node.component(NItem.MESH2, Mesh.class);
+		Mesh mesh = node.component(NItem.MESH, Mesh.class);
 		g.drawMesh(mesh);
 	}
 	//=============================================================================================

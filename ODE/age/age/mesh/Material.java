@@ -25,8 +25,9 @@ public final class Material {
 	//=============================================================================================
 
 	//=============================================================================================
-	public String diffuse_map = null;
 	public String specular_map = null;
+	public String ambient_map = null;
+	public String diffuse_map = null;
 	public String bump_map = null;
 	//=============================================================================================
 	

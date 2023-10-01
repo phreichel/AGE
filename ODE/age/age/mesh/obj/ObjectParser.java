@@ -124,9 +124,7 @@ public class ObjectParser {
 			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
 			scanner.scan();
 
-			if (!tokenMatch(NAME)) parseError("Name expected");
-			String name = scanner.token();
-			scanner.scan();
+			String name = "";
 			while (
 				!tokenMatch(WHITESPACE) &&
 				!tokenMatch(COMMENT) &&
@@ -155,9 +153,13 @@ public class ObjectParser {
 			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
 			scanner.scan();
 
-			if (tokenMatch(NAME)) {
-				String name = scanner.token();
+			if (tokenMatch(KEYWORD, "off")) {
 				scanner.scan();
+				objectBuilder.endGroup();
+				parseEmptyLine();
+				return true;
+			} else {
+				String name = "";
 				while (
 					!tokenMatch(WHITESPACE) &&
 					!tokenMatch(COMMENT) &&
@@ -167,26 +169,11 @@ public class ObjectParser {
 					name += scanner.token();
 					scanner.scan();
 				}
-				
 				objectBuilder.endGroup();
 				objectBuilder.startGroup(name);
-				
 				parseEmptyLine();
-				
 				return false;
-				
-			} else if (tokenMatch(KEYWORD, "off")) {
-				scanner.scan();
-
-				objectBuilder.endGroup();
-				parseEmptyLine();
-				
-				return true;
-				
 			}
-
-			parseError("Name or 'off' expected");
-			return true;
 
 		}
 		return false;
@@ -201,9 +188,7 @@ public class ObjectParser {
 			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
 			scanner.scan();
 
-			if (!tokenMatch(NAME)) parseError("Name expected");
-			String name = scanner.token();
-			scanner.scan();
+			String name = "";
 			while (
 				!tokenMatch(WHITESPACE) &&
 				!tokenMatch(COMMENT) &&
@@ -232,9 +217,13 @@ public class ObjectParser {
 			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
 			scanner.scan();
 
-			if (tokenMatch(NAME)) {
-				String name = scanner.token();
+			if (tokenMatch(KEYWORD, "off")) {
 				scanner.scan();
+				objectBuilder.endGroup();
+				parseEmptyLine();
+				return true;
+			} else {
+				String name = "";
 				while (
 					!tokenMatch(WHITESPACE) &&
 					!tokenMatch(COMMENT) &&
@@ -244,27 +233,11 @@ public class ObjectParser {
 					name += scanner.token();
 					scanner.scan();
 				}
-				
 				objectBuilder.endObject();
 				objectBuilder.startObject(name);
-				
 				parseEmptyLine();
-				
 				return false;
-				
-			} else if (tokenMatch(KEYWORD, "off")) {
-				scanner.scan();
-
-				objectBuilder.endObject();
-				parseEmptyLine();
-				
-				return true;
-				
 			}
-
-			parseError("Name or 'off' expected");
-			return true;
-			
 		}
 		return false;
 	}
@@ -444,10 +417,10 @@ public class ObjectParser {
 			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
 			scanner.scan();
 
-			if (tokenMatch(KEYWORD, "off") || tokenMatch(NUMBER, "0") || tokenMatch(NUMBER, "1")) {
+			if (tokenMatch(KEYWORD, "off") || tokenMatch(NUMBER)) {
 				scanner.scan();
 			} else {
-				parseError("Smoothing Parameter expected (0, 1, off)");
+				parseError("Smoothing Parameter expected ('off' or number)");
 			}
 
 			parseEmptyLine();
@@ -570,9 +543,6 @@ public class ObjectParser {
 			scanner.scan();
 
 			String path = "";
-			if (!tokenMatch(NAME)) parseError("Name expected");
-			path += scanner.token();
-			scanner.scan();
 			while (
 				!tokenMatch(WHITESPACE) &&
 				!tokenMatch(COMMENT) &&
@@ -613,9 +583,6 @@ public class ObjectParser {
 			scanner.scan();
 
 			String mtlname = "";
-			if (!tokenMatch(NAME)) parseError("Name expected");
-			mtlname += scanner.token();
-			scanner.scan();
 			while (
 				!tokenMatch(WHITESPACE) &&
 				!tokenMatch(COMMENT) &&

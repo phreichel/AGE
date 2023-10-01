@@ -50,16 +50,20 @@ public class MaterialParser {
 
 	//=============================================================================================
 	private void parseLine() {
+		if (tokenMatch(WHITESPACE))
+			scanner.scan();
 		if (parseMaterial());
 		else if (parseNs());
 		else if (parseKa());
 		else if (parseKd());
 		else if (parseKs());
 		else if (parseKe());
+		else if (parseTf());
 		else if (parseNi());
 		else if (parseD());
 		else if (parseTr());
 		else if (parseMapNs());
+		else if (parseMapKa());
 		else if (parseMapKd());
 		else if (parseMapBump());
 		else if (parseIllum());
@@ -75,9 +79,7 @@ public class MaterialParser {
 			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
 			scanner.scan();
 
-			if (!tokenMatch(NAME)) parseError("Name expected");
-			String name = scanner.token();
-			scanner.scan();
+			String name = "";
 			while (
 				!tokenMatch(WHITESPACE) &&
 				!tokenMatch(COMMENT) &&
@@ -297,6 +299,40 @@ public class MaterialParser {
 		return false;
 	}
 	//=============================================================================================
+
+	//=============================================================================================
+	private boolean parseTf() {
+		if (tokenMatch(KEYWORD, "Tf")) {
+			scanner.scan();
+			
+			//float cr = 0f;
+			//float cg = 0f;
+			//float cb = 0f;
+			
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
+			//cr = parseDecimalNumber();
+			parseDecimalNumber();
+
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
+			//cg = parseDecimalNumber();
+			parseDecimalNumber();
+
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
+			//cb = parseDecimalNumber();
+			parseDecimalNumber();
+
+			//materialBuilder.writeKe(cr, cg, cb);
+			
+			parseEmptyLine();
+			
+			return true;
+		}
+		return false;
+	}
+	//=============================================================================================
 	
 	//=============================================================================================
 	private boolean parseIllum() {
@@ -328,9 +364,7 @@ public class MaterialParser {
 			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
 			scanner.scan();
 
-			if (!tokenMatch(NAME)) parseError("Name expected");
-			String name = scanner.token();
-			scanner.scan();
+			String name = "";
 			while (
 				!tokenMatch(WHITESPACE) &&
 				!tokenMatch(COMMENT) &&
@@ -352,6 +386,35 @@ public class MaterialParser {
 	//=============================================================================================
 
 	//=============================================================================================
+	private boolean parseMapKa() {
+		if (tokenMatch(KEYWORD, "map_Ka")) {
+			scanner.scan();
+
+			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
+			scanner.scan();
+
+			String name = "";
+			while (
+				!tokenMatch(WHITESPACE) &&
+				!tokenMatch(COMMENT) &&
+				!tokenMatch(LINEBREAK) &&
+				!tokenMatch(ENDOFSTREAM)
+			) {
+				name += scanner.token();
+				scanner.scan();
+			}
+
+			materialBuilder.writeAmbientMap(name);
+			
+			parseEmptyLine();
+			
+			return true;
+		}
+		return false;
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	private boolean parseMapKd() {
 		if (tokenMatch(KEYWORD, "map_Kd")) {
 			scanner.scan();
@@ -359,9 +422,7 @@ public class MaterialParser {
 			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
 			scanner.scan();
 
-			if (!tokenMatch(NAME)) parseError("Name expected");
-			String name = scanner.token();
-			scanner.scan();
+			String name = "";
 			while (
 				!tokenMatch(WHITESPACE) &&
 				!tokenMatch(COMMENT) &&
@@ -390,9 +451,7 @@ public class MaterialParser {
 			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
 			scanner.scan();
 
-			if (!tokenMatch(NAME)) parseError("Name expected");
-			String name = scanner.token();
-			scanner.scan();
+			String name = "";
 			while (
 				!tokenMatch(WHITESPACE) &&
 				!tokenMatch(COMMENT) &&

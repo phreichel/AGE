@@ -14,7 +14,7 @@ public enum NItem {
 	TRANSFORM(Matrix4f.class),
 	TRANSFORM_ANIMATION(Matrix4f.class),
 	CAMERA(Camera.class),
-	MESH2(Mesh.class),
+	MESH(Mesh.class),
 	RIG(Rig.class);
 	//=============================================================================================
 

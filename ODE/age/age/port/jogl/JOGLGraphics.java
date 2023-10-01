@@ -104,6 +104,9 @@ class JOGLGraphics implements Graphics {
 
 			texture = TextureIO.newTexture(new File("./assets/stone/normal.png"), true);
 			textures.put("normal.png", texture);
+
+			texture = TextureIO.newTexture(new File("./assets/palm_tree/10446_Palm_Tree_v1_Diffuse.jpg"), true);
+			textures.put("10446_Palm_Tree_v1_Diffuse.jpg", texture);
 			
 		} catch (Exception e) {
 			throw new X(e);

@@ -99,17 +99,38 @@ public class Client {
 		scene.root().attach(camNode);
 
 		Mesh mesh = Mesh.factory().siglet2(30, 6);
-		Node meshNode = new Node(NFlag.MESH2);
-		meshNode.component(NItem.MESH2, mesh);
-		meshNode.component(NItem.TRANSFORM, MathUtil.identityMatrix());
-		meshNode.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY(5f));
+		Node meshNode = new Node(NFlag.MESH);
+		meshNode.component(NItem.MESH, mesh);
+		//meshNode.component(NItem.TRANSFORM, MathUtil.identityMatrix());
+		//meshNode.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY(5f));
 		scene.root().attach(meshNode);
-		scene.animator().add(NFlag.TRANSFORM, meshNode);
+		//scene.animator().add(NFlag.TRANSFORM, meshNode);
 
 		Mesh bmesh = Mesh.factory().model2("assets/stone/Stone.obj");
-		Node bNode = new Node(NFlag.MESH2);
-		bNode.component(NItem.MESH2, bmesh);
+		Node bNode = new Node(NFlag.MESH);
+		bNode.component(NItem.MESH, bmesh);
 		meshNode.attach(bNode);
+
+		Mesh ptmesh = Mesh.factory().model2("assets/palm_tree/10446_Palm_Tree_v1_max2010_iteration-2.obj");
+		Matrix4f ptMx = new Matrix4f();
+		ptMx.setIdentity();
+		ptMx.rotX( (float) Math.toRadians(-90f));
+		ptMx.setScale(0.01f);
+		
+		for (int i=0; i<100; i++) {
+			float ds = (float) (Math.random() * 0.005f);
+			float da = (float) (Math.random() * Math.PI * 2);
+			float dd = 7f + (float) (Math.random() * 20f);
+			float dx = (float) (Math.sin(da) * dd);
+			float dz = (float) (Math.cos(da) * dd);
+			Matrix4f ptMxC = new Matrix4f(ptMx);
+			ptMxC.setTranslation(new Vector3f(dx, 0f, dz));
+			ptMxC.setScale(ptMxC.getScale() + ds);
+			Node ptNode = new Node(NFlag.MESH);
+			ptNode.component(NItem.MESH, ptmesh);
+			ptNode.component(NItem.TRANSFORM, ptMxC);
+			meshNode.attach(ptNode);
+		}
 		
 		Skeleton skeleton = age.rig.Factory.create();
 		for (int i=0; i<10; i++) {
