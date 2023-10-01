@@ -29,6 +29,7 @@ import age.mesh.Submesh;
 import age.gui.Multiline;
 import age.gui.Scrollable;
 import age.mesh.Material;
+import age.mesh.MaterialFlag;
 import age.port.Graphics;
 import age.rig.Bone;
 import age.rig.Rig;
@@ -383,7 +384,15 @@ class JOGLGraphics implements Graphics {
 	//=============================================================================================
 	public void drawMesh(Mesh mesh) {
 		
+		gl.glPushAttrib(GL_ENABLE_BIT);
+		gl.glPushAttrib(GL_LIGHTING_BIT);
+		gl.glPushAttrib(GL_TEXTURE_BIT);
+		gl.glPushAttrib(GL_CURRENT_BIT);
+		gl.glPushAttrib(GL_DEPTH_BUFFER_BIT);
+		
 		initMesh(mesh);
+		
+		gl.glShadeModel(GL_FLAT);
 		
 		gl.glEnableClientState(GL_VERTEX_ARRAY);
 		gl.glEnableClientState(GL_NORMAL_ARRAY);
@@ -418,7 +427,13 @@ class JOGLGraphics implements Graphics {
         
 		gl.glDisableClientState(GL_VERTEX_ARRAY);
 		gl.glDisableClientState(GL_NORMAL_ARRAY);
-		gl.glDisableClientState(GL_TEXTURE_COORD_ARRAY);		
+		gl.glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+		
+		gl.glPopAttrib();
+		gl.glPopAttrib();
+		gl.glPopAttrib();
+		gl.glPopAttrib();
+		gl.glPopAttrib();
         
 	}
 	//=============================================================================================
@@ -521,6 +536,11 @@ class JOGLGraphics implements Graphics {
 	//=============================================================================================
 	public void applyMaterial(Material m) {
 
+		if (m.flags.contains(MaterialFlag.LIGHTING))
+			gl.glEnable(GL_LIGHTING);
+		else
+			gl.glDisable(GL_LIGHTING);
+		
 		float[] buffer = new float[] {0f, 0f, 0f, 1f};
 		buffer[0] = m.ambience.x;
 		buffer[1] = m.ambience.y;
@@ -573,6 +593,6 @@ class JOGLGraphics implements Graphics {
 		
 	}
 	//=============================================================================================
-	
+
 }
 //*************************************************************************************************

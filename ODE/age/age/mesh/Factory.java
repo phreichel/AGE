@@ -69,6 +69,7 @@ public class Factory {
 	public Mesh siglet2(int edges, int rows) {
 		
 		Material mat = new Material();
+		mat.flags.clear();
 		mat.refraction = 1f;
 		mat.ambience.set(0f, 1f, 0f);
 		mat.diffuse.set(0f, 1f, 0f);
