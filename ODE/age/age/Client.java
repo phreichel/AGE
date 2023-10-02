@@ -129,8 +129,8 @@ public class Client {
 			meshNode.attach(ptNode);
 		}
 		
-		Skeleton skeleton = Skeleton.factory().createRunner();
-		// Skeleton skeleton = Skeleton.factory().create("assets/spider/spider.bvh");
+		//Skeleton skeleton = Skeleton.factory().createRunner();
+		Skeleton skeleton = Skeleton.factory().create("assets/yrig/yrig.bvh");
 		for (int i=0; i<10; i++) {
 			Node skelNode1 = new Node();
 			skelNode1.component(NItem.TRANSFORM, MathUtil.rotY(i * 36f));
@@ -141,11 +141,9 @@ public class Client {
 			rig.scale(.5f + (float) Math.random());
 			skelNode2.component(NItem.RIG, rig);
 			scene.animator().add(NFlag.RIG, skelNode2);
-			//Matrix4f mx = MathUtil.rotX(-90f);
-			Matrix4f my = MathUtil.rotY(90f);
-			Matrix4f m  = new Matrix4f();  
-			m.setIdentity();
-			m.mul(m, my);
+			Matrix4f m = new Matrix4f();
+			//m.setIdentity();
+			m.rotX( (float) Math.toRadians(-90) );
 			m.setTranslation(new Vector3f(0, 0, -5));
 			skelNode2.component(NItem.TRANSFORM, m);
 			skelNode1.attach(skelNode2);
