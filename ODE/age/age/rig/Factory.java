@@ -2,11 +2,45 @@
 package age.rig;
 //*************************************************************************************************
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.Reader;
+import age.rig.bvh.BVHParser;
+import age.rig.bvh.BVHRigBuilder;
+import age.util.X;
+
 //*************************************************************************************************
 public class Factory {
 
 	//=============================================================================================
-	public static Skeleton create() {
+	private BVHRigBuilder builder; 
+	private BVHParser parser;
+	//=============================================================================================
+
+	//=============================================================================================
+	public Factory() {
+		builder = new BVHRigBuilder();
+		parser = new BVHParser(builder);
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public Skeleton create(String path) {
+		try {
+			File file = new File(path);
+			Reader reader = new FileReader(file);
+			parser.init(reader);
+			parser.parse();
+			Skeleton skeleton = builder.build();
+			return skeleton;
+		} catch (Exception e) {
+			throw new X(e);
+		}
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public Skeleton createRunner() {
 		
 		Skeleton s = new Skeleton();
 		Keyframe k = null;

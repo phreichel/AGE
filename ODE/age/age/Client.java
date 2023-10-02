@@ -98,20 +98,17 @@ public class Client {
 		scene.camera(camNode);
 		scene.root().attach(camNode);
 
-		Mesh mesh = Mesh.factory().siglet2(30, 6);
+		Mesh mesh = Mesh.factory().siglet(30, 6);
 		Node meshNode = new Node(NFlag.MESH);
 		meshNode.component(NItem.MESH, mesh);
-		//meshNode.component(NItem.TRANSFORM, MathUtil.identityMatrix());
-		//meshNode.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY(5f));
 		scene.root().attach(meshNode);
-		//scene.animator().add(NFlag.TRANSFORM, meshNode);
 
-		Mesh bmesh = Mesh.factory().model2("assets/stone/Stone.obj");
+		Mesh bmesh = Mesh.factory().model("assets/stone/Stone.obj");
 		Node bNode = new Node(NFlag.MESH);
 		bNode.component(NItem.MESH, bmesh);
 		meshNode.attach(bNode);
 
-		Mesh ptmesh = Mesh.factory().model2("assets/palm_tree/10446_Palm_Tree_v1_max2010_iteration-2.obj");
+		Mesh ptmesh = Mesh.factory().model("assets/palm_tree/10446_Palm_Tree_v1_max2010_iteration-2.obj");
 		Matrix4f ptMx = new Matrix4f();
 		ptMx.setIdentity();
 		ptMx.rotX( (float) Math.toRadians(-90f));
@@ -132,26 +129,25 @@ public class Client {
 			meshNode.attach(ptNode);
 		}
 		
-		Skeleton skeleton = age.rig.Factory.create();
+		Skeleton skeleton = Skeleton.factory().createRunner();
+		// Skeleton skeleton = Skeleton.factory().create("assets/spider/spider.bvh");
 		for (int i=0; i<10; i++) {
 			Node skelNode1 = new Node();
-			skelNode1.component(
-				NItem.TRANSFORM,
-				MathUtil.rotY(i * 36f));
-			skelNode1.component(
-				NItem.TRANSFORM_ANIMATION,
-				MathUtil.rotY(-30f));
+			skelNode1.component(NItem.TRANSFORM, MathUtil.rotY(i * 36f));
+			skelNode1.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY(-30f));
 			scene.animator().add(NFlag.TRANSFORM, skelNode1);
 			Node skelNode2 = new Node(NFlag.RIG);
 			Rig rig = new Rig(skeleton);
-			rig.scale(1f + (float) Math.random());
+			rig.scale(.5f + (float) Math.random());
 			skelNode2.component(NItem.RIG, rig);
 			scene.animator().add(NFlag.RIG, skelNode2);
-			Matrix4f m = MathUtil.rotY(90f);
+			//Matrix4f mx = MathUtil.rotX(-90f);
+			Matrix4f my = MathUtil.rotY(90f);
+			Matrix4f m  = new Matrix4f();  
+			m.setIdentity();
+			m.mul(m, my);
 			m.setTranslation(new Vector3f(0, 0, -5));
-			skelNode2.component(
-				NItem.TRANSFORM,
-				m);
+			skelNode2.component(NItem.TRANSFORM, m);
 			skelNode1.attach(skelNode2);
 			meshNode.attach(skelNode1);
 		}

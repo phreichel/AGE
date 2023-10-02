@@ -36,7 +36,7 @@ public class Factory {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Mesh model2(String path) {
+	public Mesh model(String path) {
 		try {
 			File file = new File(path);
 			File base = file.getAbsoluteFile().getParentFile();
@@ -66,7 +66,7 @@ public class Factory {
 	//=============================================================================================
 	
 	//=============================================================================================
-	public Mesh siglet2(int edges, int rows) {
+	public Mesh siglet(int edges, int rows) {
 		
 		Material mat = new Material();
 		mat.flags.clear();

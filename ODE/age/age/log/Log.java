@@ -120,7 +120,7 @@ public class Log {
 	//=============================================================================================
 
 	//=============================================================================================
-	public static void info(String instance, String message, Object ... params) {
+	public static void infoInst(String instance, String message, Object ... params) {
 		Log log = get(instance);
 		if (log != null) {
 			log.write(Level.INFO, message, params);
@@ -129,7 +129,7 @@ public class Log {
 	//=============================================================================================
 
 	//=============================================================================================
-	public static void warn(String instance, String message, Object ... params) {
+	public static void warnInst(String instance, String message, Object ... params) {
 		Log log = get(instance);
 		if (log != null) {
 			log.write(Level.WARNING, message, params);
@@ -138,7 +138,7 @@ public class Log {
 	//=============================================================================================
 
 	//=============================================================================================
-	public static void error(String instance, String message, Object ... params) {
+	public static void errorInst(String instance, String message, Object ... params) {
 		Log log = get(instance);
 		if (log != null) {
 			log.write(Level.ERROR, message, params);
@@ -147,7 +147,7 @@ public class Log {
 	//=============================================================================================
 
 	//=============================================================================================
-	public static void debug(String instance, String message, Object ... params) {
+	public static void debugInst(String instance, String message, Object ... params) {
 		Log log = get(instance);
 		if (log != null) {
 			log.write(Level.DEBUG, message, params);

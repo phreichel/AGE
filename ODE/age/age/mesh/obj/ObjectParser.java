@@ -59,418 +59,324 @@ public class ObjectParser {
 
 	//=============================================================================================
 	private void parseLine() {
-		if (parseVertex());
-		else if (parseTexture());
-		else if (parseNormal());
-		else if (parseParameter());
-		else if (parseSmoothing());
-		else if (parseFace());
-		else if (parsePolyline());
-		else if (parseMtllib());
-		else if (parseUsemtl());
-		else if (parseVertexgroup());
-		else if (parseVertexobject());
-		else parseEmptyLine();
+		skipWhite();
+		if (tokenMatch(KEYWORD, "v")) parseVertex();
+		else if (tokenMatch(KEYWORD, "vt")) parseTexture();
+		else if (tokenMatch(KEYWORD, "vn")) parseNormal();
+		else if (tokenMatch(KEYWORD, "vp")) parseParameter();
+		else if (tokenMatch(KEYWORD, "s")) parseSmoothing();
+		else if (tokenMatch(KEYWORD, "f")) parseFace();
+		else if (tokenMatch(KEYWORD, "l")) parsePolyline();
+		else if (tokenMatch(KEYWORD, "mtllib")) parseMtllib();
+		else if (tokenMatch(KEYWORD, "usemtl")) parseUsemtl();
+		else if (tokenMatch(KEYWORD, "g")) parseVertexgroup();
+		else if (tokenMatch(KEYWORD, "o")) parseVertexobject();
+		parseLineEnd();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private boolean parseVertexgroup() {
-		if (parseGroup()) {
-			while (!scanner.symbol().equals(ENDOFSTREAM)) {
-				if (parseGroupEnd()) break;
-				else if (parseVertex());
-				else if (parseTexture());
-				else if (parseNormal());
-				else if (parseParameter());
-				else if (parseSmoothing());
-				else if (parseFace());
-				else if (parsePolyline());
-				else if (parseUsemtl());
-				else parseEmptyLine();
-			}
-			return true;
+	private void parseVertexgroup() {
+		parseGroup();
+		while (!scanner.symbol().equals(ENDOFSTREAM)) {
+			skipWhite();
+			if (tokenMatch(KEYWORD, "v")) parseVertex();
+			else if (tokenMatch(KEYWORD, "vt")) parseTexture();
+			else if (tokenMatch(KEYWORD, "vn")) parseNormal();
+			else if (tokenMatch(KEYWORD, "vp")) parseParameter();
+			else if (tokenMatch(KEYWORD, "s")) parseSmoothing();
+			else if (tokenMatch(KEYWORD, "f")) parseFace();
+			else if (tokenMatch(KEYWORD, "l")) parsePolyline();
+			else if (tokenMatch(KEYWORD, "usemtl")) parseUsemtl();
+			else if (tokenMatch(KEYWORD, "g") && parseGroupEnd()) break;
+			parseLineEnd();
 		}
-		return false;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private boolean parseVertexobject() {
-		if (parseObject()) {
-			while (!scanner.symbol().equals(ENDOFSTREAM)) {
-				if (parseObjectEnd()) break;
-				else if (parseVertex());
-				else if (parseTexture());
-				else if (parseNormal());
-				else if (parseParameter());
-				else if (parseSmoothing());
-				else if (parseFace());
-				else if (parsePolyline());
-				else if (parseUsemtl());
-				else parseEmptyLine();
-			}
-			return true;
+	private void parseVertexobject() {
+		parseObject();
+		while (!scanner.symbol().equals(ENDOFSTREAM)) {
+			skipWhite();
+			if (tokenMatch(KEYWORD, "v")) parseVertex();
+			else if (tokenMatch(KEYWORD, "vt")) parseTexture();
+			else if (tokenMatch(KEYWORD, "vn")) parseNormal();
+			else if (tokenMatch(KEYWORD, "vp")) parseParameter();
+			else if (tokenMatch(KEYWORD, "s")) parseSmoothing();
+			else if (tokenMatch(KEYWORD, "f")) parseFace();
+			else if (tokenMatch(KEYWORD, "l")) parsePolyline();
+			else if (tokenMatch(KEYWORD, "usemtl")) parseUsemtl();
+			else if (tokenMatch(KEYWORD, "o") && parseObjectEnd()) break;
+			parseLineEnd();
 		}
-		return false;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	private boolean parseGroup() {
-		if (tokenMatch(KEYWORD, "g")) {
-			scanner.scan();
+	private void parseGroup() {
+		
+		if (!tokenMatch(KEYWORD, "g")) parseError("'g' expected");
+		scanner.scan();
 
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
-
-			String name = "";
-			while (
-				!tokenMatch(WHITESPACE) &&
-				!tokenMatch(COMMENT) &&
-				!tokenMatch(LINEBREAK) &&
-				!tokenMatch(ENDOFSTREAM)
-			) {
-				name += scanner.token();
-				scanner.scan();
-			}
-
-			objectBuilder.startGroup(name);
-			
-			parseEmptyLine();
-			
-			return true;
-		}
-		return false;
+		skipWhite();
+		
+		String name = parseAnyName();
+		objectBuilder.startGroup(name);
+		
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	private boolean parseGroupEnd() {
-		if (tokenMatch(KEYWORD, "g")) {
-			scanner.scan();
 
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
+		if (!tokenMatch(KEYWORD, "g")) parseError("'g' expected");
+		scanner.scan();
 
-			if (tokenMatch(KEYWORD, "off")) {
-				scanner.scan();
-				objectBuilder.endGroup();
-				parseEmptyLine();
-				return true;
-			} else {
-				String name = "";
-				while (
-					!tokenMatch(WHITESPACE) &&
-					!tokenMatch(COMMENT) &&
-					!tokenMatch(LINEBREAK) &&
-					!tokenMatch(ENDOFSTREAM)
-				) {
-					name += scanner.token();
-					scanner.scan();
-				}
-				objectBuilder.endGroup();
-				objectBuilder.startGroup(name);
-				parseEmptyLine();
-				return false;
-			}
+		skipWhite();
 
+		objectBuilder.endGroup();
+		
+		String name = parseAnyName();
+		boolean leaveGroupParsing = true;
+		if (!name.equals("off")) {
+			objectBuilder.startGroup(name);
+			leaveGroupParsing = false;
 		}
-		return false;
+			
+		return leaveGroupParsing;
+		
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private boolean parseObject() {
-		if (tokenMatch(KEYWORD, "o")) {
-			scanner.scan();
+	private void parseObject() {
+		
+		if (!tokenMatch(KEYWORD, "o")) parseError("'o' expected");
+		scanner.scan();
 
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
-
-			String name = "";
-			while (
-				!tokenMatch(WHITESPACE) &&
-				!tokenMatch(COMMENT) &&
-				!tokenMatch(LINEBREAK) &&
-				!tokenMatch(ENDOFSTREAM)
-			) {
-				name += scanner.token();
-				scanner.scan();
-			}
-
-			objectBuilder.startObject(name);
-			
-			parseEmptyLine();
-			
-			return true;
-		}
-		return false;
+		skipWhite();
+		
+		String name = parseAnyName();
+		objectBuilder.startObject(name);
+		
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	private boolean parseObjectEnd() {
-		if (tokenMatch(KEYWORD, "o")) {
-			scanner.scan();
+		
+		if (!tokenMatch(KEYWORD, "o")) parseError("'o' expected");
+		scanner.scan();
 
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
+		skipWhite();
 
-			if (tokenMatch(KEYWORD, "off")) {
-				scanner.scan();
-				objectBuilder.endGroup();
-				parseEmptyLine();
-				return true;
-			} else {
-				String name = "";
-				while (
-					!tokenMatch(WHITESPACE) &&
-					!tokenMatch(COMMENT) &&
-					!tokenMatch(LINEBREAK) &&
-					!tokenMatch(ENDOFSTREAM)
-				) {
-					name += scanner.token();
-					scanner.scan();
-				}
-				objectBuilder.endObject();
-				objectBuilder.startObject(name);
-				parseEmptyLine();
-				return false;
-			}
+		objectBuilder.endObject();
+		
+		String name = parseAnyName();
+		boolean leaveObjectParsing = true;
+		if (!name.equals("off")) {
+			objectBuilder.startObject(name);
+			leaveObjectParsing = false;
 		}
-		return false;
+			
+		return leaveObjectParsing;
+
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	private boolean parseVertex() {
-		if (tokenMatch(KEYWORD, "v")) {
-			scanner.scan();
+	private void parseVertex() {
+		
+		if (!tokenMatch(KEYWORD, "v")) parseError("'v' expected");
+		scanner.scan();
 			
-			float vx = 0f;
-			float vy = 0f;
-			float vz = 0f;
-			float vw = 0f;
-			
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
-			vx = parseDecimalNumber();
+		float vx = 0f;
+		float vy = 0f;
+		float vz = 0f;
+		float vw = 0f;
+		
+		skipWhite();
 
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
-			vy = parseDecimalNumber();
+		vx = parseDecimalNumber();
 
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
-			vz = parseDecimalNumber();
+		skipWhite();
 
-			if (tokenMatch(WHITESPACE)) {
-				scanner.scan();
-				if (
-					!tokenMatch(COMMENT) &&
-					!tokenMatch(LINEBREAK) &&
-					!tokenMatch(ENDOFSTREAM)
-				) {
-					vw = parseDecimalNumber();
-				}
-			}
+		vy = parseDecimalNumber();
 
-			objectBuilder.writeVertex(vx, vy, vz, vw);
-			
-			parseEmptyLine();
-			
-			return true;
+		skipWhite();
+		
+		vz = parseDecimalNumber();
+
+		skipWhite();
+		
+		if (
+			!tokenMatch(COMMENT) &&
+			!tokenMatch(LINEBREAK) &&
+			!tokenMatch(ENDOFSTREAM)) {
+			vw = parseDecimalNumber();
 		}
-		return false;
+
+		objectBuilder.writeVertex(vx, vy, vz, vw);
+		
+		//parseLineEnd();
+		
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private boolean parseTexture() {
-		if (tokenMatch(KEYWORD, "vt")) {
-			scanner.scan();
+	private void parseTexture() {
 
-			float tu = 0f;
-			float tv = 0f;
-			float tw = 0f;
-			
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
+		if (!tokenMatch(KEYWORD, "vt")) parseError("'vt' expected");
+		scanner.scan();
 
-			tu = parseDecimalNumber();
+		float tu = 0f;
+		float tv = 0f;
+		float tw = 0f;
+		
+		skipWhite();
 
-			if (tokenMatch(WHITESPACE)) {
-				scanner.scan();
-				if (
-					!tokenMatch(COMMENT) &&
-					!tokenMatch(LINEBREAK) &&
-					!tokenMatch(ENDOFSTREAM)
-				) {
-					tv = parseDecimalNumber();
-				}
-			}
+		tu = parseDecimalNumber();
 
-			if (tokenMatch(WHITESPACE)) {
-				scanner.scan();
-				if (
-					!tokenMatch(COMMENT) &&
-					!tokenMatch(LINEBREAK) &&
-					!tokenMatch(ENDOFSTREAM)
-				) {
-					tw = parseDecimalNumber();
-				}
-			}
-
-			objectBuilder.writeTexture(tu, tv, tw);
-			
-			parseEmptyLine();
-			
-			return true;
+		skipWhite();
+		
+		if (
+			!tokenMatch(COMMENT) &&
+			!tokenMatch(LINEBREAK) &&
+			!tokenMatch(ENDOFSTREAM)) {
+			tv = parseDecimalNumber();
 		}
-		return false;
+
+		skipWhite();
+
+		if (
+			!tokenMatch(COMMENT) &&
+			!tokenMatch(LINEBREAK) &&
+			!tokenMatch(ENDOFSTREAM)) {
+			tw = parseDecimalNumber();
+		}
+		
+		objectBuilder.writeTexture(tu, tv, tw);
+		
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private boolean parseNormal() {
-		if (tokenMatch(KEYWORD, "vn")) {
-			scanner.scan();
+	private void parseNormal() {
 
-			float nx = 0f;
-			float ny = 0f;
-			float nz = 0f;
-			
-			
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
-			nx = parseDecimalNumber();
+		if (!tokenMatch(KEYWORD, "vn")) parseError("'vn' expected");
+		scanner.scan();
 
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
-			ny = parseDecimalNumber();
+		float nx = 0f;
+		float ny = 0f;
+		float nz = 0f;
+		
+		skipWhite();
 
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
-			nz =parseDecimalNumber();
+		nx = parseDecimalNumber();
 
-			objectBuilder.writeNormal(nx, ny, nz);
-			
-			parseEmptyLine();
-			
-			return true;
-		}
-		return false;
+		skipWhite();
+
+		ny = parseDecimalNumber();
+
+		skipWhite();
+
+		nz =parseDecimalNumber();
+
+		objectBuilder.writeNormal(nx, ny, nz);
+		
+		//parseLineEnd();
+
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private boolean parseParameter() {
-		if (tokenMatch(KEYWORD, "vp")) {
-			scanner.scan();
+	private void parseParameter() {
 
-			float pu = 0f;
-			float pv = 0f;
-			float pw = 0f;
-			
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
-			pu = parseDecimalNumber();
+		if (!tokenMatch(KEYWORD, "vp")) parseError("'vp' expected");
+		scanner.scan();
 
-			if (tokenMatch(WHITESPACE)) {
-				scanner.scan();
-				if (
-					!tokenMatch(COMMENT) &&
-					!tokenMatch(LINEBREAK) &&
-					!tokenMatch(ENDOFSTREAM)
-				) {
-					pv = parseDecimalNumber();
-				}
-			}
+		float pu = 0f;
+		float pv = 0f;
+		float pw = 0f;
+		
+		skipWhite();
 
-			if (tokenMatch(WHITESPACE)) {
-				scanner.scan();
-				if (
-					!tokenMatch(COMMENT) &&
-					!tokenMatch(LINEBREAK) &&
-					!tokenMatch(ENDOFSTREAM)
-				) {
-					pw = parseDecimalNumber();
-				}
-			}
+		pu = parseDecimalNumber();
 
-			objectBuilder.writeParameter(pu, pv, pw);
-			
-			parseEmptyLine();
-			
-			return true;
+		skipWhite();
+		
+		if (
+			!tokenMatch(COMMENT) &&
+			!tokenMatch(LINEBREAK) &&
+			!tokenMatch(ENDOFSTREAM)) {
+			pv = parseDecimalNumber();
 		}
-		return false;
+
+		skipWhite();
+
+		if (
+			!tokenMatch(COMMENT) &&
+			!tokenMatch(LINEBREAK) &&
+			!tokenMatch(ENDOFSTREAM)) {
+			pw = parseDecimalNumber();
+		}
+		
+		objectBuilder.writeParameter(pu, pv, pw);
+		
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	private boolean parseSmoothing() {
-		if (tokenMatch(KEYWORD, "s")) {
+	private void parseSmoothing() {
+		
+		if (!tokenMatch(KEYWORD, "s")) parseError("'s' expected");
+		scanner.scan();
+
+		skipWhite();
+
+		if (tokenMatch(KEYWORD, "off")) {
 			scanner.scan();
-
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
-
-			if (tokenMatch(KEYWORD, "off") || tokenMatch(NUMBER)) {
-				scanner.scan();
-			} else {
-				parseError("Smoothing Parameter expected ('off' or number)");
-			}
-
-			parseEmptyLine();
-			
-			return true;
+		} else {
+			float s = parseDecimalNumber();
 		}
-		return false;
+
+		//parseLineEnd();
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	private boolean parseFace() {
-		if (tokenMatch(KEYWORD, "f")) {
-			scanner.scan();
+	private void parseFace() {
+		
+		if (!tokenMatch(KEYWORD, "f")) parseError("'f' expected");
+		scanner.scan();
 			
-			objectBuilder.startFace();
+		objectBuilder.startFace();
 
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
+		skipWhite();
 
+		parseFaceIndex();
+
+		skipWhite();
+
+		parseFaceIndex();
+
+		skipWhite();
+
+		parseFaceIndex();
+
+		skipWhite();
+		
+		if (
+			!tokenMatch(COMMENT) &&
+			!tokenMatch(LINEBREAK) &&
+			!tokenMatch(ENDOFSTREAM)
+		) {
 			parseFaceIndex();
-
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
-
-			parseFaceIndex();
-
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
-
-			parseFaceIndex();
-
-			if (tokenMatch(WHITESPACE)) {
-				scanner.scan();
-				if (
-					!tokenMatch(COMMENT) &&
-					!tokenMatch(LINEBREAK) &&
-					!tokenMatch(ENDOFSTREAM)
-				) {
-					parseFaceIndex();
-				}
-			}
-
-			objectBuilder.endFace();
-			
-			parseEmptyLine();
-			
-			return true;
 		}
-		return false;
+
+		objectBuilder.endFace();
+		
 	}
 	//=============================================================================================
 
@@ -481,28 +387,28 @@ public class ObjectParser {
 		int it = 0;
 		int in = 0;		
 		
-		if (!tokenMatch(NUMBER)) parseError("Number expected");
-		iv = Integer.parseInt(scanner.token());
-		scanner.scan();
+		iv = parsePositiveNumber();
 		
 		if (tokenMatch(SYMBOL, "/")) {
 			scanner.scan();
-			int anyOption = 0;
-			if (tokenMatch(NUMBER)) {
-				it = Integer.parseInt(scanner.token());
-				scanner.scan();
-				anyOption++;
-			} 
-			if (tokenMatch(SYMBOL, "/")) {
-				scanner.scan();
-				if (!tokenMatch(NUMBER)) parseError("Number expected");
-				in = Integer.parseInt(scanner.token());
-				scanner.scan();
-				anyOption++;
+			
+			if (
+				tokenMatch(SYMBOL, "+") ||
+				tokenMatch(NUMBER)
+			) {
+				it = parsePositiveNumber();
+				if (tokenMatch(SYMBOL, "/")) {
+					scanner.scan();
+					in = parsePositiveNumber();
+				}
 			}
-			if (anyOption == 0) {
-				parseError("Invalid Face Index Format");
+			else if (tokenMatch(SYMBOL, "/")) {
+				scanner.scan();
+				in = parsePositiveNumber();
+			} else {
+				parseError("'/' or number expected");
 			}
+			
 		}
 
 		objectBuilder.writeFaceIndex(iv, it, in);
@@ -511,95 +417,71 @@ public class ObjectParser {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private boolean parsePolyline() {
-		if (tokenMatch(KEYWORD, "l")) {
-			scanner.scan();
+	private void parsePolyline() {
 
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
+		if (!tokenMatch(KEYWORD, "l")) parseError("'l' expected");
+		scanner.scan();
 
-			if (!tokenMatch(NUMBER)) parseError("Number expected");
-			while (tokenMatch(NUMBER)) {
-				scanner.scan();
-				if (tokenMatch(WHITESPACE)) {
-					scanner.scan();
-				}
-			}
+		objectBuilder.startLine();
+		
+		skipWhite();
+
+		while (
+			tokenMatch(SYMBOL, "+") ||
+			tokenMatch(NUMBER)
+		) {
 			
-			parseEmptyLine();
+			int in = parsePositiveNumber();
+
+			objectBuilder.writeLineIndex(in);
 			
-			return true;
+			skipWhite();
+			
 		}
-		return false;
+		
+		objectBuilder.endLine();
+		
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private boolean parseMtllib() {
-		if (tokenMatch(KEYWORD, "mtllib")) {
-			scanner.scan();
+	private void parseMtllib() {
+		
+		if (!tokenMatch(KEYWORD, "mtllib")) parseError("'mtllib' expected");
+		scanner.scan();
 
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
+		skipWhite();
 
-			String path = "";
-			while (
-				!tokenMatch(WHITESPACE) &&
-				!tokenMatch(COMMENT) &&
-				!tokenMatch(LINEBREAK) &&
-				!tokenMatch(ENDOFSTREAM)
-			) {
-				path += scanner.token();
-				scanner.scan();
-			}
-			
-			try {
-				File mtlFile = new File(base, path);
-				Reader reader = new FileReader(mtlFile);
-				materialParser.init(mtlFile.getParentFile(), reader);
-				materialParser.parse();
-				materialBuilder.build(materialLibrary);
-				reader.close();
-				objectBuilder.materialLib(path, materialLibrary);
-				materialLibrary.clear();
-			} catch (Exception e) {
-				throw new X(e);
-			}
-			
-			parseEmptyLine();
-			
-			return true;
+		String path = parseAnyName();
+		
+		try {
+			File mtlFile = new File(base, path);
+			Reader reader = new FileReader(mtlFile);
+			materialParser.init(mtlFile.getParentFile(), reader);
+			materialParser.parse();
+			materialBuilder.build(materialLibrary);
+			reader.close();
+			objectBuilder.materialLib(path, materialLibrary);
+			materialLibrary.clear();
+		} catch (Exception e) {
+			throw new X(e);
 		}
-		return false;
+		
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private boolean parseUsemtl() {
-		if (tokenMatch(KEYWORD, "usemtl")) {
-			scanner.scan();
+	private void parseUsemtl() {
+		
+		if (!tokenMatch(KEYWORD, "usemtl")) parseError("'usemtl' expected");
+		scanner.scan();
 
-			if (!tokenMatch(WHITESPACE)) parseError("Whitespace expected");
-			scanner.scan();
+		skipWhite();
 
-			String mtlname = "";
-			while (
-				!tokenMatch(WHITESPACE) &&
-				!tokenMatch(COMMENT) &&
-				!tokenMatch(LINEBREAK) &&
-				!tokenMatch(ENDOFSTREAM)
-			) {
-				mtlname += scanner.token();
-				scanner.scan();
-			}
-			
-			objectBuilder.materialUse(mtlname);
-			
-			parseEmptyLine();
-			
-			return true;
-		}
-		return false;
+		String mtlname = parseAnyName();
+		
+		objectBuilder.materialUse(mtlname);
+		
 	}
 	//=============================================================================================
 	
@@ -633,29 +515,56 @@ public class ObjectParser {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void parseEmptyLine() {
+	private String parseAnyName() {
+		String name = "";
 		while (
-			tokenMatch(COMMENT) ||
-			tokenMatch(WHITESPACE)
+			!tokenMatch(WHITESPACE) &&
+			!tokenMatch(LINEBREAK) &&
+			!tokenMatch(ENDOFSTREAM)
 		) {
+			name += scanner.token();
 			scanner.scan();
 		}
-		parseLinebreak();
+		if (name.isBlank()) parseError("Any text expected");
+		return name;
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void parseLinebreak() {
-		if (
-			tokenMatch(LINEBREAK) ||
-			tokenMatch(ENDOFSTREAM)
-		) {
-			if (tokenMatch(LINEBREAK)) {
-				scanner.scan();
-			}
-		} else {
-			parseError("Linebreak or End of Strem expected");
+	private int parsePositiveNumber() {
+		String sNumber = "";
+		if (tokenMatch(SYMBOL, "+")) {
+			sNumber += scanner.token();
+			scanner.scan();
 		}
+		if (!tokenMatch(NUMBER)) parseError("Number expected");
+		sNumber += scanner.token();
+		scanner.scan();
+		return Integer.parseInt(sNumber);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void skipWhite() {
+		while (
+			tokenMatch(WHITESPACE)
+		) {
+			scanner.scan();
+		}
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void parseLineEnd() {
+		while (tokenMatch(COMMENT) || tokenMatch(WHITESPACE)) {
+			scanner.scan();
+		}
+
+		if (!tokenMatch(LINEBREAK) && !tokenMatch(ENDOFSTREAM))
+			parseError("Linebreak or End of Stream expected");
+
+		if (tokenMatch(LINEBREAK))
+			scanner.scan();
 	}
 	//=============================================================================================
 	
