@@ -273,7 +273,8 @@ public class MeshBuilder implements ObjectBuilder {
 		if (
 			(segment == null) ||
 			(segment.type != type) ||
-			!segment.material.equals(material)
+			((material == null) && (segment.material != null)) ||
+			((material != null) && !material.equals(segment.material))
 		) {
 			segment = new Segment(TYPE_TRIANGLES, material);
 			segments.add(segment);

@@ -132,12 +132,16 @@ public class Client {
 			meshNode.attach(ptNode);
 		}
 		*/
+
 		
+		Mesh emesh = Mesh.factory().model("assets/yrig/yrig.obj");
 		//Skeleton skeleton = Skeleton.factory().createRunner();
 		Skeleton skeleton = Skeleton.factory().create("assets/yrig/yrig.bvh");
-		for (int i=0; i<10; i++) {
+		int   n = 6;
+		float r = 360f / n;
+		for (int i=0; i<n; i++) {
 			Node skelNode1 = new Node();
-			skelNode1.component(NItem.TRANSFORM, MathUtil.rotY(i * 36f));
+			skelNode1.component(NItem.TRANSFORM, MathUtil.rotY(i*r));
 			skelNode1.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY(-12f));
 			scene.animator().add(NFlag.TRANSFORM, skelNode1);
 			Node skelNode2 = new Node(NFlag.RIG);
@@ -153,6 +157,12 @@ public class Client {
 			m.setTranslation(new Vector3f(0, 0, -5));
 			skelNode2.component(NItem.TRANSFORM, m);
 			skelNode1.attach(skelNode2);
+			
+			Node eNode = new Node(NFlag.MESH);
+			eNode.component(NItem.MESH, emesh);
+			eNode.component(NItem.TRANSFORM, MathUtil.rotX(180f));
+			skelNode2.attach(eNode);
+			
 			meshNode.attach(skelNode1);
 		}
 		

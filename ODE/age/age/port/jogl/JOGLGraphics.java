@@ -539,6 +539,8 @@ class JOGLGraphics implements Graphics {
 	//=============================================================================================
 	public void applyMaterial(Material m) {
 
+		if (m == null) return;
+		
 		if (m.flags.contains(MaterialFlag.LIGHTING))
 			gl.glEnable(GL_LIGHTING);
 		else
