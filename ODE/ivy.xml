@@ -11,7 +11,7 @@
 	</info>
 	
 	<dependencies>
-	
+
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency org="org.projectlombok" name="lombok" rev="1.18.28"/>
 

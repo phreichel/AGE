@@ -98,16 +98,19 @@ public class Client {
 		scene.camera(camNode);
 		scene.root().attach(camNode);
 
-		Mesh mesh = Mesh.factory().siglet(30, 6);
+		Mesh mesh = Mesh.factory().siglet(30, 7);
 		Node meshNode = new Node(NFlag.MESH);
 		meshNode.component(NItem.MESH, mesh);
 		scene.root().attach(meshNode);
 
+		/*
 		Mesh bmesh = Mesh.factory().model("assets/stone/Stone.obj");
 		Node bNode = new Node(NFlag.MESH);
 		bNode.component(NItem.MESH, bmesh);
 		meshNode.attach(bNode);
+		*/
 
+		/*
 		Mesh ptmesh = Mesh.factory().model("assets/palm_tree/10446_Palm_Tree_v1_max2010_iteration-2.obj");
 		Matrix4f ptMx = new Matrix4f();
 		ptMx.setIdentity();
@@ -128,22 +131,25 @@ public class Client {
 			ptNode.component(NItem.TRANSFORM, ptMxC);
 			meshNode.attach(ptNode);
 		}
+		*/
 		
 		//Skeleton skeleton = Skeleton.factory().createRunner();
 		Skeleton skeleton = Skeleton.factory().create("assets/yrig/yrig.bvh");
 		for (int i=0; i<10; i++) {
 			Node skelNode1 = new Node();
 			skelNode1.component(NItem.TRANSFORM, MathUtil.rotY(i * 36f));
-			skelNode1.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY(-30f));
+			skelNode1.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY(-12f));
 			scene.animator().add(NFlag.TRANSFORM, skelNode1);
 			Node skelNode2 = new Node(NFlag.RIG);
 			Rig rig = new Rig(skeleton);
-			rig.scale(.5f + (float) Math.random());
+			// rig.scale(.5f + (float) Math.random());
 			skelNode2.component(NItem.RIG, rig);
 			scene.animator().add(NFlag.RIG, skelNode2);
 			Matrix4f m = new Matrix4f();
-			//m.setIdentity();
+			Matrix4f m2 = new Matrix4f();
 			m.rotX( (float) Math.toRadians(-90) );
+			m2.rotY( (float) Math.toRadians(90) );
+			m.mul(m2, m);
 			m.setTranslation(new Vector3f(0, 0, -5));
 			skelNode2.component(NItem.TRANSFORM, m);
 			skelNode1.attach(skelNode2);

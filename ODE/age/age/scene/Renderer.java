@@ -99,7 +99,7 @@ public class Renderer implements Renderable {
 	
 	//=============================================================================================
 	private void renderSkeleton(Graphics g, Node node) {
-		g.color(.6f, .6f, 1f, 1f);
+		g.color(1f, 0f, 0f, 1f);
 		Rig rig = node.component(NItem.RIG, Rig.class);
 		g.drawRig(rig);
 	}
