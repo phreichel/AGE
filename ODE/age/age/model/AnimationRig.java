@@ -20,9 +20,10 @@ public class AnimationRig {
 	//=============================================================================================
 
 	//=============================================================================================
-	private List<Vector3f> bonePositions    = new ArrayList<>();
-	private List<Quat4f>   boneOrientations = new ArrayList<>();
-	private List<Matrix4f> boneMatrices     = new ArrayList<>();
+	private List<Vector3f> bonePositions     = new ArrayList<>();
+	private List<Quat4f>   boneOrientations  = new ArrayList<>();
+	private List<Matrix4f> boneLocalMatrices = new ArrayList<>();
+	private List<Matrix4f> boneModelMatrices = new ArrayList<>();
 	//=============================================================================================
 
 	//=============================================================================================
@@ -99,6 +100,7 @@ public class AnimationRig {
 	public void update(float dT) {
 		timevalue = (timevalue + dT * timescale) % ((steps()-1) * steptime());
 		interpolateSkeleton();
+		updateSkeletonMatrices();
 		interpolateMesh();
 	}
 	//=============================================================================================
@@ -131,7 +133,7 @@ public class AnimationRig {
 			// interpolate bone values
 			Vector3f pos = bonePositions.get(i);
 			Quat4f   ori = boneOrientations.get(i);
-			Matrix4f mat = boneMatrices.get(i);
+			Matrix4f mat = boneLocalMatrices.get(i);
 
 			float ta = kfa.step() * steptime();
 			float tb = kfb.step() * steptime();
@@ -160,10 +162,34 @@ public class AnimationRig {
 				
 				mat.set(ori, pos, scale);
 			}
+			
+		}
+
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void updateSkeletonMatrices() {
+		Matrix4f identity = new Matrix4f();
+		identity.setIdentity();
+		for (Bone bone : skeleton().roots()) {
+			updateSkeletonMatrices(identity, bone);
 		}
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	private void updateSkeletonMatrices(Matrix4f parentMatrix, Bone bone) {
+		int idx = skeleton().bones().indexOf(bone);
+		Matrix4f localMatrix = boneLocalMatrices.get(idx);
+		Matrix4f modelMatrix = boneModelMatrices.get(idx);
+		modelMatrix.mul(parentMatrix, localMatrix);
+		for (Bone child : bone.children()) {
+			updateSkeletonMatrices(modelMatrix, child);
+		}
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	private Vector3f _pos = new Vector3f();
 	//=============================================================================================
@@ -184,6 +210,9 @@ public class AnimationRig {
 				float scale = buffer.get(i);
 				
 				Matrix4f mat = boneMatrices.get(j);
+				
+				// TODO
+				
 				
 			}
 		}
