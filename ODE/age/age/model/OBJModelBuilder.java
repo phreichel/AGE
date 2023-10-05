@@ -3,10 +3,10 @@ package age.model;
 //*************************************************************************************************
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import age.mesh.Material;
 import age.mesh.obj.ObjectBuilder;
 import age.util.X;
 
@@ -26,8 +26,13 @@ public class OBJModelBuilder implements ObjectBuilder{
 	//=============================================================================================
 
 	//=============================================================================================
-	private final List<String> material = new ArrayList<>();
 	private final List<Integer> mark = new ArrayList<>();
+	private final List<String> material = new ArrayList<>();
+	private final List<ElementType> type = new ArrayList<>();
+	//=============================================================================================
+
+	//=============================================================================================
+	private final Map<String, Material> materialmap = new HashMap<>();
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -102,6 +107,7 @@ public class OBJModelBuilder implements ObjectBuilder{
 
 	//=============================================================================================
 	public void materialLib(String path, Map<String, Material> materials) {
+		materialmap.putAll(materials);
 	}
 	//=============================================================================================
 
@@ -113,16 +119,30 @@ public class OBJModelBuilder implements ObjectBuilder{
 	//=============================================================================================
 
 	//=============================================================================================
-	private static final float[] TPL_FLOAT_ARRAY = {}; 
-	//=============================================================================================
-	
-	//=============================================================================================
 	public Model build() {
-		Mesh mesh = new Mesh(
-			lstpos.toArray(TPL_FLOAT_ARRAY),
-			lsttex.toArray(TPL_FLOAT_ARRAY),
-			lstnorm.toArray(TPL_FLOAT_ARRAY));
-		
+		float[] arrpos = new float[lstpos.size()];
+		float[] arrtex = new float[lsttex.size()];
+		float[] arrnorm = new float[lstnorm.size()];
+		for (int i=0; i<lstpos.size(); i++) arrpos[i] = lstpos.get(i);
+		for (int i=0; i<lsttex.size(); i++) arrtex[i] = lsttex.get(i);
+		for (int i=0; i<lstnorm.size(); i++) arrnorm[i] = lstnorm.get(i);
+		Mesh mesh = new Mesh(arrpos, arrtex, arrnorm);
+		Element[] elements = new Element[mark.size()];
+		Material[] materials = new Material[mark.size()];
+		for (int i=0; i<mark.size(); i++) {
+			ElementType t = type.get(i);
+			int m1 = mark.get(i);
+			int m2 = (i < mark.size()-1) ? mark.get(i+1)-1 : mesh.size-1;
+			int[] range = new int[m2-m1];
+			for (int j=0; j<m2-m1+1; j++) range[j] = m1+j;
+			elements[i] = new Element(t, range);
+			String matname = material.get(i);
+			materials[i] = materialmap.get(matname);
+		}
+		Skin skin = new Skin(mesh, elements);
+		Model model = new Model(skin, materials);
+		clear();
+		return model;
 	}
 	//=============================================================================================
 
@@ -134,8 +154,10 @@ public class OBJModelBuilder implements ObjectBuilder{
 		idxtex.clear();
 		lstnorm.clear();
 		idxnorm.clear();
-		material.clear();
 		mark.clear();
+		type.clear();
+		material.clear();
+		materialmap.clear();
 	}
 	//=============================================================================================
 	
