@@ -13,7 +13,7 @@ import javax.vecmath.Vector3f;
 public class AnimationRig {
 
 	//=============================================================================================
-	private Model     model;
+	private Model model;
 	private Animation animation;
 	private Influence influence;
 	//=============================================================================================
@@ -191,20 +191,28 @@ public class AnimationRig {
 	
 	//=============================================================================================
 	private Vector3f _pos = new Vector3f();
+	private Vector3f _bon = new Vector3f();
+	private Vector3f _dlt = new Vector3f();
 	//=============================================================================================
 	
 	//=============================================================================================
 	private void interpolateMesh() {
 
 		// for each vertex
-		for (int i=0; i<mesh().size(); i++) {
+		for (int i=0; i<mesh().size; i++) {
 		
 			// get default vertex position
-			_pos = mesh().getPosition(i, _pos);
+			_pos.x = mesh().positions.get(i*3+0);
+			_pos.y = mesh().positions.get(i*3+1);
+			_pos.z = mesh().positions.get(i*3+2);
 			
 			// for each bone
 			for (int j=0; j<skeleton().bones().size(); j++) {
 
+				// get default bone position
+				_bon.set(0, 0, 0);
+				
+				_dlt.sub(_pos, _bon);
 				FloatBuffer buffer = influence().influences().get(j);
 				float scale = buffer.get(i);
 				
