@@ -8,19 +8,14 @@ import java.nio.IntBuffer;
 public class Element {
 
 	//=============================================================================================
-	private ElementType type;
-	private IntBuffer indices;
+	public final ElementType type;
+	public final IntBuffer indices;
 	//=============================================================================================
 
 	//=============================================================================================
-	public ElementType type() {
-		return type;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public IntBuffer indices() {
-		return indices;
+	public Element(ElementType type, int ... indices) {
+		this.type = type;
+		this.indices = IntBuffer.wrap(indices);
 	}
 	//=============================================================================================
 	
