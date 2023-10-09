@@ -108,9 +108,7 @@ public class Client {
 		Node bNode = new Node(NFlag.MESH);
 		bNode.component(NItem.MESH, bmesh);
 		meshNode.attach(bNode);
-		*/
 
-		/*
 		Mesh ptmesh = Mesh.factory().model("assets/palm_tree/10446_Palm_Tree_v1_max2010_iteration-2.obj");
 		Matrix4f ptMx = new Matrix4f();
 		ptMx.setIdentity();
@@ -132,7 +130,6 @@ public class Client {
 			meshNode.attach(ptNode);
 		}
 		*/
-
 		
 		Mesh emesh = Mesh.factory().model("assets/yrig/yrig.obj");
 		//Skeleton skeleton = Skeleton.factory().createRunner();

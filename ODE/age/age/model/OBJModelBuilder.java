@@ -120,13 +120,13 @@ public class OBJModelBuilder implements ObjectBuilder{
 
 	//=============================================================================================
 	public Model build() {
-		float[] arrpos = new float[lstpos.size()];
-		float[] arrtex = new float[lsttex.size()];
-		float[] arrnorm = new float[lstnorm.size()];
-		for (int i=0; i<lstpos.size(); i++) arrpos[i] = lstpos.get(i);
-		for (int i=0; i<lsttex.size(); i++) arrtex[i] = lsttex.get(i);
-		for (int i=0; i<lstnorm.size(); i++) arrnorm[i] = lstnorm.get(i);
-		Mesh mesh = new Mesh(arrpos, arrtex, arrnorm);
+		float[] pos = new float[lstpos.size()];
+		float[] tex = new float[lsttex.size()];
+		float[] norm = new float[lstnorm.size()];
+		for (int i=0; i<lstpos.size(); i++) pos[i] = lstpos.get(i);
+		for (int i=0; i<lsttex.size(); i++) tex[i] = lsttex.get(i);
+		for (int i=0; i<lstnorm.size(); i++) norm[i] = lstnorm.get(i);
+		Mesh mesh = new Mesh(pos, tex, norm);
 		Element[] elements = new Element[mark.size()];
 		Material[] materials = new Material[mark.size()];
 		for (int i=0; i<mark.size(); i++) {

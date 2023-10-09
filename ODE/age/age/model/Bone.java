@@ -3,7 +3,6 @@ package age.model;
 //*************************************************************************************************
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import javax.vecmath.Quat4f;
 import javax.vecmath.Vector3f;
@@ -12,43 +11,23 @@ import javax.vecmath.Vector3f;
 public class Bone {
 
 	//=============================================================================================
-	private String name;
-	private Bone parent;
-	private List<Bone> children = new ArrayList<>();
-	private List<Bone> children_ro = Collections.unmodifiableList(children);
-	private Vector3f position = new Vector3f(0, 0, 0);
-	private Quat4f orientation = new Quat4f(0, 0, 0, 1);
+	public final String name;
+	public final Bone parent;
+	public final List<Bone> children = new ArrayList<>();
+	public final Vector3f position = new Vector3f(0, 0, 0);
+	public final Quat4f orientation = new Quat4f(0, 0, 0, 1);
 	//=============================================================================================
 
 	//=============================================================================================
-	public String name() {
-		return name;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public Bone parent() {
-		return parent;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public List<Bone> children() {
-		return children_ro;
+	public Bone(
+		String name,
+		Bone parent
+	) {
+		this.name = name;
+		this.parent = parent;
+		parent.children.add(this);
 	}
 	//=============================================================================================
 	
-	//=============================================================================================
-	public Vector3f position() {
-		return position;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public Quat4f orientation() {
-		return orientation;
-	}
-	//=============================================================================================
-
 }
 //*************************************************************************************************

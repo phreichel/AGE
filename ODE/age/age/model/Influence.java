@@ -4,34 +4,24 @@ package age.model;
 
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 //*************************************************************************************************
 public class Influence {
 
 	//=============================================================================================
-	private Skeleton skeleton;
-	private Mesh mesh;
-	private List<FloatBuffer> influences = new ArrayList<>();
-	private List<FloatBuffer> influences_ro = Collections.unmodifiableList(influences);
+	public final Skeleton skeleton;
+	public final Mesh mesh;
+	public final List<FloatBuffer> influences = new ArrayList<>();
 	//=============================================================================================
 
 	//=============================================================================================
-	public Skeleton skeleton() {
-		return skeleton;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public Mesh mesh() {
-		return mesh;
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	public List<FloatBuffer> influences() {
-		return influences_ro;
+	public Influence(
+		Skeleton skeleton,
+		Mesh mesh
+	) {
+		this.skeleton = skeleton;
+		this.mesh = mesh;
 	}
 	//=============================================================================================
 	
