@@ -22,7 +22,6 @@ import age.log.Level;
 import age.log.Log;
 import age.model.Animation;
 import age.model.Factory;
-import age.model.Mesh;
 import age.model.Model;
 import age.model.Rig;
 

@@ -46,8 +46,8 @@ public class Factory {
 		try {
 			File file = new File(path);
 			Reader reader = new FileReader(file);
-			modelParser.init(file.getParentFile(), reader);
-			modelParser.parse();
+			animationParser.init(reader);
+			animationParser.parse();
 			reader.close();
 			return animationBuilder.build();
 		} catch (Exception e) {
