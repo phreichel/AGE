@@ -37,13 +37,22 @@ public class Factory {
 	//=============================================================================================
 
 	//=============================================================================================
-	private final BVHBuilder animationBuilder = new BVHBuilder(null);
+	private final BVHRigBuilder2 animationBuilder = new BVHRigBuilder2();
 	private final BVHParser  animationParser = new BVHParser(animationBuilder);
 	//=============================================================================================
 
 	//=============================================================================================
 	public Animation animation(String path) {
-		return null;
+		try {
+			File file = new File(path);
+			Reader reader = new FileReader(file);
+			modelParser.init(file.getParentFile(), reader);
+			modelParser.parse();
+			reader.close();
+			return animationBuilder.build();
+		} catch (Exception e) {
+			throw new X(e);
+		}
 	}
 	//=============================================================================================
 	

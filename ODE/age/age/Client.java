@@ -144,12 +144,6 @@ public class Client {
 			skelNode1.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY(-12f));
 			scene.animator().add(NFlag.TRANSFORM, skelNode1);
 			
-			//Node skelNode2 = new Node(NFlag.RIG);
-			//Rig rig = new Rig(skeleton);
-			// rig.scale(.5f + (float) Math.random());
-			//skelNode2.component(NItem.RIG, rig);
-			//scene.animator().add(NFlag.RIG, skelNode2);
-
 			Matrix4f m = new Matrix4f();
 			Matrix4f m2 = new Matrix4f();
 			m.rotX( (float) Math.toRadians(-90) );
@@ -163,14 +157,6 @@ public class Client {
 			scene.animator().add(NFlag.RIG2, rigNode);
 			rigNode.component(NItem.TRANSFORM, m);
 			skelNode1.attach(rigNode);
-			
-			//skelNode2.component(NItem.TRANSFORM, m);
-			//skelNode1.attach(skelNode2);
-			
-			Node eNode = new Node(NFlag.MESH);
-			eNode.component(NItem.MESH, emesh);
-			eNode.component(NItem.TRANSFORM, MathUtil.rotX(180f));
-			skelNode2.attach(eNode);
 			
 			meshNode.attach(skelNode1);
 		}

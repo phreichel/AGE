@@ -117,7 +117,7 @@ public class BVHRigBuilder2 implements BVHBuilder {
 			Keyframe kf = new Keyframe();
 			kf.step = findex; 
 
-			tx.set(kf.translation());
+			tx.set(kf.position);
 			rx.set(0, 0, 0);
 			for (int i=0; i<frameValues.length; i++) {
 				Bone cmp = chBone.get(i);
@@ -132,14 +132,14 @@ public class BVHRigBuilder2 implements BVHBuilder {
 					else throw new X("unsupported channel: %s", name);
 				}
 			}
-			kf.translation(tx);
+			kf.position.set(tx);
 			if (rx.lengthSquared() > 0.001f) {
 				mRz.rotZ(rx.z);
 				mRy.rotY(rx.y);
 				mRx.rotX(rx.x);
 				mRo.mul(mRz, mRy);
 				mRo.mul(mRo, mRx);
-				kf.orientation(mRo);
+				kf.orientation.set(mRo);
 			}
 		}
 
@@ -149,9 +149,15 @@ public class BVHRigBuilder2 implements BVHBuilder {
 	//=============================================================================================
 
 	//=============================================================================================
-	public Skeleton build() {
-		Skeleton tmp = skeleton; 
+	public Animation build() {
+		Animation tmp = animation; 
+		animation = null;
 		skeleton = null;
+		bones.clear();
+		bone = null;
+		anBone.clear();
+		chBone.clear();
+		chName.clear();
 		return tmp;
 	}
 	//=============================================================================================
