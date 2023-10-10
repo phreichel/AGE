@@ -3,8 +3,6 @@ package age.scene;
 //*************************************************************************************************
 
 import javax.vecmath.Matrix4f;
-
-import age.log.Log;
 import age.mesh.Mesh;
 import age.port.Graphics;
 import age.port.Renderable;

@@ -2,12 +2,10 @@
 package age.mesh.mtl;
 //*************************************************************************************************
 
-import java.io.File;
 import java.io.Reader;
 import age.util.Scanner;
 import age.util.Symbol;
 import age.util.X;
-
 import static age.util.Symbol.*;
 
 //*************************************************************************************************
@@ -28,12 +26,7 @@ public class MaterialParser {
 	//=============================================================================================
 
 	//=============================================================================================
-	private File base = null;
-	//=============================================================================================
-	
-	//=============================================================================================
-	public void init(File base, Reader reader) {
-		this.base = base;
+	public void init(Reader reader) {
 		scanner.init(reader);		
 	}
 	//=============================================================================================
@@ -259,21 +252,14 @@ public class MaterialParser {
 		if (!tokenMatch(KEYWORD, "Tf")) parseError("'Tf' expected");
 		scanner.scan();
 		
-		float cr = 0f;
-		float cg = 0f;
-		float cb = 0f;
-		
 		skipWhite();
-
-		cr = parseDecimalNumber();
+		parseDecimalNumber();
 
 		skipWhite();
-
-		cg = parseDecimalNumber();
+		parseDecimalNumber();
 
 		skipWhite();
-
-		cb = parseDecimalNumber();
+		parseDecimalNumber();
 
 		// materialBuilder.writeTf(cr, cg, cb);
 

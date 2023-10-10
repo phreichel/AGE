@@ -56,7 +56,7 @@ public class Factory {
 		try {
 			File file = new File(path);
 			Reader reader = new FileReader(file);
-			materialParser.init(file.getParentFile(), reader);
+			materialParser.init(reader);
 			materialParser.parse();
 			materialBuilder.build(materials);
 		} catch (Exception e) {

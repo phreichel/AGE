@@ -338,10 +338,9 @@ public class ObjectParser {
 		if (tokenMatch(KEYWORD, "off")) {
 			scanner.scan();
 		} else {
-			float s = parseDecimalNumber();
+			parsePositiveNumber();
 		}
 
-		//parseLineEnd();
 	}
 	//=============================================================================================
 	
@@ -451,13 +450,12 @@ public class ObjectParser {
 		scanner.scan();
 
 		skipWhite();
-
 		String path = parseAnyName();
 		
 		try {
 			File mtlFile = new File(base, path);
 			Reader reader = new FileReader(mtlFile);
-			materialParser.init(mtlFile.getParentFile(), reader);
+			materialParser.init(reader);
 			materialParser.parse();
 			materialBuilder.build(materialLibrary);
 			reader.close();
