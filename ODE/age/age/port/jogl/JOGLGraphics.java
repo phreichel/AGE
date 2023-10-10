@@ -715,12 +715,12 @@ class JOGLGraphics implements Graphics {
 	//=============================================================================================
 	private void drawRigBone(age.model.Rig rig, age.model.Bone b) {
 		if (b.parent != null) {
-			Vector3f va = rig.initPositions.get(b.parent.index);
-			Vector3f vb = rig.initPositions.get(b.index);
+			Vector3f da = rig.deltaPositions.get(b.parent.index);
+			Vector3f db = rig.deltaPositions.get(b.index);
 			gl.glColor3f(1f, 0f + (float) b.index / 10, 0f);
 			gl.glBegin(GL_LINES);
-			gl.glVertex3f(va.x, va.y ,va.z);
-			gl.glVertex3f(vb.x, vb.y ,vb.z);
+			gl.glVertex3f(da.x, da.y, da.z);
+			gl.glVertex3f(db.x, db.y, db.z);
 			gl.glEnd();
 		}
 		for (age.model.Bone c : b.children) {

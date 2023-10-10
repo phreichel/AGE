@@ -28,8 +28,7 @@ public class Bone {
 		this.name = name;
 		this.index = index;
 		this.parent = parent;
-		if (parent != null)
-			parent.children.add(this);
+		if (parent != null) parent.children.add(this);
 	}
 	//=============================================================================================
 	

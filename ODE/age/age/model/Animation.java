@@ -19,7 +19,7 @@ public class Animation {
 	//=============================================================================================
 
 	//=============================================================================================
-	public final Map<Bone, Keyframes> keyframes = new HashMap<>();
+	public final Map<Integer, Keyframes> keyframes = new HashMap<>();
 	public final Map<String, Sequence> sequences = new HashMap<>();
 	//=============================================================================================
 

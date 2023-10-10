@@ -3,10 +3,11 @@ package age.model;
 //*************************************************************************************************
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Stack;
-import javax.vecmath.Matrix3f;
-import javax.vecmath.Vector3f;
+import java.util.Map;
+import javax.vecmath.AxisAngle4f;
+import javax.vecmath.Quat4f;
 import age.rig.bvh.BVHBuilder;
 import age.util.X;
 
@@ -16,40 +17,29 @@ public class BVHRigBuilder2 implements BVHBuilder {
 	//=============================================================================================
 	private Animation animation = null;
 	private Skeleton skeleton = null;
-	private Stack<Bone> bones = new Stack<>();
 	private Bone bone = null;
 	//=============================================================================================
 
 	//=============================================================================================
-	private int index = 0;
+	private int bone_index = 0;
+	private int frame_index = 0;
 	//=============================================================================================
 	
 	//=============================================================================================
-	private List<Bone> anBone  = new ArrayList<>();
-	private List<Bone> chBone  = new ArrayList<>();
-	private List<String> chName  = new ArrayList<>();
+	private List<Bone> chBone = new ArrayList<>();
+	private List<String>  chName = new ArrayList<>();
 	//=============================================================================================
 	
 	//=============================================================================================
 	public void startFile() {
-		skeleton = new Skeleton("SKELETON");
+		clear();
+		skeleton = new Skeleton();
 		animation = new Animation(skeleton);
-		bones.clear();
-		bone = null;
-		anBone.clear();
-		chBone.clear();
-		chName.clear();
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void endFile() {
-		bones.clear();
-		bone = null;
-		anBone.clear();
-		chBone.clear();
-		chName.clear();
-	}
+	public void endFile() {}
 	//=============================================================================================
 
 	//=============================================================================================
@@ -59,9 +49,8 @@ public class BVHRigBuilder2 implements BVHBuilder {
 			float ofsy,
 			float ofsz
 	) {
-		Bone newBone = new Bone(name, index++, bone);
-		animation.keyframes.put(newBone, new Keyframes(newBone));
-		if (bone != null) bones.push(bone);
+		Bone newBone = new Bone(name, bone_index++, bone);
+		animation.keyframes.put(newBone.index, new Keyframes());
 		if (bone == null) skeleton.roots.add(newBone);
 		newBone.position.set(ofsx, ofsy, ofsz);
 		bone = newBone;
@@ -70,14 +59,12 @@ public class BVHRigBuilder2 implements BVHBuilder {
 
 	//=============================================================================================
 	public void endBone() {
-		bone = bones.isEmpty() ? null : bones.pop();
+		bone = bone.parent;
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	public void writeChannelCount(int count) {
-		anBone.add(bone);
-	}
+	public void writeChannelCount(int count) {}
 	//=============================================================================================
 
 	//=============================================================================================
@@ -87,10 +74,6 @@ public class BVHRigBuilder2 implements BVHBuilder {
 	}
 	//=============================================================================================
 
-	//=============================================================================================
-	int findex = 0;
-	//=============================================================================================
-	
 	//=============================================================================================
 	public void writeFrameCount(int frameCount) {
 		animation.steps = frameCount;
@@ -104,69 +87,74 @@ public class BVHRigBuilder2 implements BVHBuilder {
 	//=============================================================================================
 
 	//=============================================================================================
-	private final Vector3f tx = new Vector3f();
-	private final Vector3f rx = new Vector3f();
-	//=============================================================================================
+	public void writeFrameData(float ... frameValues) {
+		
+		assert (chBone.size() == frameValues.length);
+		assert (chName.size() == frameValues.length);
+		
+		Map<Integer, Keyframe> map = new HashMap<>();
+		for (int i=0; i<frameValues.length; i++) {
+			
+			Bone   b = chBone.get(i);
+			String n = chName.get(i);
+			float  v = frameValues[i];
 
-	//=============================================================================================
-	private final Matrix3f mRz = new Matrix3f();  
-	private final Matrix3f mRy = new Matrix3f();  
-	private final Matrix3f mRx = new Matrix3f();  
-	private final Matrix3f mRo = new Matrix3f();  
-	//=============================================================================================
-	
-	//=============================================================================================
-	public void writeFrameData(float... frameValues) {
-		for (Bone now : anBone) {
-			Keyframes kfs = animation.keyframes.get(now);
-			Keyframe kf = new Keyframe();
-			kfs.list.add(kf);
-			kf.step = findex;
+			Keyframe kf = map.get(b.index);
+			if (kf == null) {
+				kf = new Keyframe();
+				kf.step = frame_index;
+				map.put(b.index, kf);
+				Keyframes kfs = animation.keyframes.get(b.index);
+				kfs.list.add(kf);
+			}
 
-			tx.set(kf.position);
-			rx.set(0, 0, 0);
-			for (int i=0; i<frameValues.length; i++) {
-				Bone cmp = chBone.get(i);
-				if (now == cmp) {
-					String name = chName.get(i);
-					if (name.equals("Xposition")) tx.x = frameValues[i];
-					else if (name.equals("Yposition")) tx.y = frameValues[i];
-					else if (name.equals("Zposition")) tx.z = frameValues[i];
-					else if (name.equals("Xrotation")) rx.x = (float) Math.toRadians(frameValues[i]);
-					else if (name.equals("Yrotation")) rx.y = (float) Math.toRadians(frameValues[i]);
-					else if (name.equals("Zrotation")) rx.z = (float) Math.toRadians(frameValues[i]);
-					else throw new X("unsupported channel: %s", name);
-				}
-			}
-			kf.position.set(tx);
-			if (rx.lengthSquared() > 0.001f) {
-				mRz.rotZ(rx.z);
-				mRy.rotY(rx.y);
-				mRx.rotX(rx.x);
-				mRo.mul(mRz, mRy);
-				mRo.mul(mRo, mRx);
-				kf.orientation.set(mRo);
-			}
+			kf.position.set(0, 0, 0);
+			kf.orientation.set(0, 0, 0, 1);
+			
+			if      (n.equals("Xposition")) kf.position.x = v;
+			else if (n.equals("Yposition")) kf.position.y = v;
+			else if (n.equals("Zposition")) kf.position.z = v;
+			else if (n.equals("Xrotation")) orient(kf, 1, 0, 0,  v);
+			else if (n.equals("Yrotation")) orient(kf, 0, 1, 0,  v);
+			else if (n.equals("Zrotation")) orient(kf, 0, 0, 1,  v);
+			else throw new X("unsupported channel: %s", n);
+			
 		}
-
-		findex++;
+		
+		frame_index++;
 		
 	}
 	//=============================================================================================
 
 	//=============================================================================================
+	private void orient(Keyframe kf, float x, float y, float z, float v) {
+		AxisAngle4f aa = new AxisAngle4f(x, y, z, (float) Math.toRadians(v));
+		Quat4f q = new Quat4f();
+		q.set(aa);
+		kf.orientation.mul(q);
+		kf.orientation.normalize();
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
 	public Animation build() {
-		Animation tmp = animation; 
-		animation = null;
-		skeleton = null;
-		bones.clear();
-		bone = null;
-		anBone.clear();
-		chBone.clear();
-		chName.clear();
+		Animation tmp = animation;
+		clear();
 		return tmp;
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	private void clear() {
+		bone_index = 0;
+		frame_index = 0;
+		animation = null;
+		skeleton = null;
+		bone = null;
+		chBone.clear();
+		chName.clear();
+	}
+	//=============================================================================================
+	
 }
 //*************************************************************************************************

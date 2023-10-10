@@ -6,15 +6,18 @@ import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import javax.vecmath.Matrix4f;
+import javax.vecmath.Point3f;
 import javax.vecmath.Quat4f;
 import javax.vecmath.Vector3f;
+
+import age.log.Log;
 
 //*************************************************************************************************
 public class Rig {
 
 	//=============================================================================================
 	public final Animation animation;
-	public final Model model;
+	public final Model     model;
 	public final Influence influence;
 	//=============================================================================================
 
@@ -48,10 +51,9 @@ public class Rig {
 
 	//=============================================================================================
 	private void init() {
-		Skeleton s = animation.skeleton;
 		Matrix4f m = new Matrix4f();
 		m.setIdentity();
-		for (Bone b : s.roots) {
+		for (Bone b : animation.skeleton.roots) {
 			init(b, m);
 		}
 	}
@@ -59,8 +61,8 @@ public class Rig {
 
 	//=============================================================================================
 	private void init(Bone b, Matrix4f pm) {
-		Vector3f p = new Vector3f(b.position);
-		//pm.transform(p);
+		Point3f p = new Point3f(b.position);
+		pm.transform(p);
 		initPositions.add(new Vector3f());
 		deltaPositions.add(new Vector3f());
 		initPositions.get(b.index).set(p);
@@ -76,37 +78,35 @@ public class Rig {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void update(float dT) {		
-
+	public void update(float dT) {
 		timevalue = (timevalue + dT * timescale) % ((animation.steps-1) * animation.steptime);
-
-		Skeleton s = animation.skeleton;
 		Matrix4f m = new Matrix4f();
 		m.setIdentity();		
-		for (Bone bn : s.roots) {
+		for (Bone bn : animation.skeleton.roots) {
 			update(bn, m);
 		}
-		
+		/*
 		Mesh ms = model.skin.mesh;
 		for (int i=0; i<ms.size; i++) {
 			Vector3f d = new Vector3f();
-			for (Bone bn : s.roots) {
+			for (Bone bn : animation.skeleton.roots) {
 				update(bn, i, d);
 			}
 			meshPositions.put(i*3+0, ms.positions.get(i*3+0) + d.x);
 			meshPositions.put(i*3+1, ms.positions.get(i*3+1) + d.y);
 			meshPositions.put(i*3+2, ms.positions.get(i*3+2) + d.z);
 		}
-
+		*/
 	}
 	//=============================================================================================
 
 	//=============================================================================================
+	// TODO: REVISIT THIS - THIS CODE PRODUCES ONLY GARBAGE
 	private void update(Bone bn, Matrix4f pm) {
 		Vector3f p = new Vector3f();
 		Matrix4f m = new Matrix4f();
 		m.setIdentity();
-		Keyframes kfs = animation.keyframes.get(bn);
+		Keyframes kfs = animation.keyframes.get(bn.index);
 		int idx = findKeyframe(kfs);
 		int idxa = Math.max(0, Math.min((idx+0), kfs.list.size()-1));
 		int idxb = Math.max(0, Math.min((idx+1), kfs.list.size()-1));
@@ -125,14 +125,16 @@ public class Rig {
 			float ta = ka.step * animation.steptime;
 			float tb = kb.step * animation.steptime;
 			float alpha = (timevalue-ta) / (tb-ta);
-			p.interpolate(ka.position, kb.position, alpha);
+			p.interpolate(kb.position, ka.position, alpha);
 			Quat4f o = new Quat4f();
-			o.interpolate(ka.orientation, kb.orientation, alpha);
+			o.interpolate(kb.orientation, ka.orientation, alpha);
 			float s = (1f-alpha) * ka.scale + alpha * kb.scale;
 			m.set(o, p, s);
 		}
-		pm.transform(p);
-		deltaPositions.get(bn.index).sub(p, initPositions.get(bn.index));
+		Point3f pp = new Point3f(p); 
+		pm.transform(pp);
+		deltaPositions.get(bn.index).set(pp);
+		m.mul(pm, m);
 		for (Bone c : bn.children) {
 			update(c, m);
 		}
