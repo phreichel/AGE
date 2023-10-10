@@ -714,33 +714,27 @@ class JOGLGraphics implements Graphics {
 	}
 	//=============================================================================================
 	
-	
-	//=============================================================================================
-	private int boneidx = 0;
 	//=============================================================================================
 	private void drawRigSkeleton(age.model.Rig rig) {
-		gl.glColor3f(1f, 1f, 0f);
-		boneidx = 0;
 		for (age.model.Bone b : rig.animation.skeleton.roots) {
-			drawRigBone(-1, rig, b);
+			drawRigBone(rig, b);
 		}
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private void drawRigBone(int parent, age.model.Rig rig, age.model.Bone b) {
-		if (parent != -1) {
-			Vector3f va = rig.initPositions.get(parent);
-			Vector3f vb = rig.initPositions.get(boneidx);
+	private void drawRigBone(age.model.Rig rig, age.model.Bone b) {
+		if (b.parent != null) {
+			Vector3f va = rig.initPositions.get(b.parent.index);
+			Vector3f vb = rig.initPositions.get(b.index);
+			gl.glColor3f(1f, 0f + (float) b.index / 10, 0f);
 			gl.glBegin(GL_LINES);
 			gl.glVertex3f(va.x, va.y ,va.z);
 			gl.glVertex3f(vb.x, vb.y ,vb.z);
 			gl.glEnd();
 		}
-		int pidx = boneidx;
-		boneidx++;
 		for (age.model.Bone c : b.children) {
-			drawRigBone(pidx, rig, c);
+			drawRigBone(rig, c);
 		}
 	}
 	//=============================================================================================

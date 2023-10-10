@@ -60,9 +60,10 @@ public class Rig {
 	//=============================================================================================
 	private void init(Bone b, Matrix4f pm) {
 		Vector3f p = new Vector3f(b.position);
-		pm.transform(p);
-		initPositions.add(p);
+		//pm.transform(p);
+		initPositions.add(new Vector3f());
 		deltaPositions.add(new Vector3f());
+		initPositions.get(b.index).set(p);
 		Matrix4f m = new Matrix4f();
 		m.setIdentity();
 		m.setRotation(b.orientation);
@@ -75,10 +76,6 @@ public class Rig {
 	//=============================================================================================
 
 	//=============================================================================================
-	private int boneindex = 0;
-	//=============================================================================================
-	
-	//=============================================================================================
 	public void update(float dT) {		
 
 		timevalue = (timevalue + dT * timescale) % ((animation.steps-1) * animation.steptime);
@@ -86,7 +83,6 @@ public class Rig {
 		Skeleton s = animation.skeleton;
 		Matrix4f m = new Matrix4f();
 		m.setIdentity();		
-		boneindex = 0;
 		for (Bone bn : s.roots) {
 			update(bn, m);
 		}
@@ -94,7 +90,6 @@ public class Rig {
 		Mesh ms = model.skin.mesh;
 		for (int i=0; i<ms.size; i++) {
 			Vector3f d = new Vector3f();
-			boneindex = 0;
 			for (Bone bn : s.roots) {
 				update(bn, i, d);
 			}
@@ -108,11 +103,9 @@ public class Rig {
 
 	//=============================================================================================
 	private void update(Bone bn, Matrix4f pm) {
-
 		Vector3f p = new Vector3f();
 		Matrix4f m = new Matrix4f();
 		m.setIdentity();
-		
 		Keyframes kfs = animation.keyframes.get(bn);
 		int idx = findKeyframe(kfs);
 		int idxa = Math.max(0, Math.min((idx+0), kfs.list.size()-1));
@@ -138,15 +131,11 @@ public class Rig {
 			float s = (1f-alpha) * ka.scale + alpha * kb.scale;
 			m.set(o, p, s);
 		}
-		
 		pm.transform(p);
-		deltaPositions.get(boneindex).sub(p, initPositions.get(boneindex));
-		
-		boneindex++;
+		deltaPositions.get(bn.index).sub(p, initPositions.get(bn.index));
 		for (Bone c : bn.children) {
 			update(c, m);
 		}
-
 	}
 	//=============================================================================================
 
@@ -165,13 +154,12 @@ public class Rig {
 
 	//=============================================================================================
 	private void update(Bone bn, int vertexidx, Vector3f d) {
-		Vector3f delta = deltaPositions.get(boneindex);
+		Vector3f delta = deltaPositions.get(bn.index);
 		//float scale = influence.influences.get(boneindex).get(vertexidx);
 		float scale = 0f;
 		Vector3f scaledDelta = new Vector3f(delta);
 		scaledDelta.scale(scale);
 		d.add(scaledDelta);
-		boneindex++;
 		for (Bone c : bn.children) {
 			update(c, vertexidx, d);
 		}

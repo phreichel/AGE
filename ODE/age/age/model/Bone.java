@@ -12,6 +12,7 @@ public class Bone {
 
 	//=============================================================================================
 	public final String name;
+	public final int index;
 	public final Bone parent;
 	public final List<Bone> children = new ArrayList<>();
 	public final Vector3f position = new Vector3f(0, 0, 0);
@@ -21,9 +22,11 @@ public class Bone {
 	//=============================================================================================
 	public Bone(
 		String name,
+		int index,
 		Bone parent
 	) {
 		this.name = name;
+		this.index = index;
 		this.parent = parent;
 		if (parent != null)
 			parent.children.add(this);

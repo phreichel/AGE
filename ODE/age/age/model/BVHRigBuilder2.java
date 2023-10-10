@@ -19,6 +19,10 @@ public class BVHRigBuilder2 implements BVHBuilder {
 	private Stack<Bone> bones = new Stack<>();
 	private Bone bone = null;
 	//=============================================================================================
+
+	//=============================================================================================
+	private int index = 0;
+	//=============================================================================================
 	
 	//=============================================================================================
 	private List<Bone> anBone  = new ArrayList<>();
@@ -55,7 +59,7 @@ public class BVHRigBuilder2 implements BVHBuilder {
 			float ofsy,
 			float ofsz
 	) {
-		Bone newBone = new Bone(name, bone);
+		Bone newBone = new Bone(name, index++, bone);
 		animation.keyframes.put(newBone, new Keyframes(newBone));
 		if (bone != null) bones.push(bone);
 		if (bone == null) skeleton.roots.add(newBone);
