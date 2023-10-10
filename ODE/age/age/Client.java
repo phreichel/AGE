@@ -4,8 +4,6 @@ package age;
 
 import age.port.Port;
 import age.port.jogl.JOGLPort;
-import age.rig.Rig;
-import age.rig.Skeleton;
 import age.scene.Camera;
 import age.scene.NFlag;
 import age.scene.Node;
@@ -16,14 +14,17 @@ import age.util.MathUtil;
 import javax.vecmath.Matrix4f;
 import javax.vecmath.Vector3f;
 import age.clock.Clock;
-import age.gui.Factory;
 import age.gui.WFlag;
 import age.gui.Widget;
 import age.gui.GUI;
 import age.input.Events;
 import age.log.Level;
 import age.log.Log;
-import age.mesh.Mesh;
+import age.model.Animation;
+import age.model.Factory;
+import age.model.Mesh;
+import age.model.Model;
+import age.model.Rig;
 
 //*************************************************************************************************
 public class Client {
@@ -98,7 +99,7 @@ public class Client {
 		scene.camera(camNode);
 		scene.root().attach(camNode);
 
-		Mesh mesh = Mesh.factory().siglet(30, 7);
+		age.mesh.Mesh mesh = age.mesh.Mesh.factory().siglet(30, 7);
 		Node meshNode = new Node(NFlag.MESH);
 		meshNode.component(NItem.MESH, mesh);
 		scene.root().attach(meshNode);
@@ -131,29 +132,40 @@ public class Client {
 		}
 		*/
 		
-		Mesh emesh = Mesh.factory().model("assets/yrig/yrig.obj");
-		//Skeleton skeleton = Skeleton.factory().createRunner();
-		Skeleton skeleton = Skeleton.factory().create("assets/yrig/yrig.bvh");
+		Model model = Factory.instance.model("assets/yrig/yrig.obj");
+		Animation animation = Factory.instance.animation("assets/yrig/yrig.bvh");
+		
 		int   n = 6;
 		float r = 360f / n;
 		for (int i=0; i<n; i++) {
+
 			Node skelNode1 = new Node();
 			skelNode1.component(NItem.TRANSFORM, MathUtil.rotY(i*r));
 			skelNode1.component(NItem.TRANSFORM_ANIMATION, MathUtil.rotY(-12f));
 			scene.animator().add(NFlag.TRANSFORM, skelNode1);
-			Node skelNode2 = new Node(NFlag.RIG);
-			Rig rig = new Rig(skeleton);
+			
+			//Node skelNode2 = new Node(NFlag.RIG);
+			//Rig rig = new Rig(skeleton);
 			// rig.scale(.5f + (float) Math.random());
-			skelNode2.component(NItem.RIG, rig);
-			scene.animator().add(NFlag.RIG, skelNode2);
+			//skelNode2.component(NItem.RIG, rig);
+			//scene.animator().add(NFlag.RIG, skelNode2);
+
 			Matrix4f m = new Matrix4f();
 			Matrix4f m2 = new Matrix4f();
 			m.rotX( (float) Math.toRadians(-90) );
 			m2.rotY( (float) Math.toRadians(90) );
 			m.mul(m2, m);
 			m.setTranslation(new Vector3f(0, 0, -5));
-			skelNode2.component(NItem.TRANSFORM, m);
-			skelNode1.attach(skelNode2);
+			
+			Node rigNode = new Node(NFlag.RIG2);
+			Rig rig = new Rig(animation, model, null);
+			rigNode.component(NItem.RIG2, rig);
+			scene.animator().add(NFlag.RIG2, rigNode);
+			rigNode.component(NItem.TRANSFORM, m);
+			skelNode1.attach(rigNode);
+			
+			//skelNode2.component(NItem.TRANSFORM, m);
+			//skelNode1.attach(skelNode2);
 			
 			Node eNode = new Node(NFlag.MESH);
 			eNode.component(NItem.MESH, emesh);
@@ -171,7 +183,7 @@ public class Client {
 
 		Log.info("GUI Setup");
 		
-		Factory factory = gui.factory(); 
+		age.gui.Factory factory = gui.factory(); 
 		Widget root = gui.root();
 
 		Widget btnSysmenu = factory.createIconButton("plus", "sysmenu");

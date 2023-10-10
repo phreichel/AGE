@@ -15,7 +15,8 @@ public enum NItem {
 	TRANSFORM_ANIMATION(Matrix4f.class),
 	CAMERA(Camera.class),
 	MESH(Mesh.class),
-	RIG(Rig.class);
+	RIG(Rig.class),
+	RIG2(age.model.Rig.class);
 	//=============================================================================================
 
 	//=============================================================================================

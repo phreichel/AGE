@@ -119,18 +119,18 @@ public class Rig {
 		int idxb = Math.max(0, Math.min((idx+1), kfs.list().size()-1));
 		if (idxa == idxb) {
 			Keyframe k = kfs.list().get(idxa);
-			p.set(k.position());
-			m.set(k.orientation(), k.position(), k.scale());
+			p.set(k.position);
+			m.set(k.orientation, k.position, k.scale);
 		} else {
 			Keyframe ka = kfs.list().get(idxa);
 			Keyframe kb = kfs.list().get(idxb);
-			float ta = ka.step() * animation.steptime;
-			float tb = kb.step() * animation.steptime;
+			float ta = ka.step * animation.steptime;
+			float tb = kb.step * animation.steptime;
 			float alpha = (timevalue-ta) / (tb-ta);
-			p.interpolate(ka.position(), kb.position(), alpha);
+			p.interpolate(ka.position, kb.position, alpha);
 			Quat4f o = new Quat4f();
-			o.interpolate(ka.orientation(), kb.orientation(), alpha);
-			float s = (1f-alpha) * ka.scale() + alpha * kb.scale();
+			o.interpolate(ka.orientation, kb.orientation, alpha);
+			float s = (1f-alpha) * ka.scale + alpha * kb.scale;
 			m.set(o, p, s);
 		}
 		
@@ -150,7 +150,7 @@ public class Rig {
 		int frameidx = -1;
 		for (int i=0; i<kfs.list().size(); i++) {
 			Keyframe k = kfs.list().get(i);
-			float t = k.step() * animation.steptime;
+			float t = k.step * animation.steptime;
 			if (t > timevalue) break;
 			frameidx = i;
 		}
