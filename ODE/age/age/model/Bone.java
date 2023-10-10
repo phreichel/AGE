@@ -25,7 +25,8 @@ public class Bone {
 	) {
 		this.name = name;
 		this.parent = parent;
-		parent.children.add(this);
+		if (parent != null)
+			parent.children.add(this);
 	}
 	//=============================================================================================
 	

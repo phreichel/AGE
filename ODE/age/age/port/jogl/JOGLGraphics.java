@@ -26,8 +26,10 @@ import com.jogamp.opengl.util.texture.TextureCoords;
 import com.jogamp.opengl.util.texture.TextureIO;
 import age.mesh.Mesh;
 import age.mesh.Submesh;
+import age.model.Element;
 import age.gui.Multiline;
 import age.gui.Scrollable;
+import age.log.Log;
 import age.mesh.Material;
 import age.mesh.MaterialFlag;
 import age.port.Graphics;
@@ -599,5 +601,149 @@ class JOGLGraphics implements Graphics {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	private Map<age.model.Rig, int[]> rigs = new HashMap<>();
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void drawRig(age.model.Rig rig) {
+				
+		gl.glPushAttrib(GL_ENABLE_BIT);
+		gl.glPushAttrib(GL_LIGHTING_BIT);
+		gl.glPushAttrib(GL_TEXTURE_BIT);
+		gl.glPushAttrib(GL_CURRENT_BIT);
+		gl.glPushAttrib(GL_DEPTH_BUFFER_BIT);
+		
+		initRig(rig);
+		
+		gl.glShadeModel(GL_FLAT);
+		gl.glEnableClientState(GL_VERTEX_ARRAY);
+		gl.glEnableClientState(GL_NORMAL_ARRAY);
+		gl.glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+		
+		gl.glDisable(GL_LIGHTING);
+		gl.glEnable(GL_COLOR_MATERIAL);
+		drawRigSkeleton(rig);
+		
+		for (int i=0; i<rig.model.skin.elements.length; i++) {
+			
+			Element submesh = rig.model.skin.elements[i];
+			Material material = rig.model.materials[i];
+			this.applyMaterial(material);
+
+			int[] buffers = rigs.get(rig);
+			
+			// Set up vertex arrays
+			gl.glBindBuffer(GL_ARRAY_BUFFER, buffers[0]);
+			gl.glVertexPointer(3, GL_FLOAT, 0, 0);
+
+			gl.glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
+			gl.glTexCoordPointer(2, GL_FLOAT, 0, 0);
+
+			gl.glBindBuffer(GL_ARRAY_BUFFER, buffers[2]);
+			gl.glNormalPointer(GL_FLOAT, 0, 0);
+			
+			int type = switch(submesh.type) {
+				case LINES -> GL_LINES;
+				case TRIANGLES -> GL_TRIANGLES;
+				case QUADS -> GL_QUADS;
+				default -> throw new X("unsupported: %s", submesh.type);
+			};
+			
+			submesh.indices.rewind();
+			int length = submesh.indices.limit();
+			
+			// Render using indexed drawing
+			gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffers[3+i]);
+			gl.glDrawElements(type, length, GL_UNSIGNED_INT, 0);
+
+		}
+		
+		// Unbind buffers
+        gl.glBindBuffer(GL_ARRAY_BUFFER, 0);
+        gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+        
+		gl.glDisableClientState(GL_VERTEX_ARRAY);
+		gl.glDisableClientState(GL_NORMAL_ARRAY);
+		gl.glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+		
+		gl.glPopAttrib();
+		gl.glPopAttrib();
+		gl.glPopAttrib();
+		gl.glPopAttrib();
+		gl.glPopAttrib();
+        
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void initRig(age.model.Rig rig) {
+		
+		if (rigs.containsKey(rig)) return;
+		
+		int vboIds[] = new int[3 + rig.model.skin.elements.length];
+		gl.glGenBuffers(3 + rig.model.skin.elements.length, vboIds, 0);
+		rigs.put(rig, vboIds);
+			
+		// Vertex positions
+		rig.meshPositions.rewind();
+		gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[0]);
+		gl.glBufferData(GL_ARRAY_BUFFER, rig.meshPositions.limit() * Float.BYTES, rig.meshPositions, GL_STATIC_DRAW);
+
+		// Texture coordinates
+		rig.model.skin.mesh.textures.rewind();
+		gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[1]);
+		gl.glBufferData(GL_ARRAY_BUFFER, rig.model.skin.mesh.textures.limit() * Float.BYTES, rig.model.skin.mesh.textures, GL_STATIC_DRAW);
+
+		// Normals
+		rig.model.skin.mesh.normals.rewind();
+		gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[2]);
+		gl.glBufferData(GL_ARRAY_BUFFER, rig.model.skin.mesh.normals.limit() * Float.BYTES, rig.model.skin.mesh.normals, GL_STATIC_DRAW);
+		
+		for (int i=0; i<rig.model.skin.elements.length; i++) {
+			Element submesh = rig.model.skin.elements[i];
+			submesh.indices.rewind();
+			gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboIds[3+i]);
+			gl.glBufferData(GL_ELEMENT_ARRAY_BUFFER, submesh.indices.limit() * Integer.BYTES, submesh.indices, GL_STATIC_DRAW);
+		}
+
+		// Unbind buffers
+        gl.glBindBuffer(GL_ARRAY_BUFFER, 0);
+        gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	       
+	}
+	//=============================================================================================
+	
+	
+	//=============================================================================================
+	private int boneidx = 0;
+	//=============================================================================================
+	private void drawRigSkeleton(age.model.Rig rig) {
+		gl.glColor3f(1f, 1f, 0f);
+		boneidx = 0;
+		for (age.model.Bone b : rig.animation.skeleton.roots) {
+			drawRigBone(-1, rig, b);
+		}
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void drawRigBone(int parent, age.model.Rig rig, age.model.Bone b) {
+		if (parent != -1) {
+			Vector3f va = rig.initPositions.get(parent);
+			Vector3f vb = rig.initPositions.get(boneidx);
+			gl.glBegin(GL_LINES);
+			gl.glVertex3f(va.x, va.y ,va.z);
+			gl.glVertex3f(vb.x, vb.y ,vb.z);
+			gl.glEnd();
+		}
+		int pidx = boneidx;
+		boneidx++;
+		for (age.model.Bone c : b.children) {
+			drawRigBone(pidx, rig, c);
+		}
+	}
+	//=============================================================================================
+	
 }
 //*************************************************************************************************

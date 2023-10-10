@@ -24,8 +24,8 @@ public class Rig {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private List<Vector3f> initPositions  = new ArrayList<>();
-	private List<Vector3f> deltaPositions = new ArrayList<>();
+	public final List<Vector3f> initPositions  = new ArrayList<>();
+	public final List<Vector3f> deltaPositions = new ArrayList<>();
 	//=============================================================================================
 
 	//=============================================================================================
@@ -113,17 +113,22 @@ public class Rig {
 		Matrix4f m = new Matrix4f();
 		m.setIdentity();
 		
-		Keyframes kfs = animation.keyframes.get(boneindex);
+		Keyframes kfs = animation.keyframes.get(bn);
 		int idx = findKeyframe(kfs);
-		int idxa = Math.max(0, Math.min((idx+0), kfs.list().size()-1));
-		int idxb = Math.max(0, Math.min((idx+1), kfs.list().size()-1));
+		int idxa = Math.max(0, Math.min((idx+0), kfs.list.size()-1));
+		int idxb = Math.max(0, Math.min((idx+1), kfs.list.size()-1));
 		if (idxa == idxb) {
-			Keyframe k = kfs.list().get(idxa);
-			p.set(k.position);
-			m.set(k.orientation, k.position, k.scale);
+			if (kfs.list.size() > 0) {
+				Keyframe k = kfs.list.get(idxa);
+				p.set(k.position);
+				m.set(k.orientation, k.position, k.scale);
+			} else {
+				p.set(bn.position);
+				m.set(bn.orientation, bn.position, 1f);
+			}
 		} else {
-			Keyframe ka = kfs.list().get(idxa);
-			Keyframe kb = kfs.list().get(idxb);
+			Keyframe ka = kfs.list.get(idxa);
+			Keyframe kb = kfs.list.get(idxb);
 			float ta = ka.step * animation.steptime;
 			float tb = kb.step * animation.steptime;
 			float alpha = (timevalue-ta) / (tb-ta);
@@ -148,8 +153,8 @@ public class Rig {
 	//=============================================================================================
 	private int findKeyframe(Keyframes kfs) {
 		int frameidx = -1;
-		for (int i=0; i<kfs.list().size(); i++) {
-			Keyframe k = kfs.list().get(i);
+		for (int i=0; i<kfs.list.size(); i++) {
+			Keyframe k = kfs.list.get(i);
 			float t = k.step * animation.steptime;
 			if (t > timevalue) break;
 			frameidx = i;
@@ -161,7 +166,8 @@ public class Rig {
 	//=============================================================================================
 	private void update(Bone bn, int vertexidx, Vector3f d) {
 		Vector3f delta = deltaPositions.get(boneindex);
-		float scale = influence.influences.get(boneindex).get(vertexidx);
+		//float scale = influence.influences.get(boneindex).get(vertexidx);
+		float scale = 0f;
 		Vector3f scaledDelta = new Vector3f(delta);
 		scaledDelta.scale(scale);
 		d.add(scaledDelta);
@@ -171,6 +177,6 @@ public class Rig {
 		}
 	}
 	//=============================================================================================
-	
+
 }
 //*************************************************************************************************

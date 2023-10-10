@@ -21,8 +21,8 @@ public class BVHRigBuilder2 implements BVHBuilder {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private List<Bone>   anBone  = new ArrayList<>();
-	private List<Bone>   chBone  = new ArrayList<>();
+	private List<Bone> anBone  = new ArrayList<>();
+	private List<Bone> chBone  = new ArrayList<>();
 	private List<String> chName  = new ArrayList<>();
 	//=============================================================================================
 	
@@ -56,6 +56,7 @@ public class BVHRigBuilder2 implements BVHBuilder {
 			float ofsz
 	) {
 		Bone newBone = new Bone(name, bone);
+		animation.keyframes.put(newBone, new Keyframes(newBone));
 		if (bone != null) bones.push(bone);
 		if (bone == null) skeleton.roots.add(newBone);
 		newBone.position.set(ofsx, ofsy, ofsz);
@@ -113,9 +114,10 @@ public class BVHRigBuilder2 implements BVHBuilder {
 	//=============================================================================================
 	public void writeFrameData(float... frameValues) {
 		for (Bone now : anBone) {
-			
+			Keyframes kfs = animation.keyframes.get(now);
 			Keyframe kf = new Keyframe();
-			kf.step = findex; 
+			kfs.list.add(kf);
+			kf.step = findex;
 
 			tx.set(kf.position);
 			rx.set(0, 0, 0);

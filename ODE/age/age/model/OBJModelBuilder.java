@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import age.log.Log;
 import age.mesh.Material;
 import age.mesh.obj.ObjectBuilder;
 import age.util.X;
@@ -33,6 +34,11 @@ public class OBJModelBuilder implements ObjectBuilder{
 
 	//=============================================================================================
 	private final Map<String, Material> materialmap = new HashMap<>();
+	//=============================================================================================
+
+	//=============================================================================================
+	private ElementType current_type     = null;
+	private String      current_material = "";
 	//=============================================================================================
 	
 	//=============================================================================================
@@ -80,7 +86,19 @@ public class OBJModelBuilder implements ObjectBuilder{
 	//=============================================================================================
 
 	//=============================================================================================
-	public void startFace() {}
+	Boolean face = null;
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void startFace() {
+		if ((face == null) || !face) {
+			face = true;
+			current_type = ElementType.TRIANGLES;
+			mark.add(idxpos.size());
+			type.add(current_type);
+			material.add(current_material);
+		}
+	}
 	public void endFace() {}
 	//=============================================================================================
 
@@ -91,9 +109,17 @@ public class OBJModelBuilder implements ObjectBuilder{
 		idxnorm.add(in);
 	}
 	//=============================================================================================
-
+	
 	//=============================================================================================
-	public void startLine() {}
+	public void startLine() {
+		if ((face == null) || face) {
+			face = false;
+			current_type = ElementType.LINES;
+			mark.add(idxpos.size());
+			type.add(current_type);
+			material.add(current_material);
+		}
+	}
 	public void endLine() {}
 	//=============================================================================================
 
@@ -113,8 +139,12 @@ public class OBJModelBuilder implements ObjectBuilder{
 
 	//=============================================================================================
 	public void materialUse(String name) {
-		material.add(name);
-		mark.add(idxpos.size());
+		current_material = name;
+		if (face != null) {
+			mark.add(idxpos.size());
+			type.add(current_type);
+			material.add(current_material);
+		}
 	}	
 	//=============================================================================================
 
@@ -133,7 +163,7 @@ public class OBJModelBuilder implements ObjectBuilder{
 			ElementType t = type.get(i);
 			int m1 = mark.get(i);
 			int m2 = (i < mark.size()-1) ? mark.get(i+1)-1 : mesh.size-1;
-			int[] range = new int[m2-m1];
+			int[] range = new int[m2-m1+1];
 			for (int j=0; j<m2-m1+1; j++) range[j] = m1+j;
 			elements[i] = new Element(t, range);
 			String matname = material.get(i);

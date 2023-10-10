@@ -58,6 +58,7 @@ public interface Graphics {
 	public void drawBox(float sx, float sy, float sz);
 	public void drawMesh(Mesh mesh);
 	public void drawRig(Rig rig);
+	public void drawRig(age.model.Rig rig);
 	//=============================================================================================
 	
 }

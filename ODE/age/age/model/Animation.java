@@ -1,9 +1,7 @@
 //*************************************************************************************************
 package age.model;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 //*************************************************************************************************
@@ -21,7 +19,7 @@ public class Animation {
 	//=============================================================================================
 
 	//=============================================================================================
-	public final List<Keyframes> keyframes = new ArrayList<>();
+	public final Map<Bone, Keyframes> keyframes = new HashMap<>();
 	public final Map<String, Sequence> sequences = new HashMap<>();
 	//=============================================================================================
 

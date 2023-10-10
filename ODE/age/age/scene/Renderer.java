@@ -3,6 +3,8 @@ package age.scene;
 //*************************************************************************************************
 
 import javax.vecmath.Matrix4f;
+
+import age.log.Log;
 import age.mesh.Mesh;
 import age.port.Graphics;
 import age.port.Renderable;
@@ -77,6 +79,7 @@ public class Renderer implements Renderable {
 				case BOX -> renderBox(g, node);
 				case MESH -> renderMesh2(g, node);
 				case RIG -> renderSkeleton(g, node);
+				case RIG2 -> renderRig(g, node);
 				default -> {}
 			}
 		}
@@ -101,6 +104,14 @@ public class Renderer implements Renderable {
 	private void renderSkeleton(Graphics g, Node node) {
 		g.color(1f, 0f, 0f, 1f);
 		Rig rig = node.component(NItem.RIG, Rig.class);
+		g.drawRig(rig);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void renderRig(Graphics g, Node node) {
+		g.color(1f, 0f, 0f, 1f);
+		age.model.Rig rig = node.component(NItem.RIG2, age.model.Rig.class);
 		g.drawRig(rig);
 	}
 	//=============================================================================================
