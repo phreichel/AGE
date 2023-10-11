@@ -38,7 +38,7 @@ public class Factory {
 
 	//=============================================================================================
 	private final BVHRigBuilder2 animationBuilder = new BVHRigBuilder2();
-	private final BVHParser  animationParser = new BVHParser(animationBuilder);
+	private final BVHParser animationParser = new BVHParser(animationBuilder);
 	//=============================================================================================
 
 	//=============================================================================================

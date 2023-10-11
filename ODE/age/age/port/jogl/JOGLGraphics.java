@@ -608,30 +608,35 @@ class JOGLGraphics implements Graphics {
 		
 		gl.glShadeModel(GL_FLAT);
 		gl.glEnableClientState(GL_VERTEX_ARRAY);
+		//gl.glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 		gl.glEnableClientState(GL_NORMAL_ARRAY);
-		gl.glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+		
+		gl.glColor3f(1f, 0f, 0f);
 		
 		gl.glDisable(GL_LIGHTING);
-		gl.glEnable(GL_COLOR_MATERIAL);
 		drawRigSkeleton(rig);
+		gl.glEnable(GL_LIGHTING);
+		gl.glEnable(GL_LIGHT0);
+
+		int[] buffers = rigs.get(rig);
 		
+		// Set up vertex arrays
+		rig.meshPositions.rewind();
+		gl.glBindBuffer(GL_ARRAY_BUFFER, buffers[0]);
+		gl.glBufferSubData(GL_ARRAY_BUFFER, 0, rig.meshPositions.limit() * Float.BYTES, rig.meshPositions);
+		gl.glVertexPointer(3, GL_FLOAT, 0, 0);
+
+		//gl.glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
+		//gl.glTexCoordPointer(2, GL_FLOAT, 0, 0);
+
+		gl.glBindBuffer(GL_ARRAY_BUFFER, buffers[2]);
+		gl.glNormalPointer(GL_FLOAT, 0, 0);
+	
 		for (int i=0; i<rig.model.skin.elements.length; i++) {
 			
 			Element submesh = rig.model.skin.elements[i];
 			Material material = rig.model.materials[i];
 			this.applyMaterial(material);
-
-			int[] buffers = rigs.get(rig);
-			
-			// Set up vertex arrays
-			gl.glBindBuffer(GL_ARRAY_BUFFER, buffers[0]);
-			gl.glVertexPointer(3, GL_FLOAT, 0, 0);
-
-			gl.glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
-			gl.glTexCoordPointer(2, GL_FLOAT, 0, 0);
-
-			gl.glBindBuffer(GL_ARRAY_BUFFER, buffers[2]);
-			gl.glNormalPointer(GL_FLOAT, 0, 0);
 			
 			int type = switch(submesh.type) {
 				case LINES -> GL_LINES;
@@ -646,7 +651,7 @@ class JOGLGraphics implements Graphics {
 			// Render using indexed drawing
 			gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffers[3+i]);
 			gl.glDrawElements(type, length, GL_UNSIGNED_INT, 0);
-
+			
 		}
 		
 		// Unbind buffers
@@ -654,7 +659,6 @@ class JOGLGraphics implements Graphics {
         gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
         
 		gl.glDisableClientState(GL_VERTEX_ARRAY);
-		gl.glDisableClientState(GL_NORMAL_ARRAY);
 		gl.glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 		
 		gl.glPopAttrib();
@@ -673,23 +677,26 @@ class JOGLGraphics implements Graphics {
 		
 		int vboIds[] = new int[3 + rig.model.skin.elements.length];
 		gl.glGenBuffers(3 + rig.model.skin.elements.length, vboIds, 0);
+		
 		rigs.put(rig, vboIds);
 			
 		// Vertex positions
 		rig.meshPositions.rewind();
+		//rig.model.skin.mesh.positions.rewind();
 		gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[0]);
-		gl.glBufferData(GL_ARRAY_BUFFER, rig.meshPositions.limit() * Float.BYTES, rig.meshPositions, GL_STATIC_DRAW);
+		gl.glBufferData(GL_ARRAY_BUFFER, rig.meshPositions.limit() * Float.BYTES, rig.meshPositions, GL_DYNAMIC_DRAW);
+		//gl.glBufferData(GL_ARRAY_BUFFER, rig.meshPositions.limit() * Float.BYTES, rig.model.skin.mesh.positions, GL_STATIC_DRAW);
 
 		// Texture coordinates
-		rig.model.skin.mesh.textures.rewind();
-		gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[1]);
-		gl.glBufferData(GL_ARRAY_BUFFER, rig.model.skin.mesh.textures.limit() * Float.BYTES, rig.model.skin.mesh.textures, GL_STATIC_DRAW);
+		//rig.model.skin.mesh.textures.rewind();
+		//gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[1]);
+		//gl.glBufferData(GL_ARRAY_BUFFER, rig.model.skin.mesh.textures.limit() * Float.BYTES, rig.model.skin.mesh.textures, GL_STATIC_DRAW);
 
 		// Normals
 		rig.model.skin.mesh.normals.rewind();
 		gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[2]);
 		gl.glBufferData(GL_ARRAY_BUFFER, rig.model.skin.mesh.normals.limit() * Float.BYTES, rig.model.skin.mesh.normals, GL_STATIC_DRAW);
-		
+	
 		for (int i=0; i<rig.model.skin.elements.length; i++) {
 			Element submesh = rig.model.skin.elements[i];
 			submesh.indices.rewind();
@@ -717,7 +724,6 @@ class JOGLGraphics implements Graphics {
 		if (b.parent != null) {
 			Vector3f da = rig.deltaPositions.get(b.parent.index);
 			Vector3f db = rig.deltaPositions.get(b.index);
-			gl.glColor3f(1f, 0f + (float) b.index / 10, 0f);
 			gl.glBegin(GL_LINES);
 			gl.glVertex3f(da.x, da.y, da.z);
 			gl.glVertex3f(db.x, db.y, db.z);

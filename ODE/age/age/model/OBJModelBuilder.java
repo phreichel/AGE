@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.vecmath.Vector2f;
+import javax.vecmath.Vector3f;
+
 import age.mesh.Material;
 import age.mesh.obj.ObjectBuilder;
 import age.util.X;
@@ -14,9 +18,9 @@ import age.util.X;
 public class OBJModelBuilder implements ObjectBuilder{
 
 	//=============================================================================================
-	private final List<Float> lstpos = new ArrayList<>();
-	private final List<Float> lsttex = new ArrayList<>();
-	private final List<Float> lstnorm = new ArrayList<>();
+	private final List<Vector3f> lstpos = new ArrayList<>();
+	private final List<Vector2f> lsttex = new ArrayList<>();
+	private final List<Vector3f> lstnorm = new ArrayList<>();
 	//=============================================================================================
 
 	//=============================================================================================
@@ -57,24 +61,19 @@ public class OBJModelBuilder implements ObjectBuilder{
 
 	//=============================================================================================
 	public void writeVertex(float vx, float vy, float vz, float vw) {
-		lstpos.add(vx);
-		lstpos.add(vy);
-		lstpos.add(vz);
+		lstpos.add(new Vector3f(vx, vy, vz));
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void writeNormal(float nx, float ny, float nz) {
-		lstnorm.add(nx);
-		lstnorm.add(ny);
-		lstnorm.add(nz);
+		lstnorm.add(new Vector3f(nx, ny, nz));
 	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void writeTexture(float tu, float tv, float tw) {
-		lsttex.add(tu);
-		lsttex.add(tv);
+		lsttex.add(new Vector2f(tu, tv));
 	}
 	//=============================================================================================
 
@@ -89,6 +88,8 @@ public class OBJModelBuilder implements ObjectBuilder{
 	//=============================================================================================
 	
 	//=============================================================================================
+	private final List<Integer> indices = new ArrayList<>();
+	//=============================================================================================
 	public void startFace() {
 		if ((face == null) || !face) {
 			face = true;
@@ -97,15 +98,53 @@ public class OBJModelBuilder implements ObjectBuilder{
 			type.add(current_type);
 			material.add(current_material);
 		}
+		indices.clear();
 	}
-	public void endFace() {}
+	public void endFace() {
+		switch (indices.size()) {
+			case 9  -> {
+				idxpos.add( Math.max(0, indices.get(0)-1));
+				idxtex.add( Math.max(0, indices.get(1)-1));
+				idxnorm.add(Math.max(0, indices.get(2)-1));
+				idxpos.add( Math.max(0, indices.get(3)-1));
+				idxtex.add( Math.max(0, indices.get(4)-1));
+				idxnorm.add(Math.max(0, indices.get(5)-1));
+				idxpos.add( Math.max(0, indices.get(6)-1));
+				idxtex.add( Math.max(0, indices.get(7)-1));
+				idxnorm.add(Math.max(0, indices.get(8)-1));
+			}
+			case 12 -> {
+				idxpos.add( Math.max(0, indices.get(0)-1));
+				idxtex.add( Math.max(0, indices.get(1)-1));
+				idxnorm.add(Math.max(0, indices.get(2)-1));
+				idxpos.add( Math.max(0, indices.get(3)-1));
+				idxtex.add( Math.max(0, indices.get(4)-1));
+				idxnorm.add(Math.max(0, indices.get(5)-1));
+				idxpos.add( Math.max(0, indices.get(6)-1));
+				idxtex.add( Math.max(0, indices.get(7)-1));
+				idxnorm.add(Math.max(0, indices.get(8)-1));
+				idxpos.add( Math.max(0, indices.get(0)-1));
+				idxtex.add( Math.max(0, indices.get(1)-1));
+				idxnorm.add(Math.max(0, indices.get(2)-1));
+				idxpos.add( Math.max(0, indices.get(6)-1));
+				idxtex.add( Math.max(0, indices.get(7)-1));
+				idxnorm.add(Math.max(0, indices.get(8)-1));
+				idxpos.add( Math.max(0, indices.get(9)-1));
+				idxtex.add( Math.max(0, indices.get(10)-1));
+				idxnorm.add(Math.max(0, indices.get(11)-1));
+			}
+			default -> {
+				throw new X("invalid index count");
+			}
+		}
+	}
 	//=============================================================================================
 
 	//=============================================================================================
 	public void writeFaceIndex(int iv, int it, int in) {
-		idxpos.add(iv);
-		idxtex.add(it);
-		idxnorm.add(in);
+		indices.add(iv);
+		indices.add(it);
+		indices.add(in);
 	}
 	//=============================================================================================
 	
@@ -149,12 +188,22 @@ public class OBJModelBuilder implements ObjectBuilder{
 
 	//=============================================================================================
 	public Model build() {
-		float[] pos = new float[lstpos.size()];
-		float[] tex = new float[lsttex.size()];
-		float[] norm = new float[lstnorm.size()];
-		for (int i=0; i<lstpos.size(); i++) pos[i] = lstpos.get(i);
-		for (int i=0; i<lsttex.size(); i++) tex[i] = lsttex.get(i);
-		for (int i=0; i<lstnorm.size(); i++) norm[i] = lstnorm.get(i);
+		float[] pos  = new float[idxpos.size()*3];
+		float[] tex  = new float[idxpos.size()*2];
+		float[] norm = new float[idxpos.size()*3];
+		for (int i=0; i<idxpos.size(); i++) {
+			Vector3f p = lstpos.get(idxpos.get(i));
+			pos[i*3+0] = p.x;
+			pos[i*3+1] = p.y;
+			pos[i*3+2] = p.z;
+			Vector2f t = lsttex.get(idxtex.get(i));
+			tex[i*2+0] = t.x;
+			tex[i*2+1] = t.y;
+			Vector3f n = lstnorm.get(idxnorm.get(i));
+			norm[i*3+0] = n.x;
+			norm[i*3+1] = n.y;
+			norm[i*3+2] = n.z;
+		}
 		Mesh mesh = new Mesh(pos, tex, norm);
 		Element[] elements = new Element[mark.size()];
 		Material[] materials = new Material[mark.size()];
@@ -163,7 +212,9 @@ public class OBJModelBuilder implements ObjectBuilder{
 			int m1 = mark.get(i);
 			int m2 = (i < mark.size()-1) ? mark.get(i+1)-1 : mesh.size-1;
 			int[] range = new int[m2-m1+1];
-			for (int j=0; j<m2-m1+1; j++) range[j] = m1+j;
+			for (int j=0; j<m2-m1+1; j++) {
+				range[j] = m1+j;
+			}
 			elements[i] = new Element(t, range);
 			String matname = material.get(i);
 			materials[i] = materialmap.get(matname);
