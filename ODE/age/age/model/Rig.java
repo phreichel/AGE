@@ -164,8 +164,7 @@ public class Rig {
 	private void update(Bone bn, int vertexidx, Vector3f d) {
 		Vector3f delta = new Vector3f();
 		delta.sub(deltaPositions.get(bn.index), initPositions.get(bn.index));
-		//float scale = influence.influences.get(boneindex).get(vertexidx);
-		float scale = 1f;
+		float scale = influence.influences[vertexidx][bn.index];
 		Vector3f scaledDelta = new Vector3f(delta);
 		scaledDelta.scale(scale);
 		d.add(scaledDelta);

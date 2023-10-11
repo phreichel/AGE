@@ -22,6 +22,7 @@ import age.log.Level;
 import age.log.Log;
 import age.model.Animation;
 import age.model.Factory;
+import age.model.Influence;
 import age.model.Model;
 import age.model.Rig;
 
@@ -133,6 +134,7 @@ public class Client {
 		
 		Model model = Factory.instance.model("assets/yrig/yrig.obj");
 		Animation animation = Factory.instance.animation("assets/yrig/yrig.bvh");
+		Influence influence = new Influence(animation.skeleton, model.skin.mesh); 
 		
 		int   n = 6;
 		float r = 360f / n;
@@ -151,7 +153,7 @@ public class Client {
 			m.setTranslation(new Vector3f(0, 0, -5));
 			
 			Node rigNode = new Node(NFlag.RIG2);
-			Rig rig = new Rig(animation, model, null);
+			Rig rig = new Rig(animation, model, influence);
 			rigNode.component(NItem.RIG2, rig);
 			scene.animator().add(NFlag.RIG2, rigNode);
 			rigNode.component(NItem.TRANSFORM, m);
