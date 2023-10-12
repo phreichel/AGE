@@ -49,7 +49,7 @@ public class Animator {
 			for (var node : list) {
 				switch (flag) {
 					case TRANSFORM -> animateTransform(node, dT); 
-					case RIG2 -> animateSkeleton(node, dT);
+					case RIG -> animateSkeleton(node, dT);
 					default -> throw new X("Unsupported Animation Flag: %s", flag);
 				}
 			}
@@ -85,7 +85,7 @@ public class Animator {
 
 	//=============================================================================================
 	private void animateSkeleton(Node node, float dT) {
-		Rig r = node.component(NItem.RIG2, Rig.class);
+		Rig r = node.component(NItem.RIG, Rig.class);
 		r.update(dT);
 	}
 	//=============================================================================================

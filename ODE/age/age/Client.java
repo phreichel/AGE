@@ -20,7 +20,6 @@ import age.gui.GUI;
 import age.input.Events;
 import age.log.Level;
 import age.log.Log;
-import age.mesh.Mesh;
 import age.model.Animation;
 import age.model.Factory;
 import age.model.Influence;
@@ -65,8 +64,7 @@ public class Client {
 		port.position(150, 150);
 		port.size(800, 600);
 		
-		Log.info("Setting Clock Tasks");
-		
+		Log.info("Setting Clock Tasks");	
 		clock.addFPS(60, this::update);
 		clock.addFPS(60, this::render);
 
@@ -100,17 +98,18 @@ public class Client {
 		scene.camera(camNode);
 		scene.root().attach(camNode);
 
-		age.mesh.Mesh mesh = age.mesh.Mesh.factory().siglet(30, 7);
-		Node meshNode = new Node(NFlag.MESH);
-		meshNode.component(NItem.MESH, mesh);
-		scene.root().attach(meshNode);
+		//age.mesh.Mesh mesh = age.mesh.Mesh.factory().siglet(30, 7);
+		Model siglet = Factory.instance.siglet(30, 7);
+		Node modelNode = new Node(NFlag.MODEL);
+		modelNode.component(NItem.MODEL, siglet);
+		scene.root().attach(modelNode);
 
-		Mesh bmesh = Mesh.factory().model("assets/stone/Stone.obj");
-		Node bNode = new Node(NFlag.MESH);
-		bNode.component(NItem.MESH, bmesh);
-		meshNode.attach(bNode);
+		Model bmodel = Factory.instance.model("assets/stone/Stone.obj");
+		Node bNode = new Node(NFlag.MODEL);
+		bNode.component(NItem.MODEL, bmodel);
+		modelNode.attach(bNode);
 
-		Mesh ptmesh = Mesh.factory().model("assets/palm_tree/10446_Palm_Tree_v1_max2010_iteration-2.obj");
+		Model ptmodel = Factory.instance.model("assets/palm_tree/10446_Palm_Tree_v1_max2010_iteration-2.obj");
 		Matrix4f ptMx = new Matrix4f();
 		ptMx.setIdentity();
 		ptMx.rotX( (float) Math.toRadians(-90f));
@@ -125,10 +124,10 @@ public class Client {
 			Matrix4f ptMxC = new Matrix4f(ptMx);
 			ptMxC.setTranslation(new Vector3f(dx, 0f, dz));
 			ptMxC.setScale(ptMxC.getScale() + ds);
-			Node ptNode = new Node(NFlag.MESH);
-			ptNode.component(NItem.MESH, ptmesh);
+			Node ptNode = new Node(NFlag.MODEL);
+			ptNode.component(NItem.MODEL, ptmodel);
 			ptNode.component(NItem.TRANSFORM, ptMxC);
-			meshNode.attach(ptNode);
+			modelNode.attach(ptNode);
 		}
 		
 		Model model = Factory.instance.model("assets/yrig/yrig.obj");
@@ -151,14 +150,14 @@ public class Client {
 			m.mul(m2, m);
 			m.setTranslation(new Vector3f(0, 0, -5));
 			
-			Node rigNode = new Node(NFlag.RIG2);
+			Node rigNode = new Node(NFlag.RIG);
 			Rig rig = new Rig(animation, model, influence);
-			rigNode.component(NItem.RIG2, rig);
-			scene.animator().add(NFlag.RIG2, rigNode);
+			rigNode.component(NItem.RIG, rig);
+			scene.animator().add(NFlag.RIG, rigNode);
 			rigNode.component(NItem.TRANSFORM, m);
 			skelNode1.attach(rigNode);
 			
-			meshNode.attach(skelNode1);
+			modelNode.attach(skelNode1);
 		}
 		
 	}
@@ -250,8 +249,7 @@ public class Client {
 	public static void main(String[] args) {
 		Log.get("default").disable(Level.DEBUG);
 		Log.info("Client Start");
-		Client client;
-		client = new Client();
+		Client client = new Client();
 		client.run();
 		Log.info("Client Stop");
 	}

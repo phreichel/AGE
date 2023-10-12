@@ -1,34 +1,32 @@
 //*************************************************************************************************
-package age.rig.bvh;
+package age.model.mtl;
 //*************************************************************************************************
 
 import age.util.Scanner;
 
 //*************************************************************************************************
-public class BVHScanner extends Scanner {
+public class MaterialScanner extends Scanner {
 
 	//=============================================================================================
 	protected boolean isKeyword(String s) {
 		return
-			s.equals("HIERARCHY") ||
-			s.equals("ROOT") ||
-			s.equals("OFFSET") ||
-			s.equals("CHANNELS") ||
-			s.equals("JOINT") ||
-			s.equals("MOTION") ||
-			s.equals("Xposition") ||
-			s.equals("Yposition") ||
-			s.equals("Zposition") ||
-			s.equals("Xrotation") ||
-			s.equals("Yrotation") ||
-			s.equals("Zrotation") ||
-			s.equals("End") ||
-			s.equals("Site") ||
-			s.equals("Frames") ||
-			s.equals("Frame") ||
-			s.equals("Time");
+			s.equals("Ns") ||
+			s.equals("Ni") ||
+			s.equals("d")  ||
+			s.equals("Tr") ||
+			s.equals("Tf") ||
+			s.equals("Ka") ||
+			s.equals("Kd") ||
+			s.equals("Ks") ||
+			s.equals("Ke") ||
+			s.equals("illum") ||
+			s.equals("map_Ns") ||
+			s.equals("map_Ka") ||
+			s.equals("map_Kd") ||
+			s.equals("map_Bump") ||
+			s.equals("newmtl");
 	}
 	//=============================================================================================
-
+	
 }
 //*************************************************************************************************

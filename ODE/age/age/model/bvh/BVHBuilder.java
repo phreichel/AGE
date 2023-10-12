@@ -1,34 +1,26 @@
 //*************************************************************************************************
-package age.mesh;
+package age.model.bvh;
 //*************************************************************************************************
 
-import java.util.EnumSet;
-import java.util.Set;
-import javax.vecmath.Color3f;
-
 //*************************************************************************************************
-public final class Material {
+public interface BVHBuilder {
 
 	//=============================================================================================
-	public final Set<MaterialFlag> flags = EnumSet.of(MaterialFlag.LIGHTING);
-	//=============================================================================================
-	
-	//=============================================================================================
-	public final Color3f ambience = new Color3f();
-	public final Color3f diffuse = new Color3f();
-	public final Color3f specular = new Color3f();
-	public final Color3f emission = new Color3f();
-	public float shininess = 0f;
-	public float dissolve = 0f;
-	public float refraction = 0f;
-	public int illumination = -1;
+	public void startFile();
+	public void endFile();
 	//=============================================================================================
 
 	//=============================================================================================
-	public String specular_map = null;
-	public String ambient_map = null;
-	public String diffuse_map = null;
-	public String bump_map = null;
+	public void startBone(String name, float ofsx, float ofsy, float ofsz);
+	public void endBone();
+	public void writeChannelCount(int count);
+	public void writeChannelName(String channelName);
+	//=============================================================================================
+
+	//=============================================================================================
+	public void writeFrameCount(int frameCount);
+	public void writeFrameTime(float frameTime);
+	public void writeFrameData(float ... frameValues);
 	//=============================================================================================
 	
 }

@@ -15,16 +15,13 @@ import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.util.*;
 import javax.vecmath.*;
-import age.mesh.Mesh;
-import age.mesh.Submesh;
 import age.model.Element;
+import age.model.Material;
+import age.model.MaterialFlag;
+import age.model.Model;
 import age.gui.Multiline;
 import age.gui.Scrollable;
-import age.mesh.Material;
-import age.mesh.MaterialFlag;
 import age.port.Graphics;
-import age.rig.Bone;
-import age.rig.Rig;
 import age.util.X;
 import age.util.MathUtil;
 
@@ -367,168 +364,6 @@ class JOGLGraphics implements Graphics {
 	//=============================================================================================
 
 	//=============================================================================================
-	private Set<UUID> meshes = new HashSet<>();
-	private Map<UUID, Integer> positionVBOs = new HashMap<>();
-	private Map<UUID, Integer> textureVBOs = new HashMap<>();
-	private Map<UUID, Integer> normalVBOs = new HashMap<>();
-	private Map<UUID, Integer> indexVBOs = new HashMap<>();
-	private Map<UUID, Integer> indexVBOTypes = new HashMap<>();
-	private Map<UUID, Integer> indexVBOLengths = new HashMap<>();
-	//=============================================================================================
-	
-	//=============================================================================================
-	public void drawMesh(Mesh mesh) {
-		
-		gl.glPushAttrib(GL_ENABLE_BIT);
-		gl.glPushAttrib(GL_LIGHTING_BIT);
-		gl.glPushAttrib(GL_TEXTURE_BIT);
-		gl.glPushAttrib(GL_CURRENT_BIT);
-		gl.glPushAttrib(GL_DEPTH_BUFFER_BIT);
-		
-		initMesh(mesh);
-		
-		gl.glShadeModel(GL_FLAT);
-		
-		gl.glEnableClientState(GL_VERTEX_ARRAY);
-		gl.glEnableClientState(GL_NORMAL_ARRAY);
-		gl.glEnableClientState(GL_TEXTURE_COORD_ARRAY);		
-		
-		for (int i=0; i<mesh.submeshes.size(); i++) {
-			
-			Submesh submesh = mesh.submeshes.get(i);
-
-			Material material = submesh.material;
-			this.applyMaterial(material);
-
-			// Set up vertex arrays
-			gl.glBindBuffer(GL_ARRAY_BUFFER, positionVBOs.get(mesh.uuid));
-			gl.glVertexPointer(3, GL_FLOAT, 0, 0);
-
-			gl.glBindBuffer(GL_ARRAY_BUFFER, textureVBOs.get(mesh.uuid));
-			gl.glTexCoordPointer(2, GL_FLOAT, 0, 0);
-
-			gl.glBindBuffer(GL_ARRAY_BUFFER, normalVBOs.get(mesh.uuid));
-			gl.glNormalPointer(GL_FLOAT, 0, 0);
-			
-			// Render using indexed drawing
-			gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexVBOs.get(submesh.uuid));
-			gl.glDrawElements(indexVBOTypes.get(submesh.uuid), indexVBOLengths.get(submesh.uuid), GL_UNSIGNED_INT, 0);
-			
-		}
-		
-		// Unbind buffers
-        gl.glBindBuffer(GL_ARRAY_BUFFER, 0);
-        gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-        
-		gl.glDisableClientState(GL_VERTEX_ARRAY);
-		gl.glDisableClientState(GL_NORMAL_ARRAY);
-		gl.glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-		
-		gl.glPopAttrib();
-		gl.glPopAttrib();
-		gl.glPopAttrib();
-		gl.glPopAttrib();
-		gl.glPopAttrib();
-        
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private void initMesh(Mesh mesh) {
-		
-		if (meshes.contains(mesh.uuid)) return;  
-		meshes.add(mesh.uuid);
-		
-		int vboIds[] = new int[3 + mesh.submeshes.size()];
-		gl.glGenBuffers(3 + mesh.submeshes.size(), vboIds, 0);
-		
-		// Vertex positions
-		positionVBOs.put(mesh.uuid, vboIds[0]);
-		mesh.positions.rewind();
-		gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[0]);
-		gl.glBufferData(GL_ARRAY_BUFFER, mesh.positions.limit() * Float.BYTES, mesh.positions, GL_STATIC_DRAW);
-
-		// Texture coordinates
-		textureVBOs.put(mesh.uuid, vboIds[1]);
-		mesh.textures.rewind();
-		gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[1]);
-		gl.glBufferData(GL_ARRAY_BUFFER, mesh.textures.limit() * Float.BYTES, mesh.textures, GL_STATIC_DRAW);
-
-		// Normals
-		normalVBOs.put(mesh.uuid, vboIds[2]);
-		mesh.normals.rewind();
-		gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[2]);
-		gl.glBufferData(GL_ARRAY_BUFFER, mesh.normals.limit() * Float.BYTES, mesh.normals, GL_STATIC_DRAW);
-		
-		for (int i=0; i<mesh.submeshes.size(); i++) {
-			Submesh submesh = mesh.submeshes.get(i);
-			indexVBOs.put(submesh.uuid, vboIds[3+i]);
-			indexVBOLengths.put(submesh.uuid, submesh.indices.limit());
-			int type = switch (submesh.type) {
-				case TRIANGLES -> GL_TRIANGLES;
-				case LINES -> GL_LINES;
-				default -> throw new X("Unsupported Type: %s", submesh.type);
-			};
-			indexVBOTypes.put(submesh.uuid, type);
-			submesh.indices.rewind();
-			gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboIds[3+i]);
-			gl.glBufferData(GL_ELEMENT_ARRAY_BUFFER, submesh.indices.limit() * Integer.BYTES, submesh.indices, GL_STATIC_DRAW);
-		}
-
-		// Unbind buffers
-        gl.glBindBuffer(GL_ARRAY_BUFFER, 0);
-        gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-		
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	public void drawRig(Rig rig) {
-		gl.glPushAttrib(GL2.GL_ENABLE_BIT);
-		gl.glDisable(GL2.GL_LIGHTING);
-		drawBones(rig.skeleton().bones(), rig.time());
-		gl.glPopAttrib();
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private void drawBones(List<Bone> bones, float t) {
-		for (var bone : bones) {
-			drawBone(bone, t);
-		}
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private Vector3f r1 = new Vector3f();
-	private Vector3f r2 = new Vector3f();
-	private Quat4f   o1 = new Quat4f();
-	private Quat4f   o2 = new Quat4f();
-	private Matrix4f mx = new Matrix4f();
-	//=============================================================================================
-	
-	//=============================================================================================
-	private void drawBone(Bone bone, float t) {
-		bone.interpolate(r1, o1, t);
-		mx.setIdentity();
-		mx.setRotation(o1);
-		mx.setTranslation(r1);
-		buffer = MathUtil.toGLMatrix(mx, buffer);
-		gl.glPushMatrix();
-		gl.glMultMatrixf(buffer, 0);
-		for (var child : bone.children()) {
-			child.interpolate(r2, o2, t);
-			gl.glBegin(GL_LINES);
-			gl.glVertex3f(0, 0, 0);
-			gl.glVertex3f(r2.x, r2.y, r2.z);
-			gl.glEnd();
-		}
-		drawBones(bone.children(), t);
-		gl.glPopMatrix();
-	}
-	//=============================================================================================
-
-	//=============================================================================================
 	public void applyMaterial(Material m) {
 
 		if (m == null) return;
@@ -736,6 +571,106 @@ class JOGLGraphics implements Graphics {
 		for (age.model.Bone c : b.children) {
 			drawRigBone(rig, c);
 		}
+	}
+	//=============================================================================================
+	
+	//=============================================================================================
+	public void drawModel(Model model)  {
+
+		initModel(model);
+		
+		int[] buffers = models.get(model);
+		
+		gl.glEnableClientState(GL_VERTEX_ARRAY);
+		gl.glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+		gl.glEnableClientState(GL_NORMAL_ARRAY);
+		
+		// Set up vertex arrays
+		model.skin.mesh.positions.rewind();
+		gl.glBindBuffer(GL_ARRAY_BUFFER, buffers[0]);
+		gl.glVertexPointer(3, GL_FLOAT, 0, 0);
+
+		gl.glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
+		gl.glTexCoordPointer(2, GL_FLOAT, 0, 0);
+
+		gl.glBindBuffer(GL_ARRAY_BUFFER, buffers[2]);
+		gl.glNormalPointer(GL_FLOAT, 0, 0);
+	
+		for (int i=0; i<model.skin.elements.length; i++) {
+			
+			Element element = model.skin.elements[i];
+			Material material = model.materials[i];
+			this.applyMaterial(material);
+			
+			int type = switch(element.type) {
+				case LINES -> GL_LINES;
+				case TRIANGLES -> GL_TRIANGLES;
+				case QUADS -> GL_QUADS;
+				default -> throw new X("unsupported: %s", element.type);
+			};
+			
+			element.indices.rewind();
+			int length = element.indices.limit();
+			
+			// Render using indexed drawing
+			gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffers[3+i]);
+			gl.glDrawElements(type, length, GL_UNSIGNED_INT, 0);
+			
+		}
+		
+		// Unbind buffers
+        gl.glBindBuffer(GL_ARRAY_BUFFER, 0);
+        gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+		gl.glPopMatrix();
+        
+		gl.glDisableClientState(GL_VERTEX_ARRAY);
+		gl.glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+		gl.glDisableClientState(GL_NORMAL_ARRAY);
+        
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private Map<age.model.Model, int[]> models = new HashMap<>();
+	//=============================================================================================
+	
+	//=============================================================================================
+	private void initModel(age.model.Model model) {
+		
+		if (models.containsKey(model)) return;
+		
+		int vboIds[] = new int[3 + model.skin.elements.length];
+		gl.glGenBuffers(3 + model.skin.elements.length, vboIds, 0);
+		
+		models.put(model, vboIds);
+			
+		// Vertex positions
+		model.skin.mesh.positions.rewind();
+		gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[0]);
+		gl.glBufferData(GL_ARRAY_BUFFER, model.skin.mesh.positions.limit() * Float.BYTES, model.skin.mesh.positions, GL_STATIC_DRAW);
+
+		// Texture coordinates
+		model.skin.mesh.textures.rewind();
+		gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[1]);
+		gl.glBufferData(GL_ARRAY_BUFFER, model.skin.mesh.textures.limit() * Float.BYTES, model.skin.mesh.textures, GL_STATIC_DRAW);
+
+		// Normals
+		model.skin.mesh.normals.rewind();
+		gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[2]);
+		gl.glBufferData(GL_ARRAY_BUFFER, model.skin.mesh.normals.limit() * Float.BYTES, model.skin.mesh.normals, GL_STATIC_DRAW);
+	
+		for (int i=0; i<model.skin.elements.length; i++) {
+			Element submesh = model.skin.elements[i];
+			submesh.indices.rewind();
+			gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboIds[3+i]);
+			gl.glBufferData(GL_ELEMENT_ARRAY_BUFFER, submesh.indices.limit() * Integer.BYTES, submesh.indices, GL_STATIC_DRAW);
+		}
+
+		// Unbind buffers
+        gl.glBindBuffer(GL_ARRAY_BUFFER, 0);
+        gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	       
 	}
 	//=============================================================================================
 	

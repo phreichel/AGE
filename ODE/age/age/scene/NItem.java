@@ -3,8 +3,6 @@ package age.scene;
 //*************************************************************************************************
 
 import javax.vecmath.Matrix4f;
-import age.mesh.Mesh;
-import age.rig.Rig;
 import age.util.X;
 
 //*************************************************************************************************
@@ -14,9 +12,8 @@ public enum NItem {
 	TRANSFORM(Matrix4f.class),
 	TRANSFORM_ANIMATION(Matrix4f.class),
 	CAMERA(Camera.class),
-	MESH(Mesh.class),
-	RIG(Rig.class),
-	RIG2(age.model.Rig.class);
+	RIG(age.model.Rig.class),
+	MODEL(age.model.Model.class);
 	//=============================================================================================
 
 	//=============================================================================================

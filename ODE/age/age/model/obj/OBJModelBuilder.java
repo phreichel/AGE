@@ -1,5 +1,5 @@
 //*************************************************************************************************
-package age.model;
+package age.model.obj;
 //*************************************************************************************************
 
 import java.util.ArrayList;
@@ -10,8 +10,12 @@ import java.util.Map;
 import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
 
-import age.mesh.Material;
-import age.mesh.obj.ObjectBuilder;
+import age.model.Element;
+import age.model.ElementType;
+import age.model.Material;
+import age.model.Mesh;
+import age.model.Model;
+import age.model.Skin;
 import age.util.X;
 
 //*************************************************************************************************

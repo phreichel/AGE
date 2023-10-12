@@ -1,33 +1,34 @@
 //*************************************************************************************************
-package age.mesh.mtl;
+package age.model;
 //*************************************************************************************************
 
+import java.util.EnumSet;
+import java.util.Set;
+import javax.vecmath.Color3f;
+
 //*************************************************************************************************
-public interface MaterialBuilder {
+public final class Material {
 
 	//=============================================================================================
-	public void startFile();
-	public void endFile();
+	public final Set<MaterialFlag> flags = EnumSet.of(MaterialFlag.LIGHTING);
 	//=============================================================================================
-
+	
 	//=============================================================================================
-	public void startNewMaterial(String name);
-	public void writeIllum(int illum);
-	public void writeNs(float Ns);
-	public void writeNi(float Ni);
-	public void writeD(float d);
-	public void writeTr(float Tr);
-	public void writeKa(float r, float g, float b);
-	public void writeKd(float r, float g, float b);
-	public void writeKs(float r, float g, float b);
-	public void writeKe(float r, float g, float b);
+	public final Color3f ambience = new Color3f();
+	public final Color3f diffuse = new Color3f();
+	public final Color3f specular = new Color3f();
+	public final Color3f emission = new Color3f();
+	public float shininess = 0f;
+	public float dissolve = 0f;
+	public float refraction = 0f;
+	public int illumination = -1;
 	//=============================================================================================
 
 	//=============================================================================================
-	public void writeSpecularMap(String name);
-	public void writeAmbientMap(String name);
-	public void writeDiffuseMap(String name);
-	public void writeBumpMap(String name);
+	public String specular_map = null;
+	public String ambient_map = null;
+	public String diffuse_map = null;
+	public String bump_map = null;
 	//=============================================================================================
 	
 }

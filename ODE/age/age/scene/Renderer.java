@@ -3,10 +3,8 @@ package age.scene;
 //*************************************************************************************************
 
 import javax.vecmath.Matrix4f;
-import age.mesh.Mesh;
 import age.port.Graphics;
 import age.port.Renderable;
-import age.rig.Rig;
 import age.util.MathUtil;
 
 //*************************************************************************************************
@@ -75,9 +73,8 @@ public class Renderer implements Renderable {
 		for (var flag : node.nFlags()) {
 			switch (flag) {
 				case BOX -> renderBox(g, node);
-				case MESH -> renderMesh2(g, node);
-				case RIG -> renderSkeleton(g, node);
-				case RIG2 -> renderRig(g, node);
+				case RIG -> renderRig(g, node);
+				case MODEL -> renderModel(g, node);
 				default -> {}
 			}
 		}
@@ -92,25 +89,18 @@ public class Renderer implements Renderable {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void renderMesh2(Graphics g, Node node) {
-		Mesh mesh = node.component(NItem.MESH, Mesh.class);
-		g.drawMesh(mesh);
-	}
-	//=============================================================================================
-	
-	//=============================================================================================
-	private void renderSkeleton(Graphics g, Node node) {
+	private void renderRig(Graphics g, Node node) {
 		g.color(1f, 0f, 0f, 1f);
-		Rig rig = node.component(NItem.RIG, Rig.class);
+		age.model.Rig rig = node.component(NItem.RIG, age.model.Rig.class);
 		g.drawRig(rig);
 	}
 	//=============================================================================================
 
 	//=============================================================================================
-	private void renderRig(Graphics g, Node node) {
+	private void renderModel(Graphics g, Node node) {
 		g.color(1f, 0f, 0f, 1f);
-		age.model.Rig rig = node.component(NItem.RIG2, age.model.Rig.class);
-		g.drawRig(rig);
+		age.model.Model model = node.component(NItem.MODEL, age.model.Model.class);
+		g.drawModel(model);
 	}
 	//=============================================================================================
 	

@@ -1,9 +1,9 @@
 //*************************************************************************************************
-package age.rig.bvh;
+package age.model.mtl;
 //*************************************************************************************************
 
 //*************************************************************************************************
-public interface BVHBuilder {
+public interface MaterialBuilder {
 
 	//=============================================================================================
 	public void startFile();
@@ -11,16 +11,23 @@ public interface BVHBuilder {
 	//=============================================================================================
 
 	//=============================================================================================
-	public void startBone(String name, float ofsx, float ofsy, float ofsz);
-	public void endBone();
-	public void writeChannelCount(int count);
-	public void writeChannelName(String channelName);
+	public void startNewMaterial(String name);
+	public void writeIllum(int illum);
+	public void writeNs(float Ns);
+	public void writeNi(float Ni);
+	public void writeD(float d);
+	public void writeTr(float Tr);
+	public void writeKa(float r, float g, float b);
+	public void writeKd(float r, float g, float b);
+	public void writeKs(float r, float g, float b);
+	public void writeKe(float r, float g, float b);
 	//=============================================================================================
 
 	//=============================================================================================
-	public void writeFrameCount(int frameCount);
-	public void writeFrameTime(float frameTime);
-	public void writeFrameData(float ... frameValues);
+	public void writeSpecularMap(String name);
+	public void writeAmbientMap(String name);
+	public void writeDiffuseMap(String name);
+	public void writeBumpMap(String name);
 	//=============================================================================================
 	
 }

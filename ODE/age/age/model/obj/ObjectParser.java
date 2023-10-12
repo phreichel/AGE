@@ -1,5 +1,5 @@
 //*************************************************************************************************
-package age.mesh.obj;
+package age.model.obj;
 //*************************************************************************************************
 
 import java.io.File;
@@ -7,9 +7,10 @@ import java.io.FileReader;
 import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
-import age.mesh.Material;
-import age.mesh.mtl.MaterialMapBuilder;
-import age.mesh.mtl.MaterialParser;
+
+import age.model.Material;
+import age.model.mtl.MaterialMapBuilder;
+import age.model.mtl.MaterialParser;
 import age.util.Scanner;
 import age.util.Symbol;
 import age.util.X;

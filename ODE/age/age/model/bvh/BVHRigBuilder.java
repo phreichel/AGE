@@ -1,5 +1,5 @@
 //*************************************************************************************************
-package age.model;
+package age.model.bvh;
 //*************************************************************************************************
 
 import java.util.ArrayList;
@@ -8,11 +8,16 @@ import java.util.List;
 import java.util.Map;
 import javax.vecmath.AxisAngle4f;
 import javax.vecmath.Quat4f;
-import age.rig.bvh.BVHBuilder;
+
+import age.model.Animation;
+import age.model.Bone;
+import age.model.Keyframe;
+import age.model.Keyframes;
+import age.model.Skeleton;
 import age.util.X;
 
 //*************************************************************************************************
-public class BVHRigBuilder2 implements BVHBuilder {
+public class BVHRigBuilder implements BVHBuilder {
 
 	//=============================================================================================
 	private Animation animation = null;
