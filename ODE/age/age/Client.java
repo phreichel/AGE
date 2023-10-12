@@ -98,13 +98,11 @@ public class Client {
 		scene.camera(camNode);
 		scene.root().attach(camNode);
 
-		//age.mesh.Mesh mesh = age.mesh.Mesh.factory().siglet(30, 7);
 		Model siglet = Factory.instance.siglet(30, 7);
 		Node modelNode = new Node(NFlag.MODEL);
 		modelNode.component(NItem.MODEL, siglet);
 		scene.root().attach(modelNode);
 
-		/*
 		Model bmodel = Factory.instance.model("assets/stone/Stone.obj");
 		Node bNode = new Node(NFlag.MODEL);
 		bNode.component(NItem.MODEL, bmodel);
@@ -130,7 +128,6 @@ public class Client {
 			ptNode.component(NItem.TRANSFORM, ptMxC);
 			modelNode.attach(ptNode);
 		}
-		*/
 		
 		Model model = Factory.instance.model("assets/yrig/yrig.obj");
 		Animation animation = Factory.instance.animation("assets/yrig/yrig.bvh");

@@ -15,12 +15,16 @@ import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.util.*;
 import javax.vecmath.*;
+
+import age.model.Bone;
 import age.model.Element;
 import age.model.Material;
 import age.model.MaterialFlag;
 import age.model.Model;
+import age.model.Rig;
 import age.gui.Multiline;
 import age.gui.Scrollable;
+import age.log.Log;
 import age.port.Graphics;
 import age.util.X;
 import age.util.MathUtil;
@@ -372,6 +376,16 @@ class JOGLGraphics implements Graphics {
 			gl.glEnable(GL_LIGHTING);
 		else
 			gl.glDisable(GL_LIGHTING);
+
+		if (m.flags.contains(MaterialFlag.WIREFRAME))
+			gl.glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		else
+			gl.glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+		if (m.flags.contains(MaterialFlag.CULLING))
+			gl.glEnable(GL_CULL_FACE);
+		else
+			gl.glDisable(GL_CULL_FACE);
 		
 		float[] buffer = new float[] {0f, 0f, 0f, 1f};
 		buffer[0] = m.ambience.x;
@@ -391,7 +405,7 @@ class JOGLGraphics implements Graphics {
 		buffer[2] = m.emission.z;
 		gl.glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, buffer, 0);
 		gl.glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, m.shininess);
-		
+
 		gl.glColor3f(m.diffuse.x, m.diffuse.y, m.diffuse.z);
 		
 		if (m.diffuse_map != null) {
@@ -427,35 +441,59 @@ class JOGLGraphics implements Graphics {
 	//=============================================================================================
 
 	//=============================================================================================
-	private Map<age.model.Rig, int[]> rigs = new HashMap<>();
+	private void pushForMaterial() {
+		gl.glPushAttrib(GL_ENABLE_BIT);
+		gl.glPushAttrib(GL_CURRENT_BIT);
+		gl.glPushAttrib(GL_COLOR_BUFFER_BIT);
+		gl.glPushAttrib(GL_DEPTH_BUFFER_BIT);
+		gl.glPushAttrib(GL_FOG_BIT);
+		gl.glPushAttrib(GL_LIGHTING_BIT);
+		gl.glPushAttrib(GL_TEXTURE_BIT);
+		gl.glPushAttrib(GL_TRANSFORM_BIT);
+		gl.glPushAttrib(GL_POINT_BIT);
+		gl.glPushAttrib(GL_LINE_BIT);
+		gl.glPushAttrib(GL_POLYGON_BIT);
+		gl.glPushAttrib(GL_MULTISAMPLE_BIT);
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private void popForMaterial() {
+		gl.glPopAttrib();
+		gl.glPopAttrib();
+		gl.glPopAttrib();
+		gl.glPopAttrib();
+		gl.glPopAttrib();
+		gl.glPopAttrib();
+		gl.glPopAttrib();
+		gl.glPopAttrib();
+		gl.glPopAttrib();
+		gl.glPopAttrib();
+		gl.glPopAttrib();
+		gl.glPopAttrib();
+	}
+	//=============================================================================================
+
+	//=============================================================================================
+	private Map<Rig, int[]> rigs = new HashMap<>();
 	//=============================================================================================
 	
 	//=============================================================================================
-	public void drawRig(age.model.Rig rig) {
+	public void drawRig(Rig rig) {
 
 		initRig(rig);
 		
 		gl.glPushAttrib(GL_ENABLE_BIT);
-		gl.glPushAttrib(GL_LIGHTING_BIT);
-		gl.glPushAttrib(GL_TEXTURE_BIT);
-		gl.glPushAttrib(GL_CURRENT_BIT);
-		gl.glPushAttrib(GL_DEPTH_BUFFER_BIT);
-		
-		gl.glEnableClientState(GL_VERTEX_ARRAY);
-		//gl.glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-		gl.glEnableClientState(GL_NORMAL_ARRAY);
-		
-		gl.glColor3f(1f, 0f, 0f);
-		
 		gl.glDisable(GL_LIGHTING);
 		drawRigSkeleton(rig);
-		gl.glEnable(GL_LIGHTING);
-
+		gl.glPopAttrib();
 		
+		gl.glEnableClientState(GL_VERTEX_ARRAY);
+		gl.glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+		gl.glEnableClientState(GL_NORMAL_ARRAY);
+				
 		gl.glPushMatrix();
 		gl.glRotatef(180f, 1f, 0f, 0f);
-		
-		gl.glShadeModel(GL_FLAT);
 		
 		int[] buffers = rigs.get(rig);
 		
@@ -465,8 +503,8 @@ class JOGLGraphics implements Graphics {
 		gl.glBufferSubData(GL_ARRAY_BUFFER, 0, rig.meshPositions.limit() * Float.BYTES, rig.meshPositions);
 		gl.glVertexPointer(3, GL_FLOAT, 0, 0);
 
-		//gl.glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
-		//gl.glTexCoordPointer(2, GL_FLOAT, 0, 0);
+		gl.glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
+		gl.glTexCoordPointer(2, GL_FLOAT, 0, 0);
 
 		gl.glBindBuffer(GL_ARRAY_BUFFER, buffers[2]);
 		gl.glNormalPointer(GL_FLOAT, 0, 0);
@@ -475,6 +513,7 @@ class JOGLGraphics implements Graphics {
 			
 			Element submesh = rig.model.skin.elements[i];
 			Material material = rig.model.materials[i];
+			this.pushForMaterial();
 			this.applyMaterial(material);
 			
 			int type = switch(submesh.type) {
@@ -484,12 +523,12 @@ class JOGLGraphics implements Graphics {
 				default -> throw new X("unsupported: %s", submesh.type);
 			};
 			
-			submesh.indices.rewind();
-			int length = submesh.indices.limit();
-			
 			// Render using indexed drawing
+			int length = submesh.indices.limit();
 			gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffers[3+i]);
 			gl.glDrawElements(type, length, GL_UNSIGNED_INT, 0);
+
+			this.popForMaterial();
 			
 		}
 		
@@ -501,18 +540,13 @@ class JOGLGraphics implements Graphics {
         
 		gl.glDisableClientState(GL_VERTEX_ARRAY);
 		gl.glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+		gl.glDisableClientState(GL_NORMAL_ARRAY);
 		
-		gl.glPopAttrib();
-		gl.glPopAttrib();
-		gl.glPopAttrib();
-		gl.glPopAttrib();
-		gl.glPopAttrib();
-        
 	}
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void initRig(age.model.Rig rig) {
+	private void initRig(Rig rig) {
 		
 		if (rigs.containsKey(rig)) return;
 		
@@ -524,12 +558,12 @@ class JOGLGraphics implements Graphics {
 		// Vertex positions
 		rig.meshPositions.rewind();
 		gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[0]);
-		gl.glBufferData(GL_ARRAY_BUFFER, rig.meshPositions.limit() * Float.BYTES, rig.meshPositions, GL_DYNAMIC_DRAW);
+		gl.glBufferData(GL_ARRAY_BUFFER, rig.model.skin.mesh.positions.limit() * Float.BYTES, rig.model.skin.mesh.positions, GL_DYNAMIC_DRAW);
 
 		// Texture coordinates
-		//rig.model.skin.mesh.textures.rewind();
-		//gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[1]);
-		//gl.glBufferData(GL_ARRAY_BUFFER, rig.model.skin.mesh.textures.limit() * Float.BYTES, rig.model.skin.mesh.textures, GL_STATIC_DRAW);
+		rig.model.skin.mesh.textures.rewind();
+		gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[1]);
+		gl.glBufferData(GL_ARRAY_BUFFER, rig.model.skin.mesh.textures.limit() * Float.BYTES, rig.model.skin.mesh.textures, GL_STATIC_DRAW);
 
 		// Normals
 		rig.model.skin.mesh.normals.rewind();
@@ -551,7 +585,7 @@ class JOGLGraphics implements Graphics {
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void drawRigSkeleton(age.model.Rig rig) {
+	private void drawRigSkeleton(Rig rig) {
 		for (age.model.Bone b : rig.animation.skeleton.roots) {
 			drawRigBone(rig, b);
 		}
@@ -559,7 +593,7 @@ class JOGLGraphics implements Graphics {
 	//=============================================================================================
 
 	//=============================================================================================
-	private void drawRigBone(age.model.Rig rig, age.model.Bone b) {
+	private void drawRigBone(Rig rig, Bone b) {
 		if (b.parent != null) {
 			Vector3f da = rig.deltaPositions.get(b.parent.index);
 			Vector3f db = rig.deltaPositions.get(b.index);
@@ -568,7 +602,7 @@ class JOGLGraphics implements Graphics {
 			gl.glVertex3f(db.x, db.y, db.z);
 			gl.glEnd();
 		}
-		for (age.model.Bone c : b.children) {
+		for (Bone c : b.children) {
 			drawRigBone(rig, c);
 		}
 	}
@@ -600,22 +634,24 @@ class JOGLGraphics implements Graphics {
 			
 			Element element = model.skin.elements[i];
 			Material material = model.materials[i];
-			this.applyMaterial(material);
+			
+			pushForMaterial();
+			applyMaterial(material);
 			
 			int type = switch(element.type) {
 				case LINES -> GL_LINES;
 				case TRIANGLES -> GL_TRIANGLES;
 				case QUADS -> GL_QUADS;
 				default -> throw new X("unsupported: %s", element.type);
-			};
-			
-			element.indices.rewind();
-			int length = element.indices.limit();
+			};			
 			
 			// Render using indexed drawing
+			int length = element.indices.limit();
 			gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffers[3+i]);
 			gl.glDrawElements(type, length, GL_UNSIGNED_INT, 0);
-			
+
+			popForMaterial();
+	
 		}
 		
 		// Unbind buffers
@@ -632,11 +668,11 @@ class JOGLGraphics implements Graphics {
 	//=============================================================================================
 
 	//=============================================================================================
-	private Map<age.model.Model, int[]> models = new HashMap<>();
+	private Map<Model, int[]> models = new HashMap<>();
 	//=============================================================================================
 	
 	//=============================================================================================
-	private void initModel(age.model.Model model) {
+	private void initModel(Model model) {
 		
 		if (models.containsKey(model)) return;
 		
