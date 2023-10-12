@@ -20,6 +20,7 @@ import age.gui.GUI;
 import age.input.Events;
 import age.log.Level;
 import age.log.Log;
+import age.mesh.Mesh;
 import age.model.Animation;
 import age.model.Factory;
 import age.model.Influence;
@@ -104,7 +105,6 @@ public class Client {
 		meshNode.component(NItem.MESH, mesh);
 		scene.root().attach(meshNode);
 
-		/*
 		Mesh bmesh = Mesh.factory().model("assets/stone/Stone.obj");
 		Node bNode = new Node(NFlag.MESH);
 		bNode.component(NItem.MESH, bmesh);
@@ -130,7 +130,6 @@ public class Client {
 			ptNode.component(NItem.TRANSFORM, ptMxC);
 			meshNode.attach(ptNode);
 		}
-		*/
 		
 		Model model = Factory.instance.model("assets/yrig/yrig.obj");
 		Animation animation = Factory.instance.animation("assets/yrig/yrig.bvh");

@@ -41,7 +41,7 @@ public class Influence {
 			Vector3f delta = new Vector3f();
 			delta.sub(vpos, bpos);
 			float dst = delta.length();
-			float scale = (dst < 1f) ? 1f : 1f - Math.min(1f, (dst-1f) * 1f);
+			float scale = (dst < 1f) ? .5f : (1f - Math.min(1f, dst-1f)) * .5f;
 			influences[vidx][b.index] = scale;
 			Vector3f cofs = new Vector3f(ofs);
 			cofs.add(b.position);

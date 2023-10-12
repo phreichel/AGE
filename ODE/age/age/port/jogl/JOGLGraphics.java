@@ -597,16 +597,15 @@ class JOGLGraphics implements Graphics {
 	
 	//=============================================================================================
 	public void drawRig(age.model.Rig rig) {
-				
+
+		initRig(rig);
+		
 		gl.glPushAttrib(GL_ENABLE_BIT);
 		gl.glPushAttrib(GL_LIGHTING_BIT);
 		gl.glPushAttrib(GL_TEXTURE_BIT);
 		gl.glPushAttrib(GL_CURRENT_BIT);
 		gl.glPushAttrib(GL_DEPTH_BUFFER_BIT);
 		
-		initRig(rig);
-		
-		gl.glShadeModel(GL_FLAT);
 		gl.glEnableClientState(GL_VERTEX_ARRAY);
 		//gl.glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 		gl.glEnableClientState(GL_NORMAL_ARRAY);
@@ -616,8 +615,13 @@ class JOGLGraphics implements Graphics {
 		gl.glDisable(GL_LIGHTING);
 		drawRigSkeleton(rig);
 		gl.glEnable(GL_LIGHTING);
-		gl.glEnable(GL_LIGHT0);
 
+		
+		gl.glPushMatrix();
+		gl.glRotatef(180f, 1f, 0f, 0f);
+		
+		gl.glShadeModel(GL_FLAT);
+		
 		int[] buffers = rigs.get(rig);
 		
 		// Set up vertex arrays
@@ -657,6 +661,8 @@ class JOGLGraphics implements Graphics {
 		// Unbind buffers
         gl.glBindBuffer(GL_ARRAY_BUFFER, 0);
         gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+		gl.glPopMatrix();
         
 		gl.glDisableClientState(GL_VERTEX_ARRAY);
 		gl.glDisableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -682,10 +688,8 @@ class JOGLGraphics implements Graphics {
 			
 		// Vertex positions
 		rig.meshPositions.rewind();
-		//rig.model.skin.mesh.positions.rewind();
 		gl.glBindBuffer(GL_ARRAY_BUFFER, vboIds[0]);
 		gl.glBufferData(GL_ARRAY_BUFFER, rig.meshPositions.limit() * Float.BYTES, rig.meshPositions, GL_DYNAMIC_DRAW);
-		//gl.glBufferData(GL_ARRAY_BUFFER, rig.meshPositions.limit() * Float.BYTES, rig.model.skin.mesh.positions, GL_STATIC_DRAW);
 
 		// Texture coordinates
 		//rig.model.skin.mesh.textures.rewind();
