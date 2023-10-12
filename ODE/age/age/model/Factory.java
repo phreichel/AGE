@@ -59,6 +59,9 @@ public class Factory {
 		float[] textures  = new float[vsize*2];
 		float[] normals   = new float[vsize*3];
 		double d = (Math.PI * 2) / edges;
+		int cp = 0;
+		int ct = 0;
+		int cn = 0;
 		for (int i=0; i<edges; i++) {
 			double a = d * i;
 			double s = Math.sin(a);
@@ -66,14 +69,14 @@ public class Factory {
 			for (int j=0; j<rows; j++) {
 				float x = (float) s * (1+j);
 				float z = (float) c * (1+j);
-				positions[i*3+0] = x;
-				positions[i*3+1] = 0f;
-				positions[i*3+2] = z;
-				textures[i*2+0] = 0f;
-				textures[i*2+1] = 0f;
-				normals[i*3+0] = 0f;
-				normals[i*3+1] = 1f;
-				normals[i*3+2] = 0f;
+				positions[cp++] = x;
+				positions[cp++] = 0f;
+				positions[cp++] = z;
+				textures[ct++] = 0f;
+				textures[ct++] = 0f;
+				normals[cn++] = 0f;
+				normals[cn++] = 1f;
+				normals[cn++] = 0f;
 			}
 		}
 		

@@ -104,6 +104,7 @@ public class Client {
 		modelNode.component(NItem.MODEL, siglet);
 		scene.root().attach(modelNode);
 
+		/*
 		Model bmodel = Factory.instance.model("assets/stone/Stone.obj");
 		Node bNode = new Node(NFlag.MODEL);
 		bNode.component(NItem.MODEL, bmodel);
@@ -129,12 +130,13 @@ public class Client {
 			ptNode.component(NItem.TRANSFORM, ptMxC);
 			modelNode.attach(ptNode);
 		}
+		*/
 		
 		Model model = Factory.instance.model("assets/yrig/yrig.obj");
 		Animation animation = Factory.instance.animation("assets/yrig/yrig.bvh");
 		Influence influence = new Influence(animation.skeleton, model.skin.mesh); 
 		
-		int   n = 6;
+		int n = 6;
 		float r = 360f / n;
 		for (int i=0; i<n; i++) {
 
