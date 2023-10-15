@@ -180,6 +180,14 @@ public class Client {
 		sysMenuFrame.add(factory.createIconButton("fullscreen", "fullscreen"));
 		sysMenuFrame.add(factory.createIconButton("shutdown", "shutdown"));
 		root.add(sysMenuFrame);
+		
+		Widget wnd = gui.factory().createWindow(800, 600, "HELLO HELLO!");
+		Widget txt = gui.factory().createMultiLine("FDSFSAF DSF DF DF dsa fDS fSADf dsaf dsaF DSAf DSAf");
+		txt.dimension(790, 565);
+		txt.dock(0, 1, 0, 1);
+		wnd.children().get(2).add(txt);
+		wnd.position(100, 100);
+		root.add(wnd);
 
 		tasks.assign("fullscreen", this::toggleFullscreen);
 		tasks.assign("shutdown", this::shutdown);
