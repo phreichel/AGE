@@ -25,6 +25,7 @@ import age.model.Model;
 import age.model.Rig;
 import age.gui.Multiline;
 import age.gui.Scrollable;
+import age.log.Log;
 import age.port.Graphics;
 import age.util.X;
 import age.util.MathUtil;
