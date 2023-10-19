@@ -1,31 +1,3 @@
-/*
- * Commit: 7407dc59dacb80fc02cd2de06a33b6b78cc37f8e
- * Date: 2023-10-12 13:32:56+02:00
- * Author: pre7618
- * Comment: Test
- *
- * Commit: 00a610434f6fec6c19360cdcbe9949c18fea5a3b
- * Date: 2023-10-10 10:10:29+02:00
- * Author: pre7618
- * Comment: ..
- *
- * Commit: 729ac252a97c3fd77734b2d841dfdd0ec3de55fb
- * Date: 2023-09-27 19:14:06+02:00
- * Author: Philip Reichel
- * Comment: ...
- *
- * Commit: 79126a233e35010f5ee69ea22119499909797737
- * Date: 2023-09-27 16:31:28+02:00
- * Author: pre7618
- * Comment: Added Camview and Rig
- *
- * Commit: 2c0280077398a4634180c45fd2854627002dba37
- * Date: 2023-09-26 23:59:37+02:00
- * Author: Philip Reichel
- * Comment: ...
- *
- */
-
 //*************************************************************************************************
 package age.scene;
 //*************************************************************************************************

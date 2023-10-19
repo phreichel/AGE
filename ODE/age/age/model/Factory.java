@@ -1,36 +1,3 @@
-/*
- * Commit: 5ca6d434e838bc3e560853f9915b1356e492c2fd
- * Date: 2023-10-12 14:59:48+02:00
- * Author: pre7618
- * Comment: Fixed The Signet
- *
- * Commit: 7407dc59dacb80fc02cd2de06a33b6b78cc37f8e
- * Date: 2023-10-12 13:32:56+02:00
- * Author: pre7618
- * Comment: Test
- *
- * Commit: beb06c5be3d51bd9db17f304dc0b8a891b88218b
- * Date: 2023-10-11 17:16:39+02:00
- * Author: pre7618
- * Comment: Made Rigging possible?
- *
- * Commit: e0cca43ebaf9325829b5493e1850af81809f2a4a
- * Date: 2023-10-10 11:04:22+02:00
- * Author: pre7618
- * Comment: Clean Version to Bring to HEAD
- *
- * Commit: 202d17c6d32f4a166bf665865bb5ff76a95cfbd8
- * Date: 2023-10-10 10:22:06+02:00
- * Author: pre7618
- * Comment: ...
- *
- * Commit: 543df522f819ea4a67e616d2be4c08edf6003716
- * Date: 2023-10-10 02:33:39+02:00
- * Author: Philip Reichel
- * Comment: ...
- *
- */
-
 //*************************************************************************************************
 package age.model;
 //*************************************************************************************************

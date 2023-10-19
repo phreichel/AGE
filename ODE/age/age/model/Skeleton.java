@@ -1,26 +1,3 @@
-/*
- * Commit: 18d2f76ceedb6003ef53119b6e00bf0da3c4ff1d
- * Date: 2023-10-11 17:52:14+02:00
- * Author: pre7618
- * Comment: First Animated Rigged Mesh!
- *
- * Commit: 58407180b4578ab8fe91b005b6bcf51e549abaa7
- * Date: 2023-10-11 00:53:39+02:00
- * Author: Philip Reichel
- * Comment: Rigging revisited.
- *
- * Commit: e0af20930ce5c29d8c32b48b9731826e17bfa88d
- * Date: 2023-10-09 07:41:02+02:00
- * Author: Philip Reichel
- * Comment: ,,,
- *
- * Commit: eb306b1e6a0957eb9ec0dc0accbc1747e9f08d0f
- * Date: 2023-10-04 01:48:00+02:00
- * Author: Philip Reichel
- * Comment: ...
- *
- */
-
 //*************************************************************************************************
 package age.model;
 //*************************************************************************************************

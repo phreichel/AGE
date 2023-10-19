@@ -1,36 +1,3 @@
-/*
- * Commit: 1d3937202c635d21dd0780fb7222445393a7b75a
- * Date: 2023-10-02 23:28:58+02:00
- * Author: Philip Reichel
- * Comment: Skeleton Reader hopefully working
- *
- * Commit: ebb609a8fd7b6267ab2aa1c8e412e69fde248993
- * Date: 2023-09-26 16:03:29+02:00
- * Author: pre7618
- * Comment: ...
- *
- * Commit: 39b8f74293b119c48ba58cce6da3104541cab12a
- * Date: 2023-09-26 00:54:32+02:00
- * Author: Philip Reichel
- * Comment: Added Walker Animation
- *
- * Commit: 7857164dec79f55bdb9150353079c73edc76df8b
- * Date: 2023-09-25 13:47:47+02:00
- * Author: pre7618
- * Comment: Added Skeleton
- *
- * Commit: 4e914ceff796e6e44fd96c76252c68c7325e64cd
- * Date: 2023-09-25 01:23:31+02:00
- * Author: Philip Reichel
- * Comment: ...
- *
- * Commit: 84341809c117c5bfe4a2250eb07c27d65f20777f
- * Date: 2023-09-22 22:47:47+02:00
- * Author: Philip Reichel
- * Comment: ...
- *
- */
-
 //*************************************************************************************************
 package age.util;
 //*************************************************************************************************

@@ -1,17 +1,3 @@
-/*
- * Commit: 363b75a18db4122bb21de7cf1091c0bd6434b79b
- * Date: 2023-09-23 18:26:28+02:00
- * Author: Philip Reichel
- * Comment: Finished Switch to new Event Handling
-Added Pointer Wheel Input
- *
- * Commit: 8e1aad78b74edd61cd0e139ade57196ed44c219a
- * Date: 2023-09-22 22:14:40+02:00
- * Author: Philip Reichel
- * Comment: ...
- *
- */
-
 //*************************************************************************************************
 package age.input;
 //*************************************************************************************************

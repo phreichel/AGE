@@ -1,37 +1,3 @@
-/*
- * Commit: aa20ad72b29161d58217d659b23accf2664ef3cf
- * Date: 2023-09-26 23:19:19+02:00
- * Author: Philip Reichel
- * Comment: ...
- *
- * Commit: 01f6edb422e32c691886b08481b74af734d2419d
- * Date: 2023-09-25 00:22:26+02:00
- * Author: Philip Reichel
- * Comment: Added Mesh
- *
- * Commit: 54b553def3cb950e911a8df3fd89a9f1818bb7e3
- * Date: 2023-09-23 20:40:18+02:00
- * Author: Philip Reichel
- * Comment: ...
- *
- * Commit: 363b75a18db4122bb21de7cf1091c0bd6434b79b
- * Date: 2023-09-23 18:26:28+02:00
- * Author: Philip Reichel
- * Comment: Finished Switch to new Event Handling
-Added Pointer Wheel Input
- *
- * Commit: 1fd12df4cfeb1c4d67818231e6df4905af8afdef
- * Date: 2023-09-23 17:22:11+02:00
- * Author: Philip Reichel
- * Comment: Almost reworked Multiline
- *
- * Commit: 0c072ef17032c66ffdd34170f7a2c79345c34eae
- * Date: 2023-09-23 10:27:57+02:00
- * Author: Philip Reichel
- * Comment: Updated GUI Handling - Halfway done
- *
- */
-
 //*************************************************************************************************
 package age.gui;
 //*************************************************************************************************

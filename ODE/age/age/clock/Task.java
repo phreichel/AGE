@@ -1,26 +1,3 @@
-/*
- * Commit: 4ba52177b03c84982e184472f4e51a9157e9a67f
- * Date: 2023-09-21 20:15:06+02:00
- * Author: Philip Reichel
- * Comment: Cleaning all up
- *
- * Commit: 148c159314f78ae8a77a60d1a939772e006e9799
- * Date: 2023-09-20 19:25:15+02:00
- * Author: Philip Reichel
- * Comment: ..
- *
- * Commit: c9fba54298823be83ab349a7f2e0eb3b2c607a44
- * Date: 2023-09-18 22:02:46+02:00
- * Author: Philip Reichel
- * Comment: upd
- *
- * Commit: 8dc6c41a602679fa36a34d3681764629b4ec6197
- * Date: 2023-09-12 13:19:01+02:00
- * Author: pre7618
- * Comment: Added Logging for AGE and Events thread safety
- *
- */
-
 //*************************************************************************************************
 package age.clock;
 //*************************************************************************************************
