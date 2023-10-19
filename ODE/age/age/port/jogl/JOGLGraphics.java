@@ -3,7 +3,6 @@ package age.port.jogl;
 //*************************************************************************************************
 
 import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.GL2ES3;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.util.awt.TextRenderer;
@@ -36,7 +35,6 @@ class JOGLGraphics implements Graphics {
 	//=============================================================================================
 	private GLAutoDrawable drawable = null;
 	private GL2 gl = null;
-	private GL2ES3 es = null;
 	private GLU glu = null;
 	//=============================================================================================
 
@@ -66,8 +64,6 @@ class JOGLGraphics implements Graphics {
 		gl.glEnable(GL_COLOR_MATERIAL);
 		gl.glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
 
-		gl.glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		
 		try {
 			
 			Texture texture = null;
@@ -711,51 +707,6 @@ class JOGLGraphics implements Graphics {
         gl.glBindBuffer(GL_ARRAY_BUFFER, 0);
         gl.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	       
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private Map<String, Integer> shaders = new HashMap<>();
-	private Map<String, Integer> programs = new HashMap<>();
-	//=============================================================================================
-	
-	//=============================================================================================
-	private void shader(String name, ShaderType type, String content) {
-		int gltype = switch (type) {
-			case VertexShader -> GL2ES3.GL_VERTEX_SHADER;
-			case FragmentShader -> GL2ES3.GL_FRAGMENT_SHADER;
-		};
-		int shader = es.glCreateShader(gltype);
-		String[] lines = content.split("\n");
-		es.glShaderSource(shader, lines.length, lines, null);
-		es.glCompileShader(shader);
-		shaders.put(name, shader);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private void program(String name, String ... shaders) {
-		int program = es.glCreateProgram();
-		for (var shader : shaders) {
-			int glshader = this.shaders.get(shader);
-			es.glAttachShader(program, glshader);
-		}
-		es.glLinkProgram(program);
-		programs.put(name, program);
-	}
-	//=============================================================================================
-
-	//=============================================================================================
-	private void shade(String name, String[] uniforms, String[] attribs) {
-		int program = programs.get(name);
-		es.glUseProgram(program);
-		for (var uniform : uniforms) {
-			es.glGetUniformLocation(program, uniform);
-		}
-		for (var attrib : attribs) {
-			es.glGetAttribLocation(program, attrib);
-			es.glGetSamplerParameterIuiv(program, program, null);
-		}
 	}
 	//=============================================================================================
 	
