@@ -40,14 +40,14 @@ def update_java_files_with_history(directory):
 
 # Function to create a file header
 def create_file_header(commit_history):
-    header = '/*\n'
+    header = '/***************************************************************************************************\n'
     for commit_info in commit_history:
-        header += f' * Commit: {commit_info["commit_id"]}\n'
-        header += f' * Date: {commit_info["date"]}\n'
-        header += f' * Author: {commit_info["author"]}\n'
-        header += f' * Comment: {commit_info["comment"]}\n'
-        header += ' *\n'
-    header += ' */\n\n'
+        header += f'Commit: {commit_info["commit_id"]}\n'
+        header += f'Date: {commit_info["date"]}\n'
+        header += f'Author: {commit_info["author"]}\n'
+        header += f'Comment: {commit_info["comment"]}\n'
+        header += '\n'
+    header += '/***************************************************************************************************\n\n'
     return header
 
 # Update Java files with Git commit history
