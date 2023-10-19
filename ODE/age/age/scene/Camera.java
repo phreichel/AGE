@@ -1,3 +1,26 @@
+/*
+ * Commit: 4ba52177b03c84982e184472f4e51a9157e9a67f
+ * Date: 2023-09-21 20:15:06+02:00
+ * Author: Philip Reichel
+ * Comment: Cleaning all up
+ *
+ * Commit: d6736fdafe10ab47eab0c1516c6ab53db2c127da
+ * Date: 2023-09-20 14:40:20+02:00
+ * Author: pre7618
+ * Comment: .
+ *
+ * Commit: efba03d014f9f8690fc57eb3949bb36f7ed2e269
+ * Date: 2023-09-19 07:28:45+02:00
+ * Author: Philip Reichel
+ * Comment: todo tasks
+ *
+ * Commit: 28615d0198d72bb1e1667c0113a594237068a89d
+ * Date: 2023-09-18 16:25:09+02:00
+ * Author: pre7618
+ * Comment: Added Scene Nodes
+ *
+ */
+
 //*************************************************************************************************
 package age.scene;
 //*************************************************************************************************

@@ -1,3 +1,242 @@
+/*
+ * Commit: 1321c14e19d28de04c1ce157a5ba49c88dc1d41d
+ * Date: 2023-10-19 14:06:33+02:00
+ * Author: pre7618
+ * Comment: Revert "Revert "Preliminary Stable""
+
+This reverts commit a938d6d40d9fca1d16e44b64cf878f565aa227cf.
+
+ *
+ * Commit: 1f8f6e1cfa859f724b2c022907f347c828c936db
+ * Date: 2023-10-19 13:54:24+02:00
+ * Author: pre7618
+ * Comment: Revert "Changes to Skip"
+
+This reverts commit 6d59feeb4588ac6ec442249999d9a75a8c87fb76.
+
+ *
+ * Commit: a938d6d40d9fca1d16e44b64cf878f565aa227cf
+ * Date: 2023-10-19 13:52:05+02:00
+ * Author: pre7618
+ * Comment: Revert "Preliminary Stable"
+
+This reverts commit 30ce19cc9ff3501ad98913b4b766e28ed85b3a69.
+
+ *
+ * Commit: 6d59feeb4588ac6ec442249999d9a75a8c87fb76
+ * Date: 2023-10-19 13:51:54+02:00
+ * Author: pre7618
+ * Comment: Changes to Skip
+ *
+ * Commit: 30ce19cc9ff3501ad98913b4b766e28ed85b3a69
+ * Date: 2023-10-15 23:11:22+02:00
+ * Author: Philip Reichel
+ * Comment: Preliminary Stable
+ *
+ * Commit: 6b8933b8c4570ceb6243fce4d47b80916217778b
+ * Date: 2023-10-12 16:59:42+02:00
+ * Author: pre7618
+ * Comment: Apply Material and cleaning
+ *
+ * Commit: 7407dc59dacb80fc02cd2de06a33b6b78cc37f8e
+ * Date: 2023-10-12 13:32:56+02:00
+ * Author: pre7618
+ * Comment: Test
+ *
+ * Commit: abb79765d6c7fa32d18352f742be87ce2b7688c6
+ * Date: 2023-10-12 05:01:43+02:00
+ * Author: Philip Reichel
+ * Comment: ,,
+ *
+ * Commit: beb06c5be3d51bd9db17f304dc0b8a891b88218b
+ * Date: 2023-10-11 17:16:39+02:00
+ * Author: pre7618
+ * Comment: Made Rigging possible?
+ *
+ * Commit: 58407180b4578ab8fe91b005b6bcf51e549abaa7
+ * Date: 2023-10-11 00:53:39+02:00
+ * Author: Philip Reichel
+ * Comment: Rigging revisited.
+ *
+ * Commit: 756d85884eecc05d945ed908861257a13183c787
+ * Date: 2023-10-10 21:18:54+02:00
+ * Author: Philip Reichel
+ * Comment: Cleaning UP
+ *
+ * Commit: d7587bbba419eaa855b68a9e0ccc30ec13873658
+ * Date: 2023-10-10 17:02:07+02:00
+ * Author: pre7618
+ * Comment: Update to crappy version
+ *
+ * Commit: 00a610434f6fec6c19360cdcbe9949c18fea5a3b
+ * Date: 2023-10-10 10:10:29+02:00
+ * Author: pre7618
+ * Comment: ..
+ *
+ * Commit: eb306b1e6a0957eb9ec0dc0accbc1747e9f08d0f
+ * Date: 2023-10-04 01:48:00+02:00
+ * Author: Philip Reichel
+ * Comment: ...
+ *
+ * Commit: 79a5191fc4ca527a12fa7cf477631efa44a9b707
+ * Date: 2023-10-02 01:54:44+02:00
+ * Author: Philip Reichel
+ * Comment: Done some stuff with meshes.
+ *
+ * Commit: 89060686397deec303f7d386ce17b28e87b74efb
+ * Date: 2023-10-02 00:02:54+02:00
+ * Author: Philip Reichel
+ * Comment: ...
+ *
+ * Commit: 989a153341f09c0168f323a44e0ffec01fbc07b7
+ * Date: 2023-10-01 22:26:41+02:00
+ * Author: Philip Reichel
+ * Comment: VBO babay
+ *
+ * Commit: 921fe26242fec8aea55ed85b831bf841b11304e4
+ * Date: 2023-09-30 17:42:43+02:00
+ * Author: Philip Reichel
+ * Comment: Added Material Parsing
+Added Models
+Remove Bigfile
+Added Models
+Revert "Added Models"
+
+This reverts commit cd0e7c6f40612113283cf9300c40af491cd1bc2f.
+
+ *
+ * Commit: a6cfd8a75f5b4f72e889e58a8fbcb41ac4c94136
+ * Date: 2023-09-29 14:56:21+02:00
+ * Author: Philip Reichel
+ * Comment: Added Simple Obj Loader
+ *
+ * Commit: 729ac252a97c3fd77734b2d841dfdd0ec3de55fb
+ * Date: 2023-09-27 19:14:06+02:00
+ * Author: Philip Reichel
+ * Comment: ...
+ *
+ * Commit: 79126a233e35010f5ee69ea22119499909797737
+ * Date: 2023-09-27 16:31:28+02:00
+ * Author: pre7618
+ * Comment: Added Camview and Rig
+ *
+ * Commit: aa20ad72b29161d58217d659b23accf2664ef3cf
+ * Date: 2023-09-26 23:19:19+02:00
+ * Author: Philip Reichel
+ * Comment: ...
+ *
+ * Commit: ebb609a8fd7b6267ab2aa1c8e412e69fde248993
+ * Date: 2023-09-26 16:03:29+02:00
+ * Author: pre7618
+ * Comment: ...
+ *
+ * Commit: 39b8f74293b119c48ba58cce6da3104541cab12a
+ * Date: 2023-09-26 00:54:32+02:00
+ * Author: Philip Reichel
+ * Comment: Added Walker Animation
+ *
+ * Commit: fedc4377dc9249932eb67a8eb9e9a46dbec18ff0
+ * Date: 2023-09-25 18:34:56+02:00
+ * Author: pre7618
+ * Comment: ...
+ *
+ * Commit: 4e914ceff796e6e44fd96c76252c68c7325e64cd
+ * Date: 2023-09-25 01:23:31+02:00
+ * Author: Philip Reichel
+ * Comment: ...
+ *
+ * Commit: 01f6edb422e32c691886b08481b74af734d2419d
+ * Date: 2023-09-25 00:22:26+02:00
+ * Author: Philip Reichel
+ * Comment: Added Mesh
+ *
+ * Commit: 1fd12df4cfeb1c4d67818231e6df4905af8afdef
+ * Date: 2023-09-23 17:22:11+02:00
+ * Author: Philip Reichel
+ * Comment: Almost reworked Multiline
+ *
+ * Commit: 84341809c117c5bfe4a2250eb07c27d65f20777f
+ * Date: 2023-09-22 22:47:47+02:00
+ * Author: Philip Reichel
+ * Comment: ...
+ *
+ * Commit: c57f32894333f59b57fe81ea6bcc2d1889088a12
+ * Date: 2023-09-22 22:13:31+02:00
+ * Author: Philip Reichel
+ * Comment: ...
+ *
+ * Commit: 755b11dea54fbe41e8bd4279fa3fa1d07e6fc2ea
+ * Date: 2023-09-22 20:09:27+02:00
+ * Author: Philip Reichel
+ * Comment: ...
+ *
+ * Commit: 4ba52177b03c84982e184472f4e51a9157e9a67f
+ * Date: 2023-09-21 20:15:06+02:00
+ * Author: Philip Reichel
+ * Comment: Cleaning all up
+ *
+ * Commit: ea80018edeb513be67842adc81cba9128971f0c1
+ * Date: 2023-09-21 11:36:51+02:00
+ * Author: pre7618
+ * Comment: Renamed the Exception
+ *
+ * Commit: efba03d014f9f8690fc57eb3949bb36f7ed2e269
+ * Date: 2023-09-19 07:28:45+02:00
+ * Author: Philip Reichel
+ * Comment: todo tasks
+ *
+ * Commit: 9604372ca6ba2e1d98cb9220a960de47c6d7e589
+ * Date: 2023-09-19 00:14:28+02:00
+ * Author: Philip Reichel
+ * Comment: ..
+ *
+ * Commit: 28615d0198d72bb1e1667c0113a594237068a89d
+ * Date: 2023-09-18 16:25:09+02:00
+ * Author: pre7618
+ * Comment: Added Scene Nodes
+ *
+ * Commit: 87333d810752d046898c3c5fb42ced1dc49cfddb
+ * Date: 2023-09-17 22:53:41+02:00
+ * Author: Philip Reichel
+ * Comment: Added Desktop Toggle
+ *
+ * Commit: a5ead4ac44938c7de5ec957407231948872a5000
+ * Date: 2023-09-17 18:48:28+02:00
+ * Author: Philip Reichel
+ * Comment: Added Scroll Bar
+ *
+ * Commit: 059a758405028e46fcdd6cbef87c1c4ed3330712
+ * Date: 2023-09-17 17:32:59+02:00
+ * Author: Philip Reichel
+ * Comment: Multitext
+ *
+ * Commit: 0a0626956b5c49e78d12757c077c1f9694a9dcc2
+ * Date: 2023-09-16 21:35:52+02:00
+ * Author: Philip Reichel
+ * Comment: System Menu and Improved Messaging
+ *
+ * Commit: d119faba58fda709df89ef025cf506e6ae694957
+ * Date: 2023-09-16 13:30:06+02:00
+ * Author: Philip Reichel
+ * Comment: ...
+ *
+ * Commit: 979912e4583b2e47ff4138caf044ae2005b4a274
+ * Date: 2023-09-15 21:18:58+02:00
+ * Author: Philip Reichel
+ * Comment: Refactoring GUI Window Rendering
+ *
+ * Commit: 275f07861ea5f95dd90f184d1311a0a5a8cd510d
+ * Date: 2023-09-14 17:55:15+02:00
+ * Author: pre7618
+ * Comment: GUI in progress
+ *
+ * Commit: 343fe7d3b3a248993aa01b34632a93f7d5c8e09c
+ * Date: 2023-09-12 07:49:14+02:00
+ * Author: Philip Reichel
+ * Comment: Relocation and new Design Merger
+ *
+ */
+
 //*************************************************************************************************
 package age.port.jogl;
 //*************************************************************************************************

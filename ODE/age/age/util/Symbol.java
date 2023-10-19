@@ -1,3 +1,18 @@
+/*
+ * Commit: 921fe26242fec8aea55ed85b831bf841b11304e4
+ * Date: 2023-09-30 17:42:43+02:00
+ * Author: Philip Reichel
+ * Comment: Added Material Parsing
+Added Models
+Remove Bigfile
+Added Models
+Revert "Added Models"
+
+This reverts commit cd0e7c6f40612113283cf9300c40af491cd1bc2f.
+
+ *
+ */
+
 //*************************************************************************************************
 package age.util;
 //*************************************************************************************************
