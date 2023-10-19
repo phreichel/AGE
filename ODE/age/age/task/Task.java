@@ -1,3 +1,26 @@
+/*
+ * Commit: 4ba52177b03c84982e184472f4e51a9157e9a67f
+ * Date: 2023-09-21 20:15:06+02:00
+ * Author: Philip Reichel
+ * Comment: Cleaning all up
+ *
+ * Commit: efba03d014f9f8690fc57eb3949bb36f7ed2e269
+ * Date: 2023-09-19 07:28:45+02:00
+ * Author: Philip Reichel
+ * Comment: todo tasks
+ *
+ * Commit: 0a0626956b5c49e78d12757c077c1f9694a9dcc2
+ * Date: 2023-09-16 21:35:52+02:00
+ * Author: Philip Reichel
+ * Comment: System Menu and Improved Messaging
+ *
+ * Commit: d45900c73e4996bb998fd5104e99961af312eea3
+ * Date: 2023-09-12 14:50:52+02:00
+ * Author: pre7618
+ * Comment: Added special Task phase
+ *
+ */
+
 //*************************************************************************************************
 package age.task;
 //*************************************************************************************************
