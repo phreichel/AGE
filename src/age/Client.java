@@ -57,8 +57,8 @@ public class Client {
 
 		dependencyInjections();
 
-		setupScene();
 		setupGUI();
+		setupScene();
 		
 		Log.info("Adjusting Port Window");
 		port.position(150, 150);
@@ -83,6 +83,42 @@ public class Client {
 	}
 	//=============================================================================================
 
+	//=============================================================================================
+	private void setupGUI() {
+
+		Log.info("GUI Setup");
+		
+		age.gui.Factory factory = gui.factory(); 
+		Widget root = gui.root();
+
+		Widget btnSysmenu = factory.createIconButton("plus", "sysmenu");
+		btnSysmenu.position(5, 5);
+		root.add(btnSysmenu);
+		
+		sysMenuFrame = new Widget(WFlag.CANVAS, WFlag.VSTACK, WFlag.HIDDEN);
+		gui.layouter().add(WFlag.VSTACK, sysMenuFrame);
+		sysMenuFrame.position(0, 30);
+		sysMenuFrame.add(factory.createIconButton("fullscreen", "fullscreen"));
+		sysMenuFrame.add(factory.createIconButton("shutdown", "shutdown"));
+		root.add(sysMenuFrame);
+		
+		/*
+		Widget wnd = gui.factory().createWindow(800, 600, "HELLO HELLO!");
+		Widget txt = gui.factory().createMultiLine("FDSFSAF DSF DF DF dsa fDS fSADf dsaf dsaF DSAf DSAf");
+		txt.dimension(790, 565);
+		txt.dock(0, 1, 0, 1);
+		wnd.children().get(2).add(txt);
+		wnd.position(100, 100);
+		root.add(wnd);
+		*/
+
+		tasks.assign("fullscreen", this::toggleFullscreen);
+		tasks.assign("shutdown", this::shutdown);
+		tasks.assign("sysmenu", this::toggleSysmenu);
+		
+	}
+	//=============================================================================================
+	
 	//=============================================================================================
 	private void setupScene() {
 
@@ -162,40 +198,6 @@ public class Client {
 	}
 	//=============================================================================================
 	
-	//=============================================================================================
-	private void setupGUI() {
-
-		Log.info("GUI Setup");
-		
-		age.gui.Factory factory = gui.factory(); 
-		Widget root = gui.root();
-
-		Widget btnSysmenu = factory.createIconButton("plus", "sysmenu");
-		btnSysmenu.position(5, 5);
-		root.add(btnSysmenu);
-		
-		sysMenuFrame = new Widget(WFlag.CANVAS, WFlag.VSTACK, WFlag.HIDDEN);
-		gui.layouter().add(WFlag.VSTACK, sysMenuFrame);
-		sysMenuFrame.position(0, 30);
-		sysMenuFrame.add(factory.createIconButton("fullscreen", "fullscreen"));
-		sysMenuFrame.add(factory.createIconButton("shutdown", "shutdown"));
-		root.add(sysMenuFrame);
-		
-		Widget wnd = gui.factory().createWindow(800, 600, "HELLO HELLO!");
-		Widget txt = gui.factory().createMultiLine("FDSFSAF DSF DF DF dsa fDS fSADf dsaf dsaF DSAf DSAf");
-		txt.dimension(790, 565);
-		txt.dock(0, 1, 0, 1);
-		wnd.children().get(2).add(txt);
-		wnd.position(100, 100);
-		root.add(wnd);
-
-		tasks.assign("fullscreen", this::toggleFullscreen);
-		tasks.assign("shutdown", this::shutdown);
-		tasks.assign("sysmenu", this::toggleSysmenu);
-		
-	}
-	//=============================================================================================
-
 	//=============================================================================================
 	private void toggleSysmenu() {
 		if (sysMenuFrame.match(WFlag.HIDDEN))
